@@ -5,7 +5,7 @@ setup(
     version='0.0.1',
     description='TP for ACT class',
     url='git@github.com/sakex/act-tp.git',
-    author='Alexandre Senges',
+    author='Université de Lausanne',
     author_email='alexandre@senges.ch',
     license='MIT',
     packages=['act_tp'],
