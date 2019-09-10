@@ -8,7 +8,12 @@ def green_print(_input):
 
     
 def assert_answer(_input, correct):
-    if _input == correct:
+    correct_answer = False
+    if isinstance(correct, set):
+        correct_answer = _input in correct
+    else:
+        correct_answer = _input == correct
+    if correct_answer:
         green_print("Bonne réponse!")
     else:
         red_print("Mauvaise réponse, réessayez")
@@ -54,3 +59,23 @@ def check_4_b(_input):
     
 def check_4_c(_input):
     check_add_binary("01110100", "00011010", _input)
+    
+    
+def check_5_FETCH(counter, register):
+    print("PROCESS COUNTER:")
+    assert_answer(counter, "00100001")
+    print("INSTRUCTION REGISTER:")
+    assert_answer(register, "10110110")
+    
+def check_5_DECODE(operation, resultat, premier, deuxieme):
+    print("OPERATION:")
+    assert_answer(operation, {"add", "ADD"})
+    print("ADRESSE DU RESULTAT:")
+    assert_answer(resultat, {"11", "00000011", "r3", "R3"})
+    print("PREMIER NOMBRE:")
+    assert_answer(premier, "01101100")
+    print("DEUXIEME NOMBRE:")
+    assert_answer(deuxieme, "00100101")
+    
+    
+    
