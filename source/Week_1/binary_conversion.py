@@ -28,7 +28,7 @@ class NumberConverter:
         return str(int(str(self.value), self.base))
 
     def __add__(self, that):
-        return self.value + that.value
+        return NumberConverter(self.value + that.value, 10)
         
         
 if __name__ == "__main__":
