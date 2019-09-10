@@ -78,4 +78,5 @@ def check_5_DECODE(operation, resultat, premier, deuxieme):
     assert_answer(deuxieme, "00100101")
     
     
-    
+def check_5_EXECUTE(resultat):
+    assert_answer("10010001")
