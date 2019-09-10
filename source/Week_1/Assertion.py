@@ -79,4 +79,4 @@ def check_5_DECODE(operation, resultat, premier, deuxieme):
     
     
 def check_5_EXECUTE(resultat):
-    assert_answer("10010001")
+    assert_answer(resultat, "10010001")
