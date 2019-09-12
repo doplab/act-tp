@@ -36,3 +36,5 @@ Docker being ubiquitous for all linux flavours, it should not be a problem on ot
 ## Access
 
 Once your Docker image is running, you can access it in your browser through http://localhost:8888. You will be prompted for a token, it can be found by reading at the command line output of your docker image.
+
+
