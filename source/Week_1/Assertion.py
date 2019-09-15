@@ -19,31 +19,31 @@ def assert_answer(_input, correct):
         red_print("Mauvaise réponse, réessayez")
     
 def check_1_a(_input):
-    assert_answer(_input, "1010")
+    assert_answer(NumberConverter(_input, 2).convert(2), NumberConverter(10, 10).convert(2))
     
 def check_1_b(_input):
-    assert_answer(_input, "101101")
+    assert_answer(NumberConverter(_input, 2).convert(2), NumberConverter(45, 10).convert(2))
     
 def check_1_c(_input):
-    assert_answer(_input, "10101101")
+    assert_answer(NumberConverter(_input, 2).convert(2), NumberConverter(173, 10).convert(2))
     
 def check_2_a(_input):
-    assert_answer(_input, NumberConverter(40, 10).convert(8))
+    assert_answer(NumberConverter(_input, 8).convert(8), NumberConverter(40, 10).convert(8))
     
 def check_2_b(_input):
-    assert_answer(_input, NumberConverter(52, 10).convert(3))
+    assert_answer(NumberConverter(_input, 3).convert(3), NumberConverter(52, 10).convert(3))
     
 def check_2_c(_input):
-    assert_answer(_input, NumberConverter(254, 10).convert(16))
+    assert_answer(NumberConverter(_input, 16).convert(16), NumberConverter(254, 10).convert(16))
     
 def check_3_a(_input):
-    assert_answer(_input, NumberConverter("10110", 2).convert(10))
+    assert_answer(NumberConverter(_input, 10).convert(10), NumberConverter("10110", 2).convert(10))
     
 def check_3_b(_input):
-    assert_answer(_input, NumberConverter("4321", 5).convert(10))
+    assert_answer(NumberConverter(_input, 10).convert(10), NumberConverter("4321", 5).convert(10))
     
 def check_3_c(_input):
-    assert_answer(_input, NumberConverter("ABC", 16).convert(10))
+    assert_answer(NumberConverter(_input, 10).convert(10), NumberConverter("ABC", 16).convert(10))
     
 def check_add_binary(n1, n2, _input):
     a = NumberConverter(n1, 2)
