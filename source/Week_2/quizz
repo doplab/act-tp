@@ -39,15 +39,14 @@
         1: "B",
         2: "A",
         3: "C",
-        4: "A",
         5: "ABC",
         6: "AB",
         7: "BC",
         8: "B",
         9: "B",
-        10: "ABC",
-        11: "Ac",
-        12: "",
+        10: "AB",
+        11: "AC",
+        12: "ABC",
         13: "C"
     };
     
@@ -61,7 +60,7 @@
 </script>
 
 <div class="question" id="q1">
-    <h2>Un operating system est:</h2>
+    <h2>Un Système d’exploitation [Operating System] est:</h2>
     <ul>
         <li>Du matériel physique <input type="checkbox" value="A"></li>
         <li>Un logiciel système <input type="checkbox" value="B"></li>
@@ -71,7 +70,7 @@
 </div>
                                
 <div class="question" id="q2">
-    <h2>Un operating system est:</h2>
+    <h2>Un Système d’exploitation [Operating System] est:</h2>
     <ul>
         <li>Un intermédiaire entre l'utilisateur et l'ordinateur <input type="checkbox" value="A"></li>
         <li>Le nom d'un processeur <input type="checkbox" value="B"></li>
@@ -88,26 +87,14 @@
         <li>Un OS open source <input type="checkbox" value="C"></li>
     </ul>
     <button onclick="correct_answer(3)">Valider</button>
-</div>
-                               
-                                                              
-<div class="question" id="q4">
-    <h2>Le Basic Input Output System (BIOS):</h2>
-    <ul>
-        <li>Identifie les périphériques externes <input type="checkbox" value="A"></li>
-        <li>Vérifie la mémoire <input type="checkbox" value="B"></li>
-        <li>Déplace la mémoire entre les registres <input type="checkbox" value="C"></li>
-    </ul>
-    <button onclick="correct_answer(4)">Valider</button>
-</div>
-                               
+</div>                         
                                                               
 <div class="question" id="q5">
     <h2>Le rôle principal d'un OS:</h2>
     <ul>
         <li>Offrir un environement pour permettre à l'ordinateur d'exécuter ses programmes <input type="checkbox" value="A"></li>
         <li>Allouer les resources de l'ordinateur au fur et à mesure <input type="checkbox" value="B"></li>
-        <li>Gèrer les opérations d'inpute et d'output <input type="checkbox" value="C"></li>
+        <li>Gèrer les opérations d'input et d'output <input type="checkbox" value="C"></li>
     </ul>
     <button onclick="correct_answer(5)">Valider</button>
 </div>
