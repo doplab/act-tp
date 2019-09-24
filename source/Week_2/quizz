@@ -44,7 +44,7 @@
         7: "BC",
         8: "B",
         9: "B",
-        10: "AB",
+        10: "ABC",
         11: "AC",
         12: "ABC",
         13: "C"
@@ -149,7 +149,7 @@
     <ul>
         <li>Du code machine <input type="checkbox" value="A"></li>
         <li>Du code exécutable <input type="checkbox" value="B"></li>
-        <li>N'importe <input type="checkbox" value="C"></li>
+        <li>Un autre langage source <input type="checkbox" value="C"></li>
     </ul>
     <button onclick="correct_answer(10)">Valider</button>
 </div>
@@ -160,7 +160,7 @@
     <ul>
         <li>Les erreurs de syntaxe <input type="checkbox" value="A"></li>
         <li>Les erreurs de logique <input type="checkbox" value="B"></li>
-        <li>Les variables non utilisées <input type="checkbox" value="C"></li>
+        <li>Des messages contenant des informations complémentaires <input type="checkbox" value="C"></li>
     </ul>
     <button onclick="correct_answer(11)">Valider</button>
 </div>
