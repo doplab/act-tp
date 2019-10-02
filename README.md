@@ -15,6 +15,17 @@ Docker being ubiquitous for all linux flavours, it should not be a problem on ot
 -   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 -   [Docker](https://docs.docker.com/v17.12/manuals/)
 
+## Download
+
+- https:
+    `git clone https://github.com/doplab/act-tp.git`
+    
+- ssh:
+    `git clone git@github.com:doplab/act-tp.git`
+    
+## Move to folder
+    cd act-tp
+
 ## Build
 
 ### Pull jupyter image
