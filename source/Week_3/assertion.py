@@ -70,19 +70,19 @@ def assert_comparison(poids_chien, poids_ideal, comparison):
     
 def assert_strings(python3, lettre_h, signe_ex):
     print("python3")
-    if len(python3) < 15:
-        red_print("Python 3 devrait contenir au moins 15 charactères")
+    if len(python3) < 13:
+        red_print("Python 3 devrait contenir au moins 13 charactères")
         return
     assert_answer(type(python3), type("sample"))
     print("Première lettre")
     assert_answer(lettre_h, python3[0])
     print("Dernière lettre")
-    assert_answer(lettre_h, python3[-1])
+    assert_answer(signe_ex, python3[-1])
 
     
 def assert_slicing(python3, quatre, neuf_treize, cinq_huit):
-    if len(python3) < 15:
-        red_print("Python 3 devrait contenir au moins 10 charactères")
+    if len(python3) < 13:
+        red_print("Python 3 devrait contenir au moins 13 charactères")
         return
     print("Quatre premiers charactères")
     assert_answer(quatre, python3[:4])
@@ -92,7 +92,7 @@ def assert_slicing(python3, quatre, neuf_treize, cinq_huit):
     assert_answer(cinq_huit, python3[5:8])
     
     
-def assert_half(python3, _in)
+def assert_half(python3, _in):
     assert_answer(python3[:int(len(python3)/2)], _in)
     
 def assert_dont_worry(dont_worry, upper, lower):

@@ -45,6 +45,7 @@ RUN jupyter serverextension enable --sys-prefix --py nbgrader
 
 # NBGrader config file
 COPY nbgrader_config.py /etc/jupyter/
+COPY clearsolutions.py /opt/conda/lib/python3.7/site-packages/nbgrader/preprocessors/clearsolutions.py
 
 EXPOSE 8888
 
