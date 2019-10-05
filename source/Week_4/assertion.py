@@ -47,3 +47,16 @@ def add_cow(_dict):
         
 def correct(_dict):
     assert_answer(_dict["oiseau"], "bird")
+    
+class save_liste:
+    _liste = []
+    
+    def __init__(self, liste):
+        save_liste._liste = [*liste]
+        
+    @staticmethod
+    def doubled_liste():
+        return [i * 2 for i in save_liste._liste]
+        
+def liste_times_two(_liste):
+    assert_answer(save_liste.doubled_liste(), _liste)
