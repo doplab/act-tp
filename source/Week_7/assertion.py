@@ -1,5 +1,6 @@
 from math import inf
 from Graph import Graph
+from Arbre import Arbre, Node
 
 def djikstra(origin, destination, visited = None):
     if visited is None:
@@ -74,3 +75,21 @@ def assert_djikstra(answer, vertices, origins, destinations):
             theirs = answer(node, d)
             print("Origine: %s, Destination: %s" % (o,d))
             assert_answer(theirs, ours)
+
+
+def add_children(node, max_depth, depth = 0):
+    if depth == max_depth:
+        return
+    node_pile = Node("pile")
+    node.add_child(node_pile)
+    node_face = Node("face")
+    node.add_child(node_face)
+    add_children(node_pile, max_depth, depth + 1)
+    add_children(node_face, max_depth, depth + 1)
+
+
+def assert_arbre_prob(input):
+    arbre = Arbre()
+    root = arbre.root
+    add_children(root, 10)
+    assert_answer(input, arbre)
