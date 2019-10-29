@@ -2,7 +2,7 @@ from math import inf
 from Graph import Graph
 from Arbre import Arbre, Node
 
-def djikstra(origin, destination, visited = None):
+def dijkstra(origin, destination, visited = None):
     if visited is None:
         visited = set()
     if origin.value == destination:
@@ -62,7 +62,7 @@ def output_q2():
         print(relationship.to.value, relationship.value)
 
 
-def assert_djikstra(answer, vertices, origins, destinations):
+def assert_dijkstra(answer, vertices, origins, destinations):
     g = Graph(vertices)
     print("Data:")
     for vec in vertices:
