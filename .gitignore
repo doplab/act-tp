@@ -7,6 +7,8 @@ serve_images/node_modules/*
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
+*/__pycache__/*
+
 # IPython
 profile_default/
 ipython_config.py
