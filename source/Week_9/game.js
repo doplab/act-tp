@@ -1,4 +1,7 @@
 (() => {
+    const SPRITESIZE = 40;
+    const MAX_RIGHT_BOTTOM = 400 - SPRITESIZE;
+
     const randomColor = () => {
         return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
     };
@@ -13,44 +16,64 @@
     };
 
     class Square {
-        constructor(x, y, angle) {
+        static spriteIndex() {
+            const img = document.querySelector('#sprites');
+            const x = Math.floor(Math.random() * 2) * (img.width / 3);
+            const y = Math.floor(Math.random() * 17) * (img.height / 17);
+            return { x, y };
+        }
+
+        constructor(x, y, angle, spriteX, spriteY) {
             if (x) {
                 this.x = x;
             } else {
-                this.x = Math.random() * 380;
+                this.x = Math.random() * MAX_RIGHT_BOTTOM;
             }
             if (y) {
                 this.y = y;
             } else {
-                this.y = Math.random() * 380;
+                this.y = Math.random() * MAX_RIGHT_BOTTOM;
             }
             if (angle) {
                 this.angle = angle;
             } else {
                 this.angle = Math.random() * 2 * Math.PI;
             }
+            if (spriteX && spriteY) {
+                this.spriteX = spriteX;
+                this.spriteY = spriteY;
+            } else {
+                const indexes = Square.spriteIndex();
+                this.spriteX = indexes.x;
+                this.spriteY = indexes.y;
+            }
             this.color = randomColor();
         }
 
         render(ctx) {
-            ctx.beginPath();
-            ctx.strokeStyle = this.color;
-            ctx.fillStyle = this.color;
-            ctx.rect(this.x, this.y, 20, 20);
-            ctx.stroke();
-            ctx.fill();
+            ctx.drawImage(
+                document.querySelector('#sprites'),
+                this.spriteX,
+                this.spriteY,
+                20,
+                20,
+                this.x,
+                this.y,
+                SPRITESIZE,
+                SPRITESIZE
+            );
         }
 
         move() {
             const newX = this.x + Math.cos(this.angle) * 5;
             const newY = this.y + Math.sin(this.angle) * 5;
-            if (newX <= 0 || newX >= 380) {
+            if (newX <= 0 || newX >= MAX_RIGHT_BOTTOM) {
                 playSound(BUMPSOUND);
                 this.angle += (Math.PI * 3) / 2;
             } else {
                 this.x = newX;
             }
-            if (newY <= 0 || newY >= 380) {
+            if (newY <= 0 || newY >= MAX_RIGHT_BOTTOM) {
                 playSound(BUMPSOUND);
                 this.angle += (Math.PI * 3) / 2;
             } else {
@@ -65,7 +88,7 @@
                 iopub: {
                     output: data => {
                         try {
-                            resolve(JSON.parse(data.content.text.split("'").join('"')));
+                            resolve(data.content.text.split("'").join('"'));
                         } catch (err) {
                             reject(err);
                         }
@@ -76,12 +99,10 @@
         });
 
     class Game {
-        constructor(count, canvas) {
+        constructor() {
             this.squares = [];
+            const canvas = document.querySelector('#game');
             this.ctx = canvas.getContext('2d');
-            for (let i = 0; i < count; ++i) {
-                this.squares.push(new Square());
-            }
 
             this.stopped = true;
             this.fails = 0;
@@ -110,7 +131,11 @@
             await this.updateKernel();
         }
 
-        start() {
+        start(count) {
+            for (let i = 0; i < count; ++i) {
+                this.squares.push(new Square());
+            }
+
             this.stopped = false;
             const renderLoop = () => {
                 this.render();
@@ -135,10 +160,11 @@
         async updateKernel() {
             try {
                 const answer = await pythonPromise(JSON.stringify(this.squares));
-                //console.log(anwer);
-                this.updateData(answer);
+                console.log(answer);
+                this.updateData(JSON.parse(answer));
                 this.fails = 0;
             } catch (err) {
+                console.error(err);
                 this.fails++;
                 if (this.fails >= 5) {
                     this.stop();
@@ -150,7 +176,9 @@
             const prevSize = this.squares.length;
             this.squares = data
                 .filter(({ deleted }) => !deleted)
-                .map(({ x, y, angle }) => new Square(x, y, angle));
+                .map(
+                    ({ x, y, angle, spriteX, spriteY }) => new Square(x, y, angle, spriteX, spriteY)
+                );
             if (this.squares.length != prevSize) {
                 playSound(SMASHSOUND);
             }
@@ -164,7 +192,6 @@
         }
     }
 
-    const canvas = document.querySelector('#game');
-    window.game = new Game(5, canvas);
+    window.game = new Game();
     window.game.render();
 })();
