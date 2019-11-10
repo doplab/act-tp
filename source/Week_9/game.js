@@ -1,6 +1,7 @@
 (() => {
     const SPRITESIZE = 40;
-    const MAX_RIGHT_BOTTOM = 400 - SPRITESIZE;
+    const SIDES = 600;
+    const MAX_RIGHT_BOTTOM = SIDES - SPRITESIZE;
 
     const randomColor = () => {
         return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
@@ -122,7 +123,7 @@
         }
 
         render() {
-            this.ctx.clearRect(0, 0, 400, 400);
+            this.ctx.clearRect(0, 0, SIDES, SIDES);
             this.squares.forEach(square => square.render(this.ctx));
         }
 
