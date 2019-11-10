@@ -20,7 +20,7 @@
 
     class Square {
         static spriteIndex() {
-            const x = Math.floor(Math.random() * 2) * (SPRITES1.width / 3);
+            const x = Math.floor(Math.random() * 3) * (SPRITES1.width / 3);
             const y = Math.floor(Math.random() * 17) * (SPRITES1.height / 17);
             return { x, y };
         }
@@ -41,7 +41,7 @@
             } else {
                 this.angle = Math.random() * 2 * Math.PI;
             }
-            if (spriteX && spriteY) {
+            if (spriteX !== undefined && spriteY !== undefined) {
                 this.spriteX = spriteX;
                 this.spriteY = spriteY;
             } else {
@@ -54,7 +54,6 @@
             } else {
                 this.step = 0;
             }
-            this.color = randomColor();
         }
 
         render(ctx) {
@@ -170,7 +169,7 @@
         async updateKernel() {
             try {
                 const answer = await pythonPromise(JSON.stringify(this.squares));
-                console.log(answer);
+                //console.log(answer);
                 this.updateData(JSON.parse(answer));
                 this.fails = 0;
             } catch (err) {

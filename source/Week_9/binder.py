@@ -9,7 +9,7 @@ class Binder:
     
     @staticmethod
     def render():
-        display(HTML('<canvas id="game" width="600px" height="600px" style="background: url(http://giphygifs.s3.amazonaws.com/media/sIIhZliB2McAo/200.gif); background-size: cover;"></canvas>\
+        display(HTML('<canvas id="game" width="600px" height="600px" style="background: url(https://thumbs.gfycat.com/HardtofindWildBarasingha-small.gif); background-size: cover;"></canvas>\
         <img id="sprites1" style="display:none" src="https://raw.githubusercontent.com/doplab/act-tp/master/images/sprites/frame_0_delay-0.25s.gif"/>\
         <img id="sprites2" style="display:none" src="https://raw.githubusercontent.com/doplab/act-tp/master/images/sprites/frame_1_delay-0.25s.gif"/>'))
         with open("./game.js", "r") as file:
