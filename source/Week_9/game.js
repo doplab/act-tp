@@ -2,6 +2,8 @@
     const SPRITESIZE = 40;
     const SIDES = 600;
     const MAX_RIGHT_BOTTOM = SIDES - SPRITESIZE;
+    const SPRITES1 = document.querySelector('#sprites1');
+    const SPRITES2 = document.querySelector('#sprites2');
 
     const randomColor = () => {
         return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
@@ -18,13 +20,12 @@
 
     class Square {
         static spriteIndex() {
-            const img = document.querySelector('#sprites');
-            const x = Math.floor(Math.random() * 2) * (img.width / 3);
-            const y = Math.floor(Math.random() * 17) * (img.height / 17);
+            const x = Math.floor(Math.random() * 2) * (SPRITES1.width / 3);
+            const y = Math.floor(Math.random() * 17) * (SPRITES1.height / 17);
             return { x, y };
         }
 
-        constructor(x, y, angle, spriteX, spriteY) {
+        constructor(x, y, angle, spriteX, spriteY, step) {
             if (x) {
                 this.x = x;
             } else {
@@ -48,12 +49,17 @@
                 this.spriteX = indexes.x;
                 this.spriteY = indexes.y;
             }
+            if (step === 1) {
+                this.step = 1;
+            } else {
+                this.step = 0;
+            }
             this.color = randomColor();
         }
 
         render(ctx) {
             ctx.drawImage(
-                document.querySelector('#sprites'),
+                this.step ? SPRITES1 : SPRITES2,
                 this.spriteX,
                 this.spriteY,
                 20,
@@ -107,6 +113,7 @@
 
             this.stopped = true;
             this.fails = 0;
+            this.step = 0;
 
             if (!Game.intervals) Game.intervals = [];
             else {
@@ -128,6 +135,8 @@
         }
 
         async move() {
+            this.step = this.step ? 0 : 1;
+
             this.squares.forEach(square => square.move());
             await this.updateKernel();
         }
@@ -178,7 +187,8 @@
             this.squares = data
                 .filter(({ deleted }) => !deleted)
                 .map(
-                    ({ x, y, angle, spriteX, spriteY }) => new Square(x, y, angle, spriteX, spriteY)
+                    ({ x, y, angle, spriteX, spriteY }) =>
+                        new Square(x, y, angle, spriteX, spriteY, this.step)
                 );
             if (this.squares.length != prevSize) {
                 playSound(SMASHSOUND);
