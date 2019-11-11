@@ -13,7 +13,7 @@ def dijkstra(origin, destination, visited = None):
     for relationship in origin.relationships:
         neighbour = relationship.to
         if neighbour.value not in visited:
-            distance_temp, path_temp = djikstra(neighbour, destination, visited)
+            distance_temp, path_temp = dijkstra(neighbour, destination, visited)
             total_distance = distance_temp + relationship.value
             if total_distance  < distance:
                 distance = total_distance
@@ -71,7 +71,7 @@ def assert_dijkstra(answer, vertices, origins, destinations):
     for o in origins:
         for d in destinations:
             node = g.get_node(o)
-            ours = djikstra(node, d)
+            ours = dijkstra(node, d)
             theirs = answer(node, d)
             print("Origine: %s, Destination: %s" % (o,d))
             assert_answer(theirs, ours)
