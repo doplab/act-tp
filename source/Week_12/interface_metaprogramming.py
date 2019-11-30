@@ -1,8 +1,8 @@
 class InterfaceChecker(type):
     def __init__(self, _, __, dic):
         methods = {
-            "move": ("speed",),
-            ""
+            "move": ("self", "direction", "speed"),
+            "print_position": ("self",)
         }
         
         for i in methods:
