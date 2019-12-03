@@ -1,0 +1,148 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercise de base\n",
+    "\n",
+    "-Déclarez une classe publique `JavaAppbasics`\n",
+    "\n",
+    "-Déclarez une méthode publique statique `main`\n",
+    "\n",
+    "-Affichez:\n",
+    "\n",
+    "    `Hello! \n",
+    "     My name is  Webskater! What is yours?`\n",
+    "     \n",
+    "-Demandez à l'utilisateur d'introduire son prénom\n",
+    "\n",
+    "-Affichez:\n",
+    "\n",
+    "    `Nice to meet you, prenom \n",
+    "     Goodbye ...`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "com.twosigma.beaker.javash.bkr90234c16.JavaAppbasics"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "//package javaappbasics;\n",
+    "\n",
+    "import java.util.Scanner;\n",
+    "\n",
+    "/*\n",
+    " * @author tanjamarkotic inspired by openclassroom\n",
+    "*/\n",
+    "\n",
+    "public class JavaAppbasics {\n",
+    "// nom de classe avec majuscule par convention\n",
+    "// au minimum une classe pour programme java\n",
+    "    \n",
+    "      public static void main(String[] args) {\n",
+    "        // TODO code application logic here\n",
+    "        // point de départ avec méthode main\n",
+    "        // une seule méthode main par projet \n",
+    "        System.out.println(\"Hello! \");\n",
+    "        // saut de ligne à la fin avec println\n",
+    "        System.out.print(\"My name is \");\n",
+    "        System.out.print(\" Webskater!\");\n",
+    "        // objet out de classe System\n",
+    "        // JDK pour compilation de programme\n",
+    "        // avec précompilation en byte code\n",
+    "        System.out.println(\" What is yours? \");\n",
+    "        Scanner sc = new Scanner(System.in);\n",
+    "        // comme fonction input en python\n",
+    "        String str = sc.nextLine();\n",
+    "        // ou .nextInt()\n",
+    "        System.out.println(\"Nice to meet you, \" + str); \n",
+    "        System.out.println(\"Goodbye …\");\n",
+    "        //fin de la boucle si réponse Non \n",
+    "    }\n",
+    "   \n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello! \n",
+      "My name is  Webskater! What is yours? \n",
+      "Tanja\n",
+      "Nice to meet you, Tanja\n",
+      "Goodbye …\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "null"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "JavaAppbasics.main(null);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Java",
+   "language": "java",
+   "name": "java"
+  },
+  "language_info": {
+   "codemirror_mode": "text/x-java",
+   "file_extension": ".java",
+   "mimetype": "",
+   "name": "Java",
+   "nbconverter_exporter": "",
+   "version": "1.8.0_222"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": false,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": false,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
