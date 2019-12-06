@@ -1,90 +1,21 @@
 (() => {
-    const SPRITESIZE = 40;
     const SIDES = 600;
-    const MAX_RIGHT_BOTTOM = SIDES - SPRITESIZE;
-    const SPRITES1 = document.querySelector('#sprites1');
-    const SPRITES2 = document.querySelector('#sprites2');
-
-    const randomColor = () => {
-        return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
-    };
-
-    const BUMPSOUND = 'https://themushroomkingdom.net/sounds/wav/smb/smb_bump.wav';
-    const SMASHSOUND = 'https://themushroomkingdom.net/sounds/wav/smb/smb_breakblock.wav';
-    const FINISHSOUND = 'https://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav';
-
-    const playSound = name => {
-        var sound = new Audio(name);
-        sound.play();
-    };
+    const CELLS = 32;
+    const CELL_WH = SIDES / CELLS;
 
     class Square {
-        static spriteIndex() {
-            const x = Math.floor(Math.random() * 3) * (SPRITES1.width / 3);
-            const y = Math.floor(Math.random() * 17) * (SPRITES1.height / 17);
-            return { x, y };
+        constructor(x, y, disabled = 1) {
+            this.x = x;
+            this.y = y;
+            this.disabled = disabled;
         }
 
-        constructor(x, y, angle, spriteX, spriteY, step) {
-            if (x) {
-                this.x = x;
-            } else {
-                this.x = Math.random() * MAX_RIGHT_BOTTOM;
-            }
-            if (y) {
-                this.y = y;
-            } else {
-                this.y = Math.random() * MAX_RIGHT_BOTTOM;
-            }
-            if (angle) {
-                this.angle = angle;
-            } else {
-                this.angle = Math.random() * 2 * Math.PI;
-            }
-            if (spriteX !== undefined && spriteY !== undefined) {
-                this.spriteX = spriteX;
-                this.spriteY = spriteY;
-            } else {
-                const indexes = Square.spriteIndex();
-                this.spriteX = indexes.x;
-                this.spriteY = indexes.y;
-            }
-            if (step === 1) {
-                this.step = 1;
-            } else {
-                this.step = 0;
-            }
+        updateState(newState) {
+            this.disabled = newState;
         }
 
         render(ctx) {
-            ctx.drawImage(
-                this.step ? SPRITES1 : SPRITES2,
-                this.spriteX,
-                this.spriteY,
-                20,
-                20,
-                this.x,
-                this.y,
-                SPRITESIZE,
-                SPRITESIZE
-            );
-        }
-
-        move() {
-            const newX = this.x + Math.cos(this.angle) * 5;
-            const newY = this.y + Math.sin(this.angle) * 5;
-            if (newX <= 0 || newX >= MAX_RIGHT_BOTTOM) {
-                playSound(BUMPSOUND);
-                this.angle += (Math.PI * 3) / 2;
-            } else {
-                this.x = newX;
-            }
-            if (newY <= 0 || newY >= MAX_RIGHT_BOTTOM) {
-                playSound(BUMPSOUND);
-                this.angle += (Math.PI * 3) / 2;
-            } else {
-                this.y = newY;
-            }
+            if (!this.disabled) ctx.rect(this.x, this.y, CELL_WH, CELL_WH);
         }
     }
 
@@ -107,12 +38,12 @@
     class Game {
         constructor() {
             this.squares = [];
+            this.up;
             const canvas = document.querySelector('#game');
             this.ctx = canvas.getContext('2d');
 
             this.stopped = true;
             this.fails = 0;
-            this.step = 0;
 
             if (!Game.intervals) Game.intervals = [];
             else {
@@ -120,7 +51,6 @@
                 Game.intervals = [];
             }
 
-            this.move = this.move.bind(this);
             this.render = this.render.bind(this);
             this.start = this.start.bind(this);
             this.updateData = this.updateData.bind(this);
@@ -130,36 +60,33 @@
 
         render() {
             this.ctx.clearRect(0, 0, SIDES, SIDES);
-            this.squares.forEach(square => square.render(this.ctx));
+            this.ctx.fillStyle = 'white';
+            this.squares.forEach(column => column.forEach(square => square.render(this.ctx)));
+            this.ctx.fill();
         }
 
-        async move() {
-            this.step = this.step ? 0 : 1;
-
-            this.squares.forEach(square => square.move());
-            await this.updateKernel();
-        }
-
-        start(count) {
-            for (let i = 0; i < count; ++i) {
-                this.squares.push(new Square());
+        start() {
+            for (let y = -1; y < CELLS + 1; ++y) {
+                const row = [];
+                for (let x = -1; x < CELLS + 1; ++x) {
+                    if (y == CELLS / 2 && x == CELLS / 2)
+                        row.push(new Square(x * CELL_WH, y * CELL_WH, 0));
+                    else row.push(new Square(x * CELL_WH, y * CELL_WH));
+                }
+                this.squares.push(row);
             }
 
             this.stopped = false;
-            const renderLoop = () => {
+            const renderLoop = async () => {
                 this.render();
                 if (!this.stopped && this.squares.length > 1)
                     window.requestAnimationFrame(renderLoop);
-                else if (this.squares.length <= 1) {
-                    playSound(FINISHSOUND);
-                    this.stop();
-                }
             };
             window.requestAnimationFrame(renderLoop);
             const recursiveTimeout = async self => {
-                await this.move();
+                await this.updateKernel();
                 if (this.stopped) return;
-                self = window.setTimeout(() => recursiveTimeout(self), 25);
+                self = window.setTimeout(() => recursiveTimeout(self), 300);
             };
             let ptr;
             recursiveTimeout(ptr);
@@ -169,7 +96,6 @@
         async updateKernel() {
             try {
                 const answer = await pythonPromise(JSON.stringify(this.squares));
-                //console.log(answer);
                 this.updateData(JSON.parse(answer));
                 this.fails = 0;
             } catch (err) {
@@ -182,15 +108,10 @@
         }
 
         updateData(data) {
-            const prevSize = this.squares.length;
-            this.squares = data
-                .filter(({ deleted }) => !deleted)
-                .map(
-                    ({ x, y, angle, spriteX, spriteY }) =>
-                        new Square(x, y, angle, spriteX, spriteY, this.step)
-                );
-            if (this.squares.length != prevSize) {
-                playSound(SMASHSOUND);
+            for (let i = 0; i < CELLS; ++i) {
+                for (let j = 0; j < CELLS; ++j) {
+                    this.squares[i][j].updateState(data[i][j].disabled ? 1 : 0);
+                }
             }
         }
 
