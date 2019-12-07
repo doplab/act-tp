@@ -1,21 +1,21 @@
 (() => {
     const SIDES = 600;
-    const CELLS = 32;
+    const CELLS = 30;
     const CELL_WH = SIDES / CELLS;
 
     class Square {
-        constructor(x, y, disabled = 1) {
+        constructor(x, y, alive = 1) {
             this.x = x;
             this.y = y;
-            this.disabled = disabled;
+            this.alive = alive;
         }
 
         updateState(newState) {
-            this.disabled = newState;
+            this.alive = newState;
         }
 
         render(ctx) {
-            if (!this.disabled) ctx.rect(this.x, this.y, CELL_WH, CELL_WH);
+            if (this.alive) ctx.rect(this.x, this.y, CELL_WH, CELL_WH);
         }
     }
 
@@ -25,6 +25,7 @@
                 iopub: {
                     output: data => {
                         try {
+                            console.log(data.content.text);
                             resolve(data.content.text.split("'").join('"'));
                         } catch (err) {
                             reject(err);
@@ -66,27 +67,23 @@
         }
 
         start() {
-            for (let y = -1; y < CELLS + 1; ++y) {
+            for (let y = 0; y < CELLS; ++y) {
                 const row = [];
-                for (let x = -1; x < CELLS + 1; ++x) {
-                    if (y == CELLS / 2 && x == CELLS / 2)
-                        row.push(new Square(x * CELL_WH, y * CELL_WH, 0));
-                    else row.push(new Square(x * CELL_WH, y * CELL_WH));
+                for (let x = 0; x < CELLS; ++x) {
+                    const r = Math.random();
+                    if (r <= 0.03) {
+                        row.push(new Square(x * CELL_WH, y * CELL_WH, 1));
+                    } else row.push(new Square(x * CELL_WH, y * CELL_WH, 0));
                 }
                 this.squares.push(row);
             }
 
             this.stopped = false;
-            const renderLoop = async () => {
-                this.render();
-                if (!this.stopped && this.squares.length > 1)
-                    window.requestAnimationFrame(renderLoop);
-            };
-            window.requestAnimationFrame(renderLoop);
             const recursiveTimeout = async self => {
+                this.render();
                 await this.updateKernel();
                 if (this.stopped) return;
-                self = window.setTimeout(() => recursiveTimeout(self), 300);
+                self = window.setTimeout(() => recursiveTimeout(self), 200);
             };
             let ptr;
             recursiveTimeout(ptr);
@@ -95,7 +92,16 @@
 
         async updateKernel() {
             try {
-                const answer = await pythonPromise(JSON.stringify(this.squares));
+                const data = this.squares.map(arr => {
+                    let val = 0;
+                    arr.forEach((square, index) => {
+                        if (square.alive) {
+                            val += 1 << (CELLS - index);
+                        }
+                    });
+                    return val;
+                });
+                const answer = await pythonPromise(JSON.stringify(data));
                 this.updateData(JSON.parse(answer));
                 this.fails = 0;
             } catch (err) {
@@ -108,9 +114,11 @@
         }
 
         updateData(data) {
-            for (let i = 0; i < CELLS; ++i) {
-                for (let j = 0; j < CELLS; ++j) {
-                    this.squares[i][j].updateState(data[i][j].disabled ? 1 : 0);
+            for (let i = 0; i < CELLS; i++) {
+                const num = data[i];
+                for (let j = CELLS; j > 0; j--) {
+                    const bit = num & (1 << j) ? true : false;
+                    this.squares[i][j - 1].updateState(bit);
                 }
             }
         }
