@@ -4,20 +4,21 @@
     const CELL_WH = SIDES / CELLS;
 
     class Square {
-        constructor(x, y, alive = 1) {
+        constructor(x, y, alive = true) {
             this.x = x;
             this.y = y;
             this.alive = alive;
         }
 
-        updateState(newState) {
-            this.alive = newState;
-        }
-
         render(ctx) {
-            if (this.alive) ctx.rect(this.x, this.y, CELL_WH, CELL_WH);
+            if (this.alive) {
+                ctx.rect(this.x, this.y, CELL_WH, CELL_WH);
+            }
         }
     }
+
+    const consoleDiv = document.querySelector('#console');
+    const errorsDiv = document.querySelector('#errors');
 
     const pythonPromise = squares =>
         new Promise((resolve, reject) => {
@@ -25,8 +26,30 @@
                 iopub: {
                     output: data => {
                         try {
-                            console.log(data.content.text);
-                            resolve(data.content.text.split("'").join('"'));
+                            let { text } = data.content;
+                            const errorsRe = /(?<=JUPYTER_EXCEPTION)(.*)(?=END_JUPYTER_EXCEPTION)/;
+                            const exceptions = text
+                                .trim()
+                                .split('\n')
+                                .join('<br/>')
+                                .match(errorsRe);
+                            if (exceptions) {
+                                errorsDiv.innerHTML += exceptions[0];
+                                errorsDiv.innerHTML += '<br/>';
+                                text = text
+                                    .trim()
+                                    .split('\n')
+                                    .join('<br/>')
+                                    .replace(/(JUPYTER_EXCEPTION)(.*)(END_JUPYTER_EXCEPTION)/, '');
+                            }
+                            const split = text.trim().split('\n');
+                            const json = split.pop();
+                            text = split.join('<br/>');
+                            if (text.length) {
+                                consoleDiv.innerHTML += text;
+                                consoleDiv.innerHTML += '<br/>';
+                            }
+                            resolve(json.split("'").join('"'));
                         } catch (err) {
                             reject(err);
                         }
@@ -61,6 +84,7 @@
 
         render() {
             this.ctx.clearRect(0, 0, SIDES, SIDES);
+            this.ctx.beginPath();
             this.ctx.fillStyle = 'white';
             this.squares.forEach(column => column.forEach(square => square.render(this.ctx)));
             this.ctx.fill();
@@ -72,8 +96,8 @@
                 for (let x = 0; x < CELLS; ++x) {
                     const r = Math.random();
                     if (r <= 0.03) {
-                        row.push(new Square(x * CELL_WH, y * CELL_WH, 1));
-                    } else row.push(new Square(x * CELL_WH, y * CELL_WH, 0));
+                        row.push(new Square(x * CELL_WH, y * CELL_WH, true));
+                    } else row.push(new Square(x * CELL_WH, y * CELL_WH, false));
                 }
                 this.squares.push(row);
             }
@@ -92,15 +116,15 @@
 
         async updateKernel() {
             try {
-                const data = this.squares.map(arr => {
+                const data = [];
+                for (let i = 0; i < CELLS; i++) {
                     let val = 0;
-                    arr.forEach((square, index) => {
-                        if (square.alive) {
-                            val += 1 << (CELLS - index);
-                        }
-                    });
-                    return val;
-                });
+                    for (let j = CELLS; j > 0; j--) {
+                        const { alive } = this.squares[i][j - 1];
+                        if (alive) val += 1 << j;
+                    }
+                    data.push(val);
+                }
                 const answer = await pythonPromise(JSON.stringify(data));
                 this.updateData(JSON.parse(answer));
                 this.fails = 0;
@@ -118,7 +142,7 @@
                 const num = data[i];
                 for (let j = CELLS; j > 0; j--) {
                     const bit = num & (1 << j) ? true : false;
-                    this.squares[i][j - 1].updateState(bit);
+                    this.squares[i][j - 1].alive = bit;
                 }
             }
         }
