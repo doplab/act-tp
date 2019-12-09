@@ -27,7 +27,7 @@
                     output: data => {
                         try {
                             let { text } = data.content;
-                            const errorsRe = /(?<=JUPYTER_EXCEPTION)(.*)(?=END_JUPYTER_EXCEPTION)/;
+                            const errorsRe = new RegExp("(?<=JUPYTER_EXCEPTION)(.*)(?=END_JUPYTER_EXCEPTION)");
                             const exceptions = text
                                 .trim()
                                 .split('\n')

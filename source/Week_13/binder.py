@@ -11,8 +11,8 @@ class Binder:
     def render():
         display(HTML('<canvas id="game" width="600px" height="600px" style="background: black;"></canvas>\
         <br/><button style="background-color: rgba(50, 50, 255, 0.6); margin-left: calc(50% - 50px); color: white; border-radius: 20px; border: none; width: 100px; height:50px; " onclick="window.game.stop()">STOP</button>\
-        <div style="padding: 20px; background-color: white; border-radius: 20px; border: 1px solid rgba(200, 200, 200, 0.5);" id="console"></div>\
-        <br/><div style="padding: 20px; color:red; background-color: rgba(255, 100, 100, .3); border-radius: 20px; border: 1px solid black;" id="errors"></div>'))
+        <div style="overflow-y: auto; max-height: 600px; padding: 20px; background-color: white; border-radius: 20px; border: 1px solid rgba(200, 200, 200, 0.5);" id="console"></div>\
+        <br/><div style="overflow-y: auto; max-height: 600px; padding: 20px; color:red; background-color: rgba(255, 100, 100, .3); border-radius: 20px; border: 1px solid black;" id="errors"></div>'))
         with open("./game.js", "r") as file:
             code = file.read()
             display(Javascript(code))
