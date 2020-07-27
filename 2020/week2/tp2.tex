@@ -52,8 +52,10 @@ Les interprètes et les compilateurs servent à faire ce travail de traduction, 
 La façon dont les interprètes et les compilateurs opèrent est différente et les deux approches apportent leur propre lot de bénéfices et d'inconvénients:\\
     \begin{tabular}{| C{0.45\textwidth} | C{0.45\textwidth} |} 
         \hline
-        \textbf{Les COMPILATEURS traduisent à l'avance} & \textbf{Les INTERPRÈTES traduisent au fur et à mesure}\\ [0.5ex] 
-        \hline\hline
+        \textbf{Compilateurs} & \textbf{Interpréteurs}\\ [0.5ex]
+        \hline
+        Les COMPILATEURS traduisent à l'avance & Les INTERPRÈTES traduisent au fur et à mesure\\ [0.5ex] 
+        \hline
         Programmes générés à l'avance (besoin d'anticiper tous les cas de figure) & Programmes générés au fur et à mesure  \\ 
         \hline
         Le programme est intégralement traduit à l'avance & Les instructions sont traduites à la volée une par une  \\
@@ -68,6 +70,22 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
     \end{tabular}
     \\\\
+\end{section}
+
+\begin{section}{Librairies}
+    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interragir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
+\\\\
+En Python, de nombreuses librairies sont disponibles de base (list, set, dict, str, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
+\\\\
+Dans l'exemple suivant, nous importons la librairie math qui propose de nombreuses fonctions mathématiques et nous essayons la fonction factorielle pour calculer \lstinline{5!}.
+\begin{Example}{\faTerminal Exemple}
+    \begin{lstlisting}
+    import math
+
+    fact = math.factorial(5)
+    print(fact)\end{lstlisting}
+\end{Example}
+    
 \end{section}
 
 
