@@ -1,5 +1,8 @@
 \input{../header.tex}
 
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
@@ -20,7 +23,8 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{enumerate}
 
     \begin{conseil}
-        TODO: Conseils pour passer de la base décimale à la base binaire
+        TODO: Conseils pour passer de la base décimale à la base binaire \\
+        Useful link: http://www.circuits-logiques.polymtl.ca/help/Chapitre05.pdf
     \end{conseil}
 \end{Exercice}
 
@@ -64,11 +68,138 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         \item Additionner \lstinline{01011111}$_{(2)}$ et \lstinline{10000001}$_{(2)}$
         \item Additionner \lstinline{01110100}$_{(2)}$ et \lstinline{00011010}$_{(2)}$
     \end{enumerate}
+    \begin{conseil}
+\textbf{Table d'addition binaire:}\\
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{r}\\ [0.5ex]
+            \hline
+            0 & 0 & 0 & 0 \\ [0.5ex] 
+            \hline
+            0 & 1 & 1 & 0 \\ [0.5ex] 
+            \hline
+            1 & 0 & 1 & 0 \\ [0.5ex] 
+            \hline
+            1 & 1 & 0 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular}
+    \end{conseil}
+    TODO: Rajouter un exemple
 \end{Exercice}
 
-\begin{Exercice}[15 minutes] \textbf{Soustraction de nombres binaires}
+\begin{Exercice}[15 minutes] \textbf{Soustraction de nombres binaires}\\
     Effectuer les opérations suivantes:
 
+    \begin{conseil}
+        \textbf{Table de soustraction binaire:}\\
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{a} & \textbf{b} & \textbf{s=a-b} & \textbf{r}\\ [0.5ex]
+            \hline
+            0 & 0 & 0 & 0 \\ [0.5ex] 
+            \hline
+            0 & 1 & 1 & 1 \\ [0.5ex] 
+            \hline
+            1 & 0 & 1 & 0 \\ [0.5ex] 
+            \hline
+            1 & 1 & 0 & 0 \\ [0.5ex] 
+            \hline
+        \end{tabular}
+    \end{conseil}
+
+    \textbf{\\ \faTerminal  Exemple:}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/substract.png}
+            \caption{Exemple de soustraction de nombres binaires}
+        \end{figure}
+
+\end{Exercice}
+
+\section{Conversion et arithmétique}
+\begin{Exercice}[20 minutes] \textbf{Conversion et addition:}\\
+    Effectuer les opérations suivantes:
+    \begin{enumerate}
+        \item 111101$_{(2)}$ + 110$_{(2)}$ = ...$_{(10)}$
+        \item 111111$_{(2)}$ + 000001$_{(2)}$ = ...$_{(10)}$
+        \item 127$_{(10)}$ + ABC$_{(16)}$ = ...$_{(8)}$
+    \end{enumerate}
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Conversion et soustraction:}\\
+    Effectuer les opérations suivantes:
+    \begin{enumerate}
+        \item 101010$_{(2)}$ - 010101$_{(2)}$ = ...$_{(10)}$
+        \item 64$_{(10)}$ - 001000$_{(2)}$ = ...$_{(10)}$
+        \item FFF$_{(10)}$ - 127$_{(10)}$ = ...$_{(2)}$
+    \end{enumerate}
+\end{Exercice}
+
+
+\newpage
+\section{Modèle de Von Neuman}
+Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Van Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
+
+\textbf{État d'origine:}\\
+A l'origine, notre \lstinline{Process Counter (PC)} vaut \lstinline{00100000}.\\
+
+Dans la mémoire, les instructions sont les suivantes:
+
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Adresse} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00011111 & 00100100\\ [0.5ex] 
+    \hline
+    00100000 & 10110110\\ [0.5ex] 
+    \hline
+    00100001 & 11101101\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+Les registres sont les suivantes:
+
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Registre} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00 & 11100011\\ [0.5ex] 
+    \hline
+    01 & 01101100\\ [0.5ex] 
+    \hline
+    10 & 00100101\\ [0.5ex] 
+    \hline
+    11 & 00000000\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+Les opérations disponibles pour l'unité de contrôle sont les suivantes:
+\\
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Numéro} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00 & MOV\\ [0.5ex] 
+    \hline
+    01 & XOR\\ [0.5ex] 
+    \hline
+    10 & ADD\\ [0.5ex] 
+    \hline
+    11 & SUB\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+
+
+\begin{Exercice}[5 minutes]\textbf{Fetch}\\
+    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Process Counter} et de l'\lstinline{Instruction Register}?
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Decode}
+    
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Execute}
     
 \end{Exercice}
 
