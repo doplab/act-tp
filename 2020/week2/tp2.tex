@@ -31,17 +31,40 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Unix BSD
             \item Gentoo
             \item Aucune réponse correcte.
-           \newline
         \end{enumerate}
+    \end{Exercice}
 
-    Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la mauvaise réponse.
-    \begin{enumerate}
-        \item Servir d'interface de communication entre la partie logicielle et matérielle
-        \item Gérer les ressources physiques de l'ordinateur
-        \item Fournir les mécanismes d'abstraction du matériel
-        \item Interpréter les instructions et les convertir en binaire
-        \item Toutes les réponses sont correctes.
-    \end{enumerate}
+    \begin{Exercice}[5 minutes]
+        Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la mauvaise réponse.
+        \begin{enumerate}
+            \item Servir d'interface de communication entre la partie logicielle et matérielle
+            \item Gérer les ressources physiques de l'ordinateur
+            \item Fournir les mécanismes d'abstraction du matériel
+            \item Interpréter les instructions et les convertir en binaire
+            \item Toutes les réponses sont correctes.
+        \end{enumerate}
+    \end{Exercice}
+
+    \begin{Exercice}[5 minutes]
+        Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
+        \begin{enumerate}
+            \item Temps d'utilisation active de l'ensemble des cores du processeur.
+            \item Temps réel d'utilisation d'une partie des ressources du processeur.
+            \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
+            \item Temps maximum dédié à un processus particulier.
+            \item Nombre de secondes écoulées depuis l'EPOCH.
+        \end{enumerate}
+        \begin{Example}{\faLightbulb \quad Informations utiles}
+            \begin{itemize}
+                \item L'EPOCH représente la date initiale à partir de laquelle est mesuré le temps par les systèmes d'exploitation.
+                \item Pour accéder au gestionnaire de tâches sous Windows, ouvrez le menu démarrer > Saisissez ``Gestionnaire de tâches''. Sous Mac, faites ``command+espace'' et saisissez ``Moniteur d'activité'.
+            \end{itemize}
+            
+        \end{Example}
+        \begin{solution}
+            Temps d'utilisation active de l'ensemble des cores du processeur.
+            Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puisesance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
+        \end{solution}
     \end{Exercice}
 \end{section}
 
@@ -76,6 +99,23 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
     \end{tabular}
     \\\\
+    \begin{Exercice}[10 minutes]
+        En utilisant l'invite de commande (Terminal), créer un fichier contenant l'instruction suivante:
+        \begin{lstlisting}
+            if __name__ == "__main__":
+                print("Hello world")
+        \end{lstlisting}
+        Enregistrer le fichier sous \lstinline{hello.py}. Utiliser l'interpréteur de Python pour interpréter le programme que vous venez de créer.
+    \end{Exercice}
+    \begin{conseil}
+        \begin{itemize}
+            \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
+            \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. ``Notepad'' est installé par défaut sous Windows.
+        \end{itemize}
+    \end{conseil}    
+    
+
 \end{section}
 
 \begin{section}{Librairies}
