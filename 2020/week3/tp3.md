@@ -20,7 +20,10 @@ Sur 8 bit écrire 113 en base binaire.
 **Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. 
 
 **Solution:** 
+1. Décomposer le chiffre en une somme de puissances de 2.
+113 = 64 + 32 + 16 + 1 = 1 * 2^6 + 1 * 2^5 + 1* 2^4 + 1 * 2^0
 
+2.  Inclure les coefficients dans un tableau:
 | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
