@@ -20,6 +20,7 @@ Sur 8 bit écrire 113 en base binaire en format d'entier non signé.
 **Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. 
 
 **Solution:** 
+
 | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
 | --------- | --------- | --------- |
 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
