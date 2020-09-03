@@ -9,3 +9,17 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 - Utiliser des notions d'algèbre booléenne.
 - Comprendre la notion d'entrée/sortie.
 Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__. Assurez-vous d'avoir bien installé __Pycharm__ et __Netbeans__. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: ** tutoriel d'installation des outils et prise en main de l'environnement de travail **.
+
+
+## Représentation de nombres entier
+
+**Question 1: Unsigned int** 
+
+Sur 8 bit écrire 113 en base binaire en format d'entier non signé.
+
+**Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. 
+
+**Solution:** | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
+| --------- | --------- | --------- |
+| 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
+
