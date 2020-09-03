@@ -17,10 +17,11 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
 Sur 8 bit écrire 113 en base binaire.
 
-**Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. 
+**Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
 
 **Solution:** 
-1. Décomposer le chiffre en une somme de puissances de 2.
+1. Décomposer le nombre en une somme de puissances de 2.
+
 113 = 64 + 32 + 16 + 1 = 1 * 2^6 + 1 * 2^5 + 1* 2^4 + 1 * 2^0
 
 2.  Inclure les coefficients dans un tableau:
