@@ -11,7 +11,7 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__. Assurez-vous d'avoir bien installé __Pycharm__ et __Netbeans__. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: ** tutoriel d'installation des outils et prise en main de l'environnement de travail **.
 
 
-## Représentation de nombres entier
+## Exercice 1: Représentation de nombres entier
 
 **Question 1: Unsigned int** 
 
