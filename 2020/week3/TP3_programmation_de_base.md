@@ -1,4 +1,4 @@
-# Travaux pratiques semaine 2
+# Travaux pratiques semaine 3
 
 # Programmation de base
 
@@ -152,37 +152,45 @@ Gardez vos variables de l'exercice précédent, augmentez la valeur de `nb_bonbo
 (3min)
 
 2.7.1 Manipulation des chaînes de caractères (indexation)
-Créez une variable `python` de type `str` qui vaut "Hard But Cool !!". Créez ensuite une variable `première` contenant la première lettre de `python` en utilisant l'indexation. Créez ensuite une variable `dernière` contenant la dernière lettre de `python`en utilisant l'indexation. Imprimmez les résultats et voyez ce que vous obtenez.
+
+Créez une variable `python` de type `str` qui vaut "Hard But Cool !!". Créez ensuite une variable `première` contenant la première lettre de `python` en utilisant l'indexation. Créez ensuite une variable `dernière` contenant la dernière lettre de `python` en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez.
 (5min)
 
-2.7.2 Manipulation des Str (indexation 2)
-Gardez votre variable python, et créez une variable `lettre_5` contenant la cinquième lettre de `python` via l'indexation. Créet ensuite une variable `lettre_9_13` contenant les lettres 9,10,11,12,13 de `python`. Imprimmez les résultats et voyez ce que vous obtenez.
+2.7.2 Manipulation des chaînes de caractères (indexation 2)
+
+Gardez votre variable python, et créez une variable `lettre_5` contenant la cinquième lettre de `python` via l'indexation. Créez ensuite une variable `lettre_9_13` contenant les lettres 9,10,11,12,13 de `python`. Afficher les résultats et voyez ce que vous obtenez.
 (5min)
 
-2.7.3 Manipulation des Str (Fonction len())
-Il est possible d'obtenir la longueur d'un str (ou d'une liste ou d'un dictionnaire) via la fonction len(str). Gardez votre variable `python` et créez une nouvelle variable nommée `ln_python` contenant la longeur de `python`, puis une nouvelle variable `moitié` contenant la première moitié de la variable `python` (utilisez la variable que vous venez de créer). Imprimmez le résultat et voyez ce que vous obtenez
+2.7.3 Manipulation des chaînes de caractères (Fonction len())
+
+Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) via la fonction `len(str)`. Gardez votre variable `python` et créez une nouvelle variable nommée `ln_python` contenant le nombre de caractère de la variable `python`, puis une nouvelle variable `moitié` contenant la première moitié de la variable `python` (utilisez la variable que vous venez de créer). Affichez le résultat et voyez ce que vous obtenez
 (5min)
 
-2.7.4 Manipulation des Str (Fonctions upper() et lower())
-Il est possible de passer toutes les lettres d'un str en minuscule ou en majuscule via les fonctions lower(str) et upper(str) respectivement. Comme pour les fonctions int() ou float(), les fonctions upper() et lower() ne modifient pas directement les variables, il faut donc stocker le résultat de ces fonctions dans de nouvelles variables. Reprenez votre variable `python`, puis créez deux nouvelles variables `upper` et `lower` contenant la valeur de `python`en minuscule et en majuscule respectivement. N'oubliez pas d'imprimmez vos nouvelle variables pour voir le résultat.
+2.7.4 Manipulation des chaînes de caractères (Fonctions `upper()` et `lower()`)
+
+Il est possible de passer toutes les lettres d'une chaîne de caractères en minuscule ou en majuscule via les fonctions `lower(str)` et `upper(str)` respectivement. Comme pour les fonctions int() ou float(), les fonctions `upper()` et `lower()` ne modifient pas directement les variables, il faut donc stocker le résultat de ces fonctions dans de nouvelles variables. Reprenez votre variable `python`, puis créez deux nouvelles variables `upper` et `lower` contenant la valeur de `python`en minuscule et en majuscule respectivement. N'oubliez pas d'afficher vos nouvelles variables pour voir le résultat.
 (5min)
 
-2.8.1 Les Fonctions (Fonction basique)
-Définissez une fonction nomée `ping` qui lorsqu'elle est appelée imprimme "pong". Appelez la plusieurs fois et voyez le résultat
+2.8.1 Les Fonctions (Fonctions basiques)
+Définissez une fonction nommée `ping()` qui, lorsqu'elle est appelée, affiche "pong". Appelez la plusieurs fois et voyez le résultat
 (3min)
+#### Conseils:
+Vous pourriez utiliser une boucle `for` pour effectuer plusieurs appels à la fonction `ping()`.
+
 
 2.8.2 Les Fonctions (Fonction multiplication)
-Définissez une fonction nomée `multiplicateur`qui prend deux arguments `a` et `b`, les multiplie et retourne le résultat. Stockez le résultat de multiplicateur(2,3) dans une variable `résultat` et imprimmez la.
+
+Définissez une fonction nommée `multiplicateur()` qui prend deux arguments `a` et `b`, les multiplie et retourne le résultat. Stockez le résultat de `multiplicateur(2,3)` dans une variable `résultat` et affichez la.
 (5min)
 
 ### 3. Opérateurs et conditions Booléennes
 
-Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit true, soit false. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : == (est égal), != (n'est pas égal), < (est strictement plus petit), <= (est plus petit ou égal), > (est strictement plus grand), >= (est plus grand ou égal). Si la condition est satisfaite, on obtiendra true, si elle ne l'est pas, on obtiendra false. L'utilisation de l'opérator not inversera le résultat.
+Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit `True`, soit `False`. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : == (est égal), != (n'est pas égal), < (est strictement plus petit), <= (est plus petit ou égal), > (est strictement plus grand), >= (est plus grand ou égal). Si la condition est satisfaite, on obtiendra `True`, si elle ne l'est pas, on obtiendra `False`. L'utilisation de l'opérateur `not` inversera le résultat.
 
-Dans les exerxcices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) print(s)).
+Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) print(s)).
 
 3.1
-```sh
+```Python
 a = 3
 b = 2
 c = 6
@@ -196,7 +204,7 @@ print(not d)
 
 3.2
 
-```sh
+```Python
 a = 3
 b = 2
 c = 6
@@ -208,7 +216,7 @@ print(a<c and not (b ==2 and not d))
 ```
 
 3.3
-```sh
+```Python
 a = True
 b = False
 c = True
@@ -226,7 +234,7 @@ if not a or ( b!=c and not b) :
 Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable `number` ,
 écrivez un programme qui demande à l'utilisateur de deviner le nombre, l'utilisateur a 5 chances pour le
 trouver, s'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui
-qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100)
+qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).
 
 3.5 Pierre, Feuille, Ciseaux
-Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur lui, choisira son coup au hasard (s'il choisis 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les régles sont les règles classiques, une manche gagnante.
+Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur lui, choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.
