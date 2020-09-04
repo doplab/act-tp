@@ -461,7 +461,7 @@ Ici le code est plus concis et permet de s'arrêter lorsque le joueur a trouvé 
 3.5 Pierre, Feuille, Ciseaux
 Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur lui, choisira son coup au hasard (s'il choisis 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les régles sont les règles classiques, une manche gagnante.
 
-```sh
+```Java
 from random import randint
 number = randint(1,3)
 if number == 1 :
