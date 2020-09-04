@@ -128,10 +128,16 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
    **Solution:**
    
+   Il faut appliquer le processus inverse qu'à la question 4 et 3. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Puis il faut convertir cette valeur en base 10 et enfin prendre son inverse.
+   
    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-   | Original| 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+   | Aucune| 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
    | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
    | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+   
+   01101101 = 1 + 4 + 8 + 32 + 64 = 109<sub>10</sub>
+   
+   Le nombre est donc -109<sub>10</sub>
  
 
