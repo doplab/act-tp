@@ -51,7 +51,7 @@ Donc l'expression de -113 en utilisant la méthode de "signed integers" est 1111
 
 Ecrire le complément à 1 de -113. 
 
-Qu'elle est l'utilitée de cette méthode par rapport à celle précédente ?
+Qu'elle est la différence entre cette méthode par rapport à celle précédente ?
 
 **Hint:** 
 
@@ -61,11 +61,18 @@ Qu'elle est l'utilitée de cette méthode par rapport à celle précédente ?
 
 
 **Solution:** 
+1.
 
 | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 | not | not | not | not | not | not | not | not |
-| 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 | 1 | 1 | 0 |
+
+2. La portée de cette méthode ne change pas par rapport à celle précédente. Par contre, l'expression de -0 sera différente. 
+
+**Signed magnitude:** -0<sub>10</sub> = 10000000<sub>2</sub>
+
+**Complément à 1:** -0<sub>10</sub> = 11111111<sub>2</sub>
 
 
