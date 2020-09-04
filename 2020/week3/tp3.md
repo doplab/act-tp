@@ -100,9 +100,21 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
   Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ?
   
-  | Sign | Exponent | 2<sup>5</sup> |
+  | Sign | Exponent | Mantissa |
   | --------- | --------- | --------- | 
   | 0 | 00110101 | 01000001000000000000001 |
   
-  **Hint:**
+  **Hint:** Poser chaque calcul, et ensuite tout fusionner avec la formule. Utilisez la page 14 de la semaine 3 comme exemple.
+  
+  **Solution:**
+  
+  *sign* = 0 --> (-1)<sup>sign</sup> = (-1)<sup>0</sup> = 1
+  
+  *e* = exponent = exponent = 0 * 2<sup>7</sup> + 0 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 53
+  
+  *2<sup>e-127</sup>* = 2<sup>53-127</sup> = 2<sup>-74</sup>
+  
+  mantissa = 01000001000000000000001 = 1 + 0 * 2<sup>-1</sup> + 1 * 2<sup>-2</sup> + 0 * 2<sup>-3</sup> + (...) + 1 * 2<sup>-8</sup> + 1 * 2<sup>-23</sup> = 
+  
+  Donc Valeur = (+1) * mantissa
 
