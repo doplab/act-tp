@@ -11,9 +11,9 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__. Assurez-vous d'avoir bien installé __Pycharm__ et __Netbeans__. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: ** tutoriel d'installation des outils et prise en main de l'environnement de travail **.
 
 
-## Exercice 1: Représentation de nombres entier
+## Exercice 1: Représentation de nombres entier ( 30 minutes)
 
-**Question 1: Unsigned int (5 min)** 
+**Question 1: Unsigned int ** 
 
   Sur 8 bit écrire 113<sub>10</sub> en base binaire.
 
@@ -33,7 +33,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Donc la représentation en binaire de l'entier non signé 113 est: 01110001
 
 
-**Question 2: Signed integers with signed magnitude (2 min)**
+**Question 2: Signed integers with signed magnitude **
 
   En utilisant le résultat de la question précédente, écrire sur 8 bit -113<sub>10</sub> en base binaire 
 
@@ -47,7 +47,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
   Donc l'expression de -113 en utilisant la méthode de "signed integers" est 11110001
 
-**Question 3: Complément à 1 (5 min)** 
+**Question 3: Complément à 1 ** 
 
   Ecrire le complément à 1 de -113<sub>10</sub>. 
 
@@ -78,7 +78,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Both have the same range: range = [-127<sub>10</sub>,+127<sub>10</sub>] 
 
 
-**Question 4: Complément à 2 (5 min)**
+**Question 4: Complément à 2**
   
   Quel est le complément à 2 de -113<sub>10</sub> ?
   
@@ -96,13 +96,13 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
   2. Il n'y a plus qu'une représentation possible pour -0<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle range est donc: range = [-128<sub>10</sub>,+127<sub>10</sub>] 
   
- **Question 5: Floating point ( 10 min)**
+ **Question 5: Floating point**
   
-  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ?
+  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif.
   
   | Sign | Exponent | Mantissa |
   | --------- | --------- | --------- | 
-  | 0 | 00110101 | 01000001000000000000001 |
+  | 0 | 10110101 | 01000001000000000000001 |
   
   **Hint:** Poser chaque calcul, et ensuite tout fusionner avec la formule. Utilisez la page 14 de la semaine 3 comme exemple.
   
@@ -110,11 +110,21 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
   *sign* = 0 --> (-1)<sup>sign</sup> = (-1)<sup>0</sup> = 1
   
-  *e* = exponent = exponent = 0 * 2<sup>7</sup> + 0 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 53
+  *e* = exponent = exponent = 1 * 2<sup>7</sup> + 0 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 181
   
-  *2<sup>e-127</sup>* = 2<sup>53-127</sup> = 2<sup>-74</sup>
+  *2<sup>e-127</sup>* = 2<sup>181-127</sup> = 2<sup>54</sup>
   
-  mantissa = 01000001000000000000001 = 1 + 0 * 2<sup>-1</sup> + 1 * 2<sup>-2</sup> + 0 * 2<sup>-3</sup> + (...) + 1 * 2<sup>-8</sup> + 1 * 2<sup>-23</sup> = 
+  mantissa = 01000001000000000000001 = 1 + 0 * 2<sup>-1</sup> + 1 * 2<sup>-2</sup> + 0 * 2<sup>-3</sup> + (...) + 1 * 2<sup>-8</sup> + 1 * 2<sup>-23</sup> = 1.254
   
-  Donc Valeur = (+1) * mantissa
+  Donc Valeur = (+1) * 1.254 * 2<sup>54</sup> = 2.259 * 10<sup>16</sup>
+  
+ **Question 6: Conversion d'un nombre binaire au format complément à 2 **
+ 
+ Voici un nombre binaire exprimé sur 8 bit au format complément à 2: 10010011
+ 
+ Convertir ce nombre en base 10.
+ 
+ **Hint:** Utilisez le même tableau que dans les premières questions
+ 
+ **Solution:**
 
