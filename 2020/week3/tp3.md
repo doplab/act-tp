@@ -75,4 +75,6 @@ Qu'elle est la différence entre cette méthode par rapport à celle précédent
 
 **Complément à 1:** -0<sub>10</sub> = 11111111<sub>2</sub>
 
+Both have the same range: range = [-127<sub>10</sub>,+127<sub>10</sub>] 
+
 
