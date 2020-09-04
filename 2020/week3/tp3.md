@@ -15,66 +15,84 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
 **Question 1: Unsigned int (5 min)** 
 
-Sur 8 bit écrire 113 en base binaire.
+  Sur 8 bit écrire 113<sub>10</sub> en base binaire.
 
-**Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
+  **Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
 
-**Solution:** 
-1. Décomposer le nombre en une somme de puissances de 2.
+  **Solution:** 
+  1. Décomposer le nombre en une somme de puissances de 2.
 
-113 = 64 + 32 + 16 + 1 = 1 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1* 2<sup>4</sup> + 1 * 2<sup>0</sup>
+  113 = 64 + 32 + 16 + 1 = 1 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1* 2<sup>4</sup> + 1 * 2<sup>0</sup>
 
-2.  Inclure les coefficients dans un tableau:
+  2.  Inclure les coefficients dans un tableau:
 
-| 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
+  | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+  | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+  | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 
-Donc la représentation en binaire de l'entier non signé 113 est: 01110001
+  Donc la représentation en binaire de l'entier non signé 113 est: 01110001
 
 
 **Question 2: Signed integers with signed magnitude (2 min)**
 
-En utilisant le résultat de la question précédente, écrire sur 8 bit -113 en base binaire 
+  En utilisant le résultat de la question précédente, écrire sur 8 bit -113<sub>10</sub> en base binaire 
 
-**Hint:** Pour cette représentation, on réserve le 7ème bit pour le signe.
+  **Hint:** Pour cette représentation, on réserve le 7ème bit pour le signe.
 
-**Solution:**
+  **Solution:**
 
-| 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
+  | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+  | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+  | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 
-Donc l'expression de -113 en utilisant la méthode de "signed integers" est 11110001
+  Donc l'expression de -113 en utilisant la méthode de "signed integers" est 11110001
 
 **Question 3: Complément à 1 (5 min)** 
 
-Ecrire le complément à 1 de -113. 
+  Ecrire le complément à 1 de -113<sub>10</sub>. 
 
-Qu'elle est la différence entre cette méthode par rapport à celle précédente ?
+  Qu'elle est la différence entre cette méthode par rapport à celle précédente ?
 
-**Hint:** 
+  **Hint:** 
 
-1. En programmation l'opposé d'une variable est not( la variable). Ici, le même principe s'applique. L'opposé de 0 en binaire est...
-2. Comment peut-on exprimer 0 dans cette méthode ?
+  1. En programmation l'opposé d'une variable est not( la variable). Ici, le même principe s'applique. L'opposé de 0 en binaire est...
+  2. Comment peut-on exprimer 0 dans cette méthode ?
 
 
 
-**Solution:** 
-1.
+  **Solution:** 
+  1.
 
-| 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
-| not | not | not | not | not | not | not | not |
-| 1 | 0 | 0 | 0 | 1 | 1 | 1 | 0 |
+  | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+  | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+  | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
+  | not | not | not | not | not | not | not | not |
+  | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 0 |
 
-2. La portée de cette méthode ne change pas par rapport à celle précédente. Par contre, l'expression de -0 sera différente. 
+  2. La portée de cette méthode ne change pas par rapport à celle précédente. Par contre, l'expression de -0 sera différente. 
 
-**Signed magnitude:** -0<sub>10</sub> = 10000000<sub>2</sub>
+  **Signed magnitude:** -0<sub>10</sub> = 10000000<sub>2</sub>
 
-**Complément à 1:** -0<sub>10</sub> = 11111111<sub>2</sub>
+  **Complément à 1:** -0<sub>10</sub> = 11111111<sub>2</sub>
 
-Both have the same range: range = [-127<sub>10</sub>,+127<sub>10</sub>] 
+  Both have the same range: range = [-127<sub>10</sub>,+127<sub>10</sub>] 
 
+
+**Question 4: Complément à 2 (5 min)**
+  
+  Quel est le complément à 2 de -113<sub>10</sub> ?
+  
+  Quelle est l'utilitée de cette représentation ?
+  
+  **Hint:** Chaque représentation est-elle unique ?
+  
+  **Solution:** 
+  
+  1. Il faut ajouter un au complément à 1 de -113<sub>10</sub>. C'est à dire faire plus un à la colonne de 2<sup>0</sup>.
+  
+  | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+  | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+  | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
+  
+  2. Il n'y a plus qu'une représentation possible pour -0<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle range est donc: range = [-128<sub>10</sub>,+127<sub>10</sub>] 
 
