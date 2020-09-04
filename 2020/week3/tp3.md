@@ -13,7 +13,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
 ## Exercice 1: Représentation de nombres entier ( 30 minutes)
 
-**Question 1: Unsigned int ** 
+**Question 1: Unsigned int** 
 
   Sur 8 bit écrire 113<sub>10</sub> en base binaire.
 
@@ -33,7 +33,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Donc la représentation en binaire de l'entier non signé 113 est: 01110001
 
 
-**Question 2: Signed integers with signed magnitude **
+**Question 2: Signed integers with signed magnitude**
 
   En utilisant le résultat de la question précédente, écrire sur 8 bit -113<sub>10</sub> en base binaire 
 
@@ -47,7 +47,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
   Donc l'expression de -113 en utilisant la méthode de "signed integers" est 11110001
 
-**Question 3: Complément à 1 ** 
+**Question 3: Complément à 1** 
 
   Ecrire le complément à 1 de -113<sub>10</sub>. 
 
@@ -118,13 +118,20 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
   Donc Valeur = (+1) * 1.254 * 2<sup>54</sup> = 2.259 * 10<sup>16</sup>
   
- **Question 6: Conversion d'un nombre binaire au format complément à 2 **
+ **Question 6: Conversion d'un nombre binaire au format complément à 2**
  
- Voici un nombre binaire exprimé sur 8 bit au format complément à 2: 10010011
+   Voici un nombre binaire exprimé sur 8 bit au format complément à 2: 10010011
+
+   Convertir ce nombre en base 10.
+
+   **Hint:** Utilisez le même tableau que dans les premières questions
+
+   **Solution:**
+   
+    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+    | Original| 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+    | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+    | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
  
- Convertir ce nombre en base 10.
- 
- **Hint:** Utilisez le même tableau que dans les premières questions
- 
- **Solution:**
 
