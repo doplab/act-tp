@@ -128,10 +128,10 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
    **Solution:**
    
-    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
-    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-    | Original| 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-    | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
-    | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+   | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
+   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+   | Original| 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+   | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+   | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
  
 
