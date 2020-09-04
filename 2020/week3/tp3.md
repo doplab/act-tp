@@ -95,4 +95,14 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
   
   2. Il n'y a plus qu'une représentation possible pour -0<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle range est donc: range = [-128<sub>10</sub>,+127<sub>10</sub>] 
+  
+ **Question 5: Floating point ( 10 min)**
+  
+  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ?
+  
+  | Sign | Exponent | 2<sup>5</sup> |
+  | --------- | --------- | --------- | 
+  | 0 | 00110101 | 01000001000000000000001 |
+  
+  **Hint:**
 
