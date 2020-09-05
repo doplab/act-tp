@@ -27,10 +27,17 @@ même de votre ordinateur. Il faut donc toujours faire attention à la condition
 
 **Question 1: Utilisation de la fonction range() dans une boucle for ( 5 min)**
 
-En utilisant la fonction range() et une boucle for calculez la somme des entier de 0 a 20.
+En utilisant la fonction range() et une boucle for calculez la somme des entier de 0 a 20 et affichez la.
 
 **Hint:** Lorsque range(n) est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1
 
 **Solution:**
 
+```Python
+    somme = 0
+    for i in range(21):
+        somme += i   #A chaque itération on rajoute i à somme. 
+    print(somme)
+     
+ ```
 
