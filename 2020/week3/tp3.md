@@ -258,6 +258,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Le code affiche:
   
   Teacher
+  
   Algorithmique et pensée computationnelle
   
   Explication:
