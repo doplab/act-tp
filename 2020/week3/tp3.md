@@ -142,61 +142,73 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
  
 ## Exercice 2: Conditionnal branching ( 10 minutes)
 
-  Le but de cet exercice est d'entrainer la lecture de code et la compréhension des opérateurs booléens à travers de le conditionnal branching.
+  Le but de cet exercice est d'entrainer la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le conditionnal branching.
   
   **Question 1: Conditionnal branching in java**
   
    Qu'affiche le code suivant ?
    
-   Java
+   Rappel: Le code suivant est en Java
+   
   ```Java
     numero_mois = 7
     
     switch(numero_mois) {
       
-      case 1:
-                System.out.println("Janvier")
-                break;
-      case 2:
-                System.out.println("Février")
-                break;
-      case 3:
-                System.out.println("Mars")
-                break;
-      case 4:
-                System.out.println("Avril")
-                break;
-      case 5:
-                System.out.println("Mai")
-                break;
-      case 6:
-                System.out.println("Juin")
-                break;
-      case 7:
-                System.out.println("Juillet")
-                break; 
-      case 8:
-                System.out.println("Août")
-                break;
-      case 9:
-                if (numero_mois == 8){
-                  System.out.println("Septembre")
+        case 1:
+                  System.out.println("Janvier")
                   break;
-                  }
-                 else{
-                   System.out.println("Décembre")
-                   }
-      case 10:
-                System.out.println("Octobre")
-                break;
-      case 11:
-                System.out.println("Novembre")
-                break;
-      case 12:
-                System.out.println("Décembre")
-                break;
-            
-      
-
+        case 2:
+                  System.out.println("Février")
+                  break;
+        case 3:
+                  System.out.println("Mars")
+                  break;
+        case 4:
+                  System.out.println("Avril")
+                  break;
+        case 5:
+                  System.out.println("Mai")
+                  break;
+        case 6:
+                  System.out.println("Juin")
+                  break;
+        case 7:
+                  System.out.println("Juillet")
+                  numero_mois = 9 
+        case 8:
+                  System.out.println("Août")
+                  break;
+        case 9:
+                  if (numero_mois == 8){
+                    System.out.println("Septembre")
+                    break;
+                    }
+                   else{
+                     System.out.println("Décembre")
+                     numero_mois = 12
+                     break;
+                     }
+        case 10:
+                  System.out.println("Octobre")
+                  break;
+        case 11:
+                  System.out.println("Novembre")
+                  break;
+        case 12:
+                  System.out.println("Décembre")
+                  break;
+   }
 ```
+  **Hint:** 
+  
+  1. Break indique que l'on sort de l'accolade. Les cas suivants ne seront plus traités. 
+  
+  2. Lorsque l'on pose case n où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères.
+  
+  **Solution:**
+  
+  Le code va donc afficher:
+  Juillet --> Comme la case 7 ne contient pas de brake et modifie numero_mois, la lecture du code va continuer.
+  Décembre --> Ici, on modifie numero_mois, mais il y a un break. On ne rentrera donc pas dans le case 12.
 
