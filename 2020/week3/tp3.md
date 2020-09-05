@@ -148,5 +148,55 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
    Qu'affiche le code suivant ?
    
-   
+   Java
+  ```Java
+    numero_mois = 7
+    
+    switch(numero_mois) {
+      
+      case 1:
+                System.out.println("Janvier")
+                break;
+      case 2:
+                System.out.println("Février")
+                break;
+      case 3:
+                System.out.println("Mars")
+                break;
+      case 4:
+                System.out.println("Avril")
+                break;
+      case 5:
+                System.out.println("Mai")
+                break;
+      case 6:
+                System.out.println("Juin")
+                break;
+      case 7:
+                System.out.println("Juillet")
+                break; 
+      case 8:
+                System.out.println("Août")
+                break;
+      case 9:
+                if (numero_mois == 8){
+                  System.out.println("Septembre")
+                  break;
+                  }
+                 else{
+                   System.out.println("Décembre")
+                   }
+      case 10:
+                System.out.println("Octobre")
+                break;
+      case 11:
+                System.out.println("Novembre")
+                break;
+      case 12:
+                System.out.println("Décembre")
+                break;
+            
+      
+
+```
 
