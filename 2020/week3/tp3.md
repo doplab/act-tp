@@ -140,4 +140,13 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
    
    Le nombre est donc -109<sub>10</sub>
  
+## Exercice 2: Conditionnal branching ( 10 minutes)
+
+  Le but de cet exercice est d'entrainer la lecture de code et la compréhension des opérateurs booléens à travers de le conditionnal branching.
+  
+  **Question 1: Conditionnal branching in java**
+  
+   Qu'affiche le code suivant ?
+   
+   
 
