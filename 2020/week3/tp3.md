@@ -223,6 +223,8 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
   Qu'affiche le code suivant ?
   
+  Rappel: Ce code est en python. 
+  
   ```Python
   
       name = "Garbinato"
@@ -247,4 +249,17 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
       print("Algorithmique et pensée computationnelle")
      
  ```
+  **Hint:** 
+  1. Il faut vérifier la condition de chaque cas de manière linéaire.
   
+  2. Une fois une condition vérifiée, toutes celles d'après ne sont pas traitées.
+  
+  **Solution:**
+  Le code affiche:
+  
+  Teacher
+  Algorithmique et pensée computationnelle
+  
+  Explication:
+  1. Les 7 premières conditions ne sont pas vérifiées. Le premier print exécuté sera " print("Teacher") "
+  2. Le dernier print étant en dehors des if, else et elsif ( on peut le voir grâce à l'indentation), il sera forcément exécuté
