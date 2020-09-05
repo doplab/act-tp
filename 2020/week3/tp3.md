@@ -151,7 +151,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
    Rappel: Le code suivant est en Java
    
   ```Java
-    numero_mois = 7
+    int numero_mois = 7
     
     switch(numero_mois) {
       
@@ -204,9 +204,9 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 ```
   **Hint:** 
   
-  1. Break indique que l'on sort de l'accolade. Les cas suivants ne seront plus traités. 
+  1. Break indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités. 
   
-  2. Lorsque l'on pose case n où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères.
+  2. Lorsque l'on pose "case n" où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères ( par exemple si numero_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
   
   **Solution:**
   
@@ -215,10 +215,36 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Juillet 
   Décembre 
   
-  Explication: 
+ __Explication:__ 
   1. Comme la case 7 ne contient pas de break et modifie numero_mois, la lecture du code va continuer.
   2. On rentre dans le case 9, qui contient un break. Le numero_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas succédants ne seront pas traités.
   
   **Question 2: Conditionnal branching in python (5 minutes)**
   
+  Qu'affiche le code suivant ?
+  
+  ```Python
+  
+      name = "Garbinato"
+      if name == "Diallo":
+          print("Alpha")
+      elif name == "Michelet":
+          print("Gaëtan")
+      elif name == "Ballèvre":
+          print("Nathan")
+      elif name == "Schwab":
+          print("Johannes")
+      elif name == "Di Sanza":
+          print("Maeva")
+      elif name == "Kanda Bile":
+          print("Richard")
+      elif name == " Yasser Haddad":
+          print("Yann")
+      elif name == "Garbinato":
+          print("Teacher")
+      else:
+          print("Benoît")
+      print("Algorithmique et pensée computationnelle")
+     
+ ```
   
