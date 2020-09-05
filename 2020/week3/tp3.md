@@ -98,7 +98,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
  **Question 5: Floating point**
   
-  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif.
+  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule.
   
   | Sign | Exponent | Mantissa |
   | --------- | --------- | --------- | 
