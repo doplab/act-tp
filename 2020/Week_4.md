@@ -18,9 +18,19 @@ soit accomplie (une booléenne True ou False). La syntax est la suivante:
 On écrit d’abord while, suivi de la condition à atteindre. 
 
 
-**Note**: La fonction range(n) permet de créer une liste de nombres de 0 à la valeur passée en argument (n).
-Lorsqu’elle est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1.
+**Note**: 
+  * La fonction range(n) permet de créer une liste de nombres de 0 à la valeur passée en argument (n). Lorsqu’elle est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1.
+  * Si vous avez fait une erreur dans votre code, il se peut que la boucle while n’arrive jamais à sa condition
+et qu’elle ne se termine donc jamais. Ceci peut entraîner un crash de votre programme, voire
+même de votre ordinateur. Il faut donc toujours faire attention à la condition de sortie de la boucle while.
+
 
 **Question 1: Utilisation de la fonction range() dans une boucle for ( 5 min)**
 
 En utilisant la fonction range() et une boucle for calculez la somme des entier de 0 a 20.
+
+**Hint:** Lorsque range(n) est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1
+
+**Solution:**
+
+
