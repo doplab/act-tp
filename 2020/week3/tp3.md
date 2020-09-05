@@ -144,7 +144,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
   Le but de cet exercice est d'entrainer la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le conditionnal branching.
   
-  **Question 1: Conditionnal branching in java**
+  **Question 1: Conditionnal branching in java (5 minutes)**
   
    Qu'affiche le code suivant ?
    
@@ -186,7 +186,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
                     }
                    else{
                      System.out.println("Décembre")
-                     numero_mois = 12
+                     numero_mois = 13
                      break;
                      }
         case 10:
@@ -198,6 +198,8 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
         case 12:
                   System.out.println("Décembre")
                   break;
+        default:
+                  System.out.println("Ce n'est pas un mois. ")
    }
 ```
   **Hint:** 
@@ -209,6 +211,14 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   **Solution:**
   
   Le code va donc afficher:
-  Juillet --> Comme la case 7 ne contient pas de brake et modifie numero_mois, la lecture du code va continuer.
-  Décembre --> Ici, on modifie numero_mois, mais il y a un break. On ne rentrera donc pas dans le case 12.
-
+  
+  Juillet 
+  Décembre 
+  
+  Explication: 
+  1. Comme la case 7 ne contient pas de break et modifie numero_mois, la lecture du code va continuer.
+  2. On rentre dans le case 9, qui contient un break. Le numero_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas succédants ne seront pas traités.
+  
+  **Question 2: Conditionnal branching in python (5 minutes)**
+  
+  
