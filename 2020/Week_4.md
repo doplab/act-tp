@@ -40,4 +40,20 @@ En utilisant la fonction range() et une boucle for calculez la somme des entier 
     print(somme)
      
  ```
+**Question 2: Création d'une liste à partir d'un tuple ( 5 min)**
+
+Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
+
+**Hint:** Rajouter un à un les éléments du tuple dans la liste.
+
+**Solution:**
+
+```Python
+    liste_finale = []
+    tuple_initial = (1, 4, 5, 8)
+    for valeur in tuple_initial:
+        liste_finale.append(valeur)   # A chaque itération valeur est une copie d'un élément du tuple. La boucle se finie au dernier élément du tuple_initial.
+    
+     
+ ```
 
