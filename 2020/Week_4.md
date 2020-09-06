@@ -59,7 +59,7 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
      
  ```
 
-**Question 3: Boucle While et input()**
+**Question 3: Boucle While et input() ( 15 minutes)**
    
    A l'aide d'une boucle while, demander à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une valeur.
    
@@ -81,6 +81,24 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
         print("Bravo !")
   ```
   
-  **Question 4:**
-    
+  **Question 4: Boucle While et des étudiants ( 15 minutes)**
+  
+   Considérons une liste d'étudiants contenant le nom de l'étudiant puis si il était en classe ou non. 
+   
+   l = [Schmitt, True, Irma, False, Khalif, True, Yasser, False, Wang, True]
+   
+   A partir de cette liste et du type de boucle de votre choix créez un dictionnaire ayant pour clés les noms et comme valeur la présence au cours.
+   
+   **Hint:** 
+   
+   * Boucle for: Utiliser les indices pour accéder aux éléments de la liste et donc ne pas itérer directement sur les éléments de la liste.
+   
+   * Boucle while: La condition de sortie devrait être en rapport avec la longueur de la liste.
+   
+   **Solution:**
+   
+    ```Python
+        
+  ```
+      
     
