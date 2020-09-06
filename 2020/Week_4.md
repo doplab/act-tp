@@ -119,4 +119,4 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
                dict_final[l[i]] = l[i + 1]
            i +=1                             # On incrémente i  
    ```
-  * Pour ce problème la boucle for est plus simple à mettre en place et évite le danger de boucle infini. La boucle while est utilisé pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle for. Donc lorsque on peut résoudre un problème avec les deux types, utilisez de préférence la boucle for.
+  * Pour ce problème la boucle for est plus simple à mettre en place et évite le danger de boucle infini. La boucle while est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle for. Donc lorsque on peut résoudre un problème avec les deux types, utilisez de préférence la boucle for.
