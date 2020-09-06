@@ -53,8 +53,8 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
 ```Python
     liste_finale = []
     tuple_initial = (1, 4, 5, 8)
-    for valeur in tuple_initial:
-        liste_finale.append(valeur)   # A chaque itération valeur est une copie d'un élément du tuple. La boucle se finie au dernier élément du tuple_initial.
+    for valeur in tuple_initial:      # A chaque itération valeur est une copie d'un élément du tuple. La boucle se finie au dernier élément du tuple_initial.
+        liste_finale.append(valeur)   # On ajoute valeur à la liste crée en dehors de la boucle.
     
      
  ```
@@ -72,11 +72,12 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
   
   ```Python
         bool_test = True
-        while bool_test:
-            test_value = int(input("Veuillez entrer un entier"))
-            bool_test = not(test_value == 10)
-            if bool_test == True:
-                print("Ce n'est pas le bon entier.")
+        while bool_test:                                          # Tant que bool_test est True, la boucle continue
+            test_value = int(input("Veuillez entrer un entier"))  # Pour que le test effectué à la ligne suivante ne soit pas toujours juste                         
+                                                                  #  ( comparaison entre un string et un entier), il faut changer le type de l'input.
+            bool_test = not(test_value == 10)                     # On veut sortir de la boucle si la test_value est 10. Pour sortir il faut que bool_test soit  
+            if bool_test == True:                                 # False. D'où l'utilisation de not qui transforme true en false et vice verse.
+                print("Ce n'est pas le bon entier.")              
         print("Bravo !")
   ```
   
