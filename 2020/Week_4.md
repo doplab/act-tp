@@ -24,8 +24,10 @@ On écrit d’abord while, suivi de la condition à atteindre.
 et qu’elle ne se termine donc jamais. Ceci peut entraîner un crash de votre programme, voire
 même de votre ordinateur. Il faut donc toujours faire attention à la condition de sortie de la boucle while.
 
+**Attention:** Toutes les réponses devront être écrites en python.
 
 **Question 1: Utilisation de la fonction range() dans une boucle for ( 5 min)**
+
 
 En utilisant la fonction range() et une boucle for calculez la somme des entier de 0 a 20 et affichez la.
 
@@ -57,3 +59,23 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
      
  ```
 
+**Question 3: Boucle While et input()**
+   
+   A l'aide d'une boucle while, demander à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une valeur.
+   
+  **Hint:** 
+    1. Définir à l'extérieur de la boucle le booléen utilisé pour le test dans while.
+    2. La fonction input() ressort un string ( chaîne de caractères), il faut changer son type.
+  
+  **Solution:**
+  
+  ```Python
+        bool_test = True
+        while bool_test:
+            test_value = int(input("Veuillez entrer un entier"))
+            bool_test = not(test_value == 10)
+            if bool_test == True:
+                print("Ce n'est pas le bon entier.")
+        print("Bravo !")
+    ```
+  
