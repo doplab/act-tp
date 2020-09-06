@@ -65,6 +65,7 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
    
   **Hint:** 
     1. Définir à l'extérieur de la boucle le booléen utilisé pour le test dans while.
+    
     2. La fonction input() ressort un string ( chaîne de caractères), il faut changer son type.
   
   **Solution:**
@@ -77,5 +78,5 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
             if bool_test == True:
                 print("Ce n'est pas le bon entier.")
         print("Bravo !")
-    ```
+  ```
   
