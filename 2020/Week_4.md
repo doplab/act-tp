@@ -64,9 +64,9 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
    A l'aide d'une boucle while, demander à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une valeur.
    
   **Hint:** 
-    1. Définir à l'extérieur de la boucle le booléen utilisé pour le test dans while.
+   1. Définir à l'extérieur de la boucle le booléen utilisé pour le test dans while.
     
-    2. La fonction input() ressort un string ( chaîne de caractères), il faut changer son type.
+   2. La fonction input() ressort un string ( chaîne de caractères), il faut changer son type. 
   
   **Solution:**
   
@@ -80,3 +80,6 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
         print("Bravo !")
   ```
   
+  **Question 4:**
+    
+    
