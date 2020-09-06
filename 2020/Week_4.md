@@ -101,21 +101,21 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for.
    
    Solution avec boucle for:
    
-    ```Python
-        l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
-        dict_final = {}
-        for i in range(len(l)):               # i va de 0 à 9
-            if i % 2 == 0:                    # Test si i est pair. Si oui, on crée une nouvelle entrée dans le dictionnaire
-                dict_final[l[i]] = l[i + 1]   
-    ```
+   ```Python
+       l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
+       dict_final = {}
+       for i in range(len(l)):               # i va de 0 à 9
+           if i % 2 == 0:                    # Test si i est pair. Si oui, on crée une nouvelle entrée dans le dictionnaire
+               dict_final[l[i]] = l[i + 1]   
+   ```
    Solution avec boucle while:
    
-    ```Python
-        l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
-        dict_final = {}
-        i = 0                                 # Variable qui permettra d'itérer et de gérer la boucle while.
-        while i < len(l):                     # La boucle s'arrêtera donc au bout de 10 itérations. La valeur maximale de i sera 9.
-            if i % 2 == 0:                    
-                dict_final[l[i]] = l[i + 1]
-            i +=1                             # On incrémente i  
-    ```
+   ```Python
+       l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
+       dict_final = {}
+       i = 0                                 # Variable qui permettra d'itérer et de gérer la boucle while.
+       while i < len(l):                     # La boucle s'arrêtera donc au bout de 10 itérations. La valeur maximale de i sera 9.
+           if i % 2 == 0:                    
+               dict_final[l[i]] = l[i + 1]
+           i +=1                             # On incrémente i  
+   ```
