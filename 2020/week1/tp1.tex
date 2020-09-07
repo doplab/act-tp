@@ -329,11 +329,66 @@ Voici un exemple pour le deuxième point : \\
         \item 127$_{(10)}$ + ABC$_{(16)}$ = ...$_{(8)}$
     \end{enumerate}
     \begin{conseil}
-        TODO: Conseils pour convertir puis additionner des nombres de bases différentes.
+        Calculez à l'aide du tableau d'addition binaire ci-dessus ou une autre méthode que vous préférez.\\
+        Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\\\
+        Rappel: Les valeurs en hexadécimale (base 16)\\
+        \begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
+            \hline
+            \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F}\\ [0.5ex]
+            \hline
+            0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ [0.5ex] 
+            \hline
+        \end{tabular}        
     \end{conseil}
-    \begin{solution}
-        Présenter les étapes détaillées permettant d'aboutir à la solution.
+    \begin{solution} \textbf{6.1}\\
+        Calcul du résultat en base 2:\\
+        111101$_{(2)}$ + 110$_{(2)}$ = 1000011$_{(2)}$\\\\
+        Conversion en base décimale:\\
+        1000011$_{(2)}$ = 67$_{(10)}$\\\\
+        Réponse :\\
+        111101$_{(2)}$ + 110$_{(2)}$ = \textbf{67$_{(10)}$}
+        
+        \begin{figure}[h]
+            \includegraphics[width=0.62\textwidth]{img/6-1.png}
+        \end{figure}
     \end{solution}
+    \begin{solution} \textbf{6.2}\\
+        Calcul du résultat en base 2:\\
+        111111$_{(2)}$ + 000001$_{(2)}$ = 1000000$_{(2)}$\\\\
+        Conversion en base décimale:\\
+        1000000$_{(2)}$ = 64$_{(10)}$\\\\
+        Réponse :\\
+        111111$_{(2)}$ + 000001$_{(2)}$ = \textbf{64$_{(10)}$}\\
+    \end{solution}
+    
+    \begin{solution} \textbf{6.3}\\
+        ABC$_{(16)}$ = 2748$_{(10)}$ (Conversion en base 10)\\
+        \begin{figure}[h]
+            \includegraphics[width=0.52\textwidth]{img/6-3-1.png}
+        \end{figure}  
+        
+        127$_{(10)}$ + 2748$_{(10)}$ = 2875$_{(10)}$ = 2875\\
+
+        En commençant par zéro, augmentez 8 à des puissances entières de plus en plus grandes jusqu'à ce que le résultat dépasse 2875.\\
+        \begin{figure}[h]
+            \includegraphics[width=0.36\textwidth]{img/6-3-2.png}
+        \end{figure}\\
+        Déterminez les puissances de 8 qui seront utilisées pour placer les chiffres dans la représentation en base 8.\\
+
+        $8^3$   $8^2$   $8^1$   $8^0$ \\
+
+        Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $8^0$) grâce au reste de la divsion entière.\\
+        2875 / 8 = 359 avec un reste de \textbf{3}\\\\
+        Divisez la partie numérique entière du quotient précédent, 359, par 8 et trouvez le reste. Le reste est le chiffre suivant (correspondant à $8^1$):\\
+        359 / 8 = 44 avec un reste de \textbf{7}\\\\
+        Ainsi de suite... la valeur pour $8^2$:\\
+        44 / 8 = 5 avec un reste de \textbf{4}\\\\
+        La valeur pour $8^3$:\\
+        5 / 8 = 0 avec un reste de \textbf{5}\\
+
+        2875$_{(10)}$ = \textbf{5473$_{(8)}$}    
+    \end{solution} 
+
 \end{Exercice}
 
 \begin{Exercice}[20 minutes] \textbf{Conversion et soustraction:}\\
@@ -341,14 +396,82 @@ Voici un exemple pour le deuxième point : \\
     \begin{enumerate}
         \item 101010$_{(2)}$ - 010101$_{(2)}$ = ...$_{(10)}$
         \item 64$_{(10)}$ - 001000$_{(2)}$ = ...$_{(10)}$
-        \item FFF$_{(10)}$ - 127$_{(10)}$ = ...$_{(2)}$
+        \item FFF$_{(16)}$ - 127$_{(10)}$ = ...$_{(2)}$
     \end{enumerate}
     \begin{conseil}
-        TODO: Conseils pour convertir puis soustraire des nombres de bases différentes.
+            Calculez à l'aide du tableau de soustraction binaire ci-dessus ou une autre méthode que vous préférez.\\
+            Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\\\
+            Rappel: Les valeurs en hexadécimale (base 16)\\
+            \begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
+            \hline
+            \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F}\\ [0.5ex]
+            \hline
+            0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ [0.5ex] 
+            \hline
+        \end{tabular}
     \end{conseil}
-    \begin{solution}
-        Présenter les étapes détaillées permettant d'aboutir à la solution.
+    \begin{solution} \textbf{7.1}\\
+        Calcul du résultat en base 2:\\
+        101010$_{(2)}$ - 010101$_{(2)}$ = 1000000$_{(2)}$\\\\
+        Conversion en base décimale:\\
+        1000000$_{(2)}$ = 64$_{(10)}$\\\\
+        Réponse:\\
+        101010$_{(2)}$ - 010101$_{(2)}$ = \textbf{64$_{(10)}$}\\
     \end{solution}
+    
+    \begin{solution} \textbf{7.2}\\
+        Calcul du résultat en base 2:\\
+        111111$_{(2)}$ - 000001$_{(2)}$ = 111110$_{(2)}$\\\\
+        Conversion en base décimale:\\
+        111110$_{(2)}$ = 62$_{(10)}$\\\\
+        Réponse :\\
+        111111$_{(2)}$ - 000001$_{(2)}$ = \textbf{62$_{(10)}$}\\
+
+    \end{solution}
+    
+    \begin{solution} \textbf{7.3}\\
+        Conversion de FFF$_{(16)}$ en base 10:\\
+        FFF$_{(16)}$ = 1095$_{(10)}$\\\\
+        Calcul en base décimale:\\
+        4095$_{(10)}$ - 127$_{(10)}$ = 3968$_{(10)}$\\\\
+        Convertir 3968$_{(10)}$ en base binaire :\\
+        En commençant par zéro, augmentez 2 à des puissances entières de plus en plus grandes jusqu'à ce que le résultat dépasse 3968.\\
+        Déterminez les puissances de 2 qui seront utilisées comme les places des chiffres dans la représentation en base 2 de 3968 :
+        \begin{figure}[h]
+            \includegraphics[width=0.66\textwidth]{img/7-3.png}
+        \end{figure}
+
+        Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $2^0$) grâce au reste de la divsion entière.\\
+        3968 / 2 = 1984 avec un reste de \textbf{0}\\
+        Divisez la partie numérique entière du quotient précédent, 1984, par 2 et trouvez le reste. Le reste est le chiffre suivant (correspondant à $2^1$):\\
+        1984 / 2 = 992 avec un reste de \textbf{0}\\
+        Ainsi de suite... Pour $2^2$\\
+        992 / 2 = 496 avec un reste de \textbf{0}\\
+        Pour $2^3$\\
+        496 / 2 = 258 avec un reste de \textbf{0}\\
+        Pour $2^4$\\
+        258 / 2 = 124 avec un reste de \textbf{0}\\
+        Pour $2^5$\\
+        124 / 2 = 62 avec un reste de \textbf{0}\\
+        Pour $2^6$\\
+        62 / 2 = 31 avec un reste de \textbf{0}\\
+        Pour $2^7$\\
+        31 / 2 = 15 avec un reste de \textbf{1}\\
+        Pour $2^8$\\
+        15 / 2 = 7 avec un reste de \textbf{1}\\
+        Pour $2^9$\\
+        7 / 2 = 3 avec un reste de \textbf{1}\\
+        Pour $2^10$\\
+        3 / 2 = 1 avec un reste de \textbf{1}\\
+        Pour $2^11$\\
+        1 / 2 = 0 avec un reste de \textbf{1}\\\\
+
+        FFF$_{(16)}$ = 111110000000$_{(2)}$\\\\
+
+        Réponse:\\
+        FFF$_{(16)}$ - 127$_{(10)}$ = \textbf{111110000000$_{(2)}$}
+    \end{solution}
+
 \end{Exercice}
 
 
