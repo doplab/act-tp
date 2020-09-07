@@ -142,15 +142,62 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{enumerate}
     \begin{conseil}
         Calculez à l'aide du tableau d'addition binaire ci-dessus ou une autre méthode que vous préférez.\\
-        Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\\\
+        Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\
+        
+        Exemple de conversion : 1001000$_{(2)}$ = 72$_{(10)}$\\
+        \addvbuffer[4pt 20pt]{\begin{tabular}{| C{0.15\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.06\textwidth} |} 
+            \hline
+            Base$_{(2)}$ & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{}\\ [0.5ex]
+            \hline
+            Position$_{(2)}$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ & \\ [0.5ex] 
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\ [0.5ex] 
+            \hline
+            Équivalent$_{(10)}$ & 1 x $2^6$ & 0 x $2^5$ & 0 x $2^4$ & 1 x $2^3$ & 0 x $2^2$ & 0 x $2^1$ & 0 x $2^0$ & \\ [0.5ex]     
+            \hline
+            Valeurs$_{(10)}$ & 64 & 0 & 0 & 8 & 0 & 0 & 0 & = \textbf{72} \\ [0.5ex]
+            \hline
+        \end{tabular}}
+
         Rappel: Les valeurs en hexadécimale (base 16)\\
-        \begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
+        \addvbuffer[4pt 20pt]{\begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
             \hline
             \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F}\\ [0.5ex]
             \hline
             0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ [0.5ex] 
             \hline
-        \end{tabular}        
+        \end{tabular}}
+
+        Exemple de conversion : 3BF$_{(16)}$ = 959$_{(10)}$\\
+        \addvbuffer[4pt 20pt]{\begin{tabular}{| C{0.15\textwidth} | C{0.15\textwidth} | C{0.15\textwidth} | C{0.15\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            Base$_{(16)}$ & \textbf{3} & \textbf{B} & \textbf{F} & \textbf{}\\ [0.5ex]
+            \hline
+             Valeurs$_{(16)}$ & 3 & 11 & 15 & \\ [0.5ex]
+             \hline
+             Position$_{(16)}$ & $16^2$ & $16^1$ & $16^0$ & \\ [0.5ex] 
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\ [0.5ex] 
+            \hline
+            Équivalent$_{(10)}$ & 3 x $16^2$ & 11 x $16^1$ & 15 x $16^0$ &\\ [0.5ex]     
+            \hline
+            Valeurs$_{(10)}$ & 768 & 176 & 15 & = \textbf{959} \\ [0.5ex]
+            \hline
+        \end{tabular}}
+        
+        Exemple de conversion : 123$_{(10)}$ = ...$_{(8)}$\\
+        
+        $8^0 = 1 < 123$\qquad
+        $8^1 = 8 < 123$\qquad
+        $8^2 = 64 < 123$\qquad
+        $8^3 = 512 > 123$\\
+        
+        $123 / 8 = 15$ avec un reste de \textbf{3}\\
+        $15 / 8 = 1$ avec un reste de \textbf{7}\\
+        $1 / 8 = 0$ avec un reste de \textbf{1}\\\
+        
+        \textbf{123$_{(10)}$ = 173$_{(8)}$}\\
+        
     \end{conseil}
     \begin{solution} \textbf{6.1}\\
         Calcul du résultat en base 2:\\
@@ -158,11 +205,22 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         Conversion en base décimale:\\
         1000011$_{(2)}$ = 67$_{(10)}$\\\\
         Réponse :\\
-        111101$_{(2)}$ + 110$_{(2)}$ = \textbf{67$_{(10)}$}
+        111101$_{(2)}$ + 110$_{(2)}$ = \textbf{67$_{(10)}$}\\
         
-        \begin{figure}[h]
-            \includegraphics[width=0.62\textwidth]{img/6-1.png}
-        \end{figure}
+        \begin{tabular}{| C{0.15\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.06\textwidth} |} 
+            \hline
+            Base$_{(2)}$ & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{1} & \textbf{}\\ [0.5ex]
+            \hline
+             & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ & \\ [0.5ex] 
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\ [0.5ex] 
+            \hline
+            Équivalent$_{(10)}$ & 1 x $2^6$ & 0 x $2^5$ & 0 x $2^4$ & 0 x $2^3$ & 0 x $2^2$ & 1 x $2^1$ & 1 x $2^0$ & \\ [0.5ex]     
+            \hline
+            Valeurs$_{(10)}$ & 64 & 0 & 0 & 0 & 0 & 2 & 1 & = 67 \\ [0.5ex]
+            \hline
+        \end{tabular}
+        
     \end{solution}
     \begin{solution} \textbf{6.2}\\
         Calcul du résultat en base 2:\\
@@ -175,16 +233,39 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     
     \begin{solution} \textbf{6.3}\\
         ABC$_{(16)}$ = 2748$_{(10)}$ (Conversion en base 10)\\
-        \begin{figure}[h]
-            \includegraphics[width=0.52\textwidth]{img/6-3-1.png}
-        \end{figure}  
+       
+        \addvbuffer[0pt 10pt]{\begin{tabular}{| C{0.15\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} |} 
+            \hline
+            Base$_{(16)}$ & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{}\\ [0.5ex]
+            \hline
+             & 10 & 11 & 12 & \\ [0.5ex]
+             \hline
+             & $16^2$ & $16^1$ & $16^0$ & \\ [0.5ex] 
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\ [0.5ex] 
+            \hline
+            Équivalent$_{(10)}$ & 10 x $16^2$ & 11 x $16^1$ & 12 x $16^0$ &\\ [0.5ex]     
+            \hline
+            Valeurs$_{(10)}$ & 2560 & 176 & 12 & = 2748 \\ [0.5ex]
+            \hline
+        \end{tabular}} 
         
         127$_{(10)}$ + 2748$_{(10)}$ = 2875$_{(10)}$ = 2875\\
 
         En commençant par zéro, augmentez 8 à des puissances entières de plus en plus grandes jusqu'à ce que le résultat dépasse 2875.\\
-        \begin{figure}[h]
-            \includegraphics[width=0.36\textwidth]{img/6-3-2.png}
-        \end{figure}\\
+        
+        \addvbuffer[0pt 10pt]{\begin{tabular}{| C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} | C{0.08\textwidth} |} 
+            \hline
+            Entier & 4 & 3 & 2 & 1 & 0\\ [0.5ex]
+            \hline
+             & $8^4$ & $8^3$ & $8^2$ & $8^1$ & $8^0$\\ [0.5ex]
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$\\ [0.5ex] 
+            \hline
+             Valeurs & 4096 & 512 & 64 & 8 & 1\\ [0.5ex] 
+            \hline
+        \end{tabular}}
+        
         Déterminez les puissances de 8 qui seront utilisées pour placer les chiffres dans la représentation en base 8.\\
 
         $8^3$   $8^2$   $8^1$   $8^0$ \\
@@ -211,8 +292,28 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         \item FFF$_{(16)}$ - 127$_{(10)}$ = ...$_{(2)}$
     \end{enumerate}
     \begin{conseil}
-            Calculez à l'aide du tableau de soustraction binaire ci-dessus ou une autre méthode que vous préférez.\\
-            Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\\\
+            Si besoin, référez-vous aux éléments des conseils précédents.\\\ 
+            
+            Calculez à l'aide du tableau de soustraction binaire ci-dessus ou une autre méthode que vous préférez.\\\
+            
+            Additionnez les nombres lorsqu'ils sont dans la même base puis convertissez les dans la base souhaitée.\\\
+            
+            Exemple de conversion : 1001000$_{(2)}$ = 72$_{(10)}$\\
+            \addvbuffer[4pt 20pt]{\begin{tabular}{| C{0.15\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.07\textwidth} | C{0.06\textwidth} |} 
+            \hline
+            Base$_{(2)}$ & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{}\\ [0.5ex]
+            \hline
+            Position$_{(2)}$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ & \\ [0.5ex] 
+            \hline
+             & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\ [0.5ex] 
+            \hline
+            Équivalent$_{(10)}$ & 1 x $2^6$ & 0 x $2^5$ & 0 x $2^4$ & 1 x $2^3$ & 0 x $2^2$ & 0 x $2^1$ & 0 x $2^0$ & \\ [0.5ex]     
+            \hline
+            Valeurs$_{(10)}$ & 64 & 0 & 0 & 8 & 0 & 0 & 0 & = \textbf{72} \\ [0.5ex]
+            \hline
+            \end{tabular}}
+            
+            
             Rappel: Les valeurs en hexadécimale (base 16)\\
             \begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
             \hline
@@ -221,6 +322,29 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
             0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ [0.5ex] 
             \hline
         \end{tabular}
+        
+        Exemple de conversion : 123$_{(10)}$ = ...$_{(2)}$\\
+        
+        $2^0 = 1 < 123$\qquad
+        $2^1 = 2 < 123$\qquad
+        $2^2 = 4 < 123$\qquad
+        $2^3 = 8 < 123$\qquad
+        $2^4 = 16 < 123$\qquad
+        $2^5 = 32 < 123$\qquad
+        $2^6 = 64 < 123$\qquad
+        $2^7 = 128 > 123$\\
+        
+        $123 / 2 = 61$ avec un reste de \textbf{1} (premier chiffre en partant de droite)\\
+        $61 / 2 = 30$ avec un reste de \textbf{1}\\
+        $30 / 2 = 15$ avec un reste de \textbf{0}\\
+        $15 / 2 = 7$ avec un reste de \textbf{1}\\
+        $7 / 2 = 3$ avec un reste de \textbf{1}\\
+        $3 / 2 = 1$ avec un reste de \textbf{1}\\
+        $1 / 2 = 0$ avec un reste de \textbf{1} (dernier chiffre en partant de droite)\\\
+        
+        123$_{(10)}$ = \textbf{1111011$_{(2)}$}\\
+        
+        
     \end{conseil}
     \begin{solution} \textbf{7.1}\\
         Calcul du résultat en base 2:\\
@@ -232,12 +356,14 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{solution}
     
     \begin{solution} \textbf{7.2}\\
-        Calcul du résultat en base 2:\\
-        111111$_{(2)}$ - 000001$_{(2)}$ = 111110$_{(2)}$\\\\
-        Conversion en base décimale:\\
-        111110$_{(2)}$ = 62$_{(10)}$\\\\
-        Réponse :\\
-        111111$_{(2)}$ - 000001$_{(2)}$ = \textbf{62$_{(10)}$}\\
+        Conversion de 001000$_{(2)}$ en base 10 :\\
+        001000$_{(2)}$ = $2^3$ = 64$_{(10)}$\\
+        
+        Calcul du résultat en base 10:\\
+        64$_{(10)}$ - 64$_{(10)}$ = 0$_{(10)}$\\\\
+        
+        Réponse : \\
+        64$_{(10)}$ - 001000$_{(2)}$ = \textbf{0$_{(10)}$}
 
     \end{solution}
     
@@ -248,11 +374,18 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         4095$_{(10)}$ - 127$_{(10)}$ = 3968$_{(10)}$\\\\
         Convertir 3968$_{(10)}$ en base binaire :\\
         En commençant par zéro, augmentez 2 à des puissances entières de plus en plus grandes jusqu'à ce que le résultat dépasse 3968.\\
-        Déterminez les puissances de 2 qui seront utilisées comme les places des chiffres dans la représentation en base 2 de 3968 :
-        \begin{figure}[h]
-            \includegraphics[width=0.66\textwidth]{img/7-3.png}
-        \end{figure}
+        Déterminez les puissances de 2 qui seront utilisées comme les places des chiffres dans la représentation en base 2 de 3968 :\\
 
+        \addvbuffer[0pt 10pt]{\begin{tabular}{| C{0.06\textwidth} | C{0.06\textwidth} | C{0.06\textwidth} | C{0.04\textwidth} | C{0.04\textwidth} | C{0.04\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} | C{0.035\textwidth} |} 
+            \hline
+             $2^{12}$ & $2^{11}$ & $2^{10}$ & $2^9$ & $2^8$ & $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^{3}$ & $2^2$ & $2^1$ & $2^0$\\ [0.5ex]
+            \hline
+            $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$\\ [0.5ex] 
+            \hline
+            4096 & 2048 & 1024 & 512 & 256 & 128 & 64 & 32 & 16 & 8 & 4 & 2 & 1\\ [0.5ex]
+            \hline
+        \end{tabular}}
+        
         Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $2^0$) grâce au reste de la divsion entière.\\
         3968 / 2 = 1984 avec un reste de \textbf{0}\\
         Divisez la partie numérique entière du quotient précédent, 1984, par 2 et trouvez le reste. Le reste est le chiffre suivant (correspondant à $2^1$):\\
@@ -359,7 +492,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     Quel est résultat de l'opération?
 \end{Exercice}
 
-\begin{conseil}
+\begin{conseil} 
     
 \end{conseil}
 \begin{solution}
