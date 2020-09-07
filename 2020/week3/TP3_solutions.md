@@ -161,7 +161,11 @@ print("Bonjour, je m'appelle %s et j'ai %d ans." % (prénom,age))
 
 
 2.4 Fonction type()
+<<<<<<< HEAD
+Vous pouvez contrôler le type de vos vraiables via la fonction type(). Déclarez deux variable `nom` (string) et `age` (int), puis imprimmez le type de chacune de ces deux variables
+=======
 Vous pouvez contrôler le type de vos variables via la fonction type(). Déclarez deux variable `nom` (string) et `age` (int), puis imprimmez le type de chacune de ces deux variables
+>>>>>>> master
 (3min)
 
 ```sh
