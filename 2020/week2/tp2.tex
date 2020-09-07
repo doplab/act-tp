@@ -14,8 +14,9 @@
 Le but de cette séance est de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et des librairies.
 Les exercices présentés au cours de cette séance se présentent sous deux sections. Une section composée de questions à choix multiples et une section permettant de découvrir et se familiariser avec votre futur environnement de travail.
 
-\begin{section}{Systèmes d'exploitation}
 
+\begin{section}{Systèmes d'exploitation}
+    
 Le système d'exploitation (OS) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
 \\\\
 L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers dans les disques durs internes ou externes.
@@ -35,7 +36,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
 
     \begin{Exercice}[5 minutes]
-        Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la mauvaise réponse.
+        Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
             \item Servir d'interface de communication entre la partie logicielle et matérielle
             \item Gérer les ressources physiques de l'ordinateur
@@ -66,10 +67,27 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puissance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
         \end{solution}
     \end{Exercice}
+
+    \begin{Exercice}[5 minutes]
+        Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
+        \begin{enumerate}
+            \item Liste l'ensemble des fichiers du disque.
+            \item Affiche sous forme de liste l'ensemble des processus en cours.
+            \item Retourne uniquement les dossiers du répertoire courant.
+            \item Affiche tous les dossiers et fichiers du répertoire courant.
+            \item Aucune réponse n'est correcte.
+        \end{enumerate}
+        \begin{solution}
+            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher le contenu du répertoire courant.
+        \end{solution}
+        \begin{conseil}
+            Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
+        \end{conseil}
+    \end{Exercice}
 \end{section}
 
 \begin{section}{Prise en main de l'environnement de travail}
-    \subsection{Installation des outils (30 minutes)}
+    \subsection{Installation des outils \textit{(\faClock \enskip 30 minutes)}} 
         Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. //TODO: Lien vers le document prerequisite.
 \end{section}
 
@@ -113,7 +131,6 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. ``Notepad'' est installé par défaut sous Windows.
         \end{itemize}
     \end{conseil}    
-    
 
 \end{section}
 
