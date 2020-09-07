@@ -141,6 +141,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         \item 127$_{(10)}$ + ABC$_{(16)}$ = ...$_{(8)}$
     \end{enumerate}
     \begin{conseil}
+        Calculez à l'aide du tableau d'addition binaire ci-dessus ou une autre méthode que vous préférez.\\
         Additionnez les nombres dans la même base puis convertissez les dans la base souhaitée.\\\\
         Rappel: Les valeurs en hexadécimale (base 16)\\
         \begin{tabular}{| C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} | C{0.030\textwidth} |} 
@@ -195,7 +196,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
 
     $8^3$   $8^2$   $8^1$   $8^0$ \\
 
-    Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $8^0$) avec le reste de la divsion entière.\\
+    Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $8^0$) grâce au reste de la divsion entière.\\
     2875\8 = 359 avec un reste de \textbf{3}\\\\
     Divisez la partie numérique entière du quotient précédent, 359, par 8 et trouvez le reste. Le reste est le chiffre suivant (correspondant à $8^1$):\\
     359\8 = 44 avec un reste de \textbf{7}\\\\
@@ -216,11 +217,72 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         \item FFF$_{(10)}$ - 127$_{(10)}$ = ...$_{(2)}$
     \end{enumerate}
     \begin{conseil}
-        TODO: Conseils pour convertir puis soustraire des nombres de bases différentes.
+            Calculez à l'aide du tableau de soustraction binaire ci-dessus ou une autre méthode que vous préférez.\\
     \end{conseil}
     \begin{solution}
         Présenter les étapes détaillées permettant d'aboutir à la solution.
     \end{solution}
+
+    \textbf{\\ \faTerminal  Solutions:}
+    
+    \textbf{1.}\\
+    Calcul du résultat en base 2:\\
+    101010$_{(2)}$ - 010101$_{(2)}$ = 1000000$_{(2)}$\\\\
+    Conversion en base décimale:\\
+    1000000$_{(2)}$ = 64$_{(10)}$\\\\
+    Réponse:\\
+    101010$_{(2)}$ - 010101$_{(2)}$ = \textbf{64$_{(10)}$}\\
+    
+    \textbf{2.}\\
+    Calcul du résultat en base 2:\\
+    111111$_{(2)}$ - 000001$_{(2)}$ = 111110$_{(2)}$\\\\
+    Conversion en base décimale:\\
+    111110$_{(2)}$ = 62$_{(10)}$\\\\
+    Réponse :\\
+    111111$_{(2)}$ - 000001$_{(2)}$ = \textbf{62$_{(10)}$}\\
+
+    \textbf{3.}\\
+    Conversion de FFF$_{(16)}$ en base 10:\\
+    FFF$_{(16)}$ = 1095$_{(10)}$\\\\
+    Calcul en base décimale:\\
+    4095$_{(10)}$ - 127$_{(10)}$ = 3968$_{(10)}$\\\\
+    Convertir 3968$_{(10)}$ en base binaire :\\
+    En commençant par zéro, augmentez 2 à des puissances entières de plus en plus grandes jusqu'à ce que le résultat dépasse 3968.\\
+    Déterminez les puissances de 2 qui seront utilisées comme les places des chiffres dans la représentation en base 2 de 3968 :
+    \begin{figure}[h]
+        \includegraphics[width=0.66\textwidth]{img/7.3.png}
+    \end{figure}
+
+    Déterminez la valeur du premier chiffre en partant de la droite (correspondant à $2^0$) grâce au reste de la divsion entière.\\
+    3968 / 2 = 1984 avec un reste de \textbf{0}\\
+    Divisez la partie numérique entière du quotient précédent, 1984, par 2 et trouvez le reste. Le reste est le chiffre suivant (correspondant à $2^1$):\\
+    1984 / 2 = 992 avec un reste de \textbf{0}\\
+    Ainsi de suite... Pour $2^2$\\
+    992 / 2 = 496 avec un reste de \textbf{0}\\
+    Pour $2^3$\\
+    496 / 2 = 258 avec un reste de \textbf{0}\\
+    Pour $2^4$\\
+    258 / 2 = 124 avec un reste de \textbf{0}\\
+    Pour $2^5$\\
+    124 / 2 = 62 avec un reste de \textbf{0}\\
+    Pour $2^6$\\
+    62 / 2 = 31 avec un reste de \textbf{0}\\
+    Pour $2^7$\\
+    31 / 2 = 15 avec un reste de \textbf{1}\\
+    Pour $2^8$\\
+    15 / 2 = 7 avec un reste de \textbf{1}\\
+    Pour $2^9$\\
+    7 / 2 = 3 avec un reste de \textbf{1}\\
+    Pour $2^10$\\
+    3 / 2 = 1 avec un reste de \textbf{1}\\
+    Pour $2^11$\\
+    1 / 2 = 0 avec un reste de \textbf{1}\\\\
+
+    FFF$_{(16)}$ = 111110000000$_{(2)}$\\\\
+
+    Réponse:\\
+    FFF$_{(16)}$ - 127$_{(10)}$ = \textbf{111110000000$_{(2)}$}
+
 \end{Exercice}
 
 
