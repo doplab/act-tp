@@ -24,11 +24,12 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
 
     \begin{conseil}
         Vous pouvez utiliser la table de puissance de 2 pour vous aider ! \\
+        TODO: Ajouter la table de puissance de 2.
         
-        Useful link: http://www.circuits-logiques.polymtl.ca/help/Chapitre05.pdf
+        %Useful link: http://www.circuits-logiques.polymtl.ca/help/Chapitre05.pdf
     \end{conseil}
     \begin{solution}
-        Il existe 2 méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2. Ici le nombre 45 sera entièrement développé  \\
+        Il existe 2 méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2. Ici le nombre 45 sera entièrement développé. \\
         
         
         \textbf{Méthode 1 :} \\
@@ -95,7 +96,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \end{enumerate}
 
     \begin{conseil}
-        Vous pouvez réutiliser les méthodes présentées dans la solution du premier exercie \\
+        Vous pouvez réutiliser les méthodes présentées dans la solution du premier exercice. \\
         
         N'oubliez pas qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
     \end{conseil}
@@ -212,7 +213,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \end{conseil}
     
     \begin{solution}
-        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à aditionner chaque ligne (si vous aditionnez de haut en bas, n'oubliez pas d'entrer les nombres à aditionner de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par aditionner la fin des nombres, comme lors d'une addition en colonne). Si l' addition vaut 1, le résultat est 1 et le reste est 0. Si l'addition vaut 2, le résultat est 0 et le reste est 1. Si l'addition vaut 3, le résultat est 1 et le reste est 1. N'oubliez pas d' aditionner également le reste à chaque ligne ! \\
+        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque ligne (si vous additionnez de haut en bas, n'oubliez pas d'entrer les nombres à additionner de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par additionner la fin des nombres, comme lors d'une addition en colonne). Si l' addition vaut 1, le résultat est 1 et le reste est 0. Si l'addition vaut 2, le résultat est 0 et le reste est 1. Si l'addition vaut 3, le résultat est 1 et le reste est 1. N'oubliez pas d' additionner également le reste à chaque ligne ! \\
         
 Voici un exemple pour le deuxième point : \\
 
@@ -352,7 +353,7 @@ Voici un exemple pour le deuxième point : \\
 
 
 \newpage
-\section{Modèle de Von Neuman}
+\section{Modèle de Von Neumann}
 Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Van Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
 \textbf{État d'origine:}\\
@@ -407,7 +408,15 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 
 
 \begin{Exercice}[5 minutes]\textbf{Fetch}\\
-    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Process Counter} et de l'\lstinline{Instruction Register}?
+    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Program Counter} et de l'\lstinline{Instruction Register}?
+
+    \begin{conseil}
+        Pour rappel, l'\textbf{unité de contrôle (Control Unit)} commande et contrôle le fonctionnement du système. Elle est chargée du \textbf{séquençage} des opérations. Après chaque opération \lstinline{FETCH}, la valeur du \textbf{Program Counter} est incrémentée (valeur initiale + 1).
+    \end{conseil}
+
+    \begin{solution}
+        À la fin de l'opération \lstinline{Fetch}, le \lstinline{Program Counter} vaudra \lstinline{00100001} tandis que l'\lstinline{Instruction Register} vaudra \lstinline{10110110}, ce qui correspond à la valeur de l'adresse mémoire \lstinline{00100000}.
+    \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Decode}
@@ -417,17 +426,44 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
         \item Quelle est la valeur du premier nombre de l'opération?
         \item Quelle est la valeur du deuxième nombre de l'opération?
     \end{enumerate}
+
+    \begin{conseil}
+        Pensez à décomposer la valeur de l'\lstinline{Instruction Register} pour obtenir toutes les informations demandées. \\
+        Les données issues de la décomposition de l'\lstinline{Instruction Register} ne sont pas des valeurs, mais des références. Trouver les tables concordantes pour y récupérer les valeurs.
+    \end{conseil}
+
+    \begin{solution}
+        En décomposant l'\lstinline{Instruction Register} (10110110), on obtient les données suivantes:
+        \begin{itemize}
+            \item \lstinline{10}, correspond à l'opération à effectuer,
+            \item \lstinline{11}, correspond à \textbf{l'adresse} du registre où sera sauvegardé le résultat,
+            \item \lstinline{01}, correspond à \textbf{l'adresse} du premier nombre,
+            \item \lstinline{10}, correspond à \textbf{l'adresse} du deuxième nombre.\\
+        \end{itemize}
+        
+    À partir de ces informations, on peut répondre aux questions posées:
+       \begin{enumerate}
+           \item Valeur de l'opération: \lstinline{ADD}
+           \item Adresse du registre dans lequel le résultat doit être enregistré: \lstinline{11}
+           \item Premier nombre de l'opération: \lstinline{01101100}
+           \item Deuxième nombre de l'opération: \lstinline{00100101}
+       \end{enumerate}
+    \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Execute}\\
     Quel est résultat de l'opération?
+    \begin{conseil}
+        Toutes les informations permettant d'effectuer l'opération se trouvent dans les données de l'\lstinline{Instruction Register}.
+    \end{conseil}
+    \begin{solution}
+        \begin{tabular}{ccccccccc}
+            & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 \\
+          + & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+          \hline
+            & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} \\
+          \end{tabular}
+    \end{solution}
 \end{Exercice}
-
-\begin{conseil}
-    
-\end{conseil}
-\begin{solution}
-    Présenter les étapes détaillées permettant d'aboutir à la solution.
-\end{solution}
 
 \end{document}
