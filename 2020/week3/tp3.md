@@ -946,7 +946,7 @@ output 4
   
   2. On rentre dans le case 9, qui contient un break. Le numero_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas succédants ne seront pas traités.
   
-### Question 5.2 Conditionnal branching in python
+### 5.2 Conditionnal branching in python
   
   Qu'affiche le code suivant ? (5min)
   
