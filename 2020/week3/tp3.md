@@ -98,14 +98,20 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   
  1. Voici l'exemple du cours expliqué étape par étape:
  
-  | Chiffre | bit 7 | bit 6 | bit 5 | bit 4 | bit 3 | bit 2 | bit 1 | bit 0 |
+  | Chiffre et étape | bit 7 | bit 6 | bit 5 | bit 4 | bit 3 | bit 2 | bit 1 | bit 0 |
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-  | (87)<sub>10</sub> | 0 | 1 | 0 | 1 | 0 | 1 | 1 | 1 |    # Cette étape est la conversion d'un entier positif de base 10 en base 2.
-  | (-87)<sub>10</sub> | not | not | not | not | not | not | not | not |  # Comme pour le complément à 1 on prend l'opposé de chaque bit.
-  | (-87)<sub>10</sub> | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |    # On ajoute 1 au bit 0 pour passer à l'étape d'après qui est le complément à 2 de (-87)<sub>10</sub>
+  | (87)<sub>10</sub>, étape 1 | 0 | 1 | 0 | 1 | 0 | 1 | 1 | 1 |    
+  | (-87)<sub>10</sub>, étape 2 | not | not | not | not | not | not | not | not |  
+  | (-87)<sub>10</sub>, étape 3 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |   
   | (-87)<sub>10</sub> | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 1 |
   | (-87)<sub>10</sub> | (-1) * 2<sup>7</sup> | 0 * 2<sup>6</sup>| 1 * 2<sup>5</sup>| 0 * 2<sup>4</sup> | 1 * 2<sup>3</sup> | 0 * 2<sup>2</sup> | 0 * 2<sup>1</sup> | 1 * 2<sup>0</sup>|
  
+   1. Cette étape est la conversion d'un entier positif de base 10 en base 2.
+   
+   2. Comme pour le complément à 1 on prend l'opposé de chaque bit.
+   
+   3. On ajoute 1 au bit 0 pour passer à l'étape d'après qui est le complément à 2 de (-87)<sub>10</sub>
+   
  2. Il faut regarder si la portée a été modifiée grâce à cette représentation.
   
   
