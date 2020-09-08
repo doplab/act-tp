@@ -54,7 +54,7 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
   Le tableau doit être lu de droite à gauche
   
-  Donc l'expression de (-113)<sub>10</sub> en utilisant la méthode de "signed integers" est (11110001)<sub>2</sub>.
+  Donc l'expression de (-113)<sub>10</sub> en utilisant la représentation d'entiers signés est (11110001)<sub>2</sub>.
   
 
 **Question 3: Complément à 1 ( 5 minutes)** 
@@ -117,41 +117,53 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
   | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
   
-  2. Il n'y a plus qu'une représentation possible pour -0<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle range est donc: range = [-128<sub>10</sub>,+127<sub>10</sub>] 
+  2. Il n'y a plus qu'une représentation possible pour (-0)<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle portée est donc: portée = [-128<sub>10</sub>,+127<sub>10</sub>] 
   
  **Question 5: Floating point ( 10 minutes)**
   
-  Que vaut en base 10 le chiffre binaire suivant d'après la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule.
+  Voici la représentation en binaire d'un nombre réel:
   
-  | Sign | Exponent | Mantissa |
+  | Signe | Exposant | Mantisse |
   | --------- | --------- | --------- | 
   | 0 | 10110101 | 01000001000000000000001 |
   
-  **Hint:** Poser chaque calcul, et ensuite tout fusionner avec la formule. Utilisez la page 14 de la semaine 3 comme exemple.
+  Que vaut en base 10 la représentation précédente en utilisant la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule.
+  
+  **Hint:** 
+  * Se référer à la diapositive 14 de la semaine 3 pour plus de détails.
+  
+  * Poser chaque calcul, et ensuite tout fusionner avec la formule. 
+  
+  * L'exposant et la mantisse sont des entiers positif, donc non signé.
+  
   
   **Solution:**
   
-  *sign* = 0 --> (-1)<sup>sign</sup> = (-1)<sup>0</sup> = 1
+  *signe* = 0 --> (-1)<sup>sign</sup> = (-1)<sup>0</sup> = 1
   
-  *e* = exponent =  1 * 2<sup>7</sup> + 0 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 181
+  *e* = exposant =  1 * 2<sup>7</sup> + 0 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 1 * 2<sup>4</sup> + 0 * 2<sup>3</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>0</sup> = 181
   
   *2<sup>e-127</sup>* = 2<sup>181-127</sup> = 2<sup>54</sup>
   
-  mantissa = 01000001000000000000001 = 1 + 0 * 2<sup>-1</sup> + 1 * 2<sup>-2</sup> + 0 * 2<sup>-3</sup> + (...) + 1 * 2<sup>-8</sup> + 1 * 2<sup>-23</sup> = 1.254
+  mantisse = 01000001000000000000001 = 1 + 0 * 2<sup>-1</sup> + 1 * 2<sup>-2</sup> + 0 * 2<sup>-3</sup> + (...) + 1 * 2<sup>-8</sup> + 1 * 2<sup>-23</sup> = 1.254
   
   Donc Valeur = (+1) * 1.254 * 2<sup>54</sup> = 2.259 * 10<sup>16</sup>
   
  **Question 6: Conversion d'un nombre binaire au format complément à 2 ( 5 minutes)**
  
-   Voici un nombre binaire exprimé sur 8 bit au format complément à 2: 10010011
+   Voici un nombre binaire exprimé sur 8 bits au format complément à 2: (10010011)<sub>2</sub>
 
    Convertir ce nombre en base 10.
 
-   **Hint:** Utilisez le même tableau que dans les premières questions
+   **Hint:** 
+   
+   * Utilisez le même tableau que dans les premières questions.
+   
+   * On applique le processus inverse au complément à deux. C'est à dire faire les opérations sur le nombre binaire dans le sens inverse que dans les questions 3 et 4.
 
    **Solution:**
    
-   Il faut appliquer le processus inverse qu'à la question 4 et 3. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Puis il faut convertir cette valeur en base 10 et enfin prendre son inverse.
+   Il faut appliquer le processus inverse qu'à la question 3 et 4. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Puis il faut convertir cette valeur en base 10 et enfin prendre son inverse.
    
    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -159,15 +171,15 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
    | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
    | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
    
-   01101101 = 1 + 4 + 8 + 32 + 64 = 109<sub>10</sub>
+   01101101 = 1 + 4 + 8 + 32 + 64 = (109)<sub>10</sub>
    
-   Le nombre est donc -109<sub>10</sub>
+   Le nombre est donc (-109)<sub>10</sub>
  
-## Exercice 2: Conditionnal branching ( 10 minutes)
+## Exercice 2: Conditions ( 10 minutes)
 
-  Le but de cet exercice est d'entrainer la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le conditionnal branching.
+  Le but de cet exercice est d'entrainer la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le branchement conditionnel.
   
-  **Question 1: Conditionnal branching in java (5 minutes)**
+  **Question 1: Branchement conditionnel en java (5 minutes)**
   
    Qu'affiche le code suivant ?
    
@@ -239,7 +251,9 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   Décembre 
   
  __Explication:__ 
+  
   1. Comme la case 7 ne contient pas de break et modifie numero_mois, la lecture du code va continuer.
+  
   2. On rentre dans le case 9, qui contient un break. Le numero_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas succédants ne seront pas traités.
   
   **Question 2: Conditionnal branching in python (5 minutes)**
@@ -251,28 +265,23 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   ```Python
   
       name = "Garbinato"
-      if name == "Diallo":
-          print("Alpha")
-      elif name == "Michelet":
+      assistant = "Diallo"
+      lesson = "ACT"
+      if ((name == "Diallo") or not(name == "Garbinato")) and (lesson = "ACT"):
+          print("Alpha et Garbinato")
+      elif ((name == "Michelet") and (lesson = "ACT")) or ( name == lesson):
           print("Gaëtan")
-      elif name == "Ballèvre":
-          print("Nathan")
-      elif name == "Schwab":
-          print("Johannes")
-      elif name == "Di Sanza":
-          print("Maeva")
-      elif name == "Kanda Bile":
-          print("Richard")
-      elif name == " Yasser Haddad":
+      elif (name == " Yasser Haddad" or assistant = "Diallo") and (lesson == "ACT and name == "Olivier"):
           print("Yann")
-      elif name == "Garbinato":
-          print("Teacher")
+      elif ((name == "Garbinato" or lesson == "INF") and assistant == " Diallo") or (lesson == "ACT" and name = "Diallo"):
+          print("Teacher" + " Algorithmique et pensée computationelle.")
       else:
           print("Benoît")
-      print("Algorithmique et pensée computationnelle")
+      
      
  ```
   **Hint:** 
+  
   1. Il faut vérifier la condition de chaque cas de manière linéaire.
   
   2. Une fois une condition vérifiée, toutes celles d'après ne sont pas traitées.
@@ -280,10 +289,16 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   **Solution:**
   Le code affiche:
   
-  Teacher
+  Teacher Algorithmique et pensée computationelle.
   
-  Algorithmique et pensée computationnelle
   
-  Explication:
-  1. Les 7 premières conditions ne sont pas vérifiées. Le premier print exécuté sera " print("Teacher") "
-  2. Le dernier print étant en dehors des if, else et elsif ( on peut le voir grâce à l'indentation), il sera forcément exécuté
+  **Explication**:
+  Ci-dessous, le résultat des propositions booléennes des if et elif:
+  
+  1. (False or False) and True = False 
+  
+  2. (False and True) or False = False 
+  
+  3. (False or True) and ( True and False) = True and False = False
+  
+  4. ((True or True) and True) or ( True and True) = True
