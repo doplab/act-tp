@@ -197,7 +197,7 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
   Donc la représentation en binaire de l'entier non signé (113)<sub>10</sub> est: (01110001)<sub>2</sub>
 
 
-### 2.2 Entiers signés négatifs ( 2 minutes)
+### 2.2 Entiers signés négatifs 
 
   En utilisant le résultat de la question précédente, écrire sur 8 bits -113<sub>10</sub> en base binaire. (2min)
 
