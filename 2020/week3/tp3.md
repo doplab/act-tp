@@ -172,7 +172,7 @@ Le premier code va soulever une Type error, même si la fonction n'est jamais ap
 
 Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou elle sera executée. Si on change le True en False, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.
 
-### Exercice 1: Représentation de nombres entier ( 30 minutes)
+### Exercice 2: Représentation de nombres entier ( 30 minutes)
 
 ### 2.1 Entiers non signés
 
@@ -903,7 +903,6 @@ output 4
                   numero_mois = 9 ;
         case 8:
                   System.out.println("Août");
-                  break;
         case 9:
                   if (numero_mois == 8){
                     System.out.println("Septembre");
@@ -931,13 +930,16 @@ output 4
   
   1. Break indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités. 
   
-  2. Lorsque l'on pose "case n" où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères ( par exemple si numero_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
+  2. L'absence de break indique que l'on va rentrer dans tous les cas suivants.
+  
+  3. Lorsque l'on pose "case n" où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères ( par exemple si numero_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
   
 #### Solutions
   
   Le code va donc afficher:
   
-  Juillet 
+  Juillet
+  Août
   Décembre 
   
 #### Explications 
