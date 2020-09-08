@@ -25,9 +25,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 \\
 
     \begin{Exercice}[5 minutes]  \textbf{QCM}\\
-    Lequel de ces logiciels n'est pas un système d'exploitation?
+    Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
-            \item Microsoft Office 2012
+            \item \textbf{Microsoft Office 2012}
             \item Microsoft Windows 98
             \item Unix BSD
             \item Gentoo
@@ -41,7 +41,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Servir d'interface de communication entre la partie logicielle et matérielle.
             \item Gérer les ressources physiques de l'ordinateur.
             \item Fournir les mécanismes d'abstraction du matériel.
-            \item Interpréter les instructions et les convertir en binaire.
+            \item \textbf{Interpréter les instructions et les convertir en binaire}.
             \item Aucune de ces réponses.
         \end{enumerate}
     \end{Exercice}
@@ -51,9 +51,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
         \begin{enumerate}
             \item Le clavier et la souris.
             \item Le processeur.
-            \item La carte réseau ou le port éthernet .
-            \item La RAM.
-            \item Aucune de ces réponses.
+            \item La carte réseau ou le port Ethernet.
+            \item La mémoire vive (RAM).
+            \item \textbf{Aucune de ces réponses}.
         \end{enumerate}
     \end{Exercice}
     \begin{solution}
@@ -65,7 +65,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \begin{Exercice}[5 minutes]
         Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
         \begin{enumerate}
-            \item Temps d'utilisation active de l'ensemble des cores du processeur.
+            \item \textbf{Temps d'utilisation active de l'ensemble des cores du processeur.}
             \item Temps réel d'utilisation d'une partie des ressources du processeur.
             \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
             \item Temps maximum dédié à un processus particulier.
@@ -89,7 +89,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Liste l'ensemble des fichiers du disque.
             \item Affiche sous forme de liste l'ensemble des processus en cours.
             \item Retourne uniquement les dossiers du répertoire courant.
-            \item Affiche tous les dossiers et fichiers du répertoire courant.
+            \item \textbf{Affiche tous les dossiers et fichiers du répertoire courant.}
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
@@ -101,10 +101,10 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
     
      \begin{Exercice}[5 minutes]  \textbf{QCM}\\
-    Parmis les éléments suivants, lequel n'est pas géré par le filesystem ?
+    Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (filesystem)?
         \begin{enumerate}
             \item L'organisation des dossiers.
-            \item l'écriture et la lecture sur les disques.
+            \item \textbf{L'écriture et la lecture sur les disques.}
             \item Les différents chemins d'accès aux différents dossiers et fichiers.
             \item L'organisation des fichiers.
             \item Aucune de ces réponses.
@@ -112,9 +112,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
     
     \begin{solution}
-        l'écriture et la lecture sur les disques. \\
+        L'écriture et la lecture sur les disques. \\
 	
-	En effet, c'est élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation des fichiers et dossiers. \\ 
+	En effet, cet élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation des fichiers et dossiers. \\ 
     \end{solution}
     
 \end{section}
@@ -149,7 +149,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \end{tabular}
     \\\\
     \begin{Exercice}[10 minutes]
-        En utilisant l'invite de commande (Terminal), créer un fichier contenant l'instruction suivante:
+        En utilisant l'invite de commande (Terminal), créer un fichier contenant les instructions suivantes:
         \begin{lstlisting}
             if __name__ == "__main__":
                 print("Hello world")\end{lstlisting}
@@ -158,13 +158,13 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \begin{conseil}
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
-            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS et Linux, nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. ``Notepad'' est installé par défaut sous Windows.
         \end{itemize}
     \end{conseil}    
 \end{section}
 \begin{section}{Librairies}
-    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interragir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
+    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interagir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
 \\\\
 En Python, de nombreuses librairies sont disponibles de base (list, set, dict, str, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
 \\\\
