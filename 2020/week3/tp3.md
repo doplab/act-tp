@@ -13,11 +13,13 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
 ## Exercice 1: Représentation de nombres entier ( 30 minutes)
 
-**Question 1: Unsigned int ( 5 minutes)** 
+**Question 1: Entiers non signés ( 5 minutes)** 
 
-  Sur 8 bit écrire 113<sub>10</sub> en base binaire.
+  Sur 8 bits écrire (113)<sub>10</sub> en base binaire.
 
-  **Hint:** Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
+  **Hint:** 
+  
+  * Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
 
   **Solution:** 
   1. Décomposer le nombre en une somme de puissances de 2.
@@ -30,14 +32,19 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
   | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 
-  Donc la représentation en binaire de l'entier non signé 113 est: 01110001
+  Donc la représentation en binaire de l'entier non signé (113)<sub>10</sub> est: (01110001)<sub>2</sub>
 
 
-**Question 2: Signed integers with signed magnitude ( 2 minutes)**
+**Question 2: Entiers signés négatifs ( 2 minutes)**
 
-  En utilisant le résultat de la question précédente, écrire sur 8 bit -113<sub>10</sub> en base binaire 
+  En utilisant le résultat de la question précédente, écrire sur 8 bits -113<sub>10</sub> en base binaire.
 
-  **Hint:** Pour cette représentation, on réserve le 7ème bit pour le signe.
+  **Hint:** 
+  
+  * Pour cette représentation, on réserve le 7ème bit pour le signe. 
+ 
+  * Le bit vaut 0 pour un nombre positif et 1 pour un nombre négatif.
+  
 
   **Solution:**
 
@@ -45,18 +52,21 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
   | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 
-  Donc l'expression de -113 en utilisant la méthode de "signed integers" est 11110001
+  Le tableau doit être lu de droite à gauche
+  
+  Donc l'expression de (-113)<sub>10</sub> en utilisant la méthode de "signed integers" est (11110001)<sub>2</sub>.
+  
 
 **Question 3: Complément à 1 ( 5 minutes)** 
 
   Ecrire le complément à 1 de -113<sub>10</sub>. 
 
-  Qu'elle est la différence entre cette méthode par rapport à celle précédente ?
+  Qu'elle est la différence entre cette méthode par rapport à la précédente ?
 
   **Hint:** 
-
-  1. En programmation l'opposé d'une variable est not( la variable). Ici, le même principe s'applique. L'opposé de 0 en binaire est...
-  2. Comment peut-on exprimer 0 dans cette méthode ?
+ 
+  1. En programmation l'opposé d'une variable est not( la variable). Ici, le même principe s'applique. L'opposé de 0 en binaire est 1. 
+  2. Pour étudier la différence, il faut regarder les différenttes manières d'exprimer -0 en binaire ( se référer à la page 10 de la semaine 3).
 
 
 
@@ -71,24 +81,37 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 
   2. La portée de cette méthode ne change pas par rapport à celle précédente. Par contre, l'expression de -0 sera différente. 
 
-  **Signed magnitude:** -0<sub>10</sub> = 10000000<sub>2</sub>
+  **Signed magnitude:** (-0)<sub>10</sub> = (10000000)<sub>2</sub>
 
-  **Complément à 1:** -0<sub>10</sub> = 11111111<sub>2</sub>
+  **Complément à 1:** (-0)<sub>10</sub> = (11111111)<sub>2</sub>
 
-  Both have the same range: range = [-127<sub>10</sub>,+127<sub>10</sub>] 
+  Les deux ont la même portée: portée = [-127<sub>10</sub>,+127<sub>10</sub>] 
 
 
 **Question 4: Complément à 2 ( 3 minutes)**
   
-  Quel est le complément à 2 de -113<sub>10</sub> ?
+  Quel est le complément à 2 de (-113)<sub>10</sub> ?
   
   Quelle est l'utilitée de cette représentation ?
   
-  **Hint:** Chaque représentation est-elle unique ?
+  **Hint:** 
+  
+ 1. Voici l'exemple du cours expliqué étape par étape:
+ 
+  | Chiffre | bit 7 | bit 6 | bit 5 | bit 4 | bit 3 | bit 2 | bit 1 | bit 0 |
+  | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+  | (87)<sub>10</sub> | 0 | 1 | 0 | 1 | 0 | 1 | 1 | 1 |    # Cette étape est la conversion d'un entier positif de base 10 en base 2.
+  | (-87)<sub>10</sub> | not | not | not | not | not | not | not | not |  # Comme pour le complément à 1 on prend l'opposé de chaque bit.
+  | (-87)<sub>10</sub> | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |    # On ajoute 1 au bit 0 pour passer à l'étape d'après qui est le complément à 2 de (-87)<sub>10</sub>
+  | (-87)<sub>10</sub> | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 1 |
+  | (-87)<sub>10</sub> | (-1) * 2<sup>7</sup> | 0 * 2<sup>6</sup>| 1 * 2<sup>5</sup>| 0 * 2<sup>4</sup> | 1 * 2<sup>3</sup> | 0 * 2<sup>2</sup> | 0 * 2<sup>1</sup> | 1 * 2<sup>0</sup>|
+ 
+ 2. Il faut regarder si la portée a été modifiée grâce à cette représentation.
+  
   
   **Solution:** 
   
-  1. Il faut ajouter un au complément à 1 de -113<sub>10</sub>. C'est à dire faire plus un à la colonne de 2<sup>0</sup>.
+  1. Il faut ajouter 1 au complément à 1 de -113<sub>10</sub>. C'est à dire faire plus 1 à la colonne de 2<sup>0</sup>.
   
   | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
