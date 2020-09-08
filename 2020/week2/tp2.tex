@@ -38,13 +38,29 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \begin{Exercice}[5 minutes]
         Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
-            \item Servir d'interface de communication entre la partie logicielle et matérielle
-            \item Gérer les ressources physiques de l'ordinateur
-            \item Fournir les mécanismes d'abstraction du matériel
-            \item Interpréter les instructions et les convertir en binaire
-            \item Toutes les réponses sont correctes.
+            \item Servir d'interface de communication entre la partie logicielle et matérielle.
+            \item Gérer les ressources physiques de l'ordinateur.
+            \item Fournir les mécanismes d'abstraction du matériel.
+            \item Interpréter les instructions et les convertir en binaire.
+            \item Aucune de ces réponses.
         \end{enumerate}
     \end{Exercice}
+    
+    \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    Avec lequel de ces éléments le système d'exploitation n'a aucune interaction ?
+        \begin{enumerate}
+            \item Le clavier et la souris.
+            \item Le processeur.
+            \item La carte réseau ou le port éthernet .
+            \item La RAM.
+            \item Aucune de ces réponses.
+        \end{enumerate}
+    \end{Exercice}
+    \begin{solution}
+            Aucune de ces réponses. \\
+	    
+	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware et avec tous les périphériques de l'ordinateur. \\
+    \end{solution}
 
     \begin{Exercice}[5 minutes]
         Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
@@ -84,6 +100,24 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
         \end{conseil}
     \end{Exercice}
+    
+     \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    Parmis les éléments suivants, lequel n'est pas géré par le filesystem ?
+        \begin{enumerate}
+            \item L'organisation des dossiers.
+            \item l'écriture et la lecture sur les disques.
+            \item Les différents chemins d'accès aux différents dossiers et fichiers.
+            \item L'organisation des fichiers.
+            \item Aucune de ces réponses.
+        \end{enumerate}
+    \end{Exercice}
+    
+    \begin{solution}
+        l'écriture et la lecture sur les disques. \\
+	
+	En effet, c'est élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation des fichiers et dossiers. \\ 
+    \end{solution}
+    
 \end{section}
 
 \begin{section}{Prise en main de l'environnement de travail}
