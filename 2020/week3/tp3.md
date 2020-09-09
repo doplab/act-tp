@@ -231,7 +231,7 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage 
 
 ### 2.3 Complément à 1 
 
-  Ecrire le complément à 1 de **-113<sub>(10)</sub>**. 
+  Ecrire le complément à 1 de **-113<sub>(10)</sub>** .
 
   Qu'elle est la différence entre cette méthode par rapport à la précédente ? (5min)
 
