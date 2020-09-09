@@ -213,7 +213,11 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage 
   <!--
     TODO: Etoffer les conseils pour permettre à l'étudiant de faire l'exercice tout seul
   -->
-  * Pour cette représentation, on réserve le 7ème bit pour le signe. 
+  * Il faut prendre la représentation sur 7 bits d'un nombre entier non signé. 
+  
+  * On rajoute un 8ème bit qui sera le signe.
+
+  * Pour cet exercice reprendre l'expression non signée de la question 2.1 et changer le dernier bit en conséquence.
  
   * Le bit vaut 0 pour un nombre positif et 1 pour un nombre négatif.
   
@@ -262,7 +266,7 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage 
 
 ### 2.4 Complément à 2 
   
-  Quel est le complément à 2 de **-113<sub>(10)</sub> **et quelle est l'utilité de cette représentation ? (3min)
+  Quel est le complément à 2 de **-113<sub>(10)</sub>** et quelle est l'utilité de cette représentation ? (3min)
   
 #### Conseils
   
@@ -334,13 +338,13 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage 
 
 #### Conseils
    
-   * Utilisez le même tableau que dans les premières questions. <!-- TODO: Préciser le numéro de la question -->
+   * Utilisez le même tableau que dans les questions 2.3 et 2.4 en changeant la valeur en binaire. 
    
    * On applique le processus inverse au complément à deux. C'est-à-dire faire les opérations sur le nombre binaire dans le sens inverse que dans les questions 3 et 4.
 
 #### Solutions
    
-   Il faut appliquer le processus inverse qu'à la question 3 et 4. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et enfin prendre son inverse <!-- TODO: Reformuler cette partie: "enfin prendre son inverse" -->.
+   Il faut appliquer le processus inverse qu'à la question 2.3 et 2.4. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et puis multiplier par (-1)<sub>4</sub> <!-- TODO: Reformuler cette partie: "enfin prendre son inverse" -->.
    
    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -940,7 +944,7 @@ output 4
 ```
 #### Conseils
   
-  1. `break` indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités. 
+  1. `break` indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
   
   2. L'absence de `break` indique que l'on va rentrer dans tous les cas suivants.
   
