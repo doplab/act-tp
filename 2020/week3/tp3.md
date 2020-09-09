@@ -16,11 +16,11 @@ Les langages qui seront utilisés pour cette séance sont __Java__ et __Python__
 Le but de cette partie des travaux pratiques est de comprendre les notions de typage dynamique et statique, ainsi que leur impact sur l’exécution et la gestion des erreurs.
 
 ### 1.1
-Quelles sont les principaux types de variable (donnez en 3), et comment les déclareriez vous en __Python__ et en __Java__ ? (5 min)
+Quelles sont les principaux types de variable (donnez en 3), et comment les déclareriez vous en __Python__ et en __Java__ ? (5 minutes)
 
 #### Conseils:
 
-Plusieurs types de variables ont été présentées dans le cours.
+Se référer aux diapositives du cours ou à la documentation officielle de votre langage de programmation préféré.
 
 #### Solutions :
 
@@ -46,42 +46,47 @@ String s = "Hello World"
 boolean b = true
 ```
 
-Il existe d'autres types de variable, comme par exemple les cracartères (char) ou encore les double.
+Il existe d'autres types de variable, comme par exemple les chaînes de caractères (`String`) ou encore les `double`.
 
 ### 1.2	
-Parmi ces différents scripts, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs ? S'il y a une erreur, expliquez pourquoi. (5 min)
+Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs. (5 minutes)
 
 #### Conseils:
-
-Souvenez vous de la différence principale entre le typage des variables en Java et le typage en Python.
+<!-- TODO: Plus de détails sur les types en Java et Python -->
+~~Souvenez vous de la différence principale entre le typage des variables en Java et le typage en Python.~~
 
 
 __Java__
 
 ```Java
+// Programme 1
 int variable_1 = 0;
 int variable_2 = 3;
 variable_2 = variable_1;
 ```
 
 ```Java
+// Programme 2
 var variable_1 = 0;
 var variable_2 = "Hello";
 variable_2 = variable_1;
 ```
 
 ```Java
+// Programme 3
 int variable_1 = 0;
 String variable_2 = "Hello";
 variable_2 = variable_1;
 ```
 
 ```Java
+// Programme 4
 var variable_1 = 0;
 variable_1 = 3.14 ;
 ```
 
 ```Java
+// Programme 5
 var variable_1 = 0;
 String variable_2 = "Hello";
 String variable_3 = "World"
@@ -89,17 +94,20 @@ variable_2 = variable_3;
 ```
 
 ```Java
+// Programme 6
 int variable_1 = 0;
 variable_1 = 3.14 ;
 ```
 __Python__
 
 ```Python
+# Programme 7
 variable_1 = 0
 variable_2 = « Hello »
 variable_2 = variable_1
 ```
 ```Python
+# Programme 8
 variable_1 = 0
 variable_1 = 3.14
 ```
@@ -122,16 +130,16 @@ __Java__
 
 __Python__
 
-1) OK
+7) OK
 
-2) OK
+8) OK
 
 ### 1.3	
-Voici deux programmes, l’un en __Java__ et l’autre en __Python__. Chaque programme comporte une fonction nommée raise_error() levant une exception de type « Type_Error ». Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant l’un de ces deux codes soulèvera une erreur, et l’autre sera executé sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi. (5min)
+Voici deux programmes, l’un en __Java__ et l’autre en __Python__. Chaque programme comporte une fonction nommée `raise_error()` levant une exception de type `« Type_Error »`. Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes soulèvera une erreur, et l’autre sera exécuté sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi. (5min)
 
 #### Conseils:
 
-Souvenez vous de la différence principale entre le typage des variables en Java et le typage en Python et leur impact sur la compilation / l'interprétation.
+Pensez à vérifier le type des variables. Faites attention à la différence principale entre le typage des variables en Java et le typage en Python.
 
 __Java__
 ```Java
@@ -143,7 +151,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         if (true) {
             System.out.print("OK");
         }
@@ -168,15 +175,15 @@ else :
 
 #### Solutions :
 
-Le premier code va soulever une Type error, même si la fonction n'est jamais appelée. En java, le typage est dynamique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
+Le premier code va soulever une erreur de type `Type error`, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
 
-Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou elle sera executée. Si on change le True en False, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.
+Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le `True` en `False`, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.
 
 ### Exercice 2: Représentation de nombres entier ( 30 minutes)
 
 ### 2.1 Entiers non signés
 
-  Sur 8 bits écrire (113)<sub>10</sub> en base binaire. (5min)
+  Sur 8 bits écrire **113<sub>(10)</sub>** en base binaire. (5min)
 
 #### Conseils
   
@@ -199,10 +206,13 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
 
 ### 2.2 Entiers signés négatifs 
 
-  En utilisant le résultat de la question précédente, écrire sur 8 bits -113<sub>10</sub> en base binaire. (2min)
+  En utilisant le résultat de la question précédente, écrire sur 8 bits **-113<sub>(10)</sub>** en base binaire. (2min)
 
 ### Conseils
   
+  <!--
+    TODO: Etoffer les conseils pour permettre à l'étudiant de faire l'exercice tout seul
+  -->
   * Pour cette représentation, on réserve le 7ème bit pour le signe. 
  
   * Le bit vaut 0 pour un nombre positif et 1 pour un nombre négatif.
@@ -221,7 +231,7 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
 
 ### 2.3 Complément à 1 
 
-  Ecrire le complément à 1 de -113<sub>10</sub>. 
+  Ecrire le complément à 1 de **-113<sub>(10)</sub>**. 
 
   Qu'elle est la différence entre cette méthode par rapport à la précédente ? (5min)
 
@@ -247,12 +257,12 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
 
   **Complément à 1:** (-0)<sub>10</sub> = (11111111)<sub>2</sub>
 
-  Les deux ont la même portée: portée = [-127<sub>10</sub>,+127<sub>10</sub>] 
+  Les deux ont la même portée: portée = [-127<sub>(10)</sub>,+127<sub>(10)</sub>] 
 
 
 ### 2.4 Complément à 2 
   
-  Quel est le complément à 2 de (-113)<sub>10</sub> et quelle est l'utilitée de cette représentation ? (3min)
+  Quel est le complément à 2 de **-113<sub>(10)</sub> **et quelle est l'utilité de cette représentation ? (3min)
   
 #### Conseils
   
@@ -277,13 +287,14 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
   
 #### Solutions
   
-  1. Il faut ajouter 1 au complément à 1 de -113<sub>10</sub>. C'est à dire faire plus 1 à la colonne de 2<sup>0</sup>.
+  1. Il faut ajouter 1 au complément à 1 de **-113<sub>(10)</sub>**. C'est-à-dire faire + 1 à la colonne de 2<sup>0</sup>.
   
   | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
   | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
   | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
   
-  2. Il n'y a plus qu'une représentation possible pour (-0)<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations. La      nouvelle portée est donc: portée = [-128<sub>10</sub>,+127<sub>10</sub>] 
+  2. Il n'y a plus qu'une représentation possible pour (-0)<sub>10</sub>. Il y'a donc un nombre de plus possible par rapport aux dernières représentations <!-- TODO: Clarifier cette partie. Pas sûr d'avoir bien compris l'explication --> . 
+  La nouvelle portée est donc: portée = [-128<sub>10</sub>,+127<sub>10</sub>] 
   
 ### 2.5 Floating point
   
@@ -293,7 +304,7 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
   | --------- | --------- | --------- | 
   | 0 | 10110101 | 01000001000000000000001 |
   
-  Que vaut en base 10 la représentation précédente en utilisant la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. (10min)
+  Que vaut en base 10 la représentation précédente en utilisant la représentation **floating point** ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. (10min)
   
 #### Conseils
   * Se référer à la diapositive 14 de la semaine 3 pour plus de détails.
@@ -317,19 +328,19 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
   
 ### 2.6 Conversion d'un nombre binaire au format complément à 2
  
-   Voici un nombre binaire exprimé sur 8 bits au format complément à 2: (10010011)<sub>2</sub>
+   Voici un nombre binaire exprimé sur 8 bits au format complément à 2: 10010011<sub>(2)</sub>
 
    Convertir ce nombre en base 10. (5min)
 
 #### Conseils
    
-   * Utilisez le même tableau que dans les premières questions.
+   * Utilisez le même tableau que dans les premières questions. <!-- TODO: Préciser le numéro de la question -->
    
-   * On applique le processus inverse au complément à deux. C'est à dire faire les opérations sur le nombre binaire dans le sens inverse que dans les questions 3 et 4.
+   * On applique le processus inverse au complément à deux. C'est-à-dire faire les opérations sur le nombre binaire dans le sens inverse que dans les questions 3 et 4.
 
 #### Solutions
    
-   Il faut appliquer le processus inverse qu'à la question 3 et 4. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Puis il faut convertir cette valeur en base 10 et enfin prendre son inverse.
+   Il faut appliquer le processus inverse qu'à la question 3 et 4. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et enfin prendre son inverse <!-- TODO: Reformuler cette partie: "enfin prendre son inverse" -->.
    
    | Opération | 2<sup>7</sup> | 2<sup>6</sup> | 2<sup>5</sup> | 2<sup>4</sup> | 2<sup>3</sup> | 2<sup>2</sup> | 2<sup>1</sup> | 2<sup>0</sup> |
    | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -337,9 +348,9 @@ Le deuxième code en revanche ne va pas soulever l'erreur. En python le typage e
    | Soustraction | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
    | Opposition | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
    
-   01101101 = 1 + 4 + 8 + 32 + 64 = (109)<sub>10</sub>
+   01101101 = 1 + 4 + 8 + 32 + 64 = 109<sub>(10)</sub>
    
-   Le nombre est donc (-109)<sub>10</sub>
+   Le nombre est donc -109<sub>(10)</sub>
 
 ### 3. Bases en programmation
 
@@ -347,11 +358,11 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 
 ### 3.1 Output (__Java__ ou __Python__)
 
-Créez une variable `nom` contenant votre nom, et une autre `prenom` contenant votre prénom puis affichez : "Bonjour, `prenom` `nom`". (2 min)
+Créez une variable `nom` contenant votre nom, et une autre `prenom` contenant votre prénom puis affichez : "Bonjour, `prenom` `nom`". (2 minutes)
 
 #### Conseils:
 
-Utilisez la fonction print() in __Python__ / System.out.println() in __Java__ 
+Utilisez la fonction `print()` de __Python__ et `System.out.println()` in __Java__ 
 
 #### Solutions :
 
@@ -374,7 +385,7 @@ System.out.println("Bonjour, " + prenom + " "+ nom);
 
 ### 3.2 Input (__Java__ ou __Python__)
 
-En vous référant à l'exercice précédent, demandez à l'utilisateur d'entrer son nom et son prénom via la fonction input() au lieu d'initialiser vous-même les variables. (3min)
+En vous référant à l'exercice précédent, demandez à l'utilisateur d'entrer son nom et son prénom via la fonction `input()` au lieu d'initialiser vous-même les variables. (3 minutes)
 
 #### Conseils:
 
@@ -406,11 +417,12 @@ System.out.println("Bonjour, " + prenom + " "+ nom);
 
 ### 3.3 Format d'impression (__Python__ uniquement)
 
-Créer et assignez des valeurs à 2 variables `prenom` et `age`, puis affichez: "Je m'appelle `prenom` et j'ai `age` ans". Gérez le format de l'impression via l'opérateur +, puis via la fonction format(). (3min)
+Créer et assignez des valeurs à 2 variables `prenom` et `age`, puis affichez: "Je m'appelle `prenom` et j'ai `age` ans". Gérez le format de l'impression via l'opérateur +, puis via la fonction `format()`. (3 minutes)
 
 #### Conseils:
 
-Ce lien pourrait vous aider avec la fonction format() : https://www.w3schools.com/python/ref_string_format.asp
+N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction `format()`: https://docs.python.org/fr/3.5/library/stdtypes.html#str.format
+
 
 #### Solutions :
 
@@ -425,11 +437,11 @@ print("Bonjour, je m'appelle {0} et j'ai {1} ans.".format(prenom,age))
 
 ### 3.4 Type (__Python__ uniquement)
 
-Déclarez deux variable `nom` (string) et `age` (int), puis affichez le type de chacune de ces deux variables. (3min)
+Déclarez deux variable `nom` (string) et `age` (int), puis affichez le type de chacune de ces deux variables. (3 minutes)
 
 #### Conseils:
 
-Vous pouvez contrôler le type de vos variable via la fonction type()
+Vous pouvez contrôler le type de vos variable via la fonction `type()`
 
 #### Solutions :
 
@@ -444,11 +456,12 @@ print(type(age))
 
 ### 3.5.1 Conversion des variables (`Type casting`) (__Java__ ou __Python__)
 
-Il est possible de convertir une variable d'un certain type dans un autre type. Il est par exemple possible de changer un `int` en `float` ou un `float` en `int`. Déclarez une variable `nombre_entier` (int), puis une variable `nombre_decimal` (float). Affichez `nombre_entier` en le convertissant en `float` et `nombre_decimal` en le convertissant en `int`. (3min)
+Il est possible de convertir une variable d'un certain type dans un autre type. Il est par exemple possible de changer un `int` en `float` ou un `float` en `int`. 
+Déclarez une variable `nombre_entier` de type `int`, puis une autre variable `nombre_decimal` de type `float`. Affichez `nombre_entier` en le convertissant en `float` et `nombre_decimal` en le convertissant en `int`. (3 minutes)
 
 #### Conseils:
 
-Utilisez la fonction int(float) et float(int) en __Python__ / Utilisez (int) float et (float) int en __Java__
+Utilisez la fonction `int(float)` et `float(int)` en __Python__ / Utilisez `(int) float` et `(float) int` en __Java__.
 
 #### Solutions :
 
@@ -476,7 +489,7 @@ Qu'afficheront les programmes suivants? (3min)
 
 #### Conseils:
 
-Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir
+Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
 
 __Python__
 ```Python
@@ -509,7 +522,7 @@ __Java__
 ### 3.6.1 Calculs (multiplication) (__Java__ ou __Python__)
 
 Créez 2 variables `facteur_1` (= 11) et `facteur_2` (= 3). Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable `produit`. Vous pouvez afficher les différentes variables pour voir leurs valeurs.
-Vous pouvez répéter l'exercice avec l'addition et la multiplication. (3min)
+Vous pouvez répéter l'exercice avec l'addition et la multiplication. (3 minutes)
 
 #### Conseils:
 
@@ -541,11 +554,11 @@ System.out.println(produit);
 
 ### 3.6.2 Calculs (division) (__Java__ ou __Python__)
 
-Créez 2 variables `nb_bonbons` (= 11) et `nb_personnes` (= 3). Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable `bonbons_personnes`. Pour finir, calculez le nombre de bonbons restants via l'opérateur % (modulo) et stockez le résultat dans `reste`. Vous pouvez afficher les différentes variables pour voir leurs valeurs. (5min)
+Créez 2 variables `nb_bonbons` avec pour valeur `11` et `nb_personnes` avec pour valeur `3`. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable `bonbons_personnes`. Pour finir, calculez le nombre de bonbons restants via l'opérateur `% (modulo)` et stockez le résultat dans `reste`. Vous pouvez afficher les différentes variables pour voir leurs valeurs. (5min)
 
 #### Conseils:
 
-Attention, en __Python__ il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En __Java__, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+Attention, en __Python__ il existe 2 opérateurs de division, `/` effectue une division classique, tandis que `//` effectue une division entière. En __Java__, si vous travaillez uniquement avec des `int`, `/` effectuera une division entière tandis que si vous travaillez avec au moins un float, `/` effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
 
 #### Solutions :
 
@@ -635,14 +648,13 @@ System.out.println(reste);
 
 ### 3.7.1 Manipulation des chaînes de caractères (indexation) (__Java__ ou __Python__)
 
-Créez une variable `mon_mot` (str) qui vaut "Hard But Cool !!". Créez ensuite une variable `premiere` contenant la première lettre de `mon_mot` en utilisant l'indexation. Créez ensuite une variable `derniere` contenant la dernière lettre de `mon_mot` en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez. (5min)
+Créez une variable `mon_mot` de type `chaîne de caractères` qui vaut "Hard But Cool !!". Créez ensuite une variable `premiere` contenant la première lettre de `mon_mot` en utilisant l'indexation. Créez ensuite une variable `derniere` contenant la dernière lettre de `mon_mot` en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez. (5min)
 
 #### Conseils:
 
-Pour __Python__, utilisez [], et pour __Java__, utilisez la fonction substring() ainsi que la fontion length().
+Pour __Python__, utilisez [], et pour __Java__, utilisez la fonction `substring()` ainsi que la fonction `length()`.
 
 #### Solutions :
-
 __Python__
 
 ```Python
@@ -671,7 +683,7 @@ Gardez votre variable, `mon_mot` et créez une variable `lettre_5` contenant la 
 
 Attention, ici les espaces comptent comme des caractères !
 
-Pour __Python__, utilisez [:], et pour __Java__, utilisez la fonction substring()
+Pour __Python__, utilisez [:], et pour __Java__, utilisez la fonction `substring()`.
 
 #### Solutions :
 
@@ -698,11 +710,11 @@ System.out.println(lettre_10_13);
 
 ### 3.7.3 Manipulation des chaînes de caractères (__Java__ ou __Python__)
 
-Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) via la fonction `len()`. Gardez votre variable `mon_mot` et créez une nouvelle variable nommée `ln_mon_mot` contenant le nombre de caractère de la variable `mon_mot`, puis une nouvelle variable `moitié` contenant la première moitié de la variable `mon_mot` (utilisez la variable que vous venez de créer). Affichez le résultat et voyez ce que vous obtenez. (5min)
+Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction `len()`. Gardez votre variable `mon_mot` et créez une nouvelle variable nommée `ln_mon_mot` contenant le nombre de caractère de la variable `mon_mot`, puis une nouvelle variable `moitié` contenant la première moitié de la variable `mon_mot` (utilisez la variable que vous venez de créer). Affichez le résultat et voyez ce que vous obtenez. (5min)
 
 #### Conseils:
 
-La fonction présentée dans l'énnoncé de la question n' est valable que pour __python__. L'équivalent pour __Java__ est la fonction length()
+La fonction présentée dans l'énoncé de la question n' est valable que pour __python__. L'équivalent pour __Java__ est la fonction `length()`.
 
 #### Solutions :
 
@@ -797,11 +809,11 @@ public class Main {
 
 Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit `True`, soit `False`. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : == (est égal), != (n'est pas égal), < (est strictement plus petit), <= (est plus petit ou égal), > (est strictement plus grand), >= (est plus grand ou égal). Si la condition est satisfaite, on obtiendra `True`, si elle ne l'est pas, on obtiendra `False`. L'utilisation de l'opérateur `not` inversera le résultat.
 
-Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) print(s)).
+Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) `print(s)`).
 
 #### Conseils:
 
-Utilisez les tables de vérité des `and` et des `or`
+Utilisez les tables de vérité présentées en cours dans les diapositives `boolean algebra`.
 
 ### 4.1 (5min)
 ```Python
@@ -867,7 +879,7 @@ output 4
 
 ### 5. Conditions ( 10 minutes)
 
-  Le but de cet exercice est d'entrainer la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le branchement conditionnel.
+  Le but de cet exercice est vous entraîner à la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le branchement conditionnel.
   
 ### 5.1 Branchement conditionnel en java (5 minutes)
   
@@ -928,27 +940,28 @@ output 4
 ```
 #### Conseils
   
-  1. Break indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités. 
+  1. `break` indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités. 
   
-  2. L'absence de break indique que l'on va rentrer dans tous les cas suivants.
+  2. L'absence de `break` indique que l'on va rentrer dans tous les cas suivants.
   
-  3. Lorsque l'on pose "case n" où n est un nombre cela est équivalent au test n == numero_mois. Ce test est aussi valable si on cherche a comparer des chaînes de caractères ( par exemple si numero_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
+  3. Lorsque l'on pose `case n` où n est un nombre cela est équivalent au test `n == numero_mois`. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si `numero_mois = " Juin"`, à ce moment là `n` sera aussi une chaîne de caractères).
   
 #### Solutions
   
   Le code va donc afficher:
-  
+  ```
   Juillet
   Août
   Décembre 
+  ```
   
 #### Explications 
   
-  1. Comme la case 7 ne contient pas de break et modifie numero_mois, la lecture du code va continuer.
+  1. Comme la case 7 ne contient pas de `break` et modifie `numero_mois`, la lecture du code va continuer.
   
-  2. On rentre dans le case 9, qui contient un break. Le numero_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas succédants ne seront pas traités.
+  2. On rentre dans le case 9, qui contient un `break`. Le `numero_mois` sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
   
-### 5.2 Conditionnal branching in python
+### 5.2 Conditions en Python
   
   Qu'affiche le code suivant ? (5min)
   
@@ -974,7 +987,7 @@ output 4
  ```
 #### Conseils
   
-  1. Il faut vérifier la condition de chaque cas de manière linéaire.
+  1. Il faut vérifier la condition de chaque cas de façon linéaire.
   
   2. Une fois une condition vérifiée, toutes celles d'après ne sont pas traitées.
   
@@ -982,12 +995,14 @@ output 4
 
   Le code affiche:
   
+  ```
   Teacher Algorithmique et pensée computationelle.
+  ```
   
   
 #### Explications
 
-  Ci-dessous, le résultat des propositions booléennes des if et elif:
+  Ci-dessous, le résultat des propositions booléennes des `if` et `elif`:
   
   1. (False or False) and True = False 
   
@@ -1077,7 +1092,9 @@ for i in range(5):
 Ici le code est plus concis et permet de s'arrêter lorsque le joueur a trouvé la bonne réponse.
 
 ### 6.2 Pierre, Feuille, Ciseaux (20min)
-Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur lui, choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.
+Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.
+
+<!-- TODO: Donnez à l'utilisateur une partie du code. Notamment celle contenant la méthode randint() pour pouvoir générer des nombres aléatoires. -->
 
 #### Solutions :
 
