@@ -1,4 +1,4 @@
-\input{header.tex}
+\input{../header.tex}
 
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -53,30 +53,11 @@ Dans la pratique, l'algorithme de recherche séquentielle n'est pas souvent util
 
     \begin{conseil}
         TODO: Créez votre fonction de recherche linéaire en utilisant une boucle \lstinline{for} ou une boucle \lstinline{while}.\\
-        Aide à la compréhension de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html#lst-seqsearchpython}{Cliquez ici}
+        Aide à la compréhension de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
     \end{conseil}
     
     \begin{solution}
-        \begin{lstlisting}
-            def seq_search(list, x):
-                #complètez ici
-                for i in range(len(list)): # i est considéré comme un index
-                    if list[i] == x:
-                        print("X present in list at index: ", i)
-                        return i
-                        break
-                else: #only used when loop not terminated by a break statement
-                #if i == len(list)-1 and list[i] != x:  #also possible
-                        print("X not present in list")
-                        return -1
-            
-            liste = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,45,12,56,24]
-            x = 100
-            seq_search(liste, x)
-            
-            %%time 
-            print(seq_search(liste, x))
-        \end{lstlisting}   
+        \lstinputlisting[language=python]{"resources/seq_search.py"} 
     \end{solution}
 \textbf{Solution}
     \begin{lstlisting}
@@ -125,7 +106,7 @@ Résultat attendu : 56\\
     \end{lstlisting}
 
     \begin{conseil}
-        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html#lst-seqsearchpython}{Cliquez ici}
+        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
     \end{conseil}
     \begin{solution}
         Complétez la fonction \lstinline{find_closest_seq} et exécutez le code. 
@@ -155,7 +136,7 @@ Résultat attendu : 56\\
     \end{lstlisting}
 
     \begin{conseil}
-        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html#lst-seqsearchpython}{Cliquez ici}
+        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
     \end{conseil}
     \begin{solution}
         Complétez la fonction \lstinline{linear_search} et exécutez le code. 
