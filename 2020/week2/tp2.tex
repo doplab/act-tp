@@ -169,16 +169,9 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     
     \begin{Exercice}[10 minutes]
         En utilisant l'invite de commande (Terminal), exécutez le programme suivant en lui passant des paramètres.
-        \begin{lstlisting}
-            import sys
 
-            if __name__ == '__main__':
-                arguments = sys.argv
-                if len(arguments) == 3:
-                    print("La somme de {} et {} est {}".format(sys.argv[1], sys.argv[2], int(sys.argv[1])+int(sys.argv[2])))
-                else:
-                    print("Assurez-vous de passer deux arguments à votre programme")\end{lstlisting}
-
+        \lstinputlisting[language=Python]{resources/question8.py}
+        
         \begin{conseil}
             \begin{itemize}
                 \item Le code ci-dessus est disponible sur Moodle.
@@ -191,7 +184,38 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
         \end{solution}
 
+    \end{Exercice}
+
+    \begin{Exercice}[10 minutes]
+        Soit le programme suivant écrit en Java. 
+
+        \lstinputlisting[language=Python]{resources/Question9.java}
         
+        Exécutez-le en utilisant en ligne de commande (Terminal) en vous assurant d'y ajouter des paramètres.
+    
+
+        \begin{conseil}
+            \begin{itemize}
+                \item Le code ci-dessus est disponible sur Moodle.
+                \item Le programme affiche l'ensemble des paramètres qui lui auront été passé.
+                \item \lstinline{String args[]} est une liste (de chaînes de caractères) contenant les paramètres passés au programme. Pour accéder à un élément de cette liste, vous pouvez faire \lstinline{args[index]} où \lstinline{index} est un entier représentant la position dans la liste \lstinline{args}.
+            \end{itemize}
+        \end{conseil}
+        \begin{solution}
+            Pour exécuter notre programme en passant des arguments, on fera: \lstinline{java Question9.java Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
+            \parbox{\textwidth}{
+                Paramètre[0]: Ceci\\
+                Paramètre[1]: est\\
+                Paramètre[2]: mon\\
+                Paramètre[3]: premier\\
+                Paramètre[4]: programme\\
+                Paramètre[5]: écrit\\
+                Paramètre[6]: en\\
+                Paramètre[7]: Java
+            }
+
+        \end{solution}
+
     \end{Exercice}
     
 \end{section}
