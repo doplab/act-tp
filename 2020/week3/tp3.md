@@ -52,8 +52,10 @@ Il existe d'autres types de variable, comme par exemple les chaînes de caractè
 Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs. (5 minutes)
 
 #### Conseils:
-<!-- TODO: Plus de détails sur les types en Java et Python -->
-~~Souvenez vous de la différence principale entre le typage des variables en Java et le typage en Python.~~
+
+En __Java__, le type est statique, ce qui signifie qu'à partir du moment où vous créez une variable, un type va lui être attribué (par vous ou par le code en lui-même par déduction). Ce type ne pourra pas être changé, et si vous tentez de le faire (en lui attribuant une valeur d'un autre type par exemple), une erreur sera soulevée.
+
+En __Python__, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur.
 
 
 __Java__
@@ -1027,6 +1029,13 @@ Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans
 trouver, s'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui
 qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).
 
+```Python
+from random import randint
+number = randint(0,30)
+
+#Votre code
+```
+
 #### Conseils:
 
 Vous pouvez ajouter une boucle for avec la fonction range(5) pour simplifier le code !
@@ -1098,7 +1107,12 @@ Ici le code est plus concis et permet de s'arrêter lorsque le joueur a trouvé 
 ### 6.2 Pierre, Feuille, Ciseaux (20min)
 Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.
 
-<!-- TODO: Donnez à l'utilisateur une partie du code. Notamment celle contenant la méthode randint() pour pouvoir générer des nombres aléatoires. -->
+```Python
+from random import randint
+number = randint(1,3)
+
+#Votre code
+```
 
 #### Solutions :
 
