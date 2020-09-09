@@ -265,6 +265,136 @@ True
 En effet, via elon_musk["talents"], on accède à la liste ["programmation", "entreprenariat", "aéronautique"].
 Il est donc possible de manipuler cette liste comme une liste classique !
 
+### 1.4 Les Datastructures en __Java__
+
+Déclarer un Tuple en Java :
+
+```Java
+Object[] mon_tuple = {1,2,3,4};
+```
+
+Déclarer une liste en Java :
+
+```Java
+var ma_liste = List.of(1,2,3,4);
+```
+
+Déclarer un dictionnaire en Java :
+
+```Java
+var mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2));
+```
+
+Attention, en __Java__, les listes sont immuables, comme les tuples. Si vous voulez la modifier, il faut créer une liste immuable comme suit :
+
+```Java
+var ma_liste_immuable = List.of(1,2,3,4);
+var ma_liste = new LinkedList(ma_liste_immuable);
+```
+
+### 1.4.1
+
+Créez une liste nomée `ma_liste` contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée `element_2`, puis stockez la taille de la liste dans une variable nomée `l_ma_liste`. Imprimez ces deux variables. Puis créez une liste `ma_liste_m` liée à la liste `ma_liste`. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. (5min)
+
+Ajoutez ceci au début de votre code :
+
+```Java
+import java.util.List;
+import java.util.LinkedList;
+```
+
+Ajoutez ceci à la fin de votre code :
+
+```Java
+for(int i=0;i<ma_liste_m.size();i++){
+            System.out.println(ma_liste_m.get(i));
+}
+```
+#### Conseils
+
+Pour obtenir un élément d'une liste, il faut utiliser la fonction get(index). Pour obtenir la taille de la liste, utilisez la fonction size().
+
+Pour ajouter un élément au début d'une LinkedList, vous devez utiliser addFirst(value) et pour l'ajouter à la fin, vous devez utiliser addLast(value).
+
+#### Solutions
+
+```Java
+import java.util.List;
+import java.util.LinkedList;
+
+public class Main {
+
+    public static void main(String[] args) {
+        var ma_liste = List.of(1,2,3,4);
+        int element_2 = ma_liste.get(1);
+        int l_ma_liste = ma_liste.size();
+        System.out.println(element_2);
+        System.out.println(l_ma_liste);
+        var ma_liste_m = new LinkedList(ma_liste);
+        ma_liste_m.addFirst(0);
+        ma_liste_m.addLast(6);
+        for(int i=0;i<ma_liste_m.size();i++){
+            System.out.println(ma_liste_m.get(i));
+        }
+    }
+}
+```
+
+### 1.4.2
+
+Créez un dictionnaire `mon_dictionnaire` contenant les éléments suivants :
+
+("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0)
+
+Stockez le nombre d'étudiants dans une variable nommée `nb_etudiants`. Obtenez la taille du dictionnaire et stockez la dans une variable `l_mon_dictionnaire`. Imprimmez ces deux variables. Pour finir, corrigez le nombre de collaborateurs qui sont en réalité 950, et ajoutez le nombre de pays desquels proviennent les étudiants (86). (5min)
+
+Ajoutez ceci au début de votre code :
+
+```Java
+import java.util.HashMap;
+import java.util.Map;
+```
+
+Ajoutez ceci à la fin de votre code :
+
+```Java
+for (var keys : mon_dictionnaire.keySet())
+        {
+            System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
+        }
+```
+
+#### Conseils
+
+Comme pour les listes, accédez aux valeurs via la fonction get(key) et à la taille via la fonction size().
+
+Pour insérer / corriger un élément, utilisez la fonction put(key,value).
+
+#### Solutions
+
+```Java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        var mon_dictionnaire = new HashMap(Map.of("étudiants",14000,"enseignants",2300,"collaborateurs",0));
+        var nb_etudiants = mon_dictionnaire.get("étudiants");
+        var l_mon_dictionnaire = mon_dictionnaire.size();
+        System.out.println(nb_etudiants);
+        System.out.println(l_mon_dictionnaire);
+        mon_dictionnaire.put("collaborateurs",950);
+        mon_dictionnaire.put("pays",86);
+
+        for (var keys : mon_dictionnaire.keySet())
+        {
+            System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
+        }
+    }
+}
+```
+
 
 ### 2. L'itération
 
@@ -395,7 +525,7 @@ La récursivité est le fait d'appeler une fonction au sein même de cette même
 
 ### 3.1
 
-Qu'affichent les programmes suivants? (10 minutes)
+Qu'affichent les programmes suivants? (5 minutes)
 
 3.1.1
 
@@ -450,7 +580,7 @@ La principale différence entre ces 2 programmes est l'endroit où est placé le
 
 ### 3.2
 
-Qu'affiche le programme suivant? (10 minutes)
+Qu'affiche le programme suivant? (5 minutes)
 
 A quoi sert cette fonction ?
 
@@ -481,7 +611,7 @@ Cette fonction compte le nombre de "a" contenus dans un mot que vous lui passez.
 
 ### 3.3
 
-Ecrivez la fonction `factoriel()` suivant une approche récursive. (10 minutes)
+Ecrivez la fonction `factoriel()` suivant une approche récursive. (5 minutes)
 
 Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier.
 
