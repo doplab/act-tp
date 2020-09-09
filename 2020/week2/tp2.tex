@@ -161,7 +161,39 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS et Linux, nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. ``Notepad'' est installé par défaut sous Windows.
         \end{itemize}
-    \end{conseil}    
+    \end{conseil}
+    \begin{solution}
+        Pour exécuter un programme \lstinline{Python} en ligne de commande, rassurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivi du nom de votre programme. 
+        Dans le cas de cette question, on fera: \lstinline{python hello.py}.
+    \end{solution}
+    
+    \begin{Exercice}[10 minutes]
+        En utilisant l'invite de commande (Terminal), exécutez le programme suivant en lui passant des paramètres.
+        \begin{lstlisting}
+            import sys
+
+            if __name__ == '__main__':
+                arguments = sys.argv
+                if len(arguments) == 3:
+                    print("La somme de {} et {} est {}".format(sys.argv[1], sys.argv[2], int(sys.argv[1])+int(sys.argv[2])))
+                else:
+                    print("Assurez-vous de passer deux arguments à votre programme")\end{lstlisting}
+
+        \begin{conseil}
+            \begin{itemize}
+                \item Le code ci-dessus est disponible sur Moodle.
+                \item Le programme affiche la somme de deux nombres passés en paramètres. Pour que le programme fonctionne, assurez-vous de passer des valeurs numériques.
+                \item \lstinline{sys.argv} est une liste contenant les paramètres passés au programme. Le premier paramètre contient le chemin d'accès au fichier exécuté.
+            \end{itemize}
+        \end{conseil}
+
+        \begin{solution}
+            Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
+        \end{solution}
+
+        
+    \end{Exercice}
+    
 \end{section}
 \begin{section}{Librairies}
     \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interagir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
