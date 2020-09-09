@@ -299,7 +299,9 @@ En utilisant la fonction range() et une boucle for calculez la somme des entier 
 
 #### Conseils
 
-Lorsque range(n) est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1
+* Lorsque range(n) est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1.
+
+* Déclarer une variable en dehors de la boucle qui contiendra après la boucle la somme.
 
 #### Solutions
 
@@ -316,7 +318,11 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for. (5min)
 
 #### Conseils
 
-Rajouter un à un les éléments du tuple dans la liste.
+* Déclarer une liste vide é l'extérieur de la boucle.
+
+* La boucle permet d'itérer sur le tuple.
+
+* Rajouter un à un les éléments du tuple dans la liste.
 
 #### Solutions
 
