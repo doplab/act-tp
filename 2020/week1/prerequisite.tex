@@ -51,6 +51,27 @@ Dans la seconde partie du cours, les notions de programmation orientée objet se
     \item Ouvrir Netbeans pour créer votre premier programme. Le lien suivant vous guidera vers la création d'un programme simple en Java: \url{https://netbeans.org/kb/docs/java/quickstart.html}.
 \end{itemize}
 
+\subsection*{Résolution Bug Windows}
+
+Dans les exercices suivants, vous serez amenés à utiliser le shell de votre ordinateur. Il se peut que chez certaines personnes, certaines commandes recoivent ce message d'erreur lorsqu'elles sont executées : "Nom_de_la_commande n'est pas reconnue comme un commande interne ou externe." \\
+
+Si vous obtenez ce message d'erreur, cela signifie que votre shell n'arrive pas à localiser le fichier de l'application que vous essayez d'utiliser (jdk (java) par exemple). Il va donc falloir aller ajouter le chemin vers cette application dans les varibales d'envrionnement. \\
+
+Dans cette situation, assurez vous tout d'abord d'avoir bel et bien installé ladite application. Pour ce faire, allez dans votre explorateur de fichier, sur votre disque, sur "Programmes Files" puis cherchez l'application en question (ici java). Allez ensuite sur java et cherchez votre exécutable. Le chemin devrait ressembler à ça : "C:\Program Files\Java\jdk-14.0.2\bin". Si vous trouvez java dans le dossier bin, il est alors installé. Copiez alors votre chemin d'accès au dossier bin ("C:\Program Files\Java\jdk-14.0.2\bin" dans notre cas). \\
+
+Pour finir, accédez aux variables d'environement : \\
+
+tappez variables dans la barre de recherche, prenez "Modifier les variables d'environnement système". Cliquez sur "variables d'environnement" \\
+
+Si vous avez déjà une variable nomée "Path" ou "PATH", modifiez la en ajoutant un ";" et en collant le chemin jusqu'au dossier ou votre application est stockée. Ici on ajoute donc ";C:\Program Files\Java\jdk-14.0.2\bin" \\
+
+Deuxième cas, vous n'avez pas de variable "PATH" ou "Path". Créez en une, nommez la "Path" ou "PATH" et collez-y "C:\WINDOWS;C:\WINDOWS\system32". Collez ensuite ";" et le chemin jusqu'au dossier ou votre application est stockée. Ici on ajoute donc ";C:\Program Files\Java\jdk-14.0.2\bin" \\
+
+Faites le pour "variables utilisateur", puis répétez l'opération pour "variables système" \\
+
+Cliquez sur ok jusqu'à ce que toutes les fenêtres soient fermées, puis relancez votre shell. Le problème est normalement réglé. \\
+
+N'hésitez pas à demander de l'aide aux assistants si vous n'y arrivez pas. \\
 
 \begin{comment}
     % This section should be done in case we receive a confirmation that the exercise sessions will be done in the lab.
