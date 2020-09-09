@@ -1,33 +1,31 @@
-# Série d'exercice 4: Datastructures, Itération and Récursion 
-
-### Toute cette série se déroulera en __Python__ uniquement !
+# Série d'exercice 4: Structure de données, Itération et Récursivité 
 
 ### 1. Les structures de données
 
 ### 1.1 Les tuples
 
-Pour rappel, les tuples sont des listes d'éléments immutables, ce qui signifie que ces liste ne peuvent pas être modifiées. Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
+Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
 
-Pour les créer, il suffit de le définir avec des valeurs entre parenthèse :
+En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparées entre elles par des virgules:
 
+Exemple:
 ```Python
 mon_tuple = (1,2,3,4)
 ```
 
 ### 1.1.1
 
-Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable `element_4`, puis imprimmez la. (5min)
+Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable `element_4`, puis affichez la. (5 minutes)
 
 ### Conseils
 
-Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des str, utilisez [].
+Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez [].
 
 ### Solutions
 
 ```Python
 mon_tuple = (1,2,3,4,5)
-element_4 = mon_tuple[3]
-print(element_4)
+print(mon_tuple[3])
 ```
 
 ### 1.1.2
@@ -397,9 +395,9 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle for. (5min)
    ```
   * Pour ce problème la boucle for est plus simple à mettre en place et évite le danger de boucle infini. La boucle while est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle for. Donc lorsque on peut résoudre un problème avec les deux types, utilisez de préférence la boucle for.
   
-### 3. La récursion
+### 3. La récursivité
 
-La récursion est le fait d'appeler une fonction au sein même de cette même fonction. Ce système est souvant utilisé en algorithmique.
+La récursivité est le fait d'appeler une fonction au sein même de cette même fonction. Ce système est souvant utilisé en algorithmique.
 
 ### 3.1
 
@@ -542,7 +540,7 @@ def fibonacci_i(n) :
         return new_fib
 ```
 
-Récursion :
+récursivité :
 
 ```Python
 def fibonacci_r(n) :
