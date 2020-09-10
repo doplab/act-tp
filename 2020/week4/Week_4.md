@@ -32,7 +32,7 @@ print(mon_tuple[3])
 
 ### 1.1.2
 
-Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée `taille_tuple`. Pour finir, affichez le contenu de `taille_tuple`. (3 minutes)
+Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée `taille_tuple`. Pour finir, affichez le contenu de `taille_tuple`. (5 minutes)
 
 ### Conseils
 
@@ -48,7 +48,7 @@ print(taille_tuple)
 
 ### 1.1.3 
 
-Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l'opérateur `in`. Si l'élément est dans la liste, la valeur booléenne `True` sera retournée. S'il n'y est pas, la valeur booléenne `False` sera retournée. (2 minutes)
+Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l'opérateur `in`. Si l'élément est dans la liste, la valeur booléenne `True` sera retournée. S'il n'y est pas, la valeur booléenne `False` sera retournée. (5 minutes)
 
 Qu'affichera le programme suivant?
 
@@ -119,7 +119,7 @@ ma_liste.append(0,0)
 
 ### 1.2.3
 
-Créez une liste nommée `ma_liste` contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez "OK", s'il n'y est pas, rajoutez le à votre liste. (10 minutes)
+Créez une liste nommée `ma_liste` contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez "OK", s'il n'y est pas, rajoutez le à votre liste. (5 minutes)
 
 Utilisez ce morceau de code pour vérifier que tout a bien été ajouté :
 
