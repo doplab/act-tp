@@ -405,14 +405,25 @@ Quelques rappels de concepts théoriques:
   
   1. **Boucle for**: Une boucle `for` permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ...
   La syntaxe d'une boucle en Python est la suivante: **for** **_nom de variable_** **in** suivi du nom de l'élément sur lequel vous voulez itérer. La variable prendra la valeur de chaque élément dans la liste, un par un. 
+  
   La syntaxe en java est la suivante: **for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)** suivi d'une accolade. Voici un exemple:
   ```Java
     for (int i=0; i<5;i++) {
         System.out.println("Clap your hands!");
     }
   ```  
+  
    1. **Boucle while**: Les boucles `while` sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante:
-En Python, on écrit d’abord `while`, suivi de la condition à atteindre. 
+En Python, on écrit d’abord `while`, suivi de la condition à atteindre. Voici un exemple:
+    ```Python
+        i = 0
+        while i<10:
+            i += 1
+            print("i)
+        ## Le code va afficher:
+        ##  0 1 2 3 4 5 6 7 8 9 10 avec chaque espace qui représente un retour à la ligne.
+    ```
+En java il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades comme dans l'exemple précédent.
 
 
 #### Note: 
