@@ -560,8 +560,9 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle `for`. (5 min
    * La récursion résout les problèmes en résolvant des sous-problèmes de ceux-ci.
    
   #### Solutions
-   La récursion permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est résolvable et permet de résoudre tous les problèmes jusqu'à celui original. La récursion cache une faille, un appel à elle même infini. De manière semblable aux boucles while, la récursion peut causer le crash du programme voir de l'ordinateur. Lorsque vous chercher à faire un récursion il faut donc systématiquement poser avant tout la condidition finale pour l'arrêt.
-   L'itération va résoudre de manière plus "intuitive" les problèmes, c'est à dire répeter certaines actions qui permettent de résoudre pour sûr un problème souvent au prix de l'optimisation.
+   * La récursion permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est résolvable et permet de résoudre tous les problèmes jusqu'à celui original. La récursion cache une faille, un appel à elle même infini. De manière semblable aux boucles while, la récursion peut causer le crash du programme voir de l'ordinateur. Lorsque vous chercher à faire un récursion il faut donc systématiquement poser avant tout la condidition finale pour l'arrêt.
+   
+   * L'itération va résoudre de manière plus "intuitive" les problèmes, c'est à dire répeter certaines actions qui permettent de résoudre pour sûr un problème souvent au prix de l'optimisation.
   
 ### 3. La récursivité
 
