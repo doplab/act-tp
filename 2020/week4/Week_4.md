@@ -408,7 +408,7 @@ public class Main {
 
 Quelques rappels de concepts théoriques: 
 
-* L'itération désigne l'action de répéter un processus (généralement à l'aide d'une boucle) jusqu'à qu'une condition particulière soit remplie.
+* L'itération désigne l'action de répéter un processus (généralement à l'aide d'une boucle) jusqu'à ce qu'une condition particulière soit remplie.
 * Il y a deux types de boucles qui sont majoritairement utilisées:
   
   1. **Boucle for**: Une boucle `for` permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ...
@@ -429,7 +429,7 @@ En Python, on écrit d’abord `while`, suivi de la condition à atteindre. Voic
             i += 1
             print("i)
         ## Le code va afficher:
-        ##  0 1 2 3 4 5 6 7 8 9 10 avec chaque espace qui représente un retour à la ligne.
+        ## 1 2 3 4 5 6 7 8 9 10 avec chaque espace qui représente un retour à la ligne.
     ```
 En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades comme dans l'exemple précédent.
 
@@ -637,11 +637,13 @@ Aidez vous d'un papier et effectuez les étapes une à une afin de bien comprend
 
 #### Solutions
 
+3
+
 Cette fonction compte le nombre de "a" contenus dans un mot que vous lui passez.
 
 ### 3.3
 
-Ecrivez la fonction `factoriel()` suivant une approche récursive. (10 minutes)
+Ecrivez la fonction `factoriel()` suivant une approche récursive. (5 minutes)
 
 Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier.
 
@@ -651,7 +653,7 @@ factoriel(1) = 1, factoriel(2) = 1*2 = 2, factoriel(3) = 1*2*3 = 6, factoriel(4)
 
 On peut écrire cette fonction comme suit :
 
-f(n) = f(n) * f(n-1) si n > 1
+f(n) = f(n) * f(n-1) si n > 1 et
 f(n) = 0 si n = 0
 
 #### Solutions
@@ -666,7 +668,7 @@ def factoriel(x) :
 
 ### 3.4
 
-Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. Le premier élément vaut 0, puis le deuxième et le troisième élément valent tous deux 1. (15 minutes)
+Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, puis le premier et le deuxième élément valent tous deux 1. (15 minutes)
 
 Début de la suite : [0,1,1,2,3,5,8,13,...]
 
