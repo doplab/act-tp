@@ -405,15 +405,27 @@ Quelques rappels de concepts théoriques:
   
   1. **Boucle for**: Une boucle `for` permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ...
   La syntaxe d'une boucle en Python est la suivante: **for** **_nom de variable_** **in** suivi du nom de l'élément sur lequel vous voulez itérer. La variable prendra la valeur de chaque élément dans la liste, un par un. 
-  <!-- TODO: Rajouter une description et détailler la syntaxe des boucles en Java -->
-
+  La syntaxe en java est la suivante: **for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)** suivi d'une accolade. Voici un exemple:
+  ```Java
+    for (int i=0; i<5;i++) {
+        System.out.println("Clap your hands!");
+    }
+  ```  
    1. **Boucle while**: Les boucles `while` sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante:
 En Python, on écrit d’abord `while`, suivi de la condition à atteindre. 
 
 
 #### Note: 
   * La fonction `range(n)` permet de créer une liste de nombres de 0 à la valeur passée en argument (n). Lorsqu’elle est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1. 
-  <!-- TODO: Rajouter un exemple d'itération sur un range -->
+    * Exemple en python: 
+         ```Python
+                l = ["J'aime", "le", " chocolat"]
+                for valeur in range(len(l)):
+                    print(l[valeur])
+                ## Le code va affichier: J'aime
+                ##                       le
+                ##                       chocolat
+         ```
   * Si vous avez fait une erreur dans votre code, il se peut que la boucle `while` n’arrive jamais à sa condition
 et qu’elle ne se termine donc jamais. On parle dans ce cas d'une `boucle infinie`. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y'ait une condition valide dans une boucle `while`
 
