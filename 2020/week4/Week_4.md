@@ -1,6 +1,6 @@
 # Série d'exercice 4: Structure de données, Itération et Récursivité 
 
-Le but de cette séance est de s'exercer avec des structures de données qui seront utilisés lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les collections. Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
+Le but de cette séance est de s'exercer avec des structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les collections. Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
 ### 1. Les structures de données
 
@@ -8,7 +8,7 @@ Le but de cette séance est de s'exercer avec des structures de données qui ser
 
 Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
 
-En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparées entre elles par des virgules:
+En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparer les valeurs entre elles par des virgules:
 
 Exemple:
 ```Python
@@ -17,11 +17,11 @@ mon_tuple = (1,2,3,4)
 
 ### 1.1.1
 
-Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable `element_4`, puis affichez la. (5 minutes)
+Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable `element_4`, puis affichez le contenu de cette variable. (5 minutes)
 
 ### Conseils
 
-Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez [].
+Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez [ ].
 
 ### Solutions
 
@@ -32,7 +32,7 @@ print(mon_tuple[3])
 
 ### 1.1.2
 
-Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le dans une nouvelle variable nommée `taille_tuple`. Pour finir, affichez `taille_tuple`. (3 minutes)
+Créez un tuple nommé `mon_tuple` contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée `taille_tuple`. Pour finir, affichez le contenu de `taille_tuple`. (3 minutes)
 
 ### Conseils
 
@@ -48,7 +48,7 @@ print(taille_tuple)
 
 ### 1.1.3 
 
-Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, via l'opérateur `in`. Si l'élément est dans la liste, la valeur booléenne `True` vous sera retourné. S'il n'y est pas, `False` sera retourné. (2 minutes)
+Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l'opérateur `in`. Si l'élément est dans la liste, la valeur booléenne `True` sera retournée. S'il n'y est pas, la valeur booléenne `False` sera retournée. (2 minutes)
 
 Qu'affichera le programme suivant?
 
@@ -63,7 +63,7 @@ else :
 
 #### Solutions
 
-6 est élément de notre tuple, la condition sera donc remplie et c'est "6 est contenu dans le tuple" qui sera affiché.
+6 est un élément de notre tuple, la condition sera donc remplie et c'est "6 est contenu dans le tuple" qui sera affiché.
 
 ### 1.2 Les listes
 
@@ -77,20 +77,20 @@ ma_liste = [1,2,3,4,5]
 
 ### 1.2.1
 
-Créez une liste nommée `ma_liste`contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée `element_2`, puis stockez la taille de la liste dans une variable nommée `taille_liste`. Affichez ces deux variables. (5 minutes)
+Créez une liste nommée `ma_liste` contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée `element_2`, puis stockez la taille de la liste dans une variable nommée `taille_liste`. Affichez ces deux variables. (5 minutes)
 
 #### Conseils
 
-Comme pour les tuples, vous pouvez utiliser [] pour accéder à un élément, et la fonction `len()` pour obtenir le nombre d'éléments contenus dans la liste.
+Comme pour les tuples, vous pouvez utiliser [ ] pour accéder à un élément, et la fonction `len()` pour obtenir le nombre d'éléments contenus dans la liste.
 
 #### Solutions
 
 ```Python
 ma_liste = [1,2,3,4,5]
 element_2 = ma_liste[1]
-l_ma_liste = len(ma_liste)
+taille_ma_liste = len(ma_liste)
 print(element_2)
-print(l_ma_liste)
+print(taille_ma_liste)
 ```
 
 ### 1.2.2
@@ -106,7 +106,7 @@ for c in ma_liste :
 
 #### Conseils
 
-En Python, vous pouvez accéder à chaque élément de la liste en utilisant [] et changer sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction append() et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction insert().
+En Python, vous pouvez accéder à chaque élément de la liste en utilisant [ ] et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction append() et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction insert().
 
 #### Solutions
 
@@ -176,7 +176,7 @@ Créez un dictionnaire nommé `fr_eng` contenant les éléments suivants :
 
 Ce dictionnaire contient des mots en français (les clés) associés à leur traduction en anglais (les valeurs).
 
-Accédez à la traduction du mot "souris", et stockez la dans une variable nommée `souris_traduite`, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le dans une variable nommée `taille_fr_eng`. Affichez le contenu des deux variables que vous venez de créer. (10 minutes)
+Accédez à la traduction du mot "souris", et stockez le résultat dans une variable nommée `souris_traduite`, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée `taille_fr_eng`. Affichez le contenu des deux variables que vous venez de créer. (10 minutes)
 
 #### Conseils
 
@@ -246,7 +246,7 @@ elon_musk = {
                 "prénom": "Elon",
                 "nom": "Musk",
                 "age": 48,
-                "talents": ["programmation", "entrepreunariat", "aéronautique"]
+                "talents": ["programmation", "entreprenariat", "aéronautique"]
 }
 
 print(elon_musk["talents"][2])
@@ -265,7 +265,7 @@ True
 En effet, via elon_musk["talents"], on accède à la liste ["programmation", "entreprenariat", "aéronautique"].
 Il est donc possible de manipuler cette liste comme une liste classique !
 
-### 1.4 Les Datastructures en __Java__
+### 1.4 Les Structures de données en __Java__
 
 Déclarer un Tuple en Java :
 
@@ -276,25 +276,27 @@ Object[] mon_tuple = {1,2,3,4};
 Déclarer une liste en Java :
 
 ```Java
-var ma_liste = List.of(1,2,3,4);
+List ma_liste = List.of(1,2,3,4);
 ```
 
 Déclarer un dictionnaire en Java :
 
 ```Java
-var mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2));
+HashMap mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2));
 ```
 
-Attention, en __Java__, les listes sont immuables, comme les tuples. Si vous voulez la modifier, il faut créer une liste immuable comme suit :
+Attention, en __Java__, les listes sont immuables, comme les tuples. Si vous voulez la modifier, il faut créer une liste liée (`LinkedList`) comme suit :
 
 ```Java
-var ma_liste_immuable = List.of(1,2,3,4);
-var ma_liste = new LinkedList(ma_liste_immuable);
+List liste = List.of(1,2,3,4);
+LinkedList ma_liste = new LinkedList(liste);
 ```
 
 ### 1.4.1
 
-Créez une liste nomée `ma_liste` contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée `element_2`, puis stockez la taille de la liste dans une variable nomée `l_ma_liste`. Imprimez ces deux variables. Puis créez une liste `ma_liste_m` liée à la liste `ma_liste`. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. (5min)
+Créez une liste nommée `ma_liste` contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste.
+ 
+ Créez une liste `ma_liste_m` liée à la liste `ma_liste`. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. (10 minutes)
 
 Ajoutez ceci au début de votre code :
 
@@ -312,9 +314,17 @@ for(int i=0;i<ma_liste_m.size();i++){
 ```
 #### Conseils
 
-Pour obtenir un élément d'une liste, il faut utiliser la fonction get(index). Pour obtenir la taille de la liste, utilisez la fonction size().
+Pour obtenir un élément d'une liste, il faut utiliser la fonction `get(index)`. Pour obtenir la taille de la liste, utilisez la fonction `size()`.
 
-Pour ajouter un élément au début d'une LinkedList, vous devez utiliser addFirst(value) et pour l'ajouter à la fin, vous devez utiliser addLast(value).
+Pour ajouter un élément au début d'une `LinkedList`, vous devez utiliser `addFirst(value) `et pour l'ajouter à la fin, vous devez utiliser `addLast(value)`.
+
+
+N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale `main`.
+```Java
+public static void main(String[] args) {
+    // Écrire votre code ici
+}
+```
 
 #### Solutions
 
@@ -325,16 +335,15 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) {
-        var ma_liste = List.of(1,2,3,4);
-        int element_2 = ma_liste.get(1);
-        int l_ma_liste = ma_liste.size();
-        System.out.println(element_2);
-        System.out.println(l_ma_liste);
-        var ma_liste_m = new LinkedList(ma_liste);
+        List ma_liste = List.of(1,2,3,4);
+        System.out.println(ma_liste.get(1));
+        int taille_ma_liste = ma_liste.size();
+        System.out.println(taille_ma_liste);
+        LinkedList ma_liste_m = new LinkedList(ma_liste);
         ma_liste_m.addFirst(0);
         ma_liste_m.addLast(6);
         for(int i=0;i<ma_liste_m.size();i++){
-            System.out.println(ma_liste_m.get(i));
+        System.out.println(ma_liste_m.get(i));
         }
     }
 }
@@ -346,7 +355,8 @@ Créez un dictionnaire `mon_dictionnaire` contenant les éléments suivants :
 
 ("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0)
 
-Stockez le nombre d'étudiants dans une variable nommée `nb_etudiants`. Obtenez la taille du dictionnaire et stockez la dans une variable `l_mon_dictionnaire`. Imprimmez ces deux variables. Pour finir, corrigez le nombre de collaborateurs qui sont en réalité 950, et ajoutez le nombre de pays desquels proviennent les étudiants (86). (5min)
+Affichez le nombre d'étudiants. 
+Obtenez la taille du dictionnaire et stockez le résultat dans une variable `taille_dictionnaire`. Affichez le contenu de `taille_dictionnaire`. Pour finir, corrigez le nombre de collaborateurs qui sont en réalité 950, et ajoutez le nombre de pays desquels proviennent les étudiants (86). (15 minutes)
 
 Ajoutez ceci au début de votre code :
 
@@ -358,17 +368,18 @@ import java.util.Map;
 Ajoutez ceci à la fin de votre code :
 
 ```Java
-for (var keys : mon_dictionnaire.keySet())
-        {
-            System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
-        }
+for (Object keys : mon_dictionnaire.keySet()){
+      System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
+    }
 ```
 
 #### Conseils
 
-Comme pour les listes, accédez aux valeurs via la fonction get(key) et à la taille via la fonction size().
+Comme pour les listes, accédez aux valeurs via la fonction `get(key)` et à la taille via la fonction `size()`.
 
-Pour insérer / corriger un élément, utilisez la fonction put(key,value).
+Pour insérer / corriger un élément, utilisez la fonction `put(key,value)`.
+
+
 
 #### Solutions
 
@@ -379,17 +390,14 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        var mon_dictionnaire = new HashMap(Map.of("étudiants",14000,"enseignants",2300,"collaborateurs",0));
-        var nb_etudiants = mon_dictionnaire.get("étudiants");
-        var l_mon_dictionnaire = mon_dictionnaire.size();
-        System.out.println(nb_etudiants);
-        System.out.println(l_mon_dictionnaire);
+        HashMap mon_dictionnaire = new HashMap(Map.of("étudiants",14000,"enseignants",2300,"collaborateurs",0));
+        System.out.println(mon_dictionnaire.get("étudiants"));
+        int taille_dictionnaire = mon_dictionnaire.size();
+        System.out.println(taille_dictionnaire);
         mon_dictionnaire.put("collaborateurs",950);
         mon_dictionnaire.put("pays",86);
-
-        for (var keys : mon_dictionnaire.keySet())
-        {
-            System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
+        for (Object keys : mon_dictionnaire.keySet()){
+        System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
         }
     }
 }
@@ -423,22 +431,21 @@ En Python, on écrit d’abord `while`, suivi de la condition à atteindre. Voic
         ## Le code va afficher:
         ##  0 1 2 3 4 5 6 7 8 9 10 avec chaque espace qui représente un retour à la ligne.
     ```
-En java il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades comme dans l'exemple précédent.
+En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades comme dans l'exemple précédent.
 
 
 #### Note: 
-  * La fonction `range(n)` permet de créer une liste de nombres de 0 à la valeur passée en argument (n). Lorsqu’elle est combinée à une boucle for, on peut itérer sur une liste de nombres de 0 à n-1. 
+  * La fonction `range(n)` permet de créer une liste de nombres de 0 à la valeur passée en argument (n). Lorsqu’elle est combinée à une boucle `for`, on peut itérer sur une liste de nombres de 0 à n-1. 
     * Exemple en python: 
          ```Python
                 l = ["J'aime", "le", " chocolat"]
                 for valeur in range(len(l)):
                     print(l[valeur])
-                ## Le code va affichier: J'aime
+                ## Le code va afficher: J'aime
                 ##                       le
                 ##                       chocolat
          ```
-  * Si vous avez fait une erreur dans votre code, il se peut que la boucle `while` n’arrive jamais à sa condition
-et qu’elle ne se termine donc jamais. On parle dans ce cas d'une `boucle infinie`. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y'ait une condition valide dans une boucle `while`
+  * Si vous avez fait une erreur dans votre code, il se peut que la boucle `while` ne remplisse jamais à sa condition lui permettant de sortir. On parle dans ce cas d'une `boucle infinie`. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle `while`
 
 #### Attention: Toutes les réponses devront être écrites en python.
 
@@ -483,11 +490,11 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle `for`. (5 min
 
 ### 2.3 Boucle while et input()
    
-   A l'aide d'une boucle `while`, demander à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur. (15 minutes)
+   A l'aide d'une boucle `while`, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur. (15 minutes)
    
 #### Conseils
    1. Définir à l'extérieur de la boucle une variable de type booléen utilisée pour le test dans while.
-   2. La fonction `input()` retourne un `str` ou `String` (chaîne de caractères), pensez à changer son type. 
+   2. La fonction `input()` retourne un `str` (chaîne de caractères), pensez à changer son type. 
   
 #### Solutions
   
@@ -508,19 +515,19 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle `for`. (5 min
    
    l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
    
-   À partir de cette liste et du type de boucle de votre choix, créez un dictionnaire ayant pour clés les noms et comme valeur la présence au cours.
+   À partir de cette liste et du type de boucle de votre choix, créez un dictionnaire ayant pour clés les noms et pour valeur un booléen indiquant la présence au cours.
    
 #### Conseils
    
-   * i % 2: renvoie le reste de i par la division euclidienne de 2. ( i % 2 == 0 ) Indique si i est pair.
+   * `i % 2`: renvoie le reste de i par la division euclidienne de 2. (`i % 2 == 0`) Indique si `i` est pair.
    
-   * Boucle for: Utiliser les indices pour accéder aux éléments de la liste et donc ne pas itérer directement sur les éléments de la liste.
+   * Boucle `for`: Utiliser les indices pour accéder aux éléments de la liste et donc ne pas itérer directement sur les éléments de la liste.
    
-   * Boucle while: La condition de sortie devrait être en rapport avec la longueur de la liste.
+   * Boucle `while`: La condition de sortie devrait être en rapport avec la longueur de la liste.
    
 #### Solutions
    
-   Solution avec boucle for:
+   Solution avec boucle `for`:
    
    ```Python
        l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
@@ -529,7 +536,7 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle `for`. (5 min
            if i % 2 == 0:                    # Test si i est pair. Si oui, on crée une nouvelle entrée dans le dictionnaire
                dict_final[l[i]] = l[i + 1]   
    ```
-   Solution avec boucle while:
+   Solution avec boucle `while`:
    
    ```Python
        l = ["Schmitt", True, "Irma", False, "Khalif", True, "Yasser", False, "Wang", True]
@@ -540,7 +547,7 @@ Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle `for`. (5 min
                dict_final[l[i]] = l[i + 1]
            i +=1                             # On incrémente i  
    ```
-  * Pour ce problème la boucle `for` est plus simple à mettre en place et évite le danger d'une boucle infinie. La boucle `while` est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle `for`. Donc lorsque on peut résoudre un problème avec les deux types, utilisez de préférence la boucle for.
+  * Pour ce problème, la boucle `for` est plus simple à mettre en place et évite le danger d'une boucle infinie. La boucle `while` est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle `for`. Lorsqu'il est possible de résoudre un problème avec les deux types, utilisez de préférence une boucle `for`.
   
 ### 3. La récursivité
 
@@ -634,7 +641,7 @@ Cette fonction compte le nombre de "a" contenus dans un mot que vous lui passez.
 
 ### 3.3
 
-Ecrivez la fonction `factoriel()` suivant une approche récursive. (5 minutes)
+Ecrivez la fonction `factoriel()` suivant une approche récursive. (10 minutes)
 
 Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier.
 
@@ -694,5 +701,3 @@ def fibonacci_r(n) :
     else :
         return fibonacci_r(n-1) + fibonacci_r(n-2)
 ```
-
-<!-- TODO: Rajouter un exercice sur les collections en Java -->
