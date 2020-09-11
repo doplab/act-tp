@@ -1,0 +1,154 @@
+\documentclass[a4paper]{article}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage{selinput}
+\usepackage{upquote}
+\usepackage[margin=2cm, rmargin=4cm, tmargin=3cm]{geometry}
+\usepackage{tcolorbox}
+\usepackage{xspace}
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{marginnote}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+%\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
+
+
+\newtcolorbox{Example}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Solutions}[1]{colback=white,left=20pt,colframe=green,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Conseils}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Warning}[1]{colback=white,left=20pt,colframe=warning,fonttitle=\bfseries,title=#1}
+
+\setlength\parindent{0pt}
+
+  %Exercice environment
+  \newcounter{exercice}
+  \newenvironment{Exercice}[1][]
+  {
+  \par
+  \stepcounter{exercice}\textbf{Question \arabic{exercice}:} (\faClock \enskip \textit{#1})
+  }
+  {\bigskip}
+  
+
+% Title
+\newcommand{\titre}{\begin{center}
+  \section*{Algorithmes et Pensée Computationnelle}
+\end{center}}
+\newcommand{\cours}[1]
+{\begin{center} 
+  \textit{#1}\\
+\end{center}
+  }
+
+
+\newcommand{\exemple}[1]{\newline~\textbf{Exemple :} #1}
+%\newcommand{\attention}[1]{\newline\faExclamationTriangle~\textbf{Attention :} #1}
+
+% Documentation url (escape \# in the TP document)
+\newcommand{\documentation}[1]{\faBookOpen~Documentation : \href{#1}{#1}}
+
+% Clef API
+\newcommand{\apikey}[1]{\faKey~Clé API : \lstinline{#1}}
+\newcommand{\apiendpoint}[1]{\faGlobe~Url de base de l'API \href{#1}{#1}}
+
+%Listing Python style
+\usepackage{color}
+\definecolor{slideblue}{RGB}{33,131,189}
+\definecolor{green}{RGB}{0,190,100}
+\definecolor{blue}{RGB}{121,142,213}
+\definecolor{grey}{RGB}{120,120,120}
+\definecolor{warning}{RGB}{235,186,1}
+
+\usepackage{listings}
+\lstdefinelanguage{texte}{
+    keywordstyle=\color{black},
+    numbers=none,
+    frame=none,
+    literate=
+           {é}{{\'e}}1
+           {è}{{\`e}}1
+           {ê}{{\^e}}1
+           {à}{{\`a}}1
+           {â}{{\^a}}1
+           {ù}{{\`u}}1
+           {ü}{{\"u}}1
+           {î}{{\^i}}1
+           {ï}{{\"i}}1
+           {ë}{{\"e}}1
+           {Ç}{{\,C}}1
+           {ç}{{\,c}}1,
+    columns=fullflexible,keepspaces,
+	breaklines=true,
+	breakatwhitespace=true,
+}
+\lstset{
+    language=Python,
+	basicstyle=\bfseries\footnotesize,
+	breaklines=true,
+	breakatwhitespace=true,
+	commentstyle=\color{grey},
+	stringstyle=\color{slideblue},
+  keywordstyle=\color{slideblue},
+	morekeywords={with, as, True, False, Float, join, None, main, argparse, self, sort, __eq__, __add__, __ne__, __radd__, __del__, __ge__, __gt__, split, os, endswith, is_file, scandir, @classmethod},
+	deletekeywords={id},
+	showspaces=false,
+	showstringspaces=false,
+	columns=fullflexible,keepspaces,
+	literate=
+           {é}{{\'e}}1
+           {è}{{\`e}}1
+           {ê}{{\^e}}1
+           {à}{{\`a}}1
+           {â}{{\^a}}1
+           {ù}{{\`u}}1
+           {ü}{{\"u}}1
+           {î}{{\^i}}1
+           {ï}{{\"i}}1
+           {ë}{{\"e}}1
+           {Ç}{{\,C}}1
+           {ç}{{\,c}}1,
+    numbers=left,
+}
+
+\newtcbox{\mybox}{nobeforeafter,colframe=white,colback=slideblue,boxrule=0.5pt,arc=1.5pt, boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,tcbox raise base}
+\newcommand{\projet}{\mybox{\textcolor{white}{\small projet}}\xspace}
+\newcommand{\optionnel}{\mybox{\textcolor{white}{\small Optionnel}}\xspace}
+\newcommand{\auto}{\mybox{\textcolor{white}{\small Auto-évaluation}}\xspace}
+
+
+\usepackage{environ}
+\newif\ifShowSolution
+\NewEnviron{solution}{
+  \ifShowSolution
+	\begin{Solutions}{\faTerminal \enskip Solution}
+		\BODY
+	\end{Solutions}
+  \fi}
+
+
+  \usepackage{environ}
+  \newif\ifShowConseil
+  \NewEnviron{conseil}{
+    \ifShowConseil
+    \begin{Conseils}{\faLightbulb \quad Conseil}
+      \BODY
+    \end{Conseils}
+
+    \fi}
+
+    \usepackage{environ}
+  \newif\ifShowWarning
+  \NewEnviron{attention}{
+    \ifShowWarning
+    \begin{Warning}{\faExclamationTriangle \quad Attention}
+      \BODY
+    \end{Warning}
+
+    \fi}
+  
+
+%\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
