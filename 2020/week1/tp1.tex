@@ -11,7 +11,7 @@
 \titre
 \cours{Architecture des ordinateurs}
 
-Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de la conversion en base binaire, décimale ou hexadécimal, et du calcul de base en suivant le modèle Von Neumann. \\
+Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de la conversion en base binaire, décimale ou hexadécimal d'une part et du modèle Von Neumann d'autre part. \\
 
 \section{Conversions}
 
@@ -131,7 +131,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 
         Ici, on obtient 1221$_{(3)}$ \\
         
-        \textbf{Méthode 2 :} \\
+        \textbf{Méthode 2 pour 254 (ici, nous sommes en base 10)} \\
         
         Ici, il faut prendre en compte le nombre de fois qu'on peut multiplier le nombre par la valeur de la puissance. Ici on a 256 qui est trop grand, il faut donc partir sur 16. On voit qu'on peut aller jusqu'à 15*16 qui vaut 240. Donc on entre 15 sous la valeur 16 et on soustrait. 254-240 = 14. Il nous reste donc 14*1, on met alors 14 sous la valeur 1. \\
         
@@ -207,7 +207,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 \textbf{Table d'addition binaire:}\\
         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{r}\\ [0.5ex]
+            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{retenue}\\ [0.5ex]
             \hline
             0 & 0 & 0 & 0 \\ [0.5ex] 
             \hline
@@ -635,7 +635,7 @@ Dans la mémoire, les instructions sont les suivantes:
     \hline
 \end{tabular}
 \\\\
-Les registres sont les suivantes:
+Les registres contiennent les valeurs suivantes:
 
 \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
     \hline
@@ -691,6 +691,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 
     \begin{conseil}
         Pensez à décomposer la valeur de l'\lstinline{Instruction Register} pour obtenir toutes les informations demandées. \\
+        Utilisez la même convention que celle présentée dans les diapositives du cours (Computer Architecture - Page 15) \\
         Les données issues de la décomposition de l'\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
     \end{conseil}
 
