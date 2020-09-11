@@ -209,45 +209,33 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \end{enumerate}
     \begin{conseil}
 \textbf{Table d'addition binaire:}\\
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{retenue}\\ [0.5ex]
+            retenue & 1 & 0 & 0 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 0 & 0 & 0 \\ [0.5ex] 
+            a & 0 & 1 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 0 \\ [0.5ex] 
+            b & 0 & 1 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
-            1 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            1 & 1 & 0 & 1 \\ [0.5ex] 
+            a-b & 1 & 0 & 1 & 1 & 0 \\ [0.5ex] 
             \hline
         \end{tabular}
     \end{conseil}
     
     \begin{solution}
-        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque ligne (si vous additionnez de haut en bas, n'oubliez pas d'entrer les nombres à additionner de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par additionner la fin des nombres, comme lors d'une addition en colonne). Si l' addition vaut 1, le résultat est 1 et le reste est 0. Si l'addition vaut 2, le résultat est 0 et le reste est 1. Si l'addition vaut 3, le résultat est 1 et le reste est 1. N'oubliez pas d' additionner également le reste à chaque ligne ! \\
+        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque colonne. Si l' addition vaut 1, le résultat est 1 et la retenue est 0. Si l'addition vaut 2, le résultat est 0 et la retenue est 1. Si l'addition vaut 3, le résultat est 1 et la retenue est 1. N'oubliez pas d' additionner également la retenue à chaque colonne ! \\
         
 Voici un exemple pour le deuxième point : \\
 
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{r}\\ [0.5ex]
+	    retenue & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+	    \hline
+            a & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex] 
             \hline
-            1 & 1 & 0 & 1 \\ [0.5ex] 
+            b & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
             \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            1 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            0 & 1 & 1 & 0 \\ [0.5ex] 
+            a + b & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex]
             \hline
         \end{tabular} \\
         
@@ -272,45 +260,33 @@ Voici un exemple pour le deuxième point : \\
 
     \begin{conseil}
         \textbf{Table de soustraction binaire:}\\
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a-b} & \textbf{r}\\ [0.5ex]
+            retenue & 0 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 0 & 0 & 0 \\ [0.5ex] 
+            a & 1 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 1 \\ [0.5ex] 
+            b & 1 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
-            1 & 0 & 0 & 0 \\ [0.5ex] 
-            \hline
-            1 & 1 & 0 & 0 \\ [0.5ex] 
+            a-b & 0 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
         \end{tabular}
     \end{conseil}
     
     \begin{solution}
-        Il faut utiliser la table de soustraction. Pour commencer, entrez a et b, puis commencez à soustraire chaque ligne (si vous soustrayez de haut en bas, n'oubliez pas d'entrer les nombres à soustraire de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par soustraire la fin des nombres, comme lors d'une soustraction en colonne). Si la soustraction vaut 0, le résultat est 0 et le reste est 0. Si la soustraction vaut 1, le résultat est 1 et le reste est 0. Si la soustraction vaut -1, le résultat est 1 et le reste est 1. Si la soustraction vaut -2, le résultat est 0 et le reste est 1. N'oubliez pas de soustraire le reste à chaque fois ! \\
+         Il faut utiliser la table de soustraction. Pour commencer, entrez a et b, puis commencez à soustraire chaque colonne. Si la soustraction vaut 0, le résultat est 0 et la retenue est 0. Si la soustraction vaut 1, le résultat est 1 et la retenue est 0. Si la soustraction vaut -1, le résultat est 1 et la retenue est 1. Si la soustraction vaut -2, le résultat est 0 et la retenue est 1. N'oubliez pas de soustraire la retenue à chaque fois ! \\
 
 Voici un exemple pour le deuxième point : \\
  
-\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a-b} & \textbf{r}\\ [0.5ex]
+	    retenue & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+	    \hline
+            a & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 1 \\ [0.5ex] 
+            b & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
             \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 0 \\ [0.5ex] 
+            a - b & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex]
             \hline
         \end{tabular} \\
  		
