@@ -7,7 +7,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Semaine 6}
@@ -35,7 +35,7 @@ Sa complexité dans le pire des cas est de \textbf{O(n)}, la longueur de la list
 
 \subsection{Exercices}
 
-\begin{Exercice}[5 minutes] langage : \textbf{Python}\\
+\begin{Exercice}[5 minutes] language : \textbf{Python}\\
 
 A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline{x} dans la liste.\\La fonction doit retourner l'index de l'élément correspondant de la liste si \lstinline{x} est dans la liste et "-1" si \lstinline{x} n'est pas dans la liste (avec \lstinline{x = 100})\\
 
@@ -235,7 +235,7 @@ Les fonctions récursives sont courantes en informatique car elles permettent au
    
 \subsection{Exercices}
 
-\begin{Exercice}[10-15 minutes] language : \textbf{Python}\\
+\begin{Exercice}[15 minutes] language : \textbf{Python}\\
 
 A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
@@ -273,7 +273,7 @@ Ici, \lstinline{x = 5}.\\
 \end{minted}
 
     \begin{conseil}
-        
+        Complétez la fonction récursive \lstinline{rec_bin_search} et la fonction itérative \lstinline{it_bin_search}.\\\\
         Détails sur les arguments de la fonction:\\
         \lstinline{list} : La liste dans laquelle nous effectuons la recherche\\
         \lstinline{s} : Le premier élément de la liste (index [0])\\
@@ -294,28 +294,254 @@ Ici, \lstinline{x = 5}.\\
 
     \textbf{Solution question 4}
 
-    Complétez la fonction récursive \lstinline{rec_bin_search} et la fonction itérative \lstinline{it_bin_search}. 
+    \begin{minted}{python}
+    #Version récursive
+    def rec_bin_search(list,s,r,x): #s as first index and r as last index of list
+        #SOLUTION
+        mid = int((s+r)/2) #int arrondi vers le bas
+        print(mid)
+        if list[mid] < x:
+            return rec_bin_search(list, mid, r, x) 
+        elif list[mid] > x:
+            return rec_bin_search(list, s, mid, x)
+        elif list[mid] == x:
+            print("X in list at index: ", mid)
+            return mid 
+        else:
+            print ("X not in list")
+            
+    liste=[1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste) #8 --> first mid = 4 -->"7" in liste --> 7>5 --> new mid = (0+4)/2 = 2, etc.
+    x = 5
+    rec_bin_search(liste,s, r, x)
     
     
+    %%time
+    print(rec_bin_search(liste,s, r, x))
+    
+    
+    ##################################################
+    
+    
+    #Version itérative
+    def it_bin_search(list,s,r,x):
+        #SOLUTION
+        while s <= r: 
+            mid = int(s + (r-s)/2) 
+            print(mid)
+            if list[mid] == x:
+                print("X presents in list at index: ", mid)
+                return mid
+            elif list[mid] < x: 
+                s = mid+1
+            else:
+                r= mid-1
+        print("X not present in list")
+        return -1
+    liste = [1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste)
+    x = 15
+    it_bin_search(liste,s, r, x)
+    
+    %%time
+    print(it_bin_search(liste,s, r, x))
+    \end{minted}
+\end{Exercice}
 
+
+\begin{Exercice}[15 minutes] language : \textbf{Python}\\
+
+Considérez une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche binaire.\\
+
+On vous donne une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
+
+Résultat attendu : 56\\
+
+    \begin{minted}{python}
+    def find_closest_bin(liste,n):
+        #complètez ici
+        
+        
+    L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
+    e = 41
+    find_closest_bin(L,e)
+    
+    %%time
+    print(find_closest_bin(L,e))
+    \end{minted}
+
+\begin{conseil}
+    Veillez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme a trouvé la valeur la plus proche de \lstinline{e}. 
+    
+\end{conseil}
+
+\textbf{Solution question 5}
+    \begin{minted}{python}
+    def find_closest_bin(liste,n):
+        #SOLUTION
+        
+        min = 0
+        max = len(liste)
+        found = False
+        while min <= max and not found: # 0<10 and true puis 6<10 and true, etc.
+            mid = (max+min)//2 # mid = 5 --> 16 in list
+            print(mid)
+            if n > liste[mid]: # 41>16
+                min = mid + 1 # min = 5+1=6
+            elif n < liste[mid]:
+                max = mid -1
+            else:
+                found = True
+        if found:
+            return n
+        else:
+            return liste[mid]
+        
+    L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
+    e = 41
+    find_closest_bin(L,e)
+    
+    %%time
+    print(find_closest_bin(L,e))
+    \end{minted}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] language : \textbf{Python}\\
+
+Considérez une liste d’entiers triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\\\
+
+Exemple:\\
+
+    L = [1231321,3213125,3284016,4729273,5492710] \\
+
+    e = 3284016\\
+
+Résultat attendu: 2\\
+
+    \begin{minted}{python}
+    def binary_search(L,e):
+    first = 0
+    last = len(L)-1
+    #complètez ici
+    
+    
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    binary_search(L,e)
+    
+    %%time
+    print(binary_search(L,e))
+    \end{minted}
+
+\begin{conseil}
+    Inspirez-vous des exercices et des conseils précédents. 
+\end{conseil}
+
+\textbf{Solution question 6}
+
+    \begin{minted}{python}
+    def binary_search(L,e):
+    first = 0
+    last = len(L)-1
+    #SOLUTION
+    while first <= last:
+        mid = int((first+last)/2)
+        print(mid)
+        if L[mid] == e:
+            return mid
+        else:
+            if randoms[mid] > e:
+                last-=1
+            else:
+                first +=1
+    return False
+    
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    binary_search(L,e)
+    
+    %%time
+    print(binary_search(L,e))
+    \end{minted}
 
 \end{Exercice}
 
 
 \begin{Exercice}[10 minutes] language : \textbf{Python}\\
+    
+    \textbf{Matrice en Python}
 
-Considérez une liste d’entiers non triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche binaire.\\
+    Considérez une matrice ordonnée m et un élément l.\\\\
+    
+    Une matrice ordonnée répond aux critères suivants :\\
+     \lstinline{[i][j]<=m[i+1][j]} (une ligne va du plus petit au plus grand)\\
+     \lstinline{[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\\\
+ 
+    
+    Écrivez un algorithme qui retourne la position de l’élément l dans m. Si l n’est pas présent dans m alors il faut retourner (-1, -1)\\\\
+    
+    Exemple 1: si m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]] et que l=7. Nous souhaitons avoir la réponse (1,2) OU (3,1) (l’une des deux, pas besoin de retourner les deux résultats).\\\\
+    
+    Exemple 2: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrix m.\\
 
-On vous donne une liste d’entiers non triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
-Résultat attendu : 56\\
+    \begin{minted}{python}
+    def search_in_matrix(m,l):
+    #complètez ici
+    
+    
+    m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+    l=7
+    search_in_matrix(m,l)
+    \end{minted}
+
+    \begin{conseil}
+    Pour cet exercice il est nécessaire d'utiliser une double boucle \lstinline{for}, c'est-à-dire: une boucle \lstinline{for} dans une boucle \lstinline{for}. Cela permet de parcourir tout les éléments d'un tableau à deux dimensions à l'exemple d'une matrice. 
+    \end{conseil}
+
+\textbf{Solution question 7}
+
+    \begin{minted}{python}
+    def search_in_matrix(m,l):
+    #complètez ici
+    for i in range(len(m)): #4
+        for j in range(len(m[i])):
+            if m[i][j] == l:
+                return (i,j)#
+    return (-1,-1)
+    
+    m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+    l=7
+    search_in_matrix(m,l)
+    \end{minted}
 
 \end{Exercice}
 
-
-
 \newpage
 \section{Arbre de recherche binaire}
+
+\begin{Exercice}[0 minutes] language : \textbf{Python}\\
+    
+    CONSIGNE
+
+    \begin{minted}{python}
+    CODE
+    \end{minted}
+
+    \begin{conseil}
+    TODO
+    \end{conseil}
+
+\textbf{Solution question }
+
+    \begin{minted}{python}
+    CODE
+    \end{minted}
+
+\end{Exercice}
 
 
 
