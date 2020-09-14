@@ -235,7 +235,7 @@ Les fonctions récursives sont courantes en informatique car elles permettent au
    
 \subsection{Exercices}
 
-\begin{Exercice}[15 minutes] language : \textbf{Python}\\
+\begin{Exercice}[20 minutes] language : \textbf{Python}\\
 
 A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
@@ -522,23 +522,94 @@ Résultat attendu: 2\\
 
 \newpage
 \section{Arbre de recherche binaire}
+\subsection{Définition}
 
-\begin{Exercice}[0 minutes] language : \textbf{Python}\\
+Un arbre de recherche binaire est une structure de donnée au même titre que les listes, tuples, dictionnaires, etc. Leur particularité est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres de recherche binaire enregistrent les valeurs de manière relationnelle.\\
+
+En effet, l'arbre est divisé en branches qui peuvent elles-même contenir deux branches (enfants) et ainsi de suite. Lorsqu'une branche n'a pas de branches subséquentes (enfants), on parle de feuille.\\
+
+Les branches peuvent donc contenir de 0 à 2 autres branches. On parle alors de la branche à gauche et de celle à droite. La branche de gauche est forcément plus petite que la branche parente et celle de droite est forcément plus grande.\\
+
+De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutant ou en retirant des éléments\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.32\textwidth]{img/binary-search-tree.png}
+    \caption{Exemple d'arbre binaire}
+\end{figure}
+
+\subsection{Exercices}
+
+\begin{Exercice}[15 minutes] language : \textbf{Python}\\
     
-    CONSIGNE
+    Dans l'exercice suivant nous vous donnons un arbre binaire avec les mêmes valeur que le schéma précédent et dont la racine est la variable root.\\
 
+    Ecrivez une fonction qui retourne \lstinline{True} si la valeur valeur est dans l'arbre et \lstinline{False}, sinon. Vous pouvez utiliser la variable value pour afficher la valeur d'une node et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accèder aux branches enfantes, \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
+    Complétez la fonction \lstinline{tree_search}.\\
     \begin{minted}{python}
-    CODE
+    import sys
+    import traceback
+    from Arbre import Arbre
+    
+    def tree_search(node, value):
+        # Complétez ici
+        
+    
+    
+    def handle_error(): #Fonction appelée dans le bloc "except" qui gère les erreurs
+        _, _, tb = sys.exc_info()
+        traceback.print_tb(tb) 
+        tb_info = traceback.extract_tb(tb)
+        filename, line, func, text = tb_info[-1]
+        print('Une erreur s\'est produite sur la ligne {} dans la déclaration {}'.format(line, text))
+    
+    try: #"try" permet de tester le code pour détecter les erreurs.
+    
+        tree = Arbre(8, 3, 1, 6, 4, 7, 10, 14, 13)
+        root = tree.root
+        assert tree_search(root, 4) == True # devrait trouver
+        assert tree_search(root, 7) == True # devrait trouver
+        assert tree_search(root, 18) == False # ne devrait pas trouver
+        assert tree_search(root, 21) == False # ne devrait pas trouver
+    
+        print("Bonne réponse avec le premier arbre")
+    except AssertionError: #"except" permet de gérer l'erreur
+        handle_error()
+        print("Mauvaise réponse")
+        
+    try:
+        tree = Arbre(1, 3, 9, 6, 14, -17, 110, 124, 13, -1, 9, 1, 40, -98, 120, 23)
+        root = tree.root
+        assert tree_search(root, 14) == True # devrait trouver
+        assert tree_search(root, 110) == True # devrait trouver
+        assert tree_search(root, 39) == False # ne devrait pas trouver
+        assert tree_search(root, 18) == False # ne devrait pas trouver
+        print("Bonne réponse avec le deuxième arbre")
+    except AssertionError as err:
+        handle_error()
+        print("Mauvaise réponse")
+
     \end{minted}
 
     \begin{conseil}
-    TODO
+    Indice: Utilisez une fonction récursive.
     \end{conseil}
 
-\textbf{Solution question }
+\textbf{Solution question 8}
 
     \begin{minted}{python}
-    CODE
+    def tree_search(node, value):
+        #Solution
+        if node == None:
+            return False
+        
+        if node.value == value:
+            return True
+        if node.value > value:
+            return tree_search(node.left,value)
+        else:
+            return tree_search(node.right,value) 
+    
     \end{minted}
 
 \end{Exercice}
