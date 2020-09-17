@@ -90,5 +90,37 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \item Pour créer un nouveau projet (Python par exemple), cliquez sur ``+ Create New Project'' à partir de la fenêtre d'accueil, sélectionnez Python sur le menu latéral. Définissez l'emplacement de votre SDK et donnez un nom à votre projet (Assurez-vous de choisir une version Python >= 3.5). Cliquez sur Ok.
 \end{enumerate}
 
+\subsection*{Résolution Bug Windows}
+
+Sur Windows, lorsque vous tentez de run un fichier java, il se peut que le message d'erreur suivant s'affiche :\\
+
+
+\begin{align}
+    'javac' n'est pas reconnue comme une commdande interne ou externe.
+\end{align}
+
+\\
+Dans ce cas, suivez les étapes suivantes :
+
+\begin{enumerate}
+    \item Ouvrez votre panneau de configuration $>$ Système et sécurité $>$ Système $>$ Paramètres systèmes avancés. La fenêtre suivante devrait s'afficher.\\
+    \includegraphics[height = 10cm, width = 10cm]{Res1.PNG}
+    \\
+    \item Sélectionnez Variables d'environnement. Dans variables système, identifiez la variable "Path", sélectionnez là et choisissez modifier.\\
+    \includegraphics[]{Res2.PNG}
+    \item Ouvrez votre explorateur de fichiers et trouvez le chemin d'accès à jdk1.8.0\_261 $>$ bin. \\P.ex : $C:\backslash Program Files\backslash Java\backslash jdk1.8.0\_261\backslash bin.$\\
+    \item Copiez ce chemin d'accès et copiez-le à la dernière ligne de la variable d'environnement Path.\\\
+    \includegraphics[width = 10cm, height = 10cm]{Res3.PNG}\\
+    \item Faites ok. Puis redémarez votre ordinateur.
+    \item Ouvrez votre Terminal, Naviguez vers vorte fichier .java et tappez :
+        \begin{enumerate}
+            \item javac VotreProgramme.java (Cette commande va créer des fichiers.class)\\
+            \textbf{Week 2} : javac Question9.java
+            \item java VotreProgramme (Cette commande va exécuter votre programme. A noter qu'il faut que VotrePogramme doit être le fichier qui contient la class main)
+            \\\textbf{Week 2}: java Question9 Ceci est mon premier programme.
+        \end{enumerate}
+    
+\end{enumerate}
+
 
 \end{document}
