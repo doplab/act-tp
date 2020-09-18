@@ -25,7 +25,7 @@ L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémo
 La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
 
-    \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[2 minutes]  \textbf{QCM}\\
     Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
             \item \textbf{Microsoft Office 2012}
@@ -35,8 +35,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Aucune réponse correcte.
         \end{enumerate}
     \end{Exercice}
+    % TODO: Explication
 
-    \begin{Exercice}[5 minutes]
+    \begin{Exercice}[2 minutes]
         Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
             \item Servir d'interface de communication entre la partie logicielle et matérielle.
@@ -46,13 +47,14 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Aucune réponse correcte.
         \end{enumerate}
     \end{Exercice}
+    % TODO: Explication
     
-    \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[2 minutes]\\
     Avec lequel de ces éléments le système d'exploitation n'a aucune interaction ?
         \begin{enumerate}
             \item Le clavier et la souris.
             \item Le processeur.
-            \item La carte réseau ou le port Ethernet.
+            \item La carte réseau.
             \item La mémoire vive (RAM).
             \item \textbf{Aucune réponse correcte}.
         \end{enumerate}
@@ -63,27 +65,31 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware et avec tous les périphériques de l'ordinateur. \\
     \end{solution}
 
-    \begin{Exercice}[5 minutes]
-        Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
-        \begin{enumerate}
-            \item \textbf{Temps d'utilisation active de l'ensemble des cores du processeur.}
-            \item Temps réel d'utilisation d'une partie des ressources du processeur.
-            \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
-            \item Temps maximum dédié à un processus particulier.
-            \item Nombre de secondes écoulées depuis l'EPOCH.
-        \end{enumerate}
-        \begin{Example}{\faLightbulb \quad Informations utiles}
-            \begin{itemize}
-                \item L'EPOCH représente la date initiale à partir de laquelle est mesuré le temps par les systèmes d'exploitation.
-                \item Pour accéder au gestionnaire de tâches sous Windows, ouvrez le menu démarrer > Saisissez ``Gestionnaire de tâches''. Sous Mac, faites ``command+espace'' et saisissez ``Moniteur d'activité'.
-            \end{itemize}
-            
-        \end{Example}
-        \begin{solution}
-            Temps d'utilisation active de l'ensemble des cores du processeur.
-            Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puissance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
-        \end{solution}
-    \end{Exercice}
+    \begin{comment}
+        %TODO: Question à remplacer
+        \begin{Exercice}[5 minutes]
+            Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
+            \begin{enumerate}
+                \item \textbf{Temps d'utilisation active de l'ensemble des cores du processeur.}
+                \item Temps réel d'utilisation d'une partie des ressources du processeur.
+                \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
+                \item Temps maximum dédié à un processus particulier.
+                \item Nombre de secondes écoulées depuis l'EPOCH.
+            \end{enumerate}
+            \begin{Example}{\faLightbulb \quad Informations utiles}
+                \begin{itemize}
+                    \item L'EPOCH représente la date initiale à partir de laquelle est mesuré le temps par les systèmes d'exploitation.
+                    \item Pour accéder au gestionnaire de tâches sous Windows, ouvrez le menu démarrer > Saisissez ``Gestionnaire de tâches''. Sous Mac, faites ``command+espace'' et saisissez ``Moniteur d'activité'.
+                \end{itemize}
+                
+            \end{Example}
+            \begin{solution}
+                Temps d'utilisation active de l'ensemble des cores du processeur.
+                Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puissance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
+            \end{solution}
+        \end{Exercice}
+\end{comment}
+
     \begin{Exercice}[5 minutes]
         Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
         \begin{enumerate}
@@ -101,7 +107,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
         \end{conseil}
     \end{Exercice}
     
-     \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+     \begin{Exercice}[5 minutes]\\
     Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (filesystem)?
         \begin{enumerate}
             \item L'organisation des dossiers.
@@ -133,15 +139,11 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
         \textbf{Compilateurs} & \textbf{Interpréteurs}\\ [0.5ex]
         \hline
-        Les COMPILATEURS traduisent à l'avance & Les INTERPRÈTES traduisent au fur et à mesure\\ [0.5ex] 
-        \hline
-        Programmes générés à l'avance (besoin d'anticiper tous les cas de figure) & Programmes générés au fur et à mesure  \\ 
-        \hline
         Le programme est intégralement traduit à l'avance & Les instructions sont traduites à la volée une par une  \\
         \hline
         Le compilateur trouve les erreurs à la compilation & L'interprète relève les erreurs pendant l'exécution du programme  \\
         \hline
-        Plus rapide & Plus lent \\
+        Exécution plus rapide & Exécution plus lente \\
         \hline
         Code machine généré et optimisé à l'avance & Code machine généré à la volée et optimisé à chaque exécution  \\
         \hline
@@ -159,7 +161,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \begin{conseil}
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
-            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS et Linux, nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer Nano en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. Notepad est installé par défaut sous Windows.
         \end{itemize}
     \end{conseil}
@@ -169,7 +171,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \end{solution}
     
     \begin{Exercice}[10 minutes]
-        En utilisant l'invite de commande (Terminal), exécutez le programme suivant en lui passant des paramètres.
+        En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
 
         \lstinputlisting[language=Python]{resources/question8.py}
         
@@ -221,7 +223,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     
 \end{section}
 \begin{section}{Librairies}
-    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interagir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
+    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une librairie écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
 \\\\
 En Python, de nombreuses librairies sont disponibles de base (list, set, dict, str, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
 \\\\
@@ -273,7 +275,7 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
     \end{solution} 
 \end{comment}
 \begin{Exercice}[5 minutes]
-	Sous Python, est-ce que la librairie \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
+	En Python, est-ce que la librairie \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
 \end{Exercice} 
 \begin{solution}
 	Oui, elle contient également des constantes, on peut citer \lstinline{pi} par exemple.
