@@ -37,7 +37,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
     \begin{solution}
                 Microsoft Office 2012 est un ensemble d'applications bureautiques disponibles sur tous les systèmes d'exploitation. 
-		Ce n'est donc pas un système d'exploitation, mais un software. C'est donc un niveau d'abstraction au dessus du système d'exploitation.
+		Ce n'est donc pas un système d'exploitation, mais un software. C'est  un niveau d'abstraction au dessus du système d'exploitation.
     \end{solution}
     % TODO: Explication
 
@@ -53,7 +53,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
     \begin{solution}
                 Interpréter les instructions et convertir en binaire est le rôle du processeur. Cela se situe à un niveau d'abstraction en dessous du système d'exploitation. 
-		Le système d'exploitation va lui servir à faire l'interface entre tout ce qu'il se passe sur l'ordinateur et le hardware, notamment le processeur.
+		Le système d'exploitation va  servir à faire l'interface entre tout ce qu'il se passe sur l'ordinateur et le hardware, notamment le processeur.
     \end{solution}
     % TODO: Explication
     
@@ -99,19 +99,20 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 \end{comment}
 
     \begin{Exercice}[5 minutes]
-        Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
+        Quel(s) lien(s) fait le système d'exploitation? Plusieures réponses sont possibles
         \begin{enumerate}
-            \item Liste l'ensemble des fichiers du disque.
-            \item Affiche sous forme de liste l'ensemble des processus en cours.
-            \item Retourne uniquement les dossiers du répertoire courant.
-            \item \textbf{Affiche tous les dossiers et fichiers du répertoire courant.}
+            \item \textbf{Entre les applications et internet.}
+            \item \textbf{Entre la souris et l'écran.}
+            \item Le disque dur et le processeur
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
-            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher le contenu du répertoire courant.
+            Le système d'exploitation fait des liens abstraits. Or le lien entre le disque dur et le processeur est un lien physique car ce sont tous les deux du hardware.
+	    De plus, le système d'exploitation est résponsable des tous les périphériques ainsi que toutes les connexions. 
         \end{solution}
         \begin{conseil}
-            Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
+            Réfléchir à la nature de la connexion entre chaque objet de chaque proposition. 
+	    Internet ici est considérer comme software et non son application physique. 
         \end{conseil}
     \end{Exercice}
     
