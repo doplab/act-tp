@@ -94,12 +94,10 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
 
 Sur Windows, lorsque vous tentez de run un fichier java, il se peut que le message d'erreur suivant s'affiche :\\
 
+\begin{Example}{\faExclamationTriangle \quad Message d'erreur}
+    \textbf{`javac' n'est pas reconnue comme une commande interne ou externe.}
+\end{Example}
 
-\begin{align}
-    'javac' n'est pas reconnue comme une commdande interne ou externe.
-\end{align}
-
-\\
 Dans ce cas, suivez les étapes suivantes :
 
 \begin{enumerate}
@@ -111,13 +109,13 @@ Dans ce cas, suivez les étapes suivantes :
     \item Ouvrez votre explorateur de fichiers et trouvez le chemin d'accès à jdk1.8.0\_261 $>$ bin. \\P.ex : $C:\backslash Program Files\backslash Java\backslash jdk1.8.0\_261\backslash bin.$\\
     \item Copiez ce chemin d'accès et copiez-le à la dernière ligne de la variable d'environnement Path.\\\
     \includegraphics[width = 10cm, height = 10cm]{img/Res3.PNG}\\
-    \item Faites ok. Puis redémarez votre ordinateur.
-    \item Ouvrez votre Terminal, Naviguez vers votre fichier .java et tappez :
+    \item Faites ok. Puis redémarrez votre ordinateur.
+    \item Ouvrez votre Terminal, Naviguez vers votre fichier .java et tapez :
         \begin{enumerate}
-            \item javac VotreProgramme.java (Cette commande va créer des fichiers.class)\\
-            \textbf{Week 2} : javac Question9.java
-            \item java VotreProgramme (Cette commande va exécuter votre programme. A noter qu'il faut que VotrePogramme doit être le fichier qui contient la class main)
-            \\\textbf{Week 2}: java Question9 Ceci est mon premier programme.
+            \item \lstinline{javac VotreProgramme.java} (Cette commande va créer des fichiers.class)\\
+            \textbf{Week 2} : \lstinline{javac Question9.java}
+            \item \lstinline{java VotreProgramme} (Cette commande va exécuter votre programme. A noter qu'il faut que votre programme doit être le fichier qui contient la classe \lstinline{main})
+            \\\textbf{Week 2}: \lstinline{java Question9 Ceci est mon premier programme}.
         \end{enumerate}
     
 \end{enumerate}
