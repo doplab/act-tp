@@ -25,7 +25,7 @@ L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémo
 La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
 
-    \begin{Exercice}[2 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[3 minutes]  \textbf{QCM}\\
     Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
             \item Microsoft Office 2012
@@ -40,8 +40,8 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 		Ce n'est donc pas un système d'exploitation, mais un logiciel d'application. 
     \end{solution}
 
-    \begin{Exercice}[2 minutes]
-        Quel est le rôle du noyau \textit{Kernel}du système d'exploitation? Trouvez la \textbf{mauvaise} réponse.
+    \begin{Exercice}[3 minutes]
+        Quel est le rôle du noyau \textit{Kernel} du système d'exploitation? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
             \item Servir d'interface de communication entre la partie logicielle et matérielle.
             \item Gérer les ressources physiques de l'ordinateur.
@@ -51,11 +51,11 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
         \end{enumerate}
     \end{Exercice}
     \begin{solution}
-                Le rôle du processeur est d'interpréter les instructions et convertir en binaire. Il gère les ressources de l'ordinateur et permet aux différents composants de communiquer entre eux.
+                Le rôle du processeur est d'interpréter les instructions et de les convertir en binaire. Il gère les ressources de l'ordinateur et permet aux différents composants de communiquer entre eux.
     \end{solution}
     % TODO: Explication
     
-    \begin{Exercice}[2 minutes]\\
+    \begin{Exercice}[3 minutes]\\
     Avec lequel de ces éléments le système d'exploitation n'a aucune interaction ?
         \begin{enumerate}
             \item Le clavier et la souris.
@@ -74,6 +74,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 
         % TODO: @nathan - Question pas claire, à refaire.
 
+\begin{comment}
         \begin{Exercice}[5 minutes]
         Quel(s) lien(s) fait le système d'exploitation? Plusieurs réponses sont possibles
         \begin{enumerate}
@@ -98,13 +99,31 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
 \end{comment}
 
+\begin{Exercice}[3 minutes]
+    Lequel de ces systèmes d'exploitation \textbf{ne} permet \textbf{pas} d'exécuter plus d'un programme en même temps?
+    \begin{enumerate}
+        \item Ubuntu
+        \item MacOS
+        \item Windows XP
+        \item MS-DOS
+    \end{enumerate}
+    \begin{solution}
+        MS-DOS est un système d'exploitation développé par Microsoft en 1981 d'abord pour l'IBM PC - modèle 5150 puis pour une plus large gamme d'ordinateurs personnels. Il est mono-utilisateur et ne supporte pas l'exécution de plusieurs programmes à la fois.
+        \\
+        Si vous le souhaitez, vous pouvez explorer le code source de MS-DOS sur ce lien (\url{https://github.com/microsoft/ms-dos}). 
+    \end{solution}
+    \begin{conseil}
+        La plupart des systèmes d'exploitation actuels permettent d'exécuter plusieurs programmes en même temps. Pour répondre à cette question, pensez à vérifier la date de sortie des systèmes d'exploitation énumérés.
+    \end{conseil}
+\end{Exercice}
+
 \begin{Exercice}[5 minutes]
         Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
         \begin{enumerate}
             \item Liste l'ensemble des fichiers du disque.
             \item Affiche sous forme de liste l'ensemble des processus en cours.
             \item Retourne uniquement les dossiers du répertoire courant.
-            \item \textbf{Affiche tous les dossiers et fichiers du répertoire courant.}
+            \item Affiche tous les dossiers et fichiers du répertoire courant.
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
@@ -121,7 +140,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (filesystem)?
         \begin{enumerate}
             \item L'organisation des dossiers.
-            \item \textbf{L'écriture et la lecture sur les disques.}
+            \item L'écriture et la lecture sur les disques.
             \item Les différents chemins d'accès aux différents dossiers et fichiers.
             \item L'organisation des fichiers.
             \item Aucune réponse correcte.
