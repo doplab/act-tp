@@ -69,53 +69,51 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             Aucune réponse correcte. \\
         
         % TODO: @nathan quelle est la différence entre "Tous les éléments hardware" et les "périphériques"?
-	    %En effet, le système d'exploitation a une interaction avec tous les éléments hardware et avec tous les périphériques de l'ordinateur. \\
+	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware ( tous les composants physique de la structure de l'ordinateur) et avec tous les périphériques de l'ordinateur( tout composant qui n'est pas dans la structure de base de l'ordinateur comme une souris).  \\
     \end{solution}
-
-    \begin{comment}
-        %TODO: Question à remplacer
-        \begin{Exercice}[5 minutes]
-            Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
-            \begin{enumerate}
-                \item \textbf{Temps d'utilisation active de l'ensemble des cores du processeur.}
-                \item Temps réel d'utilisation d'une partie des ressources du processeur.
-                \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
-                \item Temps maximum dédié à un processus particulier.
-                \item Nombre de secondes écoulées depuis l'EPOCH.
-            \end{enumerate}
-            \begin{Example}{\faLightbulb \quad Informations utiles}
-                \begin{itemize}
-                    \item L'EPOCH représente la date initiale à partir de laquelle est mesuré le temps par les systèmes d'exploitation.
-                    \item Pour accéder au gestionnaire de tâches sous Windows, ouvrez le menu démarrer > Saisissez ``Gestionnaire de tâches''. Sous Mac, faites ``command+espace'' et saisissez ``Moniteur d'activité'.
-                \end{itemize}
-                
-            \end{Example}
-            \begin{solution}
-                Temps d'utilisation active de l'ensemble des cores du processeur.
-                Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puissance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
-            \end{solution}
-        \end{Exercice}
 
         % TODO: @nathan - Question pas claire, à refaire.
 
         \begin{Exercice}[5 minutes]
         Quel(s) lien(s) fait le système d'exploitation? Plusieurs réponses sont possibles
         \begin{enumerate}
-            \item \textbf{Entre les applications et internet.}
-            \item \textbf{Entre la souris et l'écran.}
+            \item \textbf{Entre un casque audio et spotify.}
+            \item \textbf{Entre google Chrome et des téléchargements web}
             \item Le disque dur et le processeur
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
-            Le système d'exploitation fait des liens abstraits. Or le lien entre le disque dur et le processeur est un lien physique car ce sont tous les deux du hardware.
-	    De plus, le système d'exploitation est résponsable des tous les périphériques ainsi que toutes les connexions. 
+            Le système d'exploitation sert d'interface entre:
+	    \begin{enumerate}
+	    	\item Software - Software. Exemple: Les téléchargements google chrome et la gestion des fichiers.
+		\item Software - Hardware/Périphériques. Exemple: Musique jouée à partir de spotify sur un casque audio.
+		\item Hardware/Périphériques - Software. Exemple: L'antenne wifi qui permet l'accès à internet notamment avec des navigateurs web.
+	    \end{enumerate}
+	    La 3ème affirmation est fausse car le lien entre le disque dur et le processeur est un lien physique car ce sont tous les deux du hardware.  
         \end{solution}
         \begin{conseil}
-            Réfléchir à la nature de la connexion entre chaque objet de chaque proposition. 
-	    Internet ici est considérer comme software et non son application physique. 
+            Réfléchir à la nature ( hardware ou software) de chaque élément des propositions et ce que cela implique dans la connexion.
+	    Le système d'exploitation contrôle l'accès aux ressources hardware ( composants physique) et sert d'interface avec le software.
         \end{conseil}
     \end{Exercice}
 \end{comment}
+
+\begin{Exercice}[5 minutes]
+        Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
+        \begin{enumerate}
+            \item Liste l'ensemble des fichiers du disque.
+            \item Affiche sous forme de liste l'ensemble des processus en cours.
+            \item Retourne uniquement les dossiers du répertoire courant.
+            \item \textbf{Affiche tous les dossiers et fichiers du répertoire courant.}
+            \item Aucune réponse n'est correcte.
+        \end{enumerate}
+        \begin{solution}
+            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher le contenu du répertoire courant.
+        \end{solution}
+        \begin{conseil}
+            Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
+        \end{conseil}
+    \end{Exercice}
 
     
     
