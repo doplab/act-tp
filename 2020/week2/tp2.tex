@@ -234,7 +234,9 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             \end{itemize}
         \end{conseil}
         \begin{solution}
-            Pour exécuter notre programme en passant des arguments, on fera: \lstinline{java Question9.java Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
+            Avec le Terminal, rendez-vous dans le dossier où vous avez enregistrez le fichier "Question9.java".\\
+            Compilez le code à l'aide de la commande \lstinline{javac Question9.java} (en cas d'erreur voir ci-dessous.)\\\\
+            Pour exécutez notre programme en passant des arguments, on fera: \lstinline{java Question9 Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
             \parbox{\textwidth}{
                 Paramètre[0]: Ceci\\
                 Paramètre[1]: est\\
@@ -244,7 +246,10 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
                 Paramètre[5]: écrit\\
                 Paramètre[6]: en\\
                 Paramètre[7]: Java
-            }
+            }\\\\
+            Erreur fréquente: Lors de la commande \lstinline{javac}, vous pouvez obtenir l'erreur suivante:\\
+            “\lstinline{javac’ is not recognized as an internal or external command, operable program or batch file}“\\
+            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, rendez-vous dans le dossier ou vous avez installé java et copier le chemin du fichier "bin".\\Par exemple sous Windows, dans le terminal, entrez:\\ \lstinline{set path=C:\Program Files\Java\jdk1.8.0_121\bin}\\(Attention à bien entrez votre chemin comprenant la version que vous avez instalée.)
 
         \end{solution}
 
