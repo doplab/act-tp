@@ -20,7 +20,7 @@ variable_1 = 3.14 ;
 // Programme 5
 var variable_1 = 0;
 String variable_2 = "Hello";
-String variable_3 = "World"
+String variable_3 = "World";
 variable_2 = variable_3;
 
 // Programme 6
