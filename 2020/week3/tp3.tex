@@ -1,0 +1,789 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation de base}
+
+Le but de cette séance est d'aborder des notions de base en programmation. Au terme de cette séance, l'étudiant sera capable de: \\
+
+\begin{itemize}
+	\item Définir une variable, de définir son type et sa valeur.
+	\item Définir une fonction et comprendre son rôle.
+	\item Utiliser des notions d'algèbre booléenne.
+	\item Comprendre la notion d'entrée/sortie. \\
+\end{itemize} 
+
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Pycharm et Netbeans. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: ** tutoriel d'installation des outils et prise en main de l'environnement de travail **. \\
+
+\section{Typage}
+
+Le but de cette partie des travaux pratiques est de comprendre les notions de typage dynamique et statique, ainsi que leur impact sur l’exécution et la gestion des erreurs. \\
+
+\begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
+    
+    Quelles sont les principaux types de variable (donnez en 3), et comment les déclareriez vous en Python et en Java ? \\
+
+    \begin{conseil}
+    
+        Se référer aux diapositives du cours ou à la documentation officielle de votre langage de programmation préféré.
+        
+    \end{conseil}
+    \begin{solution}
+    
+        Les principaux types de variables sont les suivants : Integer (int) Float String (str) Boolean (bool).\\
+
+		En Python :    
+        
+    	\lstinputlisting{Question1.py} 
+    	
+    	
+    	En Java : 
+    	
+    	\lstinputlisting{Question1.java} 
+    	
+    	Il existe d'autres types de variable, comme par exemple les chaînes de caractères (String) ou encore les double.
+ 
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[15 minutes]  \textbf{Typage dynamique vs statique}\\
+    
+    Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
+    
+    Java :
+    
+    \lstinputlisting{Question2.java} 
+    
+    Python :
+    
+    \lstinputlisting{Question2.py} 
+    
+
+    \begin{conseil}
+    
+        En Java, le type est statique, ce qui signifie qu'à partir du moment où vous créez une variable, un type va lui être attribué (par vous ou par le code en lui-même par déduction). Ce type ne pourra pas être changé, et si vous tentez de le faire (en lui attribuant une valeur d'un autre type par exemple), une erreur sera soulevée. \\
+
+En Python, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur. \\
+
+    \end{conseil}
+    \begin{solution}
+        En Java : \\
+        
+        \begin{itemize}
+        	\item Programme1 : OK
+        	\item Programme2 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est "déduit" lors de l'exécution du programme.
+        	\item Programme3 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java.
+        	\item Programme4 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est "déduit" lors de l'exécution du programme.
+        	\item Programme5 : OK
+        	\item Programme6 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. \\
+        \end{itemize}
+        
+        En Python : \\
+        
+        \begin{itemize}
+        	\item Programme7 : OK
+        	\item Programme8 : OK
+        \end{itemize}
+        
+        
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Détection d'erreurs} \\
+
+    Voici deux programmes, l’un en Java et l’autre en Python. Chaque programme comporte une fonction nommée raiseerror() levant une exception de type « TypeError ». Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes soulèvera une erreur, et l’autre sera exécuté sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi.\\
+    
+    En Java : \\
+    
+    \lstinputlisting{Question3.java}
+    
+    En Python : \\
+    
+    \lstinputlisting{Question3.py}  
+    
+    
+    \begin{conseil}
+        Pensez à vérifier le type des variables. Faites attention à la différence principale entre le typage des variables en Java et le typage en Python.\\
+    \end{conseil}
+    \begin{solution}
+    	Le premier code va soulever une erreur de type Type error, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
+
+Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le True en False, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.\\
+    \end{solution}
+
+\end{Exercice}
+\newpage
+
+\section{Représentation de nombres entier}
+
+\begin{Exercice}[15 minutes] \textbf{Entiers non signés}
+	Sur 8 bits écrire 113$_{(10)}$ en base binaire.
+   
+    \begin{conseil}
+		Faire un tableau comme présenté dans le cours page 9 de la semaine 3. Essayer de décomposer en une somme de puissances de 2 le nombre.
+    \end{conseil}
+    
+    \begin{solution}
+        Méthode 1: Méthode de la division par 2 vue dans la première séance d'exercice\\
+        
+        Méthode 2 : utiliser les puissances de 2 pour décomposer le nombre (vue également dans la première séance d'exercices).
+        
+        113 = 64 + 32 + 16 + 1 = 1 * 26 + 1 * 25 + 1* 24 + 1 * 20 \\
+        
+        \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+	      	$2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ [0.5ex]
+	    	\hline
+            128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
+            \hline
+            0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        On obtient donc 01110001$_{(2)}$ \\
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Entiers signés négatifs}\\
+    En utilisant le résultat de la question précédente, écrire sur 8 bits -113(10) en base binaire. \\
+
+    \begin{conseil}
+        \begin{itemize}
+        	\item Il faut prendre la représentation sur 7 bits d'un nombre entier non signé.
+        	\item On rajoute un 8ème bit qui sera le signe.
+        	\item Pour cet exercice reprendre l'expression non signée de la question 2.1 et changer le dernier bit en conséquence.
+        	\item Le bit vaut 0 pour un nombre positif et 1 pour un nombre négatif.
+        \end{itemize} 
+    \end{conseil}
+    
+    \begin{solution}
+         113$_{(10)}$ = 01110001$_{(2)}$ \\
+         
+         En changeant le premier bit à 1 pour faire passer le nombre en nombre négatif on obtient : \\
+         
+         -113$_{(10)}$ = 11110001$_{(2)}$ \\
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Complément à 1}\\
+    Ecrire le complément à 1 de -113$_{(10)}$ . \\
+
+	Qu'elle est la différence entre cette méthode par rapport à la précédente ? \\
+
+    \begin{conseil}
+        \begin{itemize}
+        	\item En programmation l'opposé d'une variable est not( la variable). Ici, le même principe s'applique. L'opposé de 0 en binaire est 1.
+        	\item Pour étudier la différence, il faut regarder les différenttes manières d'exprimer -0 en binaire ( se référer à la page 10 de la semaine 3).
+        \end{itemize} 
+    \end{conseil}
+    
+    \begin{solution}
+    	113$_{(10)}$ = 01110001$_{(2)}$ \\
+    	
+        \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ [0.5ex] 
+            \hline
+            not & not & not & not & not & not & not & not \\ [0.5ex]
+            \hline
+            1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\ [0.5ex]
+            \hline
+        \end{tabular} \\
+        
+        avec cette méthode, -113$_{(10)}$ = 10001110$_{(2)}$ \\
+        
+        La portée de cette méthode ne change pas par rapport à celle précédente. Par contre, l'expression de -0 sera différente.\\
+        
+        Signed magnitude: -0$_{(10)}$ = 10000000$_{(2)}$ \\
+        
+        Complément à 1: -0$_{(10)}$ = 11111111$_{(2)}$ \\
+        
+        Les deux ont la même portée: portée = [-127$_{(10)}$,+127$_{(10)}$] \\
+        
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Complément à 2}\\
+    Quel est le complément à 2 de -113(10) et quelle est l'utilité de cette représentation ? \\
+
+    \begin{conseil}
+    
+    Exemple du cours avec 87$_{(10)}$ \\
+    
+    87$_{(10)}$ = 01010111$_{(2)}$ \\
+    
+         \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            a & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 \\ [0.5ex] 
+            \hline
+            b & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\ [0.5ex]
+            \hline
+            c & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 \\ [0.5ex]
+            \hline
+        \end{tabular} \\
+        
+        a : écrire le nombre en binaire \\
+        
+        b : inverser tous ls bits \\
+        
+        c : rajouter 1 au nombre pour obtenir le complément à 2 \\
+        
+        On obtient donc -87$_{(10)}$ = 10101001$_{(2)}$ \\
+    \end{conseil}
+    
+    \begin{solution}
+    	Ici, il suffit donc d'ajouter 1 au complément à 1 de -113$_{(10)}$ \\
+    	
+    	On obtient donc 10001111$_{(2)}$ \\
+    	
+    	Concernant la portée, elle est changée, étant donné qu'il n'existe plus qu'une seule représentation possible pour -0$_{(10)}$. \\
+    	
+    	La nouvelle portée est donc [-128$_{(10)}$,+127$_{(10)}$]
+        
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Floating point}\\
+    
+    Voici la représentation en binaire d'un nombre réel: \\
+    
+     \begin{tabular}{| p{1cm} | p{3cm} | p{9.5cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            signe & exposant & mantisse \\ [0.5ex] 
+            \hline
+            0 & 10110101 & 01000001000000000000001 \\ [0.5ex]
+            \hline
+	\end{tabular}
+	
+	Que vaut en base 10 la représentation précédente en utilisant la représentation floating point ? Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
+	
+    \begin{conseil}
+    
+    \begin{itemize}
+    	\item Se référer à la diapositive 14 de la semaine 3 pour plus de détails.
+    	\item Poser chaque calcul, et ensuite tout fusionner avec la formule.
+    	\item L'exposant et la mantisse sont des entiers positif, donc non signé.
+    \end{itemize}
+    
+    \end{conseil}
+    
+    \begin{solution}
+        \begin{itemize}
+        	\item signe du nombre = $(-1)^signe$ = $(-1)^0$ = 1
+        	\item e = exposant = 10110101$_{(2)}$ = 181$_{(10)}$
+        	\item pour obtenir la puissance de 2, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
+        	\item mantisse = 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ = 1.254$_{(10)}$
+        	\item Valeur = signe * mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10{16}$
+        \end{itemize}
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Conversion d'un nombre binaire au format complément à 2}\\
+    
+    Voici un nombre binaire exprimé sur 8 bits au format complément à 2: 10010011$_{(2)}$. Convertissez ce nombre en base 10. \\
+	
+    \begin{conseil}
+    
+    \begin{itemize}
+    	\item Utilisez le même tableau que dans les questions 2.3 et 2.4 en changeant la valeur en binaire.
+    	\item On applique le processus inverse au complément à deux. C'est-à-dire faire les opérations sur le nombre binaire dans le sens inverse que dans les questions 3 et 4.
+    \end{itemize}
+    
+    \end{conseil}
+    
+    \begin{solution}
+       Il faut appliquer le processus inverse de la question 6 et 7. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et puis multiplier par -1. \\
+       
+       \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            a & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\ [0.5ex] 
+            \hline
+            b & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\ [0.5ex]
+            \hline
+            c & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex]
+            \hline
+        \end{tabular} \\
+        
+        a : écrire le nombre en binaire \\
+        
+        b : soustraire 1 \\
+        
+        c : inverser tous les bits \\
+        
+        On obtient donc 01101101$_{(2)}$ = 109$_{(10)}$ \\
+        
+        Pour finir, on obtient -109$_{(10)}$ après multiplication par 1.
+       
+    \end{solution}
+\end{Exercice}
+
+\newpage
+\section{Bases en programmation}
+Le but de cette section est d'écrire vos premières lignes de code. Les notions abordées concerneront les variables, les fonctions, et les interactions avec l'utilisateur (input/output). Vous pouvez les écrire en Java ou en Python.\\
+
+\begin{Exercice}[20 minutes] \textbf{Output (Java ou Python)}\\
+   Créez une variable nom contenant votre nom, et une autre prenom contenant votre prénom puis affichez : "Bonjour, prenom nom". \\
+   
+    \begin{conseil}
+        Utilisez la fonction print() de Python et System.out.println() in Java. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question10.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question10.java}  
+       
+        
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Input (Java ou Python)}\\
+   En vous référant à l'exercice précédent, demandez à l'utilisateur d'entrer son nom et son prénom via la fonction input() au lieu d'initialiser vous-même les variables. \\
+   
+    \begin{conseil}
+       Utilisez la fonction input() in Python / la classe Scanner() in Java (n'oubliez pas d'ajouter "import java.util.Scanner;") tout au sommet de votre code. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question11.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question11.java}  
+       
+        
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Format d'impression (Python uniquement)}\\
+   Créer et assignez des valeurs à 2 variables prenom et age, puis affichez: "Je m'appelle prenom et j'ai age ans". Gérez le format de l'impression via l'opérateur +, puis via la fonction format(). \\
+   
+    \begin{conseil}
+       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
+        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format 
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question12.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Type (Python uniquement)}\\
+   Déclarez deux variable nom (string) et age (int), puis affichez le type de chacune de ces deux variables. \\
+   
+    \begin{conseil}
+       Vous pouvez contrôler le type de vos variable via la fonction type()
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question13.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Il est possible de convertir une variable d'un certain type dans un autre type. Il est par exemple possible de changer un int en float ou un float en int. Déclarez une variable nombre\_entier de type int, puis une autre variable nombre\_decimal de type float. Affichez nombre\_entier en le convertissant en float et nombre\_decimal en le convertissant en int. \\
+   
+    \begin{conseil}
+       Utilisez la fonction int(float) et float(int) en Python / Utilisez (int) float et (float) int en Java.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question14.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question14.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Qu'afficheront les programmes suivants ? \\
+   
+   Python : \\
+   
+   \lstinputlisting{Question15.py}
+   
+   Java : \\
+   
+   \lstinputlisting{Question15.java}
+    
+   
+    \begin{conseil}
+      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    Python : \\
+    
+    3
+    
+    3.0 \\
+    
+    Java : \\
+    
+    3
+    
+    3.14 \\
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
+
+   Créez 2 variables facteur\_1 (= 11) et facteur\_2 (= 3). Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable produit. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Vous pouvez répéter l'exercice avec l'addition et la multiplication. \\
+   
+    \begin{conseil}
+      	L'opérateur de multiplication est le *.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question16.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question16.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Calculs (division) (Java ou Python)}\\
+   Créez 2 variables nb\_bonbons avec pour valeur 11 et nb\_personnes avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable bonbons\_personnes. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans reste. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+   
+    \begin{conseil}
+      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question17.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question17.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Calculs (incrémentation / décrémentation) (Java ou Python)}\\
+   Gardez vos variables de l'exercice précédent, augmentez la valeur de nb\_bonbons de 1, et diminuez celle de nb\_personnes de 1.  \\
+   
+    \begin{conseil}
+      	Vous pouvez utiliser l'opérateur += ou -= en Python, et les opérateurs ++ et -- en Java.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question18.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question18.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
+   Créez une variable mon\_mot de type chaîne de caractères qui vaut "Hard But Cool !!". Créez ensuite une variable premiere contenant la première lettre de mon\_mot en utilisant l'indexation. Créez ensuite une variable derniere contenant la dernière lettre de mon\_mot en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez. \\
+   
+    \begin{conseil}
+      	Pour Python, utilisez [], et pour Java, utilisez la fonction substring() ainsi que la fonction length().
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question19.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question19.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
+   Gardez votre variable, mon\_mot et créez une variable lettre\_5 contenant la cinquième lettre de mon\_mot via l'indexation. Créez ensuite une variable lettre\_9\_13 contenant les lettres 9,10,11,12,13 de mon\_mot. Afficher les résultats et voyez ce que vous obtenez.  \\
+   
+    \begin{conseil}
+      	Attention, ici les espaces comptent comme des lettres ! \\
+
+		Pour Python, utilisez [:], et pour Java, utilisez la fonction substring().
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question20.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question20.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction len(). Gardez votre variable mon\_mot et créez une nouvelle variable nommée ln\_mon\_mot contenant le nombre de caractère de la variable mon\_mot, puis une nouvelle variable moitié contenant la première moitié de la variable mon\_mot (utilisez la variable que vous venez de créer). Affichez le résultat et voyez ce que vous obtenez.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n' est valable que pour python. L'équivalent pour Java est la fonction length()..
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question21.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question21.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
+  Définissez une fonction nommée ping() qui, lorsqu'elle est appelée, affiche "pong". Appelez la plusieurs fois et voyez le résultat.  \\
+   
+    \begin{conseil}
+		Référez vous au cours pour la création et l'appel des fonctions. \\
+      	
+      	Vous pourriez utiliser une boucle for pour effectuer plusieurs appels à la fonction ping().
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question22.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question22.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+   Définissez une fonction nommée multiplicateur() qui prend deux arguments multiple\_1 et multiple\_2, les multiplie et retourne le résultat. Stockez le résultat de multiplicateur(2,3) dans une variable resultat et affichez la.   \\
+   
+    \begin{conseil}
+      	Référez vous au cours pour la création et l'appel des fonctions.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Python : \\
+    
+    \lstinputlisting{Question23.py}
+    
+    Java : \\
+    
+    \lstinputlisting{Question23.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\newpage
+\section{Opérateurs et conditions Booléennes (Python uniquement)}
+Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit True, soit False. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : $==$ (est égal), $!=$ (n'est pas égal), $<$ (est strictement plus petit), $<=$ (est plus petit ou égal), $>$ (est strictement plus grand), $>=$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra True, si elle ne l'est pas, on obtiendra False. L'utilisation de l'opérateur not inversera le résultat.\\
+
+Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) print(s)). \\
+
+\begin{conseil}
+	Utilisez les tables de vérité présentées en cours dans les diapositives boolean algebra.
+\end{conseil}
+
+
+\begin{Exercice}[5 minutes] 
+    
+    \lstinputlisting{Question24.py}
+
+    \begin{solution}
+        False 
+        
+        True 
+        
+        True 
+        
+        False 
+        
+        False \\
+    \end{solution}
+\end{Exercice}
+    
+\begin{Exercice}[5 minutes] 
+    
+    \lstinputlisting{Question25.py}
+
+    \begin{solution}
+        True 
+        
+        False 
+        
+        True 
+        
+        True \\
+    \end{solution}
+    
+\end{Exercice}
+    
+\begin{Exercice}[5 minutes] 
+    
+    \lstinputlisting{Question26.py}
+
+    \begin{solution}
+        output 1 
+        
+        output 2 
+        
+        output 4 \\
+    \end{solution}
+    
+\end{Exercice}
+
+\newpage
+\section{Conditions}
+Le but de cet section est de vous entraîner à la lecture de code, la compréhension des opérateurs booléens ainsi que le "case switching" à travers le branchement conditionnel.
+
+\begin{Exercice}[20 minutes] \textbf{Branchement conditionnel en Java}\\
+  Qu'affiche le code suivant ?   \\
+  
+  \lstinputlisting{Question27.java}
+   
+    \begin{conseil}
+      	\begin{itemize}
+      		\item break indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
+      		\item L'absence de break indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un break.
+      		\item Lorsque l'on pose case n où n est un nombre cela est équivalent au test n == numero\_mois. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si numero\_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
+      	\end{itemize}
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Juillet
+    
+	Aout
+	
+	Décembre \\
+	
+	Explications : \\
+	
+	\begin{itemize}
+      		\item Comme la case 7 ne contient pas de break et modifie numero\_mois, la lecture du code va continuer.
+      		\item On rentre dans le case 9, qui contient un break. Le numero\_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
+      \end{itemize}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Conditions en Python}\\
+  Qu'affiche le code suivant ?   \\
+  
+  \lstinputlisting{Question28.py}
+   
+    \begin{conseil}
+      	\begin{itemize}
+      		\item Il faut vérifier la condition de chaque cas de façon linéaire.
+      		\item Une fois une condition vérifiée, toutes celles d'après ne sont pas traitées.
+      	\end{itemize}
+        
+    \end{conseil}
+    \begin{solution}
+    
+    Garbinato : Professeur du cours Algorithmique et pensée computationelle. \\
+    
+    Ci-dessous, le résultat des propositions booléennes des if et elif: \\
+    
+    \begin{enumerate}
+    	\item (False or False) and True = False
+    	\item (False and True) or False = False
+    	\item (False or True) and ( True and False) = True and False = False
+    	\item ((True or False) and True) or (True and False) = True
+    \end{enumerate}
+           
+    \end{solution}   
+\end{Exercice}
+
+
+\newpage
+\section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)}
+Ces deux exercices sont des créations de petits jeux bien connus, et relativement rapides à implémenter. \\
+
+
+\begin{Exercice}[20 minutes] \textbf{Le juste prix}\\
+  Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable number , écrivez un programme qui demande à l'utilisateur de deviner le nombre, l'utilisateur a 5 chances pour le trouver, s'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
+  
+  
+  
+  \lstinputlisting{Question29_1.py}
+   
+    \begin{conseil}
+      	Vous pouvez ajouter une boucle for avec la fonction range(5) pour simplifier le code !
+        
+    \end{conseil}
+    \begin{solution}
+    
+   \lstinputlisting{Question29_2.py}
+   
+   Le problème avec cette solution c'est que si le joueur trouve la réponse, le jeu va continuer, une façon plus propre de coder ce jeu est d'utiliser une boucle (prochain chapitre). \\
+   
+   \lstinputlisting{Question29_3.py}
+   
+  	Ici le code est plus concis et permet de s'arrêter lorsque le joueur a trouvé la bonne réponse.\\
+           
+    \end{solution}   
+\end{Exercice}
+
+\newpage
+\begin{Exercice}[20 minutes] \textbf{Pierre, Feuille, Ciseaux}\\
+  Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.   \\
+  
+  \lstinputlisting{Question30_1.py}
+   
+    \begin{solution}
+    
+    \lstinputlisting{Question30_2.py}
+    
+    Vous pouvez également utiliser une boucle pour augmenter le nombre de manches. \\
+           
+    \end{solution}   
+\end{Exercice}
+
+
+\end{document}
