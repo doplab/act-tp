@@ -184,12 +184,12 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         	\item Exposant en base 10 : 10110101$_{(2)}$ = 181$_{(10)}$
         	\item Pour obtenir l'exposant, il faut encore lui appliquer le biais, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
         	\item Mantisse : 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ = 1.254$_{(10)}$
-        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
+        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10{16}$
         \end{itemize}
     \end{solution}
 \end{Exercice}
 \newpage
-\begin{Exercice}[5 minutes] \textbf{Conversion d'un nombre binaire (au format complément à 2) en base 10}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion d'un nombre binaire (au format complément à 2) en base 10 \optionnel}\\
     
     Soit le nombre binaire suivant exprimé sur 8 bits au format complément à 2: 10010011$_{(2)}$. Convertissez ce nombre en base 10. \\
 	
@@ -234,9 +234,9 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 
 Le but de cette partie des travaux pratiques est de comprendre les notions de typage statique et dynamique, ainsi que leur impact sur l’exécution et la gestion des erreurs. \\
 
-\begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
+\begin{Exercice}[3 minutes]  \textbf{Les types de variables}\\
     
-    Quelles sont les principaux types de variable (donnez en 3), et comment les déclareriez vous en Python et en Java ? \\
+    Quelles sont les principaux types de variable (donnez en 3), comment les déclareriez vous en Python et en Java ? \\
 
     \begin{conseil}
     
@@ -264,7 +264,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 \begin{Exercice}[5 minutes]  \textbf{Typage statique et dynamique}\\
     
-    Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
+    Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels lèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
     
     Java :
     
@@ -277,14 +277,14 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
     \begin{conseil}
     
-        En Java, le type est statique, ce qui signifie qu'à partir du moment où vous créez une variable, un type va lui être attribué (par vous ou par le code en lui-même par déduction). Ce type ne pourra pas être changé, et si vous tentez de le faire (en lui attribuant une valeur d'un autre type par exemple), une erreur sera soulevée. \\
+        En Java, le type est statique, ce qui signifie qu'à partir du moment où vous créez une variable, un type va lui être attribué (par vous ou par le code en lui-même par déduction). Ce type ne pourra pas être changé, et si vous tentez de le faire (en lui attribuant une valeur d'un autre type par exemple), une erreur sera levée. \\
 
 En Python, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur. \\
 
     \end{conseil}
 
     \begin{Example}{\faExclamationTriangle \quad Erreurs fréquentes}
-        En exécutant les programmes 2, 4 et 5, si vous rencontrez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes suivantes:
+        Au cas où vous exécuteriez les programmes 2, 4 et 5 et rencontriez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes ci-dessous:
         \begin{enumerate}
             \item Mettez à jour votre JDK en téléchargeant la version adéquate via le lien suivant: \url{https://www.oracle.com/java/technologies/javase-jdk15-downloads.html}.
             \item Une fois votre JDK installé, redémarrez IntelliJ
@@ -299,8 +299,8 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
         \caption{Fenêtre de configuration de l'environnement de développement Java.}
     \end{figure}
     \begin{solution}
-        En Java : \\
-        
+
+        \textbf{En Java}        
         \begin{itemize}
         	\item Programme 1 : OK
         	\item Programme 2 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est ``déduit'' lors de l'exécution du programme.
@@ -310,7 +310,7 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
         	\item Programme 6 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. \\
         \end{itemize}
         
-        En Python : \\
+        \textbf{En Python}
         
         \begin{itemize}
         	\item Programme 7 : OK
@@ -321,16 +321,15 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Détection d'erreurs} \\
+\begin{Exercice}[5 minutes] \textbf{Détection d'erreurs}
 
-    Voici deux programmes, l’un en Java et l’autre en Python. Chaque programme comporte une fonction nommée \lstinline{raise_error()} levant une exception de type \lstinline{TypeError}. Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes soulèvera une erreur, et l’autre sera exécuté sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi.\\
-    
-    En Java : \\
+    Voici deux programmes, l’un en Java et l’autre en Python. Chaque programme comporte une fonction nommée \lstinline{raise_error()} levant une exception de type \lstinline{TypeError}. Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes lèvera une erreur, et l’autre sera exécuté sans problème. Quel code lèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi.\\
+    \newpage
+    \textbf{En Java:}
     
     \lstinputlisting{Question3.java}
     
-    En Python : \\
-    
+    \textbf{En Python:}
     \lstinputlisting{Question3.py}  
     
     
@@ -338,9 +337,9 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
         Pensez à vérifier le type des variables. Faites attention à la différence principale entre le typage des variables en Java et le typage en Python.\\
     \end{conseil}
     \begin{solution}
-    	Le premier code va soulever une erreur de type \lstinline{Type error}, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
+    	Le premier code va lever une erreur de type \lstinline{Type error}, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
 
-Le deuxième code en revanche ne va pas soulever d'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le \lstinline{True} en \lstinline{False}, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.\\
+Le deuxième code en revanche ne va pas lever d'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le \lstinline{True} en \lstinline{False}, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.\\
     \end{solution}
 
 \end{Exercice}
@@ -387,6 +386,35 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
+\begin{Exercice}[5 minutes] \textbf{Format d'impression (Python uniquement)}\\
+   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
+   
+    \begin{conseil}
+       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
+        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format 
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question12.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[3 minutes] \textbf{Type (Python uniquement)}\\
+   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
+   
+    \begin{conseil}
+       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question13.py}
+           
+    \end{solution}   
+\end{Exercice}
+
 \begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
    Il est possible de convertir une variable d'un certain type vers un autre type. Il est par exemple possible de changer un \lstinline{int} en \lstinline{float} ou un \lstinline{float} en \lstinline{int}. Déclarez une variable \textit{nombre\_entier} de type \lstinline{int}, puis une autre variable \textit{nombre\_decimal} de type \lstinline{float}. Affichez \textit{nombre\_entier} en le convertissant en \lstinline{float} et \textit{nombre\_decimal} en le convertissant en \lstinline{int}. \\
    
@@ -406,7 +434,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python) \optionnel}\\
    Qu'afficheront les programmes suivants ? \\
    
    \textbf{Python:}
@@ -433,7 +461,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
+\begin{Exercice}[3 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
 
    Créez 2 variables \textit{facteur\_1} (= 11) et \textit{facteur\_2} (= 3). Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{produit}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Vous pouvez répéter l'exercice avec l'addition et la soustraction. \\
    
@@ -448,6 +476,25 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     
     \textbf{\\Java:}
     \lstinputlisting{Question16.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Calculs (division) \optionnel (Java ou Python)}\\
+   Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+   
+    \begin{conseil}
+      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    
+    \lstinputlisting{Question17.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{Question17.java}
            
     \end{solution}   
 \end{Exercice}
@@ -508,6 +555,23 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
+\begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python}:
+    \lstinputlisting{Question21.py}
+    
+    \textbf{\\Java}:
+    \lstinputlisting{Question21.java}
+    \end{solution}   
+\end{Exercice}
+
 \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
   Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
    
@@ -557,7 +621,7 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
 \end{conseil}
 
 
-\begin{Exercice}[5 minutes] 
+\begin{Exercice}[5 minutes] Qu'affichera le programme suivant?
     
     \lstinputlisting{Question24.py}
 
@@ -573,8 +637,8 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
         False \\
     \end{solution}
 \end{Exercice}
-
-\begin{Exercice}[5 minutes] 
+    
+\begin{Exercice}[5 minutes] Qu'affichera le programme suivant?
     
     \lstinputlisting{Question25.py}
 
@@ -589,12 +653,24 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
     \end{solution}
     
 \end{Exercice}
+    
+\begin{Exercice}[5 minutes] Qu'affichera le programme suivant?
+    
+    \lstinputlisting{Question26.py}
+
+    \begin{solution}
+        output 1\\
+        output 2\\
+        output 3
+    \end{solution}
+    
+\end{Exercice}
 
 \newpage
 \section{Conditions}
 Le but de cette section est de vous entraîner à la lecture de code, la compréhension des opérateurs booléens et au ``case switching'' à travers le branchement conditionnel.
-
-\begin{Exercice}[5 minutes] \textbf{Branchement conditionnel en Java}\\
+\\
+\begin{Exercice}[10 minutes] \textbf{Branchement conditionnel en Java}\\
   Qu'affiche le code suivant? 
   
   \lstinputlisting{Question27.java}
@@ -654,88 +730,9 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
 
 
 \newpage
-\section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)}
-\begin{Exercice}[5 minutes] \textbf{Format d'impression (Python uniquement)}\\
-   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
-   
-    \begin{conseil}
-       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
-        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format 
-        
-    \end{conseil}
-    \begin{solution}
-     
-    \lstinputlisting{Question12.py}
-           
-    \end{solution}   
-\end{Exercice}
-
-
-\begin{Exercice}[5 minutes] \textbf{Type (Python uniquement)}\\
-   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
-   
-    \begin{conseil}
-       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
-        
-    \end{conseil}
-    \begin{solution}
-     
-    \lstinputlisting{Question13.py}
-           
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[5 minutes] \textbf{Calculs (division) (Java ou Python)}\\
-   Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
-   
-    \begin{conseil}
-      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
-        
-    \end{conseil}
-    \begin{solution}
-    
-    \textbf{Python:}
-    
-    \lstinputlisting{Question17.py}
-    
-    \textbf{\\Java:}
-    \lstinputlisting{Question17.java}
-           
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
-   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
-   
-    \begin{conseil}
-      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
-        
-    \end{conseil}
-    \begin{solution}
-    
-    \textbf{Python}:
-    \lstinputlisting{Question21.py}
-    
-    \textbf{\\Java}:
-    \lstinputlisting{Question21.java}
-    \end{solution}   
-\end{Exercice}
-    
-\begin{Exercice}[5 minutes] 
-    
-    \lstinputlisting{Question26.py}
-
-    \begin{solution}
-        output 1\\
-        output 2\\
-        output 3
-    \end{solution}
-    
-\end{Exercice}
-
-
-Les deux exercices suivants consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
-\begin{Exercice}[20 minutes] \textbf{Le juste prix}\\
+\section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)} 
+Ces deux exercices consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
+\begin{Exercice}[20 minutes] \textbf{Le juste prix \optionnel}\\
   Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
   
@@ -762,7 +759,7 @@ Les deux exercices suivants consistent à créer de petits jeux bien connus, et 
 \end{Exercice}
 
 \newpage
-\begin{Exercice}[20 minutes] \textbf{Pierre, Feuille, Ciseaux}\\
+\begin{Exercice}[20 minutes] \textbf{Pierre, Feuille, Ciseaux \optionnel}\\
   Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.   \\
   
   \lstinputlisting{Question30_1.py}
