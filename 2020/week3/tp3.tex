@@ -53,7 +53,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[2 minutes] \textbf{Entiers signés négatifs}\\
+\begin{Exercice}[5 minutes] \textbf{Entiers signés négatifs}\\
     En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. \\
 
     \begin{conseil}
@@ -349,7 +349,7 @@ Le deuxième code en revanche ne va pas soulever d'erreur. En python, le typage 
 \section{Bases en programmation}
 Le but de cette section est d'écrire vos premières lignes de code. Les notions abordées concerneront les variables, les fonctions, et les interactions avec l'utilisateur (input/output). Vous pouvez les écrire en Java ou en Python.\\
 
-\begin{Exercice}[2 minutes] \textbf{Output (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Output (Java ou Python)}\\
    Créez une variable \textit{nom} (str) contenant votre nom, et une autre \textit{prenom} (str) contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
    
     \begin{conseil}
@@ -368,7 +368,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[3 minutes] \textbf{Input (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Input (Java ou Python)}\\
    En vous référant à l'exercice précédent (\textbf{Output (Java ou Python)}), demandez à l'utilisateur d'entrer son nom et son prénom via la fonction \lstinline{input()} au lieu d'initialiser vous-même les variables. \\
    
     \begin{conseil}
@@ -387,36 +387,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[3 minutes] \textbf{Format d'impression (Python uniquement)}\\
-   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
-   
-    \begin{conseil}
-       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
-        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format 
-        
-    \end{conseil}
-    \begin{solution}
-     
-    \lstinputlisting{Question12.py}
-           
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[3 minutes] \textbf{Type (Python uniquement)}\\
-   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
-   
-    \begin{conseil}
-       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
-        
-    \end{conseil}
-    \begin{solution}
-     
-    \lstinputlisting{Question13.py}
-           
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[3 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
    Il est possible de convertir une variable d'un certain type vers un autre type. Il est par exemple possible de changer un \lstinline{int} en \lstinline{float} ou un \lstinline{float} en \lstinline{int}. Déclarez une variable \textit{nombre\_entier} de type \lstinline{int}, puis une autre variable \textit{nombre\_decimal} de type \lstinline{float}. Affichez \textit{nombre\_entier} en le convertissant en \lstinline{float} et \textit{nombre\_decimal} en le convertissant en \lstinline{int}. \\
    
     \begin{conseil}
@@ -435,7 +406,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[3 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
    Qu'afficheront les programmes suivants ? \\
    
    \textbf{Python:}
@@ -462,7 +433,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[3 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
 
    Créez 2 variables \textit{facteur\_1} (= 11) et \textit{facteur\_2} (= 3). Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{produit}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Vous pouvez répéter l'exercice avec l'addition et la soustraction. \\
    
@@ -481,26 +452,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Calculs (division) (Java ou Python)}\\
-   Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
-   
-    \begin{conseil}
-      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
-        
-    \end{conseil}
-    \begin{solution}
-    
-    \textbf{Python:}
-    
-    \lstinputlisting{Question17.py}
-    
-    \textbf{\\Java:}
-    \lstinputlisting{Question17.java}
-           
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[3 minutes] \textbf{Calculs (incrémentation / décrémentation) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Calculs (incrémentation / décrémentation) (Java ou Python)}\\
    Gardez vos variables de l'exercice précédent (\textbf{Calculs (division) (Java ou Python)}), augmentez la valeur de \textit{nb\_bonbons} de 1, et diminuez celle de \textit{nb\_personnes} de 1.  \\
    
     \begin{conseil}
@@ -556,24 +508,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
-   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
-   
-    \begin{conseil}
-      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
-        
-    \end{conseil}
-    \begin{solution}
-    
-    \textbf{Python}:
-    \lstinputlisting{Question21.py}
-    
-    \textbf{\\Java}:
-    \lstinputlisting{Question21.java}
-    \end{solution}   
-\end{Exercice}
-
-\begin{Exercice}[3 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
+\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
   Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
    
     \begin{conseil}
@@ -638,7 +573,7 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
         False \\
     \end{solution}
 \end{Exercice}
-    
+
 \begin{Exercice}[5 minutes] 
     
     \lstinputlisting{Question25.py}
@@ -651,18 +586,6 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
         True 
         
         True \\
-    \end{solution}
-    
-\end{Exercice}
-    
-\begin{Exercice}[5 minutes] 
-    
-    \lstinputlisting{Question26.py}
-
-    \begin{solution}
-        output 1\\
-        output 2\\
-        output 3
     \end{solution}
     
 \end{Exercice}
@@ -732,7 +655,86 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
 
 \newpage
 \section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)}
-Ces deux exercices consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
+\begin{Exercice}[5 minutes] \textbf{Format d'impression (Python uniquement)}\\
+   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
+   
+    \begin{conseil}
+       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
+        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format 
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question12.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes] \textbf{Type (Python uniquement)}\\
+   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
+   
+    \begin{conseil}
+       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{Question13.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Calculs (division) (Java ou Python)}\\
+   Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+   
+    \begin{conseil}
+      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    
+    \lstinputlisting{Question17.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{Question17.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python}:
+    \lstinputlisting{Question21.py}
+    
+    \textbf{\\Java}:
+    \lstinputlisting{Question21.java}
+    \end{solution}   
+\end{Exercice}
+    
+\begin{Exercice}[5 minutes] 
+    
+    \lstinputlisting{Question26.py}
+
+    \begin{solution}
+        output 1\\
+        output 2\\
+        output 3
+    \end{solution}
+    
+\end{Exercice}
+
+
+Les deux exercices suivants consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
 \begin{Exercice}[20 minutes] \textbf{Le juste prix}\\
   Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
