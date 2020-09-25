@@ -234,7 +234,9 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             \end{itemize}
         \end{conseil}
         \begin{solution}
-            Pour exécuter notre programme en passant des arguments, on fera: \lstinline{java Question9.java Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
+            Avec le Terminal, rendez-vous dans le dossier où vous avez enregistrez le fichier "Question9.java".\\
+            Compilez le code à l'aide de la commande \lstinline{javac Question9.java} (en cas d'erreur voir ci-dessous.)\\\\
+            Pour exécutez notre programme en passant des arguments, on fera: \lstinline{java Question9 Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
             \parbox{\textwidth}{
                 Paramètre[0]: Ceci\\
                 Paramètre[1]: est\\
@@ -245,12 +247,15 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
                 Paramètre[6]: en\\
                 Paramètre[7]: Java\\
             }
-
             Sous Windows, depuis votre terminal, utilisez les commandes suivantes:
             \begin{itemize}
                 \item \lstinline{javac Question9.java} pour compiler votre programme.
-                \item \lstinline{java Question9 Ceci est mon premier programme écrit en Java} pour l'exécuter.
+                \item \lstinline{java Question9 Ceci est mon premier programme écrit en Java} pour l'exécuter.\\
             \end{itemize}
+
+            \textbf{Erreur fréquente}: En utilisant la commande \lstinline{javac}, vous pouvez obtenir l'erreur suivante:\\
+            \textbf{javac is not recognized as an internal or external command, operable program or batch file}\\
+            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, rendez-vous dans le dossier ou vous avez installé java et copier le chemin du fichier ``bin''.\\Par exemple sous Windows, dans le terminal, entrez:\\ \textbf{set path=``C:\textbackslash Program Files\textbackslash Java\textbackslash jdk1.8.0\_121\textbackslash bin''}\\(Attention à bien entrez votre chemin comprenant la version que vous avez installée.)
 
         \end{solution}
 

@@ -6,38 +6,51 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Logiciels système}
 
-Le but de cette séance est de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et des librairies.
-Les exercices présentés au cours de cette séance se présentent sous deux sections. Une section composée de questions à choix multiples et une section permettant de découvrir et se familiariser avec votre futur environnement de travail.\\
+Le but de cette séance est d’aborder des notions de base en programmation. Au terme de cette séance, l’étudiant sera capable de: 
+\begin{itemize}
+    \item Définir une variable, de définir son type et sa valeur.
+    \item Définir une fonction et comprendre son rôle.
+    \item Utiliser des notions d’algèbre booléenne.
+    \item Comprendre la notion d’entrée/sortie.
+\end{itemize}
+
+Les langages qui seront utilisés pour cette séance sont \textbf{Java} et \textbf{Python}. Assurez-vous d’avoir bien installé \textbf{Pycharm} et \textbf{Netbeans}. Si vous rencontrez des difficultés, n’hésitez pas à vous référer au guide suivant: \url{https://moodle.unil.ch/mod/resource/view.php?id=891556}.
+
 Le code utilisé dans les questions est également disponible sur Moodle.
 
-
-\begin{section}{Systèmes d'exploitation}
+\begin{section}{Typage}
     
-Le système d'exploitation (OS) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
-\\\\
-L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers dans les disques durs internes ou externes.
-\\\\
-La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
+Le but de cette partie des travaux pratiques est de comprendre les notions de typage dynamique et statique, ainsi que leur impact sur l’exécution et la gestion des erreurs.
 \\
 
-    \begin{Exercice}[3 minutes]  \textbf{QCM}\\
-    Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
-        \begin{enumerate}
-            \item Microsoft Office 2012
-            \item Microsoft Windows 98
-            \item Unix BSD
-            \item Gentoo
-            \item Aucune réponse correcte.
-        \end{enumerate}
-    \end{Exercice}
+\begin{Exercice}[5 minutes]  \textbf{QCM}\\
+Citez trois types de variables couramment utilisés. Comment les déclareriez-vous en \textbf{Python} et en \textbf{Java}?
+    \begin{conseil}
+        Se référer aux diapositives du cours ou à la documentation officielle de votre langage de programmation préféré.
+    \end{conseil}
+\end{Exercice}
     \begin{solution}
-                Microsoft Office 2012 est un ensemble d'applications bureautiques disponible sur les systèmes d'exploitation les plus populaires.
-		Ce n'est donc pas un système d'exploitation, mais un logiciel d'application. 
+        Parmi les types de variables les plus couramment utilisées, on peut citer:
+        \begin{itemize}
+            \item Les entiers (Integer ou int)
+            \item Les nombres à virgule flottante (Float)
+            \item Les chaînes de caractères (String ou str)
+            \item Les booléens (Boolean ou bool)
+        \end{itemize}
+        Pour le déclarer, on utilise la syntaxe suivante:
+        \\
+        En \textbf{Java}:
+        \begin{lstlisting}[language=Python]
+            i = 0
+            f = 3.14
+            s = "Hello World"
+            b = True
+        \end{lstlisting}
     \end{solution}
 
     \begin{Exercice}[3 minutes]
