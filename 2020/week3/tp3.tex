@@ -21,7 +21,7 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 	\item Comprendre la notion d'entrée/sortie. \\
 \end{itemize} 
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: ** tutoriel d'installation des outils et prise en main de l'environnement de travail **. \\
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: tutoriel d'installation des outils et prise en main de l'environnement de travail.\\
 
 \section{Représentation de nombres entiers}
 
@@ -262,7 +262,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 \end{Exercice}
 
 
-\begin{Exercice}[5 minutes]  \textbf{Typage dynamique vs statique}\\
+\begin{Exercice}[5 minutes]  \textbf{Typage statique et dynamique}\\
     
     Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels soulèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
     
@@ -282,16 +282,32 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 En Python, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur. \\
 
     \end{conseil}
+
+    \begin{Example}{\faExclamationTriangle \quad Erreurs fréquentes}
+        En exécutant les programmes 2, 4 et 5, si vous rencontrez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes suivantes:
+        \begin{enumerate}
+            \item Mettez à jour votre JDK en téléchargeant la version adéquate via le lien suivant: \url{https://www.oracle.com/java/technologies/javase-jdk15-downloads.html}.
+            \item Une fois votre JDK installé, redémarrez IntelliJ
+            \item Dans la barre de menus, cliquez sur \textbf{Run $>$ Edit Configurations}.
+            \item Dans la fenêtre qui apparaitra (capture ci-dessous), sélectionnez la version du JRE la plus récente.
+        \end{enumerate}
+        
+    \end{Example}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\textwidth]{resources/jre.png}
+        \caption{Fenêtre de configuration de l'environnement de développement Java.}
+    \end{figure}
     \begin{solution}
         En Java : \\
         
         \begin{itemize}
         	\item Programme 1 : OK
-        	\item Programme 2 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est "déduit" lors de l'exécution du programme.
-        	\item Programme 3 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java.
-        	\item Programme 4 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est "déduit" lors de l'exécution du programme.
+        	\item Programme 2 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est ``déduit'' lors de l'exécution du programme.
+        	\item Programme 3 : Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java.
+        	\item Programme 4 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est ``déduit'' lors de l'exécution du programme.
         	\item Programme 5 : OK
-        	\item Programme 6 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable j, ce qui est impossible avec un typage statique comme en java. \\
+        	\item Programme 6 : Ce code ne fonctionnera pas car on essaye de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. \\
         \end{itemize}
         
         En Python : \\
@@ -307,7 +323,7 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
 
 \begin{Exercice}[5 minutes] \textbf{Détection d'erreurs} \\
 
-    Voici deux programmes, l’un en Java et l’autre en Python. Chaque programme comporte une fonction nommée raise\_error() levant une exception de type « TypeError ». Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes soulèvera une erreur, et l’autre sera exécuté sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi.\\
+    Voici deux programmes, l’un en Java et l’autre en Python. Chaque programme comporte une fonction nommée \lstinline{raise_error()} levant une exception de type \lstinline{TypeError}. Dans les deux cas, cette fonction ne sera pas appelée lors de l'exécution (la condition est remplie d’office). Pourtant, l’un de ces deux codes soulèvera une erreur, et l’autre sera exécuté sans problème. Quel code soulèvera l’erreur et lequel sera exécuté ? Expliquez pourquoi.\\
     
     En Java : \\
     
@@ -322,9 +338,9 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
         Pensez à vérifier le type des variables. Faites attention à la différence principale entre le typage des variables en Java et le typage en Python.\\
     \end{conseil}
     \begin{solution}
-    	Le premier code va soulever une erreur de type Type error, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
+    	Le premier code va soulever une erreur de type \lstinline{Type error}, même si la fonction n'est jamais appelée. En Java, le typage est statique, et de ce fait, toutes les erreurs seront détectées avant exécution du programme.
 
-Le deuxième code en revanche ne va pas soulever l'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le True en False, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.\\
+Le deuxième code en revanche ne va pas soulever d'erreur. En python, le typage est dynamique et de ce fait, l'erreur ne sera détectée qu'au moment ou le programme sera exécuté. Si on change le \lstinline{True} en \lstinline{False}, la fonction provoquant l'erreur va être appelée, et dans ce cas ci, l'erreur sera mise en évidence.\\
     \end{solution}
 
 \end{Exercice}
@@ -337,17 +353,15 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
    Créez une variable \textit{nom} (str) contenant votre nom, et une autre \textit{prenom} (str) contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
    
     \begin{conseil}
-        Utilisez la fonction print() de Python et System.out.println() de Java. 
+        Utilisez la fonction \lstinline{print()} de Python et \lstinline{System.out.println()} de Java. 
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:} 
     \lstinputlisting{Question10.py}
     
-    Java : \\
-    
+    \textbf{\\Java:} 
     \lstinputlisting{Question10.java}  
        
         
@@ -355,20 +369,18 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Input (Java ou Python)}\\
-   En vous référant à l'exercice précédent, demandez à l'utilisateur d'entrer son nom et son prénom via la fonction input() au lieu d'initialiser vous-même les variables. \\
+   En vous référant à l'exercice précédent (\textbf{Output (Java ou Python)}), demandez à l'utilisateur d'entrer son nom et son prénom via la fonction \lstinline{input()} au lieu d'initialiser vous-même les variables. \\
    
     \begin{conseil}
-       Utilisez la fonction input() en Python / la classe Scanner() en Java (n'oubliez pas d'ajouter "import java.util.Scanner;") tout au sommet de votre code. 
+       Utilisez la fonction \lstinline{input()} en Python, la classe \lstinline{Scanner()} en Java (n'oubliez pas d'ajouter \lstinline{import java.util.Scanner;}) tout au début de votre code. 
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:} 
     \lstinputlisting{Question11.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question11.java}  
        
         
@@ -376,7 +388,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Format d'impression (Python uniquement)}\\
-   Créer et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis via la fonction format(). \\
+   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
    
     \begin{conseil}
        N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \\
@@ -391,10 +403,10 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Type (Python uniquement)}\\
-   Déclarez deux variable \textit{nom} (string) et \textit{age} (int), puis affichez le type de chacune de ces deux variables. \\
+   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
    
     \begin{conseil}
-       Vous pouvez contrôler le type de vos variable via la fonction type()
+       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
         
     \end{conseil}
     \begin{solution}
@@ -405,20 +417,19 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
-   Il est possible de convertir une variable d'un certain type dans un autre type. Il est par exemple possible de changer un int en float ou un float en int. Déclarez une variable \textit{nombre\_entier} de type int, puis une autre variable \textit{nombre\_decimal} de type float. Affichez \textit{nombre\_entier} en le convertissant en float et \textit{nombre\_decimal} en le convertissant en int. \\
+   Il est possible de convertir une variable d'un certain type vers un autre type. Il est par exemple possible de changer un \lstinline{int} en \lstinline{float} ou un \lstinline{float} en \lstinline{int}. Déclarez une variable \textit{nombre\_entier} de type \lstinline{int}, puis une autre variable \textit{nombre\_decimal} de type \lstinline{float}. Affichez \textit{nombre\_entier} en le convertissant en \lstinline{float} et \textit{nombre\_decimal} en le convertissant en \lstinline{int}. \\
    
     \begin{conseil}
-       Utilisez la fonction int(float) et float(int) en Python / Utilisez (int) float et (float) int en Java.
+       Utilisez la fonction \lstinline{int(float)} et \lstinline{float(int)} en Python / Utilisez \lstinline{(int) float} et (float) int en Java.
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
+    \textbf{Python:}
     
     \lstinputlisting{Question14.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question14.java}
            
     \end{solution}   
@@ -427,12 +438,10 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \begin{Exercice}[3 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
    Qu'afficheront les programmes suivants ? \\
    
-   Python : \\
-   
+   \textbf{Python:}
    \lstinputlisting{Question15.py}
    
-   Java : \\
-   
+   \textbf{\\Java:}
    \lstinputlisting{Question15.java}
     
    
@@ -442,16 +451,12 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{conseil}
     \begin{solution}
      
-    Python : \\
+    \textbf{Python:}\\
+    3\\
+    3.0
     
-    3
-    
-    3.0 \\
-    
-    Java : \\
-    
-    3
-    
+    \textbf{\\Java:}\\
+    3\\
     3.14 \\
            
     \end{solution}   
@@ -467,12 +472,10 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:}
     \lstinputlisting{Question16.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question16.java}
            
     \end{solution}   
@@ -487,19 +490,18 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{conseil}
     \begin{solution}
     
-    Python : \\
+    \textbf{Python:}
     
     \lstinputlisting{Question17.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question17.java}
            
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Calculs (incrémentation / décrémentation) (Java ou Python)}\\
-   Gardez vos variables de l'exercice précédent, augmentez la valeur de \textit{nb\_bonbons} de 1, et diminuez celle de \textit{nb\_personnes} de 1.  \\
+   Gardez vos variables de l'exercice précédent (\textbf{Calculs (division) (Java ou Python)}), augmentez la valeur de \textit{nb\_bonbons} de 1, et diminuez celle de \textit{nb\_personnes} de 1.  \\
    
     \begin{conseil}
       	Vous pouvez utiliser les opérateurs += et -= en Python, et les opérateurs ++ et -- en Java.
@@ -507,12 +509,10 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:}
     \lstinputlisting{Question18.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question18.java}
            
     \end{solution}   
