@@ -1,4 +1,4 @@
-  int numero_mois = 7
+  int numero_mois = 7;
   
   switch(numero_mois) {
     
@@ -36,13 +36,13 @@
                    break;
                    }
       case 10:
-                System.out.println("Octobre")
+                System.out.println("Octobre");
                 break;
       case 11:
-                System.out.println("Novembre")
+                System.out.println("Novembre");
                 break;
       case 12:
-                System.out.println("Décembre")
+                System.out.println("Décembre");
                 break;
       default:
                 System.out.println("Ce n'est pas un mois. ");
