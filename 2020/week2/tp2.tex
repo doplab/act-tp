@@ -25,72 +25,105 @@ L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémo
 La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
 
-    \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[3 minutes]  \textbf{QCM}\\
     Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
-            \item \textbf{Microsoft Office 2012}
+            \item Microsoft Office 2012
             \item Microsoft Windows 98
             \item Unix BSD
             \item Gentoo
             \item Aucune réponse correcte.
         \end{enumerate}
     \end{Exercice}
+    \begin{solution}
+                Microsoft Office 2012 est un ensemble d'applications bureautiques disponible sur les systèmes d'exploitation les plus populaires.
+		Ce n'est donc pas un système d'exploitation, mais un logiciel d'application. 
+    \end{solution}
 
-    \begin{Exercice}[5 minutes]
-        Quel est le rôle du noyau du système d'exploitation \textit{Kernel}? Trouvez la \textbf{mauvaise} réponse.
+    \begin{Exercice}[3 minutes]
+        Quel est le rôle du noyau \textit{Kernel} du système d'exploitation? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
             \item Servir d'interface de communication entre la partie logicielle et matérielle.
             \item Gérer les ressources physiques de l'ordinateur.
             \item Fournir les mécanismes d'abstraction du matériel.
-            \item \textbf{Interpréter les instructions et les convertir en binaire}.
+            \item Interpréter les instructions et les convertir en binaire.
             \item Aucune réponse correcte.
         \end{enumerate}
     \end{Exercice}
+    \begin{solution}
+                Le rôle du processeur est d'interpréter les instructions et de les convertir en binaire. Il gère les ressources de l'ordinateur et permet aux différents composants de communiquer entre eux.
+    \end{solution}
+    % TODO: Explication
     
-    \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[3 minutes]\\
     Avec lequel de ces éléments le système d'exploitation n'a aucune interaction ?
         \begin{enumerate}
             \item Le clavier et la souris.
             \item Le processeur.
-            \item La carte réseau ou le port Ethernet.
+            \item La carte réseau.
             \item La mémoire vive (RAM).
-            \item \textbf{Aucune réponse correcte}.
+            \item Aucune réponse correcte.
         \end{enumerate}
     \end{Exercice}
     \begin{solution}
             Aucune réponse correcte. \\
-	    
-	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware et avec tous les périphériques de l'ordinateur. \\
+        
+        % TODO: @nathan quelle est la différence entre "Tous les éléments hardware" et les "périphériques"?
+	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware ( tous les composants physique de la structure de l'ordinateur) et avec tous les périphériques de l'ordinateur( tout composant qui n'est pas dans la structure de base de l'ordinateur comme une souris).  \\
     \end{solution}
 
-    \begin{Exercice}[5 minutes]
-        Que représente la valeur \textbf{CPU Time} donnée par le gestionnaire de tâches de votre système d'exploitation?
+        % TODO: @nathan - Question pas claire, à refaire.
+
+\begin{comment}
+        \begin{Exercice}[5 minutes]
+        Quel(s) lien(s) fait le système d'exploitation? Plusieurs réponses sont possibles
         \begin{enumerate}
-            \item \textbf{Temps d'utilisation active de l'ensemble des cores du processeur.}
-            \item Temps réel d'utilisation d'une partie des ressources du processeur.
-            \item Temps d'utilisation de l'ordinateur depuis le dernier démarrage.
-            \item Temps maximum dédié à un processus particulier.
-            \item Nombre de secondes écoulées depuis l'EPOCH.
+            \item \textbf{Entre un casque audio et spotify.}
+            \item \textbf{Entre google Chrome et des téléchargements web}
+            \item Le disque dur et le processeur
+            \item Aucune réponse n'est correcte.
         \end{enumerate}
-        \begin{Example}{\faLightbulb \quad Informations utiles}
-            \begin{itemize}
-                \item L'EPOCH représente la date initiale à partir de laquelle est mesuré le temps par les systèmes d'exploitation.
-                \item Pour accéder au gestionnaire de tâches sous Windows, ouvrez le menu démarrer > Saisissez ``Gestionnaire de tâches''. Sous Mac, faites ``command+espace'' et saisissez ``Moniteur d'activité'.
-            \end{itemize}
-            
-        \end{Example}
         \begin{solution}
-            Temps d'utilisation active de l'ensemble des cores du processeur.
-            Exemple: Imaginez qu'un processus actif utilise constamment 10\% de la puissance du processeur pendant 20 minutes. Le temps compté et affiché dans le gestionnaire de tâches sera de 2 minutes.
+            Le système d'exploitation sert d'interface entre:
+	    \begin{enumerate}
+	    	\item Software - Software. Exemple: Les téléchargements google chrome et la gestion des fichiers.
+		\item Software - Hardware/Périphériques. Exemple: Musique jouée à partir de spotify sur un casque audio.
+		\item Hardware/Périphériques - Software. Exemple: L'antenne wifi qui permet l'accès à internet notamment avec des navigateurs web.
+	    \end{enumerate}
+	    La 3ème affirmation est fausse car le lien entre le disque dur et le processeur est un lien physique car ce sont tous les deux du hardware.  
         \end{solution}
+        \begin{conseil}
+            Réfléchir à la nature (hardware ou software) de chaque élément des propositions et ce que cela implique dans la connexion.
+	    Le système d'exploitation contrôle l'accès aux ressources hardware ( composants physique) et sert d'interface avec le software.
+        \end{conseil}
     \end{Exercice}
-    \begin{Exercice}[5 minutes]
+\end{comment}
+
+\begin{Exercice}[3 minutes]
+    Lequel de ces systèmes d'exploitation \textbf{ne} permet \textbf{pas} d'exécuter plus d'un programme en même temps?
+    \begin{enumerate}
+        \item Ubuntu
+        \item MacOS
+        \item Windows XP
+        \item MS-DOS
+    \end{enumerate}
+    \begin{solution}
+        MS-DOS est un système d'exploitation développé par Microsoft en 1981 d'abord pour l'IBM PC - modèle 5150 puis pour une plus large gamme d'ordinateurs personnels. Il est mono-utilisateur et ne supporte pas l'exécution de plusieurs programmes à la fois.
+        \\
+        Si vous le souhaitez, vous pouvez explorer le code source de MS-DOS sur ce lien (\url{https://github.com/microsoft/ms-dos}). 
+    \end{solution}
+    \begin{conseil}
+        La plupart des systèmes d'exploitation actuels permettent d'exécuter plusieurs programmes en même temps. Pour répondre à cette question, pensez à vérifier la date de sortie des systèmes d'exploitation énumérés.
+    \end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
         Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
         \begin{enumerate}
             \item Liste l'ensemble des fichiers du disque.
             \item Affiche sous forme de liste l'ensemble des processus en cours.
             \item Retourne uniquement les dossiers du répertoire courant.
-            \item \textbf{Affiche tous les dossiers et fichiers du répertoire courant.}
+            \item Affiche tous les dossiers et fichiers du répertoire courant.
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
@@ -100,12 +133,14 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
         \end{conseil}
     \end{Exercice}
+
     
-     \begin{Exercice}[5 minutes]  \textbf{QCM}\\
+    
+     \begin{Exercice}[5 minutes]\\
     Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (filesystem)?
         \begin{enumerate}
             \item L'organisation des dossiers.
-            \item \textbf{L'écriture et la lecture sur les disques.}
+            \item L'écriture et la lecture sur les disques.
             \item Les différents chemins d'accès aux différents dossiers et fichiers.
             \item L'organisation des fichiers.
             \item Aucune réponse correcte.
@@ -133,15 +168,11 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
         \textbf{Compilateurs} & \textbf{Interpréteurs}\\ [0.5ex]
         \hline
-        Les COMPILATEURS traduisent à l'avance & Les INTERPRÈTES traduisent au fur et à mesure\\ [0.5ex] 
-        \hline
-        Programmes générés à l'avance (besoin d'anticiper tous les cas de figure) & Programmes générés au fur et à mesure  \\ 
-        \hline
         Le programme est intégralement traduit à l'avance & Les instructions sont traduites à la volée une par une  \\
         \hline
         Le compilateur trouve les erreurs à la compilation & L'interprète relève les erreurs pendant l'exécution du programme  \\
         \hline
-        Plus rapide & Plus lent \\
+        Exécution plus rapide & Exécution plus lente \\
         \hline
         Code machine généré et optimisé à l'avance & Code machine généré à la volée et optimisé à chaque exécution  \\
         \hline
@@ -159,7 +190,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \begin{conseil}
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
-            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS et Linux, nous vous conseillons d'utiliser Nano en tapant \lstinline{nano hello.py}.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer Nano en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. Notepad est installé par défaut sous Windows.
         \end{itemize}
     \end{conseil}
@@ -169,7 +200,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \end{solution}
     
     \begin{Exercice}[10 minutes]
-        En utilisant l'invite de commande (Terminal), exécutez le programme suivant en lui passant des paramètres.
+        En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
 
         \lstinputlisting[language=Python]{resources/question8.py}
         
@@ -203,7 +234,9 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
             \end{itemize}
         \end{conseil}
         \begin{solution}
-            Pour exécuter notre programme en passant des arguments, on fera: \lstinline{java Question9.java Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
+            Avec le Terminal, rendez-vous dans le dossier où vous avez enregistrez le fichier "Question9.java".\\
+            Compilez le code à l'aide de la commande \lstinline{javac Question9.java} (en cas d'erreur voir ci-dessous.)\\\\
+            Pour exécutez notre programme en passant des arguments, on fera: \lstinline{java Question9 Ceci est mon premier programme écrit en Java}. Le programme affichera:\\
             \parbox{\textwidth}{
                 Paramètre[0]: Ceci\\
                 Paramètre[1]: est\\
@@ -212,8 +245,17 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
                 Paramètre[4]: programme\\
                 Paramètre[5]: écrit\\
                 Paramètre[6]: en\\
-                Paramètre[7]: Java
+                Paramètre[7]: Java\\
             }
+            Sous Windows, depuis votre terminal, utilisez les commandes suivantes:
+            \begin{itemize}
+                \item \lstinline{javac Question9.java} pour compiler votre programme.
+                \item \lstinline{java Question9 Ceci est mon premier programme écrit en Java} pour l'exécuter.\\
+            \end{itemize}
+
+            \textbf{Erreur fréquente}: En utilisant la commande \lstinline{javac}, vous pouvez obtenir l'erreur suivante:\\
+            \textbf{javac is not recognized as an internal or external command, operable program or batch file}\\
+            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, rendez-vous dans le dossier ou vous avez installé java et copier le chemin du fichier ``bin''.\\Par exemple sous Windows, dans le terminal, entrez:\\ \textbf{set path=``C:\textbackslash Program Files\textbackslash Java\textbackslash jdk1.8.0\_121\textbackslash bin''}\\(Attention à bien entrez votre chemin comprenant la version que vous avez installée.)
 
         \end{solution}
 
@@ -221,7 +263,7 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     
 \end{section}
 \begin{section}{Librairies}
-    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin d'utiliser des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer des listes et d'interagir avec, ces différents programmes utilisent tous une librairie écrite par un tiers.
+    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une librairie écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
 \\\\
 En Python, de nombreuses librairies sont disponibles de base (list, set, dict, str, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
 \\\\
@@ -242,7 +284,7 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 	A quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
 \end{Exercice} 
 \begin{solution}
-	Elle sert à calculer le plut grand diviseur commun entre a et b.
+	Elle sert à calculer le plus grand diviseur commun entre a et b.
 \end{solution} 
 \begin{Exercice}[5 minutes]
     En Python et en Java, quelles fonctions utiliseriez-vous pour convertir un angle, dont la valeur est en Radians, en Degrés? 
@@ -273,10 +315,10 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
     \end{solution} 
 \end{comment}
 \begin{Exercice}[5 minutes]
-	Sous Python, est-ce que la librairie math contient autre chose que des fonctions ? Si oui, quoi ? 
+	En Python, est-ce que la librairie \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
 \end{Exercice} 
 \begin{solution}
-	Non, elle contient également des constantes, on peut citer \lstinline{pi} par exemple.
+	Oui, elle contient également des constantes, on peut citer \lstinline{pi} par exemple.
 \end{solution} 
 \begin{Exercice}[10 minutes]
 	Cherchez sur le net d'autres librairies disponibles pour python. Citez-en 3 et ajouter le lien vers leur documentation officielle.

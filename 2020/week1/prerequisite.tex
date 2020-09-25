@@ -21,7 +21,7 @@ Avant d'installer les outils de développement, vous devez vous assurer d'avoir 
         \caption{Aperçu du terminal}
     \end{figure}
 
-    \item \textbf{Java Development Kit (JDK)}. Le JDK contient tout le nécessaire pour développer des applications Java. Pour le télécharger, se rendre sur le site d'Oracle \url{https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html} et sélectionner la version correspondant à votre système d'exploitation. Lire et accepter les conditions d'utilisation, cliquer sur \textit{Télécharger} et créer/se connecter à un compte Oracle pour procéder au téléchargement. Une fois le téléchargement terminé, installer le fichier.
+    \item \textbf{Java Development Kit (JDK)}. Le JDK contient tout le nécessaire pour développer des applications Java. Pour le télécharger, se rendre sur le site d'Oracle \url{https://www.oracle.com/java/technologies/javase-jdk15-downloads.html} et sélectionner la version correspondant à votre système d'exploitation. Lire et accepter les conditions d'utilisation, cliquer sur \textit{Télécharger} et créer/se connecter à un compte Oracle pour procéder au téléchargement. Une fois le téléchargement terminé, installer le fichier.
 \end{enumerate}
 
 \begin{comment}
@@ -88,6 +88,34 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \item Télécharger la version ultimate d'IntelliJ directement sur le site internet \url{https://www.jetbrains.com/idea/download/}, ensuite faites une demande pour obtenir une licence étudiante vous permettant d'activer la version ultimate d'IntelliJ. Vous pouvez le faire en suivant le guide suivant: \url{https://www.jetbrains.com/student/}.
     \item Pour utiliser Python sur IntelliJ, vous devez installer le plugin Python en cliquant ``Configure'' puis ``Plugins'' sur la fenêtre d'accueil d'IntelliJ. Cliquez sur ``Browse repositories'' pour chercher de nouveaux plugins.
     \item Pour créer un nouveau projet (Python par exemple), cliquez sur ``+ Create New Project'' à partir de la fenêtre d'accueil, sélectionnez Python sur le menu latéral. Définissez l'emplacement de votre SDK et donnez un nom à votre projet (Assurez-vous de choisir une version Python >= 3.5). Cliquez sur Ok.
+\end{enumerate}
+
+\subsection*{Résolution Bug Windows}
+
+Sur Windows, lorsque vous tentez de run un fichier java, il se peut que le message d'erreur suivant s'affiche :\\
+
+\begin{Example}{\faExclamationTriangle \quad Message d'erreur}
+    \textbf{`javac' n'est pas reconnue comme une commande interne ou externe.}
+\end{Example}
+
+Dans ce cas, suivez les étapes suivantes :
+
+\begin{enumerate}
+    \item Ouvrez votre panneau de configuration $>$ Système et sécurité $>$ Système $>$ Paramètres systèmes avancés. La fenêtre suivante devrait s'afficher.\\
+    \includegraphics[height = 10cm, width = 10cm]{img/Res1.PNG}
+    \\
+    \item Sélectionnez Variables d'environnement. Dans variables système, identifiez la variable "Path", sélectionnez là et choisissez modifier.\\
+    \includegraphics[width=16cm]{img/Res2.PNG}
+    \item Ouvrez votre explorateur de fichiers et trouvez le chemin d'accès à jdk1.8.0\_261 $>$ bin. \\P.ex : $C:\backslash Program Files\backslash Java\backslash jdk1.8.0\_261\backslash bin.$\\
+    \item Copiez ce chemin d'accès et copiez-le à la dernière ligne de la variable d'environnement Path.\\\
+    \includegraphics[width=15cm]{img/Res3.PNG}\\
+    \item Faites ok. Puis redémarrez votre ordinateur.
+    \item Ouvrez votre Terminal, Naviguez vers votre fichier .java et tapez :
+        \begin{enumerate}
+            \item \lstinline{javac VotreProgramme.java} (Cette commande va créer des fichiers.class)\\
+            \item \lstinline{java VotreProgramme} (Cette commande va exécuter votre programme. A noter qu'il faut que votre programme doit être le fichier qui contient la classe \lstinline{main})
+        \end{enumerate}
+    
 \end{enumerate}
 
 
