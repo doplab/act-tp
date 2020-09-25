@@ -519,119 +519,106 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
-   Créez une variable \textit{mon\_mot} de type chaîne de caractères qui vaut "Hard But Cool !!". Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez. \\
+   Créez une variable \textit{mon\_mot} de type chaîne de caractères avec pour valeur \textbf{``Hard But Cool !!''}. Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats et voyez ce que vous obtenez. \\
    
     \begin{conseil}
-      	Pour Python, utilisez [], et pour Java, utilisez la fonction substring() ainsi que la fonction length() qui permet d'obtenir la taille d'un élément.
+      	Pour Python, utilisez \lstinline{[]}, et pour Java, utilisez la fonction \lstinline{substring()} ainsi que la fonction \lstinline{length()} qui permet d'obtenir la taille d'un élément.
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:}
     \lstinputlisting{Question19.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question19.java}
            
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
-   Gardez votre variable, \textit{mon\_mot} et créez une variable \textit{lettre\_5} contenant la cinquième lettre de \textit{mon\_mot} via l'indexation. Créez ensuite une variable \textit{lettre\_9\_13} contenant les lettres 9,10,11,12,13 de \textit{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
+   Gardez votre variable, \textit{mon\_mot} et créez une variable \textit{lettre\_5} contenant la cinquième lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \textit{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
    
     \begin{conseil}
       	Attention, ici les espaces comptent comme des lettres ! \\
 
-		Pour Python, utilisez [:], et pour Java, utilisez la fonction substring().
+		Pour Python, utilisez \lstinline{[:]}, et pour Java, utilisez la fonction \lstinline{substring()}.
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python:}    
     \lstinputlisting{Question20.py}
     
-    Java : \\
-    
+    \textbf{\\Java:}
     \lstinputlisting{Question20.java}
            
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
-   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction len(). Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat et voyez ce que vous obtenez.   \\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
    
     \begin{conseil}
-      	La fonction présentée dans l'énoncé de la question n' est valable que pour python. L'équivalent pour Java est la fonction length().
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
         
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
+    \textbf{Python}:
     \lstinputlisting{Question21.py}
     
-    Java : \\
-    
+    \textbf{\\Java}:
     \lstinputlisting{Question21.java}
-           
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[3 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
-  Définissez une fonction nommée ping() qui, lorsqu'elle est appelée, affiche "pong". Appelez la plusieurs fois et voyez le résultat.  \\
+  Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
    
     \begin{conseil}
-		Référez vous au cours pour la création et l'appel des fonctions. \\
-      	
-      	Vous pourriez utiliser une boucle for pour effectuer plusieurs appels à la fonction ping().
-        
+        \begin{itemize}
+            \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions. 
+            \item Vous pourriez utiliser une boucle for pour effectuer plusieurs appels à la fonction \lstinline{ping()}.
+        \end{itemize}        
     \end{conseil}
     \begin{solution}
     
-    Python : \\
-    
-    \lstinputlisting{Question22.py}
-    
-    Java : \\
-    
-    \lstinputlisting{Question22.java}
+        \textbf{Python}:
+        \lstinputlisting{Question22.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{Question22.java}
            
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
-   Définissez une fonction nommée multiplicateur() qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de multiplicateur(2,3) dans une variable \textit{resultat} et affichez la.   \\
+   Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
    
     \begin{conseil}
-      	Référez vous au cours pour la création et l'appel des fonctions. \\
-      	
-      	Pour retourner une valeur au lieu de l'imprimmer, utilisez la fonction return (pour Python et Java).
-        
+        \begin{itemize}
+            \item Référez vous au cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+        \end{itemize}        
     \end{conseil}
     \begin{solution}
-    
-    Python : \\
-    
-    \lstinputlisting{Question23.py}
-    
-    Java : \\
-    
-    \lstinputlisting{Question23.java}
-           
+        \textbf{Python}:
+        \lstinputlisting{Question23.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{Question23.java}
     \end{solution}   
 \end{Exercice}
 
 \newpage
 \section{Opérateurs et conditions Booléennes (Python uniquement)}
-Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit True, soit False. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : $==$ (est égal), $!=$ (n'est pas égal), $<$ (est strictement plus petit), $<=$ (est plus petit ou égal), $>$ (est strictement plus grand), $>=$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra True, si elle ne l'est pas, on obtiendra False. L'utilisation de l'opérateur not inversera le résultat.\\
+Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True}, soit \lstinline{False}. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : $==$ (est égal), $!=$ (n'est pas égal), $<$ (est strictement plus petit), $<=$ (est plus petit ou égal), $>$ (est strictement plus grand), $>=$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
 
 Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du(des) print(s)). \\
 
 \begin{conseil}
-	Utilisez les tables de vérité présentées en cours dans les diapositives boolean algebra.
+	Utilisez les tables de vérité présentées à la diapositive 23 du cours.
 \end{conseil}
 
 
@@ -673,29 +660,27 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
     \lstinputlisting{Question26.py}
 
     \begin{solution}
-        output 1 
-        
-        output 2 
-        
-        output 4 \\
+        output 1\\
+        output 2\\
+        output 3
     \end{solution}
     
 \end{Exercice}
 
 \newpage
 \section{Conditions}
-Le but de cet section est de vous entraîner à la lecture de code, la compréhension des opérateurs booléens et au "case switching" à travers le branchement conditionnel.
+Le but de cette section est de vous entraîner à la lecture de code, la compréhension des opérateurs booléens et au ``case switching'' à travers le branchement conditionnel.
 
 \begin{Exercice}[5 minutes] \textbf{Branchement conditionnel en Java}\\
-  Qu'affiche le code suivant ?   \\
+  Qu'affiche le code suivant? 
   
   \lstinputlisting{Question27.java}
    
     \begin{conseil}
       	\begin{itemize}
-      		\item break indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
-      		\item L'absence de break indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un break.
-      		\item Lorsque l'on pose case n où n est un nombre cela est équivalent au test n == numero\_mois. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si numero\_mois = " Juin", à ce moment là n sera aussi une chaîne de caractères).
+      		\item \lstinline{break} indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
+      		\item L'absence de \lstinline{break} indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un \lstinline{break}.
+      		\item Lorsque l'on pose case n où n est un nombre cela est équivalent au test \lstinline{n == numero_mois}. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si \lstinline{numero_mois = "Juin"}, à ce moment là \lstinline{n} sera aussi une chaîne de caractères).
       	\end{itemize}
         
     \end{conseil}
@@ -710,16 +695,15 @@ Le but de cet section est de vous entraîner à la lecture de code, la compréhe
 	Explications : \\
 	
 	\begin{itemize}
-      		\item Comme la case 7 ne contient pas de break et modifie numero\_mois, la lecture du code va continuer.
-      		\item On rentre dans le case 9, qui contient un break. Le numero\_mois sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
+      		\item Comme la case 7 ne contient pas de break et modifie \lstinline{numero_mois}, la lecture du code va continuer.
+      		\item On rentre dans le case 9, qui contient un break. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
       \end{itemize}
            
     \end{solution}   
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Conditions en Python}\\
-  Qu'affiche le code suivant ?   \\
-  
+  Qu'affiche le code suivant?
   \lstinputlisting{Question28.py}
    
     \begin{conseil}
@@ -733,7 +717,7 @@ Le but de cet section est de vous entraîner à la lecture de code, la compréhe
     
     Garbinato : Professeur du cours Algorithmique et pensée computationelle. \\
     
-    Ci-dessous, le résultat des propositions booléennes des if et elif: \\
+    Ci-dessous, le résultat des propositions booléennes des \lstinline{if} et \lstinline{elif}: \\
     
     \begin{enumerate}
     	\item (False or False) and True = False
@@ -748,29 +732,29 @@ Le but de cet section est de vous entraîner à la lecture de code, la compréhe
 
 \newpage
 \section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)}
-Ces deux exercices sont des créations de petits jeux bien connus, et relativement rapides à implémenter. \\
-
-
+Ces deux exercices consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
 \begin{Exercice}[20 minutes] \textbf{Le juste prix}\\
-  Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number} , écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
+  Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
   
   
   \lstinputlisting{Question29_1.py}
-   
+
+  \begin{comment}
+    % On ne devrait pas aborder les boucles pour le moment
     \begin{conseil}
-      	Vous pouvez ajouter une boucle for avec la fonction range(5) pour simplifier le code !
-        
+      	Vous pouvez ajouter une boucle \lstinline{for i in range(5)} pour simplifier le code!
     \end{conseil}
+  \end{comment}
     \begin{solution}
-    
+
    \lstinputlisting{Question29_2.py}
    
    Le problème avec cette solution est le suivant : Si le joueur trouve la réponse, le jeu va continuer, une façon plus propre et correcte de coder ce jeu est d'utiliser une boucle (prochain chapitre). \\
    
    \lstinputlisting{Question29_3.py}
    
-  	Ici le code est plus concis et permet de s'arrêter lorsque le joueur a trouvé la bonne réponse.\\
+  	Ici le code est plus concis et permet de s'arrêter lorsque le joueur aura trouvé la bonne réponse.\\
            
     \end{solution}   
 \end{Exercice}
