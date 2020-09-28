@@ -21,7 +21,7 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 	\item Comprendre la notion d'entrée/sortie. \\
 \end{itemize} 
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: tutoriel d'installation des outils et prise en main de l'environnement de travail.\\
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/pluginfile.php/1721328/mod_resource/content/3/prerequisite.pdf}{tutoriel d'installation des outils et prise en main de l'environnement de travail}.\\
 
 \section{Représentation de nombres entiers}
 
@@ -107,7 +107,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         
         Complément à 1: -0$_{(10)}$ = 11111111$_{(2)}$ \\
         
-        Les deux ont la même portée: [-127$_{(10)}$,+127$_{(10)}$] \\
+        Les deux ont le même intervalle: [-127$_{(10)}$,+127$_{(10)}$] \\
         
     \end{solution}
 \end{Exercice}
@@ -147,14 +147,14 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     	
     	Concernant la portée, elle est changée, étant donné qu'il n'existe plus qu'une seule représentation possible pour -0$_{(10)}$. \\
     	
-    	La nouvelle portée est donc [-128$_{(10)}$,+127$_{(10)}$]
+    	Le nouvel intervalle est donc [-128$_{(10)}$,+127$_{(10)}$]
         
     \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] \textbf{Floating point}\\
     
-    Voici la représentation en binaire d'un nombre réel: \\
+    Voici la représentation en binaire d'un nombre à virgule flottante: \\
     
      \begin{tabular}{| p{1cm} | p{3cm} | p{9.5cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
             \hline
@@ -184,7 +184,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         	\item Exposant en base 10 : 10110101$_{(2)}$ = 181$_{(10)}$
         	\item Pour obtenir l'exposant, il faut encore lui appliquer le biais, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
         	\item Mantisse : 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ = 1.254$_{(10)}$
-        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10{16}$
+        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
         \end{itemize}
     \end{solution}
 \end{Exercice}
@@ -733,7 +733,7 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
 \section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)} 
 Ces deux exercices consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
 \begin{Exercice}[20 minutes] \textbf{Le juste prix \optionnel}\\
-  Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
+  Dans le programme suivant, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
   
   
