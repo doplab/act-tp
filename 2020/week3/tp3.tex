@@ -592,7 +592,8 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+\begin{comment}
+   \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
    
     \begin{conseil}
@@ -608,7 +609,28 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
         \textbf{\\Java}:
         \lstinputlisting{resources/Question23.java}
     \end{solution}   
-\end{Exercice}
+\end{Exercice} 
+\end{comment}
+
+\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java ou Python)}\\
+    Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimètre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
+   
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous au cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+            \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{resources/Question23_new.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/Question23_new.java}
+    \end{solution}   
+\end{Exercice} 
+
 
 \newpage
 \section{Opérateurs et conditions Booléennes (Python uniquement)}
