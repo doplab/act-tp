@@ -21,7 +21,7 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
 	\item Comprendre la notion d'entrée/sortie. \\
 \end{itemize} 
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: tutoriel d'installation des outils et prise en main de l'environnement de travail.\\
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/pluginfile.php/1721328/mod_resource/content/3/prerequisite.pdf}{tutoriel d'installation des outils et prise en main de l'environnement de travail}.\\
 
 \section{Représentation de nombres entiers}
 
@@ -77,7 +77,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \begin{Exercice}[5 minutes] \textbf{Complément à 1}\\
     Ecrire le complément à 1 de -113$_{(10)}$ . \\
 
-	Qu'elle est la différence entre cette méthode et la précédente ? \\
+	Quelle est la différence entre cette méthode et la précédente ? \\
 
     \begin{conseil}
         \begin{itemize}
@@ -101,13 +101,13 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         
         avec cette méthode, -113$_{(10)}$ = 10001110$_{(2)}$ \\
         
-        La portée de cette méthode ne change pas par rapport à la précédente. Par contre, l'expression de -0 sera différente.\\
+        L'intervalle de cette méthode ne change pas par rapport à la précédente. Par contre, l'expression de -0 sera différente.\\
         
         Signé: -0$_{(10)}$ = 10000000$_{(2)}$ \\
         
         Complément à 1: -0$_{(10)}$ = 11111111$_{(2)}$ \\
         
-        Les deux ont la même portée: [-127$_{(10)}$,+127$_{(10)}$] \\
+        Les deux ont le même intervalle: [-127$_{(10)}$,+127$_{(10)}$] \\
         
     \end{solution}
 \end{Exercice}
@@ -145,16 +145,16 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     	
     	On obtient donc 10001111$_{(2)}$ \\
     	
-    	Concernant la portée, elle est changée, étant donné qu'il n'existe plus qu'une seule représentation possible pour -0$_{(10)}$. \\
+    	Concernant l'intervalle, il est changé, étant donné qu'il n'existe plus qu'une seule représentation possible pour -0$_{(10)}$. \\
     	
-    	La nouvelle portée est donc [-128$_{(10)}$,+127$_{(10)}$]
+    	Le nouvel intervalle est donc [-128$_{(10)}$,+127$_{(10)}$]
         
     \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] \textbf{Floating point}\\
     
-    Voici la représentation en binaire d'un nombre réel: \\
+    Voici la représentation en binaire d'un nombre à virgule flottante: \\
     
      \begin{tabular}{| p{1cm} | p{3cm} | p{9.5cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
             \hline
@@ -164,9 +164,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
             \hline
 	\end{tabular}
 	
-    Que vaut cette représentation en base 10 ? Utiliser la représentation des floating point (avec un 
-    % TODO: Pas sûr d'avoir compris le sens de biais.
-    biais de 127) Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
+    Que vaut cette représentation en base 10 ? Utiliser la représentation des floating point (avec un biais de 127) Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
 	
     \begin{conseil}
     
@@ -184,7 +182,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         	\item Exposant en base 10 : 10110101$_{(2)}$ = 181$_{(10)}$
         	\item Pour obtenir l'exposant, il faut encore lui appliquer le biais, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
         	\item Mantisse : 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ = 1.254$_{(10)}$
-        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10{16}$
+        	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ = 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
         \end{itemize}
     \end{solution}
 \end{Exercice}
@@ -196,8 +194,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{conseil}
     
     \begin{itemize}
-    	\item Utilisez le même tableau que dans la question 7.
-    	\item On applique le processus inverse à celui utilisé dans la question 7. 
+    	\item Utilisez le même tableau que dans la question 4 (complément à 2).
     \end{itemize}
     
     \end{conseil}
@@ -572,7 +569,7 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions basiques) (Java ou Python))}\\
+\begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python))}\\
   Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
    
     \begin{conseil}
@@ -592,7 +589,8 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+\begin{comment}
+   \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
    
     \begin{conseil}
@@ -608,7 +606,28 @@ Le but de cette section est d'écrire vos premières lignes de code. Les notions
         \textbf{\\Java}:
         \lstinputlisting{resources/Question23.java}
     \end{solution}   
-\end{Exercice}
+\end{Exercice} 
+\end{comment}
+
+\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java ou Python)}\\
+    Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimètre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
+   
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous au cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+            \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{resources/Question23_new.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/Question23_new.java}
+    \end{solution}   
+\end{Exercice} 
+
 
 \newpage
 \section{Opérateurs et conditions Booléennes (Python uniquement)}
@@ -671,7 +690,7 @@ Dans les exercices suivants, vous devrez anticiper la valeur que la console va v
 Le but de cette section est de vous entraîner à la lecture de code, la compréhension des opérateurs booléens et au ``case switching'' à travers le branchement conditionnel.
 \\
 \begin{Exercice}[10 minutes] \textbf{Branchement conditionnel en Java}\\
-  Qu'affiche le code suivant? 
+  Qu'affiche le programme suivant? 
   
   \lstinputlisting{resources/Question27.java}
    
@@ -702,7 +721,7 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Conditions en Python}\\
-  Qu'affiche le code suivant?
+  Qu'affiche le programme suivant?
   \lstinputlisting{resources/Question28.py}
    
     \begin{conseil}
@@ -728,12 +747,34 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
     \end{solution}   
 \end{Exercice}
 
+\begin{Exercice}[5 minutes] \textbf{Conditions en Python et Java}\\
+  Créez un petit script pour aider un videur à décider s'il laisse entrer une personne ou non dans une boite de nuit, et s'il doit lui donner un bon pour une boisson gratuite. Dans cette boite de nuit, les personnes de moins de 21 ans ne peuvent pas entrer, et les personnes ayant un âge compris entre 21 et 25 ans reçoivent un bon pour une boisson gratuite à l'entrée. \\
+  
+Demandez à l'utilisateur d'entrer l'âge de la personne, stockez cette valeur dans une variable nommée \textit{age}. Si la personne a moins de 21 ans, affichez : "Entrée : Pas OK". Si la personne a entre 21 et 25 ans, affichez : "Entrée : OK, Boisson : OK". Si la personne a plus de 25 ans, affichez : "Entrée : OK, Boisson : Pas OK".
+   
+    \begin{conseil}
+      	\begin{itemize}
+      	\item Commencez par utiliser la fonction \lstinline{input()} pour Python / la classe \lstinline{Scanner} pour Java (n'oubliez pas le \lstinline{import java.util.Scanner;})
+      	\item Au niveau des conditions, commencez par traiter le cas dans lequel la personne a moins de 21 ans, puis traitez le cas dans lequel la personne a plus ou moins de 25 ans.
+      	\end{itemize}
+    \end{conseil}
+    \begin{solution}
+    
+   \textbf{Python}:
+        \lstinputlisting{resources/Question31.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/Question31.java}
+           
+    \end{solution}   
+\end{Exercice}
+
 
 \newpage
 \section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)} 
 Ces deux exercices consistent à créer de petits jeux bien connus, et relativement rapides à implémenter. \\
 \begin{Exercice}[20 minutes] \textbf{Le juste prix \optionnel}\\
-  Dans la case suivante, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
+  Dans le programme suivant, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
   
   
