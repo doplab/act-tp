@@ -27,7 +27,7 @@ Le but de cette séance est d'aborder divers concepts de langages de programmati
 
 Les exercices sont disponibles en Python et en Java.
 
-\section{Les fonctions (Java ou Python)}
+\section{Les fonctions (Java ou Python) (30 minutes)}
 
 \subsection{Rôle}
 
@@ -44,7 +44,7 @@ Pour définir une fonction, nous utilisons le mot \codeword{def} suivi du nom de
 
 Pour reprendre l'exemple mentionné ci-dessus, nous déclarons une fonction du nom \lstinline{print_hello} qui a pour unique utilité de \lstinline{print} la phrase \lstinline{"Hello World"}. Puis nous appelons cette fonction \\
 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     def print_hello():
         print("Hello World")
         
@@ -54,7 +54,7 @@ Pour reprendre l'exemple mentionné ci-dessus, nous déclarons une fonction du n
 \subsubsection{Java}
 En Java, les fonctions ont la structure suivante :
 
-\begin{minted}{java}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
     TypeDeRetour nomDeLaMethode() {
           liste d'instructions
     }
@@ -62,7 +62,7 @@ En Java, les fonctions ont la structure suivante :
 
 Notez le typage dans les fonctions en Java. Si une fonction ne retourne rien, nous utilisons le type \lstinline{void}. Une fonction dans Java doit être dans une classe, et pour exécuter le code de notre fonction, nous devons l'appeler dans la méthode \lstinline{main}. L'exemple en Python ci-dessus peut être réécrit de la façon suivante :  
 
-\begin{minted}{java}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
     public class Main {
         public static void print_hello() {
             System.out.println("Hello World!"); 
@@ -74,20 +74,27 @@ Notez le typage dans les fonctions en Java. Si une fonction ne retourne rien, no
 \end{minted}
 
 
-\begin{Exercice}[2 minutes] \textbf{Python ou Java} \\
+\begin{Exercice}[5 minutes] \textbf{Python ou Java} \\
     Créez une fonction du nom de votre choix qui affiche votre prénom et appelez cette fonction.
     \\
+    
+    \begin{conseil}
+    Réutilisez les mêmes structures que ci-dessus.
+    En Python, utilisez la fonction \lstinline{print()} pour afficher du texte dans la console. \\
+    En Java, utilisez la fonction \lstinline{System.out.println()}.
+    \end{conseil}
+    
     \textbf{Solutions :}
     \begin{enumerate}
         \item \textbf{Python :}
-            \begin{minted}{python}
+            \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                 def print_name():
                     print("Je m'appelle Yasser")
                     
                 print_name()
             \end{minted}
         \item \textbf{Java :}
-            \begin{minted}{java}
+            \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                 public class Main {
                     public static void print_name() {
                         System.out.println("Je m'appelle Yasser"); 
@@ -110,7 +117,7 @@ Par exemple en maths, lorsqu'on écrit \lstinline{f(x) = x+2}, l'argument de la 
 \subsubsection{Python}
 
 En Python, les arguments fonctionnent de la même façon. Dans l'exemple suivant, nous créons une fonction du nom \lstinline{print_name} qui prend un \codeword{argument} que nous appelons \lstinline{name}. Nous nous servons de cet argument pour faire \lstinline{print("Mon nom est", name)}. Nous appelons ensuite cette fonction avec un argument.  
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     def print_name(name):
         print("Mon nom est", name)
         
@@ -120,13 +127,13 @@ En Python, les arguments fonctionnent de la même façon. Dans l'exemple suivant
 \subsubsection{Java}
 
 Nous reprenons l'exemple précédent et le réécrivons en Java :
-\begin{minted}{java}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
     public class Main {
         public static void print_name(String name) {
             System.out.println("Mon nom est" + name); 
         }
         public static void main(String[] args){
-            print_name("Yasser);
+            print_name("Yasser");
         }
     }
 \end{minted}
@@ -135,20 +142,21 @@ Nous reprenons l'exemple précédent et le réécrivons en Java :
     Créez une fonction du nom de votre choix qui prend un argument \lstinline{x} et qui \lstinline{print(x+1)}.
         
     \begin{conseil}
-        N'oubliez pas de typez vos arguments en Java!
+        En Python, utilisez la fonction \lstinline{print()} pour afficher du texte dans la console. \\
+        En Java, utilisez la fonction \lstinline{System.out.println()}. N'oubliez pas de typez vos arguments!
     \end{conseil}
     \\
     \textbf{Solutions :}
     \begin{enumerate}
         \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def add_one(x):
                 print(x+1)
                 
             add_one(5)
         \end{minted}
         \item \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public class Main {
                 public static void add_one(int x) {
                     System.out.println(x+1); 
@@ -170,7 +178,7 @@ Il est très commun que nous voulions enregistrer le résultat d'une fonction da
 
 En Python, si nous écrivons: 
 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     def f(x):
         x + 15
         
@@ -181,7 +189,7 @@ En Python, si nous écrivons:
 Le \lstinline{print(y)} va afficher \lstinline{None}, car le résultat de \lstinline{f(10)} ne vaut rien.
 
 Pour résoudre ce problème, nous avons le mot-clef \lstinline{return}, celui-ci permet de retourner une valeur de la fonction pour permettre d'enregistrer le résultat dans une variable. Pour reprendre l'exemple précédent: 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     def f(x):
         return x + 15
         
@@ -195,7 +203,7 @@ Cette fois-ci \lstinline{y} vaut bien \lstinline{25}, car nous avons fait \lstin
 
 En Java, nous utilisons le mot-clef \lstinline{return} aussi pour retourner le résultat. De plus, il faut spécifier le type de la variable que nous retournons.
 
-\begin{minted}{java}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
     TypeDeRetour nomDeLaMethode(type1 argument1) {
           liste d'instructions
           return variable;
@@ -204,7 +212,7 @@ En Java, nous utilisons le mot-clef \lstinline{return} aussi pour retourner le r
 
 Nous convertissons le code Python ci-dessus en code Java :
 
-\begin{minted}{java}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
     public class Main {
         public static int f(int x) {
             return x + 15; 
@@ -216,15 +224,15 @@ Nous convertissons le code Python ci-dessus en code Java :
     }
 \end{minted}
 
-\begin{Exercice}[5 minutes] \textbf{Python ou Java}
-    Écrivez une fonction de nom \lstinline{f} qui prend un argument \lstinline{x} et qui retourne \lstinline{x * 10 + 2}, appelez cette fonction et enregistrer le résultat de celle-ci dans une variable \lstinline{y}, \lstinline{print y}.
+\begin{Exercice}[5 minutes] \textbf{Python ou Java} \\
+    Écrivez une fonction de nom \lstinline{f} qui prend un argument \lstinline{x} et qui retourne \lstinline{x * 10 + 2}, appelez cette fonction et enregistrer le résultat de celle-ci dans une variable \lstinline{y}, puis \lstinline{print y}.
     \begin{conseil}
         
     \end{conseil}
     \textbf{Solutions :}
     \begin{enumerate}
         \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def f(x):
                 return (x*10)+2
             y=f(2)
@@ -232,7 +240,7 @@ Nous convertissons le code Python ci-dessus en code Java :
         \end{minted}
         
         \item \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public class Main {
                 public static int f(int x) {
                     return (x * 10) + 2;
@@ -247,45 +255,13 @@ Nous convertissons le code Python ci-dessus en code Java :
 
 \end{Exercice}
 
-\subsection{Arguments par défaut (Python uniquement)}
+\subsection{Exercices d'applications (Optionnels)}
 
-Une fonction peut avoir des arguments par défaut, c'est-à-dire des arguments optionnels qui prennent soit une valeur par défaut, soit une valeur donnée par l'utilisateur. Par exemple, la fonction suivante a un argument par défaut de nom \lstinline{name}, qui vaut \lstinline{"Bjarne"} par défaut.
-\begin{minted}{python}
-    def print_name(name = "Bjarne"):
-        print("Mon nom est", name)
-        
-    print_name("Ken")
-    print_name()
-\end{minted}
-
-La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argument, nous affichons donc \lstinline{Mon nom est Ken}, la deuxième fois nous ne donnons par d'argument, l'argument par défaut est donc utilisé et nous affichons \lstinline{Mon nom est Bjarne}.
-
-\begin{Exercice}[5 minutes] \textbf{Python}
-    Ecrivez une fonction \lstinline{f} qui prend un argument \lstinline{x} avec une valeur par défaut \lstinline{0} et qui retourne \lstinline{x} au carré. Appelez cette fonction avec un argument puis sans.
-    \begin{conseil}
-        
-    \end{conseil}
-    \textbf{Solutions :}
-
-        \begin{minted}{python}
-            def f(x=0):
-                return x**2
-            y = f(2)
-            print(y)
-            
-            y = f()
-            print(y)
-        \end{minted}
-
-\end{Exercice}
-
-\subsection{Exercices d'applications}
-
-\begin{Exercice}[5 minutes] \textbf{Python ou Java}
+\begin{Exercice}[5 minutes] \textbf{Python ou Java} \\
     Complètez la fonction ci-dessous afin qu'elle retourne le cube de l'argument \lstinline{x}.
     
     \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def cube(x):
                 # Complétez ici
                 
@@ -294,7 +270,7 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
         \end{minted}
         
     \textbf{Java :}
-    \begin{minted}{java}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
         public class Main {
             public static int cube(int x) {
                 // Complétez ici
@@ -309,12 +285,13 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
     
     
     \begin{conseil}
+        En Python, utilisez l'opérateur \lstinline{**} afin de faire des puissances. \\ 
         La librairie java.lang.Math peut vous être utile pour la version Java.
     \end{conseil}
     \textbf{Solutions :}
     \begin{itemize}
         \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def cube(x):
                 return x**3
                 
@@ -323,7 +300,7 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
         \end{minted}
         
         \item \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             import java.lang.Math;
             
             public class Main {
@@ -344,16 +321,16 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
     Complétez la fonction ci-dessous afin qu'elle affiche les nombres de 0 à 10.
     
     \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def counting():
                 i = 0
-                # complétez ici
+                # Complétez ici
             
             counting()
         \end{minted}
     
     \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public class Main {
                 public static void counting() {
                     int i = 0;
@@ -365,13 +342,10 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
             }
         \end{minted}
     
-    \begin{conseil}
-        
-    \end{conseil}
     \textbf{Solutions :}
     \begin{itemize}
         \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
             def counting():
                 i = 0
                 while i <= 10:
@@ -382,7 +356,7 @@ La première fois, nous appelons la fonction avec \lstinline{"Ken"} comme argume
         \end{minted}
         
         \item \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public class Main {
                 public static void counting() {
                     int i = 0;
@@ -424,7 +398,7 @@ Méthodes principales :
 \begin{Exercice}[5 minutes] \textbf{Comportement des listes en Python} \\
     Après l'exécution du code ci-dessous, à quoi va ressembler \lstinline{my_list}?
     
-    \begin{minted}{python}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
         my_list = [1,3,5,7,11,12]
         print(my_list[0:3])
         
@@ -442,7 +416,7 @@ Méthodes principales :
     \end{conseil}
     \ \\
     \textbf{Solutions :}
-    \begin{minted}{python}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
         [11, 17, 30]
     \end{minted}
     
@@ -454,7 +428,7 @@ En Java, nous faisons la distinction entre \lstinline{Array}, une liste à dimen
 
 \begin{enumerate}
     \item \textbf{\lstinline{Array} :} La taille de la liste doit être déclarée à l'initialisation, ou vous pouvez directement spécifiez le contenu de la liste à l'initialisation. Après cela, la taille de la liste ne pourra être modifiée.
-    \begin{minted}{java}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
         int[] mon_array = new int[5];
         int[] mon_array1 = {1, 2, 3};
     \end{minted}
@@ -468,7 +442,7 @@ En Java, nous faisons la distinction entre \lstinline{Array}, une liste à dimen
     
     
     \item \textbf{\lstinline{ArrayList} :} Plusieurs options s'offrent à nous quant à l'initialisation d'une \lstinline{ArrayList}.
-    \begin{minted}{java}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
         import java.util.ArrayList;
         import java.util.List;
         
@@ -481,7 +455,7 @@ En Java, nous faisons la distinction entre \lstinline{Array}, une liste à dimen
            // ArrayList contenant la collection elements
     \end{minted}
     La première méthode est \textbf{déconseillée}, car elle ne spécifie pas explicitement le type des valeurs contenue dans l'\lstinline{ArrayList}. Ainsi, nous devons toujours spécifier clairement le type pendant l'initialisation :
-    \begin{minted}{java}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
         List<TypeDesValeurs> nomDeLaListe = new ArrayList<>();
     \end{minted}
     Les méthodes principales pour les \lstinline{ArrayList} :
@@ -515,7 +489,7 @@ Méthodes principales :
 
 Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     annuaire = {"Shioban": 111, "Tyson": 222, "Shawn": 333 }
     annuaire["Steven"] = 444
     del annuaire["Tyson"]
@@ -525,63 +499,92 @@ Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
 
 \subsubsection{Java}
 
+En Java, les dictionnaires sont appelés des \lstinline{Map}. La structure pour initialiser une \lstinline{Map} est la suivante :
+
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
+	Map<Type de la clef, Type des éléments> dictionnaire = new HashMap<>();
+\end{minted}
+
+\lstinline{HashMap} est une des implémentations de \lstinline{Map} les plus utilisées, et une des plus performantes. \\
+
+Méthodes principales :
+\begin{itemize}
+    \item Initialisation d'un dictionnaire avec comme clef des \lstinline{String} et comme valeurs des \lstinline{Integer} : \lstinline{Map<String, Integer> age = new HashMap<>();}
+    \item Ajout de la clef \lstinline{"Justine"} avec valeur \lstinline{22} : \lstinline{age.put("Justine", 22)}
+    \item Accès : \lstinline{age.get("Justine")}
+    \item Suppression d'une relation \lstinline{clef}-\lstinline{valeur} : \lstinline{age.remove("Justine")}
+\end{itemize}
 
 
+\section{Complexité (30 minutes)}
 
+Pour chaque algorithme ci-dessous, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java.
 
-
-\section{Complexité}
-
-\begin{Exercice}[20 minutes] \textbf{Complexité} \\
-    Pour chaque algorithme ci-dessous, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java.
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    \textbf{Python :}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
+    # Entrée: n un nombre entier
+    def algo1(n):
+        s = 0
+        for i in range(10*n):
+            s += i
+        return s
+    \end{minted}
+    
+    \textbf{Java :}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
+        public static int algo1(int n) {
+            int s = 0;
+            for (int i=0; i < 10*n; i++){
+                s += i;
+            }
+            return s;
+        }
+    \end{minted}
+    
+    \begin{conseil}
+    Rappelez vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire scénario}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
     \begin{enumerate}
-        \item 
-        \textbf{Python :}
-        \begin{minted}{python}
-        # Entrée: n un nombre entier
-        def algo1(n):
-            s = 0
-            for i in range(10 * n):
-                s += i
+        \item Les constantes sont ignorées : $O(2n) = 2*O(n) = O(n)$ 
+        \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
+    \end{enumerate}
+    \end{conseil}
+    \begin{solution}
+        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue $10*n$ l'opération et par conséquent a une complexité de $O(n)$.
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    \textbf{Python :}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
+        # Entrée: liste de nombre entiers et M un nombre entier
+        def algo2(L, M):
+            i = 0
+            while i < len(L) and L[i] <= M:
+                i += 1
+            s = i - 1
             return s
-        \end{minted}
-        
-        \textbf{Java :}
-        \begin{minted}{java}
-            public static int algo1(int n) {
-                int s = 0;
-                for (int i=0; i < 5; i++){
-                    s += i;
-                }
-                return s;
+    \end{minted}
+    
+    \textbf{Java :}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
+        public static int algo2(int[] L, int M) {
+            int i = 0;
+            while (i < L.length && L[i] <= M){
+                i += 1;
             }
-        \end{minted}
-        
+            int s = i - 1;
+            return s;
+        }
+    \end{minted}
+    \begin{solution}
+    L'algorithme est composé d'une boucle \lstinline{while} qui va parcourir une liste \lstinline{L} jusqu'à trouver une valeur qui soit supérieur à \lstinline{M}. Ainsi, dans le pire scénario, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, $n$ étant la taille de la liste.
+    \end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+
         \item \textbf{Python :}
-        \begin{minted}{python}
-            # Entrée: liste de nombre entiers et M un nombre entier
-            def algo2(L, M):
-                i = 0
-                while i < len(L) and L[i] <= M:
-                    i += 1
-                s = i - 1
-                return s
-        \end{minted}
-        
-        \textbf{Java :}
-        \begin{minted}{java}
-            public static int algo2(int[] L, int M) {
-                int i = 0;
-                while (i < L.length && L[i] <= M){
-                    i += 1;
-                }
-                int s = i - 1;
-                return s;
-            }
-        \end{minted}
-        
-        \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
         #Entrée: L et M sont 2 listes de nombre entiers
         def algo3(L, M):
             n = len(L)
@@ -593,7 +596,7 @@ Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
         \end{minted}
         
         \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public static void algo3(int[] L, int[] M) {
                 int n = L.length;
                 int m = M.length;
@@ -605,9 +608,13 @@ Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
                 }
             }
         \end{minted}
-        
+        \begin{solution}
+        L'algorithme est composé de 2 boucles, une qui parcourt \lstinline{L} et l'autre qui parcourt \lstinline{M}. Ainsi pour $n$ et $m$ étant les tailles respectives de \lstinline{L} et de \lstinline{M}, on a que la complexité est $O(n) + O(m) = O(\max\{n,m\})$. Ainsi la taille la plus grande domine la taille la plus petite.
+        \end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Complexité (Optionnel)} \\        
         \item \textbf{Python :}
-        \begin{minted}{python}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
         # Entrée: n un nombre entier
         def algo4(n):
             m = 0
@@ -618,7 +625,7 @@ Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
         \end{minted}
         
         \textbf{Java :}
-        \begin{minted}{java}
+        \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
             public static int algo4(int n) {
                 int m = 0;
                 for (int i=0; i < n; i++){
@@ -629,28 +636,20 @@ Vous pouvez trouver ci-dessous un exemple d'utilisation des dictionnaires :
                 return m;
             }
         \end{minted}
-    \end{enumerate}
-    
-    \begin{conseil}
-    Rappelez vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire scénario}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
-    \begin{enumerate}
-        \item Les constantes sont ignorées : $O(2n) = 2*O(n) = O(n)$ 
-        \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
-    \end{enumerate}
-    \end{conseil}
-    \ \\
-    \textbf{Solutions :}
-    
+    \begin{solution} 
+    L'algorithme est composé de 2 boucles \textbf{imbriquées}. Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
+    \end{solution}
     
 \end{Exercice}
-
-\section{Récursion}
+    
+        
+\section{Récursion (10 minutes)}
 
 Le but principal de la récursion est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre.
 
 Pour vous donnez une idée de ce qu'est la récursion, pensez au travail du facteur. Chaque matin, il doit délivrer le courrier à plusieurs maisons. Il a certainement une liste de toutes les maisons du quartier par où il doit passer dans l'ordre. Par conséquent, il se rend devant une maison, pose le courier puis va à la prochaine maison figurant sur sa liste. Ce problème est itératif car nous pouvons l'exprimer avec la boucle for: Pour chaque maison de sa liste, le facteur déposse le courrier. 
 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     maisons = ["A", "B", "C", "D"]
 
     def delivrer_courrier_iteratively():
@@ -666,10 +665,9 @@ Vous pensez certainement que cette manière de réfléchir est bizarre car vous 
 
 L'algorithme récursif suivant donne le même résultat que la fonction \lstinline{delivrer_courrier_iteratively}, mais est un peu plus rapide. En effet, le courrier est livré plus vite à chaque maison. 
 
-\begin{minted}{python}
+\begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
 maisons = ["A", "B", "C", "D"]
 
-# Each function call represents an elf doing his work 
 def delivrer_courrier_recursively(maisons):
     # Stagiaire travailleur livrant
     if len(maisons) == 1:
@@ -682,7 +680,8 @@ def delivrer_courrier_recursively(maisons):
         first_half = maisons[:mid]
         second_half = maisons[mid:]
 
-        # Stagiaire délégateur délégant ses deux parties de tâche à deux autres stagiaires
+        # Stagiaire délégateur délégant ses deux parties 
+        # de tâche à deux autres stagiaires
         delivrer_courrier_recursively(first_half)
         delivrer_courrier_recursively(second_half)
         
@@ -695,9 +694,9 @@ Une boucle for sert principalement à itérer des séquences de données pour le
 
 Maintenant, une fonction récursive peut faire la même chose mais de manière plus efficace pour les plus grandes données. La principale différence entre une boucle et une fonction récursive est la façon disctinte dont elles se terminent. Une boucle s'arrête généralement à la fin d'une séquence alors qu'une fonction récursive s'arrête dès que la "base condition" est vraie. 
 
-Le but est que la fonction récursive se rappelle à chaque fois avec de nouveaux arguments ou qu'elle retourne une valeur finale.
+Le but est que la fonction récursive se rappelle à chaque fois avec de nouveaux arguments ou qu'elle retourne une valeur finale. \\
 
-\begin{Exercice} [10 minutes] \textbf{Fibonacci}
+\begin{Exercice} [10 minutes] \textbf{Fibonacci} \\
 
 La suite de Fibonacci est définie récursivement par :
 \begin{itemize}
@@ -707,15 +706,16 @@ La suite de Fibonacci est définie récursivement par :
 
 Écrivez une fonction récursive qui calcule une suite de Fibonacci selon un nombre $n$ donné. Ensuite, calculez la compléxité de l'algorithme.
 
-\begin{Conseil}
-TODO
-\end{Conseil}
+\begin{conseil}
+Pour la complexité, aidez-vous d'un exemple. \\
+Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez ainsi énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et esssayer de trouver la complexité en terme de $O()$.
+\end{conseil}
 \ \\
 
 \textbf{Solutions :}
 \begin{itemize}
     \item \textbf{Python :}
-    \begin{minted}{python}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
         def fibonacci(n):
         if n == 0 or n == 1:
             return n
@@ -724,7 +724,7 @@ TODO
     \end{minted}
     
     \item \textbf{Python :}
-    \begin{minted}{java}
+    \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
         public static int fibonacci(int n) {
             if(n == 0 | n == 1){
                 return n;
@@ -741,9 +741,9 @@ TODO
 
 \end{Exercice}
 
-\section{Algorithmes de Tri}
+\section{Algorithmes de Tri (60 minutes)}
 
-\begin{Exercice} [10 minutes] \textbf{Tri à bulles (Insertion Sort)}
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Insertion Sort)} \\
 Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
 
 Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
@@ -752,7 +752,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
 
 \begin{itemize}
         \item \textbf{Python :}
-                \begin{minted}{python}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                     def tri_bulle(l):
                         for i in range(len(l)):
                             #TODO: Code à compléter
@@ -763,7 +763,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
                         print(liste_triee)
                 \end{minted}
         \item \textbf{Java :}
-                \begin{minted}{java}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                     public class Main {
                         public static void tri_bulle(int[] l) {
                             for (int i = 0; i < l.length - 1; i++){
@@ -797,7 +797,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     
     \textbf{Solutions :}
     \item \textbf{Python :}
-                \begin{minted}{python}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                     def tri_bulle(l):
                         for i in range(1, len(l)):
                             # Les i derniers élements sont dans leur bonne position 
@@ -815,7 +815,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
                         print(liste_triee)
                 \end{minted}
         \item \textbf{Java :}
-                \begin{minted}{java}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                     public class Main {
                         public static void tri_bulle(int[] l) {
                             for (int i = 0; i < l.length - 1; i++){
@@ -850,11 +850,16 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     
 \end{Exercice}
 
-\begin{Exercice} [10 minutes] \textbf{Tri par insertion (Insertion Sort)}
+\begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
+
+    Dans l'algorithme, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés. Pour faire l'analogie avec l'exemple du jeu de cartes, lorsqu'on est à la i-ème étape du parcours, le i-ème élément est la carte saisie, les éléments précédents sont la main triée et les éléments suivants correspondent aux cartes encore en désordre sur la table. 
+    
+    L'objectif d'une étape est d'insérer le i-ème élément à sa place parmi ceux qui précèdent. Il faut pour cela trouver où l'élément doit être inséré en le comparant aux autres, puis décaler les éléments afin de pouvoir effectuer l'insertion. En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire « remonter » l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
+    
     Compléter le code suivant pour trier la liste \lstinline{l} définie ci-dessous en utilisant un tri par insertion. Combien d'itérations effectuez-vous?
     \begin{itemize}
         \item \textbf{Python :}
-                \begin{minted}{python}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                     def tri_insertion(l):
                         for i in range(1, len(l)):
                             #TODO: Code à compléter
@@ -865,7 +870,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
                         print(l)
                 \end{minted}
         \item \textbf{Java :}
-                \begin{minted}{java}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                     public class Main {
                         public static void tri_insertion(int[] l) {
                             for (int i = 1; i < l.length; i++){
@@ -892,14 +897,19 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     \end{itemize}
     
     \begin{conseil}
-
+        Référez vous à la figure du dessous pour un exemple de tri par insertion.
     \end{conseil}
+    
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=10cm]{ressources/tri_insertion.png}
+    \end{figure}
     \ \\
     
     \textbf{Solutions :}
     \begin{itemize}
         \item \textbf{Python :}
-                \begin{minted}{python}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                     def tri_insertion(l):
                         for i in range(1, len(l)):
                             key = l[i] 
@@ -916,7 +926,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
                         print(l)
                 \end{minted}
         \item \textbf{Java :}
-                \begin{minted}{java}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                     public class Main {
                         public static void tri_insertion(int[] l) {
                             for (int i = 1; i < l.length; i++){
@@ -953,9 +963,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     
 \end{Exercice}
 
-\begin{Exercice} [20 minutes] \textbf{Tri fusion (Merge Sort)}
-    ## 4.3 Tri fusion (Merge Sort)
-
+\begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort)} \\
     À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
     
     Les pas de l'algorithme sont comme suit:
@@ -966,13 +974,11 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
         \item Fusionner les deux tableaux triés en un seul tableau trié.
     \end{enumerate}
     
-    Source : https://fr.wikipedia.org/wiki/Tri_fusion
-    
     Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante en utilisant un tri à bulles. Combien d'itération effectuez-vous?
     
     \begin{itemize}
         \item \textbf{Python :}
-                \begin{minted}{python}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                     def merge(partie_gauche, partie_droite):
                         #TODO: Code à compléter
                     def tri_fusion(l):
@@ -983,7 +989,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
                         print(tri_fusion(l))
                 \end{minted}
         \item \textbf{Java :}
-                \begin{minted}{java}
+                \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                     public class Main {
                         // Fusionne 2 sous-listes de arr[]. 
                         // Première sous-liste est arr[l..m] 
@@ -1017,12 +1023,17 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     \end{itemize}
     
     \begin{conseil}
+    \begin{itemize}
+        \item L'algorithme est récursif. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives pour comprendre comment marche concrètement le tri fusion. 
+    \end{itemize}
+    
     \end{conseil}
     
-    \textbf{Solutions :}
+    \textbf{Solutions :} \\
         \textbf{Python :}
             
-            \begin{minted}{python}
+            \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
                 def merge(partie_gauche, partie_droite):
                     # créer la liste qui sera retournée à la fin
                     liste_fusionnee = []   
@@ -1083,7 +1094,7 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
     
             \end{minted}
             \textbf{Java :}
-            \begin{minted}{java}
+            \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{java}
                 public class Main {
                     // Fusionne 2 sous-listes de arr[]. 
                     // Première sous-liste est arr[l..m] 
@@ -1177,7 +1188,6 @@ Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante 
             \item l'étape où l'on fusionne les listes, qui prend $O(n)$.
         \end{enumerate}
         La solution à cette équation est $O(n \log n)$.
-    
 \end{Exercice}
 
 
