@@ -1,5 +1,6 @@
 \input{../header.tex}
 
+\usepackage{minted}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -13,7 +14,6 @@
 \cours{Algorithmes de recherche}
 
 
-\section{Contenu des exercices}
 
 \begin{enumerate}
     \item Recherche séquentielle
@@ -23,210 +23,596 @@
 
 Le but de cette séance est de se familiariser avec les algorithmes de recherches.\\
 
-
 \section{Recherche séquentielle (ou recherche linéaire)}
 
-Une recherche séquentielle scanne un élément après l'autre, de gauche à droite, pour trouver un élément x dans un tuple, une liste ou un dictionnaire.\\
+\subsection{Définition}
 
-Le but est de comparer x à chaque élément de la liste et de retourner l'index de l'élément correspondant.\\
+Une recherche \textbf{linéaire} (ou \textbf{séquentielle}) est une méthode permettant de trouver un élément dans une liste, un tableau ou un dictionnaire. Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été recherchée.\\
 
-Sa complexité dans le pire des cas est de O(n) et dans le meilleur des cas de O(1).\\
+Si l'élément recherché est trouvé, l'algorithme \textbf{renvoie l'index}, c'est-à-dire la position, de l'élément dans la liste donnée. \\
+
+Sa complexité dans le pire des cas est de \textbf{O(n)}, la longueur de la liste, et dans le meilleur des cas de \textbf{O(1)}, lorsque l'élément se trouve en première position. Dans la pratique, l'algorithme de recherche séquentielle n'est pas souvent utilisé en vue de sa complexité élevée et des alternatives de recherche plus efficaces comme la recherche binaire.\\\
+
+\subsection{Exercices}
 
 \begin{Exercice}[5 minutes] language : \textbf{Python}\\
 
 A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline{x} dans la liste.\\La fonction doit retourner l'index de l'élément correspondant de la liste si \lstinline{x} est dans la liste et "-1" si \lstinline{x} n'est pas dans la liste (avec \lstinline{x = 100})\\
 
-    \begin{lstlisting}
-        def seq_search(list, x):
-            #complètez ici
-            
-        liste = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,45,12,56,24]
-        x = 100
+\begin{minted}{python}
+    def seq_search(list, x):
+        #complètez ici
         
-        seq_search(liste, x)
-        
-        %%time #Permet d'afficher le temps d'exécution de l'algorithme 
-        print(seq_search(liste, x))
-    \end{lstlisting}
-
-Dans la pratique, l'algorithme de recherche séquentielle n'est pas souvent utilisé en vue de sa complexité élevée et des alternatives de recherche plus efficaces comme la recherche binaire.\\\\
-
-    \begin{conseil}
-        TODO: Créez votre fonction de recherche linéaire en utilisant une boucle \lstinline{for} ou une boucle \lstinline{while}.\\
-        Aide à la compréhension de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
-    \end{conseil}
+    liste = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,56,24]
+    x = 100
     
-    \begin{solution}
-        \lstinputlisting[language=python]{"resources/seq_search.py"} 
-    \end{solution}
-\textbf{Solution}
-    \begin{lstlisting}
-            def seq_search(list, x):
-                #complètez ici
-                for i in range(len(list)): # i est considéré comme un index
-                    if list[i] == x:
-                        print("X present in list at index: ", i)
-                        return i
-                        break
-                else: #only used when loop not terminated by a break statement
-                #if i == len(list)-1 and list[i] != x:  #also possible
-                        print("X not present in list")
-                        return -1
-            
-            liste = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,45,12,56,24]
-            x = 100
-            seq_search(liste, x)
-            
-            %%time 
-            print(seq_search(liste, x))
-    \end{lstlisting}  
+    seq_search(liste, x)
+        
+    %%time #Permet d'afficher le temps d'exécution de l'algorithme 
+    print(seq_search(liste, x))
+    
+\end{minted}
+
+\begin{conseil}
+    Définissez votre fonction de recherche linéaire en utilisant une boucle \lstinline{for} ou une boucle \lstinline{while}.\\\\
+    Attention: la fonction doit retourné l'index de la valeur et non pas la valeur. Pour cela, veillez à utiliser \lstinline{range(len(list))} avec la boucle \lstinline{for} et une incrémentation \lstinline{"i = i+1"} avec la boucle \lstinline{while}.\\\\
+    La fonction \lstinline{print()} vous permet d'afficher l'index lorsqu'il a été trouvé et un autre message le cas échéant. 
+\end{conseil}
+    
+    
+\textbf{Solution question 1}
+
+\begin{minted}{python}
+    #Définition de la fonction
+    def seq_search(list, x):
+        for i in range(len(list)): #i représente l'index 
+            if list[i] == x:
+                print("X est présent dans la liste à l'index :", i)
+                return i
+                
+            else: #Utilisez "else" s'il n'y a pas de "break"
+                print("X n'est pas présent dans la liste")
+                return -1
+    
+    #Déclaration de la liste et de la variable x 
+    liste = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,45,12,56,24]
+    x = 100
+    
+    #Exécution de l'algorithme
+    seq_search(liste, x)
+    
+    %%time #Permet d'afficher le temps de calcul
+    print(seq_search(liste, x)
+    
+\end{minted}
+
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] language : \textbf{Python}\\
+\begin{Exercice}[10 minutes] language : \textbf{Python}\\
 
-Considérez une liste d’entiers non triée \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche séquentielle.\\\\
+Considérez une liste d’entiers non triée \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} dont la valeur est la plus proche de \lstinline{e} en utilisant une recherche séquentielle.\\\\
 Exemple :\\
-L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63] \\
-e = 41\\
+L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]\\
+e = 50\\
 Résultat attendu : 56\\
 
-    \begin{lstlisting}
-        def find_closest_seq(list,n): #calcul diff avec tout element et n
-        diff = None #Initialisation de la variable
-        resultat = None
-        #complètez ici
-            
-        L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63] 
-        e = 41
-
-        find_closest_seq(L,e)
+\begin{minted}{python}
+    #Definition de la fonction ayant pour argument une liste et un nombre 
+    def find_closest_seq(list,n):
+        diff = None #Initialisation de la variable pour la différence
+        resultat = None #Initialisation de la variable pour le résultat
+    
+        #Complètez ici
         
-        %%time 
-        print(find_closest_seq(L,e))
-    \end{lstlisting}
+    #Déclaration de la liste et de la variable e
+    L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63] 
+    e = 50
+
+    #Exécution de la fonction
+    find_closest_seq(L,e)
+    
+    %%time 
+    print(find_closest_seq(L,e))
+
+\end{minted}
 
     \begin{conseil}
-        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
+        Complétez la fonction \lstinline{find_closest_seq} et exécutez le code.\\\\
+        Veillez à utiliser les valeurs absolues pour comparer les différences, la plus petite pouvant être positive ou négative. La fonction \lstinline{abs()} retourne la valeur absolue. Exemple : \lstinline{abs(3-10) retourne 7}.\\\\
+        Étant donné que la liste est \textbf{non triée}, l'algorithme doit obligatoirement la parcourir intégralement.\\\\
+        L'algorithme doit calculer la différence entre \lstinline{e} et chaque élément de la liste \lstinline{L} en gardant toujours la plus petite différence trouvée. À la fin, il retourne l'élément de la liste correspondant à la plus petite différence.  
     \end{conseil}
-    \begin{solution}
-        Complétez la fonction \lstinline{find_closest_seq} et exécutez le code. 
-    \end{solution}
+    
+    \textbf{Solution question 2}
+    
+    \begin{minted}{python}
+    
+    #Definition de la fonction ayant pour argument une liste et un nombre 
+    def find_closest_seq(list,n):
+        diff = None #Initialisation de la variable pour la différence
+        resultat = None #Initialisation de la variable pour le résultat
+        
+        #Solution
+        for i in list:
+            if not diff or abs(i-n) < diff: #old diff
+                diff = abs(i-n) #new diff # 
+                resultat = i
+                
+        return resultat, diff
+    
+    #Déclaration de la liste et de la variable e
+    L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]  
+    e = 50
+    
+    #Exécution de la fonction
+    find_closest_seq(L,e)
+    
+    %%time 
+    print(find_closest_seq(L,e))
+    
+    \end{minted}
+    
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] language : \textbf{Python}\\
 
-    Considérez une liste d’entiers triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\\\
+    Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\\\
     
     Exemple:\\
     L = [1231321,3213125,3284016,4729273,5492710]\\
     e = 3284016\\
     Résultat attendu: 2\\
   
-    \begin{lstlisting}
-        def linear_search(L,e):
-            for index, elem in enumerate(L):
-            #complètez ici 
-            
-        L = [1231321,3213125,3284016,4729273,5492710]
-        e = 3284016
-        linear_search(L,e)
+\begin{minted}{python}
+    def linear_search(L,e):
+        for i in L: #Ici, i correspond à la valeur et non l'index.
+        #complètez ici 
         
-        %%time
-        print(linear_search(L,e))
-    \end{lstlisting}
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    linear_search(L,e)
+    
+    %%time
+    print(linear_search(L,e))
+\end{minted}
 
     \begin{conseil}
-        Aide à la compréhension de de l'algorithme séquentielle : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheSequentialSearch.html\#lst-seqsearchpython}{Cliquez ici}
+        Une liste triée permet une recherche plus efficace à l'aide d'un algorithme plus simple.\\\\
+        Veillez à retourner l'index de la valeur dans la liste. La fonction \lstinline{index()} retourne l'index d'un élément au sein d'une liste.\\Exemple et syntaxe: \lstinline{lst.index(i)} va indiqué la position de l'élément \lstinline{i} dans la liste \lstinline{lst}.
     \end{conseil}
-    \begin{solution}
-        Complétez la fonction \lstinline{linear_search} et exécutez le code. 
-    \end{solution}
 
+    \textbf{Solution question 3}
+
+    \begin{minted}{python}
+    def linear_search(L,e):
+        for i in L:
+            #Solution
+            if i == e:
+                return L.index(i)
+        return -1
+        
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    linear_search(L,e)
+    
+    %%time
+    print(linear_search(L,e))
+    \end{minted}
 \end{Exercice}
 
 \newpage
 \section{Recherche binaire}
-Le but de la recherche binaire est de trouver l'élément x plus rapidement. Pour cela, il est nécessaire d'utiliser \textbf{une liste d'éléments triée}.\\
 
-La complexité de l'algorithme de recherche binaire est O(log n), très performante. Cependant, il ne faut pas oublier le coût lié à l'obtention d'une liste triée à partir d'une liste non triée.\\
+\subsection{Définition}
 
-L'algorithme de recherche binaire divise l'intervalle de recherche par deux à chaque coup jusqu'à ce qu'il trouve l'élément x ou que l'intervalle soit vide.\\
+Le but de la recherche binaire est de trouver l'élément \lstinline{x} plus rapidement. Pour cela, il est nécessaire d'utiliser \textbf{une liste d'éléments triée}.\\
 
-Ainsi, si x est plus petit que l'élément du milieu, l'algorithme va choisir la moitié de gauche comme intervalle de recherche et ainsi de suite. Si x est plus grand que l'élément du milieu la recherche va se faire dans la moitié droite de l'intervalle.\\
+La complexité de l'algorithme de recherche binaire est \lstinline{O(log n)}. Cependant, il ne faut pas oublier le coût lié à l'obtention d'une liste triée à partir d'une liste non triée.\\
+
+L'algorithme de recherche binaire divise l'intervalle de recherche par deux à chaque coup jusqu'à ce qu'il trouve l'élément \lstinline{x} ou que l'intervalle soit vide.\\
+
+Ainsi, si \lstinline{x} est plus petit que l'élément du milieu, l'algorithme va choisir la moitié de gauche comme intervalle de recherche et ainsi de suite. Si \lstinline{x} est plus grand que l'élément du milieu la recherche va se faire dans la moitié droite de l'intervalle.\\
+
+La recherche binaire regarde les comparaisons d'ordre, alors que la recherche séquentielle regarde les comparaisons d'égalité pour trouver x.\\
+
+\subsection{La récursivité}
+
+Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour le calcul factoriel.
+
+\begin{minted}{python}
+    def factoriel(n):
+        if n == 1:
+            return n
+        else:
+            return n * factoriel(n - 1)
+            
+    factorielle(4)
+    #La fonction calcul 4 factoriel et retourne le résultat 
+    #Rappel : 4! = 4 x 3 x 2 x 1 = 24
+\end{minted}
+
+Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. L'inconvénient est qu'elles peuvent provoquer des boucles infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas appropriés pour arrêter l'exécution, la récursivité se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
    
-\begin{Exercice}[10-15 minutes] language : \textbf{Python}\\
+\subsection{Exercices}
 
-A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche x dans la liste. La fonction doit retourner l'index de l'élément correspondant de la liste si x est dans la liste et "-1" dans le cas contraire.\\
+\begin{Exercice}[20 minutes] language : \textbf{Python}\\
+
+A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
 
-    \begin{lstlisting}
-        # Version récursive
-        
-        def rec_bin_search(list,s,r,x):
-            #complètez ici 
-        
-        liste=[1,3,4,5,7,8,9,15]
-        s = 0
-        r = len(liste)
-        x = 5
-        rec_bin_search(liste,s, r, x)
-     
-        %%time
-        print(rec_bin_search(liste,s, r, x))
-    \end{lstlisting}
+\begin{minted}{python}
+    #Version récursive
+    
+    def rec_bin_search(list,s,r,x):
+        #complètez ici 
+    
+    liste=[1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste)
+    x = 5
+    rec_bin_search(liste,s, r, x)
+ 
+    %%time
+    print(rec_bin_search(liste,s, r, x))
 
+
+
+    #Version itérative
+    
+    def it_bin_search(list,s,r,x):
+      #complètez ici
+      
+    liste = [1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste)-1
+    x = 7
+    it_bin_search(liste,s, r, x)
+    
+    %%time
+    print(it_bin_search(liste,s, r, x))
+\end{minted}
 
     \begin{conseil}
-        TODO : Utilisez les variables à votre disposition et trouvez un moyen d'identifier le milieu de l'intervalle.\\\\
-        Rappel : Une fonction récursive est une fonction qui fait appelle à elle-même.
+        Complétez la fonction récursive \lstinline{rec_bin_search} et la fonction itérative \lstinline{it_bin_search}.\\\\
+        Détails sur les arguments de la fonction:\\
+        \lstinline{list} : La liste dans laquelle nous effectuons la recherche\\
+        \lstinline{s} : Le premier élément de la liste (index [0])\\
+        \lstinline{r} : Le dernier élément de la liste (index [longueur de la liste -1])\\
+        \lstinline{x} : La valeur recherchée.\\\\
+
+        Ainsi, à chaque itération, vos fonction vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
+        Pour définir le milieu d'un intervalle qui contient un nombre pair ou impair d'éléments, utilisez la fonction \lstinline{int()}. Exemple:\\
+        liste1 = [1,2,3,4,5]
+        s = 0 \quad r = len(liste1)
+        Calcul du milieu de l'intervalle:\\
+        - \lstinline{(s+r)/2) = (0+5)/2 = 2.5 #Pas de correspondance}\\
+        - \lstinline{int((s+r)/2) = int((0+5)/2) = int(2.5) = 2 #Arrondi vers le bas}\\\\
+        
+        Pour la version itérative, il est conseillé d'utiliser une boucle \lstinline{while}.
+
     \end{conseil}
+
+    \textbf{Solution question 4}
+
+    \begin{minted}{python}
+    #Version récursive
+    def rec_bin_search(list,s,r,x): #s as first index and r as last index of list
+        #SOLUTION
+        mid = int((s+r)/2) #int arrondi vers le bas
+        print(mid)
+        if list[mid] < x:
+            return rec_bin_search(list, mid, r, x) 
+        elif list[mid] > x:
+            return rec_bin_search(list, s, mid, x)
+        elif list[mid] == x:
+            print("X in list at index: ", mid)
+            return mid 
+        else:
+            print ("X not in list")
+            
+    liste=[1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste) #8 --> first mid = 4 -->"7" in liste --> 7>5 --> new mid = (0+4)/2 = 2, etc.
+    x = 5
+    rec_bin_search(liste,s, r, x)
     
     
-    \begin{lstlisting}
-        # Version itérative
+    %%time
+    print(rec_bin_search(liste,s, r, x))
+    
+    
+    ##################################################
+    
+    
+    #Version itérative
+    def it_bin_search(list,s,r,x):
+        #SOLUTION
+        while s <= r: 
+            mid = int(s + (r-s)/2) 
+            print(mid)
+            if list[mid] == x:
+                print("X presents in list at index: ", mid)
+                return mid
+            elif list[mid] < x: 
+                s = mid+1
+            else:
+                r= mid-1
+        print("X not present in list")
+        return -1
+    liste = [1,3,4,5,7,8,9,15]
+    s = 0
+    r = len(liste)
+    x = 15
+    it_bin_search(liste,s, r, x)
+    
+    %%time
+    print(it_bin_search(liste,s, r, x))
+    \end{minted}
+\end{Exercice}
+
+
+\begin{Exercice}[15 minutes] language : \textbf{Python}\\
+
+Considérez une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche binaire.\\
+
+On vous donne une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
+
+Résultat attendu : 56\\
+
+    \begin{minted}{python}
+    def find_closest_bin(liste,n):
+        #complètez ici
         
-        def it_bin_search(list,s,r,x):
-          #complètez ici
-          
-        liste = [1,3,4,5,7,8,9,15]
-        s = 0
-        r = len(liste)-1
-        x = 7
-        it_bin_search(liste,s, r, x)
         
-        %%time
-        print(it_bin_search(liste,s, r, x))
-    \end{lstlisting}
+    L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
+    e = 41
+    find_closest_bin(L,e)
+    
+    %%time
+    print(find_closest_bin(L,e))
+    \end{minted}
 
-    La recherche binaire regarde les comparaisons d'ordre, alors que la recherche séquentielle regarde les comparaisons d'égalité pour trouver x.\\
+\begin{conseil}
+    Veillez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme a trouvé la valeur la plus proche de \lstinline{e}. 
+    
+\end{conseil}
 
-    \begin{conseil}
-        TODO : Utilisez une boucle \lstinline{while}.\\\\
-        Aide à la compréhension de l'algorithme de recherche binaire ( itérative) : \href{https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBinarySearch.html}{Cliquez ici}
-    \end{conseil}
-   
-    \begin{solution}
-        Complétez la fonction récursive \lstinline{rec_bin_search} et la fonction itérative \lstinline{it_bin_search}. 
-    \end{solution}
+\textbf{Solution question 5}
+    \begin{minted}{python}
+    def find_closest_bin(liste,n):
+        #SOLUTION
+        
+        min = 0
+        max = len(liste)
+        found = False
+        while min <= max and not found: # 0<10 and true puis 6<10 and true, etc.
+            mid = (max+min)//2 # mid = 5 --> 16 in list
+            print(mid)
+            if n > liste[mid]: # 41>16
+                min = mid + 1 # min = 5+1=6
+            elif n < liste[mid]:
+                max = mid -1
+            else:
+                found = True
+        if found:
+            return n
+        else:
+            return liste[mid]
+        
+    L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
+    e = 41
+    find_closest_bin(L,e)
+    
+    %%time
+    print(find_closest_bin(L,e))
+    \end{minted}
 
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] language : \textbf{Python}\\
+
+Considérez une liste d’entiers triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\\\
+
+Exemple:\\
+
+    L = [1231321,3213125,3284016,4729273,5492710] \\
+
+    e = 3284016\\
+
+Résultat attendu: 2\\
+
+    \begin{minted}{python}
+    def binary_search(L,e):
+    first = 0
+    last = len(L)-1
+    #complètez ici
+    
+    
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    binary_search(L,e)
+    
+    %%time
+    print(binary_search(L,e))
+    \end{minted}
+
+\begin{conseil}
+    Inspirez-vous des exercices et des conseils précédents. 
+\end{conseil}
+
+\textbf{Solution question 6}
+
+    \begin{minted}{python}
+    def binary_search(L,e):
+    first = 0
+    last = len(L)-1
+    #SOLUTION
+    while first <= last:
+        mid = int((first+last)/2)
+        print(mid)
+        if L[mid] == e:
+            return mid
+        else:
+            if randoms[mid] > e:
+                last-=1
+            else:
+                first +=1
+    return False
+    
+    L = [1231321,3213125,3284016,4729273,5492710]
+    e = 3284016
+    binary_search(L,e)
+    
+    %%time
+    print(binary_search(L,e))
+    \end{minted}
 
 \end{Exercice}
 
 
 \begin{Exercice}[10 minutes] language : \textbf{Python}\\
+    
+    \textbf{Matrice en Python}
 
-Considérez une liste d’entiers non triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche binaire.\\
+    Considérez une matrice ordonnée m et un élément l.\\\\
+    
+    Une matrice ordonnée répond aux critères suivants :\\
+     \lstinline{[i][j]<=m[i+1][j]} (une ligne va du plus petit au plus grand)\\
+     \lstinline{[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\\\
+ 
+    
+    Écrivez un algorithme qui retourne la position de l’élément l dans m. Si l n’est pas présent dans m alors il faut retourner (-1, -1)\\\\
+    
+    Exemple 1: si m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]] et que l=7. Nous souhaitons avoir la réponse (1,2) OU (3,1) (l’une des deux, pas besoin de retourner les deux résultats).\\\\
+    
+    Exemple 2: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrix m.\\
 
-On vous donne une liste d’entiers non triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
-Résultat attendu : 56\\
+    \begin{minted}{python}
+    def search_in_matrix(m,l):
+    #complètez ici
+    
+    
+    m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+    l=7
+    search_in_matrix(m,l)
+    \end{minted}
+
+    \begin{conseil}
+    Pour cet exercice il est nécessaire d'utiliser une double boucle \lstinline{for}, c'est-à-dire: une boucle \lstinline{for} dans une boucle \lstinline{for}. Cela permet de parcourir tout les éléments d'un tableau à deux dimensions à l'exemple d'une matrice. 
+    \end{conseil}
+
+\textbf{Solution question 7}
+
+    \begin{minted}{python}
+    def search_in_matrix(m,l):
+    #complètez ici
+    for i in range(len(m)): #4
+        for j in range(len(m[i])):
+            if m[i][j] == l:
+                return (i,j)#
+    return (-1,-1)
+    
+    m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+    l=7
+    search_in_matrix(m,l)
+    \end{minted}
 
 \end{Exercice}
 
-
-
 \newpage
 \section{Arbre de recherche binaire}
+\subsection{Définition}
+
+Un arbre de recherche binaire est une structure de donnée au même titre que les listes, tuples, dictionnaires, etc. Leur particularité est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres de recherche binaire enregistrent les valeurs de manière relationnelle.\\
+
+En effet, l'arbre est divisé en branches qui peuvent elles-même contenir deux branches (enfants) et ainsi de suite. Lorsqu'une branche n'a pas de branches subséquentes (enfants), on parle de feuille.\\
+
+Les branches peuvent donc contenir de 0 à 2 autres branches. On parle alors de la branche à gauche et de celle à droite. La branche de gauche est forcément plus petite que la branche parente et celle de droite est forcément plus grande.\\
+
+De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutant ou en retirant des éléments\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.32\textwidth]{img/binary-search-tree.png}
+    \caption{Exemple d'arbre binaire}
+\end{figure}
+
+\subsection{Exercices}
+
+\begin{Exercice}[15 minutes] language : \textbf{Python}\\
+    
+    Dans l'exercice suivant nous vous donnons un arbre binaire avec les mêmes valeur que le schéma précédent et dont la racine est la variable root.\\
+
+    Ecrivez une fonction qui retourne \lstinline{True} si la valeur valeur est dans l'arbre et \lstinline{False}, sinon. Vous pouvez utiliser la variable value pour afficher la valeur d'une node et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accèder aux branches enfantes, \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
+    Complétez la fonction \lstinline{tree_search}.\\
+    \begin{minted}{python}
+    import sys
+    import traceback
+    from Arbre import Arbre
+    
+    def tree_search(node, value):
+        # Complétez ici
+        
+    
+    
+    def handle_error(): #Fonction appelée dans le bloc "except" qui gère les erreurs
+        _, _, tb = sys.exc_info()
+        traceback.print_tb(tb) 
+        tb_info = traceback.extract_tb(tb)
+        filename, line, func, text = tb_info[-1]
+        print('Une erreur s\'est produite sur la ligne {} dans la déclaration {}'.format(line, text))
+    
+    try: #"try" permet de tester le code pour détecter les erreurs.
+    
+        tree = Arbre(8, 3, 1, 6, 4, 7, 10, 14, 13)
+        root = tree.root
+        assert tree_search(root, 4) == True # devrait trouver
+        assert tree_search(root, 7) == True # devrait trouver
+        assert tree_search(root, 18) == False # ne devrait pas trouver
+        assert tree_search(root, 21) == False # ne devrait pas trouver
+    
+        print("Bonne réponse avec le premier arbre")
+    except AssertionError: #"except" permet de gérer l'erreur
+        handle_error()
+        print("Mauvaise réponse")
+        
+    try:
+        tree = Arbre(1, 3, 9, 6, 14, -17, 110, 124, 13, -1, 9, 1, 40, -98, 120, 23)
+        root = tree.root
+        assert tree_search(root, 14) == True # devrait trouver
+        assert tree_search(root, 110) == True # devrait trouver
+        assert tree_search(root, 39) == False # ne devrait pas trouver
+        assert tree_search(root, 18) == False # ne devrait pas trouver
+        print("Bonne réponse avec le deuxième arbre")
+    except AssertionError as err:
+        handle_error()
+        print("Mauvaise réponse")
+
+    \end{minted}
+
+    \begin{conseil}
+    Indice: Utilisez une fonction récursive.
+    \end{conseil}
+
+\textbf{Solution question 8}
+
+    \begin{minted}{python}
+    def tree_search(node, value):
+        #Solution
+        if node == None:
+            return False
+        
+        if node.value == value:
+            return True
+        if node.value > value:
+            return tree_search(node.left,value)
+        else:
+            return tree_search(node.right,value) 
+    
+    \end{minted}
+
+\end{Exercice}
 
 
 

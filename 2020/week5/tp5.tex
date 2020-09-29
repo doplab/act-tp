@@ -1,9 +1,7 @@
-\input{header.tex}
+\input{../header.tex}
 
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-\usepackage{minted}
 
 \NewDocumentCommand{\codeword}{v}{%
 \texttt{\textcolor{blue}{#1}}%
@@ -31,18 +29,18 @@ Les exercices sont disponibles en Python et en Java.
 
 \subsection{Rôle}
 
-Les \codeword{fonctions} permettent d'enregistrer du code dans une variable afin de réutiliser celui-ci à plusieurs endroits, et ainsi éviter de devoir le réécrire. Celles-ci sont définis une fois et peuvent être réutiliser autant de fois que l'on veut par la suite. 
+Les \codeword{fonctions} permettent d'enregistrer du code dans une variable afin de réutiliser celui-ci à plusieurs endroits, et ainsi éviter de devoir le réécrire. Celles-ci sont définies une fois et peuvent être réutilisées autant de fois que l'on veut par la suite. 
 
 Les \codeword{fonctions} permettent de \textbf{\textit{factoriser}} le code, offrant ainsi une structure plus générale à celui-ci et le rendant plus facilement modifiable.
 
-Un exemple simple de fonctions est de créer une fonction qui imprime \lstinline{"Hello World"} sur l'écran en l'appelant.
+Un exemple simple de fonctions est de créer une fonction qui affiche \lstinline{"Hello World"} sur l'écran une fois la fonction invoquée.
 
 \subsection{Syntaxe}
 
 \subsubsection{Python}
 Pour définir une fonction, nous utilisons le mot \codeword{def} suivi du nom de notre \codeword{fonction}, puis des parenthèses \codeword{()}. Ces parenthèses peuvent contenir ou non des noms d'\codeword{arguments}, mais nous reviendrons dessus plus tard. Pour appeler une fonction, il suffit d'écrire son nom suivi de parenthèses \codeword{()}.
 
-Pour reprendre l'exemple mentionné ci-dessus, nous déclarons une fonction du nom \lstinline{print_hello} qui a pour unique utilité de \lstinline{print} la phrase \lstinline{"Hello World"}. Puis nous appelons cette fonction \\
+Pour reprendre l'exemple mentionné ci-dessus, nous déclarons une fonction du nom \lstinline{print_hello} qui a pour unique utilité d'afficher la phrase \lstinline{"Hello World"}. Puis nous appelons cette fonction:\\
 
 \begin{minted}[fontsize=\footnotesize, autogobble, breaklines]{python}
     def print_hello():
