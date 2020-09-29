@@ -749,6 +749,28 @@ Le but de cette section est de vous entraîner à la lecture de code, la compré
     \end{solution}   
 \end{Exercice}
 
+\begin{Exercice}[5 minutes] \textbf{Conditions en Python et Java}\\
+  Créez un petit script pour aider un videur à décider s'il laisse entrer une personne ou non dans une boite de nuit, et s'il doit lui donner un bon pour une boisson gratuite. Dans cette boite de nuit, les personnes de moins de 21 ne peuvent pas entrer, et les personnes de moins de 25 ans recoivent un bon pour une boisson gratuite à l'entrée. \\
+  
+Demandez à l'utilisatreur d'entrer l'age de la personne, stockez cette valeur dans une variable nomée \textit{age}. Si la personne a moins de 21 ans, affichez : "Entrée : Pas OK". Si la personne a entre 21 et 25 ans, affichez : "Entrée : OK, Boisson : OK". Si la personne a plus de 25 ans, affichez : "Entrée : OK, Boisson : Pas OK".
+   
+    \begin{conseil}
+      	\begin{itemize}
+      	\item Commencez par utiliser la fonction \lstinline{input()} pour Python / la classe \lstinline{Scanner} pour Java (n'oubliez pas le \lstinline{import java.util.Scanner;})
+      	\item Au niveau des conditions, commencez par traiter le cas dans lequel la personne a moins de 21 ans, puis traitez le cas dans lequel la personne a plus ou moins de 25 ans.
+      	\end{itemize}
+    \end{conseil}
+    \begin{solution}
+    
+   \textbf{Python}:
+        \lstinputlisting{resources/Question31.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/Question31.java}
+           
+    \end{solution}   
+\end{Exercice}
+
 
 \newpage
 \section{Exercices pour aller plus loin, facultatifs mais recommandés (Solutions en Python uniquement)} 
