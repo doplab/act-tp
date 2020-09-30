@@ -1,0 +1,53 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+    % Change the following values to true to show the solutions or/and the hints
+    \ShowSolutiontrue
+    \ShowConseiltrue
+    \titre
+    \cours{Structure de données, Itération et Récursivité }
+
+    Le but de cette séance est de s'exercer avec des structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les collections. Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
+
+    \section{Les structures de données}
+
+    \subsection{Les tuples}
+    Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
+    \\
+    En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparer les valeurs entre elles par des virgules:
+    \begin{Example}{\faTerminal \quad Exemple}
+        \begin{lstlisting}[language=Python]
+            mon_tuple = (1,2,3,4)   \end{lstlisting}
+
+    \end{Example}
+
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}
+        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable \lstinline{element_4}, puis affichez le contenu de cette variable.
+    
+        \begin{conseil}
+            Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez [ ].
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{resources/question1.py} 
+        \end{solution}
+    \end{Exercice}
+
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple - 2}
+        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
+    
+        \begin{conseil}
+            Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{resources/question2.py} 
+        \end{solution}
+    \end{Exercice}
+
+\end{document}
