@@ -6,8 +6,7 @@ public class Main {
     public static void main(String[] args) {
         List ma_liste = List.of(1,2,3,4);
         System.out.println(ma_liste.get(1));
-        int taille_ma_liste = ma_liste.size();
-        System.out.println(taille_ma_liste);
+        System.out.println(ma_liste.size());
         LinkedList ma_liste_m = new LinkedList(ma_liste);
         ma_liste_m.addFirst(0);
         ma_liste_m.addLast(6);
