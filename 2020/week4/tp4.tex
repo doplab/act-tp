@@ -18,7 +18,7 @@
 
     \section{Les structures de données}
 
-    Dans la première partie de cette section, les exercices devront être effectués en Python. Dans la seconde partie, les exercices seront effectués en Java.
+    Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
 
     \subsection{Les tuples}
     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
@@ -252,7 +252,7 @@
             \begin{lstlisting}[language=Java]
                 List liste = List.of(1,2,3,4);
                 LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
-            \item En Java, les listes ne peuvent contenir que des éléments de même type.
+            \item En Java, les listes ne peuvent contenir que des éléments homogènes c'est-à-dire de même type.
         \end{itemize} 
         
     \end{Example}
@@ -891,13 +891,16 @@
 		
 		\end{conseil} 
 	
-		\begin{solution} 
-			\lstinputlisting{resources/question18.py}
+        \begin{solution} 
+            \textbf{Python:}
+            \lstinputlisting{resources/question18.py}
+            \textbf{Java:}
+            \lstinputlisting{resources/question18.java}
 		\end{solution} 
 	
 	\end{Exercice}
 	
-	\begin{Exercice}[15 minutes] \textbf{Fibonacci} 
+	\begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
 	
 	Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
 	
@@ -911,11 +914,11 @@
 		\begin{solution}
 			Via Itération : \\
 			
-				\lstinputlisting{resources/question19it.py} 
+				\lstinputlisting{resources/question19it.java} 
 				
 			Via récursivité : \\
 			
-				\lstinputlisting{resources/question19re.py}
+				\lstinputlisting{resources/question19r.java}
 		\end{solution} 
 	
 	\end{Exercice}
