@@ -10,21 +10,26 @@
     \ShowSolutiontrue
     \ShowConseiltrue
     \titre
-    \cours{Structure de données, Itération et récursion }
+    \cours{Structure de données, Itération et récursivité }
 
-    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les collections. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursion. 
+    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les maps. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
 
-    Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursion.
+    Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
     \section{Les structures de données}
 
+    Dans la première partie de cette section, les exercices devront être effectués en Python. Dans la seconde partie, les exercices seront effectués en Java.
+
     \subsection{Les tuples}
-    Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
+    Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. %TODO: check 
+    L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
+    
+    Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
     \\
     En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparer les valeurs entre elles par des virgules:
     \begin{Example}{\faTerminal \quad Exemple}
         \begin{lstlisting}[language=Python]
-            mon_tuple = (1,2,3,4)   \end{lstlisting}
+            mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
 
     \end{Example}
 
@@ -193,18 +198,19 @@
         \end{solution}
     \end{Exercice}
     
-    \subsection{Les Structures de données en Java}
-    Déclarer un Tuple en Java : \\
-    
+    \subsection{Les Structures de données (Java)}
+    Dans cette partie, les exercices devront être effectués en Java. \\
+    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\\\
+    \textbf{Déclaration d'un tuple en Java:}
      \begin{lstlisting}[language=Java]
               Object[] mon_tuple = {1,2,3,4}; \end{lstlisting} 
               
-    Déclarer une liste en Java : \\
+    \textbf{\\Déclaration d'une liste en Java:}
     
     \begin{lstlisting}[language=Java]
               List ma_liste = List.of(1,2,3,4); \end{lstlisting}
             
-    Déclarer un dictionnaire en Java : \\
+    \textbf{\\Déclaration d'un dictionnaire en Java:} 
     
     \begin{lstlisting}[language=Java]
               HashMap mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
@@ -452,15 +458,15 @@
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] \textbf{Différence entre Itération et Récursion}
+    \begin{Exercice}[5 minutes] \textbf{Différence entre Itération et Récursivité}
       	
-      	Quel est la différence dans le traitement de problèmes entre l'itération et la récursion ?
+      	Quel est la différence dans le traitement de problèmes entre l'itération et la récursivité ?
     
         \begin{conseil}
         
            \begin{itemize}
            	\item L'itération traite les problèmes de manière ``brute'', elle arrive à une réponse mais il arrive souvent que ça ne soit pas la manière la plus optimale.
-           	\item La récursion résout les problèmes en résolvant des sous-problèmes de ceux-ci.
+           	\item La récursivité résout les problèmes en résolvant des sous-problèmes de ceux-ci.
            \end{itemize}
 		     
         \end{conseil}
@@ -468,15 +474,15 @@
         \begin{solution}
         	\begin{itemize}
             \item L'itération va résoudre de manière plus ``intuitive'' les problèmes, c'est-à-dire répéter certaines actions qui permettent de résoudre un problème souvent au prix de l'efficience.
-            \item La récursion permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est soluble et permet de résoudre tous les problèmes jusqu'à celui original. La récursion cache une faille, un appel à elle même infini. De manière semblable aux boucles while, la récursion peut causer le crash du programme voir de l'ordinateur. Lorsque vous cherchez à faire une récursion il faut donc systématiquement poser avant tout la condition finale pour l'arrêt.
+            \item La récursivité permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est soluble et permet de résoudre tous les problèmes jusqu'à celui original. La récursivité cache une faille, un appel à elle même infini. De manière semblable aux boucles while, la récursivité peut causer le crash du programme voir de l'ordinateur. Lorsque vous cherchez à faire une récursivité il faut donc systématiquement poser avant tout la condition finale pour l'arrêt.
            \end{itemize}
         \end{solution}
     \end{Exercice}
     
     
-    \section{La récursion}
+    \section{La récursivité}
     
-    La récursion est le fait d'appeler une fonction au sein même de cette même fonction. Ce principe est souvent utilisé en algorithmique. \\
+    La récursivité est le fait d'appeler une fonction au sein même de cette même fonction. Ce principe est souvent utilisé en algorithmique. \\
     
 	\begin{Exercice}[5 minutes] \textbf{Lecture de code - 1} 
 	
@@ -562,7 +568,7 @@
 	
 	\begin{Exercice}[15 minutes] \textbf{Fibonacci} 
 	
-	Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursion, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
+	Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
 	
 	Début de la suite : [0,1,1,2,3,5,8,13,...]
 	  
@@ -576,7 +582,7 @@
 			
 				\lstinputlisting{resources/question19it.py} 
 				
-			Via Récursion : \\
+			Via récursivité : \\
 			
 				\lstinputlisting{resources/question19re.py}
 		\end{solution} 
