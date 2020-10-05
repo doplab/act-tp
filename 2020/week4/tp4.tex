@@ -58,13 +58,23 @@
         Qu'affichera le code suivant ? \\
         
         \lstinputlisting{resources/question3.py}
+        
+        Choisissez parmis les éléments suivants : \\
+        
+        \begin{itemize}
+        \item 6 est contenu dans le tuple
+        \item True
+        \item 6 n'est pas contenu dans le Tuple
+        \item False
+        \end{itemize}
     
         \begin{conseil}
             Contrôlez si l'élément est contenu dans le tuple et regardez quel chemin sera pris.
         \end{conseil}
         
         \begin{solution}
-            6 est un élément de notre tuple, la condition sera donc remplie et c'est ``6 est contenu dans le tuple'' qui sera affiché.
+           ``6 est contenu dans le tuple'' \\
+           6 est un élément de notre tuple, la condition sera donc remplie.
         \end{solution}
     \end{Exercice}
     
@@ -90,24 +100,30 @@
     \end{Exercice}
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2}\\
-       Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,2,4 et 5. Modifiez le 3ème élément de la liste pour qu'il devienne 2 au lieu de 3. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
+       Qu'affichera le code suivant ? \\
        
-       Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté : \\
+       \lstinputlisting{resources/question5.py} 
        
-       \begin{lstlisting}[language=Python]
-            for c in ma_liste :
-            	print(c)   \end{lstlisting}
+       Choisissez parmis les éléments suivants :
+       
+       	\begin{itemize}
+        \item 1, 2, 2, 4, 5, 6 \\
+        \item 0, 1, 2, 3, 4, 5 \\
+        \item 0, 1, 2, 3, 4, 5, 6 \\
+        \item 0, 1, 2, 2, 4, 5, 6 \\
+        \end{itemize}
     
         \begin{conseil}
             En Python, vous pouvez accéder à chaque élément de la liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question5.py} 
+            [0, 1, 2, 3, 4, 5, 6] \\
+            Le script change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2}\\
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 3}\\
        Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez "OK", s'il n'y est pas, rajoutez le à votre liste. \\
        
        Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté : \\
@@ -180,13 +196,26 @@
       	Qu'affiche le programme suivant? \\
        
       	\lstinputlisting{resources/question9.py} 
+      	
+      	Choisissez parmis les possibilités suivantes : \\
+      	
+      	\begin{itemize}
+      	\item programmation \\
+      	True\\
+      	\item Musk \\
+      	False\\
+      	\item 48 \\
+      	False\\
+      	\item aéronautique \\
+      	True
+      	\end{itemize}
     
         \begin{conseil}
             L'élément associé à la valeur "talents" du dictionnaire \lstinline{elon_musk} est une liste.
         \end{conseil}
         
         \begin{solution}
-            aéronautique 
+            aéronautique \\
             True \\
             
             En effet, via elon\_musk["talents"], on accède à la liste ["programmation", "entreprenariat", "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
@@ -283,6 +312,44 @@
         \end{solution}
     \end{Exercice}
     
+    \begin{Exercice}[15 minutes] \textbf{Lecture de code}\\
+      	Qu'affichera le code suivant ? \\
+      	
+      	\lstinputlisting{resources/question12.java}
+      	
+      	Choisissez parmis les possibilités suivantes :
+      	
+      	\begin{itemize}
+      	\item 3 \\
+      	2 \\
+      	quatre \\
+      	zero\\
+      	\item 4 \\
+      	6 \\
+      	un \\
+      	trois\\
+      	\item 3 \\
+      	2 \\
+      	un \\
+      	trois\\
+      	\item 4 \\
+      	6 \\
+      	quatre \\
+      	zero
+      	\end{itemize}
+    
+        \begin{conseil}
+           Commencez par voir quel est l'élément de la liste obtenue, puis regardez quelle valeur est associée à cette clé dans le dictionnaire.		     
+        \end{conseil}
+        
+        \begin{solution}
+        4 \\
+      	6 \\
+      	un \\
+      	trois
+        \end{solution}
+    \end{Exercice}
+    
     \section{L'itération}
     
     Quelques rappels de concepts théoriques: \\
@@ -293,62 +360,225 @@
     	
     	\textbf{Boucle for}: Une boucle \lstinline{for} permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ... La syntaxe d'une boucle en Python est la suivante \lstinline{for nom de variable in} suivi du nom de l'élément sur lequel vous voulez itérer. La variable prendra la valeur de chaque élément dans la liste, un par un. \\
     	
-    	\begin{lstlisting}[language=Python]
-             ma_liste = [1,2,3,4,5]
-             for c in ma_liste :
-             	print(c)
-             	#1
-             	#2
-             	#3
-             	#4
-             	#5 \end{lstlisting}
+    	
              	
-     	La syntaxe en java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. Voici un exemple: \\
+     	La syntaxe en java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
      	
-     	\begin{lstlisting}[language=Java]
-             List ma_liste = List.of(1,2,3,4,5);
-             for(int i=0;i<ma_liste.size();i++){
-            		System.out.println(ma_liste.get(i));
-             }
-             //1
-             //2
-             //3
-             //4
-             //5
-        	 \end{lstlisting}
         	 
-        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre. Voici un exemple : \\
+        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre.\\
      	
-     	\begin{lstlisting}[language=Python]
-                i = 0
-    		while i<5:
-        		i += 1
-        		print(i)
-        	#0
-            	#1
-            	#2
-            	#3
-            	#4 \end{lstlisting}
-     	
-     	En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades comme dans l'exemple précédent. \\
-     	
-     	\begin{lstlisting}[language=Java]
-            int i = 0;
-            while(i<5){
-            	System.out.println(i);
-            	i++;
-            }
-            //0
-            //1
-            //2
-            //3
-            //4
-     	\end{lstlisting}
+     	En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades. \\
      	
      	
      	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
      	
-     	\begin{lstlisting}[language=Python]
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\
+     	
+     	\end{itemize}
+     	
+     	
+    \begin{Exercice}[5 minutes] \textbf{Boucle for en Python)}
+      	Qu'afichera le code suivant ?
+      	
+      	\begin{lstlisting}[language=Python]
+             ma_liste = [1,2,3,4,5]
+             for c in ma_liste :
+             	print(c) 
+             	\end{lstlisting}
+             	
+        Choisissez parmis les possibilités suivantes :
+        
+        \begin{itemize}
+        \item 1 \\
+        2\\
+        3\\
+        4\\
+        5\\
+        \item 5\\
+        4\\
+        3\\
+        2\\
+        1\\
+        \item 3\\
+        2\\
+        1\\
+        5\\
+        4\\
+        \item 4\\
+        3\\
+        5\\
+        1\\
+        2
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chauqe valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            1\\
+            2\\
+            3\\
+            4\\
+            5
+        \end{solution}
+    \end{Exercice}
+    
+    
+    \begin{Exercice}[5 minutes] \textbf{Boucle for en Java)}
+      	Qu'afichera le code suivant ?
+      	
+      	\begin{lstlisting}[language=Java]
+             List ma_liste = List.of(2,3,4,5,6);
+             for(int i=0;i<ma_liste.size();i++){
+            		System.out.println(ma_liste.get(i));
+             }
+        	 \end{lstlisting}
+             	
+        Choisissez parmis les possibilités suivantes :
+        
+        \begin{itemize}
+        
+        \item 5\\
+        4\\
+        3\\
+        2\\
+        1\\
+        \item 1 \\
+        2\\
+        3\\
+        4\\
+        5\\
+        \item 4\\
+        3\\
+        5\\
+        1\\
+        2\\
+        \item 2\\
+        3\\
+        4\\
+        5\\
+        6
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chauqe valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            2\\
+            3\\
+            4\\
+            5\\
+            6
+        \end{solution}
+    \end{Exercice} 	
+    
+    
+    \begin{Exercice}[5 minutes] \textbf{Boucle while en Python}
+      	Qu'afichera le code suivant ?
+      	
+      	\begin{lstlisting}[language=Python]
+                i = 0
+    		while i<5:
+        		print(i)
+        		i += 1
+        		 \end{lstlisting}
+             	
+        Choisissez parmis les possibilités suivantes :
+        
+        \begin{itemize}
+        
+        \item 0\\
+        1\\
+        2\\
+        3\\
+        4\\
+        \item 1 \\
+        2\\
+        3\\
+        4\\
+        5\\
+        \item 4\\
+        3\\
+        2\\
+        1\\
+        5\\
+        \item 2\\
+        3\\
+        4\\
+        0\\
+        1
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chauqe valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            0\\
+            1\\
+            2\\
+            3\\
+            4
+        \end{solution}
+    \end{Exercice}
+    
+    
+    \begin{Exercice}[5 minutes] \textbf{Boucle while en Java}
+      	Qu'afichera le code suivant ?
+      	
+      	\begin{lstlisting}[language=Java]
+            int i = 0;
+            while(i<5){
+            	i++;
+            	System.out.println(i);
+            }
+     	\end{lstlisting}
+             	
+        Choisissez parmis les possibilités suivantes :
+        
+        \begin{itemize}
+        
+        \item 0\\
+        1\\
+        2\\
+        3\\
+        4\\
+        \item 1 \\
+        2\\
+        3\\
+        4\\
+        5\\
+        \item 4\\
+        3\\
+        2\\
+        1\\
+        0\\
+        \item 5\\
+        4\\
+        3\\
+        2\\
+        1
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chauqe valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            1\\
+            2\\
+            3\\
+            4\\
+            5
+        \end{solution}
+    \end{Exercice} 
+	
+	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1}
+      	Qu'afichera le code suivant ?
+      	
+      	\begin{lstlisting}[language=Python]
          	ma_liste = ["J'aime","Python"]
       		for x in range(len(ma_liste)):
       			print(x)
@@ -358,15 +588,45 @@
            	#1
            	#Python
      	\end{lstlisting}
-     	
-     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\
-     	
-     	\end{itemize}
-     	
-     	Dans les exercices suivants, les programmes doivent être écrits en Python.\\
-     	
+             	
+        Choisissez parmis les possibilités suivantes :
+        
+        \begin{itemize}
+        
+        \item 0\\
+        J'aime\\
+        1\\
+        Python\\
+        \item J'aime \\
+        1\\
+        Python\\
+        2    \\
+        \item J'aime\\
+        0\\
+        Python\\
+        1\\
+        \item 1\\
+        J'aime\\
+        2\\
+        Python
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chauqe valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            0\\
+            J'aime\\
+            1\\
+            Python
+            
+        \end{solution}
+    \end{Exercice} 	
 	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range()}
+	Dans les exercices suivants, les programmes doivent être écrits en Python.\\	
+	
+    \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2}
       	
       	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat.
     
@@ -484,7 +744,59 @@
 	
 	\lstinputlisting{resources/question16_1.py} 
 	
-	\lstinputlisting{resources/question16_2.py} 
+	Choisissez parmis les possibilités suivantes : \\
+	
+	\begin{itemize}
+	\item 4 \\
+	3\\
+	2\\
+	1\\
+	0\\
+	\item 5\\
+	4\\
+	3\\
+	2\\
+	1\\
+	\item 0\\
+	1\\
+	2\\
+	3\\
+	4\\
+	\item 1\\
+	2\\
+	3\\
+	4\\
+	5
+	\end{itemize}
+	
+	\lstinputlisting{resources/question16_2.py}
+	
+	Choisissez parmis les possibilités suivantes : \\
+	
+	\begin{itemize}
+	\item 4 \\
+	3\\
+	2\\
+	1\\
+	0\\
+	\item 5\\
+	4\\
+	3\\
+	2\\
+	1\\
+	\item 0\\
+	1\\
+	2\\
+	3\\
+	4\\
+	\item 1\\
+	2\\
+	3\\
+	4\\
+	5
+	\end{itemize}
+	
+	 
 	
 		\begin{conseil} 
 		\begin{itemize} 
@@ -496,18 +808,18 @@
 		\begin{solution} 
 		\begin{itemize} 
 			\item 
-			5 
-			4 
-			3 
-			2 
-			1 
-			0 
+			5 \\
+			4 \\
+			3 \\
+			2 \\
+			1 \\
+			0 \\
 			\item 
-			0 
-			1 
-			2 
-			3 
-			4 
+			0 \\
+			1 \\
+			2 \\
+			3 \\
+			4 \\
 			5 
 		\end{itemize} 
 	
@@ -519,9 +831,18 @@
 	
 	Qu'affiche le programme suivant ? \\ 
 	
-	A quoi sert la fonction \lstinline{fct_a(mot)} ? \\
-	
 	\lstinputlisting{resources/question17.py}  
+	
+	Choisissez parmis les possibilités suivantes :
+	
+	\begin{itemize}
+	\item 1
+	\item 2
+	\item 3
+	\item 4
+	\end{itemize}
+	
+	A quoi sert la fonction \lstinline{fct_a(mot)} ? \\
 	
 		\begin{conseil} 
 		Aidez vous d'un papier et effectuez les étapes une à une afin de bien comprendre comment le code est articulé.
