@@ -1,0 +1,3 @@
+Replace "" with ``'' in latex:
+Find: "([a-z]*)"
+Replace: ``$1''
