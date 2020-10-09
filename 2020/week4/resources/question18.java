@@ -1,11 +1,14 @@
-public static int factoriel(int x){
-        if (x == 0){
-            return 1;
-        }
-        else{
-            return x*factoriel(x-1);
-        }
-    }
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
     public static void main(String[] args) {
-        System.out.println(factoriel(5));
+        List ma_liste = List.of(3,2,6,4,1,5);
+        HashMap mon_dictionnaire = new HashMap(Map.of(1,"un",2,"deux",3,"trois",4,"quatre",5,"cinq",6,"six"));
+        System.out.println(ma_liste.get(3));
+        System.out.println(ma_liste.get(2));
+        System.out.println(mon_dictionnaire.get(ma_liste.get(4)));
+        System.out.println(mon_dictionnaire.get(ma_liste.get(0)));
+        }
     }

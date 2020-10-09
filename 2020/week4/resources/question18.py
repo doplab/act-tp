@@ -1,5 +1,4 @@
-def factoriel(x) :
-	if x == 0:
-        	return 1
-        else :
-        	return x * factoriel(x-1)
+somme = 0
+for i in range(21):
+	somme += i   # A chaque iteration on rajoute i à somme. 
+print(somme)
