@@ -1,15 +1,8 @@
-def tri_insertion(l):
-    for i in range(1, len(l)):
-        key = l[i]
-        j = i - 1
-
-        while j >= 0 and key < l[j]:
-            l[j + 1] = l[j]
-            j -= 1
-        l[j + 1] = key
-
+def tri_bulle(l):
+    for i in range(len(l)):
+        #TODO: Code à compléter
 
 if __name__ == "__main__":
-    l = [2, 43, 1, 3, 43]
-    tri_insertion(l)
-    print(l)
+    l = [1, 2, 4, 3, 1]
+    tri_bulle(l)
+    print(liste_triee)

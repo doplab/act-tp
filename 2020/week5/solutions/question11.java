@@ -1,6 +1,4 @@
-package com.company;
-
-public class Main {
+public class question11 {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]
     // Deuxième sous-liste est arr[m+1..r]

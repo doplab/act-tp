@@ -1,4 +1,4 @@
-public class Main {
+public class question6 {
     public static int sum_digits(int number) {
         if(number == 0){
             return 0;

@@ -52,6 +52,14 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
     \end{enumerate}
     \end{conseil}
+
+    \begin{enumerate}
+        \item $O(n)$
+        \item $O(n^3)$
+        \item $O(\log(n))$
+        \item $O(n^n)$
+    \end{enumerate}
+
     \begin{solution}
         L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue $10*n$ l'opération et par conséquent a une complexité de $O(n)$.
     \end{solution}
@@ -80,6 +88,14 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
             return s;
         }
     \end{lstlisting}
+
+    \begin{enumerate}
+        \item $O(n^3)$
+        \item $O(\log(n))$
+        \item $O(n)$
+        \item $O(n^n)$
+    \end{enumerate}
+
     \begin{solution}
     L'algorithme est composé d'une boucle \lstinline{while} qui va parcourir une liste \lstinline{L} jusqu'à trouver une valeur qui soit supérieure à \lstinline{M}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, $n$ étant la taille de la liste.
     \end{solution}
@@ -111,16 +127,66 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
                 }
             }
         \end{lstlisting}
+
+        \begin{enumerate}
+            \item $O(n^2)$
+            \item $O(\max(\{n,m\}))$
+            \item $O(n)$
+            \item $O(2^n)$
+        \end{enumerate}
+
         \begin{solution}
         L'algorithme est composé de 2 boucles, une qui parcourt une liste \lstinline{L} et l'autre qui parcourt une liste \lstinline{M}. Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n) + O(m) = O(\max\{n,m\})$. 
         Ainsi, l'élément ayant la plus grande complexité sera utilisé pour déterminer la complexité de l'algorithme dans son ensemble.
         \end{solution}
 \end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+
+    \textbf{Python :}
+    \begin{lstlisting}{python}
+    #Entrée: L est une liste de nombre entiers
+    def algo4(L):
+        n = len(L)
+        i = 0
+        s = 0
+        while i < math.log(n):
+            s += L[i]
+            i += 1
+        return s
+    \end{lstlisting}
+    
+    \textbf{Java :}
+    \begin{lstlisting}{java}
+        import java.lang.Math; 
+
+        public static void algo4(int[] L) {
+            int n = L.length;
+            int s = 0;
+            for (int i=0; i < Math.log(n); i++){
+                s += L[i];
+            }
+        }
+    \end{lstlisting}
+
+    \begin{enumerate}
+        \item $O(n^2)$
+        \item $O(n)$
+        \item $O(\log(n))$
+        \item $O(n^n)$
+    \end{enumerate}
+
+    \begin{solution}
+    L'algorithme est composée d'une boucle qui va itérer sur $\log(n)$ éléments. Ainsi,
+    l'algorithme a une complexité de $O(\log n)$.
+    \end{solution}
+\end{Exercice}
+
 \begin{Exercice}[10 minutes] \textbf{Complexité \optionnel} \\        
         \textbf{Python :}
         \begin{lstlisting}{python}
         # Entrée: n un nombre entier
-        def algo4(n):
+        def algo5(n):
             m = 0
             for i in range(n):
                 for j in range(i):
@@ -130,7 +196,7 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         
         \textbf{Java :}
         \begin{lstlisting}{java}
-            public static int algo4(int n) {
+            public static int algo5(int n) {
                 int m = 0;
                 for (int i=0; i < n; i++){
                     for (int j=0; j < i; j++){
@@ -140,6 +206,14 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
                 return m;
             }
         \end{lstlisting}
+    
+        \begin{enumerate}
+            \item $O(n^2)$
+            \item $O(n)$
+            \item $O(\log(n))$
+            \item $O(2^n)$
+        \end{enumerate}
+
     \begin{solution} 
     L'algorithme est composé de 2 boucles \textbf{imbriquées}. Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
     \end{solution}
@@ -163,10 +237,10 @@ Pour obtenir le nombre 12 à partir du nombre 126, il vous suffit de faire la di
 
 \begin{solution}
 \textbf{Python :}
-    \lstinputlisting{ressources/question5.py}
+    \lstinputlisting{solutions/question6.py}
             
 \textbf{Java :}
-   \lstinputlisting{ressources/question5.java}
+   \lstinputlisting{solutions/question6.java}
 
 \end{solution}
 \end{Exercice}
@@ -197,7 +271,15 @@ Quel est la complexité de l'algorithme ci-dessus?
 Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...) \\
 Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et esssayer de trouver la complexité en terme de $O()$.
 \end{conseil}
+
 \ \\
+
+\begin{enumerate}
+    \item $O(n^2)$
+    \item $O(n)$
+    \item $O(\log(n))$
+    \item $O(2^n)$
+\end{enumerate}
 
 \begin{solution}
     La complexité de cet algorithme est $O(2^n)$.
@@ -206,9 +288,8 @@ Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le
 
 \section{Algorithmes de Tri (60 minutes)}
 
-\begin{comment}
-    % Remarks: Incohérent. Bulle sort ≠ Insertion sort
-\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Insertion Sort)} \\
+
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort)} \\
 Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
 
 Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
@@ -217,41 +298,9 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 
 \begin{itemize}
         \item \textbf{Python :}
-                \begin{lstlisting}{python}
-                    def tri_bulle(l):
-                        for i in range(len(l)):
-                            #TODO: Code à compléter
-                    
-                    if __name__ == "__main__":
-                        l = [1, 2, 4, 3, 1]
-                        tri_bulle(l)
-                        print(liste_triee)
-                \end{lstlisting}
+            \lstinputlisting{ressources/question8.py} 
         \item \textbf{Java :}
-                \begin{lstlisting}{language=Java}
-                    public class Main {
-                        public static void tri_bulle(int[] l) {
-                            for (int i = 0; i < l.length - 1; i++){
-                                //TODO: Code à compléter 
-                            }
-                        }
-                        
-                        public static void printArray(int l[]){ 
-                            int n = l.length; 
-                            for (int i = 0; i < n; ++i) 
-                                System.out.print(arr[i] + " "); 
-                      
-                            System.out.println(); 
-                        } 
-              
-                        
-                        public static void main(String[] args){
-                            int[] l = {1, 2, 4, 3, 1};
-                            tri_bulle(l);
-                            printArray(l);
-                        }
-                    }
-                \end{lstlisting}
+            \lstinputlisting{ressources/question8.java} 
     \end{itemize}
     
     \begin{conseil}
@@ -262,26 +311,27 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
     \begin{solution}
     \textbf{Python :}
-    \lstinputlisting{ressources/question7.py} 
+    \lstinputlisting{solutions/question8.py} 
     \textbf{Java:}
-    \lstinputlisting{ressources/question7.java} 
+    \lstinputlisting{solutions/question8.java} 
 
 
     L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles qui parcourent la liste.\\\\\\
             
 \end{solution}
 \end{Exercice}
-\end{comment}
 
 \begin{Exercice}[10 minutes] \textbf{Tri par insertion - 1 (Python)}\\
     Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
+
+    \lstinputlisting{ressources/question9.py}
 
     \begin{Example}{\faTerminal \quad Exemple}
         En passant les arguments suivants à votre programme: n=5 et l=[2,4,6]. Ce dernier devra retourner \lstinline{l =[2,4,5,6]}
     \end{Example}
 
     \begin{solution}
-        \lstinputlisting{ressources/question7.py}
+        \lstinputlisting{solutions/question9.py}
     \end{solution}
 
 
@@ -296,44 +346,14 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     Compléter le code suivant pour trier la liste \lstinline{l} définie ci-dessous en utilisant un tri par insertion. Combien d'itérations effectuez-vous?
     \begin{itemize}
         \item \textbf{Python :}
-                \begin{lstlisting}{python}
-                    def tri_insertion(l):
-                        for i in range(1, len(l)):
-                            #TODO: Code à compléter
-                    
-                    if __name__ == "__main__":
-                        l = [2, 43, 1, 3, 43]
-                        tri_insertion(l)
-                        print(l)
-                \end{lstlisting}
+            \lstinputlisting{ressources/question10.py} 
         \item \textbf{Java :}
-                \begin{lstlisting}{java}
-                    public class Main {
-                        public static void tri_insertion(int[] l) {
-                            for (int i = 1; i < l.length; i++){
-                                //TODO: Code à compléter 
-                            }
-                        }
-                        
-                        public static void printArray(int l[]){ 
-                            int n = l.length; 
-                            for (int i = 0; i < n; ++i) 
-                                System.out.print(arr[i] + " "); 
-                            System.out.println(); 
-                        } 
-              
-                        
-                        public static void main(String[] args){
-                            int[] l = {2, 43, 1, 3, 43};
-                            tri_insertion(l);
-                            printArray(l);
-                        }
-                    }
-                \end{lstlisting}
+            \lstinputlisting{ressources/question10.java} 
     \end{itemize}
     
     \begin{conseil}
-        Référez vous à la figure du dessous pour un exemple de tri par insertion.
+        Référez vous à la figure du dessous pour un exemple de tri par insertion. \\
+        Référez vous aussi aux diapositives 18 à 72 du cours.
     \end{conseil}
     
     \begin{figure}[h!]
@@ -343,9 +363,9 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 
     \begin{solution}
         \textbf{Python :}
-            \lstinputlisting{ressources/question8.py} 
+            \lstinputlisting{solutions/question10.py} 
         \textbf{Java :}
-            \lstinputlisting{ressources/question8.java}
+            \lstinputlisting{solutions/question10.java}
     
     La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées, qui dans le pire des cas, parcourent la liste deux fois.
     \end{solution}
@@ -363,72 +383,33 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
         \item Fusionner les deux tableaux triés en un seul tableau trié.
     \end{enumerate}
     
-    Soit la liste \lstinline{l} suivante, trier les éléments de la liste suivante en utilisant un tri à fusion. Combien d'itération effectuez-vous?
+    Soit la liste \lstinline{l} suivante [38, 27, 43, 3, 9, 82, 10], trier les éléments de la listes en utilisant un tri à fusion. Combien d'itération effectuez-vous?
     
     \begin{itemize}
         \item \textbf{Python :}
-                \begin{lstlisting}{python}
-                    def merge(partie_gauche, partie_droite):
-                        #TODO: Code à compléter
-                    def tri_fusion(l):
-                        #TODO: Code à compléter
-                    
-                    if __name__ == "__main__":
-                        l = [38, 27, 43, 3, 9, 82, 10]
-                        print(tri_fusion(l))
-                \end{lstlisting}
+            \lstinputlisting{ressources/question11.py}
         \item \textbf{Java :}
-                \begin{lstlisting}{java}
-                    public class Main {
-                        // Fusionne 2 sous-listes de arr[]. 
-                        // Première sous-liste est arr[l..m] 
-                        // Deuxième sous-liste est arr[m+1..r] 
-                        public static void merge(int arr[], int l, int m, int r) {
-                            //TODO: Code à compléter 
-                        }
-                        
-                        // Fonction principale qui trie arr[l..r] en utilisant 
-                        // merge() 
-                        public static void tri_fusion(int arr[], int l, int r){
-                            //TODO: Code à compléter 
-                        }
-                        
-                        public static void printArray(int l[]){ 
-                            int n = l.length; 
-                            for (int i = 0; i < n; ++i) 
-                                System.out.print(arr[i] + " "); 
-                      
-                            System.out.println(); 
-                        } 
-              
-                        
-                        public static void main(String[] args){
-                            int[] l = {38, 27, 43, 3, 9, 82, 10};
-                            tri_fusion(l);
-                            printArray(l);
-                        }
-                    }
-                \end{lstlisting}
+            \lstinputlisting{ressources/question11.java}
     \end{itemize}
     
     \begin{conseil}
     \begin{itemize}
         \item L'algorithme est récursif. 
-        \item Revenez à la visualisation de l'algorithme dans les diapositives pour comprendre comment marche concrètement le tri fusion. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives 83 à 111 pour comprendre comment marche concrètement le tri fusion. 
     \end{itemize}
     
     \end{conseil}
     
     \begin{solution}
         \textbf{Python :}
-         \lstinputlisting{ressources/question9.py}
+         \lstinputlisting{solutions/question11.py}
     \end{solution}
     \begin{solution}
         \textbf{Java :}
-        \lstinputlisting{striped_files/question9_1.java}
+        \lstinputlisting{striped_files/question11_1.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting{striped_files/question9_2.java}
+        \lstinputlisting{striped_files/question11_2.java}
         
         Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
         \begin{enumerate}
