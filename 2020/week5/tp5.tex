@@ -44,6 +44,13 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
             return s;
         }
     \end{lstlisting}
+
+    \begin{enumerate}
+        \item $O(n)$
+        \item $O(n^3)$
+        \item $O(\log(n))$
+        \item $O(n^n)$
+    \end{enumerate}
     
     \begin{conseil}
     Rappelez vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
@@ -52,13 +59,6 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
     \end{enumerate}
     \end{conseil}
-
-    \begin{enumerate}
-        \item $O(n)$
-        \item $O(n^3)$
-        \item $O(\log(n))$
-        \item $O(n^n)$
-    \end{enumerate}
 
     \begin{solution}
         L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue $10*n$ l'opération et par conséquent a une complexité de $O(n)$.
@@ -136,7 +136,9 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \end{enumerate}
 
         \begin{solution}
-        L'algorithme est composé de 2 boucles, une qui parcourt une liste \lstinline{L} et l'autre qui parcourt une liste \lstinline{M}. Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n) + O(m) = O(\max\{n,m\})$. 
+        L'algorithme est composé de 2 boucles. La première parcourt une liste \lstinline{L} et multiplie par 2 les éléments de la liste. 
+        L'autre parcourt une liste \lstinline{M} et assigne à chaque élément le reste de la division euclidienne de l'élément par 2. 
+        Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n) + O(m) = O(\max\{n,m\})$. 
         Ainsi, l'élément ayant la plus grande complexité sera utilisé pour déterminer la complexité de l'algorithme dans son ensemble.
         \end{solution}
 \end{Exercice}
@@ -177,8 +179,8 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme est composée d'une boucle qui va itérer sur $\log(n)$ éléments. Ainsi,
-    l'algorithme a une complexité de $O(\log n)$.
+    L'algorithme est composée d'une boucle qui va itérer sur $\log(n)$ éléments et 
+    va calculer la somme de ces éléments. Ainsi, l'algorithme a une complexité de $O(\log n)$.
     \end{solution}
 
     \begin{figure}[h!]
@@ -223,7 +225,8 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \end{enumerate}
 
     \begin{solution} 
-    L'algorithme est composé de 2 boucles \textbf{imbriquées}. Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
+    L'algorithme est composé de 2 boucles \textbf{imbriquées}. L'algorithme va sommer les indices $i$ et $j$ à chaque itération et les rajouter à $m$.
+    Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
     \end{solution}
     
 \end{Exercice}
