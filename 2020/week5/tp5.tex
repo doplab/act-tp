@@ -64,7 +64,7 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue $10*n$ l'opération et par conséquent a une complexité de $O(n)$.
     \end{solution}
 \end{Exercice}
-
+\newpage
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
     \textbf{Python :}
     \begin{lstlisting}{python}
@@ -97,7 +97,7 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme est composé d'une boucle \lstinline{while} qui va parcourir une liste \lstinline{L} jusqu'à trouver une valeur qui soit supérieure à \lstinline{M}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, $n$ étant la taille de la liste.
+    L'algorithme est composé d'une boucle \lstinline{while} qui va parcourir une liste \lstinline{L} jusqu'à trouver une valeur qui est supérieure à \lstinline{M}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, $n$ étant la taille de la liste.
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
@@ -179,14 +179,19 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme est composée d'une boucle qui va itérer sur $\log(n)$ éléments et 
+    L'algorithme est composé d'une boucle qui va itérer sur $\log(n)$ éléments et 
     va calculer la somme de ces éléments. Ainsi, l'algorithme a une complexité de $O(\log n)$.
+    Le temps d'exécution de ce programme peut être visualisé sur la courbe jaune du graphe ci-dessous (\ref{bigO}).
     \end{solution}
-
+    
     \begin{figure}[h!]
         \centering
         \includegraphics[width=10cm]{ressources/complexity.png}
+        \caption{Représentation de complexités temporelles}
+        \label{bigO}
     \end{figure}
+
+    
 
 \end{Exercice}
 
@@ -225,7 +230,7 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \end{enumerate}
 
     \begin{solution} 
-    L'algorithme est composé de 2 boucles \textbf{imbriquées}. L'algorithme va sommer les indices $i$ et $j$ à chaque itération et les rajouter à $m$.
+    L'algorithme est composé de 2 boucles \textbf{imbriquées}. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
     Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
     \end{solution}
     
@@ -386,7 +391,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 \begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort)} \\
     À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
     
-    Les étapes à suivre à implémenter l'algorithme sont les suivants:
+    Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
     \begin{enumerate}
         \item Si le tableau n'a qu'un élément, il est déjà trié.
         \item Sinon, séparer le tableau en deux parties plus ou moins égales.
@@ -394,7 +399,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
         \item Fusionner les deux tableaux triés en un seul tableau trié.
     \end{enumerate}
     
-    Soit la liste \lstinline{l} suivante [38, 27, 43, 3, 9, 82, 10], trier les éléments de la listes en utilisant un tri à fusion. Combien d'itération effectuez-vous?
+    Soit la liste \lstinline{l} suivante [38, 27, 43, 3, 9, 82, 10], triez les éléments de la liste en utilisant un tri fusion. Combien d'itération effectuez-vous?
     
     \begin{itemize}
         \item \textbf{Python :}
