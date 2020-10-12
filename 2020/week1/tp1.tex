@@ -11,7 +11,7 @@
 \titre
 \cours{Architecture des ordinateurs}
 
-Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de la conversion en base binaire, décimale ou hexadécimal, et du calcul de base en suivant le modèle Von Neumann. \\
+Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de la conversion en base binaire, décimale ou hexadécimal d'une part et du modèle Von Neumann d'autre part. \\
 
 \section{Conversions}
 
@@ -49,24 +49,28 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
             \hline
             \textbf{nombre} & \textbf{reste}\\ [0.5ex]
             \hline
-            45 &  - \\ [0.5ex] 
+            173 &  - \\ [0.5ex] 
             \hline
-            22 & 1 \\ [0.5ex] 
+            86 & 1 \\ [0.5ex] 
             \hline
-            11 & 0 \\ [0.5ex] 
+            43 & 0 \\ [0.5ex] 
             \hline
-            5 & 1 \\ [0.5ex] 
+            21 & 1 \\ [0.5ex] 
+            \hline
+            10 & 1 \\ [0.5ex] 
+            \hline
+            5 & 0 \\ [0.5ex] 
             \hline
             2 & 1 \\ [0.5ex] 
             \hline
-            1 & 0 \\ [0.5ex] 
+	        1 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 \\ [0.5ex] 
+	        0 & 1 \\ [0.5ex] 
             \hline
             
         \end{tabular} \\
 
-        Ici, on obtient 101101$_{(2)}$ \\
+        Ici, on obtient 10101101$_{(2)}$ \\
         
         \textbf{Méthode 2 :} \\
         
@@ -131,7 +135,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 
         Ici, on obtient 1221$_{(3)}$ \\
         
-        \textbf{Méthode 2 :} \\
+        \textbf{Méthode 2 pour 254 (ici, nous sommes en base 10)} \\
         
         Ici, il faut prendre en compte le nombre de fois qu'on peut multiplier le nombre par la valeur de la puissance. Ici on a 256 qui est trop grand, il faut donc partir sur 16. On voit qu'on peut aller jusqu'à 15*16 qui vaut 240. Donc on entre 15 sous la valeur 16 et on soustrait. 254-240 = 14. Il nous reste donc 14*1, on met alors 14 sous la valeur 1. \\
         
@@ -163,7 +167,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         \item Convertir le nombre ABC$_{(16)}$ en base 10.
     \end{enumerate}
     \begin{conseil}
-        Ici utilisez les tables de puissances utilisées pour la méthode 2 (présentée dans la solution du premier exercice). \\
+        % Ici utilisez les tables de puissances utilisées pour la méthode 2 (présentée dans la solution du premier exercice). \\
         
         N'oubliez pas qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
     \end{conseil}
@@ -205,45 +209,33 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \end{enumerate}
     \begin{conseil}
 \textbf{Table d'addition binaire:}\\
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{r}\\ [0.5ex]
+            retenue & 1 & 0 & 0 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 0 & 0 & 0 \\ [0.5ex] 
+            a & 0 & 1 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 0 \\ [0.5ex] 
+            b & 0 & 1 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
-            1 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            1 & 1 & 0 & 1 \\ [0.5ex] 
+            a+b & 1 & 0 & 1 & 1 & 0 \\ [0.5ex] 
             \hline
         \end{tabular}
     \end{conseil}
     
     \begin{solution}
-        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque ligne (si vous additionnez de haut en bas, n'oubliez pas d'entrer les nombres à additionner de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par additionner la fin des nombres, comme lors d'une addition en colonne). Si l' addition vaut 1, le résultat est 1 et le reste est 0. Si l'addition vaut 2, le résultat est 0 et le reste est 1. Si l'addition vaut 3, le résultat est 1 et le reste est 1. N'oubliez pas d' additionner également le reste à chaque ligne ! \\
+        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque colonne. Si l' addition vaut 1, le résultat est 1 et la retenue est 0. Si l'addition vaut 2, le résultat est 0 et la retenue est 1. Si l'addition vaut 3, le résultat est 1 et la retenue est 1. N'oubliez pas d' additionner également la retenue à chaque colonne ! \\
         
 Voici un exemple pour le deuxième point : \\
 
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a+b} & \textbf{r}\\ [0.5ex]
+	    retenue & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+	    \hline
+            a & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex] 
             \hline
-            1 & 1 & 0 & 1 \\ [0.5ex] 
+            b & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
             \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            1 & 0 & 1 & 0 \\ [0.5ex] 
-            \hline
-            0 & 1 & 1 & 0 \\ [0.5ex] 
+            a + b & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex]
             \hline
         \end{tabular} \\
         
@@ -268,45 +260,33 @@ Voici un exemple pour le deuxième point : \\
 
     \begin{conseil}
         \textbf{Table de soustraction binaire:}\\
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a-b} & \textbf{r}\\ [0.5ex]
+            retenue & 0 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 0 & 0 & 0 \\ [0.5ex] 
+            a & 1 & 1 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 1 \\ [0.5ex] 
+            b & 1 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
-            1 & 0 & 0 & 0 \\ [0.5ex] 
-            \hline
-            1 & 1 & 0 & 0 \\ [0.5ex] 
+            a-b & 0 & 0 & 1 & 0 \\ [0.5ex] 
             \hline
         \end{tabular}
     \end{conseil}
     
     \begin{solution}
-        Il faut utiliser la table de soustraction. Pour commencer, entrez a et b, puis commencez à soustraire chaque ligne (si vous soustrayez de haut en bas, n'oubliez pas d'entrer les nombres à soustraire de bas en haut et de lire le résultat de bas en haut également, étant donné qu'on commence par soustraire la fin des nombres, comme lors d'une soustraction en colonne). Si la soustraction vaut 0, le résultat est 0 et le reste est 0. Si la soustraction vaut 1, le résultat est 1 et le reste est 0. Si la soustraction vaut -1, le résultat est 1 et le reste est 1. Si la soustraction vaut -2, le résultat est 0 et le reste est 1. N'oubliez pas de soustraire le reste à chaque fois ! \\
+         Il faut utiliser la table de soustraction. Pour commencer, entrez a et b, puis commencez à soustraire chaque colonne. Si la soustraction vaut 0, le résultat est 0 et la retenue est 0. Si la soustraction vaut 1, le résultat est 1 et la retenue est 0. Si la soustraction vaut -1, le résultat est 1 et la retenue est 1. Si la soustraction vaut -2, le résultat est 0 et la retenue est 1. N'oubliez pas de soustraire la retenue à chaque fois ! \\
 
 Voici un exemple pour le deuxième point : \\
  
-\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+\begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
             \hline
-            \textbf{a} & \textbf{b} & \textbf{s=a-b} & \textbf{r}\\ [0.5ex]
+	    retenue & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+	    \hline
+            a & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex] 
             \hline
-            0 & 1 & 1 & 1 \\ [0.5ex] 
+            b & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
             \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            1 & 0 & 0 & 0 \\ [0.5ex] 
+            a - b & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex]
             \hline
         \end{tabular} \\
  		
@@ -334,7 +314,7 @@ Voici un exemple pour le deuxième point : \\
     \begin{enumerate}
         \item 111101$_{(2)}$ + 110$_{(2)}$ = ...$_{(10)}$
         \item 111111$_{(2)}$ + 000001$_{(2)}$ = ...$_{(10)}$
-        \item 127$_{(10)}$ + ABC$_{(16)}$ = ...$_{(8)}$
+        \item 127$_{(10)}$ + ABC$_{(16)}$ = ...$_{(10)}$
     \end{enumerate}
     \begin{conseil}
         Calculez à l'aide du tableau d'addition binaire ci-dessus ou une autre méthode que vous préférez.\\
@@ -542,11 +522,11 @@ Voici un exemple pour le deuxième point : \\
     \end{conseil}
     \begin{solution} \textbf{7.1}\\
         Calcul du résultat en base 2:\\
-        101010$_{(2)}$ - 010101$_{(2)}$ = 1000000$_{(2)}$\\\\
+        101010$_{(2)}$ - 010101$_{(2)}$ = 010101$_{(2)}$\\\\
         Conversion en base décimale:\\
-        1000000$_{(2)}$ = 64$_{(10)}$\\\\
+        010101$_{(2)}$ = 21$_{(10)}$\\\\
         Réponse:\\
-        101010$_{(2)}$ - 010101$_{(2)}$ = \textbf{64$_{(10)}$}\\
+        101010$_{(2)}$ - 010101$_{(2)}$ = \textbf{21$_{(10)}$}\\
     \end{solution}
     
     \begin{solution} \textbf{7.2}\\
@@ -635,7 +615,7 @@ Dans la mémoire, les instructions sont les suivantes:
     \hline
 \end{tabular}
 \\\\
-Les registres sont les suivantes:
+Les registres contiennent les valeurs suivantes:
 
 \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
     \hline
@@ -691,6 +671,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 
     \begin{conseil}
         Pensez à décomposer la valeur de l'\lstinline{Instruction Register} pour obtenir toutes les informations demandées. \\
+        Utilisez la même convention que celle présentée dans les diapositives du cours (Computer Architecture - Page 15) \\
         Les données issues de la décomposition de l'\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
     \end{conseil}
 
