@@ -21,7 +21,7 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 
 \section{Complexité (30 minutes)}
 
-Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
+Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
 
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
     \textbf{Python :}
@@ -138,7 +138,7 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \begin{solution}
         L'algorithme est composé de 2 boucles. La première parcourt une liste \lstinline{L} et multiplie par 2 les éléments de la liste. 
         L'autre parcourt une liste \lstinline{M} et assigne à chaque élément le reste de la division euclidienne de l'élément par 2. 
-        Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n) + O(m) = O(\max\{n,m\})$. 
+        Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n + m)$. 
         Ainsi, l'élément ayant la plus grande complexité sera utilisé pour déterminer la complexité de l'algorithme dans son ensemble.
         \end{solution}
 \end{Exercice}
@@ -230,8 +230,8 @@ Pour chacun des programmes ci-dessous, indiquez en une phrase, ce que font ces a
         \end{enumerate}
 
     \begin{solution} 
-    L'algorithme est composé de 2 boucles \textbf{imbriquées}. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
-    Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi $O(n^2)$.
+    L'algorithme est composé de 2 boucles \textbf{imbriquées} suivant une suite définie par $\frac{n(n-1)}{2}$. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
+    Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi de $O(n^2)$.
     \end{solution}
     
 \end{Exercice}
