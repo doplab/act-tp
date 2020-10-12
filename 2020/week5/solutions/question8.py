@@ -1,7 +1,7 @@
 def tri_bulle(l):
     n = len(l)
 
-    for i in range(1, n):
+    for i in range(n):
         # Les i derniers éléments sont dans leur bonne position 
         for j in range(0, n-i-1): 
     
