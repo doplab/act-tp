@@ -40,7 +40,7 @@ Sa complexité dans le pire des cas est de \textbf{O(n)}, la longueur de la list
 A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline{x} dans la liste.\\La fonction doit retourner l'index de l'élément correspondant de la liste si \lstinline{x} est dans la liste et "-1" si \lstinline{x} n'est pas dans la liste (avec \lstinline{x = 100})\\
 
 \textbf{Python :}
-\begin{lstlisting}{python}
+  \begin{lstlisting}[language=Python]
     def plus_proche_sequentielle(liste, x):
         #complètez ici
         
@@ -54,7 +54,7 @@ A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline
     %%time #Permet d'afficher le temps d'exécution de l'algorithme 
     print(plus_proche_sequentielle(L, x))
     
-\end{lstlisting}
+    \end{lstlisting}
 
 \begin{conseil}
     Définissez votre fonction de recherche linéaire en utilisant une boucle \lstinline{for} ou une boucle \lstinline{while}.\\\\
@@ -78,7 +78,7 @@ L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]\\
 e = 50\\
 Résultat attendu : 56\\
 \textbf{Python :}
-\begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     #Definition de la fonction ayant pour argument une liste et un nombre 
     def plus_proche_sequentielle(list,n):
         diff = None #Initialisation de la variable pour la différence
@@ -96,7 +96,7 @@ Résultat attendu : 56\\
     %%time 
     print(plus_proche_sequentielle(L,e))
 
-\end{lstlisting}
+    \end{lstlisting}
 
     \begin{conseil}
         Complétez la fonction \lstinline{plus_proche_sequentielle} et exécutez le code.\\\\
@@ -122,7 +122,7 @@ Résultat attendu : 56\\
     e = 3284016\\
     Résultat attendu: 2\\
   
-\begin{lstlisting}{python}
+\begin{lstlisting}[language=Python]
     def recherche_lineaire(L,e):
         for i in L: #Ici, i correspond à la valeur et non l'index.
         #complètez ici 
@@ -166,7 +166,7 @@ La recherche binaire regarde les comparaisons d'ordre, alors que la recherche s�
 
 Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour le calcul factoriel.
 
-\begin{lstlisting}{python}
+\begin{lstlisting}[language=Python]
     def factoriel(n):
         if n == 1:
             return n
@@ -187,7 +187,7 @@ Les fonctions récursives sont courantes en informatique car elles permettent au
 A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
 
-\begin{lstlisting}{python}
+\begin{lstlisting}[language=Python]
     #Version récursive
     
     def recherche_binaire_recursive(liste,s,r,x):
@@ -260,7 +260,7 @@ On vous donne une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un 
 
 Résultat attendu : 56\\
 
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     def plus_proche_binaire(liste,n):
         #complètez ici
         
@@ -297,7 +297,7 @@ Exemple:\\
 
 Résultat attendu: 2\\
 
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     def recherche_binaire(liste,e):
         first = 0 
         last = len(L)-1
@@ -343,7 +343,7 @@ Résultat attendu: 2\\
     Exemple 2: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrix m.\\
 
 
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     def recherche_matricielle(m,l):
         #complètez ici
     
@@ -390,7 +390,7 @@ De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutan
 
     Ecrivez une fonction qui retourne \lstinline{True} si la valeur valeur est dans l'arbre et \lstinline{False}, sinon. Vous pouvez utiliser la variable value pour afficher la valeur d'une node et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accèder aux branches enfantes, \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
     Complétez la fonction \lstinline{recherche_arbre}.\\
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     import sys
     import traceback
     from Arbre import Arbre
