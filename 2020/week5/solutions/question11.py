@@ -29,7 +29,7 @@ def merge(partie_gauche, partie_droite):
 
 
 def tri_fusion(l):
-    # complèter la fonction
+    # compléter la fonction
     longueur = len(l)  # calculer la longueur de la liste
     # s'il n'y a pas plus d'un élément, retourner la liste
     if longueur == 1 or longueur == 0:

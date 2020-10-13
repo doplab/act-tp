@@ -24,6 +24,8 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
 
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
+
+    Quelle est la complexité du programme ci-dessous?\\
     \textbf{Python :}
     \begin{lstlisting}{language=Python}
     # Entrée: n un nombre entier
@@ -66,8 +68,9 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 \end{Exercice}
 \newpage
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    Quelle est la complexité du programme ci-dessous?\\
     \textbf{Python :}
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
         # Entrée: L est une liste de nombres entiers et M un nombre entier
         def algo2(L, M):
             i = 0
@@ -78,7 +81,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
     \end{lstlisting}
     
     \textbf{Java :}
-    \begin{lstlisting}{java}
+    \begin{lstlisting}[language=Java]
         public static int algo2(int[] L, int M) {
             int i = 0;
             while (i < L.length && L[i] <= M){
@@ -101,9 +104,9 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
-
+    Quelle est la complexité du programme ci-dessous?\\
         \textbf{Python :}
-        \begin{lstlisting}{python}
+        \begin{lstlisting}[language=Python]
         #Entrée: L et M sont 2 listes de nombre entiers
         def algo3(L, M):
             n = len(L)
@@ -115,7 +118,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
         \end{lstlisting}
         
         \textbf{Java :}
-        \begin{lstlisting}{java}
+        \begin{lstlisting}[language=Java]
             public static void algo3(int[] L, int[] M) {
                 int n = L.length;
                 int m = M.length;
@@ -130,7 +133,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 
         \begin{enumerate}
             \item $O(n^2)$
-            \item $O(\max(\{n,m\}))$
+            \item $O(n + m)$
             \item $O(n)$
             \item $O(2^n)$
         \end{enumerate}
@@ -144,9 +147,9 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
-
+    Quelle est la complexité du programme ci-dessous?\\
     \textbf{Python :}
-    \begin{lstlisting}{python}
+    \begin{lstlisting}[language=Python]
     #Entrée: L est une liste de nombre entiers
     def algo4(L):
         n = len(L)
@@ -159,7 +162,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
     \end{lstlisting}
     
     \textbf{Java :}
-    \begin{lstlisting}{java}
+    \begin{lstlisting}[language=Java]
         import java.lang.Math; 
 
         public static void algo4(int[] L) {
@@ -197,9 +200,10 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 
 \newpage
 
-\begin{Exercice}[10 minutes] \textbf{Complexité \optionnel} \\        
+\begin{Exercice}[10 minutes] \textbf{Complexité \optionnel} \\
+    Quelle est la complexité du programme ci-dessous?\\
         \textbf{Python :}
-        \begin{lstlisting}{python}
+        \begin{lstlisting}[language=Python]
         # Entrée: n un nombre entier
         def algo5(n):
             m = 0
@@ -210,7 +214,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
         \end{lstlisting}
         
         \textbf{Java :}
-        \begin{lstlisting}{java}
+        \begin{lstlisting}[language=Java]
             public static int algo5(int n) {
                 int m = 0;
                 for (int i=0; i < n; i++){
@@ -241,7 +245,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 
 Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre.
 
-\begin{Exercice} [5 minutes] \textbf{Somme des chiffres} \\
+\begin{Exercice}[5 minutes] \textbf{Somme des chiffres} \\
 Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est : 1+2+6 = 9.
 
 \begin{conseil}
@@ -338,7 +342,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] \textbf{Tri par insertion - 1 (Python)}\\
-    Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
+    Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme Python qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
 
     \lstinputlisting{ressources/question9.py}
 
