@@ -5,4 +5,4 @@ def tri_bulle(l):
 if __name__ == "__main__":
     l = [1, 2, 4, 3, 1]
     tri_bulle(l)
-    print(liste_triee)
+    print(l)
