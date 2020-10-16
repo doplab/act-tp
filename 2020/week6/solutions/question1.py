@@ -15,6 +15,5 @@
     
     #Exécution de l'algorithme
     recherche_sequentielle(L, x)
-    
-    %%time #Permet d'afficher le temps de calcul
-    print(recherche_sequentielle(L, x)
+  
+  

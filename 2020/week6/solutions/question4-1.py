@@ -1,4 +1,4 @@
-    #Version récursive
+
     def recherche_binaire_recursive(liste,s,r,x): #s as first index and r as last index of liste
         #SOLUTION
         mid = int((s+r)/2) #int arrondi vers le bas
@@ -20,6 +20,5 @@
     recherche_binaire_recursive(L,s, r, x)
     
     
-    %%time
-    print(recherche_binaire_recursive(L,s, r, x))
+   
     

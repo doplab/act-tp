@@ -1,11 +1,8 @@
 \input{../header.tex}
-
-\usepackage{minted}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \begin{document}
-
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
@@ -41,7 +38,7 @@ A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline
 
 \textbf{Python :}
   \begin{lstlisting}[language=Python]
-    def plus_proche_sequentielle(liste, x):
+    def recherche_sequentielle(liste, x):
         #complètez ici
         
     
@@ -49,16 +46,14 @@ A partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline
     L = [3,55,6,8,3,5,56,33,6,5,3,2,99,53,532,75,21,963,100,445,56,56,24]
     x = 100
     
-    plus_proche_sequentielle(L, x)
+    recherche_sequentielle(L, x)
         
-    %%time #Permet d'afficher le temps d'exécution de l'algorithme 
-    print(plus_proche_sequentielle(L, x))
     
     \end{lstlisting}
 
 \begin{conseil}
     Définissez votre fonction de recherche linéaire en utilisant une boucle \lstinline{for} ou une boucle \lstinline{while}.\\\\
-    Attention: la fonction doit retourné l'index de la valeur et non pas la valeur. Pour cela, veillez à utiliser \lstinline{range(len(list))} avec la boucle \lstinline{for} et une incrémentation \lstinline{"i = i+1"} avec la boucle \lstinline{while}.\\\\
+    Attention: la fonction doit retourner l'index de la valeur et non pas la valeur. Pour cela, veillez à utiliser \lstinline{range(len(list))} avec la boucle \lstinline{for} et une incrémentation \lstinline{"i = i+1"} avec la boucle \lstinline{while}.\\\\
     La fonction \lstinline{print()} vous permet d'afficher l'index lorsqu'il a été trouvé et un autre message le cas échéant. 
 \end{conseil}
     
@@ -81,7 +76,7 @@ Résultat attendu : 56\\
     \begin{lstlisting}[language=Python]
     #Definition de la fonction ayant pour argument une liste et un nombre 
     def plus_proche_sequentielle(list,n):
-        diff = None #Initialisation de la variable pour la différence
+        diff = -1 #Initialisation de la variable (-1 car les différence calculée après seront toujours positives) 
         resultat = None #Initialisation de la variable pour le résultat
     
         #Complètez ici
@@ -93,8 +88,6 @@ Résultat attendu : 56\\
     #Exécution de la fonction
     plus_proche_sequentielle(L,e)
     
-    %%time 
-    print(plus_proche_sequentielle(L,e))
 
     \end{lstlisting}
 
@@ -131,8 +124,6 @@ Résultat attendu : 56\\
     e = 3284016
     recherche_lineaire(L,e)
     
-    %%time
-    print(recherche_lineaire(L,e))
 \end{lstlisting}
 
     \begin{conseil}
@@ -164,7 +155,8 @@ La recherche binaire regarde les comparaisons d'ordre, alors que la recherche s�
 
 \subsection{La récursivité}
 
-Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour le calcul factoriel.
+Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour le calcul factoriel.\\\\
+(Rappel : 4! = 4 x 3 x 2 x 1 = 24)\\
 
 \begin{lstlisting}[language=Python]
     def factoriel(n):
@@ -172,10 +164,12 @@ Une fonction récursive est une fonction qui s'appelle elle-même pendant son ex
             return n
         else:
             return n * factoriel(n - 1)
-            
+    
+    #Exécution de la fonction        
     factorielle(4)
-    #La fonction calcul 4 factoriel et retourne le résultat 
-    #Rappel : 4! = 4 x 3 x 2 x 1 = 24
+    
+    #La fonction retourne 24
+    
 \end{lstlisting}
 
 Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. L'inconvénient est qu'elles peuvent provoquer des boucles infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas appropriés pour arrêter l'exécution, la récursivité se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
@@ -187,6 +181,7 @@ Les fonctions récursives sont courantes en informatique car elles permettent au
 A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
 
+\textbf{Question 4.1 - Version récursive}
 \begin{lstlisting}[language=Python]
     #Version récursive
     
@@ -199,12 +194,10 @@ Ici, \lstinline{x = 5}.\\
     x = 5
     recherche_binaire_recursive(L,s, r, x)
  
-    %%time
-    print(recherche_binaire_recursive(L,s, r, x))
 
-    
-    ##################################################
-
+\end{lstlisting}
+\textbf{Question 4.2 - Version itérative}
+\begin{lstlisting}[language=Python]
     #Version itérative
     
     def recherche_binaire_iterative(liste,s,r,x):
@@ -215,9 +208,7 @@ Ici, \lstinline{x = 5}.\\
     r = len(L)-1
     x = 7
     recherche_binaire_iterative(L,s, r, x)
-    
-    %%time
-    print(recherche_binaire_iterative(L,s, r, x))
+
 \end{lstlisting}
 
     \begin{conseil}
@@ -241,11 +232,11 @@ Ici, \lstinline{x = 5}.\\
     \end{conseil}
 
     \begin{solution}
-        \textbf{Python :}
+        \textbf{4.1 - Version récursive}
         \lstinputlisting{solutions/question4-1.py}
     \end{solution}
     \begin{solution}
-        \textbf{Python :}
+        \textbf{4.2 - Version itérative}
         \lstinputlisting{solutions/question4-2.py}
     \end{solution}
 
@@ -269,8 +260,7 @@ Résultat attendu : 56\\
     e = 41
     plus_proche_binaire(L,e)
     
-    %%time
-    print(plus_proche_binaire(L,e))
+
     \end{lstlisting}
 
 \begin{conseil}
@@ -309,8 +299,7 @@ Résultat attendu: 2\\
     e = 3284016
     recherche_binaire(L,e)
     
-    %%time
-    print(recherche_binaire(L,e))
+ 
     \end{lstlisting}
 
 \begin{conseil}
@@ -393,50 +382,20 @@ De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutan
     \begin{lstlisting}[language=Python]
     import sys
     import traceback
-    from Arbre import Arbre
-    
+
     def recherche_arbre(node, value):
         # Complétez ici
         
-    
-    
-    def handle_error(): #Fonction appelée dans le bloc "except" qui gère les erreurs
-        _, _, tb = sys.exc_info()
-        traceback.print_tb(tb) 
-        tb_info = traceback.extract_tb(tb)
-        filename, line, func, text = tb_info[-1]
-        print('Une erreur s\'est produite sur la ligne {} dans la déclaration {}'.format(line, text))
-    
-    try: #"try" permet de tester le code pour détecter les erreurs.
-    
-        tree = Arbre(8, 3, 1, 6, 4, 7, 10, 14, 13)
-        root = tree.root
-        assert recherche_arbre(root, 4) == True # devrait trouver
-        assert recherche_arbre(root, 7) == True # devrait trouver
-        assert recherche_arbre(root, 18) == False # ne devrait pas trouver
-        assert recherche_arbre(root, 21) == False # ne devrait pas trouver
-    
-        print("Bonne réponse avec le premier arbre")
-    except AssertionError: #"except" permet de gérer l'erreur
-        handle_error()
-        print("Mauvaise réponse")
         
-    try:
-        tree = Arbre(1, 3, 9, 6, 14, -17, 110, 124, 13, -1, 9, 1, 40, -98, 120, 23)
-        root = tree.root
-        assert recherche_arbre(root, 14) == True # devrait trouver
-        assert recherche_arbre(root, 110) == True # devrait trouver
-        assert recherche_arbre(root, 39) == False # ne devrait pas trouver
-        assert recherche_arbre(root, 18) == False # ne devrait pas trouver
-        print("Bonne réponse avec le deuxième arbre")
-    except AssertionError as err:
-        handle_error()
-        print("Mauvaise réponse")
-
+    #Attention à inclure les lignes de codes additionnelles présentent dans le fichier "question8.py" sur moodle
     \end{lstlisting}
 
     \begin{conseil}
-    Indice: Utilisez une fonction récursive.
+    Indice: Utilisez une fonction récursive.\\
+    
+    Pour cette question, vous devez télécharger le fichier \textbf{"question8.py"} sur moodle et copier tout son contenu dans votre fichier python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
+    
+    Il contient également un code de "vérification". Celui-ci va automatiquement tester votre fonction avec différent paramètres et vérifier si les résultats obtenus correspondent au résultats attendus.
     \end{conseil}
 
     \begin{solution}
@@ -445,7 +404,5 @@ De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutan
     \end{solution}
 
 \end{Exercice}
-
-
 
 \end{document}

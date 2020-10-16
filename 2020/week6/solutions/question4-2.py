@@ -1,4 +1,4 @@
-    #Version itérative
+
     def recherche_binaire_iterative(liste,s,r,x):
         #SOLUTION
         while s <= r: 
@@ -19,5 +19,4 @@
     x = 15
     recherche_binaire_iterative(L,s, r, x)
     
-    %%time
-    print(recherche_binaire_iterative(L,s, r, x))
+

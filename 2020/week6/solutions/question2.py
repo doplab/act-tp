@@ -1,11 +1,11 @@
 #Definition de la fonction ayant pour argument une liste et un nombre 
 def plus_proche_sequentielle(liste,n):
-    diff = None #Initialisation de la variable pour la différence
-    resultat = None #Initialisation de la variable pour le résultat
+    diff = -1 #Initialisation de la variable ( -1 car les différences calculées après seront toujours positives) 
+    resultat = None #Initialisation de la variable pour le résultat 
     
     #Solution
     for i in liste:
-        if not diff or abs(i-n) < diff: #old diff
+        if diff == -1 or abs(i-n) < diff: 
             diff = abs(i-n) #new diff # 
             resultat = i
             
@@ -18,5 +18,3 @@ e = 50
 #Exécution de la fonction
 plus_proche_sequentielle(L,e)
 
-%%time 
-print(plus_proche_sequentielle(L,e))
