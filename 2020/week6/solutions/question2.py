@@ -9,7 +9,7 @@ def plus_proche_sequentielle(liste,n):
             diff = abs(i-n) #new diff # 
             resultat = i
             
-    return resultat, diff
+    return resultat
 
 #Déclaration de la liste L et de la variable e
 L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]  
