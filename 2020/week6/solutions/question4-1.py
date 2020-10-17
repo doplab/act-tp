@@ -12,6 +12,7 @@
             return mid 
         else:
             print ("X not in liste")
+            return -1
             
     L=[1,3,4,5,7,8,9,15]
     s = 0
