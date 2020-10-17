@@ -18,13 +18,13 @@
     \item Arbres de recherche binaire\\
 \end{enumerate}
 
-Le but de cette séance est de se familiariser avec les algorithmes de recherches.\\
+Le but de cette séance est de se familiariser avec les algorithmes de recherche.\\
 
 \section{Recherche séquentielle (ou recherche linéaire)}
 
 \subsection{Définition}
 
-Une recherche \textbf{linéaire} (ou \textbf{séquentielle}) est une méthode permettant de trouver un élément dans une liste, un tableau ou un dictionnaire. Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été recherchée.\\
+Une recherche \textbf{linéaire} (ou \textbf{séquentielle}) est une méthode permettant de trouver un élément dans une liste, un tableau ou un dictionnaire. Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été fouillée.\\
 
 Si l'élément recherché est trouvé, l'algorithme \textbf{renvoie l'index}, c'est-à-dire la position, de l'élément dans la liste donnée. \\
 
@@ -143,7 +143,7 @@ Résultat attendu : 56\\
 
 \subsection{Définition}
 
-Le but de la recherche binaire est de trouver l'élément \lstinline{x} plus rapidement. Pour cela, il est nécessaire d'utiliser \textbf{une liste d'éléments triée}.\\
+Le but de la recherche binaire est de trouver l'élément \lstinline{x} plus rapidement. Pour cela, il est nécessaire d'utiliser \textbf{une liste d'éléments triés}.\\
 
 La complexité de l'algorithme de recherche binaire est \lstinline{O(log n)}. Cependant, il ne faut pas oublier le coût lié à l'obtention d'une liste triée à partir d'une liste non triée.\\
 
@@ -178,7 +178,7 @@ Les fonctions récursives sont courantes en informatique car elles permettent au
 
 \begin{Exercice}[20 minutes] language : \textbf{Python}\\
 
-A partir de la liste d'éléments \textbf{triée} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
+A partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
 Ici, \lstinline{x = 5}.\\
 
 \textbf{Question 4.1 - Version récursive}
@@ -215,8 +215,8 @@ Ici, \lstinline{x = 5}.\\
         Complétez la fonction récursive \lstinline{recherche_binaire_recursive} et la fonction itérative \lstinline{recherche_binaire_iterative}.\\\\
         Détails sur les arguments de la fonction:\\
         \lstinline{L} : La liste dans laquelle nous effectuons la recherche\\
-        \lstinline{s} : Le premier élément de la liste (index [0])\\
-        \lstinline{r} : Le dernier élément de la liste (index [longueur de la liste -1])\\
+        \lstinline{s} : L' élément de départ de la partie de la liste à fouiller (0 au départ)\\
+        \lstinline{r} : Le dernier élément de la partie de la liste à fouiller (len(liste) au départ)\\
         \lstinline{x} : La valeur recherchée.\\\\
 
         Ainsi, à chaque itération, vos fonction vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
@@ -244,8 +244,6 @@ Ici, \lstinline{x = 5}.\\
 
 
 \begin{Exercice}[15 minutes] language : \textbf{Python}\\
-
-Considérez une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} le plus proche de \lstinline{e} en utilisant une recherche binaire.\\
 
 On vous donne une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
@@ -343,7 +341,7 @@ Résultat attendu: 2\\
     \end{lstlisting}
 
     \begin{conseil}
-    Pour cet exercice il est nécessaire d'utiliser une double boucle \lstinline{for}, c'est-à-dire: une boucle \lstinline{for} dans une boucle \lstinline{for}. Cela permet de parcourir tout les éléments d'un tableau à deux dimensions à l'exemple d'une matrice. 
+    Pour cet exercice il est nécessaire d'utiliser une double boucle \lstinline{for}, c'est-à-dire: une boucle \lstinline{for} dans une boucle \lstinline{for}. Cela permet de parcourir tout les éléments d'un tableau à deux dimensions (dans notre cas une matrice). 
     \end{conseil}
 
     \begin{solution}
@@ -357,7 +355,7 @@ Résultat attendu: 2\\
 \section{Arbre de recherche binaire}
 \subsection{Définition}
 
-Un arbre de recherche binaire est une structure de donnée au même titre que les listes, tuples, dictionnaires, etc. Leur particularité est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres de recherche binaire enregistrent les valeurs de manière relationnelle.\\
+Un arbre de recherche binaire est une structure de données au même titre que les listes, tuples, dictionnaires, etc. Leur particularité est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres de recherche binaire enregistrent les valeurs de manière relationnelle.\\
 
 En effet, l'arbre est divisé en branches qui peuvent elles-même contenir deux branches (enfants) et ainsi de suite. Lorsqu'une branche n'a pas de branches subséquentes (enfants), on parle de feuille.\\
 
