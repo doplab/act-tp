@@ -16,5 +16,6 @@ L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]
 e = 50
 
 #Exécution de la fonction
-plus_proche_sequentielle(L,e)
+resultat = plus_proche_sequentielle(L,e)
+print(resultat)
 
