@@ -375,6 +375,45 @@ Voici les codes à lire : \\
 
 \subsection{Exercices}
 
+\begin{Exercice}[5 min] Compléxité - Partie 1\\
+    Énumérer le nombre d'opérations qu'effectue l'algorithme ci-dessous à chaque étape:
+    \lstinputlisting{exercices/week5_algo1_complexite.py}
+\begin{conseil}
+   Les opérations dans une boucle \lstinline{for} sont répétées autant de fois que le 
+   nombre d'éléments sur lesquels nous itérons.
+\end{conseil}
+    
+\begin{solution}
+L'algorithme effectue 1 opération pour initialiser $n$ à \lstinline{len(L)}. Ensuite, l'algorithme
+effectue une boucle for qui itère sur $n$ éléments. Dans la boucle for, l'algorithmes éxécute deux additions.
+Ainsi, nous avons au total : $1 + 2\times n$ opérations. \\
+En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les constantes sont ignorées.    
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 min] Compléxité - Partie 2\\
+    Énumérer le nombre d'opérations qu'effectue l'algorithme ci-dessous à chaque étape:
+    \lstinputlisting{exercices/week5_algo2_complexite.py}
+\begin{conseil}
+   Les opérations dans une boucle \lstinline{for} sont répétées autant de fois que le 
+   nombre d'éléments sur lesquels nous itérons.
+\end{conseil}
+    
+\begin{solution}
+    L'algorithme vérifie si la liste contient des doublons.
+    \begin{enumerate}
+        \item L'algorithme effectue 1 opération pour initialiser $n$ à \lstinline{len(L)}. 
+        \item Ensuite, l'algorithme effectue 2 boucles for imbriquées qui itère chacune sur $n$ éléments. 
+        \item Dans la deuxième boucle for, l'algorithmes éxécute deux comparaisons. 
+        Ainsi, nous avons au total : $1 + 2 \times n^2$ opérations. \\
+    \end{enumerate}
+    En notation $O()$, nous avons une compléxité de : $O(2n^2 + 1) = O(n^2)$ car les constantes sont ignorées. 
+       
+\end{solution}
+
+\end{Exercice}
+
 \begin{Exercice} [15 minutes] \textbf{Tri fusion (Merge Sort)}
     \begin{enumerate}
         \item  Ecrire un fonction "merge" qui prend deux listes triées comme argument et retourne une liste fusionnée triée.
