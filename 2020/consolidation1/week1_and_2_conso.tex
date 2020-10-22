@@ -16,31 +16,28 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
 
 \begin{Exercice}[10 minutes]  \textbf{Conversion }\\
     \begin{enumerate}
-        \item Convertir le nombre 210$_{(10)}$ en base 2.
-        \item Convertir le nombre 75$_{(10)}$ en base 2.
-        \item Convertir le nombre 47$_{(10)}$ en base 5.
+        \item Convertir le nombre FFFFFF$_{(16)}$ en base 10.
+        \item Convertir le nombre 4321$_{(5)}$ en base 10.
+        \item Convertir le nombre ABC$_{(16)}$ en base 2.
         \item Convertir le nombre 254$_{(10)}$ en base 15.
         \item Convertir le nombre 11101$_{(2)}$ en base 10.
-        \item Convertir le nombre 432$_{(5)}$ en base 10.
-        \item Convertir le nombre DEF$_{(16)}$ en base 10.
     \end{enumerate}
     
         \begin{conseil}
-        Cf: exercice 1,2,3 week 1
+            N'oubliez pas qu'en Hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15.
     \end{conseil}
 
     \begin{solution}
-        1. 210$_{(10)}$ = 11010010$_{(2)}$\\
-        2. 75$_{(10)}$ = 01001011$_{(2)}$\\
-        3. 47$_{(10)}$ = 142$_{(5)}$\\
+        1. FFFFFF$_{(16)}$ = 16777215$_{(10)}$\\
+        2. 4321$_{(5)}$ = 586$_{(10)}$\\
+        3. ABC$_{(16)}$ = 101010111100$_{(2)}$\\
         4. 254$_{(10)}$ = 11E$_{(15)}$\\
-        5. 11101$_{(2)}$ = 29$_{(10)}$\\
-        6. 432$_{(5)}$ = 117$_{(10)}$\\
-        7. DEF$_{(16)}$ = 3567$_{(10)}$
+        5. 11101$_{(2)}$ = 29$_{(10)}$
     \end{solution}
 \end{Exercice}
 
-
+\begin{comment}
+    % Les étudiants n'ont pas rencontré de difficultés sur des exercices similaires
 \section{Arithmétique binaire}
 
 \begin{Exercice}[5 minutes] \textbf{Addition et soustraction de nombres binaires}
@@ -62,21 +59,27 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{solution}
 \end{Exercice}
 
+
+
+
+
+
+
+
+\end{comment}
 \section{Conversion et arithmétique}
-\begin{Exercice}[10 minutes] \textbf{Conversion, addition et soustraction:}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion, addition et soustraction:}\\
     Effectuer les opérations suivantes:
     \begin{enumerate}
         \item 10110101$_{(2)}$ + 00101010$_{(2)}$ = ...$_{(10)}$
-        \item 300$_{(10)}$ + DEF$_{(16)}$ = ...$_{(8)}$
         \item 70$_{(10)}$ - 10101010$_{(2)}$ = ...$_{(10)}$
     \end{enumerate}
         \begin{conseil}
-        Cf: exercice 6,7 week 1
+        Convertissez dans une base commune avant d'effectuer les opérations.
     \end{conseil}
         
     \begin{solution}
         1. 10110101$_{(2)}$ + 00101010$_{(2)}$ = 202$_{(10)}$\\
-        2. 300$_{(10)}$ + DEF$_{(16)}$ = 7433$_{(8)}$\\
         3. 70$_{(10)}$ - 10101010$_{(2)}$ = 240$_{(10)}$
     \end{solution}
 \end{Exercice}
@@ -140,7 +143,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Process Counter} et de l'\lstinline{Instruction Register}?
 \end{Exercice}
    \begin{conseil}
-        Cf: exercice 8 week 1
+    Pour rappel, l’unité de contrôle (Control Unit) commande et contrôle le fonctionnement du système. Elle est chargée du séquençage des opérations. Après chaque opération FETCH, la valeur du Program Counter est incrémentée (valeur initiale + 1).
     \end{conseil}
 \begin{solution}
     PC = 00100001$_{(2)}$ + 1 = 00100010$_{(2)}$\\
@@ -156,11 +159,14 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \end{enumerate}
 \end{Exercice}
    \begin{conseil}
-        Cf: exercice 9 week 1
+    Pensez à décomposer la valeur de l’Instruction Register pour obtenir toutes les informations demandées.\\
+    Utilisez la même convention que celle présentée dans les diapositives du cours (Architecture des ordinateurs (Semaine 2) - Diapositive 15)\\
+    Les données issues de la décomposition de l’\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
+
     \end{conseil}
 \begin{solution}
-    00 : ADD (valeur de l'opération à exécuter)\\
-    11 : adresse du registre dans lequel le résultat doit être enregistré\\
+    00 : \lstinline{ADD} (valeur de l'opération à exécuter)\\
+    11 : Adresse du registre dans lequel le résultat doit être enregistré\\
     01 : 00100000$_{(2)}$ (premier nombre)\\
     00 : 01111111$_{(2)}$ (deuxième nombre)
 \end{solution}
@@ -170,11 +176,32 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \end{Exercice}
 
    \begin{conseil}
-        Cf: exercice 10 week 1
+        Toutes les informations permettant d’effectuer l’opération se trouvent dans les données de l’\lstinline{Instruction Register}.
     \end{conseil}
 
 \begin{solution}
     00100000$_{(2)}$ + 01111111$_{(2)}$ = 10011111$_{(2)}$
 \end{solution}
+
+\section{Systèmes d'Exploitation}
+
+\begin{Exercice}[5 minutes]
+    Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
+    \begin{enumerate}
+        \item \lstinline{ls -la}
+        \item \lstinline{sudo rm -rf ~/nano}
+        \item \lstinline{sudo kill -9 3531}
+        \item \lstinline{more nano.txt}
+        \item Aucune réponse n'est correcte.
+    \end{enumerate}
+    \begin{solution}
+        La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
+    \end{solution}
+    \begin{conseil}
+        \textbf{Attention!}Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
+        Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
+    \end{conseil}
+\end{Exercice}
+
 
 \end{document}
