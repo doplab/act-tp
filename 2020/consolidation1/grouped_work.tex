@@ -456,7 +456,15 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
 
 \begin{Exercice}[20min] Recherche binaire \\
 
-Dans cet exercice, vous devrez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément e donné. Pour ce faire, vous devrez utiliser une version récursive de l'algorithme de recherche binaire.
+Dans cet exercice, vous devrez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément e donné. Pour ce faire, vous devrez utiliser une version récursive de l'algorithme de recherche binaire.\\
+
+Exemple:\\
+
+\lstinline{L = [1, 11, 22, 33, 44, 55, 66, 77, 88, 99]}\\
+\lstinline{e = 73}\\\\
+\lstinline{print(plus proche(L, e, recherche binaire recursive(L, 0, len(L)-1, e)))}\\
+
+Résultat attendu: 77\\
 
 \begin{conseil}
    Dans cet exercice, vous devrez déclarer deux fonctions, et les combiner afin de retrouver l'élément de la liste qui est le plus proche de \lstinline{e}. \\
