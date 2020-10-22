@@ -1,5 +1,3 @@
-import com.sun.tools.corba.se.idl.constExpr.Not;
-
 public class question_conso1_mergesort {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]

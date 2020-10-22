@@ -495,11 +495,11 @@ Voici les templates : \\
 
 \end{Exercice}
 
-\section{Quizz général}
+\section{Quiz général}
 
 \subsection{Python}
 
-\begin{Exercice}[2 minutes] Exercice 1\\
+\begin{Exercice}[2 minutes]\\
 En python, 'Hello' équivaut à "Hello". 
 
 \begin{enumerate}[label=\Alph*]
@@ -507,13 +507,13 @@ En python, 'Hello' équivaut à "Hello".
     \item - Faux
 \end{enumerate}
 \begin{solution}
-    \textbf{Vrai}: En python, les doubles guillemets et les guillemet sont équivalents. 
+    \textbf{Vrai}: En python, les doubles guillemets et les guillemets sont équivalents. 
 \end{solution}
 \end{Exercice}
 
 
-\begin{Exercice}[2 minutes] Exercice 1\\
-À la fin d'une fonction, nous pouvons utiliser les commandes \lstinline{print()} ou \lstinline{return}, elles ont la même utilité.
+\begin{Exercice}[2 minutes]\\
+Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou \lstinline{return}, elles ont le même rôle.
 \begin{enumerate}[label=\Alph*]
     \item - Vrai
     \item - Faux
@@ -521,13 +521,19 @@ En python, 'Hello' équivaut à "Hello".
 \begin{solution}
     \textbf{Faux}\\
     \lstinline{print()} permet uniquement d'afficher un message dans la console. Autrement dit, \lstinline{print()} sert à communiquer un message à l'utilisateur final du programme, celui-ci n'ayant pas accès au code.\\\\
-    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appellée. Exemple: la fonction \lstinline{len(L)} renvoie la longeur de la liste L.
+    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appellée. Exemple: la fonction \lstinline{len(L)} renvoie la longeur de la liste~L.\\
+
+    Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
+    En Python, notre programme ressemblera à ça:
+    \lstinputlisting{resources/question16.py}
+
+    Notre programme renverra une erreur de type \lstinline{TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'} si on remplace la ligne 2 par \lstinline{print(nombre**2)} car la fonction \lstinline{double_nombre} renverra \lstinline{None}.
 \end{solution}
 \end{Exercice}
 
 
-\begin{Exercice}[2 minutes] Exercice 1\\
-Lorsque l'on fait appel à une fonction, les arguements doivent nécessairement avoir le(s) même(s) noms tel(s) que définit dans la fonction. Exemple:\\
+\begin{Exercice}[2 minutes]\\
+Lorsqu'on fait appel à une fonction, les arguments doivent nécessairement avoir le(s) même(s) noms tel(s) que définit dans la fonction. Exemple:\\
 \begin{lstlisting}
 def recherche_lineaire(Liste, x):
     for i in Liste:
@@ -547,25 +553,25 @@ recherche_lineaire(Liste,x)
 \end{enumerate}
 \begin{solution}
     \textbf{Faux}\\
-    Le noms des variables données en argument n'a aucune importance tant que le type de variable est respecté. Dans notre exemple, la fonction attend s'attend à une \textbf{liste} en premier argument et un \textbf{entier} en deuxième argument. Ici, nous aurions pu nommer la liste \lstinline{"nbr_impair"} et x \lstinline{"valeur"} et ainsi appelé la fonction \lstinline{recherche_lineaire(nbr_impair, valeur)}
+    Le nom des variables données en argument n'a aucune importance tant que le type de variable est respecté. Dans notre exemple, la fonction s'attend à recevoir  une \textbf{liste} comme premier argument et un \textbf{entier} comme deuxième argument. Ici, nous aurions pu nommer la liste \lstinline{"nbr_impair"} et x \lstinline{"valeur"} et ainsi appelé la fonction \lstinline{recherche_lineaire(nbr_impair, valeur)}
 
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[2 minutes] Exercice 1\\
-Si le programme python contient une erreur, celle-ci sera detectée avant l'exécution du programme. 
+\begin{Exercice}[2 minutes]\\
+Si le programme Python contient une erreur, celle-ci sera detectée avant l'exécution du programme. 
 
 \begin{enumerate}[label=\Alph*]
     \item - Vrai
     \item - Faux
 \end{enumerate}
 \begin{solution}
-    \textbf{Faux}: En python, les erreurs sont détectées pendant l'exécution du programme.
+    \textbf{Faux}: En Python, les erreurs sont détectées pendant l'exécution du programme.
 \end{solution}
 \end{Exercice}
 
 
-\begin{Exercice}[2 minutes] Exercice 1\\
+\begin{Exercice}[2 minutes]\\
 Il est possible de faire appel à une fonction définie "plus bas" dans le code sans que cela ne pose problème.
 
 \begin{lstlisting}
@@ -582,12 +588,12 @@ def nombre_decimal_pi(int):
     \item - Faux
 \end{enumerate}
 \begin{solution}
-    \textbf{Faux}: À l'excéption des fonctions intégrées (il s'agit des fonctions déjà intégrées au language python telles que \lstinline{print(), len(), abs(), etc}... une fonction doit nécessairement être définie \textbf{avant} d'être appellée.
+    \textbf{Faux}: À l'excéption des fonctions intégrées (il s'agit des fonctions déjà intégrées au language python telles que \lstinline{print(), len(), abs(), etc}... une fonction doit nécessairement être définie \textbf{avant} d'être appelée.
 \end{solution}
 \end{Exercice}
 
 
-\begin{Exercice}[5 minutes] Exercice 1\\
+\begin{Exercice}[5 minutes]\\
 Les trois fonctions suivantes renvoient-elles systématiquement des résultats identiques ?\\Les fonctions sont censées retourner le nombre pi avec le nombre de décimales (au moins une et au maximum 15) indiqué en paramètre.
 \begin{multicols}{3}
 \begin{lstlisting}
@@ -656,13 +662,10 @@ print(nombre_decimal_pi(20))
     \textbf{Vrai}: Les trois fonctions produisent des résultats identiques. Si besoin, exécutez le code dans IntelliJ.
 \end{solution}
 \end{Exercice}
-
-
-
 \subsection{Java}
 
 
-\begin{Exercice}[3 minutes] Exercice 1\\
+\begin{Exercice}[3 minutes] \\
 Observez les deux codes suivants en java. Lequel a-t-il la bonne structure et peut être compilé sans erreur ?
 
 \begin{multicols}{2}
