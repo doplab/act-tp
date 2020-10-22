@@ -8,16 +8,13 @@ public class question_conso1_mergesort {
         // Trouver la taille des deux sous-listes à fusionner
         int n1 = arr1.length;
         int n2 = arr2.length;
-
         /* Créer des listes temporaires */
         int L[] = new int[n1];
         int R[] = new int[n2];
         int F[] = new int[n1 + n2];
-
         /*Copier les données dans les sous-listes temporaires */
         for (int i = 0; i < n1; ++i) {
             L[i] = arr1[i];
-
         }
         for (int j = 0; j < n2; ++j) {
             R[j] = arr2[j];
@@ -25,7 +22,6 @@ public class question_conso1_mergesort {
         /* Fusionner les sous-listes temporaires */
         // Indexes initiaux de la première et seconde sous-liste
         int i = 0, j = 0;
-
         // Index initial de la sous-liste fusionnée
         int k = 0;
         // Boucle qui fusionne L et R de manière ordonnée
@@ -56,15 +52,11 @@ public class question_conso1_mergesort {
 
         return F;
     }
-
-
     public static void affiche_liste(int l[]) {
         int n = l.length;
         for (int i = 0; i < n; ++i)
             System.out.print(l[i] + " ");
     }
-
-
     public static void main(String[] args) {
         int[] l1 = {3, 10, 12};
         int[] l2 = {5, 7, 14, 15};
