@@ -9,6 +9,7 @@
 \titre
 \cours{Consolidation 1}
 
+Les exercices de cette série sont une compilation d'exercices semblables à ceux vu lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 5.
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
@@ -17,7 +18,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \subsection{Introduction/Résumé}
 
-Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de de conversions en base binaire, décimale ou hexadécimal, de calcul de base en suivant le modèle Von Neumann. \\
+Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de conversions en base binaire, décimale, hexadécimale, base 5 et de calcul de base en suivant le modèle Von Neumann. \\
 
 \subsection{Conversion}
 
@@ -166,7 +167,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \end{enumerate}
 \end{Exercice}
    \begin{conseil}
-    Pensez à décomposer la valeur de l’Instruction Register pour obtenir toutes les informations demandées.\\
+    Pensez à décomposer la valeur de l’\lstinline{Instruction Register} pour obtenir toutes les informations demandées.\\
     Utilisez la même convention que celle présentée dans les diapositives du cours (Architecture des ordinateurs (Semaine 2) - Diapositive 15)\\
     Les données issues de la décomposition de l’\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
 
@@ -211,8 +212,9 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
         La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
     \end{solution}
     \begin{conseil}
-        \textbf{Attention!}Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
-        Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après chaque commande sous Windows.
+        \textbf{Attention!}\\
+        Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
+        Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
     \end{conseil}
 \end{Exercice}
 
@@ -267,7 +269,7 @@ Créez une fonction itérative, puis une fonction récursive qui calculent le no
 \begin{conseil}
    Pour la version itérative, parcourez toute la chaine de caractère et incrémentez un compteur lorsque vous avez une voyelle.
    
-   Pour la version récursive, diminuez systématiquement la taille de votre chaine de caractère. Si l'élément actuel est une voyelle, ajoutez 1, ajoutez 0 sinon.
+   Pour la version récursive, diminuez systématiquement la taille de votre chaine de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
    
    Aidez vous d'une liste de toutes les voyelles et de la fonction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
 \end{conseil}
@@ -304,27 +306,25 @@ Voici les templates : \\
 
 \begin{Exercice}[5 min] Lecture de code (Récursivité)\\
 
-Qu' afficheront les deux codes suivants ? \\
+Qu'afficheront les programmes suivants ? \\
 
 \begin{conseil}
-   Ces deux codes comportent des fonctions itératives, lisez bien le code de haut en bas et lorsque la fonction s'auto-appelle, revenez au début de cette fonction et réeffectuez les instructions avec les nouveaux paramètres.
+   Ces deux programmes comportent des fonctions itératives, lisez bien le code de haut en bas et lorsque la fonction fait appel à elle-même, revenez au début de la fonction et effectuez de nouveau les instructions avec les nouveaux paramètres.
    
-   Une feuille de papier pourrait vous aider !
+   Une feuille de papier pourrait vous être utile!\\
 \end{conseil}
 
-Voici les codes à lire : \\
-
-\textbf{Code 1 :} \\
+\textbf{\\Programme 1 :} \\
 
 	\lstinputlisting{exercices/recursion_1_exercice.py} 
 
-\textbf{code 2 :} \\
+\textbf{Programme 2 :} \\
 
 	\lstinputlisting{exercices/recursion_2_exercice.py}
 
     
 \begin{solution}
-\textbf{Code 1 :} \\
+\textbf{Programme 1 :} \\
 
     Python
     
@@ -345,24 +345,9 @@ Voici les codes à lire : \\
 
 
 \begin{solution}   
-\textbf{Code 2 :} \\
+\textbf{Programme 2 :} \\
 
     PythonohtyP
-    
-\end{solution}
-
-\end{Exercice}
-
-
-\begin{Exercice}[5 min] Exercice 1\\
-
-\begin{conseil}
-   % Un conseil
-\end{conseil}
-    
-\begin{solution}
-\textbf{Langage utilisé :}
-    %\lstinputlisting{solutions/fichier.java}
     
 \end{solution}
 
@@ -376,7 +361,8 @@ Voici les codes à lire : \\
 \subsection{Exercices}
 
 \begin{Exercice}[5 min] Compléxité - Partie 1\\
-    Énumérer le nombre d'opérations qu'effectue l'algorithme ci-dessous à chaque étape:
+    Que fait le programme suivant? \\
+    Estimez le nombre d'opérations qu'effectuera l'algorithme de la fonction \lstinline{algo1} à chaque étape en fonction des paramètres qui lui seront assignés:
     \lstinputlisting{exercices/week5_algo1_complexite.py}
 \begin{conseil}
    Les opérations dans une boucle \lstinline{for} sont répétées autant de fois que le 
@@ -385,15 +371,16 @@ Voici les codes à lire : \\
     
 \begin{solution}
 L'algorithme effectue 1 opération pour initialiser $n$ à \lstinline{len(L)}. Ensuite, l'algorithme
-effectue une boucle for qui itère sur $n$ éléments. Dans la boucle for, l'algorithmes éxécute deux additions.
+effectue une boucle \lstinline{for} qui itère sur $n$ éléments. Dans la boucle for, l'algorithmes éxécute deux additions.
 Ainsi, nous avons au total : $1 + 2\times n$ opérations. \\
 En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les constantes sont ignorées.    
 \end{solution}
 
 \end{Exercice}
 
-\begin{Exercice}[5 min] Compléxité - Partie 2\\
-    Énumérer le nombre d'opérations qu'effectue l'algorithme ci-dessous à chaque étape:
+\begin{Exercice}[5 min] Complexité - Partie 2\\
+    Que fait le programme suivant? \\
+    Estimez le nombre d'opérations qu'effectuera l'algorithme de la fonction \lstinline{algo2} à chaque étape en fonction des paramètres qui lui seront assignés:
     \lstinputlisting{exercices/week5_algo2_complexite.py}
 \begin{conseil}
    Les opérations dans une boucle \lstinline{for} sont répétées autant de fois que le 
@@ -405,10 +392,10 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
     \begin{enumerate}
         \item L'algorithme effectue 1 opération pour initialiser $n$ à \lstinline{len(L)}. 
         \item Ensuite, l'algorithme effectue 2 boucles for imbriquées qui itère chacune sur $n$ éléments. 
-        \item Dans la deuxième boucle for, l'algorithmes éxécute deux comparaisons. 
+        \item Dans la deuxième boucle \lstinline{for}, l'algorithme exécute deux comparaisons. 
         Ainsi, nous avons au total : $1 + 2 \times n^2$ opérations. \\
     \end{enumerate}
-    En notation $O()$, nous avons une compléxité de : $O(2n^2 + 1) = O(n^2)$ car les constantes sont ignorées. 
+    En notation $O()$, nous avons une complexité de : $O(2n^2 + 1) = O(n^2)$ car les constantes sont ignorées. 
        
 \end{solution}
 
@@ -416,17 +403,17 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
 
 \begin{Exercice} [15 minutes] \textbf{Tri fusion (Merge Sort)}
     \begin{enumerate}
-        \item  Ecrire un fonction "merge" qui prend deux listes triées comme argument et retourne une liste fusionnée triée.
-        \item Quelle est le nombre d'opérations effectuées ? Déterminer ensuite la complexité de la fonction, en posant n = longueur de la liste fusionnée
+        \item  Ecrire une fonction ``merge'' qui prend deux listes triées comme argument et retourne une liste fusionnée triée.
+        \item Quelle est le nombre d'opérations effectuées ? Déterminer ensuite la complexité de la fonction, en posant \lstinline{n = longueur de la liste fusionnée}.
     \end{enumerate}
        
-       Pour les tests utilisez les listes suivantes:\\ \lstinline{l1}  [3,10,12] et 
-       \lstinline{l2}  [5,7,14,15]
+       Pour les tests utilisez les listes suivantes:\\ \lstinline{l1=[3,10,12]} et 
+       \lstinline{l2 = [5,7,14,15]}.
     \begin{conseil}
     \begin{itemize}
-        \item Cette fonction est une des deux parties de l'algorithme de tri fusion
-        \item Revenez à l'exercice 11 de la série 5. 
-        \item Revenez à la visualisation de l'algorithme dans les diapositives 83 à 111 pour comprendre comment marche concrètement le tri fusion. 
+        \item Cette fonction est une des deux parties de l'algorithme de tri fusion.
+        \item Inspirez vous de la solution de l'exercice 11 de la série 5. 
+        \item N'hésitez pas à revoir le processus montré en cours (visualisation de l'algorithme dans les diapositives 83 à 111) pour comprendre comment marche concrètement le tri fusion. 
     \end{itemize}
     \end{conseil}
     \begin{solution}
@@ -440,9 +427,9 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
     \end{solution}
     \begin{solution}
     \begin{itemize}
-    \item \textbf{En python il y a:} n = 3+ 4 = 7 itérations. Les opérations avant et après la boucle sont des opérations simples, donc la complexité "pire cas" est calculé grâce à la boucle while et donc en fonction de la taille de la liste finale.
+    \item \textbf{En python il y a:} n = 3+ 4 = 7 itérations. Les opérations avant et après la boucle sont des opérations simples, donc la complexité "pire cas" est calculé grâce à la boucle \lstinline{while} et donc en fonction de la taille de la liste finale.
     \item \textbf{En java il y a:} n = 3 + 2 itérations effectuées dans la première boucle while. \\ Dans la deuxième boucle while il y a uniquement m = 2 itérations effectuées. Les boucles n'étant pas imbriquées les complexités s'additionnent. 
-    \item Donc la complexité est O ( n + m) car cela va dépendre de la grandeur des listes rentrées en argument.
+    \item Donc la complexité est $O(n + m)$ car cela va dépendre de la grandeur des listes rentrées en argument.
     \end{itemize}
     \end{solution}
 \end{Exercice}
@@ -456,9 +443,9 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
 
 \begin{Exercice}[20min] Recherche binaire \\
 
-Dans cet exercice, vous devrez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément e donné. Pour ce faire, vous devrez utiliser une version récursive de l'algorithme de recherche binaire.\\
+Dans cet exercice, vous devrez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément \lstinline{e} donné. Pour ce faire, vous devrez utiliser une version récursive de l'algorithme de recherche binaire.\\
 
-Vous avez le choix entre coder cette exercice en python ou en java (ou les deux pour les plus motivés).
+Vous pouvez faire cet exercice aussi bien en Java qu'en Python.
 
 Exemple (python):\\
 
@@ -473,8 +460,8 @@ Résultat final: 77\\
 \begin{conseil}
    Dans cet exercice, vous devrez déclarer deux fonctions, et les combiner afin de retrouver l'élément de la liste qui est le plus proche de \lstinline{e}. \\
    
-   La première fonction sera la fonction de recherche binaire récursive qui prendra en paramètre la liste, l'index du premier élément de la liste, l'index du dernier élément de la liste et e. Cette fonction retournera l'index de l'un des éléments le plus proche de e. 
-   La deuxième fonction effectuera les comparaisons de différences entre e et les éléments se situant autour de l'élément correspondant à l'index retourné par la première fonction. Elle pourra ainsi déterminer lequel est le plus proche de e. Elle prendra en paramètre notre liste, e, et la valeur retournée par la première fonction. \\
+   La première fonction sera la fonction de recherche binaire récursive qui prendra en paramètre la liste, l'index du premier élément de la liste, l'index du dernier élément de la liste et \lstinline{e}. Cette fonction retournera l'index de l'un des éléments le plus proche de \lstinline{e}. 
+   La deuxième fonction effectuera les comparaisons de différences entre e et les éléments se situant autour de l'élément correspondant à l'index retourné par la première fonction. Elle pourra ainsi déterminer lequel est le plus proche de e. Elle prendra en paramètre notre liste, \lstinline{e}, et la valeur retournée par la première fonction. \\
 \end{conseil}
 
 Voici les templates : \\
@@ -565,7 +552,7 @@ recherche_lineaire(Liste,x)
 \end{enumerate}
 \begin{solution}
     \textbf{Faux}\\
-    Le nom des variables données en argument n'a aucune importance tant que le type de variable est respecté. Dans notre exemple, la fonction s'attend à recevoir  une \textbf{liste} comme premier argument et un \textbf{entier} comme deuxième argument. Ici, nous aurions pu nommer la liste \lstinline{"nbr_impair"} et x \lstinline{"valeur"} et ainsi appelé la fonction \lstinline{recherche_lineaire(nbr_impair, valeur)}
+    Le nom des variables données en argument n'a aucune importance tant que le type de variable est respecté. Dans notre exemple, la fonction s'attend à recevoir  une \textbf{liste} comme premier argument et un \textbf{entier} comme deuxième argument. Ici, nous aurions pu nommer la liste \lstinline{nbr_impair} et x \lstinline{valeur} et ainsi appelé la fonction \lstinline{recherche_lineaire(nbr_impair, valeur)}
 
 \end{solution}
 \end{Exercice}
@@ -584,7 +571,7 @@ Si le programme Python contient une erreur, celle-ci sera detectée avant l'exé
 
 
 \begin{Exercice}[2 minutes]\\
-Il est possible de faire appel à une fonction définie "plus bas" dans le code sans que cela ne pose problème.
+Il est possible de faire appel à une fonction définie ``plus bas'' dans le code sans que cela ne pose problème.
 
 \begin{lstlisting}
 import math
@@ -600,13 +587,14 @@ def nombre_decimal_pi(int):
     \item - Faux
 \end{enumerate}
 \begin{solution}
-    \textbf{Faux}: À l'excéption des fonctions intégrées (il s'agit des fonctions déjà intégrées au language python telles que \lstinline{print(), len(), abs(), etc}... une fonction doit nécessairement être définie \textbf{avant} d'être appelée.
+    \textbf{Faux}: À l'exception des fonctions intégrées (il s'agit des fonctions déjà intégrées au langage Python telles que \lstinline{print(), len(), abs(), etc}...). Dans les langages suivant une logique de programmation impérative (c'est le cas de Java et Python), une fonction doit nécessairement être définie \textbf{avant} d'être appelée.
+    \url{https://fr.wikipedia.org/wiki/Programmation\_imp\%C3\%A9rative}
 \end{solution}
 \end{Exercice}
 
 
 \begin{Exercice}[5 minutes]\\
-Les trois fonctions suivantes renvoient-elles systématiquement des résultats identiques ?\\Les fonctions sont censées retourner le nombre pi avec le nombre de décimales (au moins une et au maximum 15) indiqué en paramètre.
+Les trois fonctions suivantes renvoient-elles systématiquement des résultats identiques ?\\Les fonctions sont censées retourner le nombre \lstinline{pi} avec le nombre de décimales (au moins une et au maximum 15) indiqué en paramètre.
 \begin{multicols}{3}
 \begin{lstlisting}
 import math
@@ -678,11 +666,11 @@ print(nombre_decimal_pi(20))
 
 
 \begin{Exercice}[3 minutes] \\
-Observez les deux codes suivants en java. Lequel a-t-il la bonne structure et peut être compilé sans erreur ?
+Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure et peut être compilé sans erreur ?
 
 \begin{multicols}{2}
 \begin{lstlisting}
-//Code A
+//Programme A
 public class Main {
 
     public static void main(String[] args) {
@@ -706,7 +694,7 @@ public class Main {
 \columnbreak
 
 \begin{lstlisting}
-//Code B
+//Programme B
 public class Main {
 
     public static void main(String[] args) {
@@ -731,22 +719,22 @@ public class Main {
     \item (à droite)
 \end{enumerate}
 \begin{solution}
-    \textbf{Le code B}\\
-    Le fichier dans son ensmble représente une \lstinline{class} java, ici la class s'appelle \textbf{Main}. À l'intérieur de cette class se trouve la fonction \lstinline{public static void main()}, il s'agit de fonction principale du programme, celle que l'on exécute et celle dans laquelle nous rédigeons notre code.\\
-    Les autres fonctions, qui peuvent être appellées, se définissent au sein de la classe au même échelon que la fonction \lstinline{public static void main()} comme dans le Code B ci-dessus. 
+    \textbf{Le programme B}\\
+    Le fichier dans son ensemble représente une classe Java, ici la classe s'appelle \textbf{Main} (Vous aurez plus d'informations sur le fonctionnement des classes lorsque nous aborderons la programmation orientée objet). À l'intérieur de cette classe se trouve la méthode \lstinline{public static void main()}, il s'agit de la porte d'entrée de notre programme, celle que l'on exécute et celle dans laquelle nous rédigeons notre code.\\
+    Les autres fonctions, qui peuvent être appelées, se définissent au sein de la classe au même échelon que la fonction \lstinline{public static void main()} comme dans le programme B ci-dessus. 
 \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[2 minutes] Exercice 1\\
-L'indentation des lignes de code en java est aussi importante qu'en python.
+L'indentation des lignes de code en Java est aussi importante qu'en python.
 \begin{enumerate}[label=\Alph*]
     \item - Vrai
     \item - Faux
 \end{enumerate}
 \begin{solution}
     \textbf{Faux}
-    \\En java, le compilateur ne prend pas en compte l'indentation pour interprété le programme, il comprend la structure à l'aide des parenthèses, des accolades et encore des point-virgule qui indique la fin d'une commande. Toutefois, l'indentation est un aspect important de la programmation car elle sert à bien structurer visuellement votre code.\\\\
-    En python, l'indentation défini la structure de votre code. Elle est donc indispensable pour la bonne interprétation et la bonne exécution de votre programme. 
+    \\En Java, le compilateur ne prend pas en compte l'indentation pour interpréter le programme, il comprend la structure à l'aide des parenthèses, des accolades et encore des point-virgules qui indiquent la fin d'une instruction. Toutefois, l'indentation est un aspect important de la programmation car elle sert à bien structurer visuellement votre code.\\\\
+    En Python, l'indentation définit la structure de votre code. Elle est donc indispensable pour la bonne interprétation et la bonne exécution de votre programme. 
 \end{solution}
 \end{Exercice}
 
