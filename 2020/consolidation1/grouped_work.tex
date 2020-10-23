@@ -278,11 +278,11 @@ Voici les templates : \\
 
 \textbf{Python} \\
 
-	\lstinputlisting{exercices/iteration_recursion_exercice.py} 
+    \lstinputlisting{exercices/iteration_recursion_exercice.py} 
 
 \textbf{Java} \\
 
-	\lstinputlisting{exercices/iteration_recursion_exercice.java}
+    \lstinputlisting{exercices/iteration_recursion_exercice.java}
 
     
 \begin{solution}
@@ -316,11 +316,11 @@ Qu'afficheront les programmes suivants ? \\
 
 \textbf{\\Programme 1 :} \\
 
-	\lstinputlisting{exercices/recursion_1_exercice.py} 
+    \lstinputlisting{exercices/recursion_1_exercice.py} 
 
 \textbf{Programme 2 :} \\
 
-	\lstinputlisting{exercices/recursion_2_exercice.py}
+    \lstinputlisting{exercices/recursion_2_exercice.py}
 
     
 \begin{solution}
@@ -328,17 +328,17 @@ Qu'afficheront les programmes suivants ? \\
 
     Python
     
-	adore
-	
-	Python
-	
-	J
-	
-	Python
-	
-	adore
-	
-	Python
+    adore
+    
+    Python
+    
+    J
+    
+    Python
+    
+    adore
+    
+    Python
 
     
 \end{solution}
@@ -441,7 +441,7 @@ En notation $O()$, nous avons une compléxité de : $O(2*n + 1) = O(n)$ car les 
 
 \subsection{Exercices}
 
-\begin{Exercice}[20min] Recherche binaire \\
+\begin{Exercice}[15min] Recherche binaire \\
 
 Dans cet exercice, vous devrez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément \lstinline{e} donné. Pour ce faire, vous devrez utiliser une version récursive de l'algorithme de recherche binaire.\\
 
@@ -458,7 +458,7 @@ Résultat final: 77\\
 
 
 \begin{conseil}
-   Dans cet exercice, vous devrez déclarer deux fonctions, et les combiner afin de retrouver l'élément de la liste qui est le plus proche de \lstinline{e}. \\
+   Dans cet exercice, vous devrez déclarer deux fonctions, et les combiner afin de retrouver l'élément de la liste qui est le plus proche de \lstinline{e}.\\
    
    La première fonction sera la fonction de recherche binaire récursive qui prendra en paramètre la liste, l'index du premier élément de la liste, l'index du dernier élément de la liste et \lstinline{e}. Cette fonction retournera l'index de l'un des éléments le plus proche de \lstinline{e}. 
    La deuxième fonction effectuera les comparaisons de différences entre e et les éléments se situant autour de l'élément correspondant à l'index retourné par la première fonction. Elle pourra ainsi déterminer lequel est le plus proche de e. Elle prendra en paramètre notre liste, \lstinline{e}, et la valeur retournée par la première fonction. \\
@@ -468,11 +468,11 @@ Voici les templates : \\
 
 \textbf{Python} \\
 
-	\lstinputlisting{exercices/binary_search_closest_exercice.py} 
+    \lstinputlisting{exercices/binary_search_closest_exercice.py} 
 
 \textbf{Java} \\
 
-	\lstinputlisting{exercices/binary_search_closest_exercice.java}
+    \lstinputlisting{exercices/binary_search_closest_exercice.java}
 
     
 \begin{solution}
@@ -490,6 +490,35 @@ Voici les templates : \\
     
     
     
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Python - Arbre : Recherche et insertion}\\
+
+Dans cette exercice, nous allons voir comment insérer des éléments dans un arbre binaire.\\
+
+À l'aide de la fonction de recherche binaire (semaine 6 question 8), créez une boucle qui vérifie si chaque élément de liste se trouve dans l'arbre. Si un élément ne se trouve pas dans l'arbre, il doit être insérer à celui-ci. \\
+
+Voici l'arbre et les valeurs à rechercher:\\
+\lstinline{tree = Arbre(8, 3, 1, 6, 4, 7, 10, 14, 13)}\\
+\lstinline{root = tree.root}\\
+\lstinline{liste = [3,6,9,18]}\\\\
+Voici la représentation graphique de l'arbre initial et de l'arbre attendu: 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{img/binary-tree.png}
+\end{figure}
+
+\begin{conseil}
+    La fonction \lstinline{insert(value, node)} permet d'inséret un élément dans un arbre. Exemple: \lstinline{tree.insert(9,root)}\\\\
+    Télécharger le fichier ressource de la question 14 est écrivez votre code à partir de la ligne 66. 
+\end{conseil}
+
+\begin{solution}
+    \textbf{Python} \\
+
+    \lstinputlisting{solutions/question14.py} 
 \end{solution}
 
 \end{Exercice}
