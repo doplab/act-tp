@@ -1,4 +1,3 @@
-package com.company;
 import java.util.List;
 
 public class Main {
@@ -23,10 +22,11 @@ public class Main {
         }
     }
 
-    public static int plus_proche(List L,int e,int v){  //fonction 2, comparaison pour trouver l'élément le plus proche
+    public static int plus_proche(List L,int e,int v){  //fonction 2, comparaison pour trouver l élément le plus proche
 
-        if (v==L.size()-1){  // si l'élément retourné par la première fonction est le dernier élément de la liste,
-            if (Math.abs((int) L.get(v-1)-e) < Math.abs((int) L.get(v)-e)){ // il n'a pas besoin de comparer avec l'élément suivant
+        if (v==L.size()-1){  // si l élément retourné par la première fonction est le dernier élément de la liste,
+            if (Math.abs((int) L.get(v-1)-e) < Math.abs((int) L.get(v)-e)){ 
+                // Pas besoin de comparer avec l élément suivant
                 return (int) L.get(v-1);
             }
             else {
@@ -34,8 +34,9 @@ public class Main {
             }
         }
 
-        else if (v==0){ // si l'élément retourné par la première fonction est le premier élément de la liste,
-            if (Math.abs((int) L.get(v+1)-e) < Math.abs((int) L.get(v)-e)){ // il n'a pas besoin de comparer avec l'élément d'avant
+        else if (v==0){ // si l élément retourné par la première fonction est le premier élément de la liste,
+            if (Math.abs((int) L.get(v+1)-e) < Math.abs((int) L.get(v)-e)){ 
+                // Pas besoin de comparer avec l élément d avant
                 return (int) L.get(v+1);
             }
             else {
