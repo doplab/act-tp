@@ -16,7 +16,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \section{Introduction et architecture des ordinateurs}
 
-\subsection{Introduction/Résumé}
 
 Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de conversions en base binaire, décimale, hexadécimale, base 5 et de calcul de base en suivant le modèle Von Neumann. \\
 
@@ -93,7 +92,7 @@ Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La 
 \end{Exercice}
 
 
-\subsection{Modèle de Von Neuman}
+\subsection{Modèle de Von Neumann}
 Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Van Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
 \textbf{État d'origine:}\\
@@ -195,10 +194,6 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 2
 \section{Logiciels système}
 
-\subsection{Introduction/Résumé}
-
-\subsection{Operating system}
-
 \begin{Exercice}[5 minutes]
     Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
     \begin{enumerate}
@@ -221,11 +216,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 3
 \section{Programmation de base}
 
-\subsection{Introduction/Résumé}
-
-\subsection{Exercices}
-
-\begin{Exercice}[Durée 5]\\
+\begin{Exercice}[10 minutes]\\
     \begin{enumerate}
         \item Convertir 52$_{(10)}$ en base 2 sur 8 bits.
         \item Convertir 100$_{(10)}$ en base 2 sur 8 bits.
@@ -258,18 +249,14 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 4
 \section{Itération et récursivité}
 
-\subsection{Introduction/Résumé}
-
-\subsection{Exercices}
-
-\begin{Exercice}[15 min] Itération et Récursivité\\
+\begin{Exercice}[15 minutes] Itération et Récursivité\\
 
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
-   Pour la version itérative, parcourez toute la chaine de caractère et incrémentez un compteur lorsque vous avez une voyelle.
+   Pour la version itérative, parcourez toute la chaîne de caractère et incrémentez un compteur lorsque vous avez une voyelle.
    
-   Pour la version récursive, diminuez systématiquement la taille de votre chaine de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
+   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
    
    Aidez vous d'une liste de toutes les voyelles et de la fonction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
 \end{conseil}
@@ -304,7 +291,7 @@ Voici les templates : \\
 
 \end{Exercice}
 
-\begin{Exercice}[5 min] Lecture de code (Récursivité)\\
+\begin{Exercice}[5 minutes] Lecture de code (Récursivité)\\
 
 Qu'afficheront les programmes suivants ? \\
 
@@ -356,11 +343,8 @@ Qu'afficheront les programmes suivants ? \\
 % Week 5
 \section{Algorithmes et complexité}
 
-\subsection{Introduction/Résumé}
 
-\subsection{Exercices}
-
-\begin{Exercice}[5 min] Complexité - Partie 1\\
+\begin{Exercice}[5 minutes] Complexité - Partie 1\\
     Que fait le programme suivant? \\
     Estimez le nombre d'opérations qu'effectuera l'algorithme de la fonction \lstinline{algo1} à chaque étape en fonction des paramètres qui lui seront assignés:
     \lstinputlisting{exercices/week5_algo1_complexite.py}
@@ -378,7 +362,7 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
 
 \end{Exercice}
 
-\begin{Exercice}[5 min] Complexité - Partie 2\\
+\begin{Exercice}[5 minutes] Complexité - Partie 2\\
     Que fait le programme suivant? \\
     Estimez le nombre d'opérations qu'effectuera l'algorithme de la fonction \lstinline{algo2} à chaque étape en fonction des paramètres qui lui seront assignés:
     \lstinputlisting{exercices/week5_algo2_complexite.py}
@@ -401,7 +385,7 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
 
 \end{Exercice}
 
-\begin{Exercice}[5 min] Complexité - Partie 3\\
+\begin{Exercice}[5 minutes] Complexité - Partie 3\\
     Que fait le programme suivant? \\
     Estimez le nombre d'opérations qu'effectuera l'algorithme de la fonction \lstinline{algo3} à chaque étape en fonction des paramètres qui lui seront assignés:
     \lstinputlisting{exercices/week5_algo3_complexite.py}
@@ -469,10 +453,6 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
 
 % Week 6
 \section{Algorithmes de recherche}
-
-\subsection{Introduction/Résumé}
-
-\subsection{Exercices}
 
 \begin{Exercice}[15min] Recherche binaire \\
 
@@ -547,7 +527,7 @@ Voici la représentation graphique de l'arbre initial et de l'arbre attendu:
 \end{figure}
 
 \begin{conseil}
-    La fonction \lstinline{insert(value, node)} permet d'inséret un élément dans un arbre. Exemple: \lstinline{tree.insert(9,root)}\\\\
+    La fonction \lstinline{insert(value, node)} permet d'insérer un élément dans un arbre. Exemple: \lstinline{tree.insert(9,root)}\\\\
     Télécharger le fichier \lstinline{question14.py} se trouvant dans le dossier \lstinline{ressources} et écrivez votre code à partir de la ligne 66. 
 \end{conseil}
 
@@ -585,7 +565,7 @@ Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou
 \begin{solution}
     \textbf{Faux}\\
     \lstinline{print()} permet uniquement d'afficher un message dans la console. Autrement dit, \lstinline{print()} sert à communiquer un message à l'utilisateur final du programme, celui-ci n'ayant pas accès au code.\\\\
-    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appellée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L.\\
+    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L.\\
 
     Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
     En Python, notre programme ressemblera à ça:
@@ -623,7 +603,7 @@ recherche_lineaire(Liste,x)
 \end{Exercice}
 
 \begin{Exercice}[2 minutes]\\
-Si le programme Python contient une erreur, celle-ci sera detectée avant l'exécution du programme. 
+Si le programme Python contient une erreur, celle-ci sera détectée avant l'exécution du programme. 
 
 \begin{enumerate}[label=\Alph*]
     \item - Vrai
