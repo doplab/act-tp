@@ -311,7 +311,15 @@ Qu'afficheront les programmes suivants ? \\
 
     
 \begin{solution}
-\textbf{Programme 1 :} \\
+    \textbf{Programme 1 :} \\
+
+    PythonohtyP
+    
+\end{solution}
+
+
+\begin{solution}   
+    \textbf{Programme 2 :} \\
 
     Python
     
@@ -326,15 +334,6 @@ Qu'afficheront les programmes suivants ? \\
     adore
     
     Python
-
-    
-\end{solution}
-
-
-\begin{solution}   
-\textbf{Programme 2 :} \\
-
-    PythonohtyP
     
 \end{solution}
 
@@ -400,12 +399,13 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
         initialiser \lstinline{s} à 0. 
         \item Ensuite, l'algorithme effectue une boucle \lstinline{while} dont la condition est satisfaite
         tant que \lstinline{i} est inférieur à \lstinline{n}. 
-        \item Dans la boucle, l'algorithme additionne \lstinline{i} à \lstinline{s} et multiplie \lstinline{i} par 2. 
+        \item Dans la boucle, l'algorithme effectue 2 opérations, additionner \lstinline{i} à \lstinline{s} et multiplier \lstinline{i} par 2. 
     \end{enumerate}
     Cette dernière étape est celle qui détermine la complexité de l'algorithme. En effet, en prenant la séquence $\{1, 2, 3, 4, ..., n\}$, nous remarquons
     que \lstinline{i} "saute" 2 fois plus d'éléments de cette séquence à une étape que l'étape précédente. Ainsi, \lstinline{i} aura comme valeur des nombres de la séquence
-    $\{1, 2, 4, 8, 16, ..., n\}$, qui est logarithmique. Nous avons alors au total : $4 + \log(n)$ opérations. \\
-    En notation $O()$, nous avons une complexité de : $O(\log(n) + 4) = O(\log(n))$ car les constantes sont ignorées. 
+    $\{1, 2, 4, 8, 16, ..., n\}$, qui est logarithmique. Nous avons alors au total : $2 \times \log(n) + 2$ opérations. \\
+    En notation $O()$, nous avons une complexité de : $O(2 \times \log(n) + 2) = O(\log(n))$ car les constantes sont ignorées. 
+
     
 \end{solution}
 
@@ -418,7 +418,7 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
 
 \end{Exercice}
 
-\begin{Exercice} [15 minutes] \textbf{Tri fusion (Merge Sort)}
+\begin{Exercice}[15 minutes] \textbf{Tri fusion (Merge Sort)}
     \begin{enumerate}
         \item  Ecrire une fonction ``merge'' qui prend deux listes triées comme argument et retourne une liste fusionnée triée.
         \item Quel est le nombre d'opérations effectuées ? Déterminer ensuite la complexité de la fonction, en posant \lstinline{n = longueur de la liste fusionnée}.
@@ -454,7 +454,7 @@ En notation $O()$, nous avons une complexité de : $O(2*n + 1) = O(n)$ car les c
 % Week 6
 \section{Algorithmes de recherche}
 
-\begin{Exercice}[15min] Recherche binaire \\
+\begin{Exercice}[15 minutes] Recherche binaire \\
 
 Dans cet exercice, vous devez retrouver l'élément d'une liste d'entiers triés qui est le plus proche d'un élément \lstinline{e} donné. Pour ce faire, vous devez utiliser une version récursive de l'algorithme de recherche binaire.\\
 
@@ -528,7 +528,7 @@ Voici la représentation graphique de l'arbre initial et de l'arbre attendu:
 
 \begin{conseil}
     La fonction \lstinline{insert(value, node)} permet d'insérer un élément dans un arbre. Exemple: \lstinline{tree.insert(9,root)}\\\\
-    Télécharger le fichier \lstinline{question14.py} se trouvant dans le dossier \lstinline{ressources} et écrivez votre code à partir de la ligne 66. 
+    Téléchargez le fichier \lstinline{question14.py} se trouvant dans le dossier \lstinline{ressources} et écrivez votre code à partir de la ligne 66. 
 \end{conseil}
 
 \begin{solution}
@@ -759,9 +759,9 @@ public class Main {
 \columnbreak
 
 \end{multicols}
-\begin{enumerate}[label=\Alph*]
-    \item (à gauche)
-    \item (à droite)
+\begin{enumerate}
+    \item Programme A
+    \item Programme B
 \end{enumerate}
 \begin{solution}
     \textbf{Le programme B}\\
