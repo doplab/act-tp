@@ -12,7 +12,7 @@ adjacency_list_graph = {
 
 def BFS(graphe,s):
     queue = [s] #on initialise la queue
-    visited = [s]#on initialisela liste des sommets visités
+    visited = [s]#on initialise la liste des sommets visités
     
     while len(queue) != 0: #Aussi longtemps que la queue n'est pas vide, répéter l'étape 2
         for i in queue: #On parcourt les éléments de la queue

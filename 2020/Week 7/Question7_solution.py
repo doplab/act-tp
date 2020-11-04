@@ -1,6 +1,6 @@
 #Question 7
 
-Adjascency_matrix = [[0,7,i,i,14,i,i,i ],
+Adjacency_matrix = [[0,7,i,i,14,i,i,i ],
                      [i,0,8,i,i,i,i,i  ],
                      [i,i,0,6,i,i,i,i  ],
                      [18,i,i,0,i,11,i,i],
