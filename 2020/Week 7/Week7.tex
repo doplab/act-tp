@@ -218,7 +218,17 @@ Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif s
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
     L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe.~L'algorithme~de~Dijkstra~que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
     
-    Complétez la fonction dijkstra du fichier Exercice3.py.
+    Complétez la fonction dijkstra du fichier Exercice3.py, en suivant les étapes ci-dessous :
+    \begin{enumerate}
+        \item L'algorithme de Dijkstra est un algorithme récursif. Nous l'avons vu lors des dernières semaines, il est nécessaire d'avoir une condition d'arrêt. L'algorithme appelle la fonction Dijkstra de façon récursive en spécifiant l'origine (qui changera à chaque appel de la fonction Dijkstra) et la destination. Quels conditions semble appropriée pour terminer l'appel récursif ? Implémentez cette condition sous la partie \textbf{Question 9.1}
+        
+        \item Maintenant, nous allons avoir besoin d'une boucle parcourant toutes les relations voisines à notre point d'origine. Pour rappel, \textit{origin.relationships} donne la liste des relations (sommet d'arrivée et poids de l'arrête) à partir d'un sommet de départ. Implémentez cette boucle dans la partie \textbf{Question 9.2}.
+        
+        \item A présent, nous pouvons sauter certaines itérations. Pour rappel, nous avons utilisé une matrice d'adjascence pour représenter notre graphe. Mais certaines relations ont vu leur poids arbitrairement assigné à 99999, pour signifier que 2 sommets n'étaient pas reliés. Implémentez une condition qui permet de passer à l'itération suivante de la boucle dans le cas où le poids de l'arrête entre l'origine et le voisin considéré est égal à 99999. Pour accéder au poids d'un relation, utilisez la syntaxe \textit{relationship.value}. Implémentez cette condition sous la section \textbf{Question 9.3}.
+        
+        \item La partie \textit{Appel récursif de la fonction} va faire un appel récursif à la fonction Dijkstra et va retourne le chemin le plus court entre le voisin du point d'origine et le point de destination. Dans les variables \textit{distance\_temp} et \textit{path\_temp} sont contenus respectivement le poids total du chemin le plus court entre le voisin considéré et la destination et l'intitulé de ce chemin (par exemple : ['BCDHG']). Dans la variable \textit{total\_distance}, on stocke la distance du chemin qui partirait de notre point d'origine, passerait par le voisin considéré et ensuite suivrait le chemin le plus court contenu dans la variable \textit{path\_temp} et dont le poids correspond à \textit{distance\_temp}. Votre mission est maintenant d'implémenter un bout de code qui permet de stocker le poids total du meilleur chemin, ainsi que son intitulé (par exemple : ['ABDJF'] Pour cela utilisez la variable distance qui a été initialisée à une valuer infinie. Faites cela sous la partie \textbf{Question 9.4}.
+        
+    \end{enumerate}
     \begin{conseil}
         Quelques conseils pour l'implémentation de l'algorithme :
         \begin{enumerate}
