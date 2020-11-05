@@ -137,12 +137,38 @@ linked(graphe,'D')
 
 #Question 9 : Dijkstra
 
-from math import inf #infini dans python, vous sera peut-être utile.
+from math import inf
 
 def dijkstra(origin,destination,visited = None):
+
     if visited is None:
-            visited = set() #A l'initialisation, l'ensemble des sommets atteints est vide.
-    return None
+        visited = set()
+    
+    #Question 9.1
+    
+    distance = inf
+    path = origin.value
+    visited.add(origin.value)
+    
+    #Question 9.2
+    
+        
+        #Question 9.3
+        
+        
+        neighbour = relationship.to 
+        
+        
+        if neighbour.value not in visited:
+            distance_temp, path_temp = dijkstra(neighbour, destination, visited)
+                                                                                 
+                
+            total_distance = distance_temp + relationship.value 
+            
+            #Question 9.4                                                 
+            
+                
+    return (distance, path)
 
 
 print(dijkstra(graphe.get_node('A'), 'H'))
