@@ -1,19 +1,19 @@
 #Question 3
 
 class Graph:
-    def __init__(self, vertices):#permet de créer un graphe lorsqu'on écrit p.ex Graph(6), il faut notamment indiquer le nb de sommet
+    def __init__(self, vertices):#permet de créer un graphe lorsqu'on écrit p.ex Graph(6), il faut notamment indiquer le nombre de sommets
         self.V = vertices
         self.graph = []
 
     def add_edge(self, u, v, w):#ajoute une arête entre le sommet u et v avec un poids w
         self.graph.append([u, v, w])
 
-    def find(self, parent, i):#Correspond à la fonction Find-set(x) du cours
+    def find(self, parent, i):#Correspond à la fonction Find-set(x) présentée dans le cours
         if parent[i] == i:
             return i
         return self.find(parent, parent[i])
 
-    def apply_union(self, parent, rank, x, y):#Correspond à la fonction Union(x,y) du cours
+    def apply_union(self, parent, rank, x, y):#Correspond à la fonction Union(x,y) présentée dans le cours
         xroot = self.find(parent, x)
         yroot = self.find(parent, y)
         if rank[xroot] < rank[yroot]:
@@ -50,11 +50,11 @@ def kruskal_algo(Graph):
         rank = []
         
         
-        for node in range(Graph.V):#Cette boucle parcourt tout les sommets du graphes et crée un ensemble pour chacun d'entre eux
+        for node in range(Graph.V):#Cette boucle parcourt tous les sommets du graphes et crée un ensemble pour chacun d'entre eux
             parent.append(node)
             rank.append(0)
           
-        #Tant que le nombre d'arêtes est inférieur à V-1, notre sous-graphe n'atteint pas tout les sommets -> on continue
+        #Tant que le nombre d'arêtes est inférieur à V-1, notre sous-graphe n'atteint pas tous les sommets -> on continue
         while e < Graph.V - 1:
             
             u, v, w = Graph.graph[i] #self.graph contient les arêtes par ordre croissant de poids, on commence avec i = 0
@@ -64,11 +64,11 @@ def kruskal_algo(Graph):
             x = Graph.find(parent, u)#Ces 2 lignes des codes permettent de rechercher et de stocker à quel ensemble 
             y = Graph.find(parent, v)#appartiennent u et v.
             
-            if x != y: #Si u et v font déjà parti du minimum spanning tree, i.e. u et v appartiennent au même ensemble
+            if x != y: #Si u et v font déjà parti du Minimum Spanning Tree, i.e. u et v appartiennent au même ensemble
                        #Alors on ne veut pas ajouter cette arête au minimum spanning-tree, d'ou le x!=y
                 e = e + 1 #Si u et v sont d'ensemble différent, on a atteint un sommet de plus donc on incrémente
                 result.append([u, v, w])#On ajoute la nouvelle arête au résultat
-                Graph.apply_union(parent, rank, x, y)#On fusionne l'ensemble auquel appartient v à celui auquel apparient u
+                Graph.apply_union(parent, rank, x, y)#On fusionne l'ensemble auquel appartient v à celui auquel appartient u
         for u, v, weight in result:
             print("%d - %d: %d" % (u, v, weight))#méthode permettant d'imprimer le résultat
         

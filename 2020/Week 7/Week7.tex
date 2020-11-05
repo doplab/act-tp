@@ -9,18 +9,18 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Graph Algorithms}
+\cours{Algorithmes de graphes}
 
-Le but de cette séance est de comprendre le fonctionnement des graphes et d'appliquer des algorithmes courant sur des graphes simples. \\
+Le but de cette séance est de comprendre le fonctionnement des graphes et d'appliquer des algorithmes courants sur des graphes simples. \\
 
 \section{Breadth-First Search}
 
 \begin{Exercice}[5 minutes]  \textbf{Adjacency list et adjacency matrix : Python}\\
-    L'adjacency list (ou liste de contiguïté) et l'adjacency matrix (ou matrice de contiguïté) sont les 2 méthodes dont nous disposons pour représenter une graphe. Utilisez ces 2 méthodes de représentations pour stockez le graphe ci-dessous dans un programme python :\\
-    \includegraphics[]{Graphe 1.PNG}   
+    L'adjacency list (ou liste de contiguïté) et l'adjacency matrix (ou matrice de contiguïté) sont les 2 méthodes dont nous disposons pour représenter un graphe. Utilisez ces 2 méthodes de représentations pour stocker le graphe ci-dessous dans un programme Python :\\
+    \includegraphics[]{Graphe1.PNG}   
 
     \begin{conseil}
-    Pour l'adjacency list, utilisez un dictionnaire Python. Pour l'adjacency matrix, utilisez une liste de liste.
+    Pour l'adjacency list, utilisez un dictionnaire Python. Pour l'adjacency matrix, utilisez une liste multidimensionnelle (ou liste contenant une ou plusieurs listes).
     \end{conseil}
     \begin{solution}
         \lstinputlisting[language=python]{Question1_solution.py}
@@ -34,9 +34,9 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     Implémentez l'algorithme en suivant les étapes suivantes :\\
     \begin{enumerate}
     
-    \item Partez du sommet initial, visitez les sommets adjascents, sauvegardez-les comme \textbf{visités}, insérez-les dans une \textbf{queue}.
+    \item Partez du sommet initial, visitez les sommets adjacents, sauvegardez-les comme \textbf{visités}, insérez-les dans une \textbf{queue}.
     
-    \item Parcourez la \textbf{queue}. Pour chaque éléments de la queue, visitez les sommets adjacents. Si ils ne sont pas dans la liste des sommets visités, ajoutez-le à cette dernière et ajoutez le à la queue. Une fois que cela est fait, supprimez l'élément parcouru de la queue.
+    \item Parcourez la \textbf{queue}. Pour chaque élément de la queue, visitez les sommets adjacents. S'ils ne sont pas dans la liste des sommets visités, ajoutez-le à cette dernière et ajoutez-le à la queue. Une fois que cela est fait, supprimez l'élément parcouru de la queue.
     
     \item Répétez l'étape 2 jusqu'à ce que la queue soit vide.\\
 
@@ -49,7 +49,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
             \item Pour le point 3), utilisez une boucle \lstinline{while} avec la condition appropriée.
             \item Pour parcourir les sommets adjacents, utilisez une boucle for .
             \item L'algorithme devrait retourner une liste contenant l'ensemble des sommets atteignables.
-            \item Vous pouvez utilisez l'image du graphe pour déterminer si l'output de votre l'agorithme est correct.
+            \item Vous pouvez utiliser l'image du graphe pour déterminer si l'output de votre l'algorithme est correct.
         \end{enumerate}
     \end{conseil}
     \begin{solution}
@@ -61,9 +61,9 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 \newpage
 
 \section{Minimum Spanning tree}
-    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}(ou graphes pondérés). Ces derniers sont des graphes où les arrêts ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{minimum spanning tree}. Un minimum spanning tree S de G est un sous-graphe connexe de G tel que :
+    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés). Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{minimum spanning tree}. Un minimum spanning tree S de G est un sous-graphe connexe de G tel que :
     \begin{enumerate}
-        \item V' = V, c'est à dire que tout les sommets de G sont aussi dans S
+        \item V' = V, c'est-à-dire que tous les sommets de G sont aussi dans S
         \item (V',E') ne contient pas de cycle (pas de cycle dans S)
         \item S est le graphe satisfaisant 1) et 2) et ayant la plus petite somme des poids
     \end{enumerate}
@@ -78,10 +78,10 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
         \begin{enumerate}
             \item Classer les arêtes par ordre croissant de poids.
             \item Prendre l'arête avec le poids le plus faible et l'ajouter à l'arbre (si 2 arêtes ont le même poids, choisir arbitrairement une des 2).
-            \item Vérifiez que l'arête ajouté ne crée pas de cycle, si c'est le cas, supprimez la.
-            \item Répétez les étapes 2) et 3) jusqu'à ce que tout les sommets soient atteints.
+            \item Vérifiez que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez la.
+            \item Répétez les étapes 2) et 3) jusqu'à ce que tous les sommets aient été atteints.
         \end{enumerate}
-        Un minimum spanning tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 6 sommets. L'algorithme devrait donc s'arrêter lorsque 5 arêtes ont été choisies.
+        Un Minimum Spanning Tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 6 sommets. L'algorithme devrait donc s'arrêter lorsque 5 arêtes ont été choisies.
     \end{conseil}
     \begin{solution}
         Vous trouverez ci-dessous les étapes de la construction du MST(Minimum spanning tree) :\\
@@ -96,7 +96,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Kruskal : Python}\\
-    Vous trouverez ci-dessous L'algorithme de Kruskal implémenté en Python. Parcourez la fonction \textbf{kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
+    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python. Parcourez la fonction \textbf{Kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
     \lstinputlisting[language=python]{Question3_solution.py}
     \begin{conseil}
         La partie \lstinline{class Graph} est une notion que vous verrez dans les chapitres dédiés à la programmation orientée objet. Pour le moment, il n'est pas important de comprendre son fonctionnement. L'output de l'algorithme est : \\
@@ -114,7 +114,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 \begin{Exercice}[10 minutes] \textbf{Social Network Analysis : Papier}\\
     Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe :\\
     \begin{enumerate}
-        \item  A quoi correspondent les arêtes et les nœuds ? 
+        \item  À quoi correspondent les arêtes et les nœuds ? 
         \item Faut-il utiliser un graphe dirigé ?
     \end{enumerate}
     Supposez que vous disposiez d'un graphe des relations sociales. Décrivez comment retrouver les éléments suivants :
@@ -134,18 +134,18 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     \begin{solution}
         Dans le graphe des relations sociales, les arêtes correspondent à un lien d'amitié et les nœuds représentent les personnes. Il n'est pas nécessaire d'utiliser un graphe dirigé si l'on considère qu'une relation d'amitié est toujours réciproque.\\
         
-        Pour trouvez les éléments 1) à 3), il faut raisonner de la façon suivante :
+        Pour trouver les éléments 1) à 3), il faut raisonner de la façon suivante :
         \begin{enumerate}
-            \item Trouvez le sommet relié à vous qui à le degré le plus élevé. Sommet B dans le graphe.
+            \item Trouvez le sommet relié à vous qui a le degré le plus élevé. Sommet B dans le graphe.
             \item Premièrement, les 2 personnes doivent être mes amis donc reliées à moi, mais de  plus elles doivent être reliées entre elles. Par conséquent, cela correspond à un cycle dans le graphe. Il y a autant d'amis qui se connaissent que de cycle dans le graphe. Ami A et B dans le graphe.
             \item Il ne doit pas y avoir d'arêtes me reliant avec l'ami de mon ami. Sommet B dans le graphe.
         \end{enumerate}
         
-        Si l'on ajoute un personne qui est ni un ami, ni l'ami d'un ami, alors aucune arête n'est reliée avec ce sommet. Par conséquent, ce sommet a un degré 0.
+        Si l'on ajoute une personne qui n'est ni un ami, ni l'ami d'un ami, alors aucune arête n'est reliée à ce sommet. Par conséquent, ce sommet a un degré 0.
     \end{solution} 
 \end{Exercice}
 \begin{Exercice}[5 minutes] \textbf{Reconnaître des réseaux semblables}\\
-    Supposez maintenant que vous travaillez chez Facebook, qui a récemment racheté Whatsapp et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer à qui correspondent les individus de Facebook sur Whatsapp ?\\
+    Supposons maintenant que vous travaillez chez Facebook, qui a récemment racheté Whatsapp et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer à qui correspondent les individus de Facebook sur Whatsapp ?\\
     
     \includegraphics[]{Network2.PNG}\\
     \includegraphics[]{Network3.PNG}
@@ -174,7 +174,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 
 
 \section{Algorithme de Dijkstra : Python}
-Nous allons nous intéresser à l'algorithme de Dijkstra qui permet de calculer le chemin le plus court entre 2 sommets d'un graphe. Cet algorithme est par exemple utilisé par les systèmes GPS. Les questions de cet exercice sont à remplir sur le fichier Exercice3.py disponible sur Moodle dans le dossier Ressources. \\
+Nous allons nous intéresser à l'algorithme de Dijkstra qui permet de calculer le chemin le plus court entre 2 sommets d'un graphe. Cet algorithme est par exemple utilisé par les systèmes de navigation (GPS par exemple) pour trouver le chemin le plus court ou le moins coûteux entre 2 points. Les questions de cet exercice sont à remplir sur le fichier Exercice3.py disponible sur Moodle dans le dossier Ressources. \\
 \begin{Exercice}[10 minutes]\textbf{Un petit échauffement}\\
 
 Avant de rentrer dans le vif du sujet, nous allons devoir passer par quelques étapes préliminaires afin que vous puissiez coder l'algorithme par vous même. Considérez le graphe suivant :\\
@@ -216,16 +216,16 @@ Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif s
 \end{Exercice}
 \newpage
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
-    L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe. L'algorithme de Dijkstra que l'on va utiliser se construit de façon récursive. On initialise l'algorithme en partant au point de départ. Puis l'on va se déplacer vers tout les sommets atteignable depuis notre point de départ et appliquer l'algorithme de dijkstra à ces voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
+    L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe.~L'algorithme~de~Dijkstra~que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
     
     Complétez la fonction dijkstra du fichier Exercice3.py.
     \begin{conseil}
         Quelques conseils pour l'implémentation de l'algorithme :
         \begin{enumerate}
             \item Le chemin le plus court entre le sommet A et H devrait être ABCDFGH.
-            \item Lorsque vous appliquerez Dijkstra aux voisins d'un sommet, pour choisir le chemin optimal vous devrez additionez la distance entre le sommet de départ et le poids du chemin fourni par Dijkstra.
+            \item Lorsque vous appliquerez Dijkstra aux voisins d'un sommet, pour choisir le chemin optimal vous devrez additionner la distance entre le sommet de départ et le poids du chemin fourni par Dijkstra.
             \item Attention, lorsque vous devez déterminer quels voisins sont atteignables, ceux dont le poids est de 99999 ne sont pas atteignables.
-            \item L'algorithme doit retourner un tuble contenant la distance totale du trajet et le trajet.
+            \item L'algorithme doit retourner un tuple contenant la distance totale du trajet et le trajet.
         \end{enumerate}
     \end{conseil}
     \begin{solution}

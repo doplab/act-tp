@@ -16,8 +16,8 @@ def BFS(graphe,s):
     
     while len(queue) != 0: #Aussi longtemps que la queue n'est pas vide, répéter l'étape 2
         for i in queue: #On parcourt les éléments de la queue
-            for k in graphe[i]:#Pour chaque éléments de la queue, on parcout tout les voisins
-                if k not in visited:#Si le voisin n'est pas déjà visité, on l'ajoute à la queue, et on le marque comme visité
+            for k in graphe[i]:#Pour chaque éléments de la queue, on parcourt tous les voisins
+                if k not in visited:#Si le voisin n'a pas déjà été visité, on l'ajoute à la queue, et on le marque comme visité
                     queue.append(k)
                     visited.append(k)
             queue.remove(i) #Une fois que l'élément de la queue a été parcouru, on le supprime de la queue

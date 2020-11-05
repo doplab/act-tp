@@ -12,7 +12,7 @@ def dijkstra(origin,destination,visited = None):
     
     distance = inf
     path = origin.value
-    visited.add(origin.value)#Ajoute le point à l'enseble des sommets visités
+    visited.add(origin.value)#Ajoute le point à l'ensemble des sommets visités
     
     for relationship in origin.relationships:
         
