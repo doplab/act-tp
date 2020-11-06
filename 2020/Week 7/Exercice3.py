@@ -162,6 +162,8 @@ def dijkstra(origin,destination,visited = None):
         if neighbour.value not in visited:
             distance_temp, path_temp = dijkstra(neighbour, destination, visited) 
             total_distance = distance_temp + relationship.value 
+            if len(visited) > 0:
+                visited.pop()
             
             #Question 9.4                                                 
             
