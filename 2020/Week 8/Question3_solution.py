@@ -3,6 +3,7 @@
 #Librairie qui permettent de visualiser les données, pas nécessaire pour la résolution de l'exercice
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 def K_nearest_neighbor(start,point_set, K):
     temp = point_set #crée une copie de notre ensemble de point
