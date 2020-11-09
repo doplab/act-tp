@@ -3,6 +3,7 @@
 #Librairie qui permettent de visualiser le résultat (pas nécessaire à la résolution du problème)
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 def nearest_neighbor(start, point_set):#start correspond au point de départ, point_set correspond à l'ensemble des points
     for i in range(len(point_set)):#on parcourt tout les point de l'ensemble
