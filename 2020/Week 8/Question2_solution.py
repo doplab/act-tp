@@ -1,4 +1,5 @@
 #Question 2
+#WARNING : Veillez ajouter le code de la question 1 au code ci-dessous pour que cela fonctionne.
 #Librairie qui permettent de visualiser le résultat (pas nécessaire à la résolution du problème)
 import matplotlib.pyplot as plt
 import numpy as np
