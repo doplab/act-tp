@@ -1,5 +1,4 @@
-#Time to code !
-import math #permet d'importer la library nécessaire au calcul de la racine carrée
+import math #permet d'importer la librarie nécessaire au calcul de la racine carrée
 
 def calculate_distance(point1,point2):
     #Implémentez la formule de la distance euclidienne entre 2 point ici
