@@ -1,0 +1,167 @@
+\input{header}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{tabto}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Spatial Algorithms}
+
+Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes de en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximée du problème initial. Ils demeurent néanmoins très utile pour beaucoup d'application.
+
+\section{Monte-Carlo}
+\begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
+Supposez que vous lanciez une pièce de monnaie l fois et que vous voulez calculez la probabilité d'avoir un certains nombre de pile. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier Piece.py. La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+\\
+\begin{conseil}
+    Pour estimez empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurence de l'événement par le nombre total d'essai. Par exemple, si vous vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language = python]{Piece_correction.py}
+\end{solution}
+\end{Exercice}
+\newpage
+\begin{Exercice}[20 minutes]\textbf{Une approximation de $\pi$ : Python}\\
+L'objectif de cet exercice est programmer un algorithme probabiliste permettant d'approximer le chiffre $\pi$. Immaginez un plan en sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cette espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous un schéma de la situation:
+\begin{center}
+\includegraphics[]{Cercle.PNG}
+\end{center}
+La première étape de cette exercice consiste a créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou a l'extérieur du cercle. Puis, générez 10000 points dans cette espace (x et y devrait appartenir à [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de point dans le cercle}}{\text{Nombre de point total}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+\begin{conseil}
+    La fonction random.random() génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simulez des points en 2 dimension, vous devrez utiliser 2 fois cette fonction.
+\end{conseil}
+\begin{solution}
+ \lstinputlisting[language = python]{Pi.py}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[15 minutes]\textbf{Un exemple simple de la chaîne de Markov}
+
+Les slides nous ont donné un exemple de la chaîne de Markov, mais on peut aussi formaliser le concept avec les notations suivantes.
+
+Un processus est une chaîne de Markov si
+\begin{align} 
+P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
+\end{align}
+
+Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
+
+\begin{align}
+    p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
+\end{align}
+
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ est $p_{ij}$ est appelée \textit{matrice de transition}. Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
+
+Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne, avec $\mu_n(i) = P(X_n=i)$. Soit $\mu_0$ la loi initiale (la loi de $X_0$). En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov.
+
+Les probabilités marginales sont:
+\[ 
+\mu_n = \mu_0 \mathbf{P}^n
+\]
+
+Et on a ci-dessous un résumé de la terminologie:
+
+\begin{enumerate}
+    \item Matrice de transition $\mathbf{P}(i,j) = P(X_{n+1}=j|X_n=i)=p_{ij}$.
+    \item Matrice de transition en $n$ pas : $\mathbf{P}_n(i,j) = P(X_{n+m}=j|X_m=j)$.
+    \item $\mathbf{P}_n = \mathbf{P}^n$.
+    \item Probabilité marginale : $\mu_n(i) = P(X_n = i)$.
+    \item $\mu_n = \mu_0 \mathbf{P}^n$
+\end{enumerate}
+
+Etant donné que $X_0, X_1, ...$ est une chaîne de Markov avec 3 états $\{0, 1, 2\}$ et la matrice de transition:
+
+\[ 
+\mathbf{P} =
+\begin{bmatrix}
+0.1 & 0.2 & 0.7 \\
+0.9 & 0.1 & 0.0 \\
+0.1 & 0.8 & 0.1
+\end{bmatrix}
+\]
+Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)$ et $P(X_0=0, X_1=1, X_2=1)$.
+
+\begin{conseil}
+    Cet exercice vous demande de trouver deux probabilités \textbf{jointes}. Peut-être vous rappelez-vous qu'en général, 
+    \[ 
+    P(X=x, Y=y) = P(X=x)P(Y=y|X=x).
+    \]
+    Pouvez-vous le reformuler avec 3 variables (notez bien que $X_0, X_1, ...$ est une chaîne de Markov) et utiliser les définitions ci-dessus pour trouver la réponse?  
+\end{conseil}
+\begin{solution}
+\begin{align}
+    P(X_0=0,X_1=1, X_2=2) &= P(X_0 =0)\times p_{01} \times p_{12} = 0.3 \times 0.1 \times 0.7 = 0.021\\
+     P(X_0=0,X_1=1, X_2=1)&=P(X_0 =0)\times p_{01} \times p_{11} = 0.3 \times 0.1\times 0.1 = 0.003
+\end{align}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[7 minutes]\textbf{Probabilités marginales}
+
+En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de Question 3, trouvez $\mu_1$, $\mu_2$ et $\mu_3$.
+
+\begin{conseil}
+    Relisez et familiarisez-vous avec les notations et la terminologie ci-dessus!
+\end{conseil}
+    
+\begin{solution}
+\begin{align}
+\mu_1 &=
+\left(\begin{matrix}
+0.42 & 0.34 & 0.24
+\end{matrix}\right)\\
+\mu_2 &= 
+\left(\begin{matrix}
+0.37 & 0.31 & 0.32
+\end{matrix}\right) \\
+\mu_3 &= \left(\begin{matrix}
+0.35 & 0.36 & 0.29
+\end{matrix}\right)
+\end{align}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov}
+
+Comme déjà mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ...$) exige seulement deux éléments: la loi initiale $\mu_0$ et la matrice de transition $\mathbf{P}$. Spécifiquement, l'algorithme est:
+
+\begin{enumerate}
+    \item Supposer que $X_0 \sim \mu_0$. Donc, $P(X_0=i)=\mu_0(i)$.
+    \item Le résultat de l'étape 1 est donc $i$; obtenir $X_1 \sim \mathbf{P}$ i.e $P(X_1=j|X_0=i)=p_{ij}$.
+    \item Le résultat de l'étape 2 est $j$; obtenir $X_2 \sim \mathbf{P}$ i.e $P(X_2=k|X_1=j)=p_{jk}$.
+    \item Répéter jusqu'à la fin (nombre d'iterations est arbitraire).
+\end{enumerate}
+
+Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \texttt{sim\_markov()}, celle-ci prend comme parametres \texttt{P}, \texttt{mu\_0} et \texttt{n\_iters}.
+
+\begin{verbatim}
+def sim_markov(mu_0, P, n_iters=500):
+    # mu_0 (n,1) # probabilités initiales - n états
+    # P (n, n) # matrice de transition
+    
+    states = range(len(mu_0)) # e.g si la longueur de mu_0 est 2, on aura 2 états 0, 1
+    
+    ...
+P = [[0.1, 0.9], 
+     [0.7, 0.3]]
+mu_0 = [0.3, 0.7]
+\end{verbatim}
+
+\begin{conseil}
+    La méthode \texttt{random.choices()} s'avéra utile!
+\end{conseil}
+\begin{solution}
+\lstinputlisting[language = python]{SimMarkov.py}
+\end{solution}
+\end{Exercice}
+
+
+
+\end{document}
