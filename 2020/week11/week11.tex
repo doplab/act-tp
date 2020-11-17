@@ -139,23 +139,12 @@ Comme déjà mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, 
     \item Répéter jusqu'à la fin (nombre d'iterations est arbitraire).
 \end{enumerate}
 
-Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \texttt{sim\_markov()}, celle-ci prend comme parametres \texttt{P}, \texttt{mu\_0} et \texttt{n\_iters}.
+Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme parametres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
+\lstinputlisting[language=python]{SimMarkov_temp.py}
 
-\begin{verbatim}
-def sim_markov(mu_0, P, n_iters=500):
-    # mu_0 (n,1) # probabilités initiales - n états
-    # P (n, n) # matrice de transition
-    
-    states = range(len(mu_0)) # e.g si la longueur de mu_0 est 2, on aura 2 états 0, 1
-    
-    ...
-P = [[0.1, 0.9], 
-     [0.7, 0.3]]
-mu_0 = [0.3, 0.7]
-\end{verbatim}
 
 \begin{conseil}
-    La méthode \texttt{random.choices()} s'avéra utile!
+    La méthode \textbf{random.choices()} s'avéra utile!
 \end{conseil}
 \begin{solution}
 \lstinputlisting[language = python]{SimMarkov.py}
