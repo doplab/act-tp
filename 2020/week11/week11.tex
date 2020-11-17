@@ -10,7 +10,7 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Spatial Algorithms}
+\cours{Probabilistic Algorithms}
 
 Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes de en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximée du problème initial. Ils demeurent néanmoins très utile pour beaucoup d'application.
 
@@ -160,6 +160,34 @@ mu_0 = [0.3, 0.7]
 \begin{solution}
 \lstinputlisting[language = python]{SimMarkov.py}
 \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap}
+    Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap estimer
+    un arbre de recherche binaire en ce qui concerne les valeurs clés et une heap en ce qui concerne les valeurs prioritaires. \\
+
+    Dans cet exercice, vous allez implémenter une fonction pour insérer un noeud dans une treap. Vous avez le squellette de code suivant à remplir.
+    \lstinputlisting[language = python]{treap.py}
+
+    \begin{conseil}
+        La fonction \lstinline{insertNode} est récursive. Inspirez-vous de l'insertion dans un arbre de recherche binaire, mais 
+        n'oubliez de vérifier que la propriété de la heap est satisfaite après avoir insérer. \\
+        La propriété de la heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses noeuds enfants.
+        \lstinline{rotateLeft} et \lstinline{rotateRight} permettent de réarranger les noeuds de façon à ce que la propriété
+        de la heap soit satisfaite. Vous pouvez vous réferer à l'illustration ci-dessous pour avoir une idée de comment fonctionne les rotations.
+    \end{conseil}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{treap_heap_property.png}
+    \end{center}
+
+    \begin{solution}
+    \lstinputlisting[language = python]{treap_solution_1.py}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language = python]{treap_solution_2.py}
+    \end{solution}
+    
 \end{Exercice}
 
 
