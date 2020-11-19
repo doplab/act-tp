@@ -10,7 +10,7 @@ def add_node(node,point,cutaxis = 0):
         node = [point,None,None]
         return node
     
-    if point[cutaxis] <= node[0][cutaxis]: #1 Voir le pdf de correction.
+    if point[cutaxis] <= node[0][cutaxis]: #1 Se référer aux diapositives du cours
         node[1] = add_node(node[1], point, cutaxis + 1 % k) 
         
     else:

@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import math
 
 def K_nearest_neighbor(start,point_set, K):
-    temp = point_set #crée une copie de notre ensemble de point
+    temp = point_set #crée une copie de notre ensemble de points
     k_nearest_nei = []
     
-    for j in range(K):#A chaque itération on applique l'algorithme du nearest neighbor mais sur un ensemble de point réduit
+    for j in range(K):#A chaque itération on applique l'algorithme du nearest neighbor mais sur un ensemble de points réduit
         point, distance = nearest_neighbor(start,temp) 
         point.append(distance)
         k_nearest_nei.append(point)
