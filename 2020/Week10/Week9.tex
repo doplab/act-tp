@@ -14,6 +14,18 @@
 
 Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes de en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximée du problème initial. Ils demeurent néanmoins très utile pour beaucoup d'application.
 
+\section{Tuto : Librairie Random}
+Dans cette séance d'exercice, vous aurez besoin d'utiliser la librairie random afin de créer des simulations de Monte-Carlo. Vous trouverez ci-dessous les fonctions importantes de la librairie :
+\begin{enumerate}
+    \item Premièrement, cette librairie n'est pas utilisable sans que l'on l'importe au préalable. Pour cela, ajoutez \textbf{import random} en haut de votre code. Cela permet d'ajouter "la boîte à outil" des nombres aléatoires à votre code.
+    
+    \item Pour "tirer" un nombre aléatoire, utilisez \textbf{random.random()}. Cela vous donnera un nombre aléatoire contenu entre 0 et 1.
+    \item Si vous avez besoin d'un nombre entier aléatoire contenu entre a et b (borne comprise), utilisez \textbf{random.randint(a,b)}.
+    \item Parfois, lorsque l'on programme des simulations de Monte-Carlo, il est difficile de savoir si les résultats obtenus sont correctes car les nombres aléatoires générés à chaque exécution du programme seront différent. Cela rend difficile la comparaison entre certaines modification de votre code. Pour palier à cela, vous pouvez utiliser la fonction \textbf{random.seed(n)}, où n est un nombre entier. Ainsi, la séquence de nombre aléatoire généré sera la même à chaque exécution de votre programme.
+\end{enumerate}
+
+Vous trouverez un exemple de ces fonctions dans le fichier \textbf{random.py}.
+
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
 Supposez que vous lanciez une pièce de monnaie l fois et que vous voulez calculez la probabilité d'avoir un certains nombre de pile. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier Piece.py. La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
