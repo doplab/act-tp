@@ -179,6 +179,36 @@ Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-l
     
 \end{Exercice}
 
+\begin{Exercice}[20 minutes]\textbf{Fingerprinting: Une mission pour l'agente secrète Alice}
+    Dans cet exercice, vous prendrez le rôle de l'agente secrète Alice. Cette dernière enquêtait sur la disparition de son collègue,
+    l'agent Bob, et se doutait que l'indice clé qui la ménera à la vérité se trouvait dans la boîte mail de Bob. Alice arriva à trouver
+    un bout de papier avec écrit dessus : "Mon mot de passe est l'empreinte de ceciestmonmotdepasse". Aidez Alice à trouver l'empreinte du mot de passe! \\
+
+    Pour cela, vous devez compléter deux fonctions :
+    \begin{enumerate}
+        \item \lstinline{is_a_prime_number(num)} qui vérifie que \lstinline{num} est un nombre premier ou pas. Un nombre premier est un entier naturel 
+        qui admet exactement deux diviseurs distincts entiers et positifs. Ces deux diviseurs sont 1 et le nombre considéré, 
+        puisque tout nombre a pour diviseurs 1 et lui-même, les nombres premiers étant ceux qui n’en possèdent aucun autre.
+        
+        \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
+              \begin{enumerate}
+                  \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
+                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
+              \end{enumerate}
+    \end{enumerate}
+
+    Si vous réussisez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
+
+    À vos ordis, détectives!
+
+    \lstinputlisting[language = python]{fingerprinting.py}
+
+    \begin{solution}
+        \lstinputlisting[language = python]{fingerprinting_solution.py}
+    \end{solution}
+
+    
+\end{Exercice}
 
 
 \end{document}
