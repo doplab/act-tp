@@ -43,33 +43,38 @@ La première étape de cette exercice consiste a créer une fonction permettant 
 
 \begin{Exercice}[15 minutes]\textbf{Un exemple simple de la chaîne de Markov}
 
-Les slides nous ont donné un exemple de la chaîne de Markov, mais on peut aussi formaliser le concept avec les notations suivantes.
+Les slides nous ont donné un exemple de la chaîne de Markov. Celui-ci comprend une matrice de transition et un calcul des probabilités de  3 états $x=(1,2,3)$ ($x$ est un vecteur ayant 3 éléments) à $t+3$  i.e $x^{(t+3)}$. Avant de continuer, assurez-vous que vous comprenez la formule de la \href{https://fr.wikipedia.org/wiki/Probabilit\%C3\%A9_conditionnelle}{\color{cyan} probabilité conditionnelle} dans les slides, et les opérations basiques de matrices et vecteurs qui y sont présentées (\href{https://fr.wikiversity.org/wiki/Initiation_aux_matrices/Puissance_d\%27une_matrice}{\color{cyan} puissance} et \href{https://fr.wikipedia.org/wiki/Produit_scalaire}{\color{cyan} produit scalaire}).\\
 
-Un processus est une chaîne de Markov si
+
+On va formaliser le concept de la chaîne de Markov avec les notations suivantes.\\
+
+\textbf{I,} Un processus ou une séquence $X_0, X_1, X_2, ..., X_n$ ($0,1,2,...,n$ signifiant de différents moments) est une chaîne de Markov si
 \begin{align} 
 P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
 \end{align}
-
-Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
+En d'autres termes, toute information utile pour la prédiction du futur de la valeur $X$ d'une chaîne de Markov est uniquement dans l'état présent.\\
+ 
+\textbf{II,} Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
 
 \begin{align}
-    p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
+p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
 \end{align}
 
-La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ est $p_{ij}$ est appelée \textit{matrice de transition}. Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ a dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$ (vérifiez que c'est le cas dans l'exemple des slides).\\
 
-Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne, avec $\mu_n(i) = P(X_n=i)$. Soit $\mu_0$ la loi initiale (la loi de $X_0$). En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov.
+\textbf{III,} Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne des probabilités, avec $\mu_n(i) = P(X_n=i)$. Par exemple, si on a 3 états et $\mu_2 = (0.5, 0.2, 0.3)$, on peut dire qu'à temps 2, la probabilité est 0.5 qu'on soit à l'état 1, 0.2 qu'on soit à l'état 2, et 0.3 qu'on soit à 3. \textbf{La variable $x^{(t+3)}$ des slides serait $\mu_3$ avec ces notations} !\\
 
-Les probabilités marginales sont:
+$\mu_n$ est aussi appelé probabilités marginales, qui indiquent les probabilités des états à temps $n$, et elles sont calculées comme suit (vérifiez que cette formule s'accorde avec le calcul de $x^{(t+3)}$ des slides) :
 \[ 
 \mu_n = \mu_0 \mathbf{P}^n
 \]
+$\mu_0$ est donc appelé \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 5. \\
 
 Et on a ci-dessous un résumé de la terminologie:
 
 \begin{enumerate}
-    \item Matrice de transition $\mathbf{P}(i,j) = P(X_{n+1}=j|X_n=i)=p_{ij}$.
-    \item Matrice de transition en $n$ pas : $\mathbf{P}_n(i,j) = P(X_{n+m}=j|X_m=j)$.
+    \item $\mathbf{P}(i,j)$ : élément à ligne $i$ et colonne $j$ de la matrice $\mathbf{P}$.
+    \item Matrice de transition $\mathbf{P}$ a $\mathbf{P}(i,j) = P(X_{n+1}=j|X_n=i)=p_{ij}$.
     \item $\mathbf{P}_n = \mathbf{P}^n$.
     \item Probabilité marginale : $\mu_n(i) = P(X_n = i)$.
     \item $\mu_n = \mu_0 \mathbf{P}^n$
@@ -92,7 +97,7 @@ Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)
     \[ 
     P(X=x, Y=y) = P(X=x)P(Y=y|X=x).
     \]
-    Pouvez-vous le reformuler avec 3 variables (notez bien que $X_0, X_1, ...$ est une chaîne de Markov) et utiliser les définitions ci-dessus pour trouver la réponse?  
+    Pouvez-vous le reformuler avec 3 variables ? En plus, notez bien que $X_0, X_1, ...$ est une chaîne de Markov i.e $P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right)$. 
 \end{conseil}
 \begin{solution}
 \begin{align}
@@ -104,42 +109,50 @@ Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)
 
 \begin{Exercice}[7 minutes]\textbf{Probabilités marginales}
 
-En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de Question 3, trouvez $\mu_1$, $\mu_2$ et $\mu_3$.
+En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de Question 3, trouvez $\mu_1$, $\mu_2$.
 
 \begin{conseil}
-    Relisez et familiarisez-vous avec les notations et la terminologie ci-dessus!
+    Relisez et familiarisez-vous avec les notations et la terminologie ci-dessus! Si les slides s'avèrent plus utiles, considérez $\mu_1 = x^{(t+1)}, \mu_2 = x^{(t+2)}$.
 \end{conseil}
-    
+
+On peut aussi essayer de les trouver en écrivant un programme Python! Nous vous fournissons une fonction qui calcule le produit scalaire entre un vecteur et une matrice. Essayez d'écrire une fonction pour trouver la puissance d'une matrice (en utilisant la fonction de produit scalaire) et puis une autre fonction pour les probabilités marginales.
+
+\lstinputlisting[language=python]{ProbMarginales_temp.py}
+
+\begin{conseil}
+    Souvenez-vous que $\mathbf{P}^2$ est le produit scalaire entre $\mathbf{P}$ et $\mathbf{P}$ soi-même ! Chaque ligne de  $\mathbf{P}^2$ sera donc le produit scalaire entre une ligne de $\mathbf{P}$ et $\mathbf{P}$.
+\end{conseil}
 \begin{solution}
 \begin{align}
-\mu_1 &=
+\mu_1 &= \mu_0 \mathbf{P}^1 =
 \left(\begin{matrix}
 0.42 & 0.34 & 0.24
 \end{matrix}\right)\\
-\mu_2 &= 
+\mu_2 &= \mu_0 \mathbf{P}^2 =
 \left(\begin{matrix}
 0.37 & 0.31 & 0.32
-\end{matrix}\right) \\
-\mu_3 &= \left(\begin{matrix}
-0.35 & 0.36 & 0.29
-\end{matrix}\right)
+\end{matrix}\right) 
 \end{align}
+
+\lstinputlisting[language=python]{ProbMarginales.py}
+
 \end{solution}
 
 \end{Exercice}
 
-\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov}
+\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov}\\
+Pour cet exercice, vous n'avez pas à utiliser les calculs dans l'exercise 3 et 4.\\
 
 Comme déjà mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ...$) exige seulement deux éléments: la loi initiale $\mu_0$ et la matrice de transition $\mathbf{P}$. Spécifiquement, l'algorithme est:
 
 \begin{enumerate}
-    \item Supposer que $X_0 \sim \mu_0$. Donc, $P(X_0=i)=\mu_0(i)$.
-    \item Le résultat de l'étape 1 est donc $i$; obtenir $X_1 \sim \mathbf{P}$ i.e $P(X_1=j|X_0=i)=p_{ij}$.
-    \item Le résultat de l'étape 2 est $j$; obtenir $X_2 \sim \mathbf{P}$ i.e $P(X_2=k|X_1=j)=p_{jk}$.
+    \item Supposer que les probabilités initiales (les probabilités des états potentiels de $X_0$) sont dans le vecteur $\mu_0$. Trouver $X_0$.
+    \item Le résultat de l'étape 1 est donc $X_0 = i$, l'état de $X$ à temps 0; obtenir $X_1$ selon les probabilités à la $i$th ligne de $\mathbf{P}$ où $P(X_1=j|X_0=i)=p_{ij}$. Trouver $X_1$.
+    \item Le résultat de l'étape 2 est $X_1 = j$, l'état de $X$ à temps 1; obtenir $X_2 \sim \mathbf{P}$ où $P(X_2=k|X_1=j)=p_{jk}$.
     \item Répéter jusqu'à la fin (nombre d'iterations est arbitraire).
 \end{enumerate}
 
-Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme parametres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
+Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme parametres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}. Essayez avec des valeurs différentes de \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
 \lstinputlisting[language=python]{SimMarkov_temp.py}
 
 
@@ -150,6 +163,7 @@ Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-l
 \lstinputlisting[language = python]{SimMarkov.py}
 \end{solution}
 \end{Exercice}
+
 
 \begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap}
     Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap estimer
