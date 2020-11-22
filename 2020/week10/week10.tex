@@ -164,6 +164,27 @@ Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-l
 \end{solution}
 \end{Exercice}
 
+\begin{Exercice}[20 minutes]\textbf{Coder une chaîne de Markov avec le dictionnaire Python}
+
+Cette fois-ci, vous allez utiliser un dictionnaire au lieu de vecteurs et matrices!
+
+Supposez qu'il y a trois choix d'états avec les transitions dans l'image ci-dessous. Supposez également que la loi initiale des états sont (0.3, 0.2, 0.5) pour Sunny, Snowy, et Rainy, respectivement. Simulez une chaîne de Markov en utilisant un dictionnaire imbriqué, écrit comme suit
+\lstinputlisting[language=python]{WeatherMarkovDict.py}
+\begin{center}
+        \includegraphics[width=\linewidth]{Etats_markov.png}
+\end{center}
+    
+Complétez le programme ci-dessous.
+\lstinputlisting[language=python]{WeatherMarkov_temp.py}
+
+\begin{conseil}
+    \textbf{random.choices()} sera de nouveau pertinente!
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language=python]{WeatherMarkov.py}
+\end{solution}
+\end{Exercice}
+
 
 \begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap}
     Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap estimer
