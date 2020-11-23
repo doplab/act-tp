@@ -152,4 +152,3 @@
   
 
 %\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
-

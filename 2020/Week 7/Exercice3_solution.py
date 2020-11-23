@@ -182,9 +182,7 @@ def dijkstra(origin,destination,visited = None):
         if neighbour.value not in visited:#Si un des voisins n'a pas encore été visités
             distance_temp, path_temp = dijkstra(neighbour, destination, visited) #On se déplace sur ce point et fait l'algo
                                                                                  #à partir de ce points.
-            if len(visited) > 0:
-                visited.pop()
-            
+                
             total_distance = distance_temp + relationship.value #Distance du chemin optimal à partir du neighbor + distance
                                                                 #entre le point de départ et le neighbour.
             #Question 9.4                                                   

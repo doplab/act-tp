@@ -1,7 +1,7 @@
 #Exercice 3
 
 class Graph:
-    #Cette partie du code permet de créer un graphe lorsqu'on appelle Graph(), il faut spécifier une matrice d'adjacence
+    #Cette partie du code permet de créer un graphe lorsqu'on appelle Graph(), il faut spécifier une matrice d'adjascence
     def __init__(self, connections): 
         length = len(connections)   
         self._nodes = {}
@@ -25,7 +25,7 @@ class Graph:
             self._nodes[value] = self.Node(value)
         return self._nodes[value]
     
-    #Cette fonction permet de connecter 2 sommets par une arête et de lui donner un poids
+    #Cette fonction permet de connecter 2 sommets par une arrête et de lui donner un poids
     def connect(self, value, node1, node2):
         relationship = self.Relationship(value, node1, node2)
         node1.add_relationship(relationship)
@@ -36,8 +36,8 @@ class Graph:
             return self._nodes[value]
         return None
     
-    #Les sommets du graphes sont notés par des valeurs (ici, A,B,C,...), cette fonction liste toutes
-    #les valeurs apparaissant dans le graphe
+    #Les sommets du graphes sont noté par des valeurs (ici, A,B,C,...), cette fonction liste toutes
+    #les valeurs apparaissant dans le graphes
     def get_values(self):
         return set(self._nodes.keys())
 
@@ -56,7 +56,7 @@ class Graph:
             self.value = value
             self.relationships = []
             
-        #Un sommet contient la liste de tous les sommets auxquels il est relié.    
+        #Un sommet contient la liste de tout les sommets auxquels il est relié.    
         #Cette fonction permet d'ajouter un sommet à la liste.
         def add_relationship(self, relationship): 
             self.relationships.append(relationship)
@@ -76,7 +76,7 @@ class Graph:
             return output
         
         
-        #Donne tous les sommets auxquels le sommet est relié
+        #Donne tout les sommets auquels le sommet un sommet est relié
         def get_relationships(self):
             return set([(rel.to.value, rel.value) for rel in self.relationships])
 
@@ -87,7 +87,7 @@ class Graph:
                 return False
             return True
 
-    #Une relation, i.e. une arête, part d'un endroit arrive à un endroit et a un certain poids.
+    #Une relation, i.e. une arrête, part d'un endroit arrive à un endroit et à un certain poids.
     #Permet de créer une relation.
     class Relationship:
         def __init__(self, value, _from, _to):
@@ -162,8 +162,6 @@ def dijkstra(origin,destination,visited = None):
         if neighbour.value not in visited:
             distance_temp, path_temp = dijkstra(neighbour, destination, visited) 
             total_distance = distance_temp + relationship.value 
-            if len(visited) > 0:
-                visited.pop()
             
             #Question 9.4                                                 
             

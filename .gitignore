@@ -338,7 +338,3 @@ TSWLatexianTemp*
 
 # Visual studio code
 *.vscode
-
-# Pandoc
-*.docx
-*.html
