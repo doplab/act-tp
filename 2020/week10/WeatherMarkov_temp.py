@@ -1,18 +1,14 @@
 import random
 
-
-def sim_markov_dict(mu_0, P, n_iters):
-    
+def sim_markov_dict(mu_0, P, n_iters):    
     # liste d'etats
     states = list(mu_0.keys())
-    
     # premier etat
-    current_state = ...
-    
+    current_state = ... # Partie à compléter
     future_states = []
-    ...
+    ... # Partie à compléter
         
-    return ...
+    return ... # Partie à compléter
        
 mu_0 = {'Sunny': 0.3, 'Snowy': 0.2, 'Rainy': 0.5}
 prob_transition = {

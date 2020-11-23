@@ -10,7 +10,6 @@ class TreapNode:
 
 # Fonction pour faire une rotation à gauche
 def rotateLeft(root):
-
 	R = root.right
 	X = root.right.left
 
@@ -24,7 +23,6 @@ def rotateLeft(root):
 
 # Fonction pour faire une rotation à droite
 def rotateRight(root):
-
 	L = root.left
 	Y = root.left.right
 

@@ -12,14 +12,14 @@
 \titre
 \cours{Probabilistic Algorithms}
 
-Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes de en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximée du problème initial. Ils demeurent néanmoins très utile pour beaucoup d'application.
+Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximative du problème initial. Néanmoins, ces algorithmes demeurent très utile pour beaucoup d'applications.
 
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
-Supposez que vous lanciez une pièce de monnaie l fois et que vous voulez calculez la probabilité d'avoir un certains nombre de pile. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier Piece.py. La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculiez la probabilité d'avoir un certains nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Ressources}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
 \\
 \begin{conseil}
-    Pour estimez empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurence de l'événement par le nombre total d'essai. Par exemple, si vous vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+    Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
 \end{conseil}
 \begin{solution}
     \lstinputlisting[language = python]{Piece_correction.py}
@@ -27,19 +27,83 @@ Supposez que vous lanciez une pièce de monnaie l fois et que vous voulez calcul
 \end{Exercice}
 \newpage
 \begin{Exercice}[20 minutes]\textbf{Une approximation de $\pi$ : Python}\\
-L'objectif de cet exercice est programmer un algorithme probabiliste permettant d'approximer le chiffre $\pi$. Immaginez un plan en sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cette espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous un schéma de la situation:
+L'objectif de cet exercice est de programmer un algorithme probabiliste permettant d'approximer le chiffre $\pi$. Imaginez un plan sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous une illustration de la situation:
 \begin{center}
 \includegraphics[]{Cercle.PNG}
 \end{center}
-La première étape de cette exercice consiste a créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou a l'extérieur du cercle. Puis, générez 10000 points dans cette espace (x et y devrait appartenir à [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de point dans le cercle}}{\text{Nombre de point total}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devrait appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
 \begin{conseil}
-    La fonction random.random() génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simulez des points en 2 dimension, vous devrez utiliser 2 fois cette fonction.
+    La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction.
 \end{conseil}
 \begin{solution}
  \lstinputlisting[language = python]{Pi.py}
 \end{solution}
 
 \end{Exercice}
+\newpage
+\begin{Exercice}[20 minutes]\textbf{Fingerprinting: Une mission pour l'agente secrète Alice: Python}\\
+    Dans cet exercice, vous prendrez le rôle de l'agente secrète Alice. Cette dernière enquêtait sur la disparition de son collègue,
+    l'agent Bob, et se doutait que l'indice clé qui la mènerait à la vérité se trouvait dans la boîte mail de Bob. Alice arriva à trouver
+    un bout de papier avec écrit dessus : ``\textit{Mon mot de passe est l'empreinte de ceciestmonmotdepasse}''. Aidez Alice à trouver l'empreinte du mot de passe! \\
+
+    Pour cela, vous devez compléter deux fonctions :
+    \begin{enumerate}
+        \item \lstinline{is_a_prime_number(num)} qui vérifie que \lstinline{num} est un nombre premier ou pas. Un nombre premier est un entier naturel 
+        qui admet exactement deux diviseurs distincts entiers et positifs. Ces deux diviseurs sont 1 et le nombre considéré, 
+        puisque tout nombre a pour diviseurs 1 et lui-même, les nombres premiers étant ceux qui n’en possèdent aucun autre.
+        
+        \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
+              \begin{enumerate}
+                  \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
+                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
+              \end{enumerate}
+    \end{enumerate}
+
+    Si vous réussissez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
+
+    À vos ordis, détectives!
+
+    \lstinputlisting[language = python]{fingerprinting.py}
+
+    \begin{solution}
+        \lstinputlisting[language = python]{fingerprinting_solution.py}
+    \end{solution}
+\end{Exercice}
+\newpage
+\begin{Exercice}[10 minutes] \textbf{Quicksort - Algorithme de Las Vegas: Python}\\
+    Un algorithme de Las Vegas est un algorithme probabiliste qui a la particularité de toujours trouver le résultat correct lorsqu'il existe. Son inconvénient est que sa compléxité temporelle ne peut être garantie à l'avance car elle dépend des données passées en paramètres.
+
+    Dans cet exercice, vous allez implémenter un algorithme de tri rapide (quicksort) sur une liste d'éléments.
+\\\\
+    L'algorithme de tri rapide applique un paradigme \textit{divide-and-conquer} afin de trier un ensemble de nombres~\lstinline{A}. Il fonctionne en trois étapes: 
+    \begin{enumerate}
+        \item il choisit d'abord un élément pivot, \lstinline{A[q]}, en utilisant un générateur de nombres aléatoires (d'où sa nature d'algorithme dit probabiliste) ;
+        \item puis il réorganise le tableau en deux sous-tableaux $A[p...q-1]$ et $A[q+1...r]$, où les éléments des premier et deuxième tableaux sont respectivement plus petits et plus grands que $A[q]$.
+        \item L'algorithme applique ensuite récursivement les étapes de tri rapide ci-dessus sur les deux tableaux indépendants, produisant ainsi un tableau entièrement trié.
+    \end{enumerate}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{quicksort.png}
+        \caption{Illustration de l'algorithme de tri rapide}
+    \end{figure}
+
+    Complétez le code suivant:
+    \lstinputlisting[language = python]{quicksort.py}
+
+
+    \begin{conseil}
+        Pour le choix de votre élément pivot, pensez à utiliser la méthode \lstinline{randint()} de la librarie \lstinline{random}.
+    \end{conseil}
+
+
+    \begin{solution}
+        \lstinputlisting[language = python]{quicksort_solution.py}
+    \end{solution}
+     
+
+
+\end{Exercice}
+
 
 \begin{Exercice}[15 minutes]\textbf{Un exemple simple de la chaîne de Markov}
 
@@ -47,28 +111,34 @@ Les slides nous ont donné un exemple de la chaîne de Markov. Celui-ci comprend
 
 
 On va formaliser le concept de la chaîne de Markov avec les notations suivantes.\\
-
-\textbf{I,} Un processus ou une séquence $X_0, X_1, X_2, ..., X_n$ ($0,1,2,...,n$ signifiant de différents moments) est une chaîne de Markov si
-\begin{align} 
-P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
-\end{align}
-En d'autres termes, toute information utile pour la prédiction du futur de la valeur $X$ d'une chaîne de Markov est uniquement dans l'état présent.\\
- 
-\textbf{II,} Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
+\begin{enumerate}
+    \item Un processus ou une séquence $X_0, X_1, X_2, ..., X_n$ ($0,1,2,...,n$ signifiant de différents moments) est une chaîne de Markov si
+    \begin{align} 
+    P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
+    \end{align}
+    En d'autres termes, toute information utile pour la prédiction du futur de la valeur $X$ d'une chaîne de Markov est uniquement dans l'état présent.
+     Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
 
 \begin{align}
 p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
 \end{align}
 
-La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ a dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$ (vérifiez que c'est le cas dans l'exemple des slides).\\
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
+\item  Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
+\begin{align}
+p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
+\end{align}
 
-\textbf{III,} Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne des probabilités, avec $\mu_n(i) = P(X_n=i)$. Par exemple, si on a 3 états et $\mu_2 = (0.5, 0.2, 0.3)$, on peut dire qu'à temps 2, la probabilité est 0.5 qu'on soit à l'état 1, 0.2 qu'on soit à l'état 2, et 0.3 qu'on soit à 3. \textbf{La variable $x^{(t+3)}$ des slides serait $\mu_3$ avec ces notations} !\\
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
 
-$\mu_n$ est aussi appelé probabilités marginales, qui indiquent les probabilités des états à temps $n$, et elles sont calculées comme suit (vérifiez que cette formule s'accorde avec le calcul de $x^{(t+3)}$ des slides) :
+\item Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne des probabilités, avec $\mu_n(i) = P(X_n=i)$. Par exemple, si on a 3 états et $\mu_2 = (0.5, 0.2, 0.3)$, on peut dire qu'à temps 2, la probabilité est 0.5 qu'on soit à l'état 1, 0.2 qu'on soit à l'état 2, et 0.3 qu'on soit à 3. \textbf{La variable $x^{(t+3)}$ des slides serait $\mu_3$ avec ces notations}!
+\end{enumerate}
+
+$\mu_n$ est aussi appelée probabilités marginales, qui indiquent les probabilités des états à temps $n$, et elles sont calculées comme suit (vérifiez que cette formule s'accorde avec le calcul de $x^{(t+3)}$ des slides) :
 \[ 
 \mu_n = \mu_0 \mathbf{P}^n
 \]
-$\mu_0$ est donc appelé \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 5. \\
+$\mu_0$ est donc appelée \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 5. \\ % TODO: Numéro d'exercice à revoir
 
 Et on a ci-dessous un résumé de la terminologie:
 
@@ -107,9 +177,9 @@ Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[7 minutes]\textbf{Probabilités marginales}
+\begin{Exercice}[7 minutes]\textbf{Probabilités marginales: Python}
 
-En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de Question 3, trouvez $\mu_1$, $\mu_2$.
+En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de la question précédente, trouvez $\mu_1$, $\mu_2$.
 
 \begin{conseil}
     Relisez et familiarisez-vous avec les notations et la terminologie ci-dessus! Si les slides s'avèrent plus utiles, considérez $\mu_1 = x^{(t+1)}, \mu_2 = x^{(t+2)}$.
@@ -120,7 +190,7 @@ On peut aussi essayer de les trouver en écrivant un programme Python! Nous vous
 \lstinputlisting[language=python]{ProbMarginales_temp.py}
 
 \begin{conseil}
-    Souvenez-vous que $\mathbf{P}^2$ est le produit scalaire entre $\mathbf{P}$ et $\mathbf{P}$ soi-même ! Chaque ligne de  $\mathbf{P}^2$ sera donc le produit scalaire entre une ligne de $\mathbf{P}$ et $\mathbf{P}$.
+    Souvenez-vous que $\mathbf{P}^2$ est le produit scalaire entre $\mathbf{P}$ et $\mathbf{P}$! Chaque ligne de  $\mathbf{P}^2$ sera donc le produit scalaire entre une ligne de $\mathbf{P}$ et $\mathbf{P}$.
 \end{conseil}
 \begin{solution}
 \begin{align}
@@ -140,16 +210,16 @@ On peut aussi essayer de les trouver en écrivant un programme Python! Nous vous
 
 \end{Exercice}
 
-\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov}\\
-Pour cet exercice, vous n'avez pas à utiliser les calculs dans l'exercise 3 et 4.\\
+\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov: Python}\\
+Pour cet exercice, vous n'avez pas à utiliser les calculs des exercices précédents.\\
 
-Comme déjà mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ...$) exige seulement deux éléments: la loi initiale $\mu_0$ et la matrice de transition $\mathbf{P}$. Spécifiquement, l'algorithme est:
+Comme mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ...$) exige seulement deux éléments: la loi initiale $\mu_0$ et la matrice de transition $\mathbf{P}$. Spécifiquement, l'algorithme est:
 
 \begin{enumerate}
     \item Supposer que les probabilités initiales (les probabilités des états potentiels de $X_0$) sont dans le vecteur $\mu_0$. Trouver $X_0$.
     \item Le résultat de l'étape 1 est donc $X_0 = i$, l'état de $X$ à temps 0; obtenir $X_1$ selon les probabilités à la $i$th ligne de $\mathbf{P}$ où $P(X_1=j|X_0=i)=p_{ij}$. Trouver $X_1$.
     \item Le résultat de l'étape 2 est $X_1 = j$, l'état de $X$ à temps 1; obtenir $X_2 \sim \mathbf{P}$ où $P(X_2=k|X_1=j)=p_{jk}$.
-    \item Répéter jusqu'à la fin (nombre d'iterations est arbitraire).
+    \item Répéter jusqu'à la fin (le nombre d'iterations est arbitraire).
 \end{enumerate}
 
 Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme parametres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}. Essayez avec des valeurs différentes de \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
@@ -157,18 +227,18 @@ Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-l
 
 
 \begin{conseil}
-    La méthode \textbf{random.choices()} s'avéra utile!
+    Pensez à utiliser la méthode \textbf{random.choices()}. Elle vous permet de sélectionner de façon (pseudo-)aléatoire des éléments d'une liste. N'hésitez pas à vous référer à la documentation officielle pour plus de détails.
 \end{conseil}
 \begin{solution}
 \lstinputlisting[language = python]{SimMarkov.py}
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[20 minutes]\textbf{Coder une chaîne de Markov avec le dictionnaire Python}
+\begin{Exercice}[20 minutes]\textbf{Coder une chaîne de Markov avec un dictionnaire Python}
 
 Cette fois-ci, vous allez utiliser un dictionnaire au lieu de vecteurs et matrices!
 
-Supposez qu'il y a trois choix d'états avec les transitions dans l'image ci-dessous. Supposez également que la loi initiale des états est (0.3, 0.2, 0.5) pour Sunny, Snowy, et Rainy, respectivement. Simulez une chaîne de Markov en utilisant un dictionnaire imbriqué, écrit comme suit
+Supposez qu'il y'ait trois choix d'états avec les transitions dans l'image ci-dessous. Supposez également que la loi initiale des états est (0.3, 0.2, 0.5) pour \textbf{Sunny, Snowy, et Rainy} respectivement. Simulez une chaîne de Markov en utilisant un dictionnaire imbriqué, écrit comme suit
 \lstinputlisting[language=python]{WeatherMarkovDict.py}
 \begin{center}
         \includegraphics[width=\linewidth]{Etats_markov.png}
@@ -178,7 +248,7 @@ Complétez le programme ci-dessous.
 \lstinputlisting[language=python]{WeatherMarkov_temp.py}
 
 \begin{conseil}
-    \textbf{random.choices()} sera de nouveau pertinente!
+    De nouveau, pensez à utiliser la méthode \textbf{random.choices()}.
 \end{conseil}
 \begin{solution}
     \lstinputlisting[language=python]{WeatherMarkov.py}
@@ -186,19 +256,19 @@ Complétez le programme ci-dessous.
 \end{Exercice}
 
 
-\begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap}
-    Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap estimer
+\begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap: Python}\\
+    Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap estime
     un arbre de recherche binaire en ce qui concerne les valeurs clés et une heap en ce qui concerne les valeurs prioritaires. \\
 
-    Dans cet exercice, vous allez implémenter une fonction pour insérer un noeud dans une treap. Vous avez le squellette de code suivant à remplir.
+    Dans cet exercice, vous allez implémenter une fonction pour insérer un noeud dans une treap. Vous avez le squelette de code suivant à remplir.
     \lstinputlisting[language = python]{treap.py}
 
     \begin{conseil}
         La fonction \lstinline{insertNode} est récursive. Inspirez-vous de l'insertion dans un arbre de recherche binaire, mais 
-        n'oubliez de vérifier que la propriété de la heap est satisfaite après avoir insérer. \\
+        n'oubliez pas de vérifier que la propriété de la heap est satisfaite après avoir inséré. \\\\
         La propriété de la heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses noeuds enfants.
         \lstinline{rotateLeft} et \lstinline{rotateRight} permettent de réarranger les noeuds de façon à ce que la propriété
-        de la heap soit satisfaite. Vous pouvez vous réferer à l'illustration ci-dessous pour avoir une idée de comment fonctionne les rotations.
+        de la heap soit satisfaite. Vous pouvez vous réferer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
     \end{conseil}
 
     \begin{center}
@@ -214,36 +284,6 @@ Complétez le programme ci-dessous.
     
 \end{Exercice}
 
-\begin{Exercice}[20 minutes]\textbf{Fingerprinting: Une mission pour l'agente secrète Alice}
-    Dans cet exercice, vous prendrez le rôle de l'agente secrète Alice. Cette dernière enquêtait sur la disparition de son collègue,
-    l'agent Bob, et se doutait que l'indice clé qui la ménera à la vérité se trouvait dans la boîte mail de Bob. Alice arriva à trouver
-    un bout de papier avec écrit dessus : "Mon mot de passe est l'empreinte de ceciestmonmotdepasse". Aidez Alice à trouver l'empreinte du mot de passe! \\
-
-    Pour cela, vous devez compléter deux fonctions :
-    \begin{enumerate}
-        \item \lstinline{is_a_prime_number(num)} qui vérifie que \lstinline{num} est un nombre premier ou pas. Un nombre premier est un entier naturel 
-        qui admet exactement deux diviseurs distincts entiers et positifs. Ces deux diviseurs sont 1 et le nombre considéré, 
-        puisque tout nombre a pour diviseurs 1 et lui-même, les nombres premiers étant ceux qui n’en possèdent aucun autre.
-        
-        \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
-              \begin{enumerate}
-                  \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
-                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
-              \end{enumerate}
-    \end{enumerate}
-
-    Si vous réussisez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
-
-    À vos ordis, détectives!
-
-    \lstinputlisting[language = python]{fingerprinting.py}
-
-    \begin{solution}
-        \lstinputlisting[language = python]{fingerprinting_solution.py}
-    \end{solution}
-
-    
-\end{Exercice}
 
 
 \end{document}

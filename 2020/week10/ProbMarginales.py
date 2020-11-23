@@ -14,7 +14,6 @@ def produit_scalaire(vec, mat):
 def puissance_mat(mat, n):
     # P: liste de listes
     # n: integer
-    
     new_mat = mat
     for i in range(n-1):
         dot_prod = []
@@ -24,7 +23,6 @@ def puissance_mat(mat, n):
     return new_mat
 
 def prob_marginales(mu_0, P, n):
-    
     return produit_scalaire(mu_0, puissance_mat(P, n))
     
         
