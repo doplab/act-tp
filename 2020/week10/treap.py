@@ -57,13 +57,12 @@ def printTreap(root, space):
 	printTreap(root.left, space)
 
 
-if __name__ == '__main__':
-	# Clés de la treap
-	keys = [5, 2, 1, 4, 9, 8, 10]
+# Clés de la treap
+keys = [5, 2, 1, 4, 9, 8, 10]
 
-	# Construction de la treap
-	root = None
-	for key in keys:
-		root = insertNode(root, key)
+# Construction de la treap
+root = None
+for key in keys:
+	root = insertNode(root, key)
 
-	printTreap(root, 0)
+printTreap(root, 0)

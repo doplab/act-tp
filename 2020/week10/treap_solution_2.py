@@ -1,3 +1,4 @@
+# # Solution 2/2
 # Fonction récursive pour insérer une clé avec une priorité dans une Treap
 def insertNode(root, data):
 	if root is None:

@@ -1,3 +1,4 @@
+# Solution 1/2
 from random import randrange
 
 # Un noeud de la treap
