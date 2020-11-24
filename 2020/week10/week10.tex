@@ -7,7 +7,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Probabilistic Algorithms}
@@ -16,16 +16,16 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
-Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculiez la probabilité d'avoir un certains nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Ressources}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Ressources}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
 \\
 \begin{conseil}
-    Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+    Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurrence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
 \end{conseil}
 \begin{solution}
     \lstinputlisting[language = python]{Piece_correction.py}
 \end{solution}
 \end{Exercice}
-\newpage
+
 \begin{Exercice}[20 minutes]\textbf{Une approximation de $\pi$ : Python}\\
 L'objectif de cet exercice est de programmer un algorithme probabiliste permettant d'approximer le chiffre $\pi$. Imaginez un plan sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous une illustration de la situation:
 \begin{center}
@@ -94,7 +94,7 @@ La première étape de cet exercice consiste à créer une fonction permettant d
 
 
     \begin{conseil}
-        Pour le choix de votre élément pivot, pensez à utiliser la méthode \lstinline{randint()} de la librarie \lstinline{random}.
+        Pour le choix de votre élément pivot, pensez à utiliser la méthode \lstinline{randint()} de la librairie \lstinline{random}.
     \end{conseil}
 
 
@@ -169,9 +169,9 @@ Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)
 \begin{solution}
 \begin{align*}
     1. \; &P(X_0=0,X_1=1, X_2=2) \\ 
-    &= P(X_2=2|X_1=1,X_0=0)P(X_1=1|X_0=0)P(X_0 =0) \text{ (Bayes', règle de chaîne)}\\
+    &= P(X_2=2|X_1=1,X_0=0)P(X_1=1|X_0=0)P(X_0 =0) \text{ (Bayes, règle de chaîne)}\\
     &= P(X_2=2|X_1=1)P(X_1=1|X_0=0)P(X_0=0) \text{ (définition de la chaîne de Markov)}\\ 
-    &=p_{12} \times p_{01} \times P(X_0=0) = 0.3 \times 0.2 \times 0.0 = 0.0\\
+    &=p_{12} \times p_{01} = 0.3 \times 0.2 \times 0.0 = 0.0\\
     \\
     2. \; & P(X_0=0,X_1=1, X_2=1)=P(X_0 =0)\times p_{01} \times p_{11}\\
     &= 0.3 \times 0.2\times 0.1 = 0.006
@@ -225,7 +225,7 @@ Comme mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ..
     \item Répéter jusqu'à la fin (le nombre d'iterations est arbitraire).
 \end{enumerate}
 
-Ecrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme parametres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}. Essayez avec des valeurs différentes de \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
+Écrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme paramètres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}. Essayez avec des valeurs différentes de \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
 \lstinputlisting[language=python]{SimMarkov_temp.py}
 
 
@@ -258,21 +258,22 @@ Complétez le programme ci-dessous.
 \end{solution}
 \end{Exercice}
 
+\newpage
 \section{Treap}
 \begin{Exercice}[20 minutes]\textbf{Insertion dans une Treap: Python} \optionnel\\
     Une Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Une treap est une
-    combinaison d'un arbre de recherche binaire et d'une heap. Ainsi, la treap a la même strucutre qu'un arbre de recherche binaire dont les noeuds sont
+    combinaison d'un arbre de recherche binaire et d'une heap. Ainsi, la treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
     insérés par ordre de priorité. \\
 
-    Dans cet exercice, vous allez implémenter une fonction pour insérer un noeud dans une treap. Vous avez le squelette de code suivant à remplir.
+    Dans cet exercice, vous allez implémenter une fonction pour insérer un nœud dans une treap. Vous avez le squelette de code suivant à remplir.
     \lstinputlisting[language = python]{treap.py}
 
     \begin{conseil}
         La fonction \lstinline{insertNode} est récursive. Inspirez-vous de l'insertion dans un arbre de recherche binaire, mais 
         n'oubliez pas de vérifier que la propriété de la heap est satisfaite après avoir inséré. \\\\
-        La propriété de la heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses noeuds enfants.
-        \lstinline{rotateLeft} et \lstinline{rotateRight} permettent de réarranger les noeuds de façon à ce que la propriété
-        de la heap soit satisfaite. Vous pouvez vous réferer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
+        La propriété de la heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses nœuds enfants.
+        \lstinline{rotateLeft} et \lstinline{rotateRight} permettent de réarranger les nœuds de façon à ce que la propriété
+        de la heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
     \end{conseil}
 
     \begin{center}
