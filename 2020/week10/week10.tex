@@ -112,7 +112,6 @@ La première étape de cet exercice consiste à créer une fonction permettant d
 
 Les slides nous ont donné un exemple de la chaîne de Markov. Celui-ci comprend une matrice de transition et un calcul des probabilités de  3 états $x=(1,2,3)$ ($x$ est un vecteur ayant 3 éléments) à $t+3$  i.e $x^{(t+3)}$. Avant de continuer, assurez-vous que vous comprenez la formule de la \href{https://fr.wikipedia.org/wiki/Probabilit\%C3\%A9_conditionnelle}{\color{cyan} probabilité conditionnelle} dans les slides, et les opérations basiques de matrices et vecteurs qui y sont présentées (\href{https://fr.wikiversity.org/wiki/Initiation_aux_matrices/Puissance_d\%27une_matrice}{\color{cyan} puissance} et \href{https://fr.wikipedia.org/wiki/Produit_scalaire}{\color{cyan} produit scalaire}).\\
 
-
 On va formaliser le concept de la chaîne de Markov avec les notations suivantes.\\
 \begin{enumerate}
     \item Un processus ou une séquence $X_0, X_1, X_2, ..., X_n$ ($0,1,2,...,n$ signifiant de différents moments) est une chaîne de Markov si
@@ -120,28 +119,22 @@ On va formaliser le concept de la chaîne de Markov avec les notations suivantes
     P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
     \end{align}
     En d'autres termes, toute information utile pour la prédiction du futur de la valeur $X$ d'une chaîne de Markov est uniquement dans l'état présent.
-     Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
-
-\begin{align}
-p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
-\end{align}
-
-La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
+     
 \item  Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
 \begin{align}
 p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
 \end{align}
 
-La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ a deux propriétés importantes: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$.
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ est de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ \textbf{a deux propriétés importantes}: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$ (i.e chaque élément de la matrice est supérieur ou égal à 0, et la somme des probabilités à chaque ligne est toujours égale à 1).
 
 \item Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne des probabilités, avec $\mu_n(i) = P(X_n=i)$. Par exemple, si on a 3 états et $\mu_2 = (0.5, 0.2, 0.3)$, on peut dire qu'à temps 2, la probabilité est 0.5 qu'on soit à l'état 1, 0.2 qu'on soit à l'état 2, et 0.3 qu'on soit à 3. \textbf{La variable $x^{(t+3)}$ des slides serait $\mu_3$ avec ces notations}!
-\end{enumerate}
 
 $\mu_n$ est aussi appelée probabilités marginales, qui indiquent les probabilités des états à temps $n$, et elles sont calculées comme suit (vérifiez que cette formule s'accorde avec le calcul de $x^{(t+3)}$ des slides) :
 \[ 
 \mu_n = \mu_0 \mathbf{P}^n
 \]
-$\mu_0$ est donc appelée \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 5. \\ % TODO: Numéro d'exercice à revoir
+$\mu_0$ est donc appelée \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 7 et 8. \\ 
+\end{enumerate}
 
 Et on a ci-dessous un résumé de la terminologie:
 
