@@ -1,4 +1,4 @@
-\input{header.tex}
+\input{../header.tex}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -23,15 +23,15 @@ Cette partie de l'exercice a pour but de poser des questions théoriques qui son
 \begin{Exercice}[Durée 15 minutes] Exercice 1\\
     \begin{enumerate}
         \item Quels sont les 3 composants d'un weighted graph ?
-        \item Combien de classes sont nécéssaires pour représenter tous les composants du graph et le graph lui même ?
+        \item Combien de classes sont nécessaires pour représenter tous les composants du graph et le graph lui même ?
         \item Sachant que vous avez une classe qui représente les arêtes et que les sommets sont représentés par des chaînes de caractères. Déterminer quels sont les attributs de la class graph.
-        \item Maintenant que vous avec le schéma général de votre classe graph, il faut déterminer quelles méthodes sont nécéssaires au fonctionnement de cet objet.
+        \item Maintenant que vous avec le schéma général de votre classe graph, il faut déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet.
         
         Il faut donc réfléchir sur les questions suivantes:
             \begin{enumerate}
             \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci initialisé ?
             \item Est-ce que l'utilisateur aura besoin de vérifier l'état de l'objet ( existence d'attributs, vérification de valeurs...) ou de certaines parties de l'objet ?
-            \item Est-il nécéssaire de définir des méthodes qui ne seront pas utiles pour l'utilisateur mais utiles pour éviter la redondance du code ?
+            \item Est-il nécessaire de définir des méthodes qui ne seront pas utiles pour l'utilisateur mais utiles pour éviter la redondance du code ?
             \end{enumerate}
     \end{enumerate}
     Une fois ces questions répondues, le schéma des méthodes nécessaires devient plus claire.
@@ -78,13 +78,14 @@ Cette partie de l'exercice a pour but de poser des questions théoriques qui son
 Le code pour la classe Edges est fourni dans le dossier ressources sur moodle.
 Utiliser le fichier Main.java dans le dossier ressources sur moodle pour effectuer des tests. Il devrait retourner:
 
-\includegraphics[]{sortie_juste.PNG}
+\includegraphics[]{resources_latex/sortie_juste.PNG}
+
 \begin{Exercice}[Durée 20 minutes] Exercice 2\\
-Voici une partie de la classe graph codée. Implémentez les méthodes "update_weight", "new_edge" et " "edge_exist".
+
+Voici une partie de la classe graph codée. Implémentez les méthodes "update\_weight", "new\_edge" et " "edge\_exist".
 
 \textbf{Java :}
-         \lstinputlisting{graph_empty.java}
-\endgroup
+         \lstinputlisting{ressources_exo_nathan/graph_empty.java}
     \begin{enumerate}
         \item La méthode "update weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon elle imprimera une phrase indiquant que cette arête n'existe pas.
         \item La méthode "edge exist" qui va prendre en paramètre le sommet d'origine et le sommet d'arrivée. Si cette arête est dans le graph alors la méthode ressort son poids, 0 sinon.
@@ -106,15 +107,16 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update_w
     \end{conseil}
     \begin{solution}
     \textbf{Java :}
-         \lstinputlisting{Edges.java}
+         \lstinputlisting{ressources_exo_nathan/Edges.java}
     \end{solution}
     \begin{solution}
     \textbf{Java :}
-         \lstinputlisting{graph.java}
+         \lstinputlisting{ressources_exo_nathan/graph.java}
     \end{solution}
     \begin{solution}
     \textbf{Java :}
-         \lstinputlisting{graph2.java}
+         \lstinputlisting{resources_latex/graph2.java}
     \end{solution}
-    \end{Exercice}
+
+\end{Exercice}
 \end{document}

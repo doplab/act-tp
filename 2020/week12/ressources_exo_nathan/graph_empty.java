@@ -17,7 +17,7 @@ public class graph_empty {
 
     // Cette méthode va tester si le sommet demandé existe dans le graph. Si oui retourne le poids, sinon retourne 0.
     public double edge_exist(String from_vertex, String to_vertex){
-        // Écrire votre code ci-dessous
+        // Ecrire votre code ci-dessous
 
         
 
@@ -47,7 +47,7 @@ public class graph_empty {
     }
 
     public void update_weight(String from_vertex, String to_vertex, double weight){
-        // Écrire votre code ci-dessous
+        // Ecrire votre code ci-dessous
 
 
 
@@ -58,7 +58,7 @@ public class graph_empty {
     }
     // Méthode qui va ajouter l'arête dans le graph.
     public void new_edge(String from_vertex, String to_vertex, double weight){
-        // Écrire votre code ci-dessous
+        // Ecrire votre code ci-dessous
 
 
 

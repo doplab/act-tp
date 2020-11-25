@@ -13,7 +13,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \section{Création de votre première classe en Java}
 
-Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nomée Dog() sensée représenter un chien.
+Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée Dog() sensée représenter un chien.
 
 Cette classe aura différents attributs et différentes ,méthodes que vous implémenterez au fur et à mesure de l'exercice. 
 
@@ -30,9 +30,9 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
    	
    	Ensuite, créez une méthode publique du même nom que la classe (Dog), qui va servir à initialiser nos différentes instances de cette classe. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance avec :
    	\begin{enumerate}
-    \item Une chaine de caractère name
+    \item Une chaîne de caractère name
     \item Une liste tricks
-    \item Une chaine de caractère race
+    \item Une chaîne de caractère race
     \item Un entier age
    	\end{enumerate}
    	
@@ -50,7 +50,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[Durée 10 minutes] Exercice 2\\
-    Il faut maintenant créer des méthodes nomées setter et getter pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs privés de la fonction. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
+    Il faut maintenant créer des méthodes nommées setter et getter pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs privés de la fonction. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
     
     Les méthodes getter consistent à retourner la valeur de l'attribut. Les setter consisteront à changer la valeur de l'attribut. \\
     
@@ -78,7 +78,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[Durée 5 minutes] Exercice 3\\
-    Créez une méthode nomée add\_trick qui prend en argument une chaine de caractère, et qui l'ajoute à la liste tricks. \\
+    Créez une méthode nommée add\_trick qui prend en argument une chaîne de caractère, et qui l'ajoute à la liste tricks. \\
    	
 \begin{conseil}
    La liste tricks est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une LinkedList temporaire.
@@ -98,7 +98,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[Durée 5 minutes] Exercice 5\\
-    Créez une méthode nomée get\_oldest qui prend en argument un élément de type Dog, puis retourne le nom et l'age du chien le plus agé sous le format suivant : "nom\_chien est le chien le plus agé avec age\_chien ans". \\
+    Créez une méthode nommée get\_oldest qui prend en argument un élément de type Dog, puis retourne le nom et l'age du chien le plus agé sous le format suivant : "nom\_chien est le chien le plus agé avec age\_chien ans". \\
    	
 \begin{conseil}
    L'élément Dog que vous passez en argument est un objet de type Dog, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
@@ -112,7 +112,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 
 \begin{Exercice}[Durée 5 minutes] Exercice 6\\
     Créez une méthode de surcharge de la fonction System.out.println pour les objets de type Dog. Pour ce faire, le nom de votre méthode doit être le suivant : toString(). \\
-    Veillez à retourner une chaine de caractère sous le format suivant : nom\_chien a age\_chien ans, est un race\_chien et a une humeur de mood\_chien. Il sait faire les tours suivants : tricks\_chien.
+    Veillez à retourner une chaîne de caractère sous le format suivant : nom\_chien a age\_chien ans, est un race\_chien et a une humeur de mood\_chien. Il sait faire les tours suivants : tricks\_chien.
 
 \begin{solution}
 	\lstinputlisting{ressources/Question6.java}
