@@ -1,0 +1,200 @@
+\input{header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation orientée objet}
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
+
+\section{Création de votre première classe en Java}
+
+Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nomée Dog() sensée représenter un chien.
+
+Cette classe aura différents attributs et différentes ,méthodes que vous implémenterez au fur et à mesure de l'exercice. 
+
+\begin{Exercice}[Durée 10 minutes] Exercice 1\\
+    Commencez par créer une nouvelle Java Class dans votre projet, et initialisez les attributs suivants :
+    \begin{enumerate}
+    \item Un attribut publique String nommé name
+    \item Un attribut privé List nommé tricks
+    \item Un attribut privé String nommé race
+    \item Un attribut privé int nommé age
+    \item Un attribut privé int nommé mood initialisé à 5(correspondant à l'humeur du chien)
+    \item Un attribut privé de classe (static) int nommé nb\_chiens
+   	\end{enumerate}
+   	
+   	Ensuite, créez une méthode publique du même nom que la classe (Dog), qui va servir à initialiser nos différentes instances de cette classe. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance avec :
+   	\begin{enumerate}
+    \item Une chaine de caractère name
+    \item Une liste tricks
+    \item Une chaine de caractère race
+    \item Un entier age
+   	\end{enumerate}
+   	
+   	Pour finir, cette méthode doit incrémenter l'attribut de classe nb\_chiens qui va garder en mémoire le nombre d'instances crées.
+   	
+\begin{conseil}
+   N'oubliez pas de préciser si vos attributs sont public ou private.
+   
+   Le mot static correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting{ressources/Question1.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 10 minutes] Exercice 2\\
+    Il faut maintenant créer des méthodes nomées setter et getter pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs privés de la fonction. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
+    
+    Les méthodes getter consistent à retourner la valeur de l'attribut. Les setter consisteront à changer la valeur de l'attribut. \\
+    
+    Créez les méthodes suivantes :
+    \begin{enumerate}
+    \item getTricks()
+    \item getRace()
+    \item getAge()
+    \item getMood()
+    \item setTricks()
+    \item setRace()
+    \item setAge()
+    \item setMood()
+    \end{enumerate}
+    
+    Créez également une méthode de classe permettant de retourner le nombre de chiens instanciés (une méthode getter).
+   	
+\begin{conseil}
+   Les setter et getter vous seront proposés via l'autocompletion d'Intellij, nous vous recommandons tout de même d'en faire quelques unes à la main.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting{ressources/Question2.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 5 minutes] Exercice 3\\
+    Créez une méthode nomée add\_trick qui prend en argument une chaine de caractère, et qui l'ajoute à la liste tricks. \\
+   	
+\begin{conseil}
+   La liste tricks est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une LinkedList temporaire.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting{ressources/Question3.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 5 minutes] Exercice 4\\
+    Créez deux méthodes qui vont avoir un impact sur l'attribut mood du chien. La méthode leash() décrémentera mood de 3 et eat() l'incrémentera de 2. \\
+
+\begin{solution}
+	\lstinputlisting{ressources/Question4.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 5 minutes] Exercice 5\\
+    Créez une méthode nomée get\_oldest qui prend en argument un élément de type Dog, puis retourne le nom et l'age du chien le plus agé sous le format suivant : "nom\_chien est le chien le plus agé avec age\_chien ans". \\
+   	
+\begin{conseil}
+   L'élément Dog que vous passez en argument est un objet de type Dog, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
+   Faites attention à la façoon d'accéder aux différents attributs de votre deuxième chien (public vs private).
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting{ressources/Question5.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 5 minutes] Exercice 6\\
+    Créez une méthode de surcharge de la fonction System.out.println pour les objets de type Dog. Pour ce faire, le nom de votre méthode doit être le suivant : toString(). \\
+    Veillez à retourner une chaine de caractère sous le format suivant : nom\_chien a age\_chien ans, est un race\_chien et a une humeur de mood\_chien. Il sait faire les tours suivants : tricks\_chien.
+
+\begin{solution}
+	\lstinputlisting{ressources/Question6.java}
+\end{solution}
+\end{Exercice}
+
+Pour controller que vos méthodes et attributs ont été implémentées correctement, vous pouvez essayer le code suivant dans votre classe Main :
+
+	\lstinputlisting{ressources/main.java}
+	
+Vous devriez obtenir ce résultat :
+
+	\lstinputlisting{ressources/mainsolution.java}
+
+\section{Interaction entre plusieurs instances d'une même classe}
+Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un combattant. Chaque instance de cette classe pourra attaquer les autres instances.
+
+Les instances comprendront 4 attributs : l'attaque, la défense, les points de vie et un nom. Il y a également un attribut de classe nommé instances. Cet attribut est une liste comportant toutes les instances de la classe.
+
+Vous devrez compléter les 4 méthodes suivantes :
+\begin{enumerate}
+\item isAlive()
+\item checkDead()
+\item checkHealth()
+\item attack(Fighter other)
+\end{enumerate}
+
+
+Voici le squelette du code : \\
+
+\lstinputlisting{ressources/fighter.java}
+
+\begin{Exercice}[Durée 5 minutes] isAlive()\\
+    isAlive() est une méthode qui consiste à retourner true si l'instance a plus que 0 points de vie et false si l'instance en a moins.
+
+\begin{solution}
+	\lstinputlisting{ressources/isalive.java}
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[Durée 10 minutes] checkDead()\\
+    checkDead() est une méthode de classe qui consiste à parcourir la liste des instances, et de controller que chacune d'elle soit encore en vie. Si ce n'est pas le cas, l'instance en question est suprimmée de la liste des instances et le message "nom\_instance est mort" sera affiché.
+    
+\begin{conseil}
+Prenez le problème à l'envers, créez une liste temporaire, si l'instance est vivante ajoutez la à cette nouvelle liste, et pour finir, mettez à jour votre liste des instance à l'aide de votre liste temporaire.
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{ressources/checkdead.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 5 minutes] checkHealth()\\
+    checkHealth() est une méthode de classe qui consiste à parcourir la liste des instances, et à imprimmer le nombre de points de vie qu'il lui reste sous le format "nom\_instance a encore health\_instance points de vie". 
+
+\begin{solution}
+	\lstinputlisting{ressources/checkhealth.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[Durée 10 minutes] attack(Fighter other)\\
+    attack(Fighter other) est une méthode qui consiste à retirer des points de vie au Fighter other en fonction de l'attaque de l'instance appelée et de la défense de other. \\
+    
+    Comencez par contrôler si other est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : "other\_name est déjà mort". \\
+    
+     Si other est encore en vie, retirez de la vie à other. Le montant de la vie qui doit être retiré se calcule via : attack\_instance - defense\_other. Appelez ensuite les fonctions checkDead() et checkHealth() afin d'avoir un aperçu des combattants restants et de leur santé.
+    
+
+
+\begin{solution}
+	\lstinputlisting{ressources/attack.java}
+\end{solution}
+\end{Exercice}
+
+
+Pour terminer, vous pouvez exécuter ce Main pour vérifier que votre programme fonctionne correctement : \\
+
+\lstinputlisting{ressources/main2.java}
+
+Vous devriez obtenir ce résultat : \\
+
+\lstinputlisting{ressources/main2solution.java}
+
+\end{document}
