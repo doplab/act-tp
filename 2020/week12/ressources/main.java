@@ -1,22 +1,14 @@
 public class Main {
-    public static void main(String[] args) {
-        Dog Lola = new Dog("Loola",List.of("rollover"),"Bouviier",10);
-        Dog Tobi = new Dog("Tobi",List.of("rollover","do a barrel"),"Doggo",17);
-        System.out.println(Lola.getAge());
-        System.out.println(Lola.getMood());
-        System.out.println(Lola.getRace());
-        System.out.println(Lola.name);
-        System.out.println(Lola.getTricks());
-        Lola.setAge(13);
-        Lola.setMood(8);
-        Lola.setRace("Bouvier");
-        Lola.name = "Lola";
-        Lola.setTricks(List.of("rollover","do a barrel"));
-        Lola.eat();
-        Lola.leash();
-        Lola.add_trick("sit");
-        System.out.println(Dog.getNb_chiens());
-        System.out.println(Lola.get_oldest(Tobi));
-        System.out.println(Lola);
+    public static void main(String[] args){
+        graph test_graph = new graph();
+        test_graph.add_vertex("Lausanne");
+        test_graph.add_vertex("Geneve");
+        test_graph.new_edge("Geneve", "Lausanne", 35);
+        test_graph.new_edge("Lausanne", "Berne", 100);
+        test_graph.new_edge("Geneve", "Berne", 120);
+        test_graph.print();
+        test_graph.del_edge("Geneve", "Berne");
+        test_graph.print();
     }
+
 }

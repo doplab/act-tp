@@ -78,10 +78,10 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[Durée 5 minutes] Exercice 3\\
-    Créez une méthode nommée add\_trick qui prend en argument une chaîne de caractère, et qui l'ajoute à la liste tricks. \\
+    Créez une méthode nommée \lstinline{add_trick} qui prend en entrée une chaîne de caractère et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
-   La liste tricks est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une LinkedList temporaire.
+   La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une LinkedList temporaire.
 \end{conseil}
     
 \begin{solution}
@@ -128,6 +128,16 @@ Vous devriez obtenir ce résultat :
 	\lstinputlisting{ressources/mainsolution.java}
 
 \section{Interaction entre plusieurs instances d'une même classe}
+Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
+Chaque combattant (Fighter) aura des attributs qui le définissent. Ces attributs sont:
+\begin{itemize}
+    \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
+    \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
+    % TODO: À discuter: l'attaque pourrait contenir un dictionnaire contenant plusieurs types d'attaques ainsi que la puissance de chaque attaque.
+    \item \lstinline{attaque:}\text{(int)}
+    \item \lstinline{défense:}\text{(int)}
+\end{itemize}
+
 Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un combattant. Chaque instance de cette classe pourra attaquer les autres instances.
 
 Les instances comprendront 4 attributs : l'attaque, la défense, les points de vie et un nom. Il y a également un attribut de classe nommé instances. Cet attribut est une liste comportant toutes les instances de la classe.
@@ -146,7 +156,7 @@ Voici le squelette du code : \\
 \lstinputlisting{ressources/fighter.java}
 
 \begin{Exercice}[Durée 5 minutes] isAlive()\\
-    isAlive() est une méthode qui consiste à retourner true si l'instance a plus que 0 points de vie et false si l'instance en a moins.
+    isAlive() est une méthode qui consiste à retourner \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 
 \begin{solution}
 	\lstinputlisting{ressources/isalive.java}
