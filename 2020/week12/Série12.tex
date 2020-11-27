@@ -11,6 +11,8 @@
 % TODO: Objectifs à atteindre (Alpha)
 
 % TODO (All): Utiliser \lstinline{} sur tous les mots-clés, noms de classes, d'attributs, méthodes,...
+
+% TODO (All): À aucun moment on ne parle de constructeur par défaut! Il s'agit d'une notion importante en POO que nous devons aborder.
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
 \section{Création de votre première classe en Java}
@@ -220,6 +222,7 @@ Vous devriez obtenir ce résultat : \\
 \subsection{Partie 1}
 % TODO: Cette sous-section devrait être convertie en introduction. Les questions sont intéressantes. Toutefois, elles perdent de leur utilité si les étudiants n'ont pas accès aux réponses de façon immédiate. Il serait préférable de les reformuler et de les utiliser comme rappel avant de commencer à faire les exercices suivants.
 
+
 Ici, on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
 Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
 Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
@@ -332,6 +335,21 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update\_
 
 
 % TODO: Faire un exercice sur la POO en Python. On pourrait faire un truc simple (classe Point par exemple)
+\section{Notions de POO en Python}
+Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
+Dans votre IDE, créez un nouveau projet Python (Fichier > Nouveau > Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question} %TODO: Numéro de question à définir.
+
+\begin{Exercice}[20 minutes]
+    \begin{itemize}
+        \item Créez une classe \lstinline{Point} et un constructeur à deux paramètres.
+        \item Définissez deux attributs privés pour votre classe \lstinline{Point}. Ces attributs seront les coordonnées x et y de vos points.
+        \item Définir des getters et setters.
+        \item Définissez une méthode \lstinline{distance} qui prend en entrée self et p. \lstinline{self} représentant l'instance du point et \lstinline{p} représentant un autre point. Votre méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p}. Pour rappel, la distance euclidienne entre deux points est définie par la formule %TODO: Ecrire la formule de la distance entre deux points (Alpha).
+        \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p} et qui retournera une instance d'un objet point situé entre \lstinline{self} et \lstinline{p}.
+    \end{itemize}
+    
+    % TODO: Exercice à compléter (Alpha)
+\end{Exercice}
 
 
 \end{document}
