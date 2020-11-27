@@ -8,7 +8,9 @@
 \ShowConseiltrue
 \titre
 \cours{Programmation orientée objet}
+% TODO: Objectifs à atteindre (Alpha)
 
+% TODO (All): Utiliser \lstinline{} sur tous les mots-clés, noms de classes, d'attributs, méthodes,...
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
 \section{Création de votre première classe en Java}
@@ -17,10 +19,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 
 Cette classe aura différents attributs et différentes ,méthodes que vous implémenterez au fur et à mesure de l'exercice. 
 
-\begin{Exercice}[Durée 10 minutes] Exercice 1\\
+\begin{Exercice}[10 minutes] Exercice 1\\
     Commencez par créer une nouvelle Java Class dans votre projet, et initialisez les attributs suivants :
     \begin{enumerate}
-    \item Un attribut publique String nommé name
+    \item Un attribut public String nommé \lstinline{name}
     \item Un attribut privé List nommé tricks
     \item Un attribut privé String nommé race
     \item Un attribut privé int nommé age
@@ -30,7 +32,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
    	
    	Ensuite, créez une méthode publique du même nom que la classe (Dog), qui va servir à initialiser nos différentes instances de cette classe. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance avec :
    	\begin{enumerate}
-    \item Une chaîne de caractère name
+    \item Une chaîne de caractère \lstinline{name}
     \item Une liste tricks
     \item Une chaîne de caractère race
     \item Un entier age
@@ -39,9 +41,9 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
    	Pour finir, cette méthode doit incrémenter l'attribut de classe nb\_chiens qui va garder en mémoire le nombre d'instances crées.
    	
 \begin{conseil}
-   N'oubliez pas de préciser si vos attributs sont public ou private.
+   N'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
    
-   Le mot static correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
+   Le mot \lstinline{static} correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
 \end{conseil}
     
 \begin{solution}
@@ -49,10 +51,10 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 10 minutes] Exercice 2\\
+\begin{Exercice}[10 minutes] Exercice 2\\
     Il faut maintenant créer des méthodes nommées setter et getter pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs privés de la fonction. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
     
-    Les méthodes getter consistent à retourner la valeur de l'attribut. Les setter consisteront à changer la valeur de l'attribut. \\
+    Les méthodes getter consistent à retourner la valeur de l'attribut. Les setter consisteront à modifier la valeur de l'attribut. Les \lstinline{setter} sont souvent utilisés pour modifier la valeur d'attributs privés. \\
     
     Créez les méthodes suivantes :
     \begin{enumerate}
@@ -77,7 +79,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 5 minutes] Exercice 3\\
+\begin{Exercice}[5 minutes] Exercice 3\\
     Créez une méthode nommée \lstinline{add_trick} qui prend en entrée une chaîne de caractère et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
@@ -89,7 +91,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 5 minutes] Exercice 4\\
+\begin{Exercice}[5 minutes] Exercice 4\\
     Créez deux méthodes qui vont avoir un impact sur l'attribut mood du chien. La méthode leash() décrémentera mood de 3 et eat() l'incrémentera de 2. \\
 
 \begin{solution}
@@ -97,7 +99,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 5 minutes] Exercice 5\\
+\begin{Exercice}[5 minutes] Exercice 5\\
     Créez une méthode nommée get\_oldest qui prend en argument un élément de type Dog, puis retourne le nom et l'age du chien le plus agé sous le format suivant : "nom\_chien est le chien le plus agé avec age\_chien ans". \\
    	
 \begin{conseil}
@@ -110,22 +112,25 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 5 minutes] Exercice 6\\
+\begin{Exercice}[5 minutes] Exercice 6\\
     Créez une méthode de surcharge de la fonction System.out.println pour les objets de type Dog. Pour ce faire, le nom de votre méthode doit être le suivant : toString(). \\
     Veillez à retourner une chaîne de caractère sous le format suivant : nom\_chien a age\_chien ans, est un race\_chien et a une humeur de mood\_chien. Il sait faire les tours suivants : tricks\_chien.
+
+    % TODO: Donner plus de détails sur le rôle de la méthode toString() et expliquer le but de la surcharge. Dans ce cas, toString est héritée de la super classe Object. Etant donné qu'ils n'ont pas fait de POO, autant mieux utiliser un autre exemple de surcharge de méthode ou trouver un moyen de leur dire qu'ils verront plus en détails lorsqu'on fera l'héritage.
 
 \begin{solution}
 	\lstinputlisting{ressources/Question6.java}
 \end{solution}
 \end{Exercice}
 
-Pour controller que vos méthodes et attributs ont été implémentées correctement, vous pouvez essayer le code suivant dans votre classe Main :
+Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant dans votre classe Main :
 
 	\lstinputlisting{ressources/maingaetan.java}
 	
 Vous devriez obtenir ce résultat :
 
-	\lstinputlisting{ressources/mainsolution.java}
+    \lstinputlisting{ressources/mainsolution.java}
+% TODO: Dans cet exercice, je ne vois pas l'utilité de l'attribut Nb_chiens. Doit-on le garder?
 
 \section{Interaction entre plusieurs instances d'une même classe}
 Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
@@ -134,7 +139,7 @@ Chaque combattant (Fighter) aura des attributs qui le définissent. Ces attribut
     \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
     \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
     % TODO: À discuter: l'attaque pourrait contenir un dictionnaire contenant plusieurs types d'attaques ainsi que la puissance de chaque attaque.
-    \item \lstinline{attaque:}\text{(int)}
+    \item \lstinline{attaque:}\text{(int)} % TODO: expliquer le rôle d'attaque et défense.
     \item \lstinline{défense:}\text{(int)}
 \end{itemize}
 
@@ -155,8 +160,8 @@ Voici le squelette du code : \\
 
 \lstinputlisting{ressources/fighter.java}
 
-\begin{Exercice}[Durée 5 minutes] isAlive()\\
-    isAlive() est une méthode qui consiste à retourner \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
+\begin{Exercice}[5 minutes] isAlive()\\
+    Définir une méthode \lstinline{isAlive()} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 
 \begin{solution}
 	\lstinputlisting{ressources/isalive.java}
@@ -164,11 +169,11 @@ Voici le squelette du code : \\
 \end{Exercice}
 
 
-\begin{Exercice}[Durée 10 minutes] checkDead()\\
-    checkDead() est une méthode de classe qui consiste à parcourir la liste des instances, et de controller que chacune d'elle soit encore en vie. Si ce n'est pas le cas, l'instance en question est suprimmée de la liste des instances et le message "nom\_instance est mort" sera affiché.
+\begin{Exercice}[10 minutes] checkDead()\\
+    Définir une méthode \lstinline{checkDead()} qui consiste à parcourir la liste des instances, et à contrôler que chacune d'elle soit encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nom_instance} est mort'' sera affiché.
     
 \begin{conseil}
-Prenez le problème à l'envers, créez une liste temporaire, si l'instance est vivante ajoutez la à cette nouvelle liste, et pour finir, mettez à jour votre liste des instance à l'aide de votre liste temporaire.
+Prenez le problème à l'envers, créez une liste temporaire, si l'instance est vivante ajoutez la à cette nouvelle liste, et pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.
 \end{conseil}
 
 \begin{solution}
@@ -176,20 +181,21 @@ Prenez le problème à l'envers, créez une liste temporaire, si l'instance est 
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 5 minutes] checkHealth()\\
-    checkHealth() est une méthode de classe qui consiste à parcourir la liste des instances, et à imprimmer le nombre de points de vie qu'il lui reste sous le format "nom\_instance a encore health\_instance points de vie". 
+\begin{Exercice}[5 minutes] checkHealth()\\
+    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et imprime le nombre de points de vie qu'il lui reste sous le format ``\lstinline{nom_instance} a encore \lstinline{health_instance} points de vie". 
 
 \begin{solution}
 	\lstinputlisting{ressources/checkhealth.java}
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[Durée 10 minutes] attack(Fighter other)\\
-    attack(Fighter other) est une méthode qui consiste à retirer des points de vie au Fighter other en fonction de l'attaque de l'instance appelée et de la défense de other. \\
+\begin{Exercice}[10 minutes] attack(Fighter other)\\
+    Définir une méthode \lstinline{attack(Fighter other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée et de la défense de other. \\
+    % TODO: Ne devrait-on pas appeler notre classe "Combattant"? ...À discuter.
     
-    Comencez par contrôler si other est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : "other\_name est déjà mort". \\
+    Commencez par contrôler si \lstinline{other} est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
     
-     Si other est encore en vie, retirez de la vie à other. Le montant de la vie qui doit être retiré se calcule via : attack\_instance - defense\_other. Appelez ensuite les fonctions checkDead() et checkHealth() afin d'avoir un aperçu des combattants restants et de leur santé.
+     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : attack\_instance - defense\_other. Appelez ensuite les fonctions checkDead() et checkHealth() afin d'avoir un aperçu des combattants restants et de leur santé.
     
 
 
@@ -199,7 +205,7 @@ Prenez le problème à l'envers, créez une liste temporaire, si l'instance est 
 \end{Exercice}
 
 
-Pour terminer, vous pouvez exécuter ce Main pour vérifier que votre programme fonctionne correctement : \\
+Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Ressources sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
 
 \lstinputlisting{ressources/main2.java}
 
@@ -207,17 +213,20 @@ Vous devriez obtenir ce résultat : \\
 
 \lstinputlisting{ressources/main2solution.java}
 
+\newpage
 
 \section{Conception de classes pour coder des weighted graphs}
 
 \subsection{Partie 1}
-Ici on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
-Pour cela il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
-Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est à dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
+% TODO: Cette sous-section devrait être convertie en introduction. Les questions sont intéressantes. Toutefois, elles perdent de leur utilité si les étudiants n'ont pas accès aux réponses de façon immédiate. Il serait préférable de les reformuler et de les utiliser comme rappel avant de commencer à faire les exercices suivants.
+
+Ici, on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
+Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
+Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
 
 Cette partie de l'exercice a pour but de poser des questions théoriques qui sont une aide pour comprendre la logique de conception.
 
-\begin{Exercice}[Durée 15 minutes] Exercice 1\\
+\begin{Exercice}[15 minutes] Exercice 1\\
     \begin{enumerate}
         \item Quels sont les 3 composants d'un weighted graph ?
         \item Combien de classes sont nécessaires pour représenter tous les composants du graph et le graph lui même ?
@@ -272,19 +281,22 @@ Cette partie de l'exercice a pour but de poser des questions théoriques qui son
 \newpage
 \end{Exercice}
 \subsection{Partie 2}
-Le code pour la classe Edges est fourni dans le dossier ressources sur moodle.
-Utiliser le fichier Main.java dans le dossier ressources sur moodle pour effectuer des tests. Il devrait retourner:
+% TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
+Le code pour la classe Edges est fourni dans le dossier ressources sur Moodle.
+Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Il devrait retourner:
 
 \includegraphics[]{ressources/sortie_juste.PNG}
 
-\begin{Exercice}[Durée 20 minutes] Exercice 2\\
+\begin{Exercice}[20 minutes] Exercice 2\\
 
 Voici une partie de la classe graph codée. Implémentez les méthodes "update\_weight", "new\_edge" et " "edge\_exist".
+% TODO: Les guillemets contenus dans les commentaires du code cassent la coloration syntaxique. On devrait songer à les enlever.
 
 \textbf{Java :}
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
-        \item La méthode "update weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon elle imprimera une phrase indiquant que cette arête n'existe pas.
+        % TODO: les noms de méthodes doivent être identiques à celles du code.
+        \item La méthode "update weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette arête n'existe pas.
         \item La méthode "edge exist" qui va prendre en paramètre le sommet d'origine et le sommet d'arrivée. Si cette arête est dans le graph alors la méthode ressort son poids, 0 sinon.
         \item La méthode "new edge" doit créer une instance de Edges et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode "generate edge" qui vous est donnée pour créer et ajouter cette arête au graph. La méthode "new edge" aura comme paramètres: le sommet d'origine, le sommet d'arrivée, le poids.
     \end{enumerate}
@@ -298,7 +310,7 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update\_
         \item Si l'arête existe.
         \item Si l'arête existante a le même poids que celui indiqué en paramètre de la méthode.
         \item Si l'arête existante n'a pas le même poids que celui indiqué en paramètre de la méthode.
-        \item Utiliser le résultat de " edge exist" pour simplifier ces tests.
+        \item Utilisez le résultat de " edge exist" pour simplifier ces tests.
         \end{enumerate}
     \end{enumerate}
     \end{conseil}
@@ -310,12 +322,16 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update\_
     \textbf{Java :}
          \lstinputlisting{ressources/graphexo.java}
     \end{solution}
+    % TODO: Découper les fichiers de solutions pour qu'ils tiennent sur une page. Les renommer graph_1.java, graph_2,java par exemple et les mettre dans un dossier "Display" ou "Affichage". Mettre le fichier complet dans le dossier solution.
     \begin{solution}
     \textbf{Java :}
          \lstinputlisting{ressources/graph2.java}
     \end{solution}
 
 \end{Exercice}
+
+
+% TODO: Faire un exercice sur la POO en Python. On pourrait faire un truc simple (classe Point par exemple)
 
 
 \end{document}
