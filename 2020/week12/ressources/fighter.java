@@ -61,7 +61,7 @@ public class Fighter {
         // à compléter
     }
 
-        public void attack (Combattant other){
+        public void attack (String type, Combattant other){
             // à compléter
         }
     }
