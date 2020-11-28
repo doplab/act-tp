@@ -1,6 +1,6 @@
 public class graph {
     // Les attributs de la class graph
-    public List<Edges> edges = new Vector();   // Utilisation de vector car il faut que l'on puisse rajouter ou supprimer des éléments de la liste
+    public List<Edge> edges = new Vector();   // Utilisation de vector car il faut que l'on puisse rajouter ou supprimer des éléments de la liste
     public List<String> vertices = new Vector();
 
 
@@ -12,7 +12,7 @@ public class graph {
 
     // Cette méthode va tester si le sommet demandé existe dans le graph. Si oui retourne le poids, sinon retourne 0.
     public double edge_exist(String from_vertex, String to_vertex){
-        for (Edges edge : this.edges) {
+        for (Edge edge : this.edges) {
             if (edge.from_vertex == from_vertex & edge.to_vertex == to_vertex) {
                 return edge.weight;
             }
@@ -25,7 +25,7 @@ public class graph {
     // être utile dans la méthode new_edge
     private void generate_edge(String from_vertex, String to_vertex, double weight){
         if (this.vertices.contains(from_vertex) & this.vertices.contains(to_vertex)){
-            Edges new_edge = new Edges(from_vertex,to_vertex,weight);
+            Edge new_edge = new Edges(from_vertex,to_vertex,weight);
             this.edges.add(new_edge);
         }
         else {
@@ -35,7 +35,7 @@ public class graph {
             if (!this.vertices.contains(to_vertex)){
                 this.vertices.add(to_vertex);
             }
-            Edges new_edge = new Edges(from_vertex,to_vertex,weight);
+            Edge new_edge = new Edge(from_vertex,to_vertex,weight);
             this.edges.add(new_edge);
         }
 
