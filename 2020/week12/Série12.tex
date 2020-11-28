@@ -12,40 +12,44 @@
 
 % TODO (All): Utiliser \lstinline{} sur tous les mots-clés, noms de classes, d'attributs, méthodes,...
 
-% TODO (All): À aucun moment on ne parle de constructeur par défaut! Il s'agit d'une notion importante en POO que nous devons aborder.
+
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
 \section{Création de votre première classe en Java}
 
-Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée Dog() sensée représenter un chien.
+Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée \lstinline{Dog()} sensée représenter un chien.
 
 Cette classe aura différents attributs et différentes ,méthodes que vous implémenterez au fur et à mesure de l'exercice. 
 
 \begin{Exercice}[10 minutes] Exercice 1\\
-    Commencez par créer une nouvelle Java Class dans votre projet, et initialisez les attributs suivants :
+    Commencez par créer une nouvelle \lstinline{Java} Class dans votre projet, et initialisez les attributs suivants :
     \begin{enumerate}
-    \item Un attribut public String nommé \lstinline{name}
-    \item Un attribut privé List nommé tricks
-    \item Un attribut privé String nommé race
-    \item Un attribut privé int nommé age
-    \item Un attribut privé int nommé mood initialisé à 5(correspondant à l'humeur du chien)
-    \item Un attribut privé de classe (static) int nommé nb\_chiens
+    \item Un attribut \lstinline{public} String nommé \lstinline{name}
+    \item Un attribut \lstinline{private} List nommé \lstinline{tricks}
+    \item Un attribut \lstinline{private} String nommé \lstinline{race}
+    \item Un attribut \lstinline{private} int nommé \lstinline{age}
+    \item Un attribut \lstinline{private} int nommé \lstinline{mood} initialisé à 5(correspondant à l'humeur du chien)
+    \item Un attribut \lstinline{private} de classe (\lstinline{static}) int nommé \lstinline{nb_chiens}
    	\end{enumerate}
    	
-   	Ensuite, créez une méthode publique du même nom que la classe (Dog), qui va servir à initialiser nos différentes instances de cette classe. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance avec :
+   	Ensuite, créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur},elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et un \lstinline{constructeur} en \lstinline{python} sera la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance avec :
    	\begin{enumerate}
     \item Une chaîne de caractère \lstinline{name}
-    \item Une liste tricks
-    \item Une chaîne de caractère race
-    \item Un entier age
+    \item Une liste \lstinline{tricks}
+    \item Une chaîne de caractère \lstinline{race}
+    \item Un entier \lstinline{age}
    	\end{enumerate}
    	
-   	Pour finir, cette méthode doit incrémenter l'attribut de classe nb\_chiens qui va garder en mémoire le nombre d'instances crées.
+   	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances crées.
    	
 \begin{conseil}
    N'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
    
    Le mot \lstinline{static} correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
+   
+   Pour attribuer des valeurs à vos attributs d'instance, utilisez le mot-clé \lstinline{this.attribut}.
+   
+   Pour accéder aux attributs de classe, utilisez \lstinline{nom_classe.nom_attribut}
 \end{conseil}
     
 \begin{solution}
@@ -54,26 +58,26 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] Exercice 2\\
-    Il faut maintenant créer des méthodes nommées setter et getter pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs privés de la fonction. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
+    Il faut maintenant créer des méthodes nommées \lstinline{setter} et \lstinline{getter} pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs \lstinline{private} des instances de la classe. Pour les attributs publics, il vous suffit d'utiliser nom\_instance.attribut pour l'obtenir. \\
     
-    Les méthodes getter consistent à retourner la valeur de l'attribut. Les setter consisteront à modifier la valeur de l'attribut. Les \lstinline{setter} sont souvent utilisés pour modifier la valeur d'attributs privés. \\
+    Les méthodes \lstinline{getter} consistent à retourner la valeur de l'attribut. Les setter consisteront à modifier la valeur de l'attribut. Les \lstinline{setter} sont souvent utilisés pour modifier la valeur d'attributs privés. \\
     
     Créez les méthodes suivantes :
-    \begin{enumerate}
-    \item getTricks()
-    \item getRace()
-    \item getAge()
-    \item getMood()
-    \item setTricks()
-    \item setRace()
-    \item setAge()
-    \item setMood()
-    \end{enumerate}
+    \begin{itemize}
+    \item \lstinline{getTricks()}
+    \item \lstinline{getRace()}
+    \item \lstinline{getAge()}
+    \item \lstinline{getMood()}
+    \item \lstinline{setTricks()}
+    \item \lstinline{setRace()}
+    \item \lstinline{setAge()}
+    \item \lstinline{setMood()}
+    \end{itemize}
     
-    Créez également une méthode de classe permettant de retourner le nombre de chiens instanciés (une méthode getter).
+    Créez également une méthode de classe permettant de retourner le nombre de \lstinline{Dog} instanciés (une méthode \lstinline{getter}).
    	
 \begin{conseil}
-   Les setter et getter vous seront proposés via l'autocompletion d'Intellij, nous vous recommandons tout de même d'en faire quelques unes à la main.
+   Les \lstinline{setter} et \lstinline{getter} vous seront proposés via l'autocompletion d'Intellij, nous vous recommandons tout de même d'en faire quelques unes à la main.
 \end{conseil}
     
 \begin{solution}
@@ -82,7 +86,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Exercice 3\\
-    Créez une méthode nommée \lstinline{add_trick} qui prend en entrée une chaîne de caractère et l'ajoute à la liste \lstinline{tricks}. \\
+    Créez une méthode nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractère et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
    La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une LinkedList temporaire.
@@ -94,7 +98,7 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Exercice 4\\
-    Créez deux méthodes qui vont avoir un impact sur l'attribut mood du chien. La méthode leash() décrémentera mood de 3 et eat() l'incrémentera de 2. \\
+    Créez deux méthodes qui vont avoir un impact sur l'attribut \lstinline{mood} du \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera mood de 3 et \lstinline{eat()} l'incrémentera de 2. \\
 
 \begin{solution}
 	\lstinputlisting{ressources/Question4.java}
@@ -102,11 +106,11 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Exercice 5\\
-    Créez une méthode nommée get\_oldest qui prend en argument un élément de type Dog, puis retourne le nom et l'age du chien le plus agé sous le format suivant : "nom\_chien est le chien le plus agé avec age\_chien ans". \\
+    Créez une méthode nommée \lstinline{get_oldest(Dog other)} qui prend en argument un élément de type \lstinline{Dog}, puis retourne le nom et l'age du \lstinline{Dog} le plus agé sous le format suivant : "\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans". \\
    	
 \begin{conseil}
-   L'élément Dog que vous passez en argument est un objet de type Dog, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
-   Faites attention à la façoon d'accéder aux différents attributs de votre deuxième chien (public vs private).
+   L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
+   Faites attention à la façoon d'accéder aux différents attributs de votre deuxième chien (\lstinline{public} vs \lstinline{private}).
 \end{conseil}
     
 \begin{solution}
@@ -115,10 +119,10 @@ Cette classe aura différents attributs et différentes ,méthodes que vous impl
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Exercice 6\\
-    Créez une méthode de surcharge de la fonction System.out.println pour les objets de type Dog. Pour ce faire, le nom de votre méthode doit être le suivant : toString(). \\
-    Veillez à retourner une chaîne de caractère sous le format suivant : nom\_chien a age\_chien ans, est un race\_chien et a une humeur de mood\_chien. Il sait faire les tours suivants : tricks\_chien.
-
-    % TODO: Donner plus de détails sur le rôle de la méthode toString() et expliquer le but de la surcharge. Dans ce cas, toString est héritée de la super classe Object. Etant donné qu'ils n'ont pas fait de POO, autant mieux utiliser un autre exemple de surcharge de méthode ou trouver un moyen de leur dire qu'ils verront plus en détails lorsqu'on fera l'héritage.
+    Créez une méthode de surcharge de la méthode \lstinline{toString()} héritée de la super classe Object. Ainsi, il est possible de choisir ce que vaudra le str() de nos objets de type \lstinline{Dog} (Ce sujet sera abordé lors du cours sur l'héritage). Il est également possible de surcharger d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seront additionnés ous soustraits. \\
+    
+    Pour surcharger la méthode \lstinline{toString()}, le nom de votre méthode doit être le suivant : \lstinline{toString()}. \\
+    Veillez à retourner une chaîne de caractère sous le format suivant : \lstinline{nom_chien} a \lstinline{age_chien} ans, est un \lstinline{race_chien} et a une humeur de \lstinline{mood_chien}. Il sait faire les tours suivants : \lstinline{tricks_chien}.
 
 \begin{solution}
 	\lstinputlisting{ressources/Question6.java}
@@ -132,30 +136,36 @@ Pour contrôler que vos méthodes et attributs ont été implémentés correctem
 Vous devriez obtenir ce résultat :
 
     \lstinputlisting{ressources/mainsolution.java}
-% TODO: Dans cet exercice, je ne vois pas l'utilité de l'attribut Nb_chiens. Doit-on le garder?
+% TODO: Dans cet exercice, je ne vois pas l'utilité de l'attribut Nb_chiens. Doit-on le garder? 
+% C'était simplement pour leur montrer comment fonctionne un attribut de classe, tu penses qu'il faudrait l'enlever ?
 
 \section{Interaction entre plusieurs instances d'une même classe}
-Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
-Chaque combattant (Fighter) aura des attributs qui le définissent. Ces attributs sont:
+Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Combattant} que nous allons créer.
+Chaque \lstinline{Combattant} aura des attributs qui le définissent. Ces attributs sont:
 \begin{itemize}
     \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
     \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
-    % TODO: À discuter: l'attaque pourrait contenir un dictionnaire contenant plusieurs types d'attaques ainsi que la puissance de chaque attaque.
-    \item \lstinline{attaque:}\text{(int)} % TODO: expliquer le rôle d'attaque et défense.
-    \item \lstinline{défense:}\text{(int)}
+    \item \lstinline{attaque:}\text{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégats infligés à l'adversaire.
+    \item \lstinline{défense:}\text{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégats reçus.
 \end{itemize}
 
-Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un combattant. Chaque instance de cette classe pourra attaquer les autres instances.
+2 attributs de classe seront également utilisés :
+\begin{itemize}
+\item \lstinline{instances :} Liste comprenant les combattants qui ont été instanciés et qui sont toujours en vie.
+\item \lstinline{attack_modifier :} Dictionnaire comportant 3 types d'attaque, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont poing, pied et tete modifiant respectivement l'attaque par 1, 2, 3.
+\end{itemize}
 
-Les instances comprendront 4 attributs : l'attaque, la défense, les points de vie et un nom. Il y a également un attribut de classe nommé instances. Cet attribut est une liste comportant toutes les instances de la classe.
+Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{combattant}. Chaque instance de cette classe pourra attaquer les autres instances.
 
 Vous devrez compléter les 4 méthodes suivantes :
 \begin{enumerate}
-\item isAlive()
-\item checkDead()
-\item checkHealth()
-\item attack(Fighter other)
+\item \lstinline{isAlive()}
+\item \lstinline{checkDead()}
+\item \lstinline{checkHealth()}
+\item \lstinline{attack(String type, Combattant other)}
 \end{enumerate}
+
+
 
 
 Voici le squelette du code : \\
@@ -191,13 +201,12 @@ Prenez le problème à l'envers, créez une liste temporaire, si l'instance est 
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] attack(Fighter other)\\
-    Définir une méthode \lstinline{attack(Fighter other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée et de la défense de other. \\
-    % TODO: Ne devrait-on pas appeler notre classe "Combattant"? ...À discuter.
+\begin{Exercice}[10 minutes] attack(String type Combattant other)\\
+    Définir une méthode \lstinline{attack(String type, Combattant other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de other. \\
     
     Commencez par contrôler si \lstinline{other} est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
     
-     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : attack\_instance - defense\_other. Appelez ensuite les fonctions checkDead() et checkHealth() afin d'avoir un aperçu des combattants restants et de leur santé.
+     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attack_modifier(type)} * \lstinline{attack_instance} - \lstinline{defense_other}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
     
 
 
@@ -232,10 +241,10 @@ Cette partie est une introduction qui a pour but de poser des questions théoriq
 Voici les questions, essayez d'y répondre avant de vous référer aux réponses juste en dessous:
 
     \begin{enumerate}
-        \item Quels sont les 3 composants d'un weighted graph ?
-        \item Combien de classes sont nécessaires pour représenter tous les composants du graph et le graph lui même ?
-        \item Sachant que vous avez une classe qui représente les arêtes et que les sommets sont représentés par des chaînes de caractères. Déterminer quels sont les attributs de la class graph.
-        \item Maintenant que vous avec le schéma général de votre classe graph, il faut déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet.
+        \item Quels sont les 3 composants d'un \lstinline{weighted graph} ?
+        \item Combien de classes sont nécessaires pour représenter tous les composants du \lstinline{graph} et le \lstinline{graph} lui même ?
+        \item Sachant que vous avez une classe qui représente les \lstinline{arêtes} et que les \lstinline{sommets} sont représentés par des chaînes de caractères. Déterminer quels sont les attributs de la class \lstinline{graph}.
+        \item Maintenant que vous avec le schéma général de votre classe \lstinline{graph}, il faut déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet.
         
         Il faut donc réfléchir sur les questions suivantes:
             \begin{enumerate}
@@ -250,10 +259,10 @@ Voici les questions, essayez d'y répondre avant de vous référer aux réponses
 \begin{conseil}
    % Un conseil
    \begin{enumerate}
-   \item Il faut décomposer ce qui constitue un graph. Revenir sur le cours de la semaine 7 sur moodle.
-   \item Réfléchir aux différents objets du type les arêtes qui consituent un graph. Réflechir si ils ont besoin d'être représenté avec une classe ou est-ce que les types de "base" sont suffisants.
+   \item Il faut décomposer ce qui constitue un \lstinline{graph}. Revenir sur le cours de la semaine 7 sur moodle.
+   \item Réfléchir aux différents objets du type les \lstinline{arêtes} qui consituent un \lstinline{graph}. Réflechir si ils ont besoin d'être représenté avec une classe ou est-ce que les types de "base" sont suffisants.
    \item Les attributs sont les briques qui constituent votre classe. Il faut donc poser les variables nécéssaires et leur type.
-   \item Penser de la même manière que lorsque vous utilisez une application et critiquez (en bien ou en mal) les fonctionnalitées de celle-ci. Ici, il faut réfléchir à ce qu'une personne qui va utiliser votre "application" ( la classe) aurait besoin.
+   \item Penser de la même manière que lorsque vous utilisez une application et critiquez (en bien ou en mal) les fonctionnalitées de celle-ci. Ici, il faut réfléchir à ce qu'une personne qui va utiliser votre "application" (la classe) aurait besoin.
    \end{enumerate}
 \end{conseil}
     
@@ -263,20 +272,20 @@ Voici les réponses aux questions posées ci-dessus. Essayez de comprendre la lo
     %\lstinputlisting{solutions/fichier.java}
     \begin{enumerate}
     \item \begin{enumerate}
-          \item Les sommets.
-          \item Les arêtes.
-          \item Le poids de chaque arête.
+          \item Les \lstinline{sommets}.
+          \item Les \lstinline{arêtes}.
+          \item Le \lstinline{poids} de chaque arête.
           \end{enumerate}
     \item Il faut 2 classes ( ou 3 si on cherche à avoir plus d'informations dans les sommets):
         \begin{enumerate}
-        \item Une classe Edges qui va représenter les arêtes.
-        \item Une classe graph.
+        \item Une classe \lstinline{Edges} qui va représenter les arêtes.
+        \item Une classe \lstinline{graph}.
         \end{enumerate}
-    \item La classe graph va avoir 2 attributs: un ensemble contenant les sommets et un autre ensemble contenant les arêtes de celui-ci.
+    \item La classe graph va avoir 2 attributs: un ensemble contenant les \lstinline{sommets} et un autre ensemble contenant les \lstinline{arêtes} de celui-ci.
     \item Les réponses à cette partie sont courtes mais assez essentielles pour savoir quelles méthodes coder:
         \begin{enumerate}
-        \item Oui, l'utilisateur voudra sûrement rajouter des arêtes, des sommets ou potentiellement changer le poids d'une arête. Il faut donc lui laisser cette possibilité
-        \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les weighted graphs. Il est donc utile de pouvoir identifier si un sommet ou une arête sont des composants de l'instance.
+        \item Oui, l'utilisateur voudra sûrement rajouter des \lstinline{arêtes}, des \lstinline{sommets} ou potentiellement changer le poids d'une \lstinline{arête}. Il faut donc lui laisser cette possibilité
+        \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les \lstinline{weighted graphs}. Il est donc utile de pouvoir identifier si un \lstinline{sommet} ou une \lstinline{arête} sont des composants de l'instance.
         \item Certaines méthodes pourraient avoir un code très long si on ne ségmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
         
         De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
@@ -287,41 +296,39 @@ Voici les réponses aux questions posées ci-dessus. Essayez de comprendre la lo
 
 \subsection{Partie 2}
 % TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
-Le code pour la classe Edges est fourni dans le dossier ressources sur Moodle.
+Le code pour la classe \lstinline{Edges} est fourni dans le dossier ressources sur Moodle.
 Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Il devrait retourner:
 
 \includegraphics[]{ressources/sortie_juste.PNG}
 
 \begin{Exercice}[20 minutes] Exercice 2\\
 
-Voici une partie de la classe graph codée. Implémentez les méthodes "update\_weight", "new\_edge" et " "edge\_exist".
-% TODO: Les guillemets contenus dans les commentaires du code cassent la coloration syntaxique. On devrait songer à les enlever.
+Voici une partie de la classe \lstinline{graph} codée. Implémentez les méthodes \lstinline{update_weight()}, \lstinline{new_edge} et \lstinline{edge_exist}.
 
 \textbf{Java :}
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
-        % TODO: les noms de méthodes doivent être identiques à celles du code.
-        \item La méthode "update\_weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette arête n'existe pas.
-        \item La méthode "edge\_exist" qui va prendre en paramètre le sommet d'origine et le sommet d'arrivée. Si cette arête est dans le graph alors la méthode ressort son poids, 0 sinon.
-        \item La méthode "new\_edge" doit créer une instance de Edges et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode "generate\_edge" qui vous est donnée pour créer et ajouter cette arête au graph. La méthode "new\_edge" aura comme paramètres: le sommet d'origine, le sommet d'arrivée, le poids.
+        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette \lstinline{arête} n'existe pas.
+        \item La méthode \lstinline{edge_exist()} qui va prendre en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode ressort son poids, 0 sinon.
+        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edges} et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura comme paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
     \end{enumerate}
 
     \begin{conseil}
     \begin{enumerate}
-    \item Utiliser une boucle for pour parcourir toutes les arêtes dans le graph. Faire un test sur les attributs de Edges pour changer le poids.
-    \item Il faut tester pour chaque arête ( itération) si elle  est égale à celle rentrée en paramètres.
-    \item Il faut utiliser les méthodes " edge\_exist", " update\_edge" et " generate\_edge" pour écrire cette méthode. Il y a 4 tests à effectuer: 
+    \item Utiliser une boucle for pour parcourir toutes les \lstinline{arêtes} dans le \lstinline{graph}. Faire un test sur les attributs de \lstinline{Edges} pour changer le poids.
+    \item Il faut tester pour chaque \lstinline{arête} ( itération) si elle  est égale à celle rentrée en paramètres.
+    \item Il faut utiliser les méthodes \lstinline{edge_exist()}, \lstinline{update_edge()} et \lstinline{generate_edge()} pour écrire cette méthode. Il y a 4 tests à effectuer: 
         \begin{enumerate}
-        \item Si l'arête existe.
-        \item Si l'arête existante a le même poids que celui indiqué en paramètre de la méthode.
-        \item Si l'arête existante n'a pas le même poids que celui indiqué en paramètre de la méthode.
-        \item Utilisez le résultat de " edge\_exist" pour simplifier ces tests.
+        \item Si \lstinline{l'arête} existe.
+        \item Si \lstinline{l'arête} existante a le même poids que celui indiqué en paramètre de la méthode.
+        \item Si \lstinline{l'arête} existante n'a pas le même poids que celui indiqué en paramètre de la méthode.
+        \item Utilisez le résultat de \lstinline{edge_exist} pour simplifier ces tests.
         \end{enumerate}
     \end{enumerate}
     \end{conseil}
     \begin{solution}
     \textbf{Java :}
-         \lstinputlisting{ressources/Edges.java}
+         \lstinputlisting{ressources/Edge.java}
     \end{solution}
     \begin{solution}
     \textbf{Java :}
