@@ -219,7 +219,7 @@ Vous devriez obtenir ce résultat : \\
 
 \section{Conception de classes pour coder des weighted graphs}
 
-\subsection{Partie 1}
+\subsection{Introduction}
 % TODO: Cette sous-section devrait être convertie en introduction. Les questions sont intéressantes. Toutefois, elles perdent de leur utilité si les étudiants n'ont pas accès aux réponses de façon immédiate. Il serait préférable de les reformuler et de les utiliser comme rappel avant de commencer à faire les exercices suivants.
 
 
@@ -227,9 +227,10 @@ Ici, on cherche à pousser votre réflexion sur le processus de conception de cl
 Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
 Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
 
-Cette partie de l'exercice a pour but de poser des questions théoriques qui sont une aide pour comprendre la logique de conception.
+Cette partie est une introduction qui a pour but de poser des questions théoriques et les résoudre qui permettront de mieux comprendre la logique de conception.
 
-\begin{Exercice}[15 minutes] Exercice 1\\
+Voici les questions, essayez d'y répondre avant de vous référer aux réponses juste en dessous:
+
     \begin{enumerate}
         \item Quels sont les 3 composants d'un weighted graph ?
         \item Combien de classes sont nécessaires pour représenter tous les composants du graph et le graph lui même ?
@@ -256,7 +257,8 @@ Cette partie de l'exercice a pour but de poser des questions théoriques qui son
    \end{enumerate}
 \end{conseil}
     
-\begin{solution}
+Voici les réponses aux questions posées ci-dessus. Essayez de comprendre la logique derrière:
+
 \textbf{Certaines questions n'ont pas qu'une réponse car il y a toujours plus d'une manière d'implémenter une classe. Voici une façon de répondre: }
     %\lstinputlisting{solutions/fichier.java}
     \begin{enumerate}
@@ -280,9 +282,9 @@ Cette partie de l'exercice a pour but de poser des questions théoriques qui son
         De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
         \end{enumerate}
     \end{enumerate}
-\end{solution}
+
 \newpage
-\end{Exercice}
+
 \subsection{Partie 2}
 % TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
 Le code pour la classe Edges est fourni dans le dossier ressources sur Moodle.
