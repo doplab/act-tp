@@ -1,5 +1,5 @@
 public void update_weight(String from_vertex, String to_vertex, double weight){
-        for (Edges edge : this.edges){
+        for (Edge edge : this.edges){
         if(edge.from_vertex == from_vertex & edge.to_vertex == to_vertex){
         edge.weight = weight;
         System.out.println("Weight of" + edge + "has been updated");
@@ -30,7 +30,7 @@ public void new_edge(String from_vertex, String to_vertex, double weight){
 
 // Méthode nous permettant de supprimer une arête du graph.
 public void del_edge(String from_vertex, String to_vertex){
-        for( Edges edge : this.edges ){
+        for( Edge edge : this.edges ){
         if (edge.from_vertex == from_vertex & edge.to_vertex == to_vertex){
         this.edges.remove(edge);
         System.out.println("Edge between " + from_vertex + " and " + to_vertex + " has been deleted.");
@@ -43,7 +43,7 @@ public void print(){
         for(int i=0; i< this.vertices.size(); ++i){
         System.out.println("The vertex number " + (i+1) + " has a value of: " + this.vertices.get(i));
             }
-        for (Edges edge : this.edges){
+        for (Edge edge : this.edges){
         edge.print();
             }
         }
