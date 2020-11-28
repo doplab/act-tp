@@ -299,21 +299,21 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update\_
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
         % TODO: les noms de méthodes doivent être identiques à celles du code.
-        \item La méthode "update weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette arête n'existe pas.
-        \item La méthode "edge exist" qui va prendre en paramètre le sommet d'origine et le sommet d'arrivée. Si cette arête est dans le graph alors la méthode ressort son poids, 0 sinon.
-        \item La méthode "new edge" doit créer une instance de Edges et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode "generate edge" qui vous est donnée pour créer et ajouter cette arête au graph. La méthode "new edge" aura comme paramètres: le sommet d'origine, le sommet d'arrivée, le poids.
+        \item La méthode "update\_weight" doit prendre en paramètres: le sommet d'origine, le sommet d'arrivée ainsi que le poids d'une arête. Si cette arête existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette arête n'existe pas.
+        \item La méthode "edge\_exist" qui va prendre en paramètre le sommet d'origine et le sommet d'arrivée. Si cette arête est dans le graph alors la méthode ressort son poids, 0 sinon.
+        \item La méthode "new\_edge" doit créer une instance de Edges et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode "generate\_edge" qui vous est donnée pour créer et ajouter cette arête au graph. La méthode "new\_edge" aura comme paramètres: le sommet d'origine, le sommet d'arrivée, le poids.
     \end{enumerate}
 
     \begin{conseil}
     \begin{enumerate}
     \item Utiliser une boucle for pour parcourir toutes les arêtes dans le graph. Faire un test sur les attributs de Edges pour changer le poids.
     \item Il faut tester pour chaque arête ( itération) si elle  est égale à celle rentrée en paramètres.
-    \item Il faut utiliser les méthodes " edge exist", " update edge" et " generate edge" pour écrire cette méthode. Il y a 4 tests à effectuer: 
+    \item Il faut utiliser les méthodes " edge\_exist", " update\_edge" et " generate\_edge" pour écrire cette méthode. Il y a 4 tests à effectuer: 
         \begin{enumerate}
         \item Si l'arête existe.
         \item Si l'arête existante a le même poids que celui indiqué en paramètre de la méthode.
         \item Si l'arête existante n'a pas le même poids que celui indiqué en paramètre de la méthode.
-        \item Utilisez le résultat de " edge exist" pour simplifier ces tests.
+        \item Utilisez le résultat de " edge\_exist" pour simplifier ces tests.
         \end{enumerate}
     \end{enumerate}
     \end{conseil}
@@ -323,7 +323,7 @@ Voici une partie de la classe graph codée. Implémentez les méthodes "update\_
     \end{solution}
     \begin{solution}
     \textbf{Java :}
-         \lstinputlisting{ressources/graphexo.java}
+         \lstinputlisting{ressources/graph.java}
     \end{solution}
     % TODO: Découper les fichiers de solutions pour qu'ils tiennent sur une page. Les renommer graph_1.java, graph_2,java par exemple et les mettre dans un dossier "Display" ou "Affichage". Mettre le fichier complet dans le dossier solution.
     \begin{solution}
