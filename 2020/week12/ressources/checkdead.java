@@ -1,11 +1,11 @@
 public static void checkDead() {
-        List<Fighter> temp = new ArrayList<Fighter>();
-        for (Fighter f : Fighter.instances) {
+        List<Combattant> temp = new ArrayList<Combattant>();
+        for (Combattant f : Combattant.instances) {
             if (f.isAlive()) {
                 temp.add(f);
             } else {
                 System.out.println(f.getName() + " est mort");
             }
         }
-        Fighter.instances = temp;
+        Combattant.instances = temp;
     }
