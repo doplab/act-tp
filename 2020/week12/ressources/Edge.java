@@ -2,12 +2,12 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Edges {
+public class Edge {
     public String from_vertex; // node de départ
     public String to_vertex;  // node d'arrivée ( chaîne de caractère)
     public double weight;  // poids de l'arête
 
-    public Edges(String from_vertex, String to_vertex, double weight) {
+    public Edge(String from_vertex, String to_vertex, double weight) {
         this.from_vertex = from_vertex;
         this.to_vertex = to_vertex;
         this.weight = weight;
