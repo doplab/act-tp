@@ -10,7 +10,7 @@ public void update_weight(String from_vertex, String to_vertex, double weight){
         }
 
 }
-// Méthode qui va ajouter l'arête dans le graph.
+// "Méthode qui va ajouter l'arête dans le graph."
 public void new_edge(String from_vertex, String to_vertex, double weight){
         double test_existence = this.edge_exist(from_vertex,to_vertex); // Peut valoir soit le point de l'arête soit 0 si elle n'existe pas.
         if ( test_existence == weight){
@@ -28,7 +28,7 @@ public void new_edge(String from_vertex, String to_vertex, double weight){
 
 }
 
-// Méthode nous permettant de supprimer une arête du graph.
+// "Méthode nous permettant de supprimer une arête du graph."
 public void del_edge(String from_vertex, String to_vertex){
         for( Edge edge : this.edges ){
         if (edge.from_vertex == from_vertex & edge.to_vertex == to_vertex){
