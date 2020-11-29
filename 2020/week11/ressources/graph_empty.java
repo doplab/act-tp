@@ -7,9 +7,7 @@ public class graph_empty {
     // Les attributs de la class graph
     public List<Edges> edges = new Vector();   // Utilisation de vector car il faut que l'on puisse rajouter ou supprimer des éléments de la liste
     public List<String> vertices = new Vector();
-
-
-
+    
     // Methode qui permet l'ajout d'un sommet au graph.
     public void add_vertex(String name){
         this.vertices.add(name); // Méthode qui permet d'ajouter un sommet au graph
@@ -17,12 +15,7 @@ public class graph_empty {
 
     // Cette méthode va tester si le sommet demandé existe dans le graph. Si oui retourne le poids, sinon retourne 0.
     public double edge_exist(String from_vertex, String to_vertex){
-        // Ecrire votre code ci-dessous
-
-        
-
-
-        // Fin de la zone d'écriture
+        // Ecrire votre code ici
     }
     // L'implémentation de la méthode ci dessous n'est pas importante pour vous à comprendre. Elle vous est utile pour
     // générer une arête lorsque vous cherchez à en ajouter une à votre graph. Elle fait aussi le test si jamais
@@ -47,44 +40,22 @@ public class graph_empty {
     }
 
     public void update_weight(String from_vertex, String to_vertex, double weight){
-        // Ecrire votre code ci-dessous
-
-
-
-
-
-
-        // Fin de la zone d'écriture
+        // Ecrire votre code ici
     }
     // Méthode qui va ajouter l'arête dans le graph.
     public void new_edge(String from_vertex, String to_vertex, double weight){
-        // Ecrire votre code ci-dessous
-
-
-
-
-
-
-
-
-
-
-
-
-        // Fin de la zone d'écriture
+        // Ecrire votre code ici
     }
 
     // Méthode nous permettant de supprimer une arête du graph.
     public void del_edge(String from_vertex, String to_vertex){
-        for( Edges edge : this.edges ){
+        for(Edges edge : this.edges ){
             if (edge.from_vertex == from_vertex & edge.to_vertex == to_vertex){
                 this.edges.remove(edge);
                 System.out.println("Edge between " + from_vertex + " and " + to_vertex + " has been deleted.");
                 break;
             }
-
         }
-
     }
 
     // Fonction qui permet d'imprimer les composants d'un graph
