@@ -227,49 +227,39 @@ Vous devriez obtenir ce résultat : \\
 
 \newpage
 
-\section{Manipulation de graphes en POO}
+\section{Manipulation de graphes en POO (Java)}
 
-\subsection{Introduction}
+%\subsection{Introduction}
 % TODO: Cette sous-section devrait être convertie en introduction. Les questions sont intéressantes. Toutefois, elles perdent de leur utilité si les étudiants n'ont pas accès aux réponses de façon immédiate. Il serait préférable de les reformuler et de les utiliser comme rappel avant de commencer à faire les exercices suivants.
 
 
-Ici, on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
-Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
-Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
+%Ici, on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
+%Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
+%Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
 
-Cette partie est une introduction qui a pour but de poser des questions théoriques et les résoudre qui permettront de mieux comprendre la logique de conception.
-
-Voici les questions, essayez d'y répondre avant de vous référer aux réponses juste en dessous:
-
+Cette partie constitue un rappel sur la notion de graphe orienté. Avant de traiter les exercices de la partie 2, veuillez répondre aux questions suivantes:
     \begin{enumerate}
-        \item Quels sont les 3 composants d'un \lstinline{weighted graph} ?
-        \item Combien de classes sont nécessaires pour représenter tous les composants du \lstinline{graph} et le \lstinline{graph} lui même ?
-        \item Sachant que vous avez une classe qui représente les \lstinline{arêtes} et que les \lstinline{sommets} sont représentés par des chaînes de caractères. Déterminer quels sont les attributs de la class \lstinline{graph}.
-        \item Maintenant que vous avec le schéma général de votre classe \lstinline{graph}, il faut déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet.
-        
-        Il faut donc réfléchir sur les questions suivantes:
-            \begin{enumerate}
-            \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci initialisé ?
-            \item Est-ce que l'utilisateur aura besoin de vérifier l'état de l'objet ( existence d'attributs, vérification de valeurs...) ou de certaines parties de l'objet ?
-            \item Est-il nécessaire de définir des méthodes qui ne seront pas utiles pour l'utilisateur mais utiles pour éviter la redondance du code ?
-            \end{enumerate}
+        \item Quels sont les composantes d'un \lstinline{graphe orienté} ?
+        \item Combien de classes sont nécessaires pour représenter un graphe orienté ainsi que toutes ses composantes?
+        \item Sachant que vous avez une classe qui représente les \lstinline{arêtes} et que les \lstinline{sommets} sont représentés par des chaînes de caractères. Quels pourraient être les attributs de la classe \lstinline{graph}.
     \end{enumerate}
-    Une fois ces questions répondues, le schéma des méthodes nécessaires devient plus claire.
-    
-    Il reste enfin à traiter l'implémentation de tout cela. C'est à dire, comment coder la classe pour qu'elle soit fonctionnelle.
+
+Maintenant que vous avez une idée des attributs de la classe \lstinline{graph} à définir, déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet. Pour ce faire, vous pouvez répondre aux questions suivantes:
+    \begin{enumerate}
+    \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci initialisé ?
+    \item Est-ce que l'utilisateur aura besoin de vérifier l'état de l'objet (existence d'attributs, vérification de valeurs...) ou de certaines parties de l'objet ?
+    \end{enumerate}
+
 \begin{conseil}
    % Un conseil
    \begin{enumerate}
-   \item Il faut décomposer ce qui constitue un \lstinline{graph}. Revenir sur le cours de la semaine 7 sur moodle.
-   \item Réfléchir aux différents objets du type les \lstinline{arêtes} qui consituent un \lstinline{graph}. Réflechir si ils ont besoin d'être représenté avec une classe ou est-ce que les types de "base" sont suffisants.
-   \item Les attributs sont les briques qui constituent votre classe. Il faut donc poser les variables nécéssaires et leur type.
-   \item Penser de la même manière que lorsque vous utilisez une application et critiquez (en bien ou en mal) les fonctionnalitées de celle-ci. Ici, il faut réfléchir à ce qu'une personne qui va utiliser votre "application" (la classe) aurait besoin.
+   \item Revenir sur le cours de la semaine 7 sur Moodle.
    \end{enumerate}
 \end{conseil}
     
-Voici les réponses aux questions posées ci-dessus. Essayez de comprendre la logique derrière:
+Voici les réponses aux questions posées ci-dessus. 
 
-\textbf{Certaines questions n'ont pas qu'une réponse car il y a toujours plus d'une manière d'implémenter une classe. Voici une façon de répondre: }
+\textbf{Certaines questions peuvent avoir plus d'une réponse étant donné qu'il existe plusieurs manières de représenter un graphe en programmation. }
     %\lstinputlisting{solutions/fichier.java}
     \begin{enumerate}
     \item \begin{enumerate}
@@ -279,50 +269,50 @@ Voici les réponses aux questions posées ci-dessus. Essayez de comprendre la lo
           \end{enumerate}
     \item Il faut 2 classes ( ou 3 si on cherche à avoir plus d'informations dans les sommets):
         \begin{enumerate}
-        \item Une classe \lstinline{Edges} qui va représenter les arêtes.
-        \item Une classe \lstinline{graph}.
+        \item Une classe \lstinline{Edge} qui va représenter les arêtes.
+        \item Une classe \lstinline{Graph}.
         \end{enumerate}
-    \item La classe graph va avoir 2 attributs: un ensemble contenant les \lstinline{sommets} et un autre ensemble contenant les \lstinline{arêtes} de celui-ci.
-    \item Les réponses à cette partie sont courtes mais assez essentielles pour savoir quelles méthodes coder:
-        \begin{enumerate}
-        \item Oui, l'utilisateur voudra sûrement rajouter des \lstinline{arêtes}, des \lstinline{sommets} ou potentiellement changer le poids d'une \lstinline{arête}. Il faut donc lui laisser cette possibilité
-        \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les \lstinline{weighted graphs}. Il est donc utile de pouvoir identifier si un \lstinline{sommet} ou une \lstinline{arête} sont des composants de l'instance.
-        \item Certaines méthodes pourraient avoir un code très long si on ne ségmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
+    \item La classe \lstinline{Graph} va avoir 2 attributs: un ensemble contenant les \lstinline{sommets} et un autre ensemble contenant les \lstinline{arêtes} de celui-ci.
+    
+%    \item Les réponses à cette partie sont courtes mais assez essentielles pour savoir quelles méthodes coder:
+ %       \begin{enumerate}
+       % \item Oui, l'utilisateur voudra sûrement rajouter des \lstinline{arêtes}, des \lstinline{sommets} ou potentiellement changer le poids d'une \lstinline{arête}. Il faut donc lui laisser cette possibilité
+       % \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les \lstinline{weighted graphs}. Il est donc utile de pouvoir identifier si un \lstinline{sommet} ou une \lstinline{arête} sont des composants de l'instance.
+       % \item Certaines méthodes pourraient avoir un code très long si on ne ségmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
         
-        De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
-        \end{enumerate}
+       % De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
+  %      \end{enumerate}
     \end{enumerate}
 
-\newpage
-
-\subsection{Partie 2}
+%\subsection{Partie 2}
 % TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
-Le code pour la classe \lstinline{Edges} est fourni dans le dossier ressources sur Moodle.
-Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Il devrait retourner:
 
-\includegraphics[]{ressources/sortie_juste.PNG}
+Le code de la classe \lstinline{Edge} est fourni dans le dossier ressources sur Moodle.
+Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Une fois exécuté, il devrait afficher:\\
 
+    \includegraphics[height=8cm]{ressources/sortie_juste.PNG}
+
+\newpage
 \begin{Exercice}[20 minutes]\\
 
 Voici une partie de la classe \lstinline{graph} codée. Implémentez les méthodes \lstinline{update_weight()}, \lstinline{new_edge} et \lstinline{edge_exist}.
 
-\textbf{Java :}
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
-        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que cette \lstinline{arête} n'existe pas.
-        \item La méthode \lstinline{edge_exist()} qui va prendre en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode ressort son poids, 0 sinon.
-        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edges} et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura comme paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
+        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que l'\lstinline{arête} n'existe pas.
+        \item La méthode \lstinline{edge_exist()} prendra en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode renvoie son poids, sinon, elle renvoie 0.
+        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edge} et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura pour paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
     \end{enumerate}
 
     \begin{conseil}
     \begin{enumerate}
-    \item Utiliser une boucle for pour parcourir toutes les \lstinline{arêtes} dans le \lstinline{graph}. Faire un test sur les attributs de \lstinline{Edges} pour changer le poids.
-    \item Il faut tester pour chaque \lstinline{arête} ( itération) si elle  est égale à celle rentrée en paramètres.
+    \item Utiliser une boucle \lstinline{for} pour parcourir toutes les \lstinline{arêtes} dans le \lstinline{graph}. Faire un test sur les attributs de \lstinline{Edge} pour changer le poids.
+    \item Il faut tester pour chaque \lstinline{arête} ( itération) si elle  est égale à celle donnée en paramètres.
     \item Il faut utiliser les méthodes \lstinline{edge_exist()}, \lstinline{update_edge()} et \lstinline{generate_edge()} pour écrire cette méthode. Il y a 4 tests à effectuer: 
         \begin{enumerate}
         \item Si \lstinline{l'arête} existe.
-        \item Si \lstinline{l'arête} existante a le même poids que celui indiqué en paramètre de la méthode.
-        \item Si \lstinline{l'arête} existante n'a pas le même poids que celui indiqué en paramètre de la méthode.
+        \item Si \lstinline{l'arête} existante a le même poids que celle indiquée en paramètre de la méthode.
+        \item Si \lstinline{l'arête} existante n'a pas le même poids que celle indiquée en paramètre de la méthode.
         \item Utilisez le résultat de \lstinline{edge_exist} pour simplifier ces tests.
         \end{enumerate}
     \end{enumerate}
@@ -345,7 +335,6 @@ Voici une partie de la classe \lstinline{graph} codée. Implémentez les méthod
 
 \newpage
 
-% TODO: Faire un exercice sur la POO en Python. On pourrait faire un truc simple (classe Point par exemple)
 \section{Notions de POO en Python}
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier \> Nouveau \> Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question12.py}.

@@ -8,7 +8,7 @@ public class graph_empty {
     public List<Edges> edges = new Vector();   // Utilisation de vector car il faut que l on puisse rajouter ou supprimer des éléments de la liste
     public List<String> vertices = new Vector();
     
-    // Methode qui permet l ajout d un sommet au graphe.
+    // Méthode qui permet l ajout d un sommet au graphe.
     public void add_vertex(String name){
         this.vertices.add(name); // Méthode qui permet d ajouter un sommet au graphe
     }
