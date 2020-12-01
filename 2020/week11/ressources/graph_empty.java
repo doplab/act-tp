@@ -14,13 +14,15 @@ public class graph_empty {
     }
 
     // Cette méthode va tester si le sommet demandé existe dans le graphe. Si oui retourne le poids, sinon retourne 0.
+
     public double edge_exist(String from_vertex, String to_vertex){
+
         // Ecrire votre code ici
+
     }
-    // L implémentation de la méthode ci dessous n est pas importante pour vous à comprendre. Elle vous est utile pour
-    // générer une arête lorsque vous cherchez à en ajouter une à votre graphe. Elle fait aussi le test si jamais
-    // les sommets utilisés font partis du graphe ou non. Si non, elle va les ajouter au graphe. Cette méthode peut
-    // être utile dans la méthode new_edge
+    
+    // La méthode ci-dessous vous permet de générer une arête lorsque vous cherchez à en ajouter une à votre graphe. Elle fait aussi le test si jamais les sommets utilisés font partis du graphe ou non. Si non, elle va les ajouter au graphe. Cette méthode peut être utile dans la méthode new_edge
+
     private void generate_edge(String from_vertex, String to_vertex, double weight){
         if (this.vertices.contains(from_vertex) & this.vertices.contains(to_vertex)){
             Edges new_edge = new Edges(from_vertex,to_vertex,weight);
