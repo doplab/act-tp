@@ -4,7 +4,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Programmation orientée objet}
@@ -141,8 +141,8 @@ Vous devriez obtenir ce résultat :
 
 \newpage
 \section{Interaction entre plusieurs instances d'une même classe}
-Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Combattant} que nous allons créer.
-Chaque \lstinline{Combattant} aura des attributs qui le définissent. Ces attributs sont:
+Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
+Chaque \lstinline{Fighter} aura des attributs qui le définissent. Ces attributs sont:
 \begin{itemize}
     \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
     \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
@@ -156,14 +156,14 @@ Chaque \lstinline{Combattant} aura des attributs qui le définissent. Ces attrib
 \item \lstinline{attack_modifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.
 \end{itemize}
 
-Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{combattant}. Chaque instance de cette classe pourra attaquer les autres instances.
+Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{Fighter}. Chaque instance de cette classe pourra attaquer les autres instances.
 
 Vous devrez compléter les 4 méthodes suivantes :
 \begin{enumerate}
 \item \lstinline{isAlive()}
 \item \lstinline{checkDead()}
 \item \lstinline{checkHealth()}
-\item \lstinline{attack(String type, Combattant other)}
+\item \lstinline{attack(String type, Fighter other)}
 \end{enumerate}
 
 
@@ -202,8 +202,8 @@ Prenez le problème dans l'autre sens, créez une liste temporaire, si l'instanc
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] attack(String type Combattant other)\\
-    Définir une méthode \lstinline{attack(String type, Combattant other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
+\begin{Exercice}[10 minutes] attack(String type Fighter other)\\
+    Définir une méthode \lstinline{attack(String type, Fighter other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
     Commencez par contrôler si \lstinline{other} est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
     

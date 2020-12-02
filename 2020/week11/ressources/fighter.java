@@ -1,5 +1,7 @@
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Fighter {
     private String name;
@@ -7,9 +9,9 @@ public class Fighter {
     private int attack;
     private int defense;
     private static List<Fighter> instances = new ArrayList<Fighter>();
-    private static HashMap attack_modifier = new HashMap(Map.of("poing",1,"pied",2,"tete",3));
+    private static HashMap<String, Integer> attack_modifier = new HashMap(Map.of("poing",1,"pied",2,"tete",3));
 
-    public Combattant(String name, int health, int attack, int defense) {
+    public Fighter(String name, int health, int attack, int defense) {
         this.name = name;
         this.health = health;
         this.attack = attack;
@@ -61,7 +63,7 @@ public class Fighter {
         // à compléter
     }
 
-        public void attack (String type, Combattant other){
-            // à compléter
-        }
+    public void attack (String type, Fighter other){
+        // à compléter
     }
+}
