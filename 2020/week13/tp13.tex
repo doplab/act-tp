@@ -37,11 +37,77 @@ Définir un constructeur à votre classe. Assignez des valeurs par défaut à vo
 
 
 \section{Notions d'héritage}
-% Java
-% TODO: Définir les objectifs de cette section. 
-% Richard
-% Les exercices de cette section devront s'inspirer de l'exemple du cours
-% Au lieu d'utiliser Livre et Vinyle comme classes-filles, on pourrait utiliser seulement Livre comme classe mère et définir des classes-filles qui pourraient être des livres illustrés ou des livres audio qui hériteraient tous de Livre. La classe mère aurait comme attributs des attributs de base d'un livre (titre, auteur, année, genre). Livre illustré aura en plus un illustrateur et Livre audio aura un narrateur.
+Language : Java\\
+
+Le but de cette partie est de pratiquer et d'assimilier les notions liées à l'héritage. Pour cela nous allons nous inspirer de l'exemple présenter dans le cours. 
+
+Nous allons créer une classe \lstinline{Livre()} qui contiendra deux sous-classe, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les sous-classes cont hériter des attributs et méthode de la classe mère. 
+
+\begin{Exercice}[10 minutes] Création de classe et sous-classes\\
+
+Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
+\begin{itemize}
+	\item une variable privée \lstinline{titre}
+	\item une variable privée \lstinline{auteur}
+	\item une variable privée \lstinline{annee}
+	\item une variable privée \lstinline{note} (initilisée à \lstinline{-1})
+	\item le constructeur public prenant en argumant les trois premières variables ci-dessus
+	\item une méthode \lstinline{printInfo()} qui affiche le titre, l'auteur, l'année et la note d'un ouvrage
+	\item une méthode \lstinline{setNote()} qui permet de définir la variable \lstinline{note}
+\end{itemize}
+
+Créez les classes filles avec les caractéristiques suivantes:\\
+\lstinline{class Livre_Audio extends Livre}
+\begin{itemize}
+	\item une variable supplémentaire \lstinline{narrateur}
+
+\end{itemize}
+\lstinline{class Livre_Illustre extends Livre}
+\begin{itemize}
+	\item une variable supplémentaire \lstinline{dessinateur}
+
+\end{itemize}
+
+\lstinputlisting{heritage.java}
+
+\begin{conseil}
+En java, lors de la déclaration d'une classe, le mot clef \lstinline{extends} permet d'indiquer qu'il s'agit d'une sous-classe de la classe indiquée. 
+
+Le mot clef \lstinline{super} permet à la sous classe d'hérité d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la sous-classe selon l'example suivant: \lstinline{super(variable_mère_1, variable_mère_2, variable_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redefinir toutes les variables d'une sous-classe !
+
+L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une sous-classe. 
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{heritage-solution-1.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] Méthode et héritage \\
+
+Maintenant que vous avez créer la classe et les sous classes correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la sous-classe \lstinline{Livre_Audio}. Si vous manquez d'inspiration vous pouvez indiquer les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
+
+Une fois le livre créer, attribuez lui une note à l'aide de la méthode définie précédemment.\\ 
+
+Finalement, utilisé la méthode \lstinline{printInfo()} pour afficher les informations du livre.\\
+
+La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redefinissez la méthode dans la sous-classe pour y inclure l'information sur le narrateur. \\
+
+\begin{conseil}
+\textbf{Attention}, on vous demande de créer un objet \lstinline{Livre} et non pas \lstinline{Livre_Audio}.
+
+Le mot clef \lstinline{super} peut être utilisé dans la redefinition d'une méthode selon l'example suivant: \lstinline{super.nom_de_la_methode();}. Cette instruction permet  d'inclure tout ce qui est défini dans la "méthode mère" et vous pouvez la complétez selon les caractéristiques de votre sous-classe.
+
+L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une sous-classe. 
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{heritage-solution-2.java}
+	\lstinputlisting{heritage-solution-3.java}
+\end{solution}
+
+\end{Exercice}
 
 
 \section{Polymorphisme}
