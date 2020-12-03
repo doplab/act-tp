@@ -9,7 +9,7 @@ public class Combattant {
     private int attack;
     private int defense;
     private static List<Combattant> instances = new ArrayList<Combattant>();
-    private static HashMap<String, Integer> attack_modifier = new HashMap(Map.of("poing", 1, "pied", 2, "tete", 3));
+    private static HashMap<String, Integer> attack_modifier = new HashMap(Map.of("poing", 2, "pied", 2, "tete", 3));
 
     public Combattant(String name, int health, int attack, int defense) {
         this.name = name;
@@ -87,13 +87,14 @@ public class Combattant {
         for (Combattant f : Combattant.instances) {
             System.out.println(f.getName() + " a encore " + f.getHealth() + " points de vie");
         }
+        System.out.println("------------------------------");
     }
 
 
     public void attack(String type, Combattant other) {
         if (this.isAlive()) {
             if (other.isAlive()) {
-                int damage = (Integer) Combattant.attack_modifier.get(type) * this.attack - other.getDefense();
+                int damage = (int) Combattant.attack_modifier.get(type) * this.attack - other.getDefense();
                 other.setHealth(other.getHealth() - damage);
                 Combattant.checkDead();
                 Combattant.checkHealth();
@@ -108,7 +109,7 @@ public class Combattant {
     }
 }
 
-class Soigneur extends Combattant {
+class Soigneur extends Combattant { // a la capacité de soigner et réssuciter quelqu'un
 
     private int soin;
     private int résurection = 1;
@@ -146,6 +147,7 @@ class Soigneur extends Combattant {
                     Combattant.addInstances(other);
                     this.setRésurection(0);
                     System.out.println(other.getName() + " vient de revenir à la vie");
+                    Combattant.checkHealth();
                 }
             }
         }
@@ -154,7 +156,7 @@ class Soigneur extends Combattant {
         }
     }
 
-    public void soigne(Combattant other) {
+    public void attack(Combattant other) {
         if(this.isAlive()) {
             if (other.getHealth() >= 10) {
                 System.out.println(other.getName() + " a déjà le maximum de points de vie");
@@ -172,28 +174,27 @@ class Soigneur extends Combattant {
     }
 }
 
-class Attaquant extends Combattant{
+class Attaquant extends Combattant{ // a la capacité d'attaquer deux fois
 
-    public Attaquant(String name, int health, int attack, int defense){
+    private int multiplicateur;
+
+    public Attaquant(String name, int health, int attack, int defense, int multiplicateur){
         super(name,health,attack,defense);
+        this.multiplicateur = multiplicateur;
+    }
+
+    public int getMultiplicateur() {
+        return multiplicateur;
+    }
+
+    public void setMultiplicateur(int multiplicateur){
+        this.multiplicateur = multiplicateur;
     }
 
     public void attack(String type, Combattant other) {
-        if (this.isAlive()) {
-            if (other.isAlive()) {
-                int damage = 2 * (Combattant.getModifier(type) * this.getAttack() - other.getDefense());
-                other.setHealth(other.getHealth() - damage);
-                Combattant.checkDead();
-                Combattant.checkHealth();
-            } else {
-                System.out.println(other.getName() + " est déjà mort");
-            }
+        for (int i = 0; i < this.getMultiplicateur(); i++) {
+            System.out.println("Attaque n° " + (i+1));
+            super.attack(type, other);
         }
-        else{
-            System.out.println(this.getName() +" est mort et ne peut plus rien faire");
-        }
-
     }
-
-
 }
