@@ -1,4 +1,4 @@
-class Attaquant extends Combattant{ // a la capacité d attaquer deux fois
+class Attaquant extends Fighter{ 
 
     private int multiplicateur;
 

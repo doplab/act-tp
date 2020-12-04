@@ -1,4 +1,4 @@
-class Soigneur extends Combattant { // a la capacité de soigner et ressusciter un Combattant
+class Soigneur extends Fighter { 
 
     private int résurrection;
 
