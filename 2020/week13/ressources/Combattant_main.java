@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Combattant P1 = new Combattant("P1", 10, 2, 2);
+        Fighter P1 = new Fighter("P1", 10, 2, 2);
         Attaquant P2 = new Attaquant("P2", 10, 2, 2,2);
         Soigneur P3 = new Soigneur("P3",10,4,2,4);
         P1.attack("pied",P2);
