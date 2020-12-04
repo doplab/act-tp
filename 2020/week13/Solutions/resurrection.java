@@ -7,7 +7,7 @@ public void résurrection(Combattant other){
                 System.out.println(other.getName() + " est toujours en vie !");
             } else {
                 if (this.getRésurrection() == 0) {
-                    System.out.println(this.getName() + " ne peut plus ressuciter personne");
+                    System.out.println(this.getName() + " ne peut plus ressusciter personne");
                 } else {
                     other.setHealth(10);
                     Combattant.addInstances(other);

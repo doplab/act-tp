@@ -11,7 +11,7 @@ public class Livre_Audio extends Livre {
     // redéfinition de la fonction printInfo() dans la sous-classe Book
     public void printInfo() {
         super.printInfo(); //permet de reprendre les éléments de la fonction mère
-        System.out.println("Narrateur: "+ narrateur); //On ajoute l'attribut supplémentaire propre à la sous-classe
+        System.out.println("Narrateur: "+ narrateur); //On ajoute l attribut supplémentaire propre à la sous-classe
     }
 }
 

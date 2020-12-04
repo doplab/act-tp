@@ -12,7 +12,7 @@
 % TODO (All): Utiliser \lstinline{} sur tous les mots-clés, noms de classes, d'attributs, méthodes,...
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
-\section{Rappel: Surcharge des opérateurs}
+\section{Rappel: Surcharge des opérateurs - Python}
 % Python
 % TODO: Alpha 
 % Utiliser une classe Fraction et effectuer des opérations de base sur des Fractions.
@@ -36,12 +36,15 @@ Définir un constructeur à votre classe. Assignez des valeurs par défaut à vo
 \end{Exercice}
 
 
-\section{Notions d'héritage}
-Language : Java\\
+\section{Notions d'héritage - Java}
+% TODO: Remplacer "sous-classe" par classe fille.
+% TODO: Remplacer dessinateur par illustrateur.
+% TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,...
+% TODO: Au lieu de définir une méthode printInfo(), ne serait-ce pas plus judicieux de rédéfinir la méthode toString()?
 
-Le but de cette partie est de pratiquer et d'assimilier les notions liées à l'héritage. Pour cela nous allons nous inspirer de l'exemple présenter dans le cours. 
+Le but de cette partie est de pratiquer et d'assimiler les notions liées à l'héritage. Pour cela. nous allons nous inspirer de l'exemple présenté dans le cours. 
 
-Nous allons créer une classe \lstinline{Livre()} qui contiendra deux sous-classe, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les sous-classes cont hériter des attributs et méthode de la classe mère. 
+Nous allons créer une classe \lstinline{Livre()} qui contiendra deux sous-classes, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les sous-classes hériteront des attributs et méthodes de la classe mère. 
 
 \begin{Exercice}[10 minutes] Création de classe et sous-classes\\
 
@@ -50,8 +53,8 @@ Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
 	\item une variable privée \lstinline{titre}
 	\item une variable privée \lstinline{auteur}
 	\item une variable privée \lstinline{annee}
-	\item une variable privée \lstinline{note} (initilisée à \lstinline{-1})
-	\item le constructeur public prenant en argumant les trois premières variables ci-dessus
+	\item une variable privée \lstinline{note} (initialisée à \lstinline{-1})
+	\item le constructeur public prenant en argument les trois premières variables ci-dessus
 	\item une méthode \lstinline{printInfo()} qui affiche le titre, l'auteur, l'année et la note d'un ouvrage
 	\item une méthode \lstinline{setNote()} qui permet de définir la variable \lstinline{note}
 \end{itemize}
@@ -59,12 +62,12 @@ Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
 Créez les classes filles avec les caractéristiques suivantes:\\
 \lstinline{class Livre_Audio extends Livre}
 \begin{itemize}
-	\item une variable supplémentaire \lstinline{narrateur}
+	\item un attribut \lstinline{narrateur}
 
 \end{itemize}
 \lstinline{class Livre_Illustre extends Livre}
 \begin{itemize}
-	\item une variable supplémentaire \lstinline{dessinateur}
+	\item un attribut \lstinline{dessinateur}
 
 \end{itemize}
 
@@ -86,19 +89,22 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 
 \begin{Exercice}[5 minutes] Méthode et héritage \\
 
-Maintenant que vous avez créer la classe et les sous classes correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la sous-classe \lstinline{Livre_Audio}. Si vous manquez d'inspiration vous pouvez indiquer les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
+Maintenant que vous avez créé la classe et les sous classes correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la sous-classe \lstinline{Livre_Audio}. 
+% TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
+Si vous manquez d'inspiration vous pouvez indiquer les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
 
-Une fois le livre créer, attribuez lui une note à l'aide de la méthode définie précédemment.\\ 
+Une fois l'objet créé, attribuez lui une note à l'aide de la méthode définie précédemment.\\ 
 
-Finalement, utilisé la méthode \lstinline{printInfo()} pour afficher les informations du livre.\\
+Finalement, utilisez la méthode \lstinline{printInfo()} pour afficher les informations du livre.\\
 
-La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redefinissez la méthode dans la sous-classe pour y inclure l'information sur le narrateur. \\
+La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redéfinissez la méthode dans la sous-classe pour y inclure l'information sur le narrateur. \\
 
 \begin{conseil}
 \textbf{Attention}, on vous demande de créer un objet \lstinline{Livre} et non pas \lstinline{Livre_Audio}.
 
-Le mot clef \lstinline{super} peut être utilisé dans la redefinition d'une méthode selon l'example suivant: \lstinline{super.nom_de_la_methode();}. Cette instruction permet  d'inclure tout ce qui est défini dans la "méthode mère" et vous pouvez la complétez selon les caractéristiques de votre sous-classe.
+Le mot clef \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'example suivant: \lstinline{super.nom_de_la_methode();}. Cette instruction permet  d'inclure tout ce qui est défini dans la ``méthode mère'' et vous pouvez la complétez selon les caractéristiques de votre sous-classe.
 
+%TODO: Phrase à reformuler. super représente l'objet parent. Il faudra faire le parallèle entre super et this (qui représente l'instance en cours).
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une sous-classe. 
 \end{conseil}
 
@@ -110,11 +116,11 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \end{Exercice}
 
 
-\section{Polymorphisme}
+\section{Polymorphisme - Java}
 % Java
-% TODO: Définir les objectifs. Faire un rappel sur la notion de polymorphisme.
-% Gaetan
-% Commencer par des exercices sur l'héritage (extension de l'exercice sur Fighter)
+% TODO: Reprendre les noms de classe des exercices de cette semaine. Par exemple, on avait finalement utilisé le mot Fighter au détriment de Combattant.
+% TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,... Par exemple sur Soigneur-
+
 Dans cette partie de cette session d'exercice, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère combattant. La première classe représentera un soigneur, qui, lorsqu'il attaquera quelqu'un, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment ou vous l'instancierez). Pensez à télécharger la dernière version de la classe Combattant dans le dossier ressources.\\
 
 Voici le squelette du code que vous trouverez également dans le dossier ressources du moodle : \\
@@ -153,7 +159,7 @@ Si tous ces éléments sont réunis, faites revenir le Combattant other à la vi
 0 afin de l'empêcher de réutiliser ce pouvoir, à appeler la méthode checkHealth(), et à indiquer : nom\_other est revenu à la vie ! \\
 
 \begin{conseil}
-Utilisez du branchement conditionnel pour les contrôles. \\
+Utilisez un branchement conditionnel pour les contrôles. \\
 
 Une nouvelle méthode nommée addInstances(Combattant other) a été créée dans la classe Combattant. Regardez à quoi elle sert et utilisez la. \\
 \end{conseil}
@@ -172,12 +178,13 @@ Le seul argument nécessaire pour cette méthode sera le Combattant other. \\
 
 Commencez par contrôler que le Soigneur depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, indiquez : nom\_instance est mort et ne peut plus rien faire.
 
-Contrôlez ensuite si other est toujours en vie. Si ce n'est pas le cas indiquez : nom\_other est déjà mort, ressucitez le pour pouvoir le soigner. Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via : nom\_other a déjà le maximum de points de vie. \\
+Contrôlez ensuite si other est toujours en vie. Si ce n'est pas le cas indiquez : nom\_other est déjà mort, ressuscitez le afin de pouvoir le soigner. Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via : nom\_other a déjà le maximum de points de vie. \\
 
 Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de other. Pour terminer, appelez la méthode de classe checkHealth().
 
 \begin{conseil}
-Utilisez du branchement conditionnel pour les contrôles. \\
+% Ce conseil devrait être plus étoffé 
+Pensez à utiliser du branchement conditionnel pour les contrôles. \\
 \end{conseil}
 
 \begin{solution}
