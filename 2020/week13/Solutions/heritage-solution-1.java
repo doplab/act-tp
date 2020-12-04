@@ -13,7 +13,7 @@ public class Livre {
     }
 
     public void printInfo() {
-        System.out.println("À propos du livre");
+        System.out.println("A propos du livre");
         System.out.println("------------------");
         System.out.println("Titre : \""+titre+"\"");
         System.out.println("Auteur : "+auteur);
