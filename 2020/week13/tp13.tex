@@ -1,4 +1,4 @@
-\input{header.tex}
+\input{../header.tex}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -13,29 +13,73 @@ Le but de cette séance est d'approfondir les notions de programmation orientée
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 \section{Rappel: Surcharge des opérateurs - Python}
-% Python
-% TODO: Alpha 
-% Utiliser une classe Fraction et effectuer des opérations de base sur des Fractions.
-Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.
+Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
 
-\begin{Exercice}[5 minutes]
-    Dans un projet que vous aurez au préalable préparé, créez un fichier appelé \lstinline{surcharge.py}.% TODO: Nom fichier à définir.
-    À l'intérieur de ce fichier, créer une classe \lstinline{Fraction} qui aura comme attributs un numérateur et un dénominateur. 
+\begin{Exercice}[5 minutes] \textbf{Création de la classe} \\
+    Dans un projet que vous aurez au préalable préparé, créez un fichier appelé \lstinline{surcharge.py}.
+    À l'intérieur de ce fichier, créer une classe \lstinline{Fraction} qui aura comme attributs privés un numérateur et un dénominateur. 
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]
-Définir un constructeur à votre classe. Assignez des valeurs par défaut à vos attributs.
+\begin{Exercice}[5 minutes] \textbf{Constructeur par défaut} \\
+Définir un constructeur à votre classe. Assignez des valeurs par défaut à vos attributs. \\
+Si un seul argument est passé à votre constructeur, la fraction devra être égale à l'entier correspondant.\\
+Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 
     \begin{conseil}
-        Les valeurs par défaut seront assignées à votre objet au cas où il est instancié sans valeurs. Ainsi en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant pour valeurs un numérateur et un dénominateur à 1 soit $\frac{1}{1}$.
+		Les valeurs par défaut seront assignées à votre objet au cas où il est instancié sans valeurs. Ainsi en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant pour valeurs un numérateur à 0 et un dénominateur à 1 soit $\frac{0}{1}$.\\
+		En Python, vous pouvez donner des valeurs par défaut aux arguments de vos méthodes lors de leur définition. Par exemple, vous pouvez faire: \lstinline{def add(self, x=10, y=5):(...)}.
     \end{conseil}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[5 minutes] \textbf{Type casting}\\
+	Convertir les attributs en entier.
+	\begin{conseil}
+		Pensez à utiliser la fonction \lstinline{int}.
+	\end{conseil}
+\end{Exercice}
 
+\begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes} \\
+	Rédéfinir la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
+	\begin{conseil}
+		Une fois la méthode \lstinline{__str()__} redefinie, lorsqu'on fera un \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, il affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. \lstinline{numérateur} et \lstinline{dénominateur} étant les valeurs que vous passerez à votre objet \lstinline{Fraction}.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice} [5 minutes] \textbf{Accesseurs et mutateurs} \\
+	Créer des \lstinline{getters} et \lstinline{setters} pour chacun des attributs de votre classe \lstinline{Fraction}.
+\end{Exercice}
+
+\begin{Exercice} [10 minutes] \textbf{Simplification de fractions}\\
+	Définir une méthode \lstinline{simplification} qui réduit la \lstinline{Fraction}. Cette méthode ne renverra rien, elle modifiera simplement l'instance. Pour la suite des exercices, assurez-vous de toujours manipuler des fractions simplifiées. Pour ce faire, vous pouvez faire appel à votre méthode \lstinline{simplification} après chaque opération sur un objet de type \lstinline{Fraction}.
+
+	\begin{conseil}
+		Afin de simplifier une fraction, vous devez diviser le numérateur et le dénominateur par leur plus grand diviseur commun. Pensez à utiliser la méthode \lstinline{math.gcd} pour trouver le plus grand diviseur commun entre deux nombres.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes - \_\_eq\_\_}\\
+	Redéfinissez la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
+	\begin{conseil}
+		Pour vérifier l'égalité entre $a/b$ et $c/d$, tester que $a*d$ est égal à $b*c$. \\
+		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
+		\\La fonction \lstinline{isinstance} prend en entrée une valeur et un type. Elle vérifie que cette valeur est du type défini. Par exemple: \lstinline{isinstance(nombre, int)} renverra \lstinline{True} si la variable \lstinline{nombre} est de type \lstinline{int} et \lstinline{False} dans le cas contraire.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Arithmétique}\\
+	Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
+	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
 \end{Exercice}
 
 
+\begin{solution}
+	\lstinputlisting{import/surcharge1.py}
+\end{solution}
+\begin{solution}
+	\lstinputlisting{import/surcharge2.py}
+\end{solution}
+
+\newpage
 \section{Notions d'héritage - Java}
 
 
