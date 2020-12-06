@@ -116,11 +116,9 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \end{Exercice}
 
 \section{Polymorphisme - Java}
-% Java
-% TODO: Reprendre les noms de classe des exercices de cette semaine. Par exemple, on avait finalement utilisé le mot Fighter au détriment de Combattant.
 % TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,... Par exemple sur Soigneur-
 
-Dans cette partie de cette session d'exercice, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il attaquera quelqu'un, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment ou vous l'instancierez). Pensez à télécharger la dernière version de la classe \lstinline{Fighter} dans le dossier ressources.\\
+Dans cette partie, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il attaquera quelqu'un, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment où vous l'instancierez). Pensez à télécharger la dernière version de la classe \lstinline{Fighter} dans le dossier ressources.\\
 
 Voici le squelette du code que vous trouverez également dans le dossier ressources du moodle : \\
 
@@ -145,17 +143,16 @@ Pensez à utiliser le constructeur de votre classe mère \lstinline{Fighter}
 \begin{Exercice}[10 minutes] Méthode \lstinline{résurrection(Fighter other)} de la sous-classe \lstinline{Soigneur} \\
 
 Commencez par déclarer une nouvelle méthode nommée \lstinline{résurrection(Fighter other)}. \\
-
 Cette méthode permettra de faire revenir un \lstinline{Fighter} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
 
 Commencez par contrôler que l'instance depuis laquelle la méthode est appelée soit toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\ 
 
 Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le via : \lstinline{nom_other} est toujours en vie. \\
 
-Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressuciter personne.\\
+Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
 
 Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez également à mettre l'attribut \lstinline{résurrection} de l'instance appelée à   
-0 afin de l'empêcher de réutiliser ce pouvoir, à appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other\lstinline} est revenu à la vie ! \\
+0 afin de l'empêcher de réutiliser ce pouvoir, à appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other} est revenu à la vie ! \\
 
 \begin{conseil}
 Utilisez un branchement conditionnel pour les contrôles. \\
@@ -241,18 +238,18 @@ Vous devriez obtenir : \\
 
 \lstinputlisting{Solutions/Combattant_main_solution.java} 
 
-\section{Héritage en Python}
+\section{Héritage en Python \optionnel}
 % Python
-% TODO: Définir des objectifs. Rappel de la syntaxe.
-% Proposer des exercices sur l'héritage. Un exemple pourrait être de définir une classe mère Figure et des classes filles Cercle, Rectangle... La classe mère aura comme méthodes get_aire() et get_perimètre()
-% Hien
+% TODO: Attention, les décorateurs ne sont pas présentés en cours!
+% Utiliser \lstinline{} sur tous les mots-clés (nom de classes, d'attributs, méthodes,...)
+% Faire des exercices en français. Remplacer les noms de méthodes et attributs par des mots français qui puissent parler aux étudiants.
+
+\begin{Exercice}[10 minutes]\textbf{Classe Point (Suite)}
+
+Dans la série dernière, vous avez rencontré un exemple de classe en Python. Celui-là représente un point de 2 dimensions, x et y, ainsi que des calculs basiques des points 2D. Pour cet exercice, vous allez implémenter une classe des points de 3 dimensions en utilisant de l'héritage sur la classe \textbf{Point} qu'on a implémentée! À travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
 
 
-\begin{Exercice}[10 minutes]\textbf{Continuation de l'exercise de Point}
-
-Dans la série dernière, vous avez rencontré un exemple de classe en Python. Celui-là représente un point de 2 dimensions, x et y, ainsi que des calculs basiques des points 2D. Pour cet exercice, vous allez implémenter une classe des points de 3 dimensions en utilisant de l'héritage sur la classe \textbf{Point} qu'on a implémentée! A travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
-
-Avant de commencer, nous voudrions apporter vos attentions à ces points suivant de la classe mère Point:
+Avant de commencer, nous voudrions attirer votre attentions sur les points suivants de la classe mère Point:
 \begin{itemize}
     \item Tout d'abord, nous avons récrit la classe de la semaine dernière pour utiliser les 'decorators' en Python. Par exemple, vous trouverez une explication \href{https://python-reference.readthedocs.io/en/latest/docs/property/setter.html}{\textcolor{cyan}{ici}} pour le décorateur \textbf{setter}. Lisez bien les documentations et le code suivant pour comprendre l'usage de ces décorateurs.
     \item Nous avons changé le nom de la méthode \textbf{distance()} pour \textbf{euclidean\_distance()} pour la distinguer des autres types de distance. 
@@ -267,7 +264,8 @@ Ecrivez une classe qui hérite \textbf{Point}. Nommez-la \textbf{Point3D}. Aprè
 \begin{itemize}
     \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser la \textbf{liste} en Python.
     \item Recalculez la distance euclidean et le milieu pour le point 3D.
-    \item (Optionnel) Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres calculs de distance: Manhattan et Minkowski (détails : \url{https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/})
+	\item (Optionnel) Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres calculs de distance: Manhattan et Minkowski (détails : \url{https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/} - % TODO: Remplacer par les articles Wikipédia correspondants
+	)
 \end{itemize}
 \lstinputlisting{ressources/Point3D.py} 
 
@@ -285,7 +283,7 @@ Vous voudrez aussi vous demander si la représentation vectorielle d'un point po
 
 \begin{Exercice}[15 minutes]\textbf{Un exemple appliqué}
 
-Aux établissements universitaires, on rencontre souvent le problème du calcul de salaires des enseignants. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme 'Professor' à l'université et ceux qui y donnent des cours à temps partiel ('Part-time Lecturer').
+Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme 'Professor' à l'université et ceux qui y donnent des cours à temps partiel ('Part-time Lecturer').
 
 La classe mère dans ce cas est nommée \textbf{Lecturer}, qui possède une propriété - le salaire annuel moyen. On voudrais que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expériences, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit 'Salary for part-time lecturers unknown'.
 

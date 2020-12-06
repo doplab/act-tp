@@ -106,7 +106,7 @@ public class Fighter {
     }
 }
 
-class Soigneur extends Fighter { // a la capacité de soigner et réssuciter quelqu'un
+class Soigneur extends Fighter { // a la capacité de soigner et réssuciter quelqu un
 
     //TODO
 
@@ -127,7 +127,7 @@ class Soigneur extends Fighter { // a la capacité de soigner et réssuciter que
     }
 }
 
-class Attaquant extends Fighter{ // a la capacité d'attaquer deux fois
+class Attaquant extends Fighter{ // a la capacité d attaquer deux fois
 
     //TODO
 
