@@ -85,25 +85,24 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 
 % TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,...
 
-Le but de cette partie est de pratiquer et d'assimiler les notions liées à l'héritage. Pour cela, nous allons nous inspirer de l'exemple présenté dans le cours. 
+Le but de cette partie est de mettre en pratique les notions liées à l'héritage. Pour cela, nous allons nous inspirer de l'exemple présenté dans le cours. 
 
 Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe mère. 
 
 \begin{Exercice}[10 minutes] Création des différentes classes\\
-
 Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
 \begin{itemize}
-	\item un attribut \lstinline{privé String} nomée \lstinline{titre}
-	\item un attribut \lstinline{privé String} nommé\lstinline{auteur}
-	\item un attribut \lstinline{privé int} nommé \lstinline{annee}
-	\item un attribut \lstinline{privé int} nommé\lstinline{note} (initialisée à \lstinline{-1})
-	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus
-	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut note
-	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut note
-	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{livre} avec \lstinline{System.out.println()} \\
+	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
+	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
+	\item un attribut \lstinline{privé int} nommé \lstinline{annee},
+	\item un attribut \lstinline{privé int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
+	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus,
+	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut \lstinline{note},
+	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut \lstinline{note},
+	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()} \\
 \end{itemize}
 
-Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours -1, utilisez "Note : pas encore attribuée" au lieu de "Note : \lstinline{note}" dans la chaine de caractères que vous allez retourner avec \lstinline{toString()}. \\
+Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez "Note : pas encore attribuée" au lieu de "Note : \lstinline{note}" via la méthode \lstinline{toString()}. \\
 
 
 Créez les classes filles avec les caractéristiques suivantes:\\
