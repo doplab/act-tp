@@ -66,7 +66,7 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 	\end{conseil}
 \end{Exercice}
 
-\begin{Exercice}[15 minutes] \textbf{Arithmétique}\\
+\begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
 	Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
 	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
 \end{Exercice}
@@ -89,8 +89,8 @@ Le but de cette partie est de mettre en pratique les notions liées à l'hérita
 
 Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe mère. 
 
-\begin{Exercice}[10 minutes] Création des différentes classes\\
-Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
+\begin{Exercice}[10 minutes] \lstinline{Création des différentes classes}\\
+Créez la classe mère \lstinline{Livre} avec les caractéristiques suivantes:
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
 	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
@@ -122,7 +122,7 @@ Voici le squelette du code à remplir : \\
 \lstinputlisting{ressources/heritage.java}
 
 \begin{conseil}
-En java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
+En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
 
 Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la sous-classe selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
 
@@ -137,15 +137,15 @@ Vous pouvez vous servir de \lstinline{\n} dans une chaine de caractères pour ef
 
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Méthode et héritage \\
+\begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
 
-Maintenant que vous avez créé la classe et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+Maintenant que vous avez créé la classe mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
 
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 
-Si vous manquez d'inspiration vous pouvez indiquer les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
+En instanciant l'objet, vous pourriez utiliser les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
 
-Une fois l'objet créé, attribuez lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
+Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
 
 Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
 
@@ -156,7 +156,8 @@ Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinli
 \begin{conseil}
 \textbf{Attention}, on vous demande de créer un objet \lstinline{Livre} et non pas \lstinline{Livre_Audio}.
 
-Le mot clef \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} représentait l'instance avec laquelle la méthode été appelée. Appeler la méthode via le mot clé \lstinline{super} effectuera et renverra ce que la méthode de la classe mère effectue et renvoie.
+Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} représentait l'instance avec laquelle la méthode était appelée. 
+%Appeler la méthode via le mot clé \lstinline{super} effectuera et renverra ce que la méthode de la classe mère effectue et renvoie.
 
 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
@@ -179,10 +180,12 @@ Vous devriez obtenir : \\
 
 \lstinputlisting{ressources/Heritage_main_prompt.java}
 
+\newpage
 \section{Polymorphisme - Java}
-% TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,... Par exemple sur Soigneur-
 
-Dans cette partie, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il attaquera quelqu'un, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment où vous l'instancierez). Pensez à télécharger la dernière version de la classe \lstinline{Fighter} dans le dossier ressources.\\
+Les exercices de cette section sont une suite des exercices de la section 2 de la semaine passée (TP12).
+
+Dans cette partie, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment où vous l'instancierez). Pensez à télécharger la dernière version de la classe \lstinline{Fighter} dans le dossier ressources.\\
 
 Voici le squelette du code que vous trouverez également dans le dossier ressources du moodle : \\
 
@@ -215,15 +218,19 @@ Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n
 
 Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
 
-Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez également à mettre l'attribut \lstinline{résurrection} de l'instance appelée à   
-0 afin de l'empêcher de réutiliser ce pouvoir, à appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other} est revenu à la vie ! \\
+Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez aussi à:
+
+\begin{itemize}
+	\item Mettre l'attribut \lstinline{résurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
+	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other} est revenu à la vie !
+\end{itemize}
 
 \begin{conseil}
 Utilisez un branchement conditionnel pour les contrôles. \\
 
 Une nouvelle méthode nommée \lstinline{addInstances(Fighter other)} a été créée dans la classe \lstinline{Fighter}. Regardez à quoi elle sert et utilisez la. \\
 
-Pour les indications en fonction des différentes conditions, imprimmez simplement la phrase en question. \\
+Pour les indications en fonction des différentes conditions, imprimez simplement la phrase en question. \\
 \end{conseil}
 
 \begin{solution}
@@ -232,7 +239,7 @@ Pour les indications en fonction des différentes conditions, imprimmez simpleme
 
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] Méthode attack de la sous-classe \lstinline{Soigneur} \\
+\begin{Exercice}[10 minutes] Méthode \lstinline{attack} de la sous-classe \lstinline{Soigneur} \\
 
 Réécrivez la méthode \lstinline{attack} de la sous-classe \lstinline{Soigneur} afin d'ajouter des points de vie à \lstinline{other} au lieu de lui en retirer. \\
 
@@ -302,69 +309,71 @@ Vous devriez obtenir : \\
 
 \lstinputlisting{Solutions/Combattant_main_solution.java} 
 
-\section{Héritage en Python \optionnel}
-% Python
-% TODO: Attention, les décorateurs ne sont pas présentés en cours!
-% Utiliser \lstinline{} sur tous les mots-clés (nom de classes, d'attributs, méthodes,...)
-% Faire des exercices en français. Remplacer les noms de méthodes et attributs par des mots français qui puissent parler aux étudiants.
+\newpage
+\begin{comment}
+	\section{Héritage en Python \optionnel}
+	% Python
+	% TODO: Attention, les décorateurs ne sont pas présentés en cours!
+	% Utiliser \lstinline{} sur tous les mots-clés (nom de classes, d'attributs, méthodes,...)
+	% Faire des exercices en français. Remplacer les noms de méthodes et attributs par des mots français qui puissent parler aux étudiants.
 
-\begin{Exercice}[10 minutes]\textbf{Classe Point (Suite)}
+	\begin{Exercice}[10 minutes]\textbf{Classe Point (Suite)}
 
-Dans la série dernière, vous avez rencontré un exemple de classe en Python. Celui-là représente un point de 2 dimensions, x et y, ainsi que des calculs basiques des points 2D. Pour cet exercice, vous allez implémenter une classe des points de 3 dimensions en utilisant de l'héritage sur la classe \textbf{Point} qu'on a implémentée! À travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
+	Dans la série dernière, vous avez rencontré un exemple de classe en Python. Celui-là représente un point de 2 dimensions, x et y, ainsi que des calculs basiques des points 2D. Pour cet exercice, vous allez implémenter une classe des points de 3 dimensions en utilisant de l'héritage sur la classe \textbf{Point} qu'on a implémentée! À travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
 
 
-Avant de commencer, nous voudrions attirer votre attentions sur les points suivants de la classe mère Point:
-\begin{itemize}
-    \item Tout d'abord, nous avons récrit la classe de la semaine dernière pour utiliser les 'decorators' en Python. Par exemple, vous trouverez une explication \href{https://python-reference.readthedocs.io/en/latest/docs/property/setter.html}{\textcolor{cyan}{ici}} pour le décorateur \textbf{setter}. Lisez bien les documentations et le code suivant pour comprendre l'usage de ces décorateurs.
-    \item Nous avons changé le nom de la méthode \textbf{distance()} pour \textbf{euclidean\_distance()} pour la distinguer des autres types de distance. 
-    \item Traiter la classe \textbf{Point} comme mère et faire l'hériter depuis la classe \textbf{Point3D} n'est pas la meilleure structure d'un programme Python, mais on la garde pour le moment afin de vous montrer comment les méthodes de classe mère peuvent être manipulées dans une classe fille.
-\end{itemize}
+	Avant de commencer, nous voudrions attirer votre attentions sur les points suivants de la classe mère Point:
+	\begin{itemize}
+		\item Tout d'abord, nous avons récrit la classe de la semaine dernière pour utiliser les 'decorators' en Python. Par exemple, vous trouverez une explication \href{https://python-reference.readthedocs.io/en/latest/docs/property/setter.html}{\textcolor{cyan}{ici}} pour le décorateur \textbf{setter}. Lisez bien les documentations et le code suivant pour comprendre l'usage de ces décorateurs.
+		\item Nous avons changé le nom de la méthode \textbf{distance()} pour \textbf{euclidean\_distance()} pour la distinguer des autres types de distance. 
+		\item Traiter la classe \textbf{Point} comme mère et faire l'hériter depuis la classe \textbf{Point3D} n'est pas la meilleure structure d'un programme Python, mais on la garde pour le moment afin de vous montrer comment les méthodes de classe mère peuvent être manipulées dans une classe fille.
+	\end{itemize}
 
-Voici la classe \textbf{Point} qui était légèrement modifiée:
-\lstinputlisting{ressources/Point.py} 
+	Voici la classe \textbf{Point} qui était légèrement modifiée:
+	\lstinputlisting{ressources/Point.py} 
 
-Ecrivez une classe qui hérite \textbf{Point}. Nommez-la \textbf{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, implémentez les opérations ci-dessous:
+	Ecrivez une classe qui hérite \textbf{Point}. Nommez-la \textbf{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, implémentez les opérations ci-dessous:
 
-\begin{itemize}
-    \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser la \textbf{liste} en Python.
-    \item Recalculez la distance euclidean et le milieu pour le point 3D.
-	\item (Optionnel) Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres calculs de distance: Manhattan et Minkowski (détails : \url{https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/} - % TODO: Remplacer par les articles Wikipédia correspondants
-	)
-\end{itemize}
-\lstinputlisting{ressources/Point3D.py} 
+	\begin{itemize}
+		\item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser la \textbf{liste} en Python.
+		\item Recalculez la distance euclidean et le milieu pour le point 3D.
+		\item (Optionnel) Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres calculs de distance: Manhattan et Minkowski (détails : \url{https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/} - % TODO: Remplacer par les articles Wikipédia correspondants
+		)
+	\end{itemize}
+	\lstinputlisting{ressources/Point3D.py} 
 
-\begin{conseil}
-Recherchez sur Internet des documentations sur les décorateurs Python, notamment sur 'property', 'setter' et 'getter'. 
+	\begin{conseil}
+	Recherchez sur Internet des documentations sur les décorateurs Python, notamment sur 'property', 'setter' et 'getter'. 
 
-Que fait \textbf{super.\_\_init\_\_()}?
+	Que fait \textbf{super.\_\_init\_\_()}?
 
-Vous voudrez aussi vous demander si la représentation vectorielle d'un point pourrait être une propriété au lieu d'une méthode. 
-\end{conseil}
-\begin{solution}
-\lstinputlisting{Solutions/Point3D.py} 
-\end{solution}
-\end{Exercice} 
+	Vous voudrez aussi vous demander si la représentation vectorielle d'un point pourrait être une propriété au lieu d'une méthode. 
+	\end{conseil}
+	\begin{solution}
+	\lstinputlisting{Solutions/Point3D.py} 
+	\end{solution}
+	\end{Exercice} 
 
-\begin{Exercice}[15 minutes]\textbf{Un exemple appliqué}
+	\begin{Exercice}[15 minutes]\textbf{Un exemple appliqué}
 
-Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme 'Professor' à l'université et ceux qui y donnent des cours à temps partiel ('Part-time Lecturer').
+	Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme 'Professor' à l'université et ceux qui y donnent des cours à temps partiel ('Part-time Lecturer').
 
-La classe mère dans ce cas est nommée \textbf{Lecturer}, qui possède une propriété - le salaire annuel moyen. On voudrais que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expériences, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit 'Salary for part-time lecturers unknown'.
+	La classe mère dans ce cas est nommée \textbf{Lecturer}, qui possède une propriété - le salaire annuel moyen. On voudrais que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expériences, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit 'Salary for part-time lecturers unknown'.
 
-Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les 'Professors', la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
+	Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les 'Professors', la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
 
-D'autre part, pour les 'Part-time Lecturers', la paye est calculée sur une base horaire i.e taux horaire $\times$ nombres d'heures de travail (par mois).
-\lstinputlisting{ressources/Lecturer.py} 
+	D'autre part, pour les 'Part-time Lecturers', la paye est calculée sur une base horaire i.e taux horaire $\times$ nombres d'heures de travail (par mois).
+	\lstinputlisting{ressources/Lecturer.py} 
 
-\begin{conseil}
-Où devrait-on mettre \textbf{super.\_\_init\_\_()} dans cet exemple ?
+	\begin{conseil}
+	Où devrait-on mettre \textbf{super.\_\_init\_\_()} dans cet exemple ?
 
-De nouveau, réfléchissez bien si quelques méthodes peuvent être traitées comme 'propriétés'.
-\end{conseil}
+	De nouveau, réfléchissez bien si quelques méthodes peuvent être traitées comme 'propriétés'.
+	\end{conseil}
 
-\begin{solution}
-\lstinputlisting{Solutions/Lecturer.py} 
-\end{solution}
-\end{Exercice}
-
+	\begin{solution}
+	\lstinputlisting{Solutions/Lecturer.py} 
+	\end{solution}
+	\end{Exercice}
+\end{comment}
 \end{document}
