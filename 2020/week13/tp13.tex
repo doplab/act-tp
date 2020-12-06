@@ -37,48 +37,55 @@ Définir un constructeur à votre classe. Assignez des valeurs par défaut à vo
 
 
 \section{Notions d'héritage - Java}
-% TODO: Remplacer "sous-classe" par classe fille.
-% TODO: Remplacer dessinateur par illustrateur.
+
+
 % TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,...
-% TODO: Au lieu de définir une méthode printInfo(), ne serait-ce pas plus judicieux de rédéfinir la méthode toString()?
 
-Le but de cette partie est de pratiquer et d'assimiler les notions liées à l'héritage. Pour cela. nous allons nous inspirer de l'exemple présenté dans le cours. 
+Le but de cette partie est de pratiquer et d'assimiler les notions liées à l'héritage. Pour cela, nous allons nous inspirer de l'exemple présenté dans le cours. 
 
-Nous allons créer une classe \lstinline{Livre()} qui contiendra deux sous-classes, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les sous-classes hériteront des attributs et méthodes de la classe mère. 
+Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe mère. 
 
-\begin{Exercice}[10 minutes] Création de classe et sous-classes\\
+\begin{Exercice}[10 minutes] Création des différentes classes\\
 
 Créez la classe mère \lstinline{Livre()} avec les caractéristiques suivantes:
 \begin{itemize}
-	\item une variable privée \lstinline{titre}
-	\item une variable privée \lstinline{auteur}
-	\item une variable privée \lstinline{annee}
-	\item une variable privée \lstinline{note} (initialisée à \lstinline{-1})
-	\item le constructeur public prenant en argument les trois premières variables ci-dessus
-	\item une méthode \lstinline{printInfo()} qui affiche le titre, l'auteur, l'année et la note d'un ouvrage
-	\item une méthode \lstinline{setNote()} qui permet de définir la variable \lstinline{note}
+	\item un attribut \lstinline{privé String} nomée \lstinline{titre}
+	\item un attribut \lstinline{privé String} nommé\lstinline{auteur}
+	\item un attribut \lstinline{privé int} nommé \lstinline{annee}
+	\item un attribut \lstinline{privé int} nommé\lstinline{note} (initialisée à \lstinline{-1})
+	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus
+	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut note
+	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut note
+	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{livre} avec \lstinline{System.out.println()} \\
 \end{itemize}
+
+Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours -1, utilisez "Note : pas encore attribuée" au lieu de "Note : \lstinline{note}" dans la chaine de caractères que vous allez retourner avec \lstinline{toString()}. \\
+
 
 Créez les classes filles avec les caractéristiques suivantes:\\
 \lstinline{class Livre_Audio extends Livre}
 \begin{itemize}
-	\item un attribut \lstinline{narrateur}
+	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
 
 \end{itemize}
 \lstinline{class Livre_Illustre extends Livre}
 \begin{itemize}
-	\item un attribut \lstinline{dessinateur}
+	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
 
 \end{itemize}
+
+Voici le squelette du code à remplir : \\
 
 \lstinputlisting{ressources/heritage.java}
 
 \begin{conseil}
-En java, lors de la déclaration d'une classe, le mot clef \lstinline{extends} permet d'indiquer qu'il s'agit d'une sous-classe de la classe indiquée. 
+En java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
 
-Le mot clef \lstinline{super} permet à la sous classe d'hérité d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la sous-classe selon l'example suivant: \lstinline{super(variable_mère_1, variable_mère_2, variable_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redefinir toutes les variables d'une sous-classe !
+Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la sous-classe selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
 
-L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une sous-classe. 
+L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une sous-classe.
+
+Vous pouvez vous servir de \lstinline{\n} dans une chaine de caractères pour effectuer un retour à la ligne lors de l'affichage.
 \end{conseil}
 
 \begin{solution}
@@ -89,23 +96,27 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 
 \begin{Exercice}[5 minutes] Méthode et héritage \\
 
-Maintenant que vous avez créé la classe et les sous classes correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la sous-classe \lstinline{Livre_Audio}. 
+Maintenant que vous avez créé la classe et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
+
 Si vous manquez d'inspiration vous pouvez indiquer les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
 
-Une fois l'objet créé, attribuez lui une note à l'aide de la méthode définie précédemment.\\ 
+Une fois l'objet créé, attribuez lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
 
-Finalement, utilisez la méthode \lstinline{printInfo()} pour afficher les informations du livre.\\
+Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
 
-La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redéfinissez la méthode dans la sous-classe pour y inclure l'information sur le narrateur. \\
+La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redéfinissez la méthode dans la classe fille pour y inclure l'information sur le narrateur. \\
+
+Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
 
 \begin{conseil}
 \textbf{Attention}, on vous demande de créer un objet \lstinline{Livre} et non pas \lstinline{Livre_Audio}.
 
-Le mot clef \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'example suivant: \lstinline{super.nom_de_la_methode();}. Cette instruction permet  d'inclure tout ce qui est défini dans la ``méthode mère'' et vous pouvez la complétez selon les caractéristiques de votre sous-classe.
+Le mot clef \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} représentait l'instance avec laquelle la méthode été appelée. Appeler la méthode via le mot clé \lstinline{super} effectuera et renverra ce que la méthode de la classe mère effectue et renvoie.
 
-%TODO: Phrase à reformuler. super représente l'objet parent. Il faudra faire le parallèle entre super et this (qui représente l'instance en cours).
-L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une sous-classe. 
+
+L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
 \end{conseil}
 
 \begin{solution}
@@ -114,6 +125,16 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \end{solution}
 
 \end{Exercice}
+
+Lorsque toutes les étapes auront été effectuées, effectuez ce \lstinline{main} : \\
+
+\lstinputlisting{ressources/heritage_main.java}
+
+
+Vous devriez obtenir : \\
+
+
+\lstinputlisting{ressources/Heritage_main_prompt.java}
 
 \section{Polymorphisme - Java}
 % TODO: Utiliser \lstinline{} sur tous les mots-clés dont les noms d'attributs, classes, méthodes,... Par exemple sur Soigneur-
