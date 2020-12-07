@@ -3,25 +3,22 @@ class Point3D(Point):
         super().__init__(x, y)
         self.__z = z
         
-    @property # decorator, nouvelle dimension
-    def ...:
+    def get_z(self):
         ...
     
-    @z.setter 
-    def ...:
+    def set_z(self, z):
         ...
         
-    @property
     def vector_representation(self): # represented in the list format
         ...
         
-    def euclidean_distance(self, p2): # i.e norme
+    def distance_euclidean(self, p2): # i.e norme
         ...
     
-    def manhattan_distance(self, p2):
+    def distance_manhattan(self, p2):
         ...
         
-    def minkowski_distance(self, p2, order=3):
+    def distance_minkowski(self, p2, order=3):
         ...
         
     def milieu(self, p2):
