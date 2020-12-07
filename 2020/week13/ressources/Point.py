@@ -5,23 +5,19 @@ class Point:
         self.__x = x
         self.__y = y
 
-    @property
-    def x(self):
+    def get_x(self):
         return self.__x
 
-    @property
-    def y(self):
+    def get_y(self):
         return self.__y
     
-    @x.setter
-    def x(self, x):
+    def set_x(self, x):
         self.__x = x
 
-    @y.setter
-    def y(self, y):
+    def set_y(self, y):
         self.__y = y
 
-    def euclidean_distance(self, p2):
+    def distance_euclidean(self, p2):
         return math.sqrt((self.__x - p2.get_x())**2 + (self.__y - p2.get_y())**2)
 
     def milieu(self, p2):

@@ -1,11 +1,10 @@
-class Lecturer:
+class Enseignant:
     def __init__(self, name, years_experience, full_time):
         self.name = name
         self.years_experience = years_experience
         self.full_time = full_time
         
-    @property
-    def avg_annual_salary(self):
+    def salaire_annuel_moyen(self):
         if self.full_time:
             if self.years_experience < 10:
                 return 60000
@@ -14,33 +13,31 @@ class Lecturer:
                 return 100000
             
         else:
-            return "Salary for part-time lecturers unknown"
+            return "Le salaire annuel ne s'applique pas aux collaborateurs"
         
     
-class Professor(Lecturer):
-    def __init__(self, name, years_experience, monthly_salary, commission, num_committees_served):
+class Professeur(Enseignant):
+    def __init__(self, name, years_experience, monthly_salary, commission, num_committees):
         super().__init__(name, years_experience, True)
         self.monthly_salary = monthly_salary
         self.commission = commission
-        self.num_committees_served = num_committees_served
+        self.num_committees = num_committees
         
-    @property
-    def monthly_payroll(self):
-        return self.monthly_salary + self.commission*self.num_committees_served
+    def paye_mensuelle(self):
+        return self.monthly_salary + self.commission*self.num_committees
         
-class ParttimeLecturer(Lecturer):
+class Collaborateur(Enseignant):
     def __init__(self, name, years_experience, hours_per_month, rate):
         super().__init__(name, years_experience, False)
         self.hours_per_month = hours_per_month
         self.rate = rate
         
-    @property
-    def monthly_payroll(self):
+    def paye_mensuelle(self):
         return self.hours_per_month*self.rate 
     
-prof1 = Professor("Alexandra", 8, 3000, 200, 4) 
-prof2 = ParttimeLecturer("David", 10, 40, 30)
+prof1 = Professeur("Alexandra", 8, 3000, 200, 4) 
+prof2 = Collaborateur("David", 10, 40, 30)
 
 # exemples
-print(prof1.avg_annual_salary)
-print(prof2.monthly_payroll)
+print(prof1.salaire_annuel_moyen())
+print(prof2.paye_mensuelle())

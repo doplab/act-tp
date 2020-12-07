@@ -3,45 +3,42 @@ class Point3D(Point):
         super().__init__(x, y)
         self.__z = z
         
-    @property # decorator 
-    def z(self):
+    def get_z(self):
         return self.__z
     
-    @z.setter 
-    def z(self, z):
+    def set_z(self, z):
         self.__z = z
         
-    @property
     def vector_representation(self): # represented in the list format
-        return [self.x, self.y, self.z]
+        return [self.__x, self.__y, self.__z]
         
-    def euclidean_distance(self, p2): # i.e norme
-        other_x = p2.x
-        other_y = p2.y
-        other_z = p2.z
-        return math.sqrt((self.x - other_x)**2 + (self.y - other_y)**2 + (self.z - other_z)**2)
+    def distance_euclidean(self, p2): # i.e norme
+        other_x = p2.get_x()
+        other_y = p2.get_y()
+        other_z = p2.get_z()
+        return math.sqrt((self.__x - other_x)**2 + (self.__y - other_y)**2 + (self.__z - other_z)**2)
     
-    def manhattan_distance(self, p2):
-        other_x = p2.x
-        other_y = p2.y
-        other_z = p2.z
-        return sum((abs(self.x - other_x), abs()), abs(self.y - other_y), abs(self.z - other_z))
+    def distance_manhattan(self, p2):
+        other_x = p2.get_x()
+        other_y = p2.get_y()
+        other_z = p2.get_z()
+        return sum((abs(self.__x - other_x), abs()), abs(self.__y - other_y), abs(self.__z - other_z))
         
-    def minkowski_distance(self, p2, order=3):
-        other_x = p2.x
-        other_y = p2.y
-        other_z = p2.z
-        return sum((abs(self.x - other_x)**order), abs(self.y - other_y)**order,\
-                   abs(self.z - other_z)**order)**(1/order)
+    def distance_minkowski(self, p2, order=3):
+        other_x = p2.get_x()
+        other_y = p2.get_y()
+        other_z = p2.get_z()
+        return sum((abs(self.__x - other_x)**order), abs(self.__y - other_y)**order,\
+                   abs(self.__z - other_z)**order)**(1/order)
         
     def milieu(self, p2):
-        other_x = p2.x
-        other_y = p2.y
-        other_z = p2.z
+        other_x = p2.get_x()
+        other_y = p2.get_y()
+        other_z = p2.get_z()
         
-        x_M = (self.x + other_x)/2
-        y_M = (self.y + other_y)/2
-        z_M = (self.z + other_z)/2
+        x_M = (self.__x + other_x)/2
+        y_M = (self.__y + other_y)/2
+        z_M = (self.__z + other_z)/2
         return Point3D(x_M, y_M, z_M) # renvoie un point!
         
         
@@ -49,4 +46,4 @@ point1 = Point3D(1, 2, 3)
 point2 = Point3D(3, 4, 5)
 
 # exemple
-point1.vector_representation  
+point1.vector_representation()  
