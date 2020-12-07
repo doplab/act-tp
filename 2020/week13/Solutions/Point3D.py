@@ -9,7 +9,7 @@ class Point3D(Point):
     def set_z(self, z):
         self.__z = z
         
-    def vector_representation(self): # represented in the list format
+    def vector_representation(self): # représentée sous forme de liste
         return [self.__x, self.__y, self.__z]
         
     def distance_euclidean(self, p2): # i.e norme
