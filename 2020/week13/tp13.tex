@@ -351,17 +351,21 @@ Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p
 
 \begin{Exercice}[15 minutes]\textbf{Un exemple appliqué}
 
-Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assitant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
+Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assistant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
 
-La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrais que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expériences, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
+La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
 
-Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeur}s, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
+Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeurs}, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
 
-D'autre part, pour les \lstinline{Collaborateur}s, la paye est calculée sur une base horaire i.e taux horaire $\times$ nombres d'heures de travail (par mois).
+D'autre part, pour les \lstinline{Collaborateurs}, la paye est calculée sur une base horaire i.e \textit{taux horaire $\times$ nombres d'heures de travail (par mois)}.
+\\ 
+
+Complétez le code ci-dessous:
+
 \lstinputlisting{ressources/Enseignant.py} 
 
 \begin{conseil}
-Où devrait-on mettre \lstinline{super().__init__()} dans cet exemple ?
+Pensez à redéfinir les attributs de la classe mère en utilisant \lstinline{super().__init__()}.
 \end{conseil}
 
 \begin{solution}
