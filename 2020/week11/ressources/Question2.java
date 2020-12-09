@@ -18,7 +18,7 @@
         return nb_chiens;
     }
 
-    public void setTricks(){
+    public void setTricks(List tricks){
         this.tricks=tricks;
     }
 
