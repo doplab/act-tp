@@ -1,0 +1,117 @@
+\input{../header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show \input{../header.tex}
+
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Abstract Classes and Interfaces in Java}
+
+
+\section{Abstract Classes}
+
+\begin{Exercice}[10 minutes]\\
+
+Une classe abstraite est une classe dont l'implémentation n'est pas complète. Elle est déclarée en utilisant le mot-clé abstract. Elle peut inclure des méthodes abstraites ou non. Les classes abstraites ne peuvent pas être instanciées, mais servent de base à des sous-classes qui en sont dérivées.
+Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
+
+\begin{itemize}
+            \lstinputlisting{ressources/exo1.java} 
+    \end{itemize}
+
+
+Implémentez une classe abstraite appelée \lstinline{Item}.\\
+
+1. Elle doit avoir 4 variables d'instance et une variable de classe, qui sont les suivantes:\\
+        \begin{enumerate}
+            private int id;\\
+            private static int count = 0;\\
+            private String name;\\
+            private double price;\\
+            private ArrayList<String> ingredients;\\
+        \end{enumerate}
+2. Elle doit avoir un constructeur prenant les variables name,price et ingredients comme paramètres. Pour définir id, utilisez la ligne suivante:  this.id = ++count;\\
+
+3. Implémentez des méthodes d'accesseurs pour les variables id, name, price et ingredient.\\
+
+4. Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
+
+\begin{conseil}
+Pour implémenter la méthode equals vous pouvez comparer les \lstinline{ID} afin de voir si les items correspondent.
+\end{conseil}
+
+    \begin{solution}
+ \begin{itemize}
+            \lstinputlisting{solutions/solution1.java} 
+    \end{itemize}
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\\
+1. Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés : \lstinline{largeur} et \lstinline{longueur} et deux méthodes abstraites : \lstinline{getaire}()et \lstinline{getperimetre}()\\
+2. Etendez la classe Figure avec une classe \lstinline{Carre}. Définir les classes getaire() et getpermietre() dans cette classe\\
+3. Faire de même pour une classe \lstinline{Rectangle}\\
+
+\begin{conseil}
+    Pour rendre une méthode abstraite utiliser "Abstract" comme pour les classes.\\
+    Un attribut protégé est accessible partout dans la classe mère et dans les classes étendant la classe mère. On utilise le mot clé \lstinline{protected} pour rendre les attributs protégés. \\
+    Pour étendre une classe utilisez : public class Carre extends Figure. 
+\end{conseil}
+
+
+
+    \begin{solution}
+ \begin{itemize}
+\lstinputlisting{solutions/Figure.java} 
+    \end{itemize}
+    \end{solution}
+\end{Exercice}
+
+\section{Interface }
+\begin{Exercice}[10 minutes]\\
+Une déclaration d'interface comprend les modificateurs (public,etc) et le mot clé interface : 
+
+ \begin{itemize}
+\lstinputlisting{ressources/interface_exemple1.java} 
+    \end{itemize}
+
+Les méthodes déclarées dans une interface doivent être implémentées dans des sous-classes :
+
+ \begin{itemize}
+\lstinputlisting{ressources/interface_exemple2.java} 
+    \end{itemize}
+    
+1. Implémentez une interface \lstinline{Edible} contenant une méthode eatMe qui ne retourne aucune valeur.\\
+2. implémentez une interface \lstinline{Drinkable} contenant une méthode drinkMe qui ne retourne aucune valeur.\\
+3. Implémentez une classe Food qui étend la classe Item et qui implémente Edible. Implémentez le constructeur de Food et la méthode eatMe (dans la classe Food).
+
+\begin{conseil}
+Vous pouvez reprendre la classe Item du premier exercice.\\
+Pour implémenter la méthode eatMe() vous pouvez simplement mettre un \lstinline{println}.
+\end{conseil}
+
+Certains aliments ne sont pas seulement Edible mais aussi Drinkable comme les soupes par exemple.\\
+
+4. Implémentez une classe Soup qui extends Food et implémente Drinkable. Ensuite, implémentez à la fois un constructeur pour Soup ainsi que la méthode drinkMe (dans la classe Soup).\\
+
+Vous pouez ensuite créer des instances Soup et Food à l'aide des lignes suivantes pour tester les méthodes eatMe et drinkMe.
+
+ \begin{itemize}
+\lstinputlisting{ressources/fin_interface.java} 
+    \end{itemize}
+
+    \begin{solution}
+ \begin{itemize}
+\lstinputlisting{solutions/interface.java} 
+    \end{itemize}
+    \end{solution}
+\end{Exercice}
+
+
+
+
+\end{document}
