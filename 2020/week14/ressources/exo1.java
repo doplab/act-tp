@@ -1,15 +1,12 @@
-
-
-
-// an abstract class declaration\\
+// Exemple de classe abstraite
 public abstract class Animal {
     private int speed;
-    // an abstract method declaration
+    // Déclaration d une méthode abstraite
     abstract void run();
 }
 
 public class Cat extends Animal {
-        // implementation of abstract method
+        // Implémentation d une méthode abstraite
         void run() {
             speed += 10;
         }

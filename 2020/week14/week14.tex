@@ -8,46 +8,43 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Abstract Classes and Interfaces in Java}
+\cours{Classes abstraites et interfaces en Java}
 
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interface. Au terme de cette séance, vous devez être en mesure différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, utiliser le concept d'héritage multiple, factoriser votre code afin de le rendre mieux structuré et plus lisible.
+
+Cette série d'exercices est divisée en \todo{define section} sections dont une section facultative (avec le label \optionnel). Le seul langage qui sera utilisé sera \lstinline{Java}.
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
 \section{Abstract Classes}
 
 \begin{Exercice}[10 minutes]\\
 
-Une classe abstraite est une classe dont l'implémentation n'est pas complète. Elle est déclarée en utilisant le mot-clé abstract. Elle peut inclure des méthodes abstraites ou non. Les classes abstraites ne peuvent pas être instanciées, mais servent de base à des sous-classes qui en sont dérivées.
-Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
+Une classe abstraite est une classe dont l'implémentation n'est pas complète et qui n'est pas instanciable. Elle est déclarée en utilisant le mot-clé \lstinline{abstract}. Elle peut inclure des méthodes abstraites ou non. Bien que ne pouvant être instanciées, les classes abstraites servent de base à des sous-classes qui en sont dérivées.
+Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe-mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
 
 \lstinputlisting{ressources/exo1.java} 
 
-
-Implémentez une classe abstraite appelée \lstinline{Item}.\\
-
-1. Elle doit avoir 4 variables d'instance et une variable de classe, qui sont les suivantes:
-
-\lstinline{private int id};\\
-\lstinline{private static int count = 0};\\
-\lstinline{private String name};\\
-\lstinline{private double price};\\
-\lstinline{private ArrayList<String> ingredients};
-
-
-2. Elle doit avoir un constructeur prenant les variables name,price et ingredients comme paramètres. Pour définir id, utilisez la ligne suivante:  this.id = ++count;\\
-
-3. Implémentez des méthodes d'accesseurs pour les variables id, name, price et ingredient.\\
-
-4. Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
-
+\begin{itemize}
+    \item Implémentez une classe abstraite appelée \lstinline{Item}.
+    1. Elle doit avoir 4 variables d'instance et une variable de classe, qui sont les suivantes:
+    \lstinputlisting{ressources/variables_exo1.java} 
+    \begin{conseil}
+        Les variables d'instance sont créées lors de l'instanciation d'un objet (à l'aide du mot clé \lstinline{new}) et détruites lors de la destruction de l'objet. Les variables de classes (variables statiques), quant à elles, sont créées lors de l'exécution du programme et détruites lors de l'arrêt du programme. En Java, les variables de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.VariableName}.
+    \end{conseil}
+    \item Créer un constructeur pour initialiser les variables \lstinline{name, price, ingredients et id}. La variable \lstinline{id} incrémentera à chaque instanciation de la classe.
+    \begin{conseil}
+        Pensez à utilisez \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
+    \end{conseil}
+    \item Implémentez les \lstinline{getters} des variables \lstinline{id, name, price et ingredients}.
+    \item Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
+\end{itemize}
 \begin{conseil}
-Pour implémenter la méthode equals vous pouvez comparer les \lstinline{ID} afin de voir si les items correspondent.
+La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en entrée un objet de type \lstinline{Object} et doit retourner \lstinline{True} si l'objet instancié est égal à l'objet passé en paramètre.
 \end{conseil}
-
-% TODO: Maeva: où est le fichier ?
-%     \begin{solution}
-%  
-%     \lstinputlisting{solutions/solution1.java} 
-%     
-%     \end{solution}
+    \begin{solution}  
+        \lstinputlisting{solutions/solution1.java} 
+    \end{solution}
 \end{Exercice}
 
 
