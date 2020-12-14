@@ -1,5 +1,3 @@
-package com.company;
-
 public abstract class Figure {
 
     protected float largeur;
@@ -34,7 +32,7 @@ class Rectangle extends Figure {
     public Rectangle (float largeur, float longueur){
         super(largeur, longueur);
     }
-    public float getpertimetre(float largeur, float longueur){
+    public float getperimetre(float largeur, float longueur){
         return largeur + longueur;
 
     }
