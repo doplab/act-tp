@@ -17,7 +17,7 @@ public class Food extends Item implements Edible{
 }
 
 public class Soup extends Food implements Drinkable{
-    public Soup(String name, double price, ArayList<String> ingredients){
+    public Soup(String name, double price, ArrayList<String> ingredients){
         super(name, price, ingredients);
     }
     public void drinkMe(){
