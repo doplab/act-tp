@@ -12,7 +12,7 @@ public class Paquet {
 
         for ( int couleur = Carte.HEART; couleur <= Carte.CLUB; couleur++ ) {
             for (int valeur = 1; valeur <= 13; valeur++) {
-                paquet.add(new Carte(couleur, valeur));
+                paquet.add(new Carte(valeur, couleur));
             }
         }
         melanger();
