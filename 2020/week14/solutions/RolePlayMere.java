@@ -72,6 +72,11 @@ public abstract class Personnage {
     }
 
     public void setPv(int pv) {
-        this.pv = pv > 0 ? pv : 0 ;
+        if (pv > 0){
+            this.pv = pv;
+        }
+        else{
+            this.pv = 0;
+        }
     }
 }

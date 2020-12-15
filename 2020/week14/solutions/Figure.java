@@ -19,7 +19,7 @@ class Carre extends Figure {
     }
 
     public float getperimetre(float largeur) {
-        return largeur + largeur;
+        return largeur * 4;
     }
 
     public float getaire(float largeur) {
@@ -33,7 +33,7 @@ class Rectangle extends Figure {
         super(largeur, longueur);
     }
     public float getperimetre(float largeur, float longueur){
-        return largeur + longueur;
+        return (largeur + longueur)*2;
 
     }
     public float getaire(float largeur, float longueur){
