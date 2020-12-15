@@ -12,7 +12,7 @@ public class Guerrier extends Personnage {
         System.out.println(this.getNom() + " attaque " + other.getNom());
         System.out.println("Basic attaque og : " + attaque);
         System.out.println(this.getNom() + " PV:" + this.getPv());
-        System.out.println(other.getNom() + " PV:" + this.getPv());
+        System.out.println(other.getNom() + " PV:" + other.getPv());
 
     }
 }
@@ -32,7 +32,7 @@ public class Magicien extends Personnage {
         System.out.println(this.getNom() + " attaque " + other.getNom());
         System.out.println("Basic attaque og : " + attaque);
         System.out.println(this.getNom() + " PV:" + this.getPv());
-        System.out.println(other.getNom() + " PV:" + this.getPv());
+        System.out.println(other.getNom() + " PV:" + other.getPv());
 
     }
 
@@ -54,7 +54,7 @@ public class Paladin extends Personnage {
         System.out.println(this.getNom() + " attaque " + other.getNom());
         System.out.println("Basic attaque og : " + attaque);
         System.out.println(this.getNom() + " PV:" + this.getPv());
-        System.out.println(other.getNom() + " PV:" + this.getPv());
+        System.out.println(other.getNom() + " PV:" + other.getPv());
 
     }
 }
@@ -75,7 +75,7 @@ public class Chasseur extends Personnage {
         System.out.println(this.getNom() + " attaque " + other.getNom());
         System.out.println("Basic attaque og : " + attaque);
         System.out.println(this.getNom() + " PV:" + this.getPv());
-        System.out.println(other.getNom() + " PV:" + this.getPv());
+        System.out.println(other.getNom() + " PV:" + other.getPv());
 
     }
 }
