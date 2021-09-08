@@ -291,6 +291,10 @@ Voici son implémentation en Java :
 
 Quel est la complexité de l'algorithme ci-dessus?
 
+\begin{note}{Arnaud}
+    Peut-être faire la correction en commun pour la démonstration de T(n)=(2^k)*T(n-k)+((2^k)-1)
+\end{note}
+
 \begin{conseil}
 Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...) \\
 Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et esssayer de trouver la complexité en terme de $O()$.
