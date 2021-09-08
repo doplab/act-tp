@@ -95,6 +95,10 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
         L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaire.
     \end{solution}
 \end{Exercice}
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Kruskal : Python}\\
     Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python. Parcourez la fonction \textbf{Kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
     \lstinputlisting[language=python]{Question3_solution.py}
@@ -111,6 +115,9 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 
 \newpage
 
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
 \begin{Exercice}[10 minutes] \textbf{Social Network Analysis : Papier}\\
     Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe :\\
     \begin{enumerate}
@@ -144,6 +151,10 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
         Si l'on ajoute une personne qui n'est ni un ami, ni l'ami d'un ami, alors aucune arête n'est reliée à ce sommet. Par conséquent, ce sommet a un degré 0.
     \end{solution} 
 \end{Exercice}
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
 \begin{Exercice}[5 minutes] \textbf{Reconnaître des réseaux semblables}\\
     Supposons maintenant que vous travaillez chez Facebook, qui a récemment racheté Whatsapp et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer à qui correspondent les individus de Facebook sur Whatsapp ?\\
     
@@ -215,6 +226,10 @@ Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif s
     \end{solution}
 \end{Exercice}
 \newpage
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
     L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe.~L'algorithme~de~Dijkstra~que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
     
