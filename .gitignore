@@ -338,3 +338,6 @@ TSWLatexianTemp*
 
 # Visual studio code
 *.vscode
+
+# Other folders
+ACT-TP_export_2020

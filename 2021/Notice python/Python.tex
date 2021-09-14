@@ -1,4 +1,4 @@
-\input{/Users/arnaud/Documents/GitHub/act-tp/2021/header.tex}
+\input{../header.tex}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -6,17 +6,16 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowNotetrue
+
 \titre
 \cours{Introduction à Python}
 
-
-\begin{comment}
-\begin{enumerate}
-    \item Recherche séquentielle
-    \item Recherche binaire
-    \item Arbres de recherche binaire\\
-\end{enumerate}
-\end{comment}
+\todo{Rappeler le but de cet exercice - S'inspirer de la diapositive "Learning objectives"}
+\todo{Utiliser \lstinline{} pour la mise en forme de code}
+\todo{Ajouter des captures d'écran afin de rendre le manuel plus intuitif}
+\todo{Les box Conseils devraient être utilisées pour mettre des astuces devant aider l'étudiant et non la question à laquelle ils doivent répondre.}
+\todo{Modifier l'ordre des sections. Commencer par les variables, ensuite l'indentation et enfin les fonctions.}
 
 
 
@@ -25,20 +24,20 @@
 
 \subsection{Création d'un script Python}
 
-Pour commencer à programmer en python, il est nécessaire de créer un fichier appelé script python. Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS.
+Pour commencer à programmer en Python, il est nécessaire de créer un fichier appelé script Python. Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS.
 
 \begin{conseil}
 
-Dans le terminal, entrer la commande \textbf{touch hello.txt} pour créer un fichier texte vide nommé hello.txt changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
+Dans le terminal, entrer la commande \textbf{touch hello.txt} pour créer un fichier texte vide nommé \lstinline{hello.txt} changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
 
-\end{conseil}
- 
+
 \subsection{PyCharm}
+\end{conseil}
 
-Lors du cours, il vous a été demandé d'installer PyCharm, l'IDE python le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur.
+Lors du cours, il vous a été demandé d'installer PyCharm, l'IDE Python le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur.
 
 \begin{conseil}
-
+\todo{Ce texte devrait se trouver à l'extérieur de la boîte de conseils. Il s'agit d'une question. Prière de se référer aux exercices de l'année précédente.}
 Lancez le programme PyCharm et ouvrez le fichier hello.py. Notez qu'il est aussi possible créer directement un fichier depuis PyCharm.
  
 \end {conseil}
@@ -48,15 +47,14 @@ La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique.
 \subsection{Les fonctions}
 
 Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions.
-Une des fonctions basique et plutôt importante en python est la fonction \textbf{print()}.  Cette fonction permet d'imprimer le contenu de la parenthèse qui suit la fonction.
+Une des fonctions basique et plutôt importante en Python est la fonction \textbf{print()}.  Cette fonction permet d'afficher à l'écran le contenu de la parenthèse.
 
 \begin{conseil}
 
-Entrez la ligne de code \textbf{print("Hello World")} puis exécutez le script en allant dans la section Run/Run... puis en sélectionnant hello. Le programme va afficher une petite fenêtre avec le message entré dans la parenthèse. C'est ici que le script écriras ce qu'on lui demande de faire.
-
+Entrez la ligne de code \lstinline{print(``Hello World'')} puis exécutez le script en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}. Dans le bas de l'écran, dans la rubrique \lstinline{Run}, vous verrez apparaître le message que vous vouliez afficher.
 \end{conseil}
 
-En plus des fonctions incluses dans les librairies python, il est possible de créer des fonctions complètement personnalisées (généralement plusieurs fonctions sont réunies en une seule)au moyen de la fonction \textbf{def nomdelafonction:} et de l'utiliser à n'importe quel moment en l'invoquant avec \textbf{nomdelafonction}.
+En plus des fonctions incluses dans les librairies Python, il est possible de créer des fonctions complètement personnalisées (généralement plusieurs fonctions sont réunies en une seule) au moyen de la fonction \lstinline{def nomdelafonction:} et de l'utiliser à n'importe quel moment en l'invoquant avec \textbf{nomdelafonction}.
 
 \begin{solution}
 \lstinputlisting{def.py}
@@ -64,12 +62,12 @@ En plus des fonctions incluses dans les librairies python, il est possible de cr
 
 \subsection{Indentation}
 
-Comme tous les autres languages de programmation, Python est sensible aux erreurs d'indentation. Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle for qui sera traitée un peu plus loin dans ce cours.
+Comme tous les autres langages de programmation, Python est sensible aux erreurs d'indentation \todo{Attention, tous les langages de programmation ne sont pas sensibles à une mauvaise indentation. Cette phrase peut porter à confusion}. Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce cours.
 
 
 
 \begin{conseil}
-Entrez les deux scripts suivants dans PyCharm. Un des deux retourne une erreur d'indentation alors que l'autre fonctionne correctement
+Entrez les deux scripts suivants dans PyCharm. Un des deux retourne une erreur d'indentation alors que l'autre fonctionne correctement.
 \end{conseil}
 
 \begin{solution}
@@ -80,15 +78,15 @@ Entrez les deux scripts suivants dans PyCharm. Un des deux retourne une erreur d
 \lstinputlisting{indent2.py}
 \end{solution}
 
-L'indentation est importante dans la syntaxe d'un script python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'executer.
+L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'executer.
 
 \subsection{Création de variable}
 Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise
-Pour assigner une valeur à une variable en python, il suffit de respecter la forme suivante \textbf{variable=valeur}.
+Pour assigner une valeur à une variable en Python, il suffit de respecter la forme suivante \textbf{variable=valeur}.
 
 \begin{conseil}
 \begin{itemize}
-	\item En python, une variable est  toujours dynamique (il n'existe pas de variable statique).
+	\item En Python, une variable est  toujours dynamique (il n'existe pas de variable statique).
 	\item On peut assigner n'importe quelle suite de caractères non-reservée en tant que variable
 	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables
 	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur
@@ -97,9 +95,10 @@ Pour assigner une valeur à une variable en python, il suffit de respecter la fo
 \end{itemize}
 \end{conseil}
 
-Voici quelques exemples d'attribution de variables. Entrez ces lignes de code dans PyCharm et observez ce que le programme vous renvois.
+Voici quelques exemples d'attribution de variables. Entrez ces lignes de code dans PyCharm et observez ce que le programme vous renvoie.
 
 \begin{solution}
+	\todo{Ceci ne devrait pas être mis dans la case de solutions. Pour rappel et de façon générale, dans la première version qui sera envoyée, nous masquerons les cases de solutions}
     \lstinputlisting{Variables.py}
     
 \end{solution}
