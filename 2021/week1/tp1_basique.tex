@@ -42,8 +42,25 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         
         \textbf{Méthode 1 :} \\
         
+        Cette deuxième méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande valeur de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
         
-        Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut. \\
+Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
+        
+   		\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
+            \hline
+            \textbf{valeur} & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
+            \hline
+            \textbf{binaire} & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        On obtient donc 101101$_{(2)}$ \\
+	
+	\textbf{Méthode 2 :} \\
+	
+	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut. \\
        	
         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
@@ -67,26 +84,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         \end{tabular} \\
 
         Ici, on obtient 101101$_{(2)}$ \\
-        
-        \textbf{Méthode 2 :} \\
-        
-        Cette deuxième méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande valeur de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
-        
-Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
-        
-   		\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
-            \hline
-            \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
-            \hline
-            \textbf{valeur} & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
-            \hline
-            \textbf{binaire} & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex] 
-            \hline
-        \end{tabular} \\
-        
-        On obtient donc 101101$_{(2)}$ \\
-        
-        Les réponses sont les suivantes :
+	Les réponses sont les suivantes :
         \begin{enumerate}
         \item 10$_{(10)}$ = 1010$_{(2)}$
         \item 45$_{(10)}$ = 101101$_{(2)}$
