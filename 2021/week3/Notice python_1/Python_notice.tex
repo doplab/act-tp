@@ -9,7 +9,7 @@
 
 \titre
 \cours{Introduction à Python}
-\section{Objectifs du TP}
+\section{Objectifs du document}
 
 Ce document constitue une introduction au langage de programmation Python. Les objectifs du TP sont les suivants:
 
@@ -24,42 +24,31 @@ Ce document constitue une introduction au langage de programmation Python. Les o
 
 \subsection{Création d'un script Python}
 
-Pour commencer à programmer en Python, il est nécessaire de créer un fichier appelé script Python. Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS.
-\\
-\begin{Exercice}[5 minutes]
+Pour commencer à programmer en Python, il est nécessaire de créer un fichier appelé script Python. Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS. Pour ce faire, il vous suffit d'ouvrir votre terminal et d'entrer la commande \lstinline{touch hello.txt} pour créer un fichier texte vide nommé \lstinline{hello.txt}, puis de changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
 
-Dans le terminal, entrer la commande \lstinline{touch hello.txt} pour créer un fichier texte vide nommé \lstinline{hello.txt} changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
-\begin{solution}
+
 \begin{center}
 	\includegraphics[width=12cm]{terminal.png}
 	\includegraphics[width=12cm]{py.png}
 	
 \end{center}
-\end{solution}
-
-\end{Exercice}
 
 
-\subsection{PyCharm}
 
-Lors du cours, il vous a été demandé d'installer PyCharm, l'IDE Python le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur.
-\\
-\begin{Exercice}[5 minutes]
+\subsection{IntelliJ}
 
-Lancez le programme PyCharm et ouvrez le fichier \lstinline{hello.py}.
-
-\begin{solution}
-
-La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié.  Notez qu'il est aussi possible créer directement un fichier depuis PyCharm.
+Lors du cours, il vous a été demandé d'installer IntelliJ, une des l'IDE le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. La première chose a faire avec le programme est ouvrir et exécuter un script python. Pour ce faire, lancez le programme IntelliJ et ouvrez le fichier \lstinline{hello.py}.
 \begin{center}
-	\includegraphics[width=12cm]{PyCharm1.png}	
+	\includegraphics[width=12cm]{IntelliJ.png}	
+\end{center}
+
+La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié. Notez qu'il est aussi possible créer directement un fichier depuis PyCharm.
+\begin{center}
 	\includegraphics[width=12cm]{zone.png}	
 \end{center}
-\end{solution}
-\end{Exercice}
 
 
-\subsection{Création de variable}
+\subsection{La création de variable}
 
 Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise
 Pour assigner une valeur à une variable en Python, il suffit de respecter la forme suivante \lstinline{variable=valeur}.
@@ -75,24 +64,15 @@ Pour assigner une valeur à une variable en Python, il suffit de respecter la fo
 \end{itemize}
 \end{conseil}
 
-\begin{Exercice}[5 minutes]
 
-Ouvrez et exécutez le script python \lstinline{Variables.py} qui contient quelques exemples d'attribution de variables. Observez ce que le programme vous renvoie.
-
-\end{Exercice}
+Si vous ouvrez et exécutez le script python \lstinline{Variables.py} qui contient quelques exemples d'attribution de variables, vous pourrez observer comment vous pouvez créer différentes variables mais aussi comment le programme les traite.
 
 
-\subsection{Indentation}
+\subsection{L'indentation}
 
-Python est un langgage de programmation sensible aux erreurs d'indentation Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce cours.
-\\
-\begin{Exercice}[5 minutes]
+Python est un langgage de programmation sensible aux erreurs d'indentation Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce cours.\\
 
-Ouvrez et exécutez les deux scripts python \lstinline{indent1.py} et \lstinline{indent2.py} en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}.. Un des deux produit une erreur alors que l'autre fonctionne correctement. Expliquez en quoi consiste cette erreur.
-
-\begin{solution}
-
-Dans un des scripts, la console produit une erreur d'indentation. Après une boucle \lstinline{for}, il est nécessaire de bien respecter l'indentation pour définir son utilité. L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'exécuter.
+Si vous ouvrez et exécutez les deux scripts python \lstinline{indent1.py} et \lstinline{indent2.py} en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}, vous vous renderez compte que l'un des deux produit une erreur alors que l'autre fonctionne correctement. En effet, dans un des scripts, la console produit une erreur d'indentation. Après une boucle \lstinline{for}, il est nécessaire de bien respecter l'indentation pour définir son utilité. L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'exécuter.
 
 
 
@@ -102,42 +82,22 @@ Dans un des scripts, la console produit une erreur d'indentation. Après une bou
 \includegraphics[width=12cm]{indenterror.png}	
 \end{center}
 
-\end{solution}
-\end{Exercice}
-
 
 \subsection{Les fonctions}
 
-Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions. Une des fonctions basique et plutôt importante en Python est la fonction \textbf{print()}.  Cette fonction permet d'afficher à l'écran le contenu de la parenthèse.
-\\
-\begin{Exercice}[5 minutes]
-
-Entrez la ligne de code \lstinline{print("Votremessage")}. Dans le bas de l'écran, dans la rubrique \lstinline{Run} un message apparaît. Quel-est ce message?
-
-\begin{solution}
-
-Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de "Votremessage"). C'est le but d'une fonction \lstinline{print()}
+Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions. Une des fonctions basique et plutôt importante en Python est la fonction \textbf{print()}.  Cette fonction permet d'afficher à l'écran le contenu de la parenthèse.\\ 
+Si vous entrez la ligne de code \lstinline{print("Votremessage")} et que vous executez le script, IntelliJ va vous afficher une ligne de texte. Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de "Votremessage"). C'est le but d'une fonction \lstinline{print()}
 \begin{center}
 \includegraphics[width=12cm]{print.png}	
 \end{center}
 
-\end{solution}
-\end{Exercice}
 
 En plus des fonctions incluses dans les librairies Python, il est possible de créer des fonctions complètement personnalisées (généralement plusieurs fonctions sont réunies en une seule) au moyen de la fonction \lstinline{def nomdelafonction():} et de l'utiliser à n'importe quel moment en l'invoquant avec \lstinline{nomdelafonction()}.
-\\
-\begin{Exercice}[5 minutes]
 
-Ouvrez et exécutez le script python \lstinline{Arbre.py}. À quoi sert la fonction \lstinline{def build_tree(t, branch_length, shorten_by, angle)}?
-
-\begin{solution}
-
-Cette fonction permet de dessiner un arbre à l'aide d'un algorithme. Nous verrons plus tard dans ce cours comment fonctionnent ces algorithmes.
+Si vous ouvrez et exécutez le script python \lstinline{Arbre.py}, vous pourrez voir l'exemple de la fonction personnalisée \lstinline{def build_tree(t, branch_length, shorten_by, angle)} qui permet de dessiner un arbre à l'aide d'un algorithme. Nous verrons plus tard dans ce cours comment fonctionnent ces algorithmes.
 
 \begin{center}
 \includegraphics[width=12cm]{arbre.png}		
 \end{center}
 
-\end{solution}
-\end{Exercice}
 \end{document}
