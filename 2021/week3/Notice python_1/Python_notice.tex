@@ -11,11 +11,11 @@
 \cours{Introduction à Python}
 \section{Objectifs du document}
 
-Ce document constitue une introduction au langage de programmation Python. Les objectifs du TP sont les suivants:
+Ce document constitue un guide pour débuter à programmer en utilisant le langage Python. Les objectifs de ce guide sont les suivants:
 
 \begin{itemize}
   \item Comprendre comment créer, éditer et lancer un script Python.
-  \item Découvrir l'environnement de travail utilisé pour Python tout au long du semestre.
+  \item Découvrir l'environnement de travail utilisé pour développer en Python.
   \item Se familiariser avec quelques notions de base pour commencer à programmer en Python.
 \end{itemize}
 
@@ -24,7 +24,9 @@ Ce document constitue une introduction au langage de programmation Python. Les o
 
 \subsection{Création d'un script Python}
 
-Pour commencer à programmer en Python, il est nécessaire de créer un fichier appelé script Python. Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS. Pour ce faire, il vous suffit d'ouvrir votre terminal et d'entrer la commande \lstinline{touch hello.txt} pour créer un fichier texte vide nommé \lstinline{hello.txt}, puis de changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
+Pour commencer à programmer en Python, il est nécessaire de créer un fichier appelé script Python.
+% TODO: Le fichier s'appelle hello. À uniformiser.
+Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS. Pour ce faire, il vous suffit d'ouvrir votre terminal et d'entrer la commande \lstinline{touch hello.txt} pour créer un fichier texte vide nommé \lstinline{hello.txt}, puis de changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .py.
 
 
 \begin{center}
@@ -37,7 +39,7 @@ Pour commencer à programmer en Python, il est nécessaire de créer un fichier 
 
 \subsection{IntelliJ}
 
-Lors du cours, il vous a été demandé d'installer IntelliJ, une des l'IDE le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. La première chose a faire avec le programme est ouvrir et exécuter un script python. Pour ce faire, lancez le programme IntelliJ et ouvrez le fichier \lstinline{hello.py}.
+Dans le cours, il vous a été demandé d'installer IntelliJ, un des l'IDE le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. La première chose à faire avec le programme est ouvrir et exécuter un script python. Pour ce faire, lancez le programme IntelliJ et ouvrez le fichier \lstinline{hello.py}.
 \begin{center}
 	\includegraphics[width=12cm]{IntelliJ.png}	
 \end{center}
@@ -70,7 +72,7 @@ Si vous ouvrez et exécutez le script python \lstinline{Variables.py} qui contie
 
 \subsection{L'indentation}
 
-Python est un langgage de programmation sensible aux erreurs d'indentation Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce cours.\\
+Python est un langgage de programation sensible aux erreurs d'indentation. Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce guide.\\
 
 Si vous ouvrez et exécutez les deux scripts python \lstinline{indent1.py} et \lstinline{indent2.py} en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}, vous vous renderez compte que l'un des deux produit une erreur alors que l'autre fonctionne correctement. En effet, dans un des scripts, la console produit une erreur d'indentation. Après une boucle \lstinline{for}, il est nécessaire de bien respecter l'indentation pour définir son utilité. L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'exécuter.
 
