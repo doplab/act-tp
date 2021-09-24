@@ -6,7 +6,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowNotefalse
 
@@ -34,6 +34,14 @@ Basique: un exercice essentiel pour maîtriser les notions de cours ou tout simp
 \begin{note}{Maeva}
     Il n'y a pas d'exemple pour python dans le cours
 \end{note}
+
+\begin{section}{Installation des outils}
+    \begin{comment}
+        \textit{(\faClock \enskip 60 minutes)}
+    \end{comment}
+    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve à cette adresse: \url{https://moodle.unil.ch/mod/resource/view.php?id=891556}.
+\end{section}
+
 \begin{section}{Systèmes d'exploitation}
     
 Le système d'exploitation (OS) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
@@ -43,7 +51,7 @@ L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémo
 La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
 
-    \begin{Exercice}[3 minutes]  \textbf{QCM}\\
+    \begin{Exercice}[2 minutes]  \textbf{QCM}\\
     Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
             \item Microsoft Office 2012
@@ -58,7 +66,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 		Ce n'est donc pas un système d'exploitation, mais un logiciel d'application. 
     \end{solution}
 
-    \begin{Exercice}[3 minutes]
+    \begin{Exercice}[2 minutes]
         Quel est le rôle du noyau \textit{Kernel} du système d'exploitation? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
             \item Servir d'interface de communication entre la partie logicielle et matérielle.
@@ -73,7 +81,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{solution}
     % TODO: Explication
     
-    \begin{Exercice}[3 minutes]\\
+    \begin{Exercice}[2 minutes]\\
     Avec lequel de ces éléments le système d'exploitation n'a aucune interaction ?
         \begin{enumerate}
             \item Le clavier et la souris.
@@ -87,7 +95,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             Aucune réponse correcte. \\
         
         % TODO: @nathan quelle est la différence entre "Tous les éléments hardware" et les "périphériques"?
-	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware ( tous les composants physique de la structure de l'ordinateur) et avec tous les périphériques de l'ordinateur( tout composant qui n'est pas dans la structure de base de l'ordinateur comme une souris).  \\
+	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware (tous les composants physiques de base d'un ordinateur) et avec tous les périphériques externes de l'ordinateur (tout composant additionnel non essentiel au fonctionnement d'un ordinateur).  \\
     \end{solution}
 
         % TODO: @nathan - Question pas claire, à refaire.
@@ -117,7 +125,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
 \end{comment}
 
-\begin{Exercice}[3 minutes]
+\begin{Exercice}[2 minutes]
     Lequel de ces systèmes d'exploitation \textbf{ne} permet \textbf{pas} d'exécuter plus d'un programme en même temps?
     \begin{enumerate}
         \item Ubuntu
@@ -135,7 +143,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{conseil}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[3 minutes]
         Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
         \begin{enumerate}
             \item Liste l'ensemble des fichiers du disque.
@@ -154,8 +162,8 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 
     
     
-     \begin{Exercice}[5 minutes]\\
-    Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (filesystem)?
+     \begin{Exercice}[2 minutes]\\
+    Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (\textit{filesystem})?
         \begin{enumerate}
             \item L'organisation des dossiers.
             \item L'écriture et la lecture sur les disques.
@@ -172,10 +180,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{solution}
     
 \end{section}
-\begin{section}{Prise en main de l'environnement de travail}
-    \subsection{Installation des outils \textit{(\faClock \enskip 30 minutes)}} 
-        Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve à cette adresse: \url{https://moodle.unil.ch/mod/resource/view.php?id=891556}.
-\end{section}
+
 \begin{section}{Interpréteurs et compilateurs}
     Les ordinateurs ne ``comprennent" pas les langages de programmation, il faut passer par un programme qui va convertir le code écrit par un humain en instructions que l'ordinateur comprend (à base de 0 et de 1).
 \\
@@ -217,7 +222,7 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
         \end{itemize}
     \end{conseil}
     \begin{solution}
-        Pour exécuter un programme \lstinline{Python} en ligne de commande, rassurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivi du nom de votre programme. 
+        Pour exécuter un programme \lstinline{Python} en ligne de commande, assurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivi du nom de votre programme. 
         Dans le cas de cette question, on fera: \lstinline{python hello.py}.
     \end{solution}
     
@@ -313,13 +318,13 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
     Exercices avancé jusqu'a la fin
 \end{note}
 \end{conseil} 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[3 minutes]
 	A quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
 \end{Exercice} 
 \begin{solution}
 	Elle sert à calculer le plus grand diviseur commun entre a et b.
 \end{solution} 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[3 minutes]
     En Python et en Java, quelles fonctions utiliseriez-vous pour convertir un angle, dont la valeur est en Radians, en Degrés? 
 \end{Exercice}
 \begin{conseil}
@@ -333,21 +338,21 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 
     
 \end{solution} 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[3 minutes]
 	En Python, à quoi sert la fonction \lstinline{fsum()} et quels sont les paramètres à lui passer ? 
 \end{Exercice}
 \begin{solution}
 	Elle sert à additionner les éléments d'une liste de façon plus précise que \lstinline{sum()} sur des opérations à virgule flottante.
 \end{solution} 
 \begin{comment}
-    \begin{Exercice}[5 minutes]
+    \begin{Exercice}[3 minutes]
         Comment faire si je veux calculer la distance euclidienne entre 2 points ? 
     \end{Exercice} \\
     \begin{solution}
         Il faut utiliser la fonction dist(p,q). Attention, ici p et q sont les deux des listes de coordonnées !
     \end{solution} 
 \end{comment}
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[3 minutes]
 	En Python, est-ce que la librairie \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
 \end{Exercice} 
 \begin{solution}
