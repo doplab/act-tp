@@ -1,0 +1,104 @@
+\input{../../header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\graphicspath{ {./img/} }
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+
+\titre
+\cours{Introduction à Java}
+\section{Objectifs du document}
+
+Ce document constitue un guide pour débuter à programmer en utilisant le langage Java. Les objectifs de ce guide sont les suivants:
+
+\begin{itemize}
+  \item Comprendre comment créer, éditer et lancer un programme en Java.
+  \item Découvrir l'environnement de travail utilisé pour développer en Java.
+  \item Se familiariser avec quelques notions de base pour commencer à programmer en Java.
+\end{itemize}
+
+\section{Introduction}
+
+
+\subsection{Création d'un programme en Java}
+
+Pour commencer à programmer en Java, il est en premier lieu nécessaire de créer un fichier en .java.
+Pour se faire, il suffit de créer un simple fichier vide et de changer l'extension du fichier. Il existe plusieurs manières d'effectuer cela. La manière la plus simple est de passer par le terminal de l'OS. Pour ce faire, il vous suffit d'ouvrir votre terminal et d'entrer la commande \lstinline{touch monpremierfichierjava.txt}pour créer un fichier texte vide nommé \lstinline{monpremierfichierjava.txt}, puis de changer l'extension du fichier directement depuis l'explorateur de fichier de .txt à .java.
+
+
+\begin{center}
+	\includegraphics[width=12cm]{terminal.png}
+	\includegraphics[width=12cm]{ext}
+	
+\end{center}
+
+Pour éditer votre programme java, il suffit simplement de l'éditer avec n'importe quel éditeur de texte
+Vous pouvez ensuite lancer votre programme Java en entrant la commande \lstinline{java monpremierfichierjava.java}. Ce dernier va s'éxecuter dans le terminal
+\begin{center}
+	\includegraphics[width=12cm]{exe}	
+\end{center}
+ 
+
+\subsection{IDEA}
+
+Dans le cours, il vous a été demandé d'installer IDEA, un des l'IDE le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. Pour ouvrir un fichier .java avec le programme, il est nécessaire de créer un nouveau projet et de copier le fichier .java dans le dossier de ce projet.
+
+Commencez par ouvrir IDEA et créez un nouveau projet SCREENSHOT
+
+Dans le menu à gauche, vous allez retrouver un sous-dossier nommé src. Ouvrez l'emplacement de ce dossier puis copiez le fichier .java que vous souhaitez lancer.
+
+La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié.
+
+Vous pouvez maintenant lancer le fichier en allant dans Run... > Run lenomdevotreclasse
+
+\subsection{Les Classes en Java}
+
+Contrairement a d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, "l'objet" Basketball serait une instance de la "classe" Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse lecontenudemaclasse }
+
+\subsection{La methode main}
+Dans tout programme Java, on doit toujours retrouver au moins une fois la fonction \lstinline{public static void main(String[] args)} dans une de nos classes. Cette fonction est un point d'entrée dans le progamme qui ne s'exécutera pas s'il ne retrouve pas cette fonction.
+\subsection{La création de variable}
+
+Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise
+Pour assigner une valeur à une variable en Java, il suffit de respecter la forme suivante \lstinline{type variable=valeur}.
+
+\begin{center}
+\includegraphics[width=12cm]{variables}	
+\end{center}
+
+\begin{conseil}
+\begin{itemize}
+	\item En Java, une variable est généralement dynamique (elle peut changer), mais il est possible de rendre une variable statique en ajoutant un type \lstinline{final} avant le type de la variable.
+	\item On peut assigner n'importe quelle suite de caractères non-reservée en tant que variable
+	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables
+	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur
+	\item Il est possible d'additionner les variables du même type
+	\item Plusieurs variables peuvent avoir la même valeur
+	\item Le nom d'une variable doit toujours commencer par une lettre
+\end{itemize}
+
+\end{conseil}
+A noter que les dernières versions de Java supportent l'inférence du type des variables. On pourrait autant écrire \lstinline{String a="Alpha"} que \lstinline{a="Alpha"}  car le txpe de la variable serait automatiquement attribué. Il est cependant important de quand même toujours prendre la peine de déclarer vos types de variables dans le cadre de ce cours.
+
+Si vous ouvrez et exécutez le programme Java \lstinline{Variables.java} qui contient quelques exemples d'attribution de variables, vous pourrez observer comment vous pouvez créer différentes variables mais aussi comment le programme les traite.
+
+\subsection{Les fonctions}
+
+Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions. Une des fonctions basique et plutôt importante en Java est la fonction \lstinline{System.out.println("Votremessage");}.  Cette fonction permet d'afficher à l'écran le contenu de la parenthèse.\\ 
+Si vous entrez la ligne de code \lstinline{System.out.println("Votremessage");} et que vous lancez le programme, IntelliJ va vous afficher une ligne de texte. Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de "Votremessage"). C'est le but d'une fonction \lstinline{System.out.println("Votremessage");}
+\begin{center}
+\includegraphics[width=12cm]{print}	
+\end{center}
+
+
+En plus des fonctions incluses dans les librairies de base, il est possible de créer des fonctions complètement personnalisées (généralement plusieurs fonctions sont réunies en une seule) au moyen de la fonction \lstinline{static void nomdelafonction() } et de l'utiliser à n'importe quel moment en l'invoquant avec \lstinline{nomdelafonction()}.
+
+Si vous ouvrez et exécutez le programme \lstinline{programme1.java}, vous pourrez voir l'exemple de la fonction personnalisée \lstinline{mafonction} qui imprime 3 suite de caractères différentes.
+
+\begin{center}
+\includegraphics[width=12cm]{fonction}		
+\end{center}
+
+\end{document}
