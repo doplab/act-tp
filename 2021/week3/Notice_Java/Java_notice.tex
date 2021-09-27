@@ -45,9 +45,18 @@ Vous pouvez ensuite lancer votre programme Java en entrant la commande \lstinlin
 
 Dans le cours, il vous a été demandé d'installer IntelliJ IDEA, l'un des environnements de développement le plus populaire de ces dernières années. Un environnement de développement ou IDE (Integrated Development Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. Pour ouvrir un fichier .java avec le programme, il est nécessaire de créer un nouveau projet et de copier le fichier .java dans le dossier de ce projet.
 
-Commencez par ouvrir IDEA et créez un nouveau projet \textbf{SCREENSHOT}
+Commencez par ouvrir IDEA et créez un nouveau projet
+
+\begin{center}
+	\includegraphics[width=12cm]{np}	
+\end{center}
+ 
 
 Dans le menu à gauche, vous allez retrouver un sous-dossier nommé src. Ouvrez l'emplacement de ce dossier puis copiez le fichier .java que vous souhaitez lancer.
+
+\begin{center}
+	\includegraphics[width=12cm]{finder}	
+\end{center}
 
 La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié.
 
@@ -55,10 +64,14 @@ Vous pouvez maintenant lancer le fichier en allant dans \lstinline{Run... > Run 
 
 \subsection{Les Classes en Java}
 
-Contrairement a d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, "l'objet" Basketball serait une instance de la "classe" Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse lecontenudemaclasse }
+Contrairement à d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, "l'objet" Basketball serait une instance de la "classe" Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse}
 
-\subsection{La methode main}
-Dans tout programme Java, on doit toujours retrouver au moins une fois la fonction \lstinline{public static void main(String[] args)} dans une de nos classes. Cette fonction est un point d'entrée dans le progamme qui ne s'exécutera pas s'il ne retrouve pas cette fonction.
+\begin{center}
+	\includegraphics[width=12cm]{clss}	
+\end{center}
+
+\subsection{La méthode main}
+Dans tout programme Java, on doit toujours retrouver au moins une fois la fonction \lstinline{public static void main(String[] args)} dans une de nos classes. Cette fonction est un point d'entrée dans le programme qui ne s'exécutera pas s'il ne retrouve pas cette fonction.
 \subsection{La création de variable}
 
 Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise
@@ -71,7 +84,7 @@ Pour assigner une valeur à une variable en Java, il suffit de respecter la form
 \begin{conseil}
 \begin{itemize}
 	\item En Java, une variable est généralement dynamique (elle peut changer), mais il est possible de rendre une variable statique en ajoutant un type \lstinline{final} avant le type de la variable.
-	\item On peut assigner n'importe quelle suite de caractères non-reservée en tant que variable
+	\item On peut assigner n'importe quelle suite de caractères non-réservée en tant que variable
 	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables
 	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur
 	\item Il est possible d'additionner les variables du même type
@@ -80,7 +93,7 @@ Pour assigner une valeur à une variable en Java, il suffit de respecter la form
 \end{itemize}
 
 \end{conseil}
-A noter que les dernières versions de Java supportent l'inférence du type des variables. On pourrait autant écrire \lstinline{String a="Alpha"} que \lstinline{a="Alpha"}  car le txpe de la variable serait automatiquement attribué. Il est cependant important de quand même toujours prendre la peine de déclarer vos types de variables dans le cadre de ce cours.
+A noter que les dernières versions de Java supportent l'inférence du type des variables. On pourrait autant écrire \lstinline{String a="Alpha"} que \lstinline{a="Alpha"}  car le type de la variable serait automatiquement attribué. Il est cependant important de quand même toujours prendre la peine de déclarer vos types de variables dans le cadre de ce cours.
 
 Si vous ouvrez et exécutez le programme Java \lstinline{Variables.java} qui contient quelques exemples d'attribution de variables, vous pourrez observer comment vous pouvez créer différentes variables mais aussi comment le programme les traite.
 
