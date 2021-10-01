@@ -1,0 +1,180 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation de base - Exercices avancés}
+Le but de cette séance est d'aborder des notions de base en programmation. Au terme de cette séance, l'étudiant sera capable de: \\
+
+\begin{itemize}
+	\item Définir une variable, définir son type et sa valeur.
+	\item Définir une fonction et comprendre son rôle.
+	\item Utiliser des notions d'algèbre booléenne.
+	\item Comprendre la notion d'entrée/sortie. \\
+\end{itemize} 
+
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/pluginfile.php/1721328/mod_resource/content/3/prerequisite.pdf}{tutoriel d'installation des outils et prise en main de l'environnement de travail}.\\
+
+
+Cette feuille d’exercices avancés vous permettra d’approfondir vos connaissances des notions vues en cours.
+Le code présent dans les énoncés  se trouve sur Moodle, dans le dossier "Ressources".
+
+\section{Représentation de nombres entiers}
+
+\begin{Exercice}[5 minutes] \textbf{Conversion d'un nombre binaire (au format complément à 2) en base 10}\\
+    
+    Soit le nombre binaire suivant exprimé sur 8 bits au format complément à 2: 10010011$_{(2)}$. Convertissez ce nombre en base 10. \\
+	
+    \begin{conseil}
+    
+    \begin{itemize}
+    	\item Utilisez le même tableau que dans la question 4 (complément à 2).
+    \end{itemize}
+    
+    \end{conseil}
+    
+    \begin{solution}
+       Il faut appliquer le processus de la question 4 (complément à 2), mais de façon inversée. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et puis multiplier par -1. \\
+       
+       \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            a & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\ [0.5ex] 
+            \hline
+            b & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\ [0.5ex]
+            \hline
+            c & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex]
+            \hline
+        \end{tabular} \\
+        
+        a : écrire le nombre en binaire \\
+        
+        b : soustraire 1 \\
+        
+        c : inverser tous les bits \\
+        
+        On obtient donc 01101101$_{(2)}$ = 109$_{(10)}$ \\
+        
+        Pour finir, on obtient -109$_{(10)}$ après multiplication par -1.
+       
+    \end{solution}
+\end{Exercice}
+
+
+\section{Bases en programmation}
+
+
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Qu'afficheront les programmes suivants ? \\
+   
+   \textbf{Python:}
+   \lstinputlisting{resources/Question15.py}
+   
+   \textbf{\\Java:}
+   \lstinputlisting{resources/Question15.java}
+    
+   
+    \begin{conseil}
+      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \textbf{Python:}\\
+    3\\
+    3.0
+    
+    \textbf{\\Java:}\\
+    3\\
+    3.14 \\
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Calculs (division) (Java ou Python)}\\
+   Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+   
+    \begin{conseil}
+      	Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    
+    \lstinputlisting{resources/Question17.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/Question17.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python)}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python}:
+    \lstinputlisting{resources/Question21.py}
+    
+    \textbf{\\Java}:
+    \lstinputlisting{resources/Question21.java}
+    \end{solution}   
+\end{Exercice}
+
+
+\newpage
+\section{Opérateurs et conditions Booléennes (Python uniquement)}
+
+\begin{Exercice}[20 minutes] \textbf{Le juste prix}\\
+  Dans le programme suivant, nous vous donnons un nombre aléatoire entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
+  
+  \lstinputlisting{resources/Question29_1.py}
+
+  \begin{comment}
+    % On ne devrait pas aborder les boucles pour le moment
+    \begin{conseil}
+      	Vous pouvez ajouter une boucle \lstinline{for i in range(5)} pour simplifier le code!
+    \end{conseil}
+  \end{comment}
+    \begin{solution}
+
+   \lstinputlisting{resources/Question29_2.py}
+   
+   Le problème avec cette solution est le suivant : Si le joueur trouve la réponse, le jeu va continuer, une façon plus propre et correcte de coder ce jeu est d'utiliser une boucle (prochain chapitre). \\
+   
+   \lstinputlisting{resources/Question29_3.py}
+   
+  	Ici le code est plus concis et permet de s'arrêter lorsque le joueur aura trouvé la bonne réponse.\\
+           
+    \end{solution}   
+\end{Exercice}
+
+\newpage
+\begin{Exercice}[20 minutes] \textbf{Pierre, Feuille, Ciseaux}\\
+  Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.   \\
+  
+  \lstinputlisting{resources/Question30_1.py}
+   
+    \begin{solution}
+    
+    \lstinputlisting{resources/Question30_2.py}
+    
+    Vous pouvez également utiliser une boucle pour augmenter le nombre de manches. \\
+           
+    \end{solution}   
+\end{Exercice}
+
+
+\end{document}
