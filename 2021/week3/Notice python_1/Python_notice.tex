@@ -25,7 +25,7 @@ Ce document constitue un guide pour débuter à programmer en utilisant le langa
 \subsection{Création d'un script Python sur Mac et Linux}
 
 Pour commencer à programmer en Java, il est nécessaire de créer un fichier ayant une extension \lstinline{.py}.
-Pour ce faire, il suffit de créer un simple fichier python vide. La manière la plus simple est de passer par le terminal (ou invite de commande). Une fois ouvert, entrer la commande \lstinline{touch monpremierfichierpython.py} ou \lstinline{nano monpremierfichierpython.py} pour créer un fichier vide nommé \lstinline{monpremierfichierpython.py}.
+Pour ce faire, il suffit de créer un simple fichier python vide. La manière la plus simple est de passer par le terminal (ou invite de commande). Une fois ouvert, entrer la commande \lstinline{touch hello.py} ou \lstinline{nano hello.py} pour créer un fichier vide nommé \lstinline{hello.py}.
 
 
 \begin{center}
@@ -34,7 +34,7 @@ Pour ce faire, il suffit de créer un simple fichier python vide. La manière la
 
 \subsection{Création d'un script Python sur Windows}
 
-Pour créer un fichier python sur Windows, il suffit simplement d'entrer la commande \lstinline{notepad monpremierfichierpython.py} dans le bloc-note. Vous pouvez alors simplement l'éditer et l'enregistrer.
+Pour créer un fichier Python sur Windows, il suffit simplement d'entrer la commande \lstinline{notepad hello.py} dans le bloc-note. Vous pouvez alors simplement l'éditer et l'enregistrer.
 
 \begin{center}
 	\includegraphics[width=12cm]{4}	
@@ -44,37 +44,36 @@ Pour créer un fichier python sur Windows, il suffit simplement d'entrer la comm
 	\includegraphics[width=12cm]{5}	
 \end{center}
 
-\subsection{IDEA}
+\subsection{IntelliJ IDEA}
 
-Dans le cours, il vous a été demandé d'installer IDEA, un des l'IDE le plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. La première chose à faire avec le programme est ouvrir et exécuter un script python. Pour ce faire, lancez le programme IntelliJ et ouvrez le fichier \lstinline{hello.py}.
+Dans le cours, il vous a été demandé d'installer Intellij IDEA, un des l'IDE les plus populaire de ces dernières années. Un IDE (Integrated Developement Environnement) est un programme qui combine différents outils de développement et qui facilite grandement le travail d'un programmeur. La première chose à faire avec le programme est ouvrir et exécuter un script python. Pour ce faire, lancez le programme IntelliJ IDEA et ouvrez le fichier \lstinline{hello.py}.
 \begin{center}
 	\includegraphics[width=12cm]{2}	
 \end{center}
 
-La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié. Notez qu'il est aussi possible créer directement un fichier depuis Idea.
+La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié. Notez qu'il est aussi possible de créer directement un fichier depuis votre IDE.
 \begin{center}
 	\includegraphics[width=12cm]{3}	
 \end{center}
 
 
-\subsection{La création de variable}
+\subsection{Création de variables}
 
-Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise
+Les variables dans les langages de programmation sont similaires à des noms donnés à une valeur précise.
 Pour assigner une valeur à une variable en Python, il suffit de respecter la forme suivante \lstinline{variable=valeur}.
 
 \begin{conseil}
 \begin{itemize}
-	\item En Python, une variable est  toujours dynamique (il n'existe pas de variable statique).
-	\item On peut assigner n'importe quelle suite de caractères non-reservée en tant que variable
-	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables
-	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur
-	\item Il est possible d'additionner les variables du même type
-	\item Plusieurs variables peuvent avoir la même valeur
+	\item En Python, le type de la variable est défini de façon automatique.
+	\item On peut assigner n'importe quelle suite de caractères non-reservée en tant que variable.
+	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables.
+	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur.
+	\item Plusieurs variables peuvent avoir la même valeur.
 \end{itemize}
 \end{conseil}
 
 
-Si vous ouvrez et exécutez le script python \lstinline{Variables.py} qui contient quelques exemples d'attribution de variables, vous pourrez observer comment vous pouvez créer différentes variables mais aussi comment le programme les traite.
+Si vous ouvrez et exécutez le script Python \lstinline{variables.py} (se trouvant sur Moodle, dans le dossier Ressources) qui contient quelques exemples d'attribution de variables, vous pourrez observer comment vous pouvez créer différentes variables mais aussi comment le programme les traite.
 
 \begin{center}
 	\includegraphics[width=12cm]{6}	
@@ -83,9 +82,9 @@ Si vous ouvrez et exécutez le script python \lstinline{Variables.py} qui contie
 
 \subsection{L'indentation}
 
-Python est un langgage de programation sensible aux erreurs d'indentation. Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce guide.\\
+Python est un langage de programmation sensible aux erreurs d'indentation. Une indentation correspond à une tabulation ou un espace. Il sera donc important de bien comprendre comment celles-ci fonctionnent. Prenons par exemple une simple boucle \lstinline{for} qui sera traitée un peu plus loin dans ce guide.\\
 
-Si vous ouvrez et exécutez les deux scripts python \lstinline{indent1.py} et \lstinline{indent2.py} en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}, vous vous renderez compte que l'un des deux produit une erreur alors que l'autre fonctionne correctement. En effet, dans un des scripts, la console produit une erreur d'indentation. Après une boucle \lstinline{for}, il est nécessaire de bien respecter l'indentation pour définir son utilité. L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'exécuter.
+Si vous ouvrez et exécutez les deux scripts Python \lstinline{indent1.py} et \lstinline{indent2.py} en allant sur le barre de menu (tout en haut) et en cliquant sur \lstinline{Run > Run `hello'}, vous vous rendrez compte que l'un des deux produit une erreur alors que l'autre fonctionne correctement. En effet, dans un des scripts, la console produit une erreur d'indentation. Après une boucle \lstinline{for}, il est nécessaire de bien respecter l'indentation pour définir son utilité. L'indentation est importante dans la syntaxe d'un script Python. Une erreur d'indentation peut changer le fonctionnement d'un script ou tout simplement empêcher celui-ci de s'exécuter.
 
 
 
@@ -97,13 +96,14 @@ Si vous ouvrez et exécutez les deux scripts python \lstinline{indent1.py} et \l
 \subsection{Les fonctions}
 
 Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions. Une des fonctions basique et plutôt importante en Python est la fonction \textbf{print()}.  Cette fonction permet d'afficher à l'écran le contenu de la parenthèse.\\ 
-Si vous entrez la ligne de code \lstinline{print("Votremessage")} et que vous executez le script, IntelliJ va vous afficher une ligne de texte. Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de "Votremessage"). C'est le but d'une fonction \lstinline{print()}
+Si vous entrez la ligne de code \lstinline{print("Votremessage")} et que vous exécutez le script, IntelliJ IDEA va vous afficher une ligne de texte. Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de "Votremessage"). C'est le but d'une fonction \lstinline{print()}.
 \begin{center}
 \includegraphics[width=12cm]{8}	
 \end{center}
 
 
 En plus des fonctions incluses dans les librairies Python, il est possible de créer des fonctions complètement personnalisées (généralement plusieurs fonctions sont réunies en une seule) au moyen de la fonction \lstinline{def nomdelafonction():} et de l'utiliser à n'importe quel moment en l'invoquant avec \lstinline{nomdelafonction()}.
+
 
 Si vous ouvrez et exécutez le script python \lstinline{Arbre.py}, vous pourrez voir l'exemple de la fonction personnalisée \lstinline{def build_tree(t, branch_length, shorten_by, angle)} qui permet de dessiner un arbre à l'aide d'un algorithme. Nous verrons plus tard dans ce cours comment fonctionnent ces algorithmes.
 

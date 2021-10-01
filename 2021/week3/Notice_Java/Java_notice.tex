@@ -34,7 +34,7 @@ Pour ce faire, il suffit de créer un simple fichier java vide. La manière la p
 
 \subsection{Création d'un programme en Java sur Windows}
 
-Pour créer un fichier python sur Windows, il suffit simplement d'entrer la commande \lstinline{notepad monpremierfichier.java} dans le bloc-note. Vous pouvez alors simplement l'éditer et l'enregistrer.
+Pour créer un fichier Python sur Windows, il suffit simplement d'entrer la commande \lstinline{notepad monpremierfichier.java} dans le bloc-note. Vous pouvez alors simplement l'éditer et l'enregistrer.
 
 \begin{center}
 	\includegraphics[width=12cm]{2j}
@@ -73,7 +73,11 @@ Vous pouvez maintenant lancer le fichier en allant dans \lstinline{Run... > Run 
 
 \subsection{Les Classes en Java}
 
-Contrairement à d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, ``l'objet'' Basketball serait une instance de la ``classe'' Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse}
+Contrairement à d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. La notion de classe vous sera présentée plus en détails dans la suite du cours.
+
+\begin{comment}
+Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, ``l'objet'' Basketball serait une instance de la ``classe'' Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse}
+\end{comment}
 
 \begin{center}
 	\includegraphics[width=12cm]{7j}	
@@ -81,18 +85,15 @@ Contrairement à d'autres langages de programmation, tout code en Java doit êtr
 
 \subsection{La méthode main}
 Dans tout programme Java, on doit toujours retrouver au moins une fois la fonction \lstinline{public static void main(String[] args)} dans une de nos classes. Cette fonction est un point d'entrée dans le programme qui ne s'exécutera pas s'il ne retrouve pas cette fonction.
-\subsection{La création de variable}
+
+\subsection{La création de variables}
 
 Les variables dans les langages de programmation sont similaires à des noms données à une valeur précise.
 Pour assigner une valeur à une variable en Java, il suffit de respecter le format suivant \lstinline{type variable=valeur}.
 
-\begin{center}
-\includegraphics[width=12cm]{8j}	
-\end{center}
 
 \begin{conseil}
 \begin{itemize}
-	\item En Java, une variable est généralement dynamique (elle peut changer), mais il est possible de rendre une variable statique en ajoutant un type \lstinline{final} avant le type de la variable.
 	\item On peut assigner n'importe quelle suite de caractères non-réservée en tant que variable
 	\item Il est aussi possible d'assigner des chaînes de caractères (strings en anglais) ou encore des valeurs booléennes à des variables
 	\item En réassignant une nouvelle valeur à une variable déjà définie, la valeur de la variable va être écrasée et remplacée par la nouvelle valeur
@@ -106,6 +107,9 @@ Pour assigner une valeur à une variable en Java, il suffit de respecter le form
 Dans le cadre du cours, nous vous recommandons de toujours déclarer le type de vos variables.
 
 Si vous ouvrez et exécutez le programme Java \lstinline{Variables.java} qui contient quelques exemples d'attribution de variables, vous pourrez observer comment sont créées différentes variables mais aussi comment le programme les traite.
+\begin{center}
+	\includegraphics[width=12cm]{8j}	
+\end{center}
 
 \subsection{Les fonctions}
 
