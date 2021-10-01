@@ -13,8 +13,8 @@
 \titre
 \cours{Logiciels système}
 
-Le but de cette séance est de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et des librairies.
-Les exercices présentés au cours de cette séance se présentent sous deux sections. Une section composée de questions à choix multiples et une section permettant de découvrir et se familiariser avec votre futur environnement de travail.\\
+Le but de cette séance est de vous permettre de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et des librairies.
+Cette séance sera composée de deux parties. Une première partie qui sera consacré à l'installation des outils de travail et une deuxième partie qui contient des questions à choix multiples en lien avec les notions abordées dans le cours.\\
 Le code utilisé dans les questions est également disponible sur Moodle.
 
 \begin{note}{"Nathan"}
@@ -39,14 +39,14 @@ Basique: un exercice essentiel pour maîtriser les notions de cours ou tout simp
     \begin{comment}
         \textit{(\faClock \enskip 60 minutes)}
     \end{comment}
-    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve à cette adresse: \url{https://moodle.unil.ch/mod/resource/view.php?id=891556}.
+    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve à cette adresse: \url{https://moodle.unil.ch/mod/resource/view.php?id=1132316}.
 \end{section}
 
 \begin{section}{Systèmes d'exploitation}
     
-Le système d'exploitation (OS) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
+Le système d'exploitation (OS - Operating System) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
 \\\\
-L'OS contrôle l'accès au matériel physique et gère les processeurs, la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers dans les disques durs internes ou externes.
+L'OS contrôle l'accès au matériel physique et gère le(s) processeur(s), la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers dans les disques durs internes ou externes.
 \\\\
 La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
@@ -215,8 +215,8 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
     \end{note}
     \begin{conseil}
         \begin{itemize}
-            \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
-            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer Nano en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
+            \item Assurez-vous d'avoir correctement installé les outils de développement avant d'exécuter le programme.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer \lstinline{Nano} en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
 Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la command \lstinline{touch > hello.py}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. Notepad est installé par défaut sous Windows.
         \end{itemize}
@@ -261,6 +261,7 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
                 \item Le code ci-dessus est disponible sur Moodle.
                 \item Le programme affiche l'ensemble des paramètres qui lui auront été passé.
                 \item \lstinline{String args[]} est une liste (de chaînes de caractères) contenant les paramètres passés au programme. Pour accéder à un élément de cette liste, vous pouvez faire \lstinline{args[index]} où \lstinline{index} est un entier représentant la position dans la liste \lstinline{args}.
+                \item Pour naviguer dans votre système de fichiers, pensez à utiliser les commandes présentées à la diapositive 33 du cours.
             \end{itemize}
         \end{conseil}
         \begin{solution}
@@ -295,7 +296,7 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
 \begin{section}{Librairies}
     \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une librairie écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
 \\\\
-En Python, de nombreuses librairies sont disponibles de base (list, set, dict, str, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
+En Python, de nombreuses librairies sont disponibles de base (\lstinline{list, set, dict, str}, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
 
 Le but des exercices ci-dessous est de vous apprendre à lire la documentation d'un langage de programmation. Cela vous permettra d'être plus autonome pour la suite du cours.
 \\\\
@@ -319,7 +320,7 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 \end{note}
 \end{conseil} 
 \begin{Exercice}[3 minutes]
-	A quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
+	À quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
 \end{Exercice} 
 \begin{solution}
 	Elle sert à calculer le plus grand diviseur commun entre a et b.
@@ -359,7 +360,7 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 	Oui, elle contient également des constantes, on peut citer \lstinline{pi} par exemple.
 \end{solution} 
 \begin{Exercice}[10 minutes]
-	Cherchez sur le net d'autres librairies disponibles pour python. Citez-en 3 et ajouter le lien vers leur documentation officielle.
+	Cherchez sur le net d'autres librairies disponibles pour Python. Citez-en 3 et ajouter le lien vers leur documentation officielle.
 \end{Exercice}    
 \begin{solution}
 	On peut citer \lstinline{Numpy}, \lstinline{Scikit}, \lstinline{TensorFlow} qui sont utilisées pour faire du Machine Learning. \\
