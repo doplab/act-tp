@@ -27,20 +27,25 @@ Ce document constitue un guide pour débuter à programmer en utilisant le langa
 Pour commencer à programmer en Java, il est nécessaire de créer un fichier ayant une extension \lstinline{.java}.
 Pour ce faire, il suffit de créer un simple fichier java vide. La manière la plus simple est de passer par le terminal (ou invite de commande). Une fois ouvert, entrer la commande \lstinline{touch monpremierfichierjava.java}pour créer un fichier vide nommé \lstinline{monpremierfichierjava.java}.
 
+\begin{center}
+	\includegraphics[width=12cm]{1j}	
+\end{center}
+
 \subsection{Création d'un programme en Java sur Windows}
 
 Pour créer un fichier python sur Windows, il suffit simplement d'entrer la commande \lstinline{notepad monpremierfichier.java} dans le bloc-note. Vous pouvez alors simplement l'éditer et l'enregistrer.
 
 \begin{center}
-	\includegraphics[width=12cm]{terminal.png}
-	\includegraphics[width=12cm]{ext}
-	
+	\includegraphics[width=12cm]{2j}
+\end{center}
+\begin{center}
+	\includegraphics[width=12cm]{3j}
 \end{center}
 
 Pour éditer votre programme java, il suffit simplement de l'éditer avec n'importe quel éditeur de texte
-Vous pouvez ensuite lancer votre programme Java en entrant la commande \lstinline{java monpremierfichierjava.java}. Ce dernier va s'exécuter dans le terminal.
+Vous pouvez ensuite compiler et lancer votre programme Java en entrant les commandes \lstinline{javac monpremierfichierjava.java} et \lstinline{java monpremierfichierjava.java}. Ce dernier va s'exécuter dans le terminal.
 \begin{center}
-	\includegraphics[width=12cm]{exe}	
+	\includegraphics[width=12cm]{4j}	
 \end{center}
  
 
@@ -51,14 +56,14 @@ Dans le cours, il vous a été demandé d'installer IntelliJ IDEA, l'un des envi
 Commencez par ouvrir IDEA et créez un nouveau projet.
 
 \begin{center}
-	\includegraphics[width=12cm]{np}	
+	\includegraphics[width=12cm]{5j}	
 \end{center}
  
 
 Dans le menu à gauche, vous allez retrouver un sous-dossier nommé src. Ouvrez l'emplacement de ce dossier puis copiez le fichier .java que vous souhaitez lancer.
 
 \begin{center}
-	\includegraphics[width=12cm]{finder}	
+	\includegraphics[width=12cm]{6j}	
 \end{center}
 
 La fenêtre qui vient de s'ouvrir est similaire à un éditeur de texte basique. C'est ici que le code peut être entré et modifié.
@@ -70,7 +75,7 @@ Vous pouvez maintenant lancer le fichier en allant dans \lstinline{Run... > Run 
 Contrairement à d'autres langages de programmation, tout code en Java doit être écrit à l'intérieur d'une classe. Une classe en Java est semblable à une sorte de schéma pour créer ce qu'on appelle des objets. Les objets sont donc des instances particulières d'une certaine classe. Par exemple, ``l'objet'' Basketball serait une instance de la ``classe'' Sport. Pour créer une classe en Java, il suffit d'écrire \lstinline{class Lenomdemaclasse}
 
 \begin{center}
-	\includegraphics[width=12cm]{clss}	
+	\includegraphics[width=12cm]{7j}	
 \end{center}
 
 \subsection{La méthode main}
@@ -81,7 +86,7 @@ Les variables dans les langages de programmation sont similaires à des noms don
 Pour assigner une valeur à une variable en Java, il suffit de respecter le format suivant \lstinline{type variable=valeur}.
 
 \begin{center}
-\includegraphics[width=12cm]{variables}	
+\includegraphics[width=12cm]{8j}	
 \end{center}
 
 \begin{conseil}
@@ -106,7 +111,7 @@ Si vous ouvrez et exécutez le programme Java \lstinline{Variables.java} qui con
 Dans les langages de programmation, on retrouve un très grand nombre de fonctions. Ces fonctions sont des blocs de code qui, lorsqu'ils sont invoqués avec certains paramètres, effectuent certaines actions. Une des fonctions basique et plutôt importante en Java est la fonction \lstinline{System.out.println("Votremessage");}.  Cette dernière permet d'afficher à l'écran le contenu de la parenthèse.\\ 
 Si vous entrez la ligne de code \lstinline{System.out.println("Votremessage");} et que vous lancez le programme, IntelliJ va vous afficher une ligne de texte. Le message qui apparaît est celui que vous avez entré entre guillemets (à la place de ''Votremessage``'). C'est le but d'une fonction \lstinline{System.out.println("Votremessage");}
 \begin{center}
-\includegraphics[width=12cm]{print}	
+\includegraphics[width=12cm]{9j}	
 \end{center}
 
 
@@ -115,7 +120,7 @@ En plus des fonctions incluses dans les librairies de base, il est possible de c
 Si vous ouvrez et exécutez le programme \lstinline{programme1.java}, vous pourrez voir l'exemple de la fonction personnalisée \lstinline{mafonction} qui imprime 3 suites de caractères différentes.
 
 \begin{center}
-\includegraphics[width=12cm]{fonction}		
+\includegraphics[width=12cm]{10j}		
 \end{center}
 
 \end{document}
