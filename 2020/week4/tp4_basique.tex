@@ -10,7 +10,7 @@
     \ShowSolutionfalse
     \ShowConseiltrue
     \titre
-    \cours{Structure de données, Itération et récursivité }
+    \cours{Structure de données, Itération et récursivité - Exercices Basiques}
 
     Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les maps. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
 
@@ -19,16 +19,6 @@
     \section{Les structures de données}
 
     Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
-\begin{note}{"Nathan"}
-    q1-9: basique
-    q10,11: avancé
-    q12-19: basique
-    q20: avancé
-    q21-23: basique
-    q24: avancé
-    q25: basique
-    q26: avancé   
-\end{note}
     \subsection{Les tuples}
     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
     L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
@@ -688,9 +678,6 @@
 
 \end{comment}
     
-\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
  \begin{Exercice}[10 minutes] \textbf{Boucle while et input()}
       	
       	A l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur.
@@ -709,68 +696,8 @@
         \end{solution}
     \end{Exercice}
     
-  \begin{note}{Arnaud}
-    Exercice avancé selon moi
-  \end{note}
-    
- \begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
-    \begin{Exercice}[10 minutes] \textbf{Boucle while et des étudiants}
-      	
-      	Considérons une liste d'étudiant·e·s contenant le nom de l'étudiant·e suivi d'une valeur booléenne indiquant si l'étudiant·e est présent·e en classe ou non. \\
-      	
-      	l = [``Schmitt'', True, ``Irma'', False, ``Khalif'', True, ``Yasser'', False, ``Wang'', True] \\
-      	
-      	À partir de cette liste et du type de boucle de votre choix, créez un dictionnaire ayant pour clés les noms et pour valeur un booléen indiquant la présence au cours.
-    
-        \begin{conseil}
-           \begin{itemize}
-           		\item \lstinline{i \% 2}: renvoie le reste de i par la division euclidienne de 2. (\lstinline{i \% 2 == 0}) Indique si \lstinline{i} est pair.
-           	\item Si vous utilisez la boucle \lstinline{for}: Utiliser les indices pour accéder aux éléments de la liste et éviter d'itérer manuellement sur les éléments de la liste.
-           	\item Si vous utilisez la boucle \lstinline{while}: La condition de sortie devrait être en rapport avec la longueur de la liste.
-           \end{itemize}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-        	Solution avec la boucle \lstinline{for} : \\
-        
-            \lstinputlisting{resources/question15for.py}
-            
-            Solution avec la boucle \lstinline{while} :
-            
-            \lstinputlisting{resources/question15while.py}
-            
-            
-            Pour ce problème, la boucle \lstinline{for} est plus simple à mettre en place et évite le danger d'une boucle infinie. La boucle \lstinline{while} est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle \lstinline{for}. La boucle \lstinline{for} offre aussi l'avantage d'être facile à lire. Pour des problèmes de nécessitant pas un très grand nombre d'itérations, utilisez de préférence une boucle \lstinline{for}. Par contre, si vous l'utilisez pour trouver un élément dans un grand ensemble (par exemple, une liste contenant un grand nombre d'enregistrements), utilisez une boucle \lstinline{while} car elle offre l'avantage de sortir de la boucle une fois que la condition initiale est fausse sans avoir à parcourir l'ensemble des éléments (par exemple, votre boucle s'arrêtera lorsque vous aurez trouvé l'élément que vous recherchez dans la liste volumineuse).
-            
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] \textbf{Différence entre Itération et Récursivité}
-      	
-      	Quel est la différence dans le traitement de problèmes entre l'itération et la récursivité ?
-    
-        \begin{conseil}
-        
-           \begin{itemize}
-               \item L'itération traite les problèmes de manière ``contrôlée''. En effet, lors d'un appel itératif, la boucle est répétée tant que la condition est vérifiée.
-           	\item La récursivité résout les problèmes en résolvant des sous-problèmes de ceux-ci.
-           \end{itemize}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-        	\begin{itemize}
-            \item L'itération va résoudre de manière plus ``intuitive'' les problèmes, c'est-à-dire répéter certaines actions qui permettent de résoudre un problème souvent au prix de l'efficience.
-            \item La récursivité permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est soluble et permet de résoudre tous les problèmes jusqu'à celui original. La récursivité cache une faille, un appel à elle même infini. De manière semblable aux boucles \lstinline{while}, la récursivité peut causer le crash du programme voir de l'ordinateur. Lorsque vous cherchez à faire une récursivité il faut donc systématiquement poser avant tout la condition finale pour l'arrêt.
-           \end{itemize}
-        \end{solution}
-    \end{Exercice}
-    
-    
-    \section{La récursivité}
+
+     \section{La récursivité}
     
     La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\
     
@@ -867,97 +794,4 @@
 		\end{solution} 
 	
 	\end{Exercice}
-	
-	\begin{Exercice}[5 minutes] \textbf{Lecture de code - 3 \optionnel} 
-	
-	Qu'affiche le programme suivant ? \\ 
-	
-	\lstinputlisting{resources/question17.py}  
-	
-	Choisissez parmi les possibilités suivantes :
-	
-	\begin{itemize}
-	\item 1 \\
-	\item 2 \\
-	\item 3 \\
-	\item 4 \\
-	\end{itemize}
-	
-	A quoi sert la fonction \lstinline{fct_a(mot)} ? \\
-	
-		\begin{conseil} 
-		Aidez vous d'un papier et effectuez les étapes une à une afin de bien comprendre comment le code est articulé.
-		\end{conseil} 
-	
-		\begin{solution} 
-		3 \\
-		
-		Cette fonction compte le nombre de ``a'' contenus dans un mot que vous lui passez.
-	
-		\end{solution} 
-	
-	\end{Exercice}
-	
-	\begin{note}{Arnaud}
-		Les deux derniers exos devraient être corrigés en groupe je pense/en video. Ils vont être longs à corriger individuellement
-	\end{note}
-	
-	\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note} 
-	\begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
-	
-	Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
-	
-	Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que : \\
-	
-	factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
-	  
-	
-		\begin{conseil} 
-		On peut écrire cette fonction comme suit : \\
-		
-		f(n) = f(n) * f(n-1) si n $>$ 0 \\
-		
-		f(n) = 1 si n = 0
-		
-		\end{conseil} 
-	
-        \begin{solution} 
-            \textbf{Python:}
-            \lstinputlisting{resources/question18.py}
-            \textbf{Java:}
-            \lstinputlisting{resources/question18.java}
-		\end{solution} 
-	
-	\end{Exercice}
-	
-\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
-	\begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
-	
-	Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
-	
-	Début de la suite : [0,1,1,2,3,5,8,13,...]
-	  
-	
-		\begin{conseil} 
-			L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
-		\end{conseil} 
-	
-		\begin{solution}
-			Via Itération : \\
-			
-				\lstinputlisting{resources/question19it.java} 
-				
-			Via récursivité : \\
-			
-				\lstinputlisting{resources/question19r.java}
-		\end{solution} 
-	
-	\end{Exercice}
-    
-    
-
 \end{document}
