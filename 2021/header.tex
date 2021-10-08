@@ -11,6 +11,8 @@
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{marginnote}
+\usepackage{ulem}
+\usepackage{tcolorbox}
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage{ulem}
 \usepackage{tcolorbox}
@@ -125,6 +127,7 @@
 \newcommand{\auto}{\mybox{\textcolor{white}{\small Auto-évaluation}}\xspace}
 
 
+\usepackage{environ}
 \newif\ifShowSolution
 \NewEnviron{solution}{
   \ifShowSolution
@@ -133,7 +136,8 @@
 	\end{Solutions}
   \fi}
 
-  \newif\ifShowConseil
+\usepackage{environ}
+ \newif\ifShowConseil
   \NewEnviron{conseil}{
     \ifShowConseil
     \begin{Conseils}{\faLightbulb \quad Conseil}
@@ -142,6 +146,7 @@
 
     \fi}
 
+    \usepackage{environ}
   \newif\ifShowWarning
   \NewEnviron{attention}{
     \ifShowWarning
@@ -158,8 +163,7 @@
       \BODY
     \end{Note}
 
-    \fi}
-  
+    \fi}  
 
 %\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
 
