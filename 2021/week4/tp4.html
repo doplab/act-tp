@@ -1,0 +1,593 @@
+<h1 class="unnumbered" id="algorithmes-et-pensée-computationnelle">Algorithmes et Pensée Computationnelle</h1>
+<p><em>Structure de données, Itération et récursivité</em><br />
+</p>
+<p>Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les maps. Lors de cette séance, nous aborderons aussi les notions d’itération et de récursivité.</p>
+<p>Au terme de cette séance, l’étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d’itération et de récursivité.</p>
+<h1 id="les-structures-de-données">Les structures de données</h1>
+<p>Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.</p>
+<h2 id="les-tuples">Les tuples</h2>
+<p>Pour rappel, les tuples sont des listes d’éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées. L’une des particularités des tuples est la possibilité d’y inclure des données de types différents.</p>
+<p>Les tuples sont utiles pour stocker des données que l’on va réutiliser plus tard.<br />
+En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et séparer les valeurs entre elles par des virgules:</p>
+<p><span>Exemple</span></p>
+<div class="sourceCode" id="cb1" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>,<span class="st">&quot;une chaîne de caractères&quot;</span>,<span class="dv">3</span>,<span class="dv">4</span>)   </span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un tuple</strong><br />
+Créez un tuple nommé <code>mon_tuple</code> contenant les chiffres 1,2,3,4 et 5. Stockez le 4ème élément dans une variable <code>element_4</code>, puis affichez le contenu de cette variable.</p>
+<p>Pour accéder à un élément d’un tuple, ou d’une liste, vous pouvez utiliser l’indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez <code>[]</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">print</span>(mon_tuple[<span class="dv">3</span>])</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un tuple - 2</strong><br />
+Créez un tuple nommé <code>mon_tuple</code> contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d’éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée <code>taille_tuple</code>. Pour finir, affichez le contenu de <code>taille_tuple</code>.</p>
+<p>Pour calculer la taille d’un tuple, ou d’une liste, vous pouvez utiliser la fonction <code>len()</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>taille_tuple <span class="op">=</span> <span class="bu">len</span>(mon_tuple)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="bu">print</span>(taille_tuple)</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un tuple - 3</strong><br />
+Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l’opérateur <code>in</code>. Si l’élément est dans la liste, la valeur booléenne <code>True</code> sera retournée. S’il n’y est pas, la valeur booléenne <code>False</code> sera retournée.<br />
+Qu’affichera le code suivant ?<br />
+</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="cf">if</span> <span class="dv">6</span> <span class="kw">in</span> mon_tuple :</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="bu">print</span>(<span class="st">&quot;6 est contenu dans le tuple&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="cf">else</span> :</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="bu">print</span>(<span class="st">&quot;6 n&#39;est pas contenu dans le tuple&quot;</span>)</span></code></pre></div>
+<p>Choisissez parmi les éléments suivants :<br />
+</p>
+<ul>
+<li><p>6 est contenu dans le tuple</p></li>
+<li><p>True</p></li>
+<li><p>6 n’est pas contenu dans le Tuple</p></li>
+<li><p>False</p></li>
+</ul>
+<p>Contrôlez si l’élément est contenu dans le tuple et regardez quel chemin sera pris.</p>
+<p>“6 est contenu dans le tuple”<br />
+6 est un élément de notre tuple, la condition sera donc remplie.</p>
+<h2 id="les-listes">Les listes</h2>
+<p>La différence entre une liste et un tuple est que l’on peut modifier les éléments d’une liste. Par exemple, il est possible de remplacer un élément d’une liste par un autre tandis qu’il est impossible de le faire avec un tuple.<br />
+Pour créer une liste, il suffit de définir une variable avec des valeurs entre crochets :</p>
+<p><span>Exemple</span></p>
+<div class="sourceCode" id="cb5" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]   </span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’une liste - 1</strong><br />
+Créez une liste nommée <code>ma_liste</code> contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée <code>element_2</code>, puis stockez la taille de la liste dans une variable nommée <code>taille_liste</code>. Affichez ces deux variables.<br />
+</p>
+<p>Comme pour les tuples, vous pouvez utiliser <code>[]</code> pour accéder à un élément, et la fonction <code>len()</code> pour obtenir le nombre d’éléments contenus dans la liste.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>element_2 <span class="op">=</span> ma_liste[<span class="dv">1</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>taille_ma_liste <span class="op">=</span> <span class="bu">len</span>(ma_liste)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="bu">print</span>(element_2)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="bu">print</span>(taille_ma_liste)</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’une liste - 2</strong><br />
+Qu’affichera le code suivant ?<br />
+</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>ma_liste[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>ma_liste.append(<span class="dv">6</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="bu">print</span>(ma_liste)</span></code></pre></div>
+<p>Choisissez parmi les éléments suivants :</p>
+<ul>
+<li><p>1, 2, 2, 4, 5, 6<br />
+</p></li>
+<li><p>0, 1, 2, 3, 4, 5<br />
+</p></li>
+<li><p>0, 1, 2, 3, 4, 5, 6<br />
+</p></li>
+<li><p>0, 1, 2, 2, 4, 5, 6<br />
+</p></li>
+</ul>
+<p>En Python, vous pouvez accéder à chaque élément de la liste en utilisant <code>[]</code> et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction <code>append()</code> et pour choisir l’endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction <code>insert()</code>.</p>
+<p><br />
+Le script change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’une liste - 3</strong><br />
+Créez une liste nommée <code>ma_liste</code> contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S’il y est, affichez “OK”, s’il n’y est pas, rajoutez le à votre liste.<br />
+Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté :<br />
+</p>
+<div class="sourceCode" id="cb8" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="cf">for</span> c <span class="kw">in</span> ma_liste :</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>                <span class="bu">print</span>(c)   </span></code></pre></div>
+<p>Comme pour les tuples, vous pouvez utiliser l’opérateur <code>in</code> pour contrôler si un élément est présent dans votre liste.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="cf">if</span> <span class="dv">6</span> <span class="kw">in</span> ma_liste :</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    <span class="bu">print</span>(<span class="st">&quot;OK&quot;</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="cf">else</span> :</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>    ma_liste.append(<span class="dv">6</span>)</span></code></pre></div>
+<h2 id="les-dictionnaires">Les dictionnaires</h2>
+<p>Les dictionnaires sont des listes associatives, c’est-à-dire des listes qui lient une valeur à une autre. Dans un dictionnaire en papier, les mots sont liés à leur définition.<br />
+Dans un dictionnaire Python, les éléments sont liés par une relation dite <code>clé, valeur</code>. La clé étant le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond, alternativement, nous pouvons retrouver le contenu d’une page d’un livre en utilisant le numéro de celle-ci, dans ce cas le numéro est la clé et le texte de la page, la valeur.<br />
+Pour créer un dictionnaire, il suffit de lister les couples <code>clé, valeurs</code> entre 2 accolades :<br />
+</p>
+<div class="sourceCode" id="cb10" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>elon_musk <span class="op">=</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>                <span class="st">&quot;prénom&quot;</span>: <span class="st">&quot;Elon&quot;</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>                <span class="st">&quot;nom&quot;</span>: <span class="st">&quot;Musk&quot;</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>                <span class="st">&quot;age&quot;</span>: <span class="dv">48</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>                <span class="st">&quot;talents&quot;</span>: [<span class="st">&quot;programmation&quot;</span>, <span class="st">&quot;entreprenariat&quot;</span>, <span class="st">&quot;aéronautique&quot;</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                }   </span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un dictionnaire - 1</strong><br />
+Créez un dictionnaire nommé <code>fr_eng</code> contenant les éléments suivants :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>&quot;chat&quot;: &quot;cat&quot;, &quot;chien&quot;: &quot;dog&quot;, &quot;oiseau&quot;: &quot;bir&quot;, &quot;poule&quot;: &quot;chicken&quot;, &quot;papillon&quot;: &quot;butterfly&quot;, &quot;souris&quot;: &quot;mouse&quot;, &quot;ours&quot;: &quot;bear&quot;, &quot;mouton&quot;: &quot;sheep&quot;, &quot;cochon&quot;: &quot;pig&quot; </span></code></pre></div>
+<p>Ce dictionnaire contient des mots en français (<code>clés</code>) associés à leur traduction en anglais (<code>valeurs</code>).<br />
+Accédez à la traduction du mot “souris”, et stockez le résultat dans une variable nommée <code>souris_traduite</code>, puis calculez le nombre d’éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée <code>taille_fr_eng</code>. Affichez le contenu des deux variables que vous venez de créer.</p>
+<p>Comme pour les listes, vous pouvez accéder aux éléments de dictionnaires en utilisant des crochets <code>[]</code>. Seulement cette fois-ci, au lieu d’y mettre l’index, mettez-y la clé associée à l’élément auquel vous voulez accéder. Comme pour les listes, la fonction <code>len()</code> vous aidera à obtenir le nombre d’éléments dans le dictionnaire.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>fr_eng <span class="op">=</span> {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>                <span class="st">&quot;chat&quot;</span>: <span class="st">&quot;cat&quot;</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>                <span class="st">&quot;chien&quot;</span>: <span class="st">&quot;dog&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>                <span class="st">&quot;oiseau&quot;</span>: <span class="st">&quot;bir&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>                <span class="st">&quot;poule&quot;</span>: <span class="st">&quot;chicken&quot;</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>                <span class="st">&quot;papillon&quot;</span>: <span class="st">&quot;butterfly&quot;</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>                <span class="st">&quot;souris&quot;</span>: <span class="st">&quot;mouse&quot;</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>                <span class="st">&quot;ours&quot;</span>: <span class="st">&quot;bear&quot;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>                <span class="st">&quot;mouton&quot;</span>: <span class="st">&quot;sheep&quot;</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>                <span class="st">&quot;cochon&quot;</span>: <span class="st">&quot;pig&quot;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>	   }</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>souris_traduite <span class="op">=</span> fr_eng[<span class="st">&quot;souris&quot;</span>]</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>taille_fr_eng <span class="op">=</span> <span class="bu">len</span>(fr_eng)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a><span class="bu">print</span>(souris_traduite)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a><span class="bu">print</span>(taille_fr_eng)</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un dictionnaire - 2</strong><br />
+Gardez le même dictionnaire qu’auparavant. La traduction du mot “oiseau” est mal orthographiée, modifiez la valeur associée à “oiseau" pour qu’elle devienne “bird”. Ajoutez un nouvel élément au dictionnaire en associant le mot “horse” au mot “cheval”.<br />
+Utilisez ce code pour avoir un aperçu des changements :<br />
+</p>
+<div class="sourceCode" id="cb13" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> fr_eng :</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>                <span class="bu">print</span>(x <span class="op">+</span> <span class="st">&quot; : &quot;</span> <span class="op">+</span> fr_eng[x])   </span></code></pre></div>
+<p>Comme pour les listes, vous pouvez accéder aux éléments du dictionnaire en utilisant les crochets <code>[]</code>. Seulement cette fois-ci, au lieu d’y mettre l’index, mettez-y la clé associée à l’élément auquel vous voulez accéder.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>fr_eng <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>                <span class="st">&quot;chat&quot;</span>: <span class="st">&quot;cat&quot;</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>                <span class="st">&quot;chien&quot;</span>: <span class="st">&quot;dog&quot;</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>                <span class="st">&quot;oiseau&quot;</span>: <span class="st">&quot;bir&quot;</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>                <span class="st">&quot;poule&quot;</span>: <span class="st">&quot;chicken&quot;</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>                <span class="st">&quot;papillon&quot;</span>: <span class="st">&quot;butterfly&quot;</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>                <span class="st">&quot;souris&quot;</span>: <span class="st">&quot;mouse&quot;</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>                <span class="st">&quot;ours&quot;</span>: <span class="st">&quot;bear&quot;</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>                <span class="st">&quot;mouton&quot;</span>: <span class="st">&quot;sheep&quot;</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>                <span class="st">&quot;cochon&quot;</span>: <span class="st">&quot;pig&quot;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>}</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>fr_eng[<span class="st">&quot;oiseau&quot;</span>] <span class="op">=</span> <span class="st">&quot;bird&quot;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>fr_eng[<span class="st">&quot;cheval&quot;</span>] <span class="op">=</span> <span class="st">&quot;horse&quot;</span></span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Manipulation d’un dictionnaire - 3</strong><br />
+Qu’affiche le programme suivant?<br />
+</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>elon_musk <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>                <span class="st">&quot;prénom&quot;</span>: <span class="st">&quot;Elon&quot;</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>                <span class="st">&quot;nom&quot;</span>: <span class="st">&quot;Musk&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>                <span class="st">&quot;age&quot;</span>: <span class="dv">48</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>                <span class="st">&quot;talents&quot;</span>: [<span class="st">&quot;programmation&quot;</span>, <span class="st">&quot;entreprenariat&quot;</span>, <span class="st">&quot;aéronautique&quot;</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>}</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a><span class="bu">print</span>(elon_musk[<span class="st">&quot;talents&quot;</span>][<span class="dv">2</span>])</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&quot;aéronautique&quot;</span> <span class="kw">in</span> elon_musk[<span class="st">&quot;talents&quot;</span>])</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :<br />
+</p>
+<ul>
+<li><p>programmation<br />
+True<br />
+</p></li>
+<li><p>Musk<br />
+False<br />
+</p></li>
+<li><p>48<br />
+False<br />
+</p></li>
+<li><p>aéronautique<br />
+True</p></li>
+</ul>
+<p>L’élément associé à la valeur “talents” du dictionnaire <code>elon_musk</code> est une liste.</p>
+<p>aéronautique<br />
+True<br />
+En effet, via elon_musk[“talents”], on accède à la liste [“programmation”, “entreprenariat”, "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !</p>
+<h2 id="les-structures-de-données-java">Les Structures de données (Java)</h2>
+<p>Dans cette partie, les exercices devront être effectués en Java.<br />
+Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes:<br />
+<br />
+<strong>Déclaration d’un tuple en Java:</strong></p>
+<div class="sourceCode" id="cb16" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="bu">Object</span>[] mon_tuple = {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>}; </span></code></pre></div>
+<p><strong><br />
+Déclaration d’une liste en Java:</strong></p>
+<div class="sourceCode" id="cb17" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="bu">List</span> ma_liste = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>); </span></code></pre></div>
+<p><strong><br />
+Déclaration d’un dictionnaire en Java:</strong></p>
+<div class="sourceCode" id="cb18" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="bu">HashMap</span> mon_dictionnaire = <span class="kw">new</span> <span class="bu">HashMap</span>(<span class="bu">Map</span>.<span class="fu">of</span>(<span class="st">&quot;un&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;deux&quot;</span>, <span class="dv">2</span>)); </span></code></pre></div>
+<p><span>Informations utiles</span></p>
+<ul>
+<li><p>En Java, les listes sont immuables, comme les tuples. Au cas où vous devriez modifier une liste, on vous recommande d’utiliser une liste liée (<code>LinkedList</code>). Une liste liée se déclare comme suit :</p>
+<div class="sourceCode" id="cb19" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="bu">List</span> liste = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>);</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>                <span class="bu">LinkedList</span> ma_liste = <span class="kw">new</span> <span class="bu">LinkedList</span>(liste); </span></code></pre></div></li>
+<li><p>En Java, les listes ne peuvent contenir que des éléments homogènes c’est-à-dire de même type.</p></li>
+</ul>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Manipulation des listes en Java</strong><br />
+Créez une liste nommée <code>ma_liste</code> contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste.<br />
+Créez une liste <code>ma_liste_m</code> liée à la liste <code>ma_liste</code>. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière.<br />
+Ajoutez ceci au début de votre code :<br />
+</p>
+<div class="sourceCode" id="cb20" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>         <span class="kw">import</span><span class="im"> java.util.LinkedList;</span> </span></code></pre></div>
+<p>Ajoutez ceci à la fin de votre code :<br />
+</p>
+<div class="sourceCode" id="cb21" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;ma_liste_m.<span class="fu">size</span>();i++){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>                    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ma_liste_m.<span class="fu">get</span>(i));</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>           } </span></code></pre></div>
+<p>Pour obtenir un élément d’une liste, il faut utiliser la fonction <code>get(index)</code>. Pour obtenir la taille de la liste, utilisez la fonction <code>size()</code>.<br />
+Pour ajouter un élément au début d’une <code>LinkedList</code>, vous devez utiliser <code>addFirst(value)</code> et pour l’ajouter à la fin, vous devez utiliser <code>addLast(value)</code>.<br />
+N’oubliez pas d’écrire votre programme à l’intérieur d’une fonction principale <code>main</code>.<br />
+</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>    <span class="co">// Ecrire votre code ici</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>        <span class="bu">List</span> ma_liste = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>);</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ma_liste.<span class="fu">get</span>(<span class="dv">1</span>));</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a>        <span class="dt">int</span> taille_ma_liste = ma_liste.<span class="fu">size</span>();</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(taille_ma_liste);</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a>        <span class="bu">LinkedList</span> ma_liste_m = <span class="kw">new</span> <span class="bu">LinkedList</span>(ma_liste);</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a>        ma_liste_m.<span class="fu">addFirst</span>(<span class="dv">0</span>);</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a>        ma_liste_m.<span class="fu">addLast</span>(<span class="dv">6</span>);</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true"></a>        <span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;ma_liste_m.<span class="fu">size</span>();i++){</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ma_liste_m.<span class="fu">get</span>(i));</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true"></a>        }</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true"></a>    }</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>Question :</strong> (<em>15 minutes</em>) <strong>Manipulation d’un dictionnaire en Java</strong><br />
+Créez un dictionnaire <code>mon_dictionnaire</code> contenant les éléments suivants :<br />
+("étudiants", 14000, “enseignants”, 2300, “collaborateurs”, 0)<br />
+Affichez le nombre d’étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable <code>taille_dictionnaire</code>. Affichez le contenu de <code>taille_dictionnaire</code>. Modifiez la valeur de <code>collaborateurs</code>, remplacez 0 par 950. Rajoutez un nouvel élément <code>pays</code> dans votre dictionnaire avec pour valeur 86.<br />
+Ajoutez ceci au début de votre code :</p>
+<div class="sourceCode" id="cb24" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.HashMap;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>         <span class="kw">import</span><span class="im"> java.util.Map;</span> </span></code></pre></div>
+<p>Ajoutez ceci à la fin de votre code :</p>
+<div class="sourceCode" id="cb25" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">for</span> (<span class="bu">Object</span> keys : mon_dictionnaire.<span class="fu">keySet</span>()){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>                    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(keys + <span class="st">&quot; : &quot;</span>+ mon_dictionnaire.<span class="fu">get</span>(keys));</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a>           } </span></code></pre></div>
+<p>Comme pour les listes, accédez aux valeurs via la fonction <code>get(key)</code> et à la taille via la fonction <code>size()</code>.</p>
+<p>Pour insérer / corriger un élément, utilisez la fonction <code>put(key,value)</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.HashMap;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.Map;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a>        <span class="bu">HashMap</span> mon_dictionnaire = <span class="kw">new</span> <span class="bu">HashMap</span>(<span class="bu">Map</span>.<span class="fu">of</span>(<span class="st">&quot;étudiants&quot;</span>,<span class="dv">14000</span>,<span class="st">&quot;enseignants&quot;</span>,<span class="dv">2300</span>,<span class="st">&quot;collaborateurs&quot;</span>,<span class="dv">0</span>));</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(mon_dictionnaire.<span class="fu">get</span>(<span class="st">&quot;étudiants&quot;</span>));</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a>        <span class="dt">int</span> taille_dictionnaire = mon_dictionnaire.<span class="fu">size</span>();</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(taille_dictionnaire);</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a>        mon_dictionnaire.<span class="fu">put</span>(<span class="st">&quot;collaborateurs&quot;</span>,<span class="dv">950</span>);</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a>        mon_dictionnaire.<span class="fu">put</span>(<span class="st">&quot;pays&quot;</span>,<span class="dv">86</span>);</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="bu">Object</span> keys : mon_dictionnaire.<span class="fu">keySet</span>()){</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(keys + <span class="st">&quot; : &quot;</span>+ mon_dictionnaire.<span class="fu">get</span>(keys));</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a>        }</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a>    }</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>Question :</strong> (<em>15 minutes</em>) <strong>Lecture de code</strong><br />
+Qu’affichera le code suivant ?<br />
+</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.HashMap;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.Map;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true"></a>        <span class="bu">List</span> ma_liste = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>);</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true"></a>        <span class="bu">HashMap</span> mon_dictionnaire = <span class="kw">new</span> <span class="bu">HashMap</span>(<span class="bu">Map</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="st">&quot;un&quot;</span>,<span class="dv">2</span>,<span class="st">&quot;deux&quot;</span>,<span class="dv">3</span>,<span class="st">&quot;trois&quot;</span>,<span class="dv">4</span>,<span class="st">&quot;quatre&quot;</span>,<span class="dv">5</span>,<span class="st">&quot;cinq&quot;</span>,<span class="dv">6</span>,<span class="st">&quot;six&quot;</span>));</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ma_liste.<span class="fu">get</span>(<span class="dv">3</span>));</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ma_liste.<span class="fu">get</span>(<span class="dv">2</span>));</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(mon_dictionnaire.<span class="fu">get</span>(ma_liste.<span class="fu">get</span>(<span class="dv">4</span>)));</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(mon_dictionnaire.<span class="fu">get</span>(ma_liste.<span class="fu">get</span>(<span class="dv">0</span>)));</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true"></a>        }</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>3<br />
+2<br />
+quatre<br />
+zero<br />
+</p></li>
+<li><p>4<br />
+6<br />
+un<br />
+trois<br />
+</p></li>
+<li><p>3<br />
+2<br />
+un<br />
+trois<br />
+</p></li>
+<li><p>4<br />
+6<br />
+quatre<br />
+zero</p></li>
+</ul>
+<p>Commencez par voir quel est l’élément de la liste obtenue, puis regardez quelle valeur est associée à cette clé dans le dictionnaire.</p>
+<p>4<br />
+6<br />
+un<br />
+trois</p>
+<h1 id="litération">L’itération</h1>
+<p>Quelques rappels de concepts théoriques:<br />
+</p>
+<ul>
+<li><p>L’itération désigne l’action de répéter un processus (généralement à l’aide d’une boucle) jusqu’à ce qu’une condition particulière soit remplie.</p></li>
+<li><p>Il y a deux types de boucles qui sont majoritairement utilisées:<br />
+<strong>Boucle for</strong>: Une boucle <code>for</code> permet d’itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ... La syntaxe d’une boucle en Python est la suivante <code>for nom de variable in</code> suivi du nom de l’élément sur lequel vous voulez itérer. La variable prendra la valeur de chaque élément dans la liste, un par un.<br />
+La syntaxe en java est la suivante: <code>for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)</code> suivi d’une accolade.<br />
+<strong>Boucle while</strong>: Les boucles <code>while</code> sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord <code>while</code>, suivi de la condition à atteindre.<br />
+En Java, il n’y a pas de différence majeure à part le fait qu’il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades.<br />
+</p></li>
+<li><p>La fonction <code>range(n)</code> permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle <code>for</code>, on peut itérer sur une liste de nombres de 0 à n-1.<br />
+</p></li>
+<li><p>Si vous avez fait une erreur dans votre code, il se peut que la boucle <code>while</code> ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d’une <code>boucle infinie</code>. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s’assurer qu’il y’ ait une condition valide dans une boucle <code>while</code>.<br />
+</p></li>
+</ul>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle for en Python</strong> Qu’affichera le code suivant ?</p>
+<div class="sourceCode" id="cb28" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>             <span class="cf">for</span> c <span class="kw">in</span> ma_liste :</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>                <span class="bu">print</span>(c) </span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>1 2 3 4 5</p></li>
+<li><p>5 4 3 2 1</p></li>
+<li><p>3 2 1 5 4</p></li>
+<li><p>4 3 5 1 2</p></li>
+</ul>
+<p>Faites les étapes de la boucle une après l’autre et voyez ce que vous obtenez (avec chaque valeur).</p>
+<p>1 2 3 4 5</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle for en Java</strong> Qu’affichera le code suivant ?</p>
+<div class="sourceCode" id="cb29" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="bu">List</span> ma_liste = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>);</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a>             <span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>;i&lt;ma_liste.<span class="fu">size</span>();i++){</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a>                    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(ma_liste.<span class="fu">get</span>(i));</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a>             }</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>5 4 3 2 1</p></li>
+<li><p>1 2 3 4 5</p></li>
+<li><p>4 3 5 1 2</p></li>
+<li><p>2 3 4 5 6</p></li>
+</ul>
+<p>Faites les étapes de la boucle une après l’autre et voyez ce que vous obtenez (avec chaque valeur).</p>
+<p>2 3 4 5 6</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle while en Python</strong> Qu’affichera le code suivant ?</p>
+<div class="sourceCode" id="cb30" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a>            <span class="cf">while</span> i<span class="op">&lt;</span><span class="dv">5</span>:</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a>                <span class="bu">print</span>(i)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true"></a>                i <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>0 1 2 3 4</p></li>
+<li><p>1 2 3 4 5</p></li>
+<li><p>4 3 2 1 5</p></li>
+<li><p>2 3 4 0 1</p></li>
+</ul>
+<p>Faites les étapes de la boucle une après l’autre et voyez ce que vous obtenez (avec chaque valeur).</p>
+<p>0 1 2 3 4</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle while en Java</strong> Qu’affichera le code suivant ?</p>
+<div class="sourceCode" id="cb31" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>            <span class="kw">while</span>(i&lt;<span class="dv">5</span>){</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a>                i++;</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a>                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(i);</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a>            }</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>0 1 2 3 4</p></li>
+<li><p>1 2 3 4 5</p></li>
+<li><p>4 3 2 1 0</p></li>
+<li><p>5 4 3 2 1</p></li>
+</ul>
+<p>Faites les étapes de la boucle une après l’autre et voyez ce que vous obtenez (avec chaque valeur).</p>
+<p>1 2 3 4 5</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle for et fonction range() - 1</strong> Qu’affichera le code suivant ?</p>
+<div class="sourceCode" id="cb32" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a>ma_liste <span class="op">=</span> [<span class="st">&quot;J&#39;aime&quot;</span>,<span class="st">&quot;Python&quot;</span>]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a>            <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(ma_liste)):</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a>                <span class="bu">print</span>(x)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a>                <span class="bu">print</span>(ma_liste[x])</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a>            <span class="co">#0</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a>            <span class="co">#J&#39;aime</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a>            <span class="co">#1</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a>            <span class="co">#Python</span></span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>0 J’aime 1 Python</p></li>
+<li><p>J’aime 1 Python 2</p></li>
+<li><p>J’aime 0 Python 1</p></li>
+<li><p>1 J’aime 2 Python</p></li>
+</ul>
+<p>Faites les étapes de la boucle une après l’autre et voyez ce que vous obtenez (avec chaque valeur).</p>
+<p>0<br />
+J’aime<br />
+1<br />
+Python</p>
+<p>Dans les exercices suivants, les programmes doivent être écrits en Python.<br />
+</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Boucle for et fonction range() - 2</strong></p>
+<p>En utilisant la fonction <code>range()</code> et une boucle <code>for</code>, calculez la somme des entiers de 0 à 20 et affichez le résultat.</p>
+<ul>
+<li><p>Lorsque <code>range(n)</code> est combinée à une boucle <code>for</code>, on peut itérer sur une liste de nombres de 0 à n-1.</p></li>
+<li><p>Déclarer une variable en dehors de la boucle. Au terme de l’itération, cette variable contiendra la somme des entiers de 0 à 20.</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a>somme <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">21</span>):</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a>	somme <span class="op">+=</span> i   <span class="co"># A chaque iteration on rajoute i à somme. </span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a><span class="bu">print</span>(somme)</span></code></pre></div>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Boucle while et input()</strong></p>
+<p>A l’aide d’une boucle <code>while</code>, demandez à l’utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l’utilisateur une nouvelle valeur.</p>
+<ul>
+<li><p>Définir à l’extérieur de la boucle une variable de type booléen utilisée pour le test dans <code>while</code>.</p></li>
+<li><p>Utilisez la fonction <code>input()</code> pour récupérer la saisie de l’utilisateur.</p></li>
+<li><p>La fonction <code>input()</code> retourne un <code>str</code> (chaîne de caractères), pensez à changer son type.</p></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a>bool_test <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a><span class="cf">while</span> bool_test:                                          <span class="co"># Tant que bool_test est True, la boucle continue</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a>	test_value <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Veuillez entrer un entier&quot;</span>))  <span class="co"># Pour que le test effectué à la ligne suivante ne soit pas toujours juste                         </span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a>                                                                <span class="co">#  ( comparaison entre un string et un entier), il faut changer le type de l&#39;input.</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a>	bool_test <span class="op">=</span> <span class="kw">not</span>(test_value <span class="op">==</span> <span class="dv">10</span>)                     <span class="co"># On veut sortir de la boucle si la test_value est 10. Pour sortir il faut que bool_test soit  </span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a>     	<span class="cf">if</span> bool_test <span class="op">==</span> <span class="va">True</span>:                                 <span class="co"># False. D&#39;où l&#39;utilisation de not qui transforme true en false et vice verse.</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a>        	<span class="bu">print</span>(<span class="st">&quot;Ce n&#39;est pas le bon entier.&quot;</span>)              </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&quot;Bravo !&quot;</span>)</span></code></pre></div>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Boucle while et des étudiants</strong></p>
+<p>Considérons une liste d’étudiant·e·s contenant le nom de l’étudiant·e suivi d’une valeur booléenne indiquant si l’étudiant·e est présent·e en classe ou non.<br />
+l = [“Schmitt”, True, “Irma”, False, “Khalif”, True, “Yasser”, False, “Wang”, True]<br />
+À partir de cette liste et du type de boucle de votre choix, créez un dictionnaire ayant pour clés les noms et pour valeur un booléen indiquant la présence au cours.</p>
+<ul>
+<li><p><code>i \% 2</code>: renvoie le reste de i par la division euclidienne de 2. (<code>i \% 2 == 0</code>) Indique si <code>i</code> est pair.</p></li>
+<li><p>Si vous utilisez la boucle <code>for</code>: Utiliser les indices pour accéder aux éléments de la liste et éviter d’itérer manuellement sur les éléments de la liste.</p></li>
+<li><p>Si vous utilisez la boucle <code>while</code>: La condition de sortie devrait être en rapport avec la longueur de la liste.</p></li>
+</ul>
+<p>Solution avec la boucle <code>for</code> :<br />
+</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a>l <span class="op">=</span> [<span class="st">&quot;Schmitt&quot;</span>, <span class="va">True</span>, <span class="st">&quot;Irma&quot;</span>, <span class="va">False</span>, <span class="st">&quot;Khalif&quot;</span>, <span class="va">True</span>, <span class="st">&quot;Yasser&quot;</span>, <span class="va">False</span>, <span class="st">&quot;Wang&quot;</span>, <span class="va">True</span>]</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a>dict_final <span class="op">=</span> {}</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(l)):               <span class="co"># i va de 0 à 9</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true"></a>	<span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:                    <span class="co"># Test si i est pair. Si oui, on crée une nouvelle entrée dans le dictionnaire</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true"></a>		dict_final[l[i]] <span class="op">=</span> l[i <span class="op">+</span> <span class="dv">1</span>]   </span></code></pre></div>
+<p>Solution avec la boucle <code>while</code> :</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true"></a>l <span class="op">=</span> [<span class="st">&quot;Schmitt&quot;</span>, <span class="va">True</span>, <span class="st">&quot;Irma&quot;</span>, <span class="va">False</span>, <span class="st">&quot;Khalif&quot;</span>, <span class="va">True</span>, <span class="st">&quot;Yasser&quot;</span>, <span class="va">False</span>, <span class="st">&quot;Wang&quot;</span>, <span class="va">True</span>]</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true"></a>dict_final <span class="op">=</span> {}</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true"></a>i <span class="op">=</span> <span class="dv">0</span>                                 <span class="co"># Variable qui permettra d&#39;itérer et de gérer la boucle while.</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(l):                     <span class="co"># La boucle s&#39;arrêtera donc au bout de 10 itérations. La valeur maximale de i sera 9.</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true"></a>	<span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:                    </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true"></a>            dict_final[l[i]] <span class="op">=</span> l[i <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true"></a>        i <span class="op">+=</span><span class="dv">1</span>                             <span class="co"># On incrémente i  </span></span></code></pre></div>
+<p>Pour ce problème, la boucle <code>for</code> est plus simple à mettre en place et évite le danger d’une boucle infinie. La boucle <code>while</code> est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle <code>for</code>. La boucle <code>for</code> offre aussi l’avantage d’être facile à lire. Pour des problèmes de nécessitant pas un très grand nombre d’itérations, utilisez de préférence une boucle <code>for</code>. Par contre, si vous l’utilisez pour trouver un élément dans un grand ensemble (par exemple, une liste contenant un grand nombre d’enregistrements), utilisez une boucle <code>while</code> car elle offre l’avantage de sortir de la boucle une fois que la condition initiale est fausse sans avoir à parcourir l’ensemble des éléments (par exemple, votre boucle s’arrêtera lorsque vous aurez trouvé l’élément que vous recherchez dans la liste volumineuse).</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Différence entre Itération et Récursivité</strong></p>
+<p>Quel est la différence dans le traitement de problèmes entre l’itération et la récursivité ?</p>
+<ul>
+<li><p>L’itération traite les problèmes de manière “contrôlée”. En effet, lors d’un appel itératif, la boucle est répétée tant que la condition est vérifiée.</p></li>
+<li><p>La récursivité résout les problèmes en résolvant des sous-problèmes de ceux-ci.</p></li>
+</ul>
+<ul>
+<li><p>L’itération va résoudre de manière plus “intuitive” les problèmes, c’est-à-dire répéter certaines actions qui permettent de résoudre un problème souvent au prix de l’efficience.</p></li>
+<li><p>La récursivité permet de diviser un problème en sous-problèmes et ainsi de suite jusqu’au moment où le sous-problème est soluble et permet de résoudre tous les problèmes jusqu’à celui original. La récursivité cache une faille, un appel à elle même infini. De manière semblable aux boucles <code>while</code>, la récursivité peut causer le crash du programme voir de l’ordinateur. Lorsque vous cherchez à faire une récursivité il faut donc systématiquement poser avant tout la condition finale pour l’arrêt.</p></li>
+</ul>
+<h1 id="la-récursivité">La récursivité</h1>
+<p>La récursivité est le fait d’appeler une fonction de façon récursive c’est-à-dire une fonction qui s’appelle elle-même de façon directe ou indirecte.<br />
+</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Lecture de code - 1</strong></p>
+<p>Qu’affiche le programme suivant?<br />
+</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a><span class="kw">def</span> fonction_p(x) :</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span> :</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a>        <span class="cf">pass</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true"></a>        fonction_p(x<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true"></a>fonction_p(<span class="dv">5</span>)</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :<br />
+</p>
+<ul>
+<li><p>4 3 2 1 0</p></li>
+<li><p>5 4 3 2 1 0</p></li>
+<li><p>0 1 2 3 4</p></li>
+<li><p>1 2 3 4 5 0</p></li>
+</ul>
+<p>5 4 3 2 1 0</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Lecture de code - 2</strong></p>
+<p>Qu’affiche le programme suivant?</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="kw">def</span> fonction_p(x) :</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span> :</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a>        <span class="cf">pass</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a>        fonction_p(x<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true"></a>        <span class="bu">print</span>(x)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true"></a>fonction_p(<span class="dv">5</span>)</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :<br />
+</p>
+<ul>
+<li><p>4 3 2 1 0</p></li>
+<li><p>5 4 3 2 1</p></li>
+<li><p>0 1 2 3 4</p></li>
+<li><p>1 2 3 4 5</p></li>
+</ul>
+<ul>
+<li><p>La principale différence entre ces 2 programmes est l’endroit où est placé le <code>print()</code>.</p></li>
+<li><p>Reproduire étape par étape le développement sur un papier pourrait aider.</p></li>
+</ul>
+<p>0 1 2 3 4 5</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Lecture de code - 3</strong></p>
+<p>Qu’affiche le programme suivant ?<br />
+</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a><span class="kw">def</span> fct_a(mot) :</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a><span class="cf">if</span> <span class="bu">len</span>(mot) <span class="op">==</span> <span class="dv">1</span> :</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a>	<span class="cf">if</span> mot[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;a&quot;</span> :</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true"></a>        	<span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true"></a>        	<span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true"></a><span class="cf">else</span> :</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true"></a>	<span class="cf">if</span> mot[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;a&quot;</span> :</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true"></a>        	<span class="cf">return</span> <span class="dv">1</span> <span class="op">+</span> fct_a(mot[<span class="dv">1</span>:])</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true"></a>        	<span class="cf">return</span> <span class="dv">0</span> <span class="op">+</span> fct_a(mot[<span class="dv">1</span>:])</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true"></a><span class="bu">print</span>(fct_a(<span class="st">&quot;blablabla&quot;</span>))</span></code></pre></div>
+<p>Choisissez parmi les possibilités suivantes :</p>
+<ul>
+<li><p>1</p></li>
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+</ul>
+<p>A quoi sert la fonction <code>fct_a(mot)</code> ?<br />
+</p>
+<p>Aidez vous d’un papier et effectuez les étapes une à une afin de bien comprendre comment le code est articulé.</p>
+<p>3<br />
+Cette fonction compte le nombre de “a” contenus dans un mot que vous lui passez.</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Fonction factoriel()</strong></p>
+<p>Ecrivez la fonction <code>factoriel()</code> suivant une approche récursive.<br />
+Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que :<br />
+factoriel(1) = 1, factoriel(2) = <span class="math inline">1 * 2</span> = 2, factoriel(3) = <span class="math inline">1 * 2 * 3</span> = 6, factoriel(4) = <span class="math inline">1 * 2 * 3 * 4</span> = 24,...</p>
+<p>On peut écrire cette fonction comme suit :<br />
+f(n) = f(n) * f(n-1) si n <span class="math inline">&gt;</span> 0<br />
+f(n) = 1 si n = 0</p>
+<p><strong>Python:</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a><span class="kw">def</span> factoriel(x) :</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true"></a>	<span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true"></a>        	<span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true"></a>        	<span class="cf">return</span> x <span class="op">*</span> factoriel(x<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Java:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">factoriel</span>(<span class="dt">int</span> x){</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a>        <span class="kw">if</span> (x == <span class="dv">0</span>){</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a>            <span class="kw">return</span> <span class="dv">1</span>;</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a>        }</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true"></a>        <span class="kw">else</span>{</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true"></a>            <span class="kw">return</span> x*<span class="fu">factoriel</span>(x-<span class="dv">1</span>);</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true"></a>        }</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true"></a>    }</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">factoriel</span>(<span class="dv">5</span>));</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><strong>Question :</strong> (<em>15 minutes</em>) <strong>Fibonacci - Java</strong></p>
+<p>Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L’une doit utiliser la récursivité, et l’autre l’itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L’élément 0 vaut 0, l’élément 1 vaut 1 et l’élément 2 vaut 1.<br />
+Début de la suite : [0,1,1,2,3,5,8,13,...]</p>
+<p>L’algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n’hésitez pas à vous y référer.</p>
+<p>Via Itération :<br />
+</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">fibonacci_i</span>(<span class="dt">int</span> n){</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true"></a>        <span class="kw">if</span> (n==<span class="dv">0</span> || n==<span class="dv">1</span>){</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true"></a>            <span class="kw">return</span> n;</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true"></a>        }</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true"></a>        <span class="kw">else</span>{</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true"></a>            <span class="dt">int</span> old_fib = <span class="dv">1</span>;</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true"></a>            <span class="dt">int</span> new_fib = <span class="dv">1</span>;</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true"></a>            <span class="dt">int</span> tmp;</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true"></a>            <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">2</span>; i&lt;n; i++){</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true"></a>                tmp = new_fib;</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true"></a>                new_fib = new_fib+old_fib;</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true"></a>                old_fib = tmp;</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true"></a>            }</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true"></a>            <span class="kw">return</span> new_fib;</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true"></a>        }</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true"></a>    }</span></code></pre></div>
+<p>Via récursivité :<br />
+</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">fibonacci_r</span>(<span class="dt">int</span> n){</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true"></a>        <span class="kw">if</span> (n==<span class="dv">0</span> || n==<span class="dv">1</span>){</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true"></a>            <span class="kw">return</span> n;</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true"></a>        }</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true"></a>        <span class="kw">else</span>{</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true"></a>            <span class="kw">return</span> <span class="fu">fibonacci_r</span>(n-<span class="dv">1</span>) + <span class="fu">fibonacci_r</span>(n-<span class="dv">2</span>);</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true"></a>        }</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true"></a>    }</span></code></pre></div>

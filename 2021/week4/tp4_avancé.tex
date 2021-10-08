@@ -1,0 +1,187 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+    % Change the following values to true to show the solutions or/and the hints
+    \ShowSolutionfalse
+    \ShowConseiltrue
+    \titre
+    \cours{Structure de données, Itération et récursivité - Exercices Avancés}
+
+    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les maps. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
+
+    Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.\\
+
+Cette feuille d’exercices avancés vous permettra d’approfondir vos connaissances des notions vues en cours. Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier "Ressources".
+    
+    \section{L'itération}
+    
+    Quelques rappels de concepts théoriques: \\
+    
+    \begin{itemize}
+    	\item L'itération désigne l'action de répéter un processus (généralement à l'aide d'une boucle) jusqu'à ce qu'une condition particulière soit remplie.
+    	\item Il y a deux types de boucles qui sont majoritairement utilisées: \\
+    	
+    	\textbf{Boucle for}: Une boucle \lstinline{for} permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, ... La syntaxe d'une boucle en Python est la suivante \lstinline{for nom de variable in} suivi du nom de l'élément sur lequel vous voulez itérer. La variable prendra la valeur de chaque élément dans la liste, un par un. \\
+    	
+    	
+             	
+     	La syntaxe en java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
+     	
+        	 
+        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre.\\
+     	
+     	En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades. \\
+     	
+     	
+     	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
+     	
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\
+     	
+     	\end{itemize}
+     	
+    \begin{Exercice}[10 minutes] \textbf{Boucle while et des étudiants}
+      	
+      	Considérons une liste d'étudiant·e·s contenant le nom de l'étudiant·e suivi d'une valeur booléenne indiquant si l'étudiant·e est présent·e en classe ou non. \\
+      	
+      	l = [``Schmitt'', True, ``Irma'', False, ``Khalif'', True, ``Yasser'', False, ``Wang'', True] \\
+      	
+      	À partir de cette liste et du type de boucle de votre choix, créez un dictionnaire ayant pour clés les noms et pour valeur un booléen indiquant la présence au cours.
+    
+        \begin{conseil}
+           \begin{itemize}
+           		\item \lstinline{i \% 2}: renvoie le reste de i par la division euclidienne de 2. (\lstinline{i \% 2 == 0}) Indique si \lstinline{i} est pair.
+           	\item Si vous utilisez la boucle \lstinline{for}: Utiliser les indices pour accéder aux éléments de la liste et éviter d'itérer manuellement sur les éléments de la liste.
+           	\item Si vous utilisez la boucle \lstinline{while}: La condition de sortie devrait être en rapport avec la longueur de la liste.
+           \end{itemize}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+        	Solution avec la boucle \lstinline{for} : \\
+        
+            \lstinputlisting{resources/question15for.py}
+            
+            Solution avec la boucle \lstinline{while} :
+            
+            \lstinputlisting{resources/question15while.py}
+            
+            
+            Pour ce problème, la boucle \lstinline{for} est plus simple à mettre en place et évite le danger d'une boucle infinie. La boucle \lstinline{while} est utilisée pour des problèmes plus précis qui ne peuvent pas être résolus par une boucle \lstinline{for}. La boucle \lstinline{for} offre aussi l'avantage d'être facile à lire. Pour des problèmes de nécessitant pas un très grand nombre d'itérations, utilisez de préférence une boucle \lstinline{for}. Par contre, si vous l'utilisez pour trouver un élément dans un grand ensemble (par exemple, une liste contenant un grand nombre d'enregistrements), utilisez une boucle \lstinline{while} car elle offre l'avantage de sortir de la boucle une fois que la condition initiale est fausse sans avoir à parcourir l'ensemble des éléments (par exemple, votre boucle s'arrêtera lorsque vous aurez trouvé l'élément que vous recherchez dans la liste volumineuse).
+            
+        \end{solution}
+    \end{Exercice}
+    
+    \begin{Exercice}[5 minutes] \textbf{Différence entre Itération et Récursivité}
+      	
+      	Quel est la différence dans le traitement de problèmes entre l'itération et la récursivité ?
+    
+        \begin{conseil}
+        
+           \begin{itemize}
+               \item L'itération traite les problèmes de manière ``contrôlée''. En effet, lors d'un appel itératif, la boucle est répétée tant que la condition est vérifiée.
+           	\item La récursivité résout les problèmes en résolvant des sous-problèmes de ceux-ci.
+           \end{itemize}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+        	\begin{itemize}
+            \item L'itération va résoudre de manière plus ``intuitive'' les problèmes, c'est-à-dire répéter certaines actions qui permettent de résoudre un problème souvent au prix de l'efficience.
+            \item La récursivité permet de diviser un problème en sous-problèmes et ainsi de suite jusqu'au moment où le sous-problème est soluble et permet de résoudre tous les problèmes jusqu'à celui original. La récursivité cache une faille, un appel à elle même infini. De manière semblable aux boucles \lstinline{while}, la récursivité peut causer le crash du programme voir de l'ordinateur. Lorsque vous cherchez à faire une récursivité il faut donc systématiquement poser avant tout la condition finale pour l'arrêt.
+           \end{itemize}
+        \end{solution}
+    \end{Exercice}
+    
+    
+    \section{La récursivité}
+    
+    La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\
+	
+	\begin{Exercice}[5 minutes] \textbf{Lecture de code - 3 \optionnel} 
+	
+	Qu'affiche le programme suivant ? \\ 
+	
+	\lstinputlisting{resources/question17.py}  
+	
+	Choisissez parmi les possibilités suivantes :
+	
+	\begin{itemize}
+	\item 1 \\
+	\item 2 \\
+	\item 3 \\
+	\item 4 \\
+	\end{itemize}
+	
+	A quoi sert la fonction \lstinline{fct_a(mot)} ? \\
+	
+		\begin{conseil} 
+		Aidez vous d'un papier et effectuez les étapes une à une afin de bien comprendre comment le code est articulé.
+		\end{conseil} 
+	
+		\begin{solution} 
+		3 \\
+		
+		Cette fonction compte le nombre de ``a'' contenus dans un mot que vous lui passez.
+	
+		\end{solution} 
+	
+	\end{Exercice}
+	
+	\begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
+	
+	Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
+	
+	Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que : \\
+	
+	factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
+	  
+	
+		\begin{conseil} 
+		On peut écrire cette fonction comme suit : \\
+		
+		f(n) = f(n) * f(n-1) si n $>$ 0 \\
+		
+		f(n) = 1 si n = 0
+		
+		\end{conseil} 
+	
+        \begin{solution} 
+            \textbf{Python:}
+            \lstinputlisting{resources/question18.py}
+            \textbf{Java:}
+            \lstinputlisting{resources/question18.java}
+		\end{solution} 
+	
+	\end{Exercice}
+
+	\begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
+	
+	Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
+	
+	Début de la suite : [0,1,1,2,3,5,8,13,...]
+	  
+	
+		\begin{conseil} 
+			L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
+		\end{conseil} 
+	
+		\begin{solution}
+			Via Itération : \\
+			
+				\lstinputlisting{resources/question19it.java} 
+				
+			Via récursivité : \\
+			
+				\lstinputlisting{resources/question19r.java}
+		\end{solution} 
+	
+	\end{Exercice}
+    
+    
+
+\end{document}
