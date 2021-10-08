@@ -13,6 +13,10 @@
 \usepackage{marginnote}
 \usepackage{ulem}
 \usepackage{tcolorbox}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{ulem}
+\usepackage{tcolorbox}
+\usepackage{environ}
 \usepackage{graphicx}
 %\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
 
@@ -21,6 +25,7 @@
 \newtcolorbox{Solutions}[1]{colback=white,left=20pt,colframe=green,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Conseils}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Warning}[1]{colback=white,left=20pt,colframe=warning,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Note}[1]{colback=white,left=20pt,colframe=grey,fonttitle=\bfseries,title=#1}
 
 \setlength\parindent{0pt}
 
@@ -131,9 +136,8 @@
 	\end{Solutions}
   \fi}
 
-
-  \usepackage{environ}
-  \newif\ifShowConseil
+\usepackage{environ}
+ \newif\ifShowConseil
   \NewEnviron{conseil}{
     \ifShowConseil
     \begin{Conseils}{\faLightbulb \quad Conseil}
@@ -151,7 +155,15 @@
     \end{Warning}
 
     \fi}
-  
+
+  \newif\ifShowNote
+  \NewEnviron{note}[1]{
+    \ifShowNote
+    \begin{Note}{\faEye \quad Comment added by #1 at \date - \currenttime}
+      \BODY
+    \end{Note}
+
+    \fi}  
 
 %\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
 
