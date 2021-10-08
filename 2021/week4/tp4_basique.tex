@@ -7,7 +7,7 @@
 \begin{document}
 
     % Change the following values to true to show the solutions or/and the hints
-    \ShowSolutionfalse
+    \ShowSolutiontrue
     \ShowConseiltrue
     \titre
     \cours{Structure de données, Itération et récursivité - Exercices Basiques}
@@ -16,10 +16,12 @@
 
     Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
-    \section{Les structures de données}
+    Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
+
+    \section{Structures de données}
 
     Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
-    \subsection{Les tuples}
+    \subsection{Tuples}
     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
     L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
     
@@ -82,7 +84,7 @@
         \end{solution}
     \end{Exercice}
     
-    \subsection{Les listes}
+    \subsection{Listes}
     La différence entre une liste et un tuple est que l'on peut modifier les éléments d'une liste. Par exemple, il est possible de remplacer un élément d'une liste par un autre tandis qu'il est impossible de le faire avec un tuple.
     \\
     Pour créer une liste, il suffit de définir une variable avec des valeurs entre crochets :
@@ -145,7 +147,7 @@
         \end{solution}
     \end{Exercice}
 
-	\subsection{Les dictionnaires}
+	\subsection{Dictionnaires}
 	Les dictionnaires sont des listes associatives, c’est-à-dire des listes qui lient une valeur à une autre. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
 	
 	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé étant le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond, alternativement, nous pouvons retrouver le contenu d’une page d’un livre en utilisant le numéro de celle-ci, dans ce cas le numéro est la clé et le texte de la page, la valeur. \\
@@ -181,7 +183,7 @@
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 2}\\
        Gardez le même dictionnaire qu'auparavant. La traduction du mot ``oiseau'' est mal orthographiée, modifiez la valeur associée à ``oiseau" pour qu'elle devienne ``bird''. Ajoutez un nouvel élément au dictionnaire en associant le mot ``horse'' au mot ``cheval''. \\
        
-       Utilisez ce code pour avoir un aperçu des changements : \\
+       Utilisez ce code pour avoir un aperçu des changements:
        
        \begin{lstlisting}[language=Python]
             for x in fr_eng :
@@ -226,7 +228,7 @@
         \end{solution}
     \end{Exercice}
     
-    \subsection{Les Structures de données (Java)}
+    \subsection{Structures de données (Java)}
     Dans cette partie, les exercices devront être effectués en Java. \\
     Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\\\
     \textbf{Déclaration d'un tuple en Java:}
@@ -261,13 +263,12 @@
       	
       	Créez une liste \lstinline{ma_liste_m} liée à la liste \lstinline{ma_liste}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
       	
-      	Ajoutez ceci au début de votre code : \\
-       
+      	Ajoutez ceci au début de votre code:
       	\begin{lstlisting}[language=Java]
              import java.util.List;
 	     import java.util.LinkedList; \end{lstlisting}
 	     
-	     Ajoutez ceci à la fin de votre code : \\
+	     Ajoutez ceci à la fin de votre code:
 	     
 	    \begin{lstlisting}[language=Java]
              for(int i=0;i<ma_liste_m.size();i++){
@@ -361,7 +362,7 @@
         \end{solution}
     \end{Exercice}
     
-    \section{L'itération}
+    \section{Itération}
     
     Quelques rappels de concepts théoriques: \\
     
@@ -373,7 +374,7 @@
     	
     	
              	
-     	La syntaxe en java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
+     	La syntaxe en Java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
      	
         	 
         \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre.\\
@@ -388,7 +389,7 @@
      	\end{itemize}
      	
      	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Python}
+    \begin{Exercice}[5 minutes] \textbf{Boucle for en Python}\\
       	Qu'affichera le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -438,7 +439,7 @@
     \end{Exercice}
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Java}
+    \begin{Exercice}[5 minutes] \textbf{Boucle for en Java}\\
       	Qu'affichera le code suivant ?
       	
       	\begin{lstlisting}[language=Java]
@@ -488,7 +489,7 @@
     \end{Exercice} 	
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Python}
+    \begin{Exercice}[5 minutes] \textbf{Boucle while en Python}\\
       	Qu'affichera le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -538,7 +539,7 @@
     \end{Exercice}
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Java}
+    \begin{Exercice}[5 minutes] \textbf{Boucle while en Java}\\
       	Qu'affichera le code suivant ?
       	
       	\begin{lstlisting}[language=Java]
@@ -588,7 +589,7 @@
         \end{solution}
     \end{Exercice} 
 	
-	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1}
+	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1}\\
       	Qu'affichera le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -697,7 +698,7 @@
     \end{Exercice}
     
 
-     \section{La récursivité}
+     \section{Récursivité}
     
     La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\
     
