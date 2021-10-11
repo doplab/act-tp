@@ -1,6 +1,14 @@
-facteur_1 = 11
-facteur_2 = 3
-produit = facteur_1*facteur_2
-print(facteur_1)
-print(facteur_2)
-print(produit)
+import math
+
+def aire(rayon):
+  return (rayon**2)*math.pi
+
+def perimetre(rayon):
+  return 2*math.pi*rayon
+
+if __name__ == '__main__':
+    rayon = 10
+    aire = aire(rayon)
+    perimetre = perimetre(rayon)
+    print("L'aire d'un cercle de rayon {} est égale à {}".format(rayon, aire))
+    print("Le périmètre d'un cercle de rayon {} est égal à {}".format(rayon, perimetre))

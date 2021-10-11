@@ -1,4 +1,5 @@
-prenom = input("Quel est votre prénom ?")
-age = input("Quel est votre age ?")
-print("Bonjour, je m'appelle " + prenom + " et j'ai " + age + " ans.")
-print("Bonjour, je m'appelle {0} et j'ai {1} ans.".format(prenom,age))
+mon_mot = "Hard But Cool !!"
+lettre_5 = mon_mot[4]
+lettre_9_13 = mon_mot[8:13]
+print(lettre_5)
+print(lettre_9_13)
