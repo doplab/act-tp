@@ -120,7 +120,7 @@
         \end{itemize}
     
         \begin{conseil}
-            En Python, vous pouvez accéder à chaque élément de la liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
+            En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
         \end{conseil}
         
         \begin{solution}
@@ -160,7 +160,7 @@
                 "nom": "Musk",
                 "age": 48,
                 "talents": ["programmation", "entreprenariat", "aéronautique"]
-				}   \end{lstlisting}
+            }   \end{lstlisting}
 				
 	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
        Créez un dictionnaire nommé \lstinline{fr_eng} contenant les éléments suivants :
@@ -190,7 +190,7 @@
     			print(x + " : " + fr_eng[x])   \end{lstlisting}
     
         \begin{conseil}
-            Comme pour les listes, vous pouvez accéder aux éléments du dictionnaire en utilisant les crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder.
+            Comme avec les listes, vous pouvez accéder aux éléments d'un dictionnaire en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder.
         \end{conseil}
         
         \begin{solution}
@@ -308,7 +308,7 @@
 	     Ajoutez ceci à la fin de votre code :
 	     
 	    \begin{lstlisting}[language=Java]
-             for (Object keys : mon_dictionnaire.keySet()){
+             for (String keys : mon_dictionnaire.keySet()){
             		System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
 	       } \end{lstlisting} 
     
@@ -384,7 +384,7 @@
      	
      	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
      	
-     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\\\
      	
      	\end{itemize}
      	
@@ -546,7 +546,7 @@
             int i = 0;
             while(i<5){
             	i++;
-            	System.out.println(i);
+            	System.out.print(i + " ");
             }
      	\end{lstlisting}
              	
@@ -638,7 +638,7 @@
         \end{solution}
     \end{Exercice} 	
 	
-	Dans les exercices suivants, les programmes doivent être écrits en Python.\\	
+	Dans les exercices suivants, les programmes doivent être écrits en Python.\\\\	
 	
     \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2}
       	

@@ -10,7 +10,7 @@ public class Main {
         System.out.println(taille_dictionnaire);
         mon_dictionnaire.put("collaborateurs", 950);
         mon_dictionnaire.put("pays", 86);
-        for (Object keys : mon_dictionnaire.keySet()) {
+        for (String keys : mon_dictionnaire.keySet()) {
             System.out.println(keys + " : " + mon_dictionnaire.get(keys));
         }
     }
