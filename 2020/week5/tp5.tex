@@ -1,25 +1,11 @@
-\begin{note}{Maeva}
-    Peut-être mettre soit java soit python en exercices avancés 
-\end{note}
-
-\input{header.tex}
-
-
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Algorithmes de tri et Complexité}
+\cours{Algorithmes de tri et Complexité - exercices basiques}
 
-Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
-\begin{note}{"Nathan"}
-    q1-5: basique
-    q6: avancé
-    q7,8: basique
-    9-11: avancé   
-\end{note}
 \begin{enumerate}
     \item la complexité des algorithmes,
     \item la récursivité et
@@ -29,7 +15,7 @@ Le but de cette série d'exercices est d'aborder les notions présentées durant
 Les languages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
 
-\section{Complexité (30 minutes)}
+\section{Complexité}
 
 Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
 
@@ -210,7 +196,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 
 \newpage
 
-\begin{Exercice}[10 minutes] \textbf{Complexité \optionnel} \\
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
     Quelle est la complexité du programme ci-dessous?\\
         \textbf{Python :}
         \begin{lstlisting}[language=Python]
@@ -251,29 +237,10 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 \end{Exercice}
     
         
-\section{Récursivité (15 minutes)}
+\section{Récursivité}
 
 Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre.
 
-\begin{Exercice}[5 minutes] \textbf{Somme des chiffres} \\
-Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est : 1+2+6 = 9.
-
-\begin{conseil}
-
-Pour obtenir les chiffres qui composent un nombre, utilisez l'opérateur \lstinline{\%} (modulo - \url{https://fr.wikipedia.org/wiki/Modulo\_(op\%C3\%A9ration)}). \\
-Pour obtenir le nombre 12 à partir du nombre 126, il vous suffit de faire la division entière par 10. En Python, on utilise l'opérateur \lstinline{\\\\} : 126 \lstinline{\\\\} 10 = 12. En Java, la division entre deux variables de type \lstinline{int} est entière, et vous n'aurez ainsi qu'à utiliser l'opérateur de division normal \lstinline{\\} : 126 \lstinline{\\} 10 = 12
-
-\end{conseil}
-
-\begin{solution}
-\textbf{Python :}
-    \lstinputlisting{solutions/question6.py}
-            
-\textbf{Java :}
-   \lstinputlisting{solutions/question6.java}
-
-\end{solution}
-\end{Exercice}
 
 \begin{Exercice} [10 minutes] \textbf{Fibonacci}\\
 La suite de Fibonacci est définie récursivement par les propriétés suivantes:
@@ -320,10 +287,9 @@ Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le
 \end{solution}
 \end{Exercice}
 
-\section{Algorithmes de Tri (60 minutes)}
- Mettre les algorithmes de tri python ou java en avancé et ne pas garder les deux langages en basique
+\section{Algorithmes de Tri}
 
-\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort)} \\
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) en python} \\
 Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
 
 Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
@@ -333,22 +299,13 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 \begin{itemize}
         \item \textbf{Python :}
             \lstinputlisting{ressources/question8.py} 
-        \item \textbf{Java :}
-            \lstinputlisting{ressources/question8.java} 
     \end{itemize}
-    
-    \begin{conseil}
-    En Java, utilisez une variable temporaire que vous nommerez \lstinline{temp} afin de faire l'échange de valeur entre deux éléments de la liste.
-    \end{conseil}
     
     \ \\
     
     \begin{solution}
     \textbf{Python :}
-    \lstinputlisting{solutions/question8.py} 
-    \textbf{Java:}
-    \lstinputlisting{solutions/question8.java} 
-
+    \lstinputlisting{solutions/question8.py}
 
     L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles qui parcourent la liste.\\\\\\
             
@@ -360,9 +317,9 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 
     \lstinputlisting{ressources/question9.py}
 
-    \begin{Example}{\faTerminal \quad Exemple}
+    \begin{Exemple}{\faTerminal \quad Exemple}
         En passant les arguments suivants à votre programme: n=5 et l=[2,4,6]. Ce dernier devra retourner \lstinline{l =[2,4,5,6]}
-    \end{Example}
+    \end{Exemple}
 
     \begin{solution}
         \lstinputlisting{solutions/question9.py}
@@ -406,7 +363,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
 \end{Exercice}
 
-\begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort)} \\
+\begin{Exercice} [20 minutes] \textbf{Tri fusion (Merge Sort) en python} \\
     À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
     
     Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
@@ -422,8 +379,6 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \begin{itemize}
         \item \textbf{Python :}
             \lstinputlisting{ressources/question11.py}
-        \item \textbf{Java :}
-            \lstinputlisting{ressources/question11.java}
     \end{itemize}
     
     \begin{conseil}
@@ -437,21 +392,6 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \begin{solution}
         \textbf{Python :}
          \lstinputlisting{solutions/question11.py}
-    \end{solution}
-    \begin{solution}
-        \textbf{Java :}
-        \lstinputlisting{striped_files/question11_1.java}
-    \end{solution}
-    \begin{solution}
-        \lstinputlisting{striped_files/question11_2.java}
-        
-        Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
-        \begin{enumerate}
-            \item ``Divide Step'', qui divise les listes en deux sous-listes, et cela prend un temps constant
-            \item ``Conquer Step'', qui trie récursivement les sous-listes de taille $n/2$ chacune, et cette étape est représentée par le terme $2T(n/2)$ dans l'équation.
-            \item La dernière étape consiste à fusionner les listes, sa complexité est de $O(n)$.
-        \end{enumerate}
-        La solution à cette équation est $O(n \log n)$.
     \end{solution}
 \end{Exercice}
 
