@@ -120,7 +120,7 @@
         \end{itemize}
     
         \begin{conseil}
-            En Python, vous pouvez accéder à chaque élément de la liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
+            En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
         \end{conseil}
         
         \begin{solution}
@@ -160,7 +160,7 @@
                 "nom": "Musk",
                 "age": 48,
                 "talents": ["programmation", "entreprenariat", "aéronautique"]
-				}   \end{lstlisting}
+            }   \end{lstlisting}
 				
 	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
        Créez un dictionnaire nommé \lstinline{fr_eng} contenant les éléments suivants :
@@ -190,7 +190,7 @@
     			print(x + " : " + fr_eng[x])   \end{lstlisting}
     
         \begin{conseil}
-            Comme pour les listes, vous pouvez accéder aux éléments du dictionnaire en utilisant les crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder.
+            Comme avec les listes, vous pouvez accéder aux éléments d'un dictionnaire en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder.
         \end{conseil}
         
         \begin{solution}
@@ -308,7 +308,7 @@
 	     Ajoutez ceci à la fin de votre code :
 	     
 	    \begin{lstlisting}[language=Java]
-             for (Object keys : mon_dictionnaire.keySet()){
+             for (String keys : mon_dictionnaire.keySet()){
             		System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
 	       } \end{lstlisting} 
     
@@ -384,7 +384,7 @@
      	
      	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
      	
-     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\\\
      	
      	\end{itemize}
      	
@@ -546,7 +546,7 @@
             int i = 0;
             while(i<5){
             	i++;
-            	System.out.println(i);
+            	System.out.print(i + " ");
             }
      	\end{lstlisting}
              	
@@ -638,7 +638,7 @@
         \end{solution}
     \end{Exercice} 	
 	
-	Dans les exercices suivants, les programmes doivent être écrits en Python.\\	
+	Dans les exercices suivants, les programmes doivent être écrits en Python.\\\\	
 	
     \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2}
       	
@@ -653,13 +653,12 @@
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question12.py}
+            \lstinputlisting{resources/question18.py}
         \end{solution}
     \end{Exercice}
 
-    \begin{comment}
-    
-    \begin{Exercice}[10 minutes] \textbf{Création d'une liste à partir d'un tuple}
+
+   \begin{Exercice}[10 minutes] \textbf{Création d'une liste à partir d'un tuple}
       	
       	Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle \lstinline{for}.
     
@@ -673,11 +672,10 @@
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question13.py}
+            \lstinputlisting{resources/question19.py}
         \end{solution}
     \end{Exercice}
 
-\end{comment}
     
  \begin{Exercice}[10 minutes] \textbf{Boucle while et input()}
       	
@@ -693,7 +691,7 @@
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question14.py}
+            \lstinputlisting{resources/question20.py}
         \end{solution}
     \end{Exercice}
     
@@ -706,7 +704,7 @@
 	
 	Qu'affiche le programme suivant? \\ 
 	
-	\lstinputlisting{resources/question16_1.py} 
+	\lstinputlisting{resources/question15_1.py} 
 	
 	Choisissez parmi les possibilités suivantes : \\
 	
@@ -748,7 +746,7 @@
 \begin{Exercice}[5 minutes] \textbf{Lecture de code - 2}
     
 	Qu'affiche le programme suivant?
-	\lstinputlisting{resources/question16_2.py}
+	\lstinputlisting{resources/question15_2.py}
 	
 	Choisissez parmi les possibilités suivantes : \\
 	
@@ -795,4 +793,55 @@
 		\end{solution} 
 	
 	\end{Exercice}
+    \begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
+	
+        Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
+        
+        Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que : \\
+        
+        factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
+          
+        
+            \begin{conseil} 
+            On peut écrire cette fonction comme suit : \\
+            
+            f(n) = f(n) * f(n-1) si n $>$ 0 \\
+            
+            f(n) = 1 si n = 0
+            
+            \end{conseil} 
+        
+            \begin{solution} 
+                \textbf{Python:}
+                \lstinputlisting{resources/question3a.py}
+                \textbf{Java:}
+                \lstinputlisting{resources/question3a.java}
+            \end{solution} 
+        
+        \end{Exercice}
+    
+        \begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
+        
+        Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
+        
+        Début de la suite : [0,1,1,2,3,5,8,13,...]
+          
+        
+            \begin{conseil} 
+                L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
+            \end{conseil} 
+        
+            \begin{solution}
+                Via Itération : \\
+                
+                    \lstinputlisting{resources/question4ait.java} 
+                    
+                Via récursivité : \\
+                
+                    \lstinputlisting{resources/question4ar.java}
+            \end{solution} 
+        
+        \end{Exercice}
+        
+        
 \end{document}
