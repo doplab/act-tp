@@ -793,4 +793,55 @@
 		\end{solution} 
 	
 	\end{Exercice}
+    \begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
+	
+        Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
+        
+        Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que : \\
+        
+        factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
+          
+        
+            \begin{conseil} 
+            On peut écrire cette fonction comme suit : \\
+            
+            f(n) = f(n) * f(n-1) si n $>$ 0 \\
+            
+            f(n) = 1 si n = 0
+            
+            \end{conseil} 
+        
+            \begin{solution} 
+                \textbf{Python:}
+                \lstinputlisting{resources/question3a.py}
+                \textbf{Java:}
+                \lstinputlisting{resources/question3a.java}
+            \end{solution} 
+        
+        \end{Exercice}
+    
+        \begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
+        
+        Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
+        
+        Début de la suite : [0,1,1,2,3,5,8,13,...]
+          
+        
+            \begin{conseil} 
+                L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
+            \end{conseil} 
+        
+            \begin{solution}
+                Via Itération : \\
+                
+                    \lstinputlisting{resources/question4ait.java} 
+                    
+                Via récursivité : \\
+                
+                    \lstinputlisting{resources/question4ar.java}
+            \end{solution} 
+        
+        \end{Exercice}
+        
+        
 \end{document}
