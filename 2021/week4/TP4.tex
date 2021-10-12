@@ -10,9 +10,9 @@
     \ShowSolutiontrue
     \ShowConseiltrue
     \titre
-    \cours{Structure de données, Itération et récursivité - Exercices Basiques}
+    \cours{Structure de données, Itération et récursivité}
 
-    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les maps. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
+    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les dictionnaires. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
 
     Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
@@ -230,7 +230,7 @@
     
     \subsection{Structures de données (Java)}
     Dans cette partie, les exercices devront être effectués en Java. \\
-    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\\\
+    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\
     \textbf{Déclaration d'un tuple en Java:}
      \begin{lstlisting}[language=Java]
               Object[] mon_tuple = {1,2,3,4}; \end{lstlisting} 
@@ -290,11 +290,12 @@
             \lstinputlisting{resources/question10.java}
         \end{solution}
     \end{Exercice}
+    \newpage
     
     \begin{Exercice}[15 minutes] \textbf{Manipulation d'un dictionnaire en Java}\\
-      	Créez un dictionnaire \lstinline{mon_dictionnaire} contenant les éléments suivants : \\
+      	Créez un dictionnaire \lstinline{mon_dictionnaire} contenant les éléments suivants :
       	
-      	("étudiants", 14000, ``enseignants'', 2300, ``collaborateurs'', 0) \\
+      	("étudiants", 14000, ``enseignants'', 2300, ``collaborateurs'', 0)\\
       	
           Affichez le nombre d'étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable \lstinline{taille_dictionnaire}. Affichez le contenu de \lstinline{taille_dictionnaire}. 
           Modifiez la valeur de \lstinline{collaborateurs}, remplacez 0 par 950. Rajoutez un nouvel élément \lstinline{pays} dans votre dictionnaire avec pour valeur 86.\\
@@ -316,7 +317,6 @@
            Comme pour les listes, accédez aux valeurs via la fonction \lstinline{get(key)} et à la taille via la fonction \lstinline{size()}.
             
            Pour insérer / corriger un élément, utilisez la fonction \lstinline{put(key,value)}.
-		     
         \end{conseil}
         
         \begin{solution}
@@ -325,7 +325,7 @@
     \end{Exercice}
     
     \begin{Exercice}[15 minutes] \textbf{Lecture de code}\\
-      	Qu'affichera le code suivant ? \\
+      	Qu'affichera le code suivant ?
       	
       	\lstinputlisting{resources/question12.java}
       	
@@ -698,7 +698,7 @@
 
      \section{Récursivité}
     
-    La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\
+    La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\\\
     
 	\begin{Exercice}[5 minutes] \textbf{Lecture de code - 1} 
 	
