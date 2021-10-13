@@ -1,3 +1,9 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
