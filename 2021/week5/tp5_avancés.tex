@@ -24,7 +24,7 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 
 Le temps indiqué (\faClock) est à titre indicatif.
 
-\section{Récursivité }
+\section{Récursivité (5 minutes) }
 \begin{Exercice}[5 minutes] \textbf{Somme des chiffres} \\
     Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est : 1+2+6 = 9.
     
@@ -45,7 +45,9 @@ Le temps indiqué (\faClock) est à titre indicatif.
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort)} \\
+\section{Algorithmes de Tri (60 minutes)}
+
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - java} \\
 Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
 
 Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
@@ -53,8 +55,6 @@ Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y
 Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste en utilisant un tri à bulles. Combien d'itérations effectuez-vous?
 
 \begin{itemize}
-        \item \textbf{Python :}
-            \lstinputlisting{ressources/question8.py} 
         \item \textbf{Java :}
             \lstinputlisting{ressources/question8.java} 
     \end{itemize}
@@ -66,8 +66,6 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \ \\
     
     \begin{solution}
-    \textbf{Python :}
-    \lstinputlisting{solutions/question8.py} 
     \textbf{Java:}
     \lstinputlisting{solutions/question8.java} 
 
@@ -113,7 +111,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 \end{Exercice}
 
 
-\begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort)} \\
+\begin{Exercice} [20 minutes] \textbf{Tri fusion (Merge Sort) - java} \\
     À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
     
     Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
@@ -127,8 +125,6 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     Soit la liste \lstinline{l} suivante [38, 27, 43, 3, 9, 82, 10], triez les éléments de la liste en utilisant un tri fusion. Combien d'itération effectuez-vous?
     
     \begin{itemize}
-        \item \textbf{Python :}
-            \lstinputlisting{ressources/question11.py}
         \item \textbf{Java :}
             \lstinputlisting{ressources/question11.java}
     \end{itemize}
@@ -142,15 +138,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \end{conseil}
     
     \begin{solution}
-        \textbf{Python :}
-         \lstinputlisting{solutions/question11.py}
-    \end{solution}
-    \begin{solution}
-        \textbf{Java :}
-        \lstinputlisting{striped_files/question11_1.java}
-    \end{solution}
-    \begin{solution}
-        \lstinputlisting{striped_files/question11_2.java}
+        \lstinputlisting{striped_files/question11.java}
         
         Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
         \begin{enumerate}
