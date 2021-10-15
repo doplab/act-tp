@@ -1,0 +1,304 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutionfalse
+\ShowConseiltrue
+\titre
+\cours{Programmation de base - Exercices de base}
+
+
+\section{Bases en programmation}
+Le but de cette section est d'écrire vos premières lignes de code. Les notions abordées concerneront les variables, les fonctions, et les interactions avec l'utilisateur (input/output). Vous pouvez les écrire en Java ou en Python.\\
+
+\begin{Exercice}[5 minutes] \textbf{Output (Java ou Python)}\\
+   Créez une variable \textit{nom} (str) contenant votre nom, et une autre \textit{prenom} (str) contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
+   
+    \begin{conseil}
+        Utilisez la fonction \lstinline{print()} de Python et \lstinline{System.out.println()} de Java. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:} 
+    \lstinputlisting{resources/solutions/Question9.py}
+    
+    \textbf{\\Java:} 
+    \lstinputlisting{resources/solutions/Question9.java}  
+       
+        
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Input (Java ou Python)}\\
+   En vous référant à l'exercice précédent (\textbf{Output (Java ou Python)}), demandez à l'utilisateur d'entrer son nom et son prénom via la fonction \lstinline{input()} au lieu d'initialiser vous-même les variables. \\
+   
+    \begin{conseil}
+       Utilisez la fonction \lstinline{input()} en Python, la classe \lstinline{Scanner()} en Java (n'oubliez pas d'ajouter \lstinline{import java.util.Scanner;}) tout au début de votre code. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:} 
+    \lstinputlisting{resources/solutions/Question10.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question10.java}  
+       
+        
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Format d'impression (Python uniquement)}\\
+   Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
+   
+    \begin{conseil}
+       N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \url{
+        https://docs.python.org/fr/3.5/library/stdtypes.html\#str.format}
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{resources/solutions/Question11.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[3 minutes] \textbf{Type (Python uniquement)}\\
+   Déclarez deux variables \textit{nom} (String) et \textit{age} (int), puis affichez le type de chacune de ces deux variables.
+   
+    \begin{conseil}
+       Vous pouvez contrôler le type de vos variables via la fonction \lstinline{type()}.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \lstinputlisting{resources/solutions/Question12.py}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Il est possible de convertir une variable d'un certain type vers un autre type. Il est par exemple possible de changer un \lstinline{int} en \lstinline{float} ou un \lstinline{float} en \lstinline{int}. Cette opération se nomme le \textit{Type Casting}. \\
+   Déclarez une variable \textit{nombre\_entier} de type \lstinline{int}, puis une autre variable \textit{nombre\_decimal} de type \lstinline{float}. Affichez \textit{nombre\_entier} en le convertissant en \lstinline{float} et \textit{nombre\_decimal} en le convertissant en \lstinline{int}. \\
+   
+    \begin{conseil}
+       Utilisez la fonction \lstinline{int(float)} et \lstinline{float(int)} en Python / Utilisez \lstinline{(int) float} et (float) int en Java.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    
+    \lstinputlisting{resources/solutions/Question13.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question13.java}
+           
+    \end{solution}   
+\end{Exercice}
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python) \optionnel}\\
+   Qu'afficheront les programmes suivants ? \\
+   
+   \textbf{Python:}
+   \lstinputlisting{resources/solutions/Question15.py}
+   
+   \textbf{\\Java:}
+   \lstinputlisting{resources/solutions/Question15.java}
+    
+   
+    \begin{conseil}
+      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \textbf{Python:}\\
+    3\\
+    3.0
+    
+    \textbf{\\Java:}\\
+    3\\
+    3.14 \\
+           
+    \end{solution}   
+\end{Exercice}
+\begin{Exercice}[3 minutes] \textbf{Calculs (multiplication) (Java ou Python)}\\
+
+   Créez 2 variables \textit{facteur\_1} (= 11) et \textit{facteur\_2} (= 3). Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{produit}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Vous pouvez répéter l'exercice avec l'addition et la soustraction. \\
+   
+    \begin{conseil}
+      	L'opérateur de multiplication est le *, celui d'addition est le + et celui de soustraction est le -.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    \lstinputlisting{resources/solutions/Question14.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question14.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Calculs (division) (Java ou Python)}\\
+    Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+    
+     \begin{conseil}
+           Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
+         
+     \end{conseil}
+     \begin{solution}
+     
+     \textbf{Python:}
+     
+     \lstinputlisting{resources/solutions/Question15.py}
+     
+     \textbf{\\Java:}
+     \lstinputlisting{resources/solutions/Question15.java}
+            
+     \end{solution}   
+ \end{Exercice}
+ 
+\begin{Exercice}[5 minutes] \textbf{Calculs (incrémentation / décrémentation) (Java ou Python)}\\
+   Gardez vos variables de l'exercice précédent (\textbf{Calculs (division) (Java ou Python)}), augmentez la valeur de \textit{nb\_bonbons} de 1, et diminuez celle de \textit{nb\_personnes} de 1.  \\
+   
+    \begin{conseil}
+      	Vous pouvez utiliser les opérateurs += et -= en Python, et les opérateurs ++ et \textit{- -} en Java.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    \lstinputlisting{resources/solutions/Question16.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question16.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
+   Créez une variable \textit{mon\_mot} de type chaîne de caractères avec pour valeur \textbf{``Hard But Cool !!''}. Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez enfin une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats. Qu'obtenez-vous? \\
+   
+    \begin{conseil}
+      	Pour Python, utilisez \lstinline{[]}, et pour Java, utilisez la fonction \lstinline{substring()} ainsi que la fonction \lstinline{length()} qui permet d'obtenir la taille d'un élément.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    \lstinputlisting{resources/solutions/Question17.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question17.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
+   Gardez votre variable, \textit{mon\_mot} et créez une variable \textit{lettre\_5} contenant la cinquième lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \textit{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
+   
+    \begin{conseil}
+      	Attention, ici les espaces comptent comme des lettres ! \\
+
+		Pour Python, utilisez \lstinline{[:]}, et pour Java, utilisez la fonction \lstinline{substring()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}    
+    \lstinputlisting{resources/solutions/Question18.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{resources/solutions/Question18.java}
+           
+    \end{solution}   
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python}:
+    \lstinputlisting{resources/solutions/Question21.py}
+    
+    \textbf{\\Java}:
+    \lstinputlisting{resources/solutions/Question21.java}
+    \end{solution}   
+\end{Exercice}
+\begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python))}\\
+  Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
+   
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions. 
+            \item Vous pourriez utiliser une boucle for pour effectuer plusieurs appels à la fonction \lstinline{ping()}.
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+    
+        \textbf{Python}:
+        \lstinputlisting{resources/solutions/Question19.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/solutions/Question19.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{comment}
+   \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+   Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
+   
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous au cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{resources/Question23.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/Question23.java}
+    \end{solution}   
+\end{Exercice} 
+\end{comment}
+
+\begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java ou Python)}\\
+    Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimètre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
+   
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous au cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+            \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{resources/solutions/Question20.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{resources/solutions/Question20.java}
+    \end{solution}   
+\end{Exercice} 
+
+
+
+
+\newpage
+
+
+\end{document}

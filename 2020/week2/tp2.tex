@@ -8,6 +8,8 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowNotetrue
+
 \titre
 \cours{Logiciels système}
 
@@ -15,7 +17,23 @@ Le but de cette séance est de comprendre le rôle d'un système d'exploitation,
 Les exercices présentés au cours de cette séance se présentent sous deux sections. Une section composée de questions à choix multiples et une section permettant de découvrir et se familiariser avec votre futur environnement de travail.\\
 Le code utilisé dans les questions est également disponible sur Moodle.
 
-
+\begin{note}{"Nathan"}
+Basique: un exercice essentiel pour maitriser les notions de cours ou tout simplement facile à faire.
+    q1: basique
+    q2: basique 
+    q3: basique
+    q4: basique
+    q5: basique
+    q6: basique
+    q7: Basique
+    q8: basique
+    q9: avancé
+    q10: avancé
+    q11-14: avancé
+\end{note}
+\begin{note}{Maeva}
+    Il n'y a pas d'exemple pour python dans le cours
+\end{note}
 \begin{section}{Systèmes d'exploitation}
     
 Le système d'exploitation (OS) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
@@ -187,10 +205,14 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
                 print("Hello world")\end{lstlisting}
         Enregistrer le fichier sous \lstinline{hello.py}. Utiliser l'interpréteur de Python pour exécuter le programme que vous venez de créer.
     \end{Exercice}
+    \begin{note}{Arnaud}
+    Donnée peu claire selon moi, il serait plus logique de demander aux étudiants de créer un fichier directement depuis l'éditeur de texte
+    \end{note}
     \begin{conseil}
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installer les outils de développement avant d'exécuter le programme.
             \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer Nano en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
+Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la command \lstinline{touch > hello.py}.
             \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. Notepad est installé par défaut sous Windows.
         \end{itemize}
     \end{conseil}
@@ -199,6 +221,9 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         Dans le cas de cette question, on fera: \lstinline{python hello.py}.
     \end{solution}
     
+    \begin{note}{Maeva}
+    Exercice 8 en avancé car pareil que le 9 en java 
+\end{note}
     \begin{Exercice}[10 minutes]
         En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
 
@@ -274,11 +299,17 @@ Dans l'exemple suivant, nous importons la librairie math qui propose de nombreus
     fact = math.factorial(5)
     print(fact)\end{lstlisting}
 \end{Example}
+\begin{note}{Arnaud}
+    Vraiment utile d'autant approfondir les librairies à ce moment la du cours? J'aurais mis ces exos en avancés.
+    \end{note}
 
 \begin{conseil}
 	La documentation de la librairie \lstinline{math} sous Python est disponible sur ce lien : \url{https://docs.python.org/3/library/math.html} \\
 Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'une librairie, pensez à lire la documentation. Toutes les fonctions disponibles dans la librairie en question y sont présentées.
 
+\begin{note}{Maeva}
+    Exercices avancé jusqu'a la fin
+\end{note}
 \end{conseil} 
 \begin{Exercice}[5 minutes]
 	A quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
