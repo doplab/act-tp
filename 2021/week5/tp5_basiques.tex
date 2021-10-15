@@ -21,7 +21,7 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 Le temps indiqué (\faClock) est à titre indicatif.
 
 
-\section{Complexité (30 minutes)}
+\section{Complexité (40 minutes)}
 
 Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
 
@@ -243,7 +243,7 @@ Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java,
 \end{Exercice}
     
         
-\section{Récursivité (15 minutes)}
+\section{Récursivité (10 minutes)}
 
 Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre.
 
@@ -292,6 +292,28 @@ Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le
 
 \section{Algorithmes de Tri (60 minutes)}
 
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - python} \\
+Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
+
+Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
+
+Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste en utilisant un tri à bulles. Combien d'itérations effectuez-vous?
+
+\begin{itemize}
+        \item \textbf{Python :}
+            \lstinputlisting{ressources/question8.py} 
+    \end{itemize}
+   
+    \ \\
+    
+    \begin{solution}
+    \textbf{Python :}
+    \lstinputlisting{solutions/question8.py}
+
+    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles qui parcourent la liste.\\\\\\
+            
+\end{solution}
+\end{Exercice}
 
 
 \begin{Exercice}[10 minutes] \textbf{Tri par insertion - 1 (Python)}\\
@@ -309,6 +331,50 @@ Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le
 
 
 \end{Exercice}
+
+\begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort)} \\
+    À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
+    
+    Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
+    \begin{enumerate}
+        \item Si le tableau n'a qu'un élément, il est déjà trié.
+        \item Sinon, séparer le tableau en deux parties plus ou moins égales.
+        \item Trier récursivement les deux parties avec l'algorithme de tri fusion.
+        \item Fusionner les deux tableaux triés en un seul tableau trié.
+    \end{enumerate}
+    
+    Soit la liste \lstinline{l} suivante [38, 27, 43, 3, 9, 82, 10], triez les éléments de la liste en utilisant un tri fusion. Combien d'itération effectuez-vous?
+    
+    \begin{itemize}
+        \item \textbf{Python :}
+            \lstinputlisting{ressources/question11.py}
+    \end{itemize}
+    
+    \begin{conseil}
+    \begin{itemize}
+        \item L'algorithme est récursif. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives 83 à 111 pour comprendre comment marche concrètement le tri fusion. 
+    \end{itemize}
+    
+    \end{conseil}
+    
+    \begin{solution}
+        \textbf{Python :}
+         \lstinputlisting{solutions/question11.py}
+    \end{solution}
+   
+    \begin{solution}
+        
+        Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
+        \begin{enumerate}
+            \item ``Divide Step'', qui divise les listes en deux sous-listes, et cela prend un temps constant
+            \item ``Conquer Step'', qui trie récursivement les sous-listes de taille $n/2$ chacune, et cette étape est représentée par le terme $2T(n/2)$ dans l'équation.
+            \item La dernière étape consiste à fusionner les listes, sa complexité est de $O(n)$.
+        \end{enumerate}
+        La solution à cette équation est $O(n \log n)$.
+    \end{solution}
+\end{Exercice}
+
 
 
 
