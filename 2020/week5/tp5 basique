@@ -270,10 +270,6 @@ Voici son implémentation en Java :
 
 Quel est la complexité de l'algorithme ci-dessus?
 
-\begin{note}{Arnaud}
-    Peut-être faire la correction en commun pour la démonstration de T(n)=(2^k)*T(n-k)+((2^k)-1)
-\end{note}
-
 \begin{conseil}
 Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...) \\
 Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et esssayer de trouver la complexité en terme de $O()$.
@@ -334,40 +330,6 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 
 \end{Exercice}
 
-\begin{Exercice} [20 minutes] \textbf{Tri par insertion - 2 (Insertion Sort)} \\
-
-    Dans l'algorithme de tri par insertion, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés. Pour faire l'analogie avec l'exemple du jeu de cartes, lorsqu'on est à la i-ème étape du parcours, le i-ème élément est la carte saisie, les éléments précédents sont la main triée et les éléments suivants correspondent aux cartes encore en désordre sur la table. 
-    
-    L'objectif d'une étape est d'insérer le i-ème élément à sa place parmi ceux qui le précède. Il faut pour cela trouver où l'élément doit être inséré en le comparant aux autres, puis décaler les éléments afin de pouvoir effectuer l'insertion. En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire ``remonter'' l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
-    
-    Compléter le code suivant pour trier la liste \lstinline{l} définie ci-dessous en utilisant un tri par insertion. Combien d'itérations effectuez-vous?
-    \begin{itemize}
-        \item \textbf{Python :}
-            \lstinputlisting{ressources/question10.py} 
-        \item \textbf{Java :}
-            \lstinputlisting{ressources/question10.java} 
-    \end{itemize}
-    
-    \begin{conseil}
-        Référez vous à la figure du dessous pour un exemple de tri par insertion. \\
-        Référez vous aussi aux diapositives 18 à 72 du cours.
-    \end{conseil}
-    
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=10cm]{ressources/tri_insertion.png}
-    \end{figure}
-
-    \begin{solution}
-        \textbf{Python :}
-            \lstinputlisting{solutions/question10.py} 
-        \textbf{Java :}
-            \lstinputlisting{solutions/question10.java}
-    
-    La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées, qui dans le pire des cas, parcourent la liste deux fois.
-    \end{solution}
-    
-\end{Exercice}
 
 \begin{Exercice} [20 minutes] \textbf{Tri fusion (Merge Sort) en python} \\
     À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
