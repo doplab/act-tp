@@ -137,8 +137,12 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
     \end{conseil}
     
+     \begin{solution}
+        \textbf{Java :}
+        \lstinputlisting{striped_files/question11_1.java}
+    \end{solution}
     \begin{solution}
-        \lstinputlisting{striped_files/question11.java}
+        \lstinputlisting{striped_files/question11_2.java}
         
         Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
         \begin{enumerate}
