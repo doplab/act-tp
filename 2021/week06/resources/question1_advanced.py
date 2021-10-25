@@ -5,6 +5,6 @@ def recherche_binaire(liste,e):
     #complètez ici
     
     
-L = [1231321,3213125,3284016,4729273,5492710]
-e = 3284016
+L = [123, 321, 328, 472, 549]
+e = 328
 recherche_binaire(L,e)

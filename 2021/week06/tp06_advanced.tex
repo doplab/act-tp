@@ -31,8 +31,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     Soient une liste d’entiers triés \lstinline{L} et un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\
     
     \begin{Example}{\faTerminal \quad Exemple}
-        L = [123,321,328,472,549] \\
-    
+        L = [123, 321, 328, 472, 549] \\
         e = 328\\
     
     Résultat attendu: 2
@@ -76,7 +75,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
 % ADVANCED
 \begin{Exercice}[20 minutes] Recherche dans une matrice (Python) %\optionnel\\
     
-    \textbf{Matrice en Python}
+    %\textbf{Matrice en Python}
 
     Considérez une matrice ordonnée \lstinline{m} et un élément \lstinline{l}.\\
     
@@ -85,10 +84,10 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
      \lstinline{[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\
  
     
-    Écrivez un algorithme qui retourne la position de l’élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n’est pas présent dans \lstinline{m} alors il faut retourner \lstinline{(-1, -1)}\\
+    Écrivez un algorithme qui retourne la position de l’élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n’est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
     
     \begin{Example}{\faTerminal \quad Exemples}
-        \textbf{Exemple 1}: si m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]] et que l=7. Nous souhaitons avoir la réponse (1,2) OU (3,1) (l’une des deux, pas besoin de retourner les deux résultats).\\
+        \textbf{Exemple 1}: si \lstinline{m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]} et que \lstinline{l=7}. Nous souhaitons avoir la réponse \lstinline{(1,2)} OU \lstinline{(3,1)} (l’une des deux, pas besoin de retourner les deux résultats).\\
 
         \textbf{Exemple 2}: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrice m.
     \end{Example}

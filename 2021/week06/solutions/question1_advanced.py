@@ -14,7 +14,7 @@ def recherche_binaire(liste,e):
                 first = mid+1
     return -1 # Si la condition de la ligne 8 n'est jamais remplie, la fonction retourne -1 
 
-L = [123,321,328,472,549]
+L = [123, 321, 328, 472, 549]
 e = 328
 recherche_binaire(L,e)
 
