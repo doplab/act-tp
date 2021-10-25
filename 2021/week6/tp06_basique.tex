@@ -4,10 +4,10 @@
     
     \begin{document}
     % Change the following values to true to show the solutions or/and the hints
-    %\ShowSolutiontrue
+    \ShowSolutiontrue
     \ShowConseiltrue
     \titre
-        \cours{Algorithmes de recherche - BASIQUE}
+        \cours{Algorithmes de recherche - Exercices de base}
     
     \begin{comment}
     \begin{enumerate}
@@ -19,7 +19,7 @@
     
 Le but de cette séance est de se familiariser avec les algorithmes de recherche. Dans la série d'exercices, nous manipulerons des listes et collections en Java et Python. Nous reviendrons sur la notion de récursivité et découvrirons les arbres de recherche. Au terme de cette séance, l'étudiant sera en mesure d'effectuer des recherches de façon efficiente sur un ensemble de données.
     
-    Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
+    Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
     
     \section{Recherche séquentielle (ou recherche linéaire)}
     \subsection{Définition}
@@ -27,12 +27,12 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     Si l'élément recherché est trouvé, l'algorithme \textbf{renvoie l'index}, c'est-à-dire la position, de l'élément dans l'ensemble de données. \\
     
-    Sa complexité dans le pire des cas est de \textbf{O(n)} correspondant à la longueur de l'ensemble de données, et dans le meilleur des cas de \textbf{O(1)}, lorsque l'élément se trouve en première position. Dans la pratique, l'algorithme de recherche séquentielle est n'est pas couramment utilisé eu égard de sa complexité élevée et des alternatives de recherche plus efficaces comme la recherche binaire.\\
+    Sa complexité dans le pire des cas est de \textbf{O(n)} correspondant à la longueur de l'ensemble de données, et dans le meilleur des cas de \textbf{O(1)}, lorsque l'élément se trouve en première position. Dans la pratique, l'algorithme de recherche séquentielle n'est pas couramment utilisé eu égard de sa complexité élevée et des alternatives de recherche plus efficaces comme la recherche binaire.\\
     
     
     \subsection{Exercices}
     
-    \begin{Exercice}[5 minutes] Recherche séquentielle - 1 (Python)\\
+    \begin{Exercice}[10 minutes] Recherche séquentielle - 1 (Python)\\
     
     À partir des éléments ci-dessous, écrivez une fonction qui cherche \lstinline{x} dans la liste \lstinline{L}.
     
@@ -57,7 +57,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{Exercice}[10 minutes] Recherche séquentielle - 2 (Python)\\
     
-    Soit une liste d’entiers non triée \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} dont la valeur est la plus proche de \lstinline{e} en utilisant une recherche séquentielle.\\\\
+    Soit une liste d’entiers \textbf{non triée} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} dont la valeur est la plus proche de \lstinline{e} en utilisant une recherche séquentielle.\\\\
     Exemple :\\
     L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]\\
     e = 50\\
@@ -70,7 +70,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \lstinputlisting{resources/question2.py}
         \begin{conseil}
             Complétez la fonction \lstinline{plus_proche_sequentielle} et exécutez le code.\\\\
-            Veillez à utiliser les valeurs absolues pour comparer les différences, la plus petite pouvant être positive ou négative. En Python, la fonction \lstinline{abs()} retourne la valeur absolue. Exemple : \lstinline{abs(3-10) retourne 7}.\\\\
+            Utilisez les valeurs absolues pour comparer les différences, la plus petite pouvant être positive ou négative. En Python, la fonction \lstinline{abs()} retourne la valeur absolue. Exemple : \lstinline{abs(3-10) retourne 7}.\\\\
             Étant donné que la liste est \textbf{non triée}, l'algorithme doit obligatoirement la parcourir intégralement.\\\\
             L'algorithme doit calculer la différence entre \lstinline{e} et chaque élément de la liste \lstinline{L} en gardant toujours la plus petite différence trouvée. À la fin, il retourne l'élément de la liste correspondant à la plus petite différence.  
         \end{conseil}
@@ -152,6 +152,8 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{solution}
         \begin{solution}
             \textbf{4.2 - Version itérative}
+            \todo{Solution à revoir. La ligne 14 n'est jamais appelée}
+
             \lstinputlisting{solutions/question3-2.py}
         \end{solution}
     
@@ -178,11 +180,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \subsection{Exercices}
     
-    \begin{Exercice}[15 minutes] Recherche dans un arbre - Python\\
+    \begin{Exercice}[20 minutes] Recherche dans un arbre - Python\\
         
         Dans l'exercice suivant, nous vous donnons un arbre binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
-        Écrivez une fonction qui retourne \lstinline{True} si la valeur valeur est dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour afficher la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
+        Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{value} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour afficher la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
         Complétez la fonction \lstinline{recherche_arbre}.\\
         \begin{lstlisting}[language=Python]
         import sys
@@ -198,13 +200,13 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \begin{conseil}
         Indice: Utilisez une fonction récursive.\\
         
-        Pour cette question, vous devez télécharger le fichier \textbf{"question4.py"} sur moodle et copier tout son contenu dans votre fichier python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
+        Pour cette question, vous devez télécharger le fichier \textbf{"question4.py"} sur moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
         
         Il contient également un code de "vérification". Celui-ci va automatiquement tester votre fonction avec différent paramètres et vérifier si les résultats obtenus correspondent au résultats attendus.
         \end{conseil}
     
         \begin{solution}
-            \textbf{Python :}
+            \textbf{Python :} \todo{Mettre la solution complète en incluant le contenu du fichier question4.py }
             \lstinputlisting{solutions/question4.py}
         \end{solution}
     

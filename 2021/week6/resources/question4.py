@@ -17,11 +17,6 @@ def recherche_arbre(node, value):
 
 
 
-
-    
-
-
-
 ################## Ne pas modifier le code ci-dessous ##################
 
 

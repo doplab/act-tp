@@ -4,10 +4,10 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-%\ShowSolutiontrue
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Algorithmes de recherche - AVANCE}
+\cours{Algorithmes de recherche - Exercices avancés}
 
 
 \begin{comment}
@@ -23,17 +23,18 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
 \section{Recherche séquentielle (ou recherche linéaire)}
-\subsection{Exercices}
 
 % ADVANCED
-\begin{Exercice}[5 minutes] Recherche séquentielle - 3 (Python)\\
+\begin{Exercice}[10 minutes] Recherche séquentielle - 3 (Python)\\
 
-    Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\\\
+    \todo{Cet exercice ne devrait pas être dans les avancés. Il est beaucoup trop simple}
+
+    Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\
     
     \begin{Example}{\faTerminal Exemple}
-    L = [1231321,3213125,3284016,4729273,5492710]\\
-    e = 3284016\\
-    Résultat attendu: 2\\
+        L = [123,321,328,472,549] \\
+        e = 328 \\
+        Résultat attendu: 2\\
     \end{Example}
   
 \lstinputlisting{resources/question1_advanced.py}
@@ -53,17 +54,43 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \newpage
 \section{Recherche binaire}
-\subsection{Exercices}
+
+% ADVANCED
+\begin{Exercice}[10 minutes] Recherche binaire (Python)\\
+
+    Soient une liste d’entiers triés \lstinline{L} et un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\
+    
+    \begin{Example}{\faTerminal \quad Exemple}
+        L = [123,321,328,472,549] \\
+    
+        e = 328\\
+    
+    Résultat attendu: 2
+    \end{Example}
+    
+    \lstinputlisting{resources/question3_advanced.py}
+    
+    \begin{conseil}
+        Inspirez-vous des conseils des exercices précédents (exercices basiques).
+    \end{conseil}
+    
+        \begin{solution}
+            \textbf{Python :}
+            \lstinputlisting{solutions/question3_advanced.py}
+        \end{solution}
+    
+    \end{Exercice}
+    
 
 % ADVANCED
 \begin{Exercice}[15 minutes] Recherche binaire - plus proche élément (Python)\\
 
-Soit une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
+Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
 \lstinputlisting{resources/question2_advanced.py}
 
 \begin{conseil}
-    Pensez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme a trouvé la valeur la plus proche de \lstinline{e}. 
+    Pensez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée à \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme trouve la valeur la plus proche de \lstinline{e}. 
     
 \end{conseil}
 
@@ -74,35 +101,10 @@ Soit une liste d’entiers \textbf{triés} \lstinline{L} ainsi qu’un entier \l
 
 \end{Exercice}
 
-% ADVANCED
-\begin{Exercice}[10 minutes] Recherche binaire (Python)\\
-
-Considérez une liste d’entiers triés \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\\\
-
-\begin{Example}{\faTerminal \quad Exemple}
-    L = [1231321,3213125,3284016,4729273,5492710] \\
-
-    e = 3284016\\
-
-Résultat attendu: 2
-\end{Example}
-
-\lstinputlisting{resources/question3_advanced.py}
-
-\begin{conseil}
-    Inspirez-vous des conseils des exercices précédents (exercices basiques).
-\end{conseil}
-
-    \begin{solution}
-        \textbf{Python :}
-        \lstinputlisting{solutions/question3_advanced.py}
-    \end{solution}
-
-\end{Exercice}
 
 
 % ADVANCED
-\begin{Exercice}[20 minutes] Recherche matricielle (Python) %\optionnel\\
+\begin{Exercice}[20 minutes] Recherche dans une matrice (Python) %\optionnel\\
     
     \textbf{Matrice en Python}
 
