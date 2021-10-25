@@ -1,3 +1,7 @@
+import sys
+import traceback
+
+
 def recherche_arbre(node, value):
     #Solution
     if node == None:
@@ -8,4 +12,4 @@ def recherche_arbre(node, value):
     if node.value > value:
         return recherche_arbre(node.left,value)
     else:
-        return recherche_arbre(node.right,value)
+        return recherche_arbre(node.right,value) 

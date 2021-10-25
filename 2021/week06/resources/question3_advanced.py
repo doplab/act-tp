@@ -1,10 +1,7 @@
-def recherche_binaire(liste,e):
-    first = 0 
-    last = len(L)-1
-    
-    #complètez ici
+def recherche_matricielle(m,l):
+        #complètez ici
     
     
-L = [1231321,3213125,3284016,4729273,5492710]
-e = 3284016
-recherche_binaire(L,e)
+m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+l=7
+recherche_matricielle(m,l)
