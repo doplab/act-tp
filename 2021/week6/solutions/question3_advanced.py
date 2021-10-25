@@ -1,20 +1,11 @@
-def recherche_binaire(liste,e):
-    first = 0 #correspond à l'index du premier élément de la liste
-    last = len(liste) #correspond à l'index du dernier élément de la liste
-    #SOLUTION
-    while first <= last:
-        mid = int((first+last)/2) #l'élément du milieu. La fonction int() permet d'obtenir un entier dans le cas ou "first + last" est un nombre impair
-        print(mid)
-        if liste[mid] == e:
-            return mid #Si la condition est juste, la fonction retourne l'index de la valeur recherchée dans la liste
-        else:
-            if liste[mid] > e:
-                last = mid-1
-            else:
-                first = mid+1
-    return -1 # Si la condition de la ligne 8 n'est jamais remplie, la fonction retourne -1 
+def recherche_matricielle(m,l):
+    #complètez ici
+    for ligne in range(len(m)): # "Pour chaque ligne de la matrice" ou "Pour chaque liste de la liste"
+        for colonne in range(len(m[ligne])): # "Pour chaque colonne de la matrice" ou "Pour chaque élément de la liste"
+            if m[ligne][colonne] == l:
+                return (ligne,colonne)#
+    return (-1,-1)
 
-L = [123,321,328,472,549]
-e = 328
-recherche_binaire(L,e)
-
+m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+l=7
+print(recherche_matricielle(m,l))

@@ -22,37 +22,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
 
-\section{Recherche séquentielle (ou recherche linéaire)}
 
-% ADVANCED
-\begin{Exercice}[10 minutes] Recherche séquentielle - 3 (Python)\\
-
-    \todo{Cet exercice ne devrait pas être dans les avancés. Il est beaucoup trop simple}
-
-    Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\
-    
-    \begin{Example}{\faTerminal Exemple}
-        L = [123,321,328,472,549] \\
-        e = 328 \\
-        Résultat attendu: 2\\
-    \end{Example}
-  
-\lstinputlisting{resources/question1_advanced.py}
-
-    \begin{conseil}
-        Une liste triée permet une recherche plus efficace à l'aide d'un algorithme plus simple.\\
-        Retournez l'index de la valeur dans la liste. Pensez à utiliser la fonction \lstinline{index()} qui retourne l'index d'un élément au sein d'une liste en Python.\\Exemple et syntaxe: \lstinline{lst.index(i)} va indiqué la position de l'élément \lstinline{i} dans la liste \lstinline{lst}.
-    \end{conseil}
-
-
-    \begin{solution}
-        \textbf{Python :}
-        \lstinputlisting{solutions/question1_advanced.py}
-    \end{solution}
-\end{Exercice}
-
-
-\newpage
 \section{Recherche binaire}
 
 % ADVANCED
@@ -68,7 +38,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     Résultat attendu: 2
     \end{Example}
     
-    \lstinputlisting{resources/question3_advanced.py}
+    \lstinputlisting{resources/question1_advanced.py}
     
     \begin{conseil}
         Inspirez-vous des conseils des exercices précédents (exercices basiques).
@@ -76,7 +46,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     
         \begin{solution}
             \textbf{Python :}
-            \lstinputlisting{solutions/question3_advanced.py}
+            \lstinputlisting{solutions/question1_advanced.py}
         \end{solution}
     
     \end{Exercice}
@@ -123,7 +93,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
         \textbf{Exemple 2}: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrice m.
     \end{Example}
 
-    \lstinputlisting{resources/question4_advanced.py}
+    \lstinputlisting{resources/question3_advanced.py}
 
     \begin{conseil}
     Pour cet exercice, il est nécessaire d'utiliser des boucles \lstinline{for} imbriquées, c'est-à-dire: une boucle \lstinline{for} dans une autre boucle \lstinline{for}. Cela permet de parcourir tous les éléments d'une liste (ou d'un tableau) à deux dimensions (dans notre cas une matrice). 
@@ -131,7 +101,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
 
     \begin{solution}
         \textbf{Python :}
-        \lstinputlisting{solutions/question4_advanced.py}
+        \lstinputlisting{solutions/question3_advanced.py}
     \end{solution}
 
 \end{Exercice}

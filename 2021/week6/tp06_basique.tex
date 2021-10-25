@@ -63,7 +63,6 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     e = 50\\
     Résultat attendu : 56\\
     
-    % TODO: add this point in the solution
     Au cas où deux éléments se trouveraient à équidistance de \lstinline{e}, renvoyez l'élément le plus petit.\\
     
     \textbf{Python :}
@@ -82,6 +81,30 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{solution}
         
     \end{Exercice}
+    
+    
+    \begin{Exercice}[10 minutes] Recherche séquentielle - 3 (Python)\\
+    Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\
+    
+    \begin{Example}{\faTerminal Exemple}
+        L = [123,321,328,472,549] \\
+        e = 328 \\
+        Résultat attendu: 2\\
+    \end{Example}
+  
+\lstinputlisting{resources/question3.py}
+
+    \begin{conseil}
+        Une liste triée permet une recherche plus efficace à l'aide d'un algorithme plus simple.\\
+        Retournez l'index de la valeur dans la liste. Pensez à utiliser la fonction \lstinline{index()} qui retourne l'index d'un élément au sein d'une liste en Python.\\Exemple et syntaxe: \lstinline{lst.index(i)} va indiqué la position de l'élément \lstinline{i} dans la liste \lstinline{lst}.
+    \end{conseil}
+
+
+    \begin{solution}
+        \textbf{Python :}
+        \lstinputlisting{solutions/question3.py}
+    \end{solution}
+\end{Exercice}
     
     
     \newpage
@@ -116,10 +139,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Ici, \lstinline{x = 5}.\\
     
     \textbf{Question 4.1 - Version récursive}
-    \lstinputlisting{resources/question3_1.py}
+    \lstinputlisting{resources/question4_1.py}
     
     \textbf{Question 4.2 - Version itérative}
-    \lstinputlisting{resources/question3_2.py}
+    \lstinputlisting{resources/question4_2.py}
     
     
         \begin{conseil}
@@ -148,13 +171,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
         \begin{solution}
             \textbf{4.1 - Version récursive}
-            \lstinputlisting{solutions/question3-1.py}
+            \lstinputlisting{solutions/question4-1.py}
         \end{solution}
         \begin{solution}
             \textbf{4.2 - Version itérative}
-            \todo{Solution à revoir. La ligne 14 n'est jamais appelée}
-
-            \lstinputlisting{solutions/question3-2.py}
+            \lstinputlisting{solutions/question4-2.py}
         \end{solution}
     
     \end{Exercice}
@@ -206,8 +227,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{conseil}
     
         \begin{solution}
-            \textbf{Python :} \todo{Mettre la solution complète en incluant le contenu du fichier question4.py }
-            \lstinputlisting{solutions/question4.py}
+            \lstinputlisting{solutions/question5-1.py}
+        \end{solution}
+        
+         \begin{solution}
+            \lstinputlisting{solutions/question5-2.py}
         \end{solution}
     
     \end{Exercice}

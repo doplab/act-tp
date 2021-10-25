@@ -8,6 +8,8 @@ def plus_proche_sequentielle(liste,nb):
         if diff == -1 or abs(elem-nb) < diff:
             diff = abs(elem-nb) #new diff #
             resultat = elem
+        elif (abs(elem-nb) == diff):
+            resultat=min(elem, resultat)
 
     return resultat
 

@@ -1,8 +1,10 @@
-def recherche_sequentielle(L,e):
-    for elem in L: #Ici, i correspond à la valeur et non l'index.
-        #complètez ici
-        
-    L = [123,321,328,472,549]
-    e = 328
-    resultat = recherche_sequentielle(L,e)
-    print(resultat)
+def recherche_binaire(liste,e):
+    first = 0 
+    last = len(L)-1
+    
+    #complètez ici
+    
+    
+L = [1231321,3213125,3284016,4729273,5492710]
+e = 3284016
+recherche_binaire(L,e)

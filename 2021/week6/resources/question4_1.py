@@ -1,8 +1,7 @@
-#Version récursive
-    
+#Version récursive    
 def recherche_binaire_recursive(liste,s,r,x):
-    #complètez ici 
-    
+    #complètez ici
+
 L=[1,3,4,5,7,8,9,15]
 s = 0
 r = len(L)
