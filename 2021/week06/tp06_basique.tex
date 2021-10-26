@@ -4,7 +4,7 @@
     
     \begin{document}
     % Change the following values to true to show the solutions or/and the hints
-    \ShowSolutiontrue
+    \ShowSolutionfalse
     \ShowConseiltrue
     \titre
         \cours{Algorithmes de recherche - Exercices de base}
@@ -132,6 +132,25 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. Leur principal inconvénient est le fait qu'elles peuvent provoquer des exécutions infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas permettant d'arrêter la récursivité, celle-ci se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
        
     \subsection{Exercices}
+
+    \begin{Exercice}[10 minutes] Propriété des arbres binaires de recherche\\
+
+    Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre binaire de recherche, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
+
+    \begin{enumerate}
+        \item 2, 252, 401, 398, 330, 344, 397, 363.
+        \item 924, 220, 911, 244, 898, 258, 362, 363.
+        \item 925, 202, 911, 240, 912, 245, 363.
+        \item 2, 399, 387, 219, 266, 382, 381, 278, 363.
+        \item 935, 278, 347, 621, 299, 392, 358, 363. 
+    \end{enumerate}
+
+    \begin{solution}
+            \includegraphics[width=1\textwidth]{img/question4.png}
+    \end{solution}
+
+        
+    \end{Exercice}
     
     \begin{Exercice}[20 minutes] Récursivité et itération (Python)\\
     
@@ -139,10 +158,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Ici, \lstinline{x = 5}.\\
     
     \textbf{Question 4.1 - Version récursive}
-    \lstinputlisting{resources/question4_1.py}
+    \lstinputlisting{resources/question5_1.py}
     
     \textbf{Question 4.2 - Version itérative}
-    \lstinputlisting{resources/question4_2.py}
+    \lstinputlisting{resources/question5_2.py}
     
     
         \begin{conseil}
@@ -171,11 +190,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
         \begin{solution}
             \textbf{4.1 - Version récursive}
-            \lstinputlisting{solutions/question4-1.py}
+            \lstinputlisting{solutions/question5-1.py}
         \end{solution}
         \begin{solution}
             \textbf{4.2 - Version itérative}
-            \lstinputlisting{solutions/question4-2.py}
+            \lstinputlisting{solutions/question5-2.py}
         \end{solution}
     
     \end{Exercice}
@@ -201,7 +220,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \subsection{Exercices}
     
-    \begin{Exercice}[20 minutes] Recherche dans un arbre - Python\\
+    \begin{Exercice}[15 minutes] Recherche dans un arbre - Python\\
         
         Dans l'exercice suivant, nous vous donnons un arbre binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
@@ -215,24 +234,24 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
             # Complétez ici
             
             
-        #Attention à inclure les lignes de codes additionnelles présentes dans le fichier "question4.py" sur Moodle
+        #Attention à inclure les lignes de codes additionnelles présentes dans le fichier "question6.py" sur Moodle
         \end{lstlisting}
     
         \begin{conseil}
         Indice: Utilisez une fonction récursive.\\
         
-        Pour cette question, vous devez télécharger le fichier \textbf{"question4.py"} sur moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
+        Pour cette question, vous devez télécharger le fichier \textbf{"question6.py"} sur Moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
         
         Il contient également un code de "vérification". Celui-ci va automatiquement tester votre fonction avec différent paramètres et vérifier si les résultats obtenus correspondent au résultats attendus.
         \end{conseil}
     
         \begin{solution}
-            \lstinputlisting{solutions/question5-1.py}
+            \lstinputlisting{solutions/question6-1.py}
         \end{solution}
 
         \begin{comment}
             \begin{solution}
-                \lstinputlisting{solutions/question5-2.py}
+                \lstinputlisting{solutions/question6-2.py}
             \end{solution}
         \end{comment}
     
