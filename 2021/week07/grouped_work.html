@@ -1,0 +1,833 @@
+<h1 class="unnumbered" id="algorithmes-et-pensée-computationnelle">Algorithmes et Pensée Computationnelle</h1>
+<p><em>Consolidation 1</em><br />
+</p>
+<p>Les exercices de cette série sont une compilation d’exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.</p>
+<p>Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier <code>Ressources</code>.</p>
+<h1 id="introduction-et-architecture-des-ordinateurs">Introduction et architecture des ordinateurs</h1>
+<p>Le but de cette section est de comprendre le fonctionnement d’un ordinateur. La série d’exercices sera axée autour de conversions en base binaire, décimale, hexadécimale, base 5 et de calcul de base en suivant le modèle Von Neumann.<br />
+</p>
+<h2 id="conversion">Conversion</h2>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Conversion</strong><br />
+</p>
+<ol>
+<li><p>Convertir le nombre FFFFFF<span class="math inline"><sub>(16)</sub></span> en base 10.</p></li>
+<li><p>Convertir le nombre 4321<span class="math inline"><sub>(5)</sub></span> en base 10.</p></li>
+<li><p>Convertir le nombre ABC<span class="math inline"><sub>(16)</sub></span> en base 2.</p></li>
+<li><p>Convertir le nombre 254<span class="math inline"><sub>(10)</sub></span> en base 15.</p></li>
+<li><p>Convertir le nombre 11101<span class="math inline"><sub>(2)</sub></span> en base 10.</p></li>
+</ol>
+<p>N’oubliez pas qu’en Hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15.</p>
+<p>1. FFFFFF<span class="math inline"><sub>(16)</sub></span> = 16777215<span class="math inline"><sub>(10)</sub></span><br />
+2. 4321<span class="math inline"><sub>(5)</sub></span> = 586<span class="math inline"><sub>(10)</sub></span><br />
+3. ABC<span class="math inline"><sub>(16)</sub></span> = 101010111100<span class="math inline"><sub>(2)</sub></span><br />
+4. 254<span class="math inline"><sub>(10)</sub></span> = 11E<span class="math inline"><sub>(15)</sub></span><br />
+5. 11101<span class="math inline"><sub>(2)</sub></span> = 29<span class="math inline"><sub>(10)</sub></span></p>
+<h2 id="conversion-et-arithmétique">Conversion et arithmétique</h2>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Conversion, addition et soustraction:</strong><br />
+Effectuez les opérations suivantes:</p>
+<ol>
+<li><p>10110101<span class="math inline"><sub>(2)</sub></span> + 00101010<span class="math inline"><sub>(2)</sub></span> = ...<span class="math inline"><sub>(10)</sub></span></p></li>
+<li><p>70<span class="math inline"><sub>(10)</sub></span> - 10101010<span class="math inline"><sub>(2)</sub></span> = ...<span class="math inline"><sub>(10)</sub></span></p></li>
+</ol>
+<p>Convertissez dans une base commune avant d’effectuer les opérations.</p>
+<p>1. 10110101<span class="math inline"><sub>(2)</sub></span> + 00101010<span class="math inline"><sub>(2)</sub></span> = 223<span class="math inline"><sub>(10)</sub></span><br />
+3. 70<span class="math inline"><sub>(10)</sub></span> - 10101010<span class="math inline"><sub>(2)</sub></span> = -100<span class="math inline"><sub>(10)</sub></span></p>
+<h2 id="modèle-de-von-neumann">Modèle de Von Neumann</h2>
+<p>Dans cette section, nous allons simuler une opération d’addition dans le <strong>modèle de Van Neumann</strong>, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.<br />
+<strong>État d’origine:</strong><br />
+A l’origine, notre <code>Process Counter (PC)</code> vaut <code>00100001</code>.<br />
+Dans la mémoire, les instructions sont les suivantes:</p>
+<p><span>| C<span>0.1</span> | C<span>0.1</span> |</span> <strong>Adresse</strong> &amp; <strong>Valeur</strong><br />
+&amp; 00110100<br />
+&amp; 10100110<br />
+&amp; 111111101<br />
+</p>
+<p><br />
+<br />
+Les registres sont les suivants:</p>
+<p><span>| C<span>0.1</span> | C<span>0.1</span> |</span> <strong>Registre</strong> &amp; <strong>Valeur</strong><br />
+&amp; 01111111<br />
+&amp; 00100000<br />
+&amp; 00101101<br />
+&amp; 00001100<br />
+</p>
+<p><br />
+<br />
+Les opérations disponibles pour l’unité de contrôle sont les suivantes:<br />
+</p>
+<p><span>| C<span>0.1</span> | C<span>0.1</span> |</span> <strong>Numéro</strong> &amp; <strong>Valeur</strong><br />
+&amp; ADD<br />
+&amp; XOR<br />
+&amp; MOV<br />
+&amp; SUB<br />
+</p>
+<p><br />
+<br />
+</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Fetch</strong><br />
+À la fin de l’opération <code>FETCH</code>, quelles sont les valeurs du <code>Process Counter</code> et de l’<code>Instruction Register</code>?</p>
+<p>Pour rappel, l’unité de contrôle (Control Unit) commande et contrôle le fonctionnement du système. Elle est chargée du séquençage des opérations. Après chaque opération FETCH, la valeur du Program Counter est incrémentée (valeur initiale + 1).</p>
+<p>PC = 00100001<span class="math inline"><sub>(2)</sub></span> + 1 = 00100010<span class="math inline"><sub>(2)</sub></span><br />
+IR = 00110100<span class="math inline"><sub>(2)</sub></span></p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Decode</strong></p>
+<ol>
+<li><p>Quelle est la valeur de l’opération à exécuter?</p></li>
+<li><p>Quelle est l’adresse du registre dans lequel le résultat doit être enregistré?</p></li>
+<li><p>Quelle est la valeur du premier nombre de l’opération?</p></li>
+<li><p>Quelle est la valeur du deuxième nombre de l’opération?</p></li>
+</ol>
+<p>Pensez à décomposer la valeur de l’<code>Instruction Register</code> pour obtenir toutes les informations demandées.<br />
+Utilisez la même convention que celle présentée dans les diapositives du cours (Architecture des ordinateurs (Semaine 2) - Diapositive 15)<br />
+Les données issues de la décomposition de l’<code>Instruction Register</code> ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.</p>
+<p>00 : <code>ADD</code> (valeur de l’opération à exécuter)<br />
+11 : Adresse du registre dans lequel le résultat doit être enregistré<br />
+01 : 00100000<span class="math inline"><sub>(2)</sub></span> (premier nombre)<br />
+00 : 01111111<span class="math inline"><sub>(2)</sub></span> (deuxième nombre)</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Execute</strong><br />
+Quel est résultat de l’opération?</p>
+<p>Toutes les informations permettant d’effectuer l’opération se trouvent dans les données de l’<code>Instruction Register</code>.</p>
+<p>00100000<span class="math inline"><sub>(2)</sub></span> + 01111111<span class="math inline"><sub>(2)</sub></span> = 10011111<span class="math inline"><sub>(2)</sub></span></p>
+<h1 id="logiciels-système">Logiciels système</h1>
+<p><strong>Question :</strong> (<em>5 minutes</em>)</p>
+<p>Sous Linux et MacOS, laquelle de ces commandes modifie le <code>filesystem</code>?</p>
+<ol>
+<li><p><code>ls -la</code></p></li>
+<li><p><code>sudo rm -rf ~/nano</code></p></li>
+<li><p><code>sudo kill -9 3531</code></p></li>
+<li><p><code>more nano.txt</code></p></li>
+<li><p>Aucune réponse n’est correcte.</p></li>
+</ol>
+<p>La commande <code>sudo rm -rf ~/nano</code> permet de supprimer le répertoire <code>nano</code> situé dans le dossier <code>/Users/&lt;Utilisateur\_courant&gt;</code> en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).</p>
+<p><strong>Attention!</strong><br />
+Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.<br />
+Pour avoir une description détaillée d’une commande, vous pouvez ajouter <code>man</code> devant la commande sous Linux/MacOS ou ajouter <code>-h, --help</code> ou <code>/?</code> après la commande sous Windows.</p>
+<h1 id="programmation-de-base">Programmation de base</h1>
+<p><strong>Question :</strong> (<em>10 minutes</em>)<br />
+</p>
+<ol>
+<li><p>Convertir 52<span class="math inline"><sub>(10)</sub></span> en base 2 sur 8 bits.</p></li>
+<li><p>Convertir 100<span class="math inline"><sub>(10)</sub></span> en base 2 sur 8 bits.</p></li>
+<li><p>Calculer en base 2 la soustraction de 01100100<span class="math inline"><sub>(2)</sub></span> par 00110100<span class="math inline"><sub>(2)</sub></span>.</p></li>
+<li><p>Déterminer au complément à deux l’opposé ( multiplication par -1 en base 10) de 0110000<span class="math inline"><sub>(2)</sub></span>.</p></li>
+</ol>
+<ul>
+<li><p>Se référer aux techniques apprises dans la série 1 et la série 3</p></li>
+<li><p>Faire un tableau des puissances de 2 sur 8 bits.</p></li>
+</ul>
+<ul>
+<li><p>52<span class="math inline"><sub>(10)</sub></span> = 32<span class="math inline"><sub>(10)</sub></span> + 16<span class="math inline"><sub>(10)</sub></span> + 4<span class="math inline"><sub>(10)</sub></span> = 00110100<span class="math inline"><sub>(2)</sub></span></p></li>
+<li><p>100<span class="math inline"><sub>(10)</sub></span> = 64<span class="math inline"><sub>(10)</sub></span> + 32<span class="math inline"><sub>(10)</sub></span> + 4<span class="math inline"><sub>(10)</sub></span> = 01100100<span class="math inline"><sub>(2)</sub></span></p></li>
+<li><p>01100100<span class="math inline"><sub>(2)</sub></span> - 00110100<span class="math inline"><sub>(2)</sub></span> = 0110000<span class="math inline"><sub>(2)</sub></span></p></li>
+<li><p><strong>Complément à 1:</strong> not(0110000<span class="math inline"><sub>(2)</sub></span>) = 1001111<span class="math inline"><sub>(2)</sub></span></p></li>
+<li><p><strong>Complément à 2:</strong> Complément à 1 + 1 = 1001111<span class="math inline"><sub>(2)</sub></span> + 1<span class="math inline"><sub>(2)</sub></span> = 1010000<span class="math inline"><sub>(2)</sub></span></p></li>
+</ul>
+<h1 id="itération-et-récursivité">Itération et récursivité</h1>
+<p><strong>Question :</strong> (<em>15 minutes</em>) Itération et Récursivité<br />
+Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné.<br />
+</p>
+<p>Pour la version itérative, parcourez toute la chaîne de caractère et incrémentez un compteur lorsque vous avez une voyelle.</p>
+<p>Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractère. Si l’élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.</p>
+<p>Aidez vous d’une liste de toutes les voyelles et de la fonction <code>in</code> en <code>Python</code> (<code>List.contains()</code> en <code>Java</code>).</p>
+<p>Voici les templates :<br />
+<strong>Python</strong><br />
+</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> nb_voyelles_itérative(T,S) :</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="co">#TODO</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">def</span> nb_voyelles_récursive(T,S) :</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="co">#TODO</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>voyelles <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;i&#39;</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;u&#39;</span>,<span class="st">&#39;y&#39;</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>texte <span class="op">=</span> <span class="st">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="st"> eget. Praesent et quam vitae justo hendrerit tristique. Ut malesuada ligula in mi ultricies tempor. Fusce blandit \</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="st"> turpis sapien, in gravida orci aliquet et. Morbi in metus efficitur, volutpat purus sit amet, scelerisque massa. \</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="st"> Vivamus vehicula justo quis leo feugiat fringilla. Maecenas sagittis ultrices accumsan. Cras libero est, gravida in\</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="st">  eros ac, luctus ullamcorper nisi.&quot;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="bu">print</span>(nb_voyelles_itérative(texte,voyelles))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="bu">print</span>(nb_voyelles_récursive(texte,voyelles))</span></code></pre></div>
+<p><strong>Java</strong><br />
+</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> nb_voyelles_itérative(<span class="bu">String</span> S, <span class="bu">List</span> L){</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>        <span class="co">//</span><span class="al">TODO</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    }</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> nb_voyelles_récursive(<span class="bu">String</span> S, <span class="bu">List</span> L){</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>        <span class="co">//</span><span class="al">TODO</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>        <span class="bu">List</span> voyelles = <span class="bu">List</span>.<span class="fu">of</span>(<span class="ch">&#39;a&#39;</span>,<span class="ch">&#39;e&#39;</span>,<span class="ch">&#39;i&#39;</span>,<span class="ch">&#39;o&#39;</span>,<span class="ch">&#39;u&#39;</span>,<span class="ch">&#39;y&#39;</span>);</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>        <span class="bu">String</span> texte = <span class="st">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet&quot;</span> +</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>                <span class="st">&quot; eget. Praesent et quam vitae justo hendrerit tristique. Ut malesuada ligula in mi ultricies tempor. Fusce blandit&quot;</span> +</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>                <span class="st">&quot; turpis sapien, in gravida orci aliquet et. Morbi in metus efficitur, volutpat purus sit amet, scelerisque massa.&quot;</span> +</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>                <span class="st">&quot; Vivamus vehicula justo quis leo feugiat fringilla. Maecenas sagittis ultrices accumsan. Cras libero est, gravida in&quot;</span> +</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>                <span class="st">&quot;  eros ac, luctus ullamcorper nisi.&quot;</span>;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(nb_voyelles_itérative(texte, voyelles));</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(nb_voyelles_récursive(texte, voyelles));</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>        }</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><strong>Python :</strong><br />
+</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> nb_voyelles_itérative(T,S) :</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    c <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> T :</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>        <span class="cf">if</span> i <span class="kw">in</span> S :</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>            c <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>            <span class="cf">pass</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    <span class="cf">return</span> c</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="kw">def</span> nb_voyelles_récursive(T,S) :</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    <span class="cf">if</span> <span class="bu">len</span>(T) <span class="op">==</span> <span class="dv">1</span> :</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>        <span class="cf">if</span> T[<span class="dv">0</span>] <span class="kw">in</span> S :</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>            <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>        <span class="cf">if</span> T[<span class="dv">0</span>] <span class="kw">in</span> S :</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>            <span class="cf">return</span> <span class="dv">1</span> <span class="op">+</span> nb_voyelles_récursive(T[<span class="dv">1</span>:],S)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>            <span class="cf">return</span> <span class="dv">0</span> <span class="op">+</span> nb_voyelles_récursive(T[<span class="dv">1</span>:],S)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>voyelles <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;i&#39;</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;u&#39;</span>,<span class="st">&#39;y&#39;</span>]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>texte <span class="op">=</span> <span class="st">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet\</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a><span class="st"> eget. Praesent et quam vitae justo hendrerit tristique. Ut malesuada ligula in mi ultricies tempor. Fusce blandit \</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a><span class="st"> turpis sapien, in gravida orci aliquet et. Morbi in metus efficitur, volutpat purus sit amet, scelerisque massa. \</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a><span class="st"> Vivamus vehicula justo quis leo feugiat fringilla. Maecenas sagittis ultrices accumsan. Cras libero est, gravida in\</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a><span class="st">  eros ac, luctus ullamcorper nisi.&quot;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a><span class="bu">print</span>(nb_voyelles_itérative(texte,voyelles))</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a><span class="bu">print</span>(nb_voyelles_récursive(texte,voyelles))</span></code></pre></div>
+<p><strong>Java :</strong><br />
+</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> nb_voyelles_itérative(<span class="bu">String</span> S, <span class="bu">List</span> L){</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>        <span class="dt">int</span> c = <span class="dv">0</span>;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>        <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i&lt;S.<span class="fu">length</span>(); i++){</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>            <span class="kw">if</span>(L.<span class="fu">contains</span>(S.<span class="fu">charAt</span>(i))){</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>                c ++;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>            }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>        }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>        <span class="kw">return</span> c;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    }</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> nb_voyelles_récursive(<span class="bu">String</span> S, <span class="bu">List</span> L){</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>        <span class="kw">if</span> (S.<span class="fu">length</span>() == <span class="dv">1</span>){</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>            <span class="kw">if</span> (L.<span class="fu">contains</span>(S.<span class="fu">charAt</span>(<span class="dv">0</span>))) {</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>                <span class="kw">return</span> <span class="dv">1</span>;</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>            }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>            <span class="kw">else</span>{</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>                <span class="kw">return</span> <span class="dv">0</span>;</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>            }</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a>        }</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>        <span class="kw">else</span>{</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>            <span class="kw">if</span> (L.<span class="fu">contains</span>(S.<span class="fu">charAt</span>(<span class="dv">0</span>))) {</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true"></a>                <span class="kw">return</span> <span class="dv">1</span> + nb_voyelles_récursive(S.<span class="fu">substring</span>(<span class="dv">1</span>,S.<span class="fu">length</span>()),L);</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true"></a>            }</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true"></a>            <span class="kw">else</span>{</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true"></a>                <span class="kw">return</span> <span class="dv">0</span> + nb_voyelles_récursive(S.<span class="fu">substring</span>(<span class="dv">1</span>,S.<span class="fu">length</span>()),L);</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true"></a>            }</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true"></a>        }</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true"></a>    }</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true"></a>        <span class="bu">List</span> voyelles = <span class="bu">List</span>.<span class="fu">of</span>(<span class="ch">&#39;a&#39;</span>,<span class="ch">&#39;e&#39;</span>,<span class="ch">&#39;i&#39;</span>,<span class="ch">&#39;o&#39;</span>,<span class="ch">&#39;u&#39;</span>,<span class="ch">&#39;y&#39;</span>);</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true"></a>        <span class="bu">String</span> texte = <span class="st">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet&quot;</span> +</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true"></a>                <span class="st">&quot; eget. Praesent et quam vitae justo hendrerit tristique. Ut malesuada ligula in mi ultricies tempor. Fusce blandit&quot;</span> +</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true"></a>                <span class="st">&quot; turpis sapien, in gravida orci aliquet et. Morbi in metus efficitur, volutpat purus sit amet, scelerisque massa.&quot;</span> +</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true"></a>                <span class="st">&quot; Vivamus vehicula justo quis leo feugiat fringilla. Maecenas sagittis ultrices accumsan. Cras libero est, gravida in&quot;</span> +</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true"></a>                <span class="st">&quot;  eros ac, luctus ullamcorper nisi.&quot;</span>;</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(nb_voyelles_itérative(texte, voyelles));</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(nb_voyelles_récursive(texte, voyelles));</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true"></a>        }</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) Lecture de code (Récursivité)<br />
+Qu’afficheront les programmes suivants ?<br />
+</p>
+<p>Ces deux programmes comportent des fonctions itératives, lisez bien le code de haut en bas et lorsque la fonction fait appel à elle-même, revenez au début de la fonction et effectuez de nouveau les instructions avec les nouveaux paramètres.</p>
+<p>Une feuille de papier pourrait vous être utile!<br />
+</p>
+<p><strong><br />
+Programme 1 :</strong><br />
+</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> recursion_1(S) :</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="cf">if</span> <span class="bu">len</span>(S) <span class="op">==</span> <span class="dv">1</span> :</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>        <span class="cf">return</span> S[<span class="dv">0</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>        <span class="cf">return</span> S[<span class="dv">0</span>] <span class="op">+</span> recursion_1(S[<span class="dv">1</span>:]) <span class="op">+</span> S[<span class="dv">0</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="bu">print</span>(recursion_1(<span class="st">&quot;Python&quot;</span>))</span></code></pre></div>
+<p><strong>Programme 2 :</strong><br />
+</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> recursion_2(L) :</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="cf">if</span> <span class="bu">len</span>(L) <span class="op">==</span> <span class="dv">1</span> :</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>        <span class="bu">print</span>(L[<span class="dv">0</span>])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>        recursion_2(L[<span class="dv">1</span>:])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>        <span class="bu">print</span>(L[<span class="dv">0</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>        recursion_2(L[<span class="dv">1</span>:])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>Liste <span class="op">=</span> [<span class="st">&quot;J&quot;</span>,<span class="st">&quot;adore&quot;</span>,<span class="st">&quot;Python&quot;</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>recursion_2(Liste)</span></code></pre></div>
+<p><strong>Programme 1 :</strong><br />
+Python</p>
+<p>adore</p>
+<p>Python</p>
+<p>J</p>
+<p>Python</p>
+<p>adore</p>
+<p>Python</p>
+<p><strong>Programme 2 :</strong><br />
+PythonohtyP</p>
+<h1 id="algorithmes-et-complexité">Algorithmes et complexité</h1>
+<p><strong>Question :</strong> (<em>5 minutes</em>) Complexité - Partie 1<br />
+Que fait le programme suivant?<br />
+Estimez le nombre d’opérations qu’effectuera l’algorithme de la fonction <code>algo1</code> à chaque étape en fonction des paramètres qui lui seront assignés:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="im">import</span> math</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="co"># L est une liste d&#39;entiers et x est un nombre entier</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="kw">def</span> algo1(L, x):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    n <span class="op">=</span> <span class="bu">len</span>(L)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>        L[i] <span class="op">=</span> L[i] <span class="op">+</span> math.<span class="bu">pow</span>(x, i)</span></code></pre></div>
+<p>Les opérations dans une boucle <code>for</code> sont répétées autant de fois que le nombre d’éléments sur lesquels nous itérons.</p>
+<p>L’algorithme effectue 1 opération pour initialiser <span class="math inline"><em>n</em></span> à <code>len(L)</code>. Ensuite, l’algorithme effectue une boucle <code>for</code> qui itère sur <span class="math inline"><em>n</em></span> éléments. Dans la boucle for, l’algorithme exécute deux additions. Ainsi, nous avons au total : <span class="math inline">1 + 2 × <em>n</em></span> opérations.<br />
+En notation <span class="math inline"><em>O</em>()</span>, nous avons une complexité de : <span class="math inline"><em>O</em>(2 * <em>n</em> + 1) = <em>O</em>(<em>n</em>)</span> car les constantes sont ignorées.</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) Complexité - Partie 2<br />
+Que fait le programme suivant?<br />
+Estimez le nombre d’opérations qu’effectuera l’algorithme de la fonction <code>algo2</code> à chaque étape en fonction des paramètres qui lui seront assignés:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># L liste de nombres entiers</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="kw">def</span> algo2(L):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    n <span class="op">=</span> <span class="bu">len</span>(L)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>            <span class="cf">if</span> i <span class="op">!=</span> j <span class="kw">and</span> L[i] <span class="op">==</span> L[j]:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>                <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>    <span class="cf">return</span> <span class="va">False</span></span></code></pre></div>
+<p>Les opérations dans une boucle <code>for</code> sont répétées autant de fois que le nombre d’éléments sur lesquels nous itérons.</p>
+<p>L’algorithme vérifie si la liste contient des doublons.</p>
+<ol>
+<li><p>L’algorithme effectue 1 opération pour initialiser <span class="math inline"><em>n</em></span> à <code>len(L)</code>.</p></li>
+<li><p>Ensuite, l’algorithme effectue 2 boucles for imbriquées qui itère chacune sur <span class="math inline"><em>n</em></span> éléments.</p></li>
+<li><p>Dans la deuxième boucle <code>for</code>, l’algorithme exécute deux comparaisons. Ainsi, nous avons au total : <span class="math inline">1 + 2 × <em>n</em><sup>2</sup></span> opérations.<br />
+</p></li>
+</ol>
+<p>En notation <span class="math inline"><em>O</em>()</span>, nous avons une complexité de : <span class="math inline"><em>O</em>(2<em>n</em><sup>2</sup> + 1) = <em>O</em>(<em>n</em><sup>2</sup>)</span> car les constantes sont ignorées.</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) Complexité - Partie 3<br />
+Que fait le programme suivant?<br />
+Estimez le nombre d’opérations qu’effectuera l’algorithme de la fonction <code>algo3</code> à chaque étape en fonction des paramètres qui lui seront assignés:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># n un nombre entier</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">def</span> algo3(n):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> n:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>        s <span class="op">+=</span> i</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>        i <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    <span class="cf">return</span> s</span></code></pre></div>
+<p>Faites attention à l’évolution de la valeur de <code>i</code>. Celle-ci permettra de déterminer la complexité.</p>
+<p>L’algorithme retourne la somme de tous les multiples de 2 qui sont inférieurs à <code>n</code>.</p>
+<ol>
+<li><p>L’algorithme effectue 1 opération pour initialiser <code>i</code> à 1 et une autre pour initialiser <code>s</code> à 0.</p></li>
+<li><p>Ensuite, l’algorithme effectue une boucle <code>while</code> dont la condition est satisfaite tant que <code>i</code> est inférieur à <code>n</code>.</p></li>
+<li><p>Dans la boucle, l’algorithme additionne <code>i</code> à <code>s</code> et multiplie <code>i</code> par 2.</p></li>
+</ol>
+<p>Cette dernière étape est celle qui détermine la complexité de l’algorithme. En effet, en prenant la séquence <span class="math inline">{1, 2, 3, 4, ..., <em>n</em>}</span>, nous remarquons que <code>i</code> "saute" 2 fois plus d’éléments de cette séquence à une étape que l’étape précédente. Ainsi, <code>i</code> aura comme valeur des nombres de la séquence <span class="math inline">{1, 2, 4, 8, 16, ..., <em>n</em>}</span>, qui est logarithmique. Nous avons alors au total : <span class="math inline">4 + log (<em>n</em>)</span> opérations.<br />
+En notation <span class="math inline"><em>O</em>()</span>, nous avons une complexité de : <span class="math inline"><em>O</em>(log (<em>n</em>) + 4) = <em>O</em>(log (<em>n</em>))</span> car les constantes sont ignorées.</p>
+<figure>
+<img src="resources/complexity.png" id="bigO" style="width:10cm" alt="Représentation de complexités temporelles" /><figcaption aria-hidden="true">Représentation de complexités temporelles</figcaption>
+</figure>
+<p><strong>Question :</strong> (<em></em>) [15 minutes] <strong>Tri fusion (Merge Sort)</strong></p>
+<ol>
+<li><p>Ecrire une fonction “merge” qui prend deux listes triées comme argument et retourne une liste fusionnée triée.</p></li>
+<li><p>Quel est le nombre d’opérations effectuées ? Déterminer ensuite la complexité de la fonction, en posant <code>n = longueur de la liste fusionnée</code>.</p></li>
+</ol>
+<p>Pour les tests utilisez les listes suivantes:<br />
+<code>l1=[3,10,12]</code> et <code>l2 = [5,7,14,15]</code>.</p>
+<ul>
+<li><p>Cette fonction est une des deux parties de l’algorithme de tri fusion.</p></li>
+<li><p>Inspirez vous de la solution de l’exercice 11 de la série 5.</p></li>
+<li><p>N’hésitez pas à revoir le processus montré en cours (visualisation de l’algorithme dans les diapositives 83 à 111) pour comprendre comment marche concrètement le tri fusion.</p></li>
+</ul>
+<p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">def</span> merge(partie_gauche, partie_droite):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    <span class="co"># créer la liste qui sera retournée à la fin</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    liste_fusionnee <span class="op">=</span> []</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    <span class="co"># définir un compteur pour l&#39;index de la liste de gauche</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>    compteur_gauche <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="co"># pareil pour la liste de droite</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    compteur_droite <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    longueur_gauche <span class="op">=</span> <span class="bu">len</span>(partie_gauche)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    longueur_droite <span class="op">=</span> <span class="bu">len</span>(partie_droite)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    <span class="co"># continuer jusqu&#39;à ce que l&#39;un des index (ou les deux) atteigne l&#39;une des longueurs (ou les deux)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    <span class="cf">while</span> compteur_gauche <span class="op">&lt;</span> longueur_gauche <span class="kw">and</span> compteur_droite <span class="op">&lt;</span> longueur_droite:</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>        <span class="co"># comparer les éléments actuels, ajouter le plus petit à la liste fusionnée</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>        <span class="co"># et augmenter le compteur de cette liste</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>        <span class="cf">if</span> partie_gauche[compteur_gauche] <span class="op">&lt;</span> partie_droite[compteur_droite]:</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>            liste_fusionnee.append(partie_gauche[compteur_gauche])</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>            compteur_gauche <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a>            liste_fusionnee.append(partie_droite[compteur_droite])</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a>            compteur_droite <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a>    <span class="co"># s&#39;il y a encore des éléments dans les listes, il faut les ajouter à la liste fusionnée</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a>    liste_fusionnee <span class="op">+=</span> partie_gauche[compteur_gauche:longueur_gauche]</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true"></a>    liste_fusionnee <span class="op">+=</span> partie_droite[compteur_droite:longueur_droite]</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true"></a>    <span class="cf">return</span> liste_fusionnee  <span class="co"># retourner la liste fusionnée</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true"></a>    l1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">12</span>]</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true"></a>    l2 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="dv">15</span>]</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true"></a>    <span class="bu">print</span>(merge(l1,l2))</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question_conso1_mergesort {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="co">// Fusionne 2 sous-listes de arr[].</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    <span class="co">// Première sous-liste est arr[l..m]</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    <span class="co">// Deuxième sous-liste est arr[m+1..r]</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span>[] <span class="fu">merge</span>(<span class="dt">int</span>[] arr1, <span class="dt">int</span>[] arr2) {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="co">// Trouver la taille des deux sous-listes à fusionner</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>        <span class="dt">int</span> n1 = arr1.<span class="fu">length</span>;</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>        <span class="dt">int</span> n2 = arr2.<span class="fu">length</span>;</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>        <span class="co">/* Créer des listes temporaires */</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>        <span class="dt">int</span> L[] = <span class="kw">new</span> <span class="dt">int</span>[n1];</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>        <span class="dt">int</span> R[] = <span class="kw">new</span> <span class="dt">int</span>[n2];</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>        <span class="dt">int</span> F[] = <span class="kw">new</span> <span class="dt">int</span>[n1 + n2];</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>        <span class="co">/*Copier les données dans les sous-listes temporaires */</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n1; ++i) {</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>            L[i] = arr1[i];</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>        }</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; n2; ++j) {</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>            R[j] = arr2[j];</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>        }</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>        <span class="co">/* Fusionner les sous-listes temporaires */</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true"></a>        <span class="co">// Indexes initiaux de la première et seconde sous-liste</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true"></a>        <span class="dt">int</span> i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true"></a>        <span class="co">// Index initial de la sous-liste fusionnée</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true"></a>        <span class="dt">int</span> k = <span class="dv">0</span>;</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true"></a>        <span class="co">// Boucle qui fusionne L et R de manière ordonnée</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true"></a>        <span class="kw">while</span> (i &lt; n1 &amp;&amp; j &lt; n2) {</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true"></a>            <span class="kw">if</span> (L[i] &lt;= R[j]) {</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true"></a>                F[k] = L[i];</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true"></a>                i++;</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true"></a>                ++k;</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true"></a>            } <span class="kw">else</span> {</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true"></a>                F[k] = R[j];</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true"></a>                j++;</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true"></a>                ++k;</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true"></a>            }</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true"></a>        }</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true"></a>        <span class="co">// On rajoute les valeurs qui ne sont pas encore ajoutées dans F</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true"></a>        <span class="kw">while</span> (i &lt; n1 || j &lt; n2) {</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true"></a>            <span class="kw">if</span> (i &lt; n1) {</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true"></a>                F[k] = L[i];</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true"></a>                ++i;</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true"></a>                ++k;</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true"></a>            } <span class="kw">else</span> {</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true"></a>                F[k] = R[j];</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true"></a>                ++j;</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true"></a>                ++k;</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true"></a>            }</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true"></a>        }</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true"></a></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true"></a>        <span class="kw">return</span> F;</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true"></a>    }</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">affiche_liste</span>(<span class="dt">int</span> l[]) {</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>;</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>);</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true"></a>    }</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true"></a>        <span class="dt">int</span>[] l1 = {<span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">12</span>};</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true"></a>        <span class="dt">int</span>[] l2 = {<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="dv">15</span>};</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true"></a>        <span class="dt">int</span>[] l = <span class="fu">merge</span>(l1, l2);</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true"></a>        <span class="fu">affiche_liste</span>(l);</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true"></a>    }</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true"></a>}</span></code></pre></div>
+<ul>
+<li><p><strong>En python il y a:</strong> n = 3+ 4 = 7 itérations. Les opérations avant et après la boucle sont des opérations simples, donc la complexité dans le “pire des cas” est calculée grâce à la boucle <code>while</code> et donc en fonction de la taille de la liste finale.</p></li>
+<li><p><strong>En java il y a:</strong> n = 3 + 2 itérations effectuées dans la première boucle <code>while</code>.<br />
+Dans la deuxième boucle <code>while</code>, il y a uniquement <span class="math inline"><em>m</em> = 2</span> itérations effectuées. Les boucles n’étant pas imbriquées les complexités s’additionnent.</p></li>
+<li><p>Donc la complexité est <span class="math inline"><em>O</em>(<em>n</em> + <em>m</em>)</span> car cela va dépendre de la grandeur des listes passées comme arguments.</p></li>
+</ul>
+<h1 id="algorithmes-de-recherche">Algorithmes de recherche</h1>
+<p><strong>Question :</strong> (<em>15min</em>) Recherche binaire<br />
+Dans cet exercice, vous devez retrouver l’élément d’une liste d’entiers triés qui est le plus proche d’un élément <code>e</code> donné. Pour ce faire, vous devez utiliser une version récursive de l’algorithme de recherche binaire.<br />
+Vous pouvez faire cet exercice aussi bien en Java qu’en Python.</p>
+<p><span>Exemple (Python)</span></p>
+<p><code>L = [1, 11, 22, 33, 44, 55, 66, 77, 88, 99]</code><br />
+<code>e = 73</code><br />
+<br />
+<code>print(plus proche(L, e, recherche binaire recursive(L, 0, len(L)-1, e)))</code><br />
+Index retourné par la première fonction: 6<br />
+Résultat final: 77<br />
+</p>
+<p>Dans cet exercice, vous devez déclarer deux fonctions, et les combiner afin de retrouver l’élément de la liste qui est le plus proche de <code>e</code>.<br />
+La première fonction sera la fonction de recherche binaire récursive qui prendra comme paramètre la liste, l’index du premier élément de la liste, l’index du dernier élément de la liste et <code>e</code>. Cette fonction retournera l’index de l’un des éléments le plus proche de <code>e</code>. La deuxième fonction effectuera les comparaisons de différences entre <code>e</code> et les éléments se situant autour de l’élément correspondant à l’index retourné par la première fonction. Elle pourra ainsi déterminer lequel est le plus proche de <code>e</code>. Elle prendra en paramètre notre liste, <code>e</code>, et la valeur retournée par la première fonction.<br />
+</p>
+<p>Voici les templates :<br />
+<strong>Python</strong><br />
+</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">def</span> recherche_binaire_recursive(L, s, r, e): </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    <span class="co">#TODO</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="kw">def</span> plus_proche(L,e,v): </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    <span class="co">#TODO</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>L <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">24</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">63</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>r <span class="op">=</span> <span class="bu">len</span>(L)<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>e <span class="op">=</span> <span class="dv">68</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a><span class="bu">print</span>(plus_proche(L, e, recherche_binaire_recursive(L, s, r, e)))</span></code></pre></div>
+<p><strong>Java</strong><br />
+</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">recherche_binaire_recursive</span>(<span class="bu">List</span> L,<span class="dt">int</span> s,<span class="dt">int</span> r,<span class="dt">int</span> e){  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>        <span class="co">//</span><span class="al">TODO</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>    }</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">plus_proche</span>(<span class="bu">List</span> L,<span class="dt">int</span> e,<span class="dt">int</span> v){  </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>	<span class="co">//</span><span class="al">TODO</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a>    }</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a>        <span class="bu">List</span> L = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">24</span>,<span class="dv">56</span>,<span class="dv">58</span>,<span class="dv">63</span>);</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a>        <span class="dt">int</span> s = <span class="dv">0</span>;</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a>        <span class="dt">int</span> r = L.<span class="fu">size</span>()-<span class="dv">1</span>;</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a>        <span class="dt">int</span> e = <span class="dv">64</span>;</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">plus_proche</span>(L,e,<span class="fu">recherche_binaire_recursive</span>(L,s,r,e)));</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a>        }</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><strong>Python :</strong><br />
+</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">def</span> recherche_binaire_recursive(L, s, r, e): <span class="co">#fonction 1, recherche binaire</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    <span class="cf">if</span> s<span class="op">&lt;=</span>r :</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>        mid <span class="op">=</span> <span class="bu">int</span>((s <span class="op">+</span> r) <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>        <span class="cf">if</span> L[mid] <span class="op">==</span> e:</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>            <span class="cf">return</span> mid</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>        <span class="cf">elif</span> L[mid] <span class="op">&gt;</span> e:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>            <span class="cf">return</span> recherche_binaire_recursive(L, s, mid <span class="op">-</span> <span class="dv">1</span>, e)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>            <span class="cf">return</span> recherche_binaire_recursive(L, mid <span class="op">+</span> <span class="dv">1</span>, r, e)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>    <span class="cf">else</span> :</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>        mid <span class="op">=</span> <span class="bu">int</span>((s <span class="op">+</span> r) <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>        <span class="cf">return</span> mid</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a><span class="kw">def</span> plus_proche(L,e,v): <span class="co">#fonction 2, comparaison pour trouver l&#39;élément le plus proche</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>    </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>    <span class="cf">if</span> v <span class="op">==</span> <span class="bu">len</span>(L)<span class="op">-</span><span class="dv">1</span> : <span class="co"># si l&#39;élément retourné par la première fonction est le dernier élément de la liste, </span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>        <span class="cf">if</span> <span class="bu">abs</span>(L[v <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> e) <span class="op">&lt;</span> <span class="bu">abs</span>(L[v] <span class="op">-</span> e):  <span class="co"># il n&#39;a pas besoin de comparer avec l&#39;élément suivant</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>            <span class="cf">return</span> L[v <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>            <span class="cf">return</span> L[v]</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>    <span class="cf">elif</span> v <span class="op">==</span> <span class="dv">0</span> : <span class="co"># si l&#39;élément retourné par la première fonction est le premier élément de la liste, </span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>        <span class="cf">if</span> <span class="bu">abs</span>(L[v <span class="op">+</span> <span class="dv">1</span>] <span class="op">-</span> e) <span class="op">&lt;</span> <span class="bu">abs</span>(L[v] <span class="op">-</span> e):  <span class="co"># il n&#39;a pas besoin de comparer avec l&#39;élément d&#39;avant</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>            <span class="cf">return</span> L[v <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>        <span class="cf">else</span> :</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>            <span class="cf">return</span> L[v]</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    <span class="cf">else</span> : <span class="co"># cas normal</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a>    	<span class="cf">if</span> <span class="bu">abs</span>(L[v <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> e) <span class="op">&lt;</span> <span class="bu">abs</span>(L[v] <span class="op">-</span> e): </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>            <span class="cf">return</span> L[v <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>    	<span class="cf">elif</span> <span class="bu">abs</span>(L[v <span class="op">+</span> <span class="dv">1</span>] <span class="op">-</span> e) <span class="op">&lt;</span> <span class="bu">abs</span>(L[v] <span class="op">-</span> e):</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>            <span class="cf">return</span> L[v <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>    	<span class="cf">else</span>:</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true"></a>            <span class="cf">return</span> L[v]</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true"></a>L <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">24</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">63</span>]</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true"></a>s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true"></a>r <span class="op">=</span> <span class="bu">len</span>(L)<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true"></a>e <span class="op">=</span> <span class="dv">68</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true"></a><span class="bu">print</span>(recherche_binaire_recursive(L, s, r, e))</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true"></a><span class="bu">print</span>(plus_proche(L, e, recherche_binaire_recursive(L, s, r, e)))</span></code></pre></div>
+<p><strong>Java :</strong><br />
+</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.List;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">recherche_binaire_recursive</span>(<span class="bu">List</span> L,<span class="dt">int</span> s,<span class="dt">int</span> r,<span class="dt">int</span> e){  <span class="co">// fonction 1, recherche binaire</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>        <span class="kw">if</span> (s&lt;=r){</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>            <span class="dt">int</span> mid = (s+r)/<span class="dv">2</span>;</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>            <span class="dt">int</span> element = (<span class="dt">int</span>) L.<span class="fu">get</span>(mid);</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>            <span class="kw">if</span> (element == e){</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>                <span class="kw">return</span> mid;</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>            }</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a>            <span class="kw">if</span>(element &gt; e){</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>                <span class="kw">return</span> <span class="fu">recherche_binaire_recursive</span>(L,s,mid-<span class="dv">1</span>,e);</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>            }</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a>            <span class="kw">else</span> {</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>                <span class="kw">return</span> <span class="fu">recherche_binaire_recursive</span>(L,mid+<span class="dv">1</span>,r,e);</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a>            }</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a>        }</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a>        <span class="kw">else</span>{</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>            <span class="dt">int</span> mid = (s+r)/<span class="dv">2</span>;</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>            <span class="kw">return</span> mid;</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>        }</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true"></a>    }</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">plus_proche</span>(<span class="bu">List</span> L,<span class="dt">int</span> e,<span class="dt">int</span> v){  <span class="co">//fonction 2, comparaison pour trouver l élément le plus proche</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true"></a>        <span class="kw">if</span> (v==L.<span class="fu">size</span>()-<span class="dv">1</span>){  <span class="co">// si l élément retourné par la première fonction est le dernier élément de la liste,</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true"></a>            <span class="kw">if</span> (<span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v-<span class="dv">1</span>)-e) &lt; <span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v)-e)){ </span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true"></a>                <span class="co">// Pas besoin de comparer avec l élément suivant</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v-<span class="dv">1</span>);</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true"></a>            }</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true"></a>            <span class="kw">else</span> {</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v);</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true"></a>            }</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true"></a>        }</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true"></a>        <span class="kw">else</span> <span class="kw">if</span> (v==<span class="dv">0</span>){ <span class="co">// si l élément retourné par la première fonction est le premier élément de la liste,</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true"></a>            <span class="kw">if</span> (<span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v+<span class="dv">1</span>)-e) &lt; <span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v)-e)){ </span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true"></a>                <span class="co">// Pas besoin de comparer avec l élément d avant</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v+<span class="dv">1</span>);</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true"></a>            }</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true"></a>            <span class="kw">else</span> {</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v);</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true"></a>            }</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true"></a>        }</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true"></a></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true"></a>        <span class="kw">else</span>{ <span class="co">// cas normal</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true"></a>            <span class="kw">if</span> (<span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v-<span class="dv">1</span>)-e) &lt; <span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v)-e)){</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v-<span class="dv">1</span>);</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true"></a>            }</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true"></a>            <span class="kw">else</span> <span class="kw">if</span> (<span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v+<span class="dv">1</span>)-e) &lt; <span class="bu">Math</span>.<span class="fu">abs</span>((<span class="dt">int</span>) L.<span class="fu">get</span>(v)-e)){</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v+<span class="dv">1</span>);</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true"></a>            }</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true"></a>            <span class="kw">else</span> {</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true"></a>                <span class="kw">return</span> (<span class="dt">int</span>) L.<span class="fu">get</span>(v);</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true"></a>            }</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true"></a>        }</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true"></a>    }</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true"></a>        <span class="bu">List</span> L = <span class="bu">List</span>.<span class="fu">of</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">24</span>,<span class="dv">56</span>,<span class="dv">58</span>,<span class="dv">63</span>);</span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true"></a>        <span class="dt">int</span> s = <span class="dv">0</span>;</span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true"></a>        <span class="dt">int</span> r = L.<span class="fu">size</span>()-<span class="dv">1</span>;</span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true"></a>        <span class="dt">int</span> e = <span class="dv">64</span>;</span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">plus_proche</span>(L,e,<span class="fu">recherche_binaire_recursive</span>(L,s,r,e)));</span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true"></a>        }</span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true"></a>    }</span></code></pre></div>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Python - Arbre : Recherche et insertion</strong><br />
+Dans cet exercice, nous allons voir comment insérer des éléments dans un arbre binaire.<br />
+À l’aide de la fonction de recherche binaire (se référer aux exercices de la semaine 6, question 8), créez une boucle qui vérifie si chaque élément de liste se trouve dans l’arbre. Si un élément ne s’y trouve pas, il doit être inséré à l’intérieur de celui-ci.<br />
+Voici l’arbre et les valeurs à rechercher:<br />
+<code>tree = Arbre(8, 3, 1, 6, 4, 7, 10, 14, 13)</code><br />
+<code>root = tree.root</code><br />
+<code>liste = [3,6,9,18]</code><br />
+<br />
+Voici la représentation graphique de l’arbre initial et de l’arbre attendu:</p>
+<p><img src="img/binary-tree.png" style="width:80.0%" alt="image" /></p>
+<p>La fonction <code>insert(value, node)</code> permet d’insérer un élément dans un arbre. Exemple: <code>tree.insert(9,root)</code><br />
+<br />
+Télécharger le fichier <code>question14.py</code> se trouvant dans le dossier <code>ressources</code> et écrivez votre code à partir de la ligne 66.</p>
+<p><strong>Python</strong><br />
+</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>liste <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">18</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> liste:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    <span class="cf">if</span> recherche_arbre(root, i) <span class="op">==</span> <span class="dv">0</span>: <span class="co">#Lorsque la fonction retourne &quot;false&quot;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>        tree.insert(i,root)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="bu">str</span>(i)<span class="op">+</span><span class="st">&quot; a été ajouté à l&#39;arbre&quot;</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a> </span></code></pre></div>
+<h1 id="quiz-général">Quiz général</h1>
+<h2 id="python">Python</h2>
+<p><strong>Question :</strong> (<em>2 minutes</em>)<br />
+En python, ‘Hello’ équivaut à “Hello”.</p>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Vrai</strong>: En python, les doubles guillemets et les guillemets sont équivalents.</p>
+<p><strong>Question :</strong> (<em>2 minutes</em>)<br />
+Dans une fonction, nous pouvons utiliser les instructions <code>print()</code> ou <code>return</code>, elles ont le même rôle.</p>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Faux</strong><br />
+<code>print()</code> permet uniquement d’afficher un message dans la console. Autrement dit, <code>print()</code> sert à communiquer un message à l’utilisateur final du programme, celui-ci n’ayant pas accès au code.<br />
+<br />
+<code>return</code> est une déclaration qui s’utilise à l’intérieur d’une fonction pour renvoyer le résultat de la fonction lorsqu’elle a été appelée. Exemple: la fonction <code>len(L)</code> renvoie la longueur de la liste L.<br />
+Admettons que nous ayons une fonction qui renvoie le double d’un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque. En Python, notre programme ressemblera à ça:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="kw">def</span> double_nombre(nombre):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    <span class="cf">return</span> nombre <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>nombre1 <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>resultat <span class="op">=</span> nombre1 <span class="op">+</span> double_nombre(<span class="dv">2</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a><span class="bu">print</span>(resultat)</span></code></pre></div>
+<p>Notre programme renverra une erreur de type <code>TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'</code> si on remplace la ligne 2 par <code>print(nombre**2)</code> car la fonction <code>double_nombre</code> renverra <code>None</code>.</p>
+<p><strong>Question :</strong> (<em>2 minutes</em>)<br />
+Lorsqu’on fait appel à une fonction, les arguments doivent nécessairement avoir le(s) même(s) noms tel(s) que définit dans la fonction. Exemple:<br />
+</p>
+<pre><code>def recherche_lineaire(Liste, x):
+    for i in Liste:
+        if i == x:
+            return x in Liste
+    return -1
+
+Liste = [1,3,5,7,9]
+x = 3
+
+recherche_lineaire(Liste,x)
+</code></pre>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Faux</strong><br />
+Le nom des variables données en argument n’a aucune importance tant que le type de variable est respecté. Dans notre exemple, la fonction s’attend à recevoir une <strong>liste</strong> comme premier argument et un <strong>entier</strong> comme deuxième argument. Ici, nous aurions pu nommer la liste <code>nbr_impair</code> et x <code>valeur</code> et appeler la fonction <code>recherche_lineaire(nbr_impair, valeur)</code></p>
+<p><strong>Question :</strong> (<em>2 minutes</em>)<br />
+Si le programme Python contient une erreur, celle-ci sera détectée avant l’exécution du programme.</p>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Faux</strong>: En Python, les erreurs sont détectées pendant l’exécution du programme.</p>
+<p><strong>Question :</strong> (<em>2 minutes</em>)<br />
+Il est possible de faire appel à une fonction définie “plus bas” dans le code sans que cela ne pose problème.</p>
+<pre><code>import math
+
+nombre_decimal_pi(4)
+
+def nombre_decimal_pi(int):
+    return round(math.pi,int)</code></pre>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Faux</strong>: À l’exception des fonctions intégrées (il s’agit des fonctions déjà intégrées au langage Python telles que <code>print(), len(), abs(), etc</code>...). Dans les langages suivant une logique de programmation impérative (c’est le cas de Java et Python), une fonction doit nécessairement être définie <strong>avant</strong> d’être appelée. <a href="https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative">https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative</a></p>
+<p><strong>Question :</strong> (<em>5 minutes</em>)<br />
+Les trois fonctions suivantes renvoient-elles systématiquement des résultats identiques ?<br />
+Les fonctions sont censées retourner le nombre <code>pi</code> avec le nombre de décimales (au moins une et au maximum 15) indiqué en paramètre.</p>
+<p><span>3</span></p>
+<pre><code>import math
+
+def nombre_decimal_pi(int):
+    if int &gt; 15:
+        int = 15
+    elif int &lt; 0:
+        int = 1
+    resultat = round(math.pi,int) 
+    return resultat
+
+print(nombre_decimal_pi(-2))
+print(nombre_decimal_pi(4))
+print(nombre_decimal_pi(20))
+
+
+</code></pre>
+<pre><code>import math
+
+def nombre_decimal_pi(int):
+    if int &gt; 15:
+        resultat = round(math.pi,15)
+    elif int &lt; 0:
+        resultat = round(math.pi,1)
+    else: 
+        resultat = round(math.pi,int)
+    return resultat
+
+print(nombre_decimal_pi(-2))
+print(nombre_decimal_pi(4))
+print(nombre_decimal_pi(20))
+</code></pre>
+<pre><code>import math
+
+def nombre_decimal_pi(int):
+    if int &gt; 15:
+        return round(math.pi,15)
+    elif int &lt; 0:
+        return round(math.pi,1)
+    else: 
+        return round(math.pi,int)
+    
+
+print(nombre_decimal_pi(-2))
+print(nombre_decimal_pi(4))
+print(nombre_decimal_pi(20))
+</code></pre>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Vrai</strong>: Les trois fonctions produisent des résultats identiques. Si besoin, exécutez le code dans IntelliJ.</p>
+<h2 id="java">Java</h2>
+<p><strong>Question :</strong> (<em>3 minutes</em>)<br />
+Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure et peut être compilé sans erreur ?</p>
+<p><span>2</span></p>
+<pre><code>//Programme A
+public class Main {
+
+    public static void main(String[] args) {
+        ma_function();
+        autre_fonction();
+    
+
+        static void ma_function(){
+            System.out.println(&quot;Voici ma fonction!&quot;);
+        }
+    
+        static void autre_fonction(){
+            System.out.println(&quot;Une autre fonction!&quot;);
+        }
+    }
+}
+
+
+</code></pre>
+<pre><code>//Programme B
+public class Main {
+
+    public static void main(String[] args) {
+    ma_function();
+    autre_fonction();
+    }
+
+    static void ma_function(){
+        System.out.println(&quot;Voici ma fonction!&quot;);
+    }
+
+    static void autre_fonction(){
+        System.out.println(&quot;Une autre fonction!&quot;);
+    }
+}</code></pre>
+<ol>
+<li><p>(à gauche)</p></li>
+<li><p>(à droite)</p></li>
+</ol>
+<p><strong>Le programme B</strong><br />
+Le fichier dans son ensemble représente une classe Java, ici la classe s’appelle <strong>Main</strong> (Vous aurez plus d’informations sur le fonctionnement des classes lorsque nous aborderons la programmation orientée objet). À l’intérieur de cette classe se trouve la méthode <code>public static void main()</code>, il s’agit de la porte d’entrée de notre programme, celle que l’on exécute et celle dans laquelle nous rédigeons notre code.<br />
+Les autres fonctions, qui peuvent être appelées, se définissent au sein de la classe au même échelon que la fonction <code>public static void main()</code> comme dans le programme B ci-dessus.</p>
+<p><strong>Question :</strong> (<em>2 minutes</em>) Exercice 1<br />
+L’indentation des lignes de code en Java est aussi importante qu’en python.</p>
+<ol>
+<li><p>- Vrai</p></li>
+<li><p>- Faux</p></li>
+</ol>
+<p><strong>Faux</strong><br />
+En Java, le compilateur ne prend pas en compte l’indentation pour interpréter le programme, il comprend la structure à l’aide des parenthèses, des accolades et encore des point-virgules qui indiquent la fin d’une instruction. Toutefois, l’indentation est un aspect important de la programmation car elle sert à bien structurer visuellement votre code.<br />
+<br />
+En Python, l’indentation définit la structure de votre code. Elle est donc indispensable pour la bonne interprétation et la bonne exécution de votre programme.</p>
