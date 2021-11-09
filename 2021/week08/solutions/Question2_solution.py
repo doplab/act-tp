@@ -9,21 +9,19 @@ adjacency_list_graph = {
   'F' : []
 }
 
+def BFS(graph, start):
+    visited = list() # liste des sommets visités
+    queue = [start] # liste des sommets à visiter
+    while len(queue) > 0: # tant que la queue n'est pas vide
+        node = queue.pop(0) # on stocke le premier élément de la queue, puis on l'enlève de la queue
+        if node not in visited: # si le sommet n'a pas déjà été visité
+            visited.append(node) # on l'ajoute à la liste des sommets visités
+            neighbors = graph[node] # on récupère la liste des sommets adjacents au sommet courant
+        for neighbor in neighbors: # Puis on parcourt la liste de ceux-ci
+            queue.append(neighbor) # on les ajoute à la queue
+    return visited # on retourne la liste des sommets visités (=atteignables)
 
-def BFS(graphe,s):
-    queue = [s] #on initialise la queue
-    visited = [s]#on initialise la liste des sommets visités
-    
-    while len(queue) != 0: #Aussi longtemps que la queue n'est pas vide, répéter l'étape 2
-        for i in queue: #On parcourt les éléments de la queue
-            for k in graphe[i]:#Pour chaque éléments de la queue, on parcourt tous les voisins
-                if k not in visited:#Si le voisin n'a pas déjà été visité, on l'ajoute à la queue, et on le marque comme visité
-                    queue.append(k)
-                    visited.append(k)
-            queue.remove(i) #Une fois que l'élément de la queue a été parcouru, on le supprime de la queue
-            
-    return visited #On retourne la liste des sommets visités (=atteignables)
 
-#Vérifions que l'algorithme fonctionne correctement
+# Vérifions que l'algorithme fonctionne correctement
 print(BFS(adjacency_list_graph, 'B'))
 print(BFS(adjacency_list_graph, 'A'))
