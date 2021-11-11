@@ -1,0 +1,64 @@
+\input{../header.tex}
+\usepackage{array}
+\usepackage{blindtext}
+\usepackage{multicol}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Consolidation 2}
+
+Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des dernière semaines.\\
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+
+Analysez la complexité pour les deux codes suivants. Est-ce la même pour fun() et fun2() ? Pourquoi ?
+
+    \lstinputlisting{ex1_enonce.py}
+
+\begin{solution}
+Non, ils n'ont pas la même complextié. Fun() a une complexité de O(n*n) car il s'agit de deux boucles imbriquées. En revanche, fun2() a une complexité de O(n+n) car il s'agit de deux boucles indépendante.  
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Complexité}\\
+Quel est la complexité de ce code ?
+
+    \lstinputlisting{ex2_enonce.py}
+
+\begin{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \\
+Ecrivez un programme python qui permet d’imprimer tous les nombres impairs à partir de 1 jusqu’à un nombre n défini par l’utilisateur (qui doit être supérieur à 1) :
+Exemple : si n = 6, résultat attendu : 1, 3, 5
+
+\begin{solution}
+
+    \lstinputlisting{exercise4.py}
+
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}
+Lesquels (ou lequel) de ces arbres est un arbre binaire (binary tree) ? Donnez leur hauteur (height).
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=10cm]{exercice5.png}
+    \end{figure}
+\begin{solution}
+1. Il ne s'agit pas d'un arbre binaire car il n'y a pas decondition qui est remplie à chaques noeuds. Sa hauteur est de 3.\\
+2. Il ne s'agit pas d'un arbre binaire car il n'y a pas de condition qui est remplie à chaques noeuds. Sa hauteur est de 3.\\
+3. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 3.\\
+4. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 1.\\
+5. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 4.\\
+
+\end{solution}
+
+\end{Exercice}
+\end{document}
