@@ -1,0 +1,171 @@
+\input{../header.tex}
+\usepackage{array}
+\usepackage{blindtext}
+\usepackage{multicol}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Consolidation 2}
+
+Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des dernière semaines.\\
+
+% Exercice complexité - Maeva
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+	Analysez la complexité pour les deux codes suivants. Est-ce la même pour fun() et fun2() ? Pourquoi ?
+    	\lstinputlisting{resources/ex1_enonce.py}
+
+	% Solutions complexité - Maeva
+	\begin{solution}
+	Non, ils n'ont pas la même complextié. Fun() a une complexité de O(n*n) car il s'agit de deux boucles imbriquées. En revanche, fun2() a une 	complexité de O(n+n) car il s'agit de deux boucles indépendante.  
+	\end{solution}
+\end{Exercice}
+
+% Exercice complexité - Maeva
+\begin{Exercice}[10 minutes]\textbf{Complexité}\\
+	Quel est la complexité de ce code ?
+   	 \lstinputlisting{resources/ex2_enonce.py}
+	 % Exercice complexité - Maeva
+	 \begin{solution}
+		%TODO 
+	\end{solution}
+\end{Exercice}
+
+% Exercice nombres impaire - Maeva
+\begin{Exercice}[10 minutes] \\
+	Ecrivez un programme python qui permet d’imprimer tous les nombres impairs à partir de 1 jusqu’à un nombre n défini par l’utilisateur (qui doit être supérieur à 1) :
+	Exemple : si n = 6, résultat attendu : 1, 3, 5
+% Solutions nombres impaire - Maeva
+	\begin{solution}
+   		 \lstinputlisting{solutions/exercise3.py}
+	\end{solution}
+\end{Exercice}
+
+% Exercice arbres binaires - Maeva
+\begin{Exercice}
+	Lesquels (ou lequel) de ces arbres est un arbre binaire (binary tree) ? Donnez leur hauteur (height).
+	\begin{figure}[h!]
+        		\centering
+       	 	\includegraphics[width=10cm]{resources/exercice5.png}
+    	\end{figure}
+	% Solution arbres binaires - Maeva
+	\begin{solution}
+		1. Il ne s'agit pas d'un arbre binaire car il n'y a pas decondition qui est remplie à chaque noeuds. Sa hauteur est de 3.\\
+		2. Il ne s'agit pas d'un arbre binaire car il n'y a pas de condition qui est remplie à chaque noeuds. Sa hauteur est de 3.\\
+		3. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 3.\\
+		4. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 1.\\
+		5. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 4.\\
+	\end{solution}
+\end{Exercice}
+
+
+% Exercice complexité - Etienne
+\begin{Exercice}[10 minutes]\textbf{Trie complexité}\\
+	Trier la liste de fonctions suivante selon leur croissance assymptotique:
+	\begin{equation}
+		n^{\sqrt{n}}, n\cdot log(n), n^{1/log(n)}, log(log(n)), \sqrt{n}, 3^{n}/{n^5}, 2^n
+	\end{equation}
+	
+	% Solutions complexité - Etienne
+	\begin{solution}
+		\begin{itemize}
+			\item D'abord la constante : $n^{1/log(n)} = (2^{log(n)})^{1/log(n)}$
+			\item Ensuite le $log(log(n))$
+			\item Puis $n^{\sqrt{n}} = 2^{\sqrt{n}\cdot log_2(n)}$
+			\item Puis $2^n$
+			\item Enfin  $3^{n}/{n^5}$
+		\end{itemize}
+	\end{solution}
+\end{Exercice}
+
+
+% Exercice théorique - Etienne
+\begin{Exercice}[20 minutes]\textbf{Théorie}\\
+	\begin{enumerate}
+		\item Donner en pseudo code un algorithme ayant une complexité temporelle de O(log n) qui prend comme argument un tableau trié A[1, ..., n] de n nombres et une clé k et qui retourne "OUI" si A contient k et "NON" sinon.
+		\item Quelle est la hauteur maximum et la hauteur minimale d'un arbre binaire de recherche ayant n éléments ? Quel arbre est meilleur ? Justifier.
+		\item Considerer l'arbre binaire suivant : \\
+		\begin{figure}[h!]
+        			\centering
+       	 		\includegraphics[width=10cm]{resources/exoArbreBinEnonce.png}
+	    	\end{figure}
+		Dessiner les arbres obtenus après executions de chacune des opérations suivantes (chaque opération est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutée séquentiellement).
+		\begin{enumerate}
+			\item \textsc{Tree-Insert}(T, z) avec z.key = 0
+			\item \textsc{Tree-Insert}(T, z) avec z.key = 17
+			\item \textsc{Tree-Insert}(T, z) avec z.key = 14
+			\item \textsc{Tree-Delete}(T, a)
+			\item \textsc{Tree-Delete}(T, b)
+			\item \textsc{Tree-Delete}(T, c)
+		\end{enumerate}
+
+
+	\end{enumerate}
+	% Solution exercice théorique - Etienne
+	\begin{solution}
+		\begin{enumerate}
+			\item Etant donné que les nombres du tableau A sont triés, nous utilisons l'algorithme de recherche binaire. L'algorithme de recherche binaire  prend comme argument un tableau A, une clé k, des indices p et q et retourne "OUI" si A[p . . . q]  contient la clé k et "NON" autrement. Comme A[p . . . q] est trié, nous pouvons comparer k avec l'élément du milieu mid = $\lfloor(p+q)//2\rfloor$  et : \\
+				\begin{itemize}
+					\item Si A[mid] = k return "OUI" \\
+					\item Si A[mid] $>$ k, alors cherchons k dans le tableau A[p . . . (mid-1)] en appelant récursivement l'algorithme \textsc{Binary-Search}(A, k, p, mid-1) \\
+					\item Si A[mid] $<$ k, alors cherchons k dans le tableau A[(mid + 1) . . . q] en appelant récursivement l'algorithme \textsc{Binary-Search}(A, k, mid+1, q)\\
+				\end{itemize}
+				The pseudo-code of the procedure is as follows:
+				\lstinputlisting{solutions/exerciseTheorieBinarySearch.py}
+				Note that we solve the original problem by calling \textsc{Binary-Search}(A, k, 1, n).
+			\item Hauteur minimale et maximale d'un arbre binaire.
+				\begin{itemize}
+					\item La hauteur maximum d'un arbre binaire est atteinte quand l'arbre n'est constitué d'une seule branche. \\
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/maxHeight.png}
+	    					%\end{figure}
+					\item La hauteur minimum est atteinte lorsque l'arbre binaire est "complet" : nous ne pouvons pas ajouter un noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/min_height.png}
+	    					%\end{figure}
+				\end{itemize}
+			\item Après execution de chaque opération, nous obtenons:
+				\begin{enumerate}
+					\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigA.png}
+	    					%\end{figure}
+					\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigB.png}
+	    					%\end{figure}
+					\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigC.png}
+	    					%\end{figure}
+					\item Figure D : \textsc{Tree-Delete}(T, a)
+						%\begin{figure}[h!]
+        						%	\centering
+						%	\includegraphics[width=6cm]{solutions/exoBTFigD.png}
+	    					%\end{figure}
+					\item Figure E : \textsc{Tree-Delete}(T, b)
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigE.png}
+	    					%\end{figure}
+					\item Figure F : \textsc{Tree-Delete}(T, c)
+						%\begin{figure}[h!]
+        						%	\centering
+       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigF.png}
+	    					%\end{figure}
+			\end{enumerate}
+		\end{enumerate}
+	\end{solution}
+\end{Exercice}
+
+
+
+\end{document}
