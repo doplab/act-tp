@@ -190,6 +190,30 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 		L’ordre de parcours est : ligne après ligne (de la racine vers les feuilles) et
 		de gauche à droite pour une ligne.
 	\end{solution}
+\end{Exercice}% Exercice Kruskal Papier - Sarra
+\begin{Exercice}[5 minutes] \textbf{Algorithme de Kruskal : Papier}\\
+\\
+    	Appliquez l'algorithme de Kruskal au graphe suivant :\\
+	\centering
+    	\includegraphics[]{resources/exerciceKruskal.PNG}
+    	\begin{conseil}
+        		L'algorithme de Kruskal fonctionne de la façon suivante :
+        		\begin{enumerate}
+		            \item Classer les arêtes par ordre croissant de poids.
+		            \item Prendre l'arête avec le poids le plus faible et l'ajouter à l'arbre (si 2 arêtes ont le même poids, choisir arbitrairement une des 2).
+		            \item Vérifiez que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez la.
+		            \item Répétez les étapes 2) et 3) jusqu'à ce que tous les sommets aient été atteints.
+	        \end{enumerate}
+        Un Minimum Spanning Tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 9 sommets. L'algorithme devrait donc s'arrêter lorsque 8 arêtes ont été choisies.
+    \end{conseil}
+    \begin{solution}
+        Vous trouverez ci-dessous les étapes de la construction du MST(Minimum spanning tree) avec l'algorithme de Kruskal :\\
+        \includegraphics[width=13cm]{solutions/K1.PNG}\\
+        \includegraphics[width=13cm]{solutions/K2.PNG}\\
+        L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 8 arêtes ont été nécessaires.
+      
+    \end{solution}
+
 \end{Exercice}
 
 \end{document}
