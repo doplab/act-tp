@@ -190,10 +190,35 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 		L’ordre de parcours est : ligne après ligne (de la racine vers les feuilles) et
 		de gauche à droite pour une ligne.
 	\end{solution}
-\end{Exercice}% Exercice Kruskal Papier - Sarra
+\end{Exercice}
+
+% Exercice BFS Python - Sarra
+\begin{Exercice}[15 minutes]\textbf{Breadth-First Search algorithm : Python
+}\\
+\\
+	Dans cet exercice, nous aimerions identifier le chemin le plus court entre deux nœuds d'un graphe.
+	La fonction que nous implémentons doit pouvoir accepter comme argument un graphe, un nœud de départ et un nœud de fin. Si l'algorithme est capable de connecter les nœuds 			de départ et d'arrivée, il doit renvoyer le chemin. nous allons utiliser l'algorithme BFS car il renvoie toujours le chemin le plus court.\\
+	\lstinputlisting[language=python]{resources/bfs_enonce.py}
+    	\begin{conseil}
+		Il existe quelques différences principales entre l'implémentation e de BFS pour l'application du plus court chemin.
+        		\begin{enumerate}
+			\item La file d'attente garde une trace des chemins possibles (implémentés sous forme de liste de nœuds) au lieu des nœuds.
+	           	\item lorsque l'algorithme recherche un nœud voisin, il doit vérifier si le nœud voisin correspond au nœud cible. Si c'est le cas, nous avons une solution et il n'est pas 					nécessaire de continuer à explorer le graphique.
+        		\end{enumerate}
+
+    	\end{conseil}
+
+	% Solution BFS - Sarra
+	\begin{solution}
+		\lstinputlisting{solutions/bfs_shortest_path.py}
+	\end{solution}
+\end{Exercice}
+
+% Exercice Kruskal Papier - Sarra
 \begin{Exercice}[5 minutes] \textbf{Algorithme de Kruskal : Papier}\\
 \\
     	Appliquez l'algorithme de Kruskal au graphe suivant :\\
+	
 	\centering
     	\includegraphics[]{resources/exerciceKruskal.PNG}
     	\begin{conseil}
@@ -204,8 +229,8 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 		            \item Vérifiez que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez la.
 		            \item Répétez les étapes 2) et 3) jusqu'à ce que tous les sommets aient été atteints.
 	        \end{enumerate}
-        Un Minimum Spanning Tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 9 sommets. L'algorithme devrait donc s'arrêter lorsque 8 arêtes ont été choisies.
-    \end{conseil}
+	        Un Minimum Spanning Tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 9 sommets. L'algorithme devrait donc 			s'arrêter lorsque 8 arêtes ont été choisies.
+    	\end{conseil}
     \begin{solution}
         Vous trouverez ci-dessous les étapes de la construction du MST(Minimum spanning tree) avec l'algorithme de Kruskal :\\
         \includegraphics[width=13cm]{solutions/K1.PNG}\\
