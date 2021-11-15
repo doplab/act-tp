@@ -37,7 +37,7 @@ def bfs_shortest_path(graph, start, goal):
 
 
 if __name__ == '__main__':
-    # sample graph implemented as a dictionary
+    # Exemple de graphe sous forme de dictionnaire
     graph = {'A': ['B', 'C', 'E'],
              'B': ['A', 'D', 'E'],
              'C': ['A', 'F', 'G'],
