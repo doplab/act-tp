@@ -180,14 +180,22 @@ Nous avons vu comment exprimer la compléxité d'un algorithme en terme de compl
 \begin{Exercice}[15 minutes]\textbf{Breadth-First Search : Python
 }\\
 	Dans cet exercice, nous aimerions identifier le chemin le plus court entre deux nœuds d'un graphe.
-	La fonction que nous implémentons doit pouvoir accepter comme argument un graphe, un nœud de départ et un nœud de fin. Si l'algorithme est capable de connecter les nœuds 			de départ et d'arrivée, il doit renvoyer le chemin. nous allons utiliser l'algorithme BFS car il renvoie toujours le chemin le plus court.\\
+	La fonction que nous implémentons doit pouvoir accepter comme argument un graphe, un nœud de départ et un nœud de fin. Si l'algorithme est capable de connecter les nœuds 			de départ et d'arrivée, il doit renvoyer le chemin. Nous allons utiliser l'algorithme BFS car il renvoie toujours le chemin le plus court.\\
 	\begin{note}{Alpha}
 		À cet endroit, on devrait ajouter le pseudo-code permettant d'implémenter l'algorithme.
 	\end{note}
+	    Implémentez l'algorithme en suivant les étapes suivantes :\\
+	\begin{enumerate}
+	    
+		\item Partez du sommet initial, construire un chemin avec ce noeud et le mettre dans une \textbf{queue}.
+		\item Extraire le premier chemin de la \textbf{queue} et récupérer le dernier noeud du chemin. Si ce noeud n'a pas été visité, parcourir ses sommets adjacents (voisins). Pour chaque voisin construire un nouveau chemin et le mettre dans la \textbf{queue}.
+		\item Ajouter le noeud à la liste de  \textbf{visités}. Une fois que cela est fait, supprimez le chemin  parcouru de la queue.
+		\item Répétez les étapes 2 et 3 jusqu'à ce que la queue soit vide ou le noeud d'arrivée est atteind.\\
+	\end{enumerate}
 
 	\lstinputlisting[language=python]{resources/bfs_enonce.py}
     	\begin{conseil}
-		Il existe quelques différences principales entre l'implémentation e de BFS pour l'application du plus court chemin.
+		Il existe quelques différences principales entre l'implémentation de BFS et  l'application du plus court chemin.
 		% TODO: Sarra - cette phrase semble incomplète.
         		\begin{enumerate}
 			\item La file d'attente garde une trace des chemins possibles (implémentés sous forme de liste de nœuds) au lieu des nœuds.

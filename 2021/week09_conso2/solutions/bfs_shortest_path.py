@@ -1,4 +1,4 @@
-# # trouve le chemin le plus court entre 2 noeuds d'un graphe en utilisant BFS
+# trouve le chemin le plus court entre 2 noeuds d'un graphe en utilisant BFS
 def bfs_shortest_path(graph, start, goal):
     # garder une trace des noeuds visites
     visited = []
