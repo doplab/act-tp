@@ -64,14 +64,11 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 % Exercice complexité - Etienne
 \begin{Exercice}[10 minutes]\textbf{Croissance de fonctions}\\
-	Trier la liste de fonctions suivante selon leur croissance assymptotique:
+Nous avons vu comment exprimer la compléxité d'un algorithme en terme de complexité temporelle "pire-cas", notée $\mathcal{O}$(). L'exercice suivant permet de travailler avec différentes croissances de fonctions.\\ Ordonner la liste de fonctions suivante selon leur croissance assymptotique: il faut trier les fonctions par ordre croissant de notation grand-$\mathcal{O}$. La notation grand-$\mathcal{O}$() donne une borne supérieure du taux de croissance d'une fonction. Ainsi si $f(x) = 2x$ et $g(x) = 3x^2$, on dit que que $f(x)$ est $\mathcal{O}(x)$ et que $g(x)$ est $\mathcal{O}(x^2)$. On peut alors les ordonner pour obtenir : $\mathcal{O}(f(x)) < \mathcal{O}(g(x)) \Leftrightarrow \mathcal{O}(x) < \mathcal{O}(x^2)$.
+
 	\begin{equation}
 		n^{\sqrt{n}}, n\cdot log(n), n^{1/log(n)}, log(log(n)), \sqrt{n}, 3^{n}/{n^5}, 2^n
 	\end{equation}
-
-	\begin{note}{Alpha}
-		Cette question semble peu claire, il serait judicieux d'ajouter des conseils expliquant la croissance de fonctions.
-	\end{note}
 	
 	% Solutions complexité - Etienne
 	\begin{solution}
@@ -90,7 +87,7 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 \begin{Exercice}[20 minutes]\textbf{Arbre binaire}\\
 	\begin{enumerate}
 		\item Ecrire un programme Python ayant une complexité temporelle de $O(log n)$ qui prend comme argument un tableau trié \lstinline{A[1, ..., n]} de $n$ nombres et une clé $k$ et qui retourne \textbf{"OUI"} si \lstinline{A} contient $k$ et \textbf{"NON"} dans le cas contraire.
-		\item Quelle est la hauteur minimale et la hauteur maximale d'un arbre binaire de recherche ayant $n$ éléments?
+		\item Quelle est la hauteur minimale et la hauteur maximale d'un arbre binaire de recherche ayant $n$ éléments? Exprimer votre réponse en fonction du nombre de noeuds $n$ présents dans l'arbre.
 		\item Considerer l'arbre binaire suivant : \\
 		
 		Dessiner les arbres obtenus après executions de chacune des opérations suivantes (chaque opération~est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutées de façon séquentielle).
@@ -121,7 +118,6 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 				\end{itemize}
 				Le programme permettant d'effectuer une recherche binaire est le suivant:
 				\lstinputlisting{solutions/exerciseTheorieBinarySearch.py}
-				% Note that we solve the original problem by calling \textsc{Binary-Search}(A, k, 1, n).
 			\item Hauteur minimale et maximale d'un arbre binaire.
 				\begin{itemize}
 					\item La hauteur maximale d'un arbre binaire est atteinte quand l'arbre n'est constitué que d'une seule branche. \\
@@ -131,45 +127,18 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
        	 					%	\includegraphics[width=6cm]{solutions/maxHeight.png}
 	    					%\end{figure}
 					\item La hauteur minimum est atteinte lorsque l'arbre binaire est "complet" : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
-					% TODO: @Etienne - Je ne suis pas sûr d'avoir compris cette question. L'ont-ils vu en cours? 
-					
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/min_height.png}
-	    					%\end{figure}
+        							\centering
+       	 						\includegraphics[width=6cm]{solutions/maxHeight.png}
+       	 						\includegraphics[width=6cm]{solutions/minHeight.png}
 				\end{itemize}
 			\item Après execution de chaque opération, nous obtenons:
 				\begin{enumerate}
 					\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigA.png}
-	    					%\end{figure}
 					\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigB.png}
-	    					%\end{figure}
 					\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigC.png}
-	    					%\end{figure}
 					\item Figure D : \textsc{Tree-Delete}(T, a)
-						%\begin{figure}[h!]
-        						%	\centering
-						%	\includegraphics[width=6cm]{solutions/exoBTFigD.png}
-	    					%\end{figure}
 					\item Figure E : \textsc{Tree-Delete}(T, b)
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigE.png}
-	    					%\end{figure}
 					\item Figure F : \textsc{Tree-Delete}(T, c)
-						%\begin{figure}[h!]
-        						%	\centering
-       	 					%	\includegraphics[width=6cm]{solutions/exoBTFigF.png}
-	    					%\end{figure}
 			\end{enumerate}
 		\end{enumerate}
 	\end{solution}
