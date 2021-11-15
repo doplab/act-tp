@@ -1,9 +1,9 @@
-def displayOddNumbers(limit):
-    for nb in range(limit+1):
+def nombresImpairs(limite):
+    for nb in range(limite+1):
         if nb % 2 == 1:
             print(nb)
 
-limit = int(input("What is the limit of the function displayOddNumbers(limit)? "))
+limit = int(input("Entrez une valeur maximale: "))
 
-print("Odd numbers between 0 and " + str(limit) + ": ")
-displayOddNumbers(limit)
+print("Nombres impairs compris entre 1 et " + str(limit) + " : ")
+nombresImpairs(limit)

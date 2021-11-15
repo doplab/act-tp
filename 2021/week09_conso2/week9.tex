@@ -8,6 +8,7 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowNotetrue
 \titre
 \cours{Consolidation 2}
 
@@ -15,15 +16,16 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 % Exercice complexité - Maeva
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
-	Analysez la complexité pour les deux codes suivants. Est-ce la même pour fun() et fun2() ? Pourquoi ?
+	Analysez la complexité des deux programmes ci-dessous. Ont-ils la même complexité? 
     	\lstinputlisting{resources/ex1_enonce.py}
 
 	% Solutions complexité - Maeva
 	\begin{solution}
-	Non, ils n'ont pas la même complextié. Fun() a une complexité de O(n*n) car il s'agit de deux boucles imbriquées. En revanche, fun2() a une 	complexité de O(n+n) car il s'agit de deux boucles indépendante.  
+	Non, ils n'ont pas la même complexité. \lstinline{fun()} a une complexité de $O(n*n)$ car il s'agit de deux boucles imbriquées itérant chacune n fois dans le pire des cas. En revanche, \lstinline{fun2()} a une complexité de $O(n+n)$ car elle contient deux boucles effectuant des opérations indépendantes. 
 	\end{solution}
 \end{Exercice}
 
+\begin{comment}
 % Exercice complexité - Maeva
 \begin{Exercice}[10 minutes]\textbf{Complexité}\\
 	Quel est la complexité de ce code ?
@@ -33,10 +35,11 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 		%TODO 
 	\end{solution}
 \end{Exercice}
+\end{comment}
 
 % Exercice nombres impaire - Maeva
 \begin{Exercice}[10 minutes] \\
-	Ecrivez un programme python qui permet d’imprimer tous les nombres impairs à partir de 1 jusqu’à un nombre n défini par l’utilisateur (qui doit être supérieur à 1) :
+	Ecrivez un programme Python qui imprime tous les nombres impairs à partir de 1 jusqu’à un nombre \lstinline{n} défini par l’utilisateur. Ce nombre \lstinline{n} doit être supérieur à 1.
 	Exemple : si n = 6, résultat attendu : 1, 3, 5
 % Solutions nombres impaire - Maeva
 	\begin{solution}
@@ -46,28 +49,29 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 % Exercice arbres binaires - Maeva
 \begin{Exercice}
-	Lesquels (ou lequel) de ces arbres est un arbre binaire (binary tree) ? Donnez leur hauteur (height).
+	Lesquels de ces arbres sont des arbres binaires (binary tree) ? Donnez leur hauteur (height).
 	\begin{figure}[h!]
         		\centering
-       	 	\includegraphics[width=10cm]{resources/exercice5.png}
+       	 	\includegraphics[width=18cm]{resources/exercice5.png}
     	\end{figure}
 	% Solution arbres binaires - Maeva
 	\begin{solution}
-		1. Il ne s'agit pas d'un arbre binaire car il n'y a pas decondition qui est remplie à chaque noeuds. Sa hauteur est de 3.\\
-		2. Il ne s'agit pas d'un arbre binaire car il n'y a pas de condition qui est remplie à chaque noeuds. Sa hauteur est de 3.\\
-		3. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 3.\\
-		4. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 1.\\
-		5. Il s'agit d'un arbre binaire car une condition peut être appliquée à chaque noeud. Sa hauteur est de 4.\\
+		Seuls les arbres 3, 4 et 5 sont des arbres binaires selon la définition donnée en cours. En effet, l'ordre d'insertion des éléments est incorrect dans les arbres 1 et 2. 
+		Quant à leurs hauteurs, elles sont respectivement de 3, 3, 3, 1 et 4.
 	\end{solution}
 \end{Exercice}
 
 
 % Exercice complexité - Etienne
-\begin{Exercice}[10 minutes]\textbf{Trie complexité}\\
+\begin{Exercice}[10 minutes]\textbf{Croissance de fonctions}\\
 	Trier la liste de fonctions suivante selon leur croissance assymptotique:
 	\begin{equation}
 		n^{\sqrt{n}}, n\cdot log(n), n^{1/log(n)}, log(log(n)), \sqrt{n}, 3^{n}/{n^5}, 2^n
 	\end{equation}
+
+	\begin{note}{Alpha}
+		Cette question semble peu claire, il serait judicieux d'ajouter des conseils expliquant la croissance de fonctions.
+	\end{note}
 	
 	% Solutions complexité - Etienne
 	\begin{solution}
@@ -83,16 +87,18 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 
 % Exercice théorique - Etienne
-\begin{Exercice}[20 minutes]\textbf{Théorie}\\
+\begin{Exercice}[20 minutes]\textbf{Arbre binaire}\\
 	\begin{enumerate}
-		\item Donner en pseudo code un algorithme ayant une complexité temporelle de O(log n) qui prend comme argument un tableau trié A[1, ..., n] de n nombres et une clé k et qui retourne "OUI" si A contient k et "NON" sinon.
-		\item Quelle est la hauteur maximum et la hauteur minimale d'un arbre binaire de recherche ayant n éléments ? Quel arbre est meilleur ? Justifier.
+		\item Ecrire un programme Python ayant une complexité temporelle de $O(log n)$ qui prend comme argument un tableau trié \lstinline{A[1, ..., n]} de $n$ nombres et une clé $k$ et qui retourne \textbf{"OUI"} si \lstinline{A} contient $k$ et \textbf{"NON"} dans le cas contraire.
+		\item Quelle est la hauteur minimale et la hauteur maximale d'un arbre binaire de recherche ayant $n$ éléments?
 		\item Considerer l'arbre binaire suivant : \\
+		
+		Dessiner les arbres obtenus après executions de chacune des opérations suivantes (chaque opération~est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutées de façon séquentielle).
+		
 		\begin{figure}[h!]
         			\centering
        	 		\includegraphics[width=10cm]{resources/exoArbreBinEnonce.png}
 	    	\end{figure}
-		Dessiner les arbres obtenus après executions de chacune des opérations suivantes (chaque opération est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutée séquentiellement).
 		\begin{enumerate}
 			\item \textsc{Tree-Insert}(T, z) avec z.key = 0
 			\item \textsc{Tree-Insert}(T, z) avec z.key = 17
@@ -113,17 +119,20 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 					\item Si A[mid] $>$ k, alors cherchons k dans le tableau A[p . . . (mid-1)] en appelant récursivement l'algorithme \textsc{Binary-Search}(A, k, p, mid-1) \\
 					\item Si A[mid] $<$ k, alors cherchons k dans le tableau A[(mid + 1) . . . q] en appelant récursivement l'algorithme \textsc{Binary-Search}(A, k, mid+1, q)\\
 				\end{itemize}
-				The pseudo-code of the procedure is as follows:
+				Le programme permettant d'effectuer une recherche binaire est le suivant:
 				\lstinputlisting{solutions/exerciseTheorieBinarySearch.py}
-				Note that we solve the original problem by calling \textsc{Binary-Search}(A, k, 1, n).
+				% Note that we solve the original problem by calling \textsc{Binary-Search}(A, k, 1, n).
 			\item Hauteur minimale et maximale d'un arbre binaire.
 				\begin{itemize}
-					\item La hauteur maximum d'un arbre binaire est atteinte quand l'arbre n'est constitué d'une seule branche. \\
+					\item La hauteur maximale d'un arbre binaire est atteinte quand l'arbre n'est constitué que d'une seule branche. \\
+					
 						%\begin{figure}[h!]
         						%	\centering
        	 					%	\includegraphics[width=6cm]{solutions/maxHeight.png}
 	    					%\end{figure}
-					\item La hauteur minimum est atteinte lorsque l'arbre binaire est "complet" : nous ne pouvons pas ajouter un noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
+					\item La hauteur minimum est atteinte lorsque l'arbre binaire est "complet" : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
+					% TODO: @Etienne - Je ne suis pas sûr d'avoir compris cette question. L'ont-ils vu en cours? 
+					
 						%\begin{figure}[h!]
         						%	\centering
        	 					%	\includegraphics[width=6cm]{solutions/min_height.png}
@@ -164,16 +173,22 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 			\end{enumerate}
 		\end{enumerate}
 	\end{solution}
+
+	\begin{solution}
+		\centering
+		\includegraphics[width=9cm]{solutions/tree_merged.jpg}
+	\end{solution}
+		
 \end{Exercice}
 
 
 % Exercice BFS Papier - Sarra
-\begin{Exercice}[5 minutes]\textbf{Breadth-First Search algorithm : Papier
+\begin{Exercice}[5 minutes]\textbf{Breadth-First Search : Papier
 }\\
 \\
-	Le but du Breadth-first search (BFS) ou parcours en largeur est d'explorer le graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
-	
-	Appliquez l’algorithme de BFS au graphe suivant :\\
+	Le but du Breadth-first search (BFS) ou parcours en largeur est d'explorer un graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
+
+	Appliquez l’algorithme \lstinline{BFS} au graphe suivant :\\
 
 	\begin{figure}[h!]
         		\centering
@@ -193,14 +208,18 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 \end{Exercice}
 
 % Exercice BFS Python - Sarra
-\begin{Exercice}[15 minutes]\textbf{Breadth-First Search algorithm : Python
+\begin{Exercice}[15 minutes]\textbf{Breadth-First Search : Python
 }\\
-\\
 	Dans cet exercice, nous aimerions identifier le chemin le plus court entre deux nœuds d'un graphe.
 	La fonction que nous implémentons doit pouvoir accepter comme argument un graphe, un nœud de départ et un nœud de fin. Si l'algorithme est capable de connecter les nœuds 			de départ et d'arrivée, il doit renvoyer le chemin. nous allons utiliser l'algorithme BFS car il renvoie toujours le chemin le plus court.\\
+	\begin{note}{Alpha}
+		À cet endroit, on devrait ajouter le pseudo-code permettant d'implémenter l'algorithme.
+	\end{note}
+
 	\lstinputlisting[language=python]{resources/bfs_enonce.py}
     	\begin{conseil}
 		Il existe quelques différences principales entre l'implémentation e de BFS pour l'application du plus court chemin.
+		% TODO: Sarra - cette phrase semble incomplète.
         		\begin{enumerate}
 			\item La file d'attente garde une trace des chemins possibles (implémentés sous forme de liste de nœuds) au lieu des nœuds.
 	           	\item lorsque l'algorithme recherche un nœud voisin, il doit vérifier si le nœud voisin correspond au nœud cible. Si c'est le cas, nous avons une solution et il n'est pas 					nécessaire de continuer à explorer le graphique.
