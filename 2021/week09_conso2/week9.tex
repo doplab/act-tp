@@ -50,10 +50,9 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 % Exercice arbres binaires - Maeva
 \begin{Exercice}
 	Lesquels de ces arbres sont des arbres binaires (binary tree) ? Donnez leur hauteur (height).
-	\begin{figure}[h!]
         		\centering
        	 	\includegraphics[width=18cm]{resources/exercice5.png}
-    	\end{figure}
+
 	% Solution arbres binaires - Maeva
 	\begin{solution}
 		Seuls les arbres 3, 4 et 5 sont des arbres binaires selon la définition donnée en cours. En effet, l'ordre d'insertion des éléments est incorrect dans les arbres 1 et 2. 
@@ -64,7 +63,7 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 % Exercice complexité - Etienne
 \begin{Exercice}[10 minutes]\textbf{Croissance de fonctions}\\
-Nous avons vu comment exprimer la compléxité d'un algorithme en terme de complexité temporelle "pire-cas", notée $\mathcal{O}$(). L'exercice suivant permet de travailler avec différentes croissances de fonctions.\\ Ordonner la liste de fonctions suivante selon leur croissance assymptotique: il faut trier les fonctions par ordre croissant de notation grand-$\mathcal{O}$. La notation grand-$\mathcal{O}$() donne une borne supérieure du taux de croissance d'une fonction. Ainsi si $f(x) = 2x$ et $g(x) = 3x^2$, on dit que que $f(x)$ est $\mathcal{O}(x)$ et que $g(x)$ est $\mathcal{O}(x^2)$. On peut alors les ordonner pour obtenir : $\mathcal{O}(f(x)) < \mathcal{O}(g(x)) \Leftrightarrow \mathcal{O}(x) < \mathcal{O}(x^2)$.
+Nous avons vu comment exprimer la complexité d'un algorithme en terme de complexité temporelle dans le ``\emph{pire des cas}'', notée $\mathcal{O}$(). L'exercice suivant permet de travailler avec différentes croissances de fonctions.\\ Ordonner la liste de fonctions suivante selon leur croissance asymptotique: il faut trier les fonctions par ordre croissant de notation grand-$\mathcal{O}$. La notation grand-$\mathcal{O}$() donne une borne supérieure du taux de croissance d'une fonction. Ainsi si $f(x) = 2x$ et $g(x) = 3x^2$, on dit que que $f(x)$ équivaut à $\mathcal{O}(x)$ et que $g(x)$ équivaut à $\mathcal{O}(x^2)$. On peut alors les ordonner pour obtenir : $\mathcal{O}(f(x)) < \mathcal{O}(g(x)) \Leftrightarrow \mathcal{O}(x) < \mathcal{O}(x^2)$.
 
 	\begin{equation}
 		n^{\sqrt{n}}, n\cdot log(n), n^{1/log(n)}, log(log(n)), \sqrt{n}, 3^{n}/{n^5}, 2^n
@@ -86,11 +85,11 @@ Nous avons vu comment exprimer la compléxité d'un algorithme en terme de compl
 % Exercice théorique - Etienne
 \begin{Exercice}[20 minutes]\textbf{Arbre binaire}\\
 	\begin{enumerate}
-		\item Ecrire un programme Python ayant une complexité temporelle de $O(log n)$ qui prend comme argument un tableau trié \lstinline{A[1, ..., n]} de $n$ nombres et une clé $k$ et qui retourne \textbf{"OUI"} si \lstinline{A} contient $k$ et \textbf{"NON"} dans le cas contraire.
+		\item Ecrire un programme Python ayant une complexité temporelle de $O(log n)$ et qui prend comme argument un tableau trié \lstinline{A[1, ..., n]} de $n$ nombres et une clé $k$. Ce programme devra retourner \textbf{"OUI"} si \lstinline{A} contient $k$ et \textbf{"NON"} dans le cas contraire.
 		\item Quelle est la hauteur minimale et la hauteur maximale d'un arbre binaire de recherche ayant $n$ éléments? Exprimer votre réponse en fonction du nombre de noeuds $n$ présents dans l'arbre.
 		\item Considerer l'arbre binaire suivant : \\
 		
-		Dessiner les arbres obtenus après executions de chacune des opérations suivantes (chaque opération~est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutées de façon séquentielle).
+		Dessiner les arbres obtenus après execution de chacune des opérations suivantes (chaque opération~est exécutée en commençant par l'arbre ci-dessus - les opérations ne sont pas exécutées de façon séquentielle).
 		
 		\begin{figure}[h!]
         			\centering
@@ -126,7 +125,7 @@ Nous avons vu comment exprimer la compléxité d'un algorithme en terme de compl
         						%	\centering
        	 					%	\includegraphics[width=6cm]{solutions/maxHeight.png}
 	    					%\end{figure}
-					\item La hauteur minimum est atteinte lorsque l'arbre binaire est "complet" : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
+					\item La hauteur minimale est atteinte lorsque l'arbre binaire est ``complet'' : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
         							\centering
        	 						\includegraphics[width=6cm]{solutions/maxHeight.png}
        	 						\includegraphics[width=6cm]{solutions/minHeight.png}
@@ -155,7 +154,7 @@ Nous avons vu comment exprimer la compléxité d'un algorithme en terme de compl
 \begin{Exercice}[5 minutes]\textbf{Breadth-First Search : Papier
 }\\
 \\
-	Le but du Breadth-first search (BFS) ou parcours en largeur est d'explorer un graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
+	Le but du Breadth-First Search (BFS) ou parcours en largeur est d'explorer un graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
 
 	Appliquez l’algorithme \lstinline{BFS} au graphe suivant :\\
 
