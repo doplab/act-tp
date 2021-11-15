@@ -3,7 +3,7 @@ def bfs_shortest_path(graph, start, goal):
     # garder une trace des noeuds visites
     visited = []
     # garder une trace de tous les chemins à vérifier
-    queue = [[start]]
+    queue = [start]
 
     # retourner le chemin si le noeud de départ est celui d'arrivée
     if start == goal:
