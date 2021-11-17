@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowNotefalse
 \titre
@@ -156,7 +156,7 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 \\
 	Le but du Breadth-First Search (BFS) ou algorithme de parcours en largeur est d'explorer un graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
 
-	Appliquez l’algorithme \lstinline{BFS} au graphe suivant :\\
+	Appliquez l’algorithme \lstinline{BFS} au graphe suivant en partant du sommet B:\\
 
 	\begin{figure}[h!]
         		\centering
@@ -192,7 +192,7 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 	\lstinputlisting[language=python]{resources/bfs_enonce.py}
     	\begin{conseil}
 		Il existe quelques différences principales entre l'implémentation de BFS et  l'application du plus court chemin.
-		% TODO: Sarra - cette phrase semble incomplète.
+		
         		\begin{enumerate}
 			\item La file d'attente garde une trace des chemins possibles (implémentés sous forme de liste de nœuds) au lieu des nœuds.
 	           	\item lorsque l'algorithme recherche un nœud voisin, il doit vérifier si le nœud voisin correspond au nœud cible. Si c'est le cas, nous avons une solution et il n'est pas 					nécessaire de continuer à explorer le graphique.
