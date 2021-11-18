@@ -107,21 +107,22 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 					\item La hauteur minimale est atteinte lorsque l'arbre binaire est ``complet'' : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
         							\centering
        	 						\includegraphics[width=6cm]{solutions/maxHeight.png}
-       	 						\includegraphics[width=6cm]{solutions/minHeight.png}
+       	 						\includegraphics[width=12cm]{solutions/minHeight.png}
 				\end{itemize}
 			\item Après execution de chaque opération, nous obtenons:
-				\begin{enumerate}
-					\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
-					\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
-					\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
-					\item Figure D : \textsc{Tree-Delete}(T, a)
-					\item Figure E : \textsc{Tree-Delete}(T, b)
-					\item Figure F : \textsc{Tree-Delete}(T, c)
-			\end{enumerate}
+
 		\end{enumerate}
 	\end{solution}
 
 	\begin{solution}
+			\begin{enumerate}
+				\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
+				\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
+				\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
+				\item Figure D : \textsc{Tree-Delete}(T, a)
+				\item Figure E : \textsc{Tree-Delete}(T, b)
+				\item Figure F : \textsc{Tree-Delete}(T, c)
+			\end{enumerate}
 		\centering
 		\includegraphics[width=9cm]{solutions/tree_merged.jpg}
 	\end{solution}
@@ -160,18 +161,20 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 
 	\begin{figure}[h!]
         		\centering
-       	 	\includegraphics[]{resources/exerciceBFS.png}
+       	 	\includegraphics[width = 9cm]{resources/exerciceBFS.png}
 	\end{figure}
 
 
 	% Solution BFS - Sarra
 	\begin{solution}
+Dans cette solution, nous considèrons le sommet $b$ comme sommet de départ et l'ordre alphabétique dans l'exploration des voisins.\\
+
 		\includegraphics[width=8cm]{solutions/BFS1.PNG}\\
 		\includegraphics[width=8cm]{solutions/BFS2.PNG}\\
  		Ci-dessous l'arborescence associée au parcours.\\
 		\includegraphics[width=5cm]{solutions/BFS3.PNG}\\
 		L’ordre de parcours est : ligne après ligne (de la racine vers les feuilles) et
-		de gauche à droite pour une ligne.
+		de gauche à droite pour une ligne ($b, a, d, e, c, f, g, h$).
 	\end{solution}
 \end{Exercice}
 
