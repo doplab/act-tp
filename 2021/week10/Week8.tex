@@ -1,0 +1,170 @@
+\input{../header}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{tabto}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Spatial Algorithms}
+
+Le but de cette séance est de comprendre et d'implémenter des algorithmes spatiaux. \\
+
+\section{Nearest-Neighbor}
+Nous allons chercher à implémenter une recherche du plus proche voisin. Le but de cette méthode est de, étant donné un point de "départ" et un ensemble de point, trouver le voisin le plus proche du point de départ. Nous allons implémenter cette algorithme et ensuite l'étendre à un algorithme des k plus proches voisins (recherche des k voisins les plus proches plutôt que du seul voisin le plus proche).\\
+
+\begin{Exercice}[5 minutes]\textbf{La fonction de distance : Python}\\
+
+Pour implémenter notre recherche, nous avons besoin de coder une fonction permettant de calculer la distance entre 2 points. Programmez une fonction qui permet de calculer la distance entre 2 points.\\
+
+\begin{conseil}
+    Soit 2 points en 2 dimensions $({x_1},{y_1})$ et $({x_2},{y_2})$, la distance euclidienne entre ces 2 points est donnée par : $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$
+\end{conseil}
+
+\begin{solution}
+   \lstinputlisting[language = python]{Question1_solution.py}
+   Note : Vous auriez pu utiliser (...)**0.5 en lieu et place de la fonction math.sqrt(.)
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Nearest-neighbor search}\\
+
+Implémentez la rechere du voisin le plus proche. Ce dernier fonctionne de la façon suivante :
+\begin{enumerate}
+    \item Traversez chaque point.
+    \item Pour chaque point, calculez la distance entre le point et le point de départ.
+    \item Retournez les coordonnées du point le plus proche.
+\end{enumerate}
+    
+\begin{conseil}
+    Utilisez la fonction de distance de la question 1 et parcourez les points à l'aide d'une boucle for. Si votre input est [[2,3],[5,6],[1,4],[2,4],[3,5]] et que le point de départ est [4,4], alors l'ouptut devrait-être ([3,5] 1.414).\\
+    
+    Note : Pour que votre programme fonctionne, programmez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language = python]{Question2_solution.py}
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[15 minutes]\textbf{K-nearest-neighbor search}\\
+
+
+Etendez l'algorithme du voisin le plus proche à un algorithme des K plus proches voisins.\\
+
+\begin{conseil}
+Appliquez l'algorithme du plus proche voisin K-fois. A la fin de chaque itération retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon vous trouverez le second voisin le plus proche, le troisième, etc...\\
+
+Votre fonction devrait retourner une liste de la forme : $[[x_1,y_2, distance1],[x_2,y_2,distance2],...]$. Avec comme input [[2,3],[5,6],[1,4],[2,4],[3,5]], comme point de départ [4,4] et le nombre de voisins K=2, l'output de votre algorithme devrait-être : [[3, 5, 1.4142135623730951], [2, 4, 2.0]].\\
+
+Note : Pour que votre programme fonctionne, programmez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1 et la Question 2. Vous pouvez réutilisez le code des questions 1) et 2) pour cet exercice.
+\end{conseil}
+
+\begin{solution}
+    \lstinputlisting[language = python]{Question3_solution.py}
+\end{solution}
+\end{Exercice}
+\newpage
+\section{K-dimensional tree}
+
+\begin{Exercice}[5 minutes]\textbf{KD-Tree, un échauffement : Papier}\\
+Vous trouverez ci-dessous une liste de points numérotés de 1 à 10. Placez-les dans un KD-Tree et dessinez la séparation de l'espace qui en résulte.\\
+
+\includegraphics[]{KD_points.PNG}
+
+\begin{conseil}
+La première division se fait de façon verticale. Veillez à bien insérer les points dans l'ordre (point 1, point 2, etc..). Les noeuds se situant au même niveau devrait diviser l'espace selon le même axe.
+\end{conseil}
+\begin{solution}
+    Voici le KD-Tree correspondant :\\
+    \includegraphics[]{Kd-tree.PNG}\\
+    Et la division de l'espace qui en résulte :\\
+    \includegraphics[]{Division espace.PNG}
+\end{solution}
+\end{Exercice}
+
+\newpage
+
+\begin{Exercice}[15 minutes]\textbf{KD-Tree : Python}\\
+
+L'objectif de cette exercice est de programmer une fonction permettant d'ajouter un noeud à un KD-Tree. Les noeuds sont de la forme ((x,y), enfant à gauche, enfant à droite), x et y étant les coordonnées du noeud considéré. Chaque enfant peut être soit un noeud ( même forme que expliqué précédemment) ou alors une feuille. Complétez le code contenu dans le fichier Question5.py.\\
+
+\begin{conseil}
+Veuillez vous référer aux pages 15 et 16 du cours de cette semaine. Ces pages expliquent le pseudo-code présent ci-dessous dont vous devez faire l'implémentation.
+
+Voici le pseudo-code permettant d'ajouter un noeud à un KD-Tree :\\
+
+ADD(node,point,cutaxis):\\
+    \tabto{1cm}if node = NIL\\
+        \tabto{2cm}node $\leftarrow$ Create-Node\\
+        \tabto{2cm}node.point = point\\
+        \tabto{2cm}return node\\
+    \tabto{1cm}if point[cutaxis] $\leq$ node.point[cutaxis]\\
+    \tabto{2cm} node.left = ADD(node.left, point, (cutaxis + 1) modulo k\\
+    \tabto{1cm} else\\
+    \tabto{2cm} node.right = ADD(node.right, point, (cutaxis+1) modulo k\\
+    \tabto{1cm} return node\\
+    
+    Si votre réponse est correct, le code de Question5.py devrait print : [(0, 10), [(-10, 0), None, None], None].
+\end{conseil}
+
+\begin{solution}
+\lstinputlisting[language = python]{Question5_solution.py}\\
+
+\underline{Commentaire #1} : Si la coordonnée du point à ajouter est inférieure à celle du noeud selon l'axe de découpe en considération, alors le point doit se trouver dans le sous arbre de gauche. Par convention, le noeud de gauche correspond dans la liste [(x,y), noeud de gauche, noeud de droite] à l'indice 1, par conséquent, on appelle la fonction de façon récursive pour ajouter le point, mais cette fois-ci en partant de 1 cran plus bas dans l'arbre. Cela se répète jusqu'à ce qu'un ait atteint les feuilles et qu'un nouveau noeud doit être crée.
+
+\end{solution}
+\end{Exercice}
+
+\newpage
+
+\section{ Quad-Tree}
+\begin{Exercice}[10 minutes]\textbf{Une mise en train : Papier}\\
+
+Encodez les images ci-dessous dans un region Quad-Tree.\\
+
+\includegraphics[]{Quad-Tree 1.PNG}\\
+\includegraphics[]{Quad-Tree 2.PNG}
+
+\begin{conseil}
+   Pour réussir cet exercice vous devez diviser chaque noeud en 4 sous-espaces de taille égale, et ce autant de fois que nécessaire pour que chaque zone blanche ou noir soit délimitée clairement. La branche la plus à gauche correspond au quadrant NW puis en allant de gauche à droite : NE, SE, SW. \\
+    
+    \textbf{Hint :} Votre arbre devrait avoir une profondeur de 2 et disposer de 16 feuilles.
+\end{conseil}
+\begin{solution}
+Image 1 :\\
+    \includegraphics[]{Quad-Tree 1 solution.PNG}\\
+    
+Image 2: \\
+    \includegraphics[]{Quad-Tree 2 solution.PNG}
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes]\textbf{Une mission capitale : Papier}\\
+
+Récemment embauché par la CIA, vous êtes à la recherche d'un individu se cachant dans une des villes suivant : Bleu, Orange, Noir, Gris, Vert et Jaune. Votre mission, si vous l'acceptez, est de créer un Quad-Tree qui vous permettera de géolocaliser le criminel de façon efficace. Vous trouverez ci-dessous une carte de villes. Créez le Quad-Tree et rétablissez la justice.\\
+
+\includegraphics[]{Quad-Tree 3.PNG}
+\begin{conseil}
+    Commencez par diviser la carte de la ville de la façon adéquate puis construisez le graphe.\\
+    
+    \textbf{Hint : }Les différentes branches de l'arbre n'auront pas toutes la même profondeur.
+\end{conseil}
+\begin{solution}
+    Voici la division de la carte qui permet de construire le Quad-Tree :\\
+    
+    \includegraphics[]{Quad-Tree 3 solution 1.PNG}\\
+    
+    Le Quad-Tree qui en résulte :\\
+    
+    \includegraphics[]{Quad-Tree 3 solution 2.PNG}\\
+    
+    Note : Un rond blanc correspond à un quadrant vide.
+    
+\end{solution}
+\end{Exercice}
+
+\end{document}
