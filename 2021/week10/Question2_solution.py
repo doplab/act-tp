@@ -11,7 +11,7 @@ def nearest_neighbor(start, point_set):#start correspond au point de départ, po
         distance = calculate_distance(start, point_set[i])
         
         if distance < min_distance:            
-            min_distance = calculate_distance(start, point_set[i])
+            min_distance = distance
             nearest_nei = point_set[i]   
             
         #Cette partie du code détermine si le point actuellement considéré, est plus proche du point de départ que les points 
