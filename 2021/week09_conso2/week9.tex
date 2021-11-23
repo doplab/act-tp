@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowNotefalse
 \titre
@@ -107,21 +107,22 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 					\item La hauteur minimale est atteinte lorsque l'arbre binaire est ``complet'' : nous ne pouvons pas ajouter de noeud sans augmenter la hauteur de l'arbre hauteur de un. \\
         							\centering
        	 						\includegraphics[width=6cm]{solutions/maxHeight.png}
-       	 						\includegraphics[width=6cm]{solutions/minHeight.png}
+       	 						\includegraphics[width=12cm]{solutions/minHeight.png}
 				\end{itemize}
 			\item Après execution de chaque opération, nous obtenons:
-				\begin{enumerate}
-					\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
-					\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
-					\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
-					\item Figure D : \textsc{Tree-Delete}(T, a)
-					\item Figure E : \textsc{Tree-Delete}(T, b)
-					\item Figure F : \textsc{Tree-Delete}(T, c)
-			\end{enumerate}
+
 		\end{enumerate}
 	\end{solution}
 
 	\begin{solution}
+			\begin{enumerate}
+				\item Figure A : \textsc{Tree-Insert}(T, z) avec z.key = 0
+				\item Figure B : \textsc{Tree-Insert}(T, z) avec z.key = 17
+				\item Figure C: \textsc{Tree-Insert}(T, z) avec z.key = 14
+				\item Figure D : \textsc{Tree-Delete}(T, a)
+				\item Figure E : \textsc{Tree-Delete}(T, b)
+				\item Figure F : \textsc{Tree-Delete}(T, c)
+			\end{enumerate}
 		\centering
 		\includegraphics[width=9cm]{solutions/tree_merged.jpg}
 	\end{solution}
@@ -156,22 +157,24 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 \\
 	Le but du Breadth-First Search (BFS) ou algorithme de parcours en largeur est d'explorer un graphe à partir d’un sommet donné (sommet de départ ou sommet source). \\
 
-	Appliquez l’algorithme \lstinline{BFS} au graphe suivant :\\
+	Appliquez l’algorithme \lstinline{BFS} au graphe suivant en partant du sommet B:\\
 
 	\begin{figure}[h!]
         		\centering
-       	 	\includegraphics[]{resources/exerciceBFS.png}
+       	 	\includegraphics[width = 9cm]{resources/exerciceBFS.png}
 	\end{figure}
 
 
 	% Solution BFS - Sarra
 	\begin{solution}
+Dans cette solution, nous considèrons le sommet $b$ comme sommet de départ et l'ordre alphabétique dans l'exploration des voisins.\\
+
 		\includegraphics[width=8cm]{solutions/BFS1.PNG}\\
 		\includegraphics[width=8cm]{solutions/BFS2.PNG}\\
  		Ci-dessous l'arborescence associée au parcours.\\
 		\includegraphics[width=5cm]{solutions/BFS3.PNG}\\
 		L’ordre de parcours est : ligne après ligne (de la racine vers les feuilles) et
-		de gauche à droite pour une ligne.
+		de gauche à droite pour une ligne ($b, a, d, e, c, f, g, h$).
 	\end{solution}
 \end{Exercice}
 
@@ -192,7 +195,7 @@ Les exercices de cette série sont une compilation d'exercices semblables à ceu
 	\lstinputlisting[language=python]{resources/bfs_enonce.py}
     	\begin{conseil}
 		Il existe quelques différences principales entre l'implémentation de BFS et  l'application du plus court chemin.
-		% TODO: Sarra - cette phrase semble incomplète.
+		
         		\begin{enumerate}
 			\item La file d'attente garde une trace des chemins possibles (implémentés sous forme de liste de nœuds) au lieu des nœuds.
 	           	\item lorsque l'algorithme recherche un nœud voisin, il doit vérifier si le nœud voisin correspond au nœud cible. Si c'est le cas, nous avons une solution et il n'est pas 					nécessaire de continuer à explorer le graphique.
