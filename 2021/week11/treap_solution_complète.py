@@ -38,7 +38,7 @@ def insertNode(root, data):
 	if root is None:
 		return TreapNode(data)
 
-    # si data est inférieure à celle la racine root, insérer dans le sous-abre gauche
+    # si data est inférieure à celle la racine root, insérer dans le sous-arbre gauche
     # sinon insérer dans le sous-arbre droit
 	if data < root.data:
 		root.left = insertNode(root.left, data)

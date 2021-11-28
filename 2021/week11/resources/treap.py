@@ -1,68 +1,97 @@
-from random import randrange
-
-# Un noeud de la treap
-class TreapNode:
-	def __init__(self, data, priority=100, left=None, right=None):
-		self.data = data
-		self.priority = randrange(priority)
-		self.left = left
-		self.right = right
-
-# Fonction pour faire une rotation à gauche
-def rotateLeft(root):
-	R = root.right
-	X = root.right.left
-
-	# rotate
-	R.left = root
-	root.right = X
-
-	# set root
-	return R
+import random
 
 
-# Fonction pour faire une rotation à droite
-def rotateRight(root):
-	L = root.left
-	Y = root.left.right
+class TreapNode(object):
+    def __init__(self, key, priority, data):
+        self.key = key
+        self.priority = priority
+        self.size = 1
+        self.cnt = 1
+        self.data = data
+        self.left = None
+        self.right = None
 
-	# rotation
-	L.right = root
-	root.left = Y
+    def left_rotate(self):
+        a = self
+        b = a.right
+        a.right = b.left
+        b.left = a
+        a = b
+        b = a.left
+        b.size = b.left_size() + b.right_size() + b.cnt
+        a.size = a.left_size() + a.right_size() + a.cnt
+        return a
 
-	# retourne la nouvelle racine
-	return L
+    def right_rotate(self):
+        a = self
+        b = a.left
+        a.left = b.right
+        b.right = a
+        a = b
+        b = a.right
+        b.size = b.left_size() + b.right_size() + b.cnt
+        a.size = a.left_size() + a.right_size() + a.cnt
+        return a
+
+    def left_size(self):
+        return 0 if self.left is None else self.left.size
+
+    def right_size(self):
+        return 0 if self.right is None else self.right.size
+
+    def __repr__(self):
+        return '[(%s,%s), %s, %s]' % (
+            str(self.key), self.priority, str(self.left), str(self.right))
 
 
-# Fonction récursive pour insérer une clé avec une priorité dans une Treap
-def insertNode(root, data):
-    # Partie à compléter
-	return root
+class Treap(object):
+    def __init__(self):
+        self.root = None
 
+    def _insert(self, node, key, priority, data=None):
+        if node is None:
+            node = TreapNode(key, priority, data)
+            return node
+        node.size += 1
+        if key < node.key:
+            node.left = self._insert(node.left, key, priority, data)
+            if node.left.priority > node.priority:
+                node = node.right_rotate()
+        elif key >= node.key:
+            node.right = self._insert(node.right, key, priority, data)
+            if node.right.priority > node.priority:
+                node = node.left_rotate()
 
-# Affiche les noeuds de la treap
-def printTreap(root, space):
-	height = 10
+        return node
 
-	if root is None:
-		return
+    def insert(self, key, priority, data=None):
+        self.root = self._insert(self.root, key, priority, data)
 
-	space += height
-	printTreap(root.right, space)
+    def size(self):
+        return 0 if self.root is None else self.root.size
 
-	for i in range(height, space):
-		print(' ', end='')
+    def __repr__(self):
+        return str(self.root)
 
-	print((root.data, root.priority))
-	printTreap(root.left, space)
+if __name__ == '__main__':
+    root = None
+    treap = Treap()
 
+    liste = [5, 2, 1, 4, 9, 8, 10]
+    
+    # TODO: Créer une liste vide nommée nodes
 
-# Clés de la treap
-keys = [5, 2, 1, 4, 9, 8, 10]
+	# Vous pouvez utiliser la fonction random.randrange(100) pour générer des nombres aléatoires compris entre 0 et 99.
 
-# Construction de la treap
-root = None
-for key in keys:
-	root = insertNode(root, key)
+	# TODO: Ajouter à votre liste des tuples contenant les valeurs de votre liste de clés et de priorités.
+	
+	# Pensez à utiliser une boucle for
 
-printTreap(root, 0)
+    print(f"Noeuds avant insertion: {nodes}")
+
+    # Construction de la treap
+    for j in nodes:
+		# TODO: ajouter des arguments à la fonction insert. 
+        treap.insert(..., ..., root)
+
+    print(f"Treap: {treap}")

@@ -2,6 +2,7 @@
 \usepackage{array}
 \usepackage{amsmath}
 \usepackage{tabto}
+\usepackage{subfigure}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \begin{document}
@@ -9,6 +10,8 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowNotefalse
+\ShowDessintrue
 \titre
 \cours{Algorithmes probabilistes}
 
@@ -267,18 +270,72 @@ Complétez le programme ci-dessous.
 \end{solution}
 \end{Exercice}
 
-\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
 \newpage
 \section{Treap}
-\begin{Exercice}[20 minutes]\textbf{Insertion dans un Treap: Python} \optionnel\\
-    Un Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une
-    combinaison d'un arbre de recherche binaire et d'une heap. Ainsi, le treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
-    insérés par ordre de priorité. \\
+\begin{Exercice}[20 minutes]\textbf{Insertion dans un Treap: Python}\\
+    Un arbre binaire de recherche montre de meilleures performances lorsque l'arbre est équilibré. Ainsi, la complexité d'une opération de recherche, d'insertion ou de suppression d'un nœud dans l'arbre \textit{a} est de $O(log n)$ tandis qu'il sera de $O(n)$ dans l'arbre \textit{b}.
 
-    Dans cet exercice, vous allez implémenter une fonction pour insérer un nœud dans un treap. Vous avez le squelette de code suivant à remplir.
-    \lstinputlisting[language = python]{resources/treap.py}
+    \begin{figure}[h]
+        \centering
+        \subfigure[Arbre équilibré]{
+        \includegraphics[width=.3\textwidth]{resources/binary_tree.png}
+        }
+        \subfigure[Arbre non équilibré]{
+        \includegraphics[width=.3\textwidth]{resources/linked_tree.png}
+        }
+        \caption{Exemple d'arbres binaires de recherche}
+        \label{fig:architecture}
+    \end{figure}
+
+    Afin de s'assurer d'obtenir un arbre binaire de recherche équilibré, on peut utiliser les propriétés d'un heap (ou tas) dont les éléments sont ordonnés en suivant une priorité. Dans un Max-heap (Figure \ref{fig:maxheap}), le nœud ayant la priorité maximale se trouve toujours au sommet de l'arbre. Les nœuds parents auront toujours une priorité plus grande que les nœuds enfants. Dans un Min-heap tel que présenté en cours, le nœud ayant la plus faible priorité se trouve au sommet et dans cette configuration, les nœuds parents auront toujours un priorité plus petite que les nœuds enfants.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=.38\textwidth]{resources/heap.png}
+        \caption{Exemple de max-heap}
+        \label{fig:maxheap}
+    \end{figure}
+
+    Un Treap (ou arbretas) est une fusion entre un arbre binaire de recherche et un Heap. En construisant un Treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
+
+    \begin{itemize}
+        \item Le nœud de gauche a une valeur plus petite que le nœud parent, tandis que le nœud de droite a toujours une valeur plus grande que le nœud parent. --\textit{propriété d'un arbre binaire de recherche}
+        \item Chaque enfant a une priorité plus petite que la priorité du parent. --\textit{propriété d'un max-heap}
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
+    \end{center}
+
+    Soit la liste suivante:
+
+    \lstinline{liste = [5, 2, 1, 4, 9, 8, 10]}
+
+    À partir du fichier \lstinline{treap.py} se trouvant sur Moodle, créer une nouvelle liste \lstinline{nodes} qui contient des ensembles de tuples à deux éléments. Chaque tuple contiendra un élément de \lstinline{liste} et une valeur aléatoire représentant une priorité.
+
+    Notez ci-dessous les valeurs que vous obtiendrez:\\ 
+
+    {\Large
+    nodes = [(5, ...), (2, ...), (1, ...), (4, ...), (9, ...), (8, ...), (10, ...)]\\}
+
+    \begin{comment}
+        Un Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une combinaison d'un arbre de recherche binaire et d'un heap.
+        Un heap ou \emph{tas} est un arbre binaire presque complet (tous les niveaux sont remplis sauf, éventuellement, le dernier) dont les éléments sont ordonnés.
+        Ainsi, le treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
+        insérés par ordre de priorité. \\
+
+        \lstinputlisting[language = python]{resources/treap.py}
+    \end{comment}
+
+    Placez les éléments de \lstinline{nodes} dans un Treap. Utilisez l'espace ci-dessous pour dessiner le Treap qui sera obtenu.
+
+    \begin{dessin}{Alpha}
+        \vspace{10cm}
+    \end{dessin}
+    
+
+
+
 
     \begin{conseil}
         La fonction \lstinline{insertNode} est récursive. Inspirez-vous de l'insertion dans un arbre de recherche binaire, mais 
@@ -288,16 +345,8 @@ Complétez le programme ci-dessous.
         de la heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
     \end{conseil}
 
-    \begin{center}
-        \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
-    \end{center}
+    
 
-    \begin{solution}
-    \lstinputlisting[language = python]{solutions/treap_solution_1.py}
-    \end{solution}
-    \begin{solution}
-        \lstinputlisting[language = python]{solutions/treap_solution_2.py}
-    \end{solution}
     
 \end{Exercice}
 
