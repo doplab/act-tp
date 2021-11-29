@@ -272,8 +272,8 @@ Complétez le programme ci-dessous.
 
 \newpage
 \section{Treap}
-\begin{Exercice}[20 minutes]\textbf{Insertion dans un Treap: Python}\\
-    Un arbre binaire de recherche montre de meilleures performances lorsque l'arbre est équilibré. Ainsi, la complexité d'une opération de recherche, d'insertion ou de suppression d'un nœud dans l'arbre \textit{a} est de $O(log n)$ tandis qu'il sera de $O(n)$ dans l'arbre \textit{b}.
+\begin{Exercice}[20 minutes]\textbf{Insertion dans un Treap: Python et Papier}\\
+    Un arbre binaire de recherche montre de meilleures performances lorsqu'il est équilibré. Ainsi, la complexité d'une opération de recherche, d'insertion ou de suppression d'un nœud dans l'arbre équilibré \textit{a} est de $O(log n)$. Cette complexité est de $O(n)$ dans l'arbre \textit{b}.
 
     \begin{figure}[h]
         \centering
@@ -287,12 +287,12 @@ Complétez le programme ci-dessous.
         \label{fig:architecture}
     \end{figure}
 
-    Afin de s'assurer d'obtenir un arbre binaire de recherche équilibré, on peut utiliser les propriétés d'un heap (ou tas) dont les éléments sont ordonnés en suivant une priorité. Dans un Max-heap (Figure \ref{fig:maxheap}), le nœud ayant la priorité maximale se trouve toujours au sommet de l'arbre. Les nœuds parents auront toujours une priorité plus grande que les nœuds enfants. Dans un Min-heap tel que présenté en cours, le nœud ayant la plus faible priorité se trouve au sommet et dans cette configuration, les nœuds parents auront toujours un priorité plus petite que les nœuds enfants.
+    Afin de s'assurer d'obtenir un arbre binaire de recherche presque équilibré, on peut utiliser les propriétés d'un Heap (ou tas) dont les éléments sont ordonnés en suivant une priorité. Dans un Max-heap (Figure~\ref{fig:maxheap}), le nœud ayant la priorité maximale se trouve toujours au sommet de l'arbre. Les nœuds parents auront toujours une priorité plus grande que les nœuds enfants. Dans un Min-heap tel que présenté en cours, le nœud ayant la plus faible priorité se trouve au sommet et dans cette configuration, les nœuds parents auront toujours une priorité plus petite que les nœuds enfants.
 
     \begin{figure}[h]
         \centering
         \includegraphics[width=.38\textwidth]{resources/heap.png}
-        \caption{Exemple de max-heap}
+        \caption{Exemple de Max-heap}
         \label{fig:maxheap}
     \end{figure}
 
@@ -303,15 +303,14 @@ Complétez le programme ci-dessous.
         \item Chaque enfant a une priorité plus petite que la priorité du parent. --\textit{propriété d'un max-heap}
     \end{itemize}
 
-    \begin{center}
-        \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
-    \end{center}
+    Lors de l'insertion dans un Treap, si un nœud ne respecte les propriétés édictées ci-dessus, on procède à une rotation en permutant la position du nœud avec celle de son parent jusqu'à ce qu'on obtienne un Treap.
 
+ 
     Soit la liste suivante:
 
     \lstinline{liste = [5, 2, 1, 4, 9, 8, 10]}
 
-    À partir du fichier \lstinline{treap.py} se trouvant sur Moodle, créer une nouvelle liste \lstinline{nodes} qui contient des ensembles de tuples à deux éléments. Chaque tuple contiendra un élément de \lstinline{liste} et une valeur aléatoire représentant une priorité.
+    Dans le fichier \lstinline{treap.py} se trouvant sur Moodle, créer une nouvelle liste \lstinline{nodes} qui contient des ensembles de tuples à deux éléments. Chaque tuple contiendra un élément de \lstinline{liste} et une valeur aléatoire (comprise entre 0 et 99) représentant une priorité.
 
     Notez ci-dessous les valeurs que vous obtiendrez:\\ 
 
@@ -329,21 +328,44 @@ Complétez le programme ci-dessous.
 
     Placez les éléments de \lstinline{nodes} dans un Treap. Utilisez l'espace ci-dessous pour dessiner le Treap qui sera obtenu.
 
-    \begin{dessin}{Alpha}
-        \vspace{10cm}
-    \end{dessin}
-    
-
-
-
 
     \begin{conseil}
-        La fonction \lstinline{insertNode} est récursive. Inspirez-vous de l'insertion dans un arbre de recherche binaire, mais 
-        n'oubliez pas de vérifier que la propriété de la heap est satisfaite après avoir inséré. \\\\
-        La propriété de la heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses nœuds enfants.
-        \lstinline{rotateLeft} et \lstinline{rotateRight} permettent de réarranger les nœuds de façon à ce que la propriété
-        de la heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
+        \begin{itemize}
+            \item Commencer d'abord par construire un arbre binaire de recherche en utilisant uniquement les clés, ensuite utilisez les priorités pour réorganiser les nœuds de votre arbre.
+            \item Une fois complété, le programme \lstinline{treap.py} se trouvant sur Moodle génèrera un Treap en tenant compte de la position des éléments. 
+            \item Utilisez la fonction \lstinline{random.randrange(100)} pour générer des nombres aléatoires compris entre 0 et 99.
+            \item La propriété du Heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses nœuds enfants.
+            Les méthodes \lstinline{left_rotate} et \lstinline{right_rotate} permettent de réarranger les nœuds de façon à ce que la propriété du Heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
+            \begin{center}
+                \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
+            \end{center}
+        
+        \end{itemize}
+        
+        
     \end{conseil}
+
+    \begin{dessin}{}
+        \vspace{14cm}
+    \end{dessin}
+
+    \begin{solution}
+        \textbf{Code:}
+        \lstinputlisting{solutions/treap.py}
+
+    \textbf{\\Treap obtenu:} \\
+    \lstinline{[(4,94), [(1,66), None, [(2,1), None, None]], [(10,30), [(5,26), None, [(8,20), None, [(9,4), None, None]]], None]]}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{solutions/treap.png}
+    \end{center}
+    
+
+    
+    \end{solution}
+
+
+
 
     
 

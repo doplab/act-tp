@@ -1,5 +1,6 @@
 import random
 
+random.seed(10)
 
 class TreapNode(object):
     def __init__(self, key, priority, data):
@@ -83,13 +84,11 @@ if __name__ == '__main__':
 
 	# Vous pouvez utiliser la fonction random.randrange(100) pour générer des nombres aléatoires compris entre 0 et 99.
 
-	# TODO: Ajouter à votre liste des tuples contenant les valeurs de votre liste de clés et de priorités.
-	
-	# Pensez à utiliser une boucle for
+	# TODO: Ajouter à votre liste des tuples contenant les valeurs de votre liste de clés et de priorités. Pensez à utiliser une boucle for
 
     print(f"Noeuds avant insertion: {nodes}")
 
-    # Construction de la treap
+    # Construction du Treap
     for j in nodes:
 		# TODO: ajouter des arguments à la fonction insert. 
         treap.insert(..., ..., root)
