@@ -1,0 +1,135 @@
+\input{../header}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{tabto}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Probabilistic Algorithms}
+
+Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximative du problème initial. Néanmoins, ces algorithmes demeurent très utiles pour beaucoup d'applications.
+
+\section{Monte-Carlo}
+\begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
+Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Ressources}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+\\
+\begin{conseil}
+ \begin{enumerate}
+        \item Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurrence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+	\item Pour générer des nombres pseudo-aléatoires en Python, vous pouvez utliser la méthode \lstinline{random.random()} après avoir importé le module \lstinline{random}.
+\end{enumerate}
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language = python]{solutions/Piece_correction.py}
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[20 minutes]\textbf{Une approximation de $\pi$ : Python}\\
+L'objectif de cet exercice est de programmer un algorithme probabiliste permettant d'approximer le chiffre $\pi$. Imaginez un plan sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous une illustration de la situation:
+\begin{center}
+\includegraphics[]{resources/Cercle.PNG}
+\end{center}
+La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devrait appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+\begin{conseil}
+    La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction.
+\end{conseil}
+\begin{solution}
+ \lstinputlisting[language = python]{solutions/Pi.py}
+\end{solution}
+
+\end{Exercice}
+\newpage
+\section{Fingerprinting}
+\begin{Exercice}[20 minutes]\textbf{Fingerprinting: Une mission pour l'agente secrète Alice: Python}\\
+    Dans cet exercice, vous prendrez le rôle de l'agente secrète Alice. Cette dernière enquêtait sur la disparition de son collègue,
+    l'agent Bob, et se doutait que l'indice clé qui la mènerait à la vérité se trouvait dans la boîte mail de Bob. Alice arriva à trouver
+    un bout de papier avec écrit dessus : ``\textit{Mon mot de passe est l'empreinte de ceciestmonmotdepasse}''. Aidez Alice à trouver l'empreinte du mot de passe! \\
+
+    Pour cela, vous devez compléter deux fonctions :
+    \begin{enumerate}
+        \item \lstinline{is_a_prime_number(num)} qui vérifie que \lstinline{num} est un nombre premier ou pas. Un nombre premier est un entier naturel 
+        qui admet exactement deux diviseurs distincts entiers et positifs. Ces deux diviseurs sont 1 et le nombre considéré, 
+        puisque tout nombre a pour diviseurs 1 et lui-même, les nombres premiers étant ceux qui n’en possèdent aucun autre.
+        
+        \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
+              \begin{enumerate}
+                  \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
+                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
+              \end{enumerate}
+    \end{enumerate}
+
+    Si vous réussissez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
+
+    À vos ordis, détectives!
+
+    \lstinputlisting[language = python]{resources/fingerprinting.py}
+\begin{conseil}
+Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$ à $n/2$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
+\end{conseil}
+
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/fingerprinting_solution.py}
+    \end{solution}
+\end{Exercice}
+\newpage
+\section{Las Vegas}
+
+\begin{Exercice}[10 minutes]\textbf{Un point dans un cercle unitaire : Python}\\
+Les algorithmes de Monte Carlo sont des algorithmes probabilistes dont la sortie peut être incorrecte avec une certaine probabilité, qui est généralement faible. En revanche, un algorithme de Las Vegas est un algorithme probabiliste qui trouve toujours le bon résultat lorsqu'il existe. Son inconvénient est que sa complexité temporelle ne peut être garantie à l'avance car elle dépend des données passées en paramètres.\\ \\
+L'objectif de cet exercice est de programmer un algorithme probabiliste permettant de donner un point contenu dans un cercle unitaire. 
+
+\begin{conseil}
+   Vous pouvez vous inspirer de l'exercice 2 \textit{(Approximation de $\pi$ )}.
+\end{conseil}
+\begin{solution}
+ \lstinputlisting[language = python]{solutions/LV_Point.py}
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes] \textbf{Quicksort - Algorithme de Las Vegas: Python}\\
+    Dans cet exercice, vous allez implémenter un algorithme de tri rapide (quicksort) sur une liste d'éléments avec l'algorithme de Las Vegas.
+\\\\
+    L'algorithme de tri rapide applique un paradigme \textit{divide-and-conquer} afin de trier un ensemble de nombres~\lstinline{A}. Il fonctionne en trois étapes: 
+    \begin{enumerate}
+        \item il choisit d'abord un élément pivot, \lstinline{A[q]}, en utilisant un générateur de nombres aléatoires (d'où sa nature d'algorithme dit probabiliste) ;
+        \item puis il réorganise le tableau en deux sous-tableaux $A[p...q-1]$ et $A[q+1...r]$, où les éléments des premier et deuxième tableaux sont respectivement plus petits et plus grands que $A[q]$.
+        \item L'algorithme applique ensuite récursivement les étapes de tri rapide ci-dessus sur les deux tableaux indépendants, produisant ainsi un tableau entièrement trié.
+    \end{enumerate}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{resources/quicksort.png}
+        \caption{Illustration de l'algorithme de tri rapide}
+    \end{figure}
+
+    Complétez le code suivant:
+    \lstinputlisting[language = python]{resources/quicksort.py}
+
+
+    \begin{conseil}
+        Pour le choix de votre élément pivot, pensez à utiliser la méthode \lstinline{randint()} de la librairie \lstinline{random}.
+    \end{conseil}
+
+
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/quicksort_solution.py}
+    \end{solution}
+     
+
+
+\end{Exercice}
+\newpage
+
+
+
+
+
+
+
+\end{document}
