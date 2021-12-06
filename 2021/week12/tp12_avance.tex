@@ -25,7 +25,7 @@ Le code présenté dans les énoncés se trouvent sur Moodle, dans le dossier \l
 %Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
 %Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
 
-Cette partie constitue un rappel sur la notion de graphe orienté. Avant de traiter les exercices de la partie 3, veuillez répondre aux questions suivantes:
+Cette partie constitue un rappel sur la notion de graphe orienté. Avant de traiter les exercices de cette partie, veuillez répondre aux questions suivantes:
     \begin{enumerate}
         \item Quels sont les composantes d'un \lstinline{graphe orienté} ?
         \item Combien de classes sont nécessaires pour représenter un graphe orienté ainsi que toutes ses composantes?
@@ -34,15 +34,13 @@ Cette partie constitue un rappel sur la notion de graphe orienté. Avant de trai
 
 Maintenant que vous avez une idée des attributs de la classe \lstinline{graph} à définir, déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet. Pour ce faire, vous pouvez répondre aux questions suivantes:
     \begin{enumerate}
-    \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci initialisé ?
+    \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci aura été initialisé ?
     \item Est-ce que l'utilisateur aura besoin de vérifier l'état de l'objet (existence d'attributs, vérification de valeurs...) ou de certaines parties de l'objet ?
     \end{enumerate}
 
 \begin{conseil}
    % Un conseil
-   \begin{enumerate}
-   \item Revenir sur le cours de la semaine 7 sur Moodle.
-   \end{enumerate}
+   N'hésitez pas à revenir sur le cours de la semaine 7 (algorithmes de graphes) disponible sur Moodle.
 \end{conseil}
     
 Voici les réponses aux questions posées ci-dessus. 
@@ -87,13 +85,13 @@ Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources}
 \end{note}
 \begin{Exercice}[20 minutes]\\
 
-Voici une partie de la classe \lstinline{graph} codée. Implémentez les méthodes \lstinline{update_weight()}, \lstinline{new_edge()} et \lstinline{edge_exist()}.
+Voici une partie de la classe \lstinline{graph} que vous devez compléter. Implémentez les méthodes \lstinline{update_weight()}, \lstinline{new_edge()} et \lstinline{edge_exist()}.
 
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
         \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que l'\lstinline{arête} n'existe pas.
         \item La méthode \lstinline{edge_exist()} prendra en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode renvoie son poids, sinon, elle renvoie 0.
-        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edge} et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura pour paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
+        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edge} et l'ajouter à l'ensemble \lstinline{edges} si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console en utilisant un \lstinline{System.out.print}. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura pour paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
     \end{enumerate}
 
     \begin{conseil}
