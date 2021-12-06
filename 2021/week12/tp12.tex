@@ -37,9 +37,10 @@ Le code présenté dans les énoncés se trouvent sur Moodle, dans le dossier \l
 \section{Création de votre première classe en Java}
 
 Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée \lstinline{Dog()} représentant un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
+\\
 
 \begin{Exercice}[10 minutes] Création de classe et encapsulation\\
-    Commencez par créer une nouvelle classe \lstinline{Java} dans votre projet, et initialisez les attributs suivants :
+    Commencez par créer une nouvelle classe \lstinline{Java} dans votre projet. Ensuite, créez les attributs suivants :
     \begin{enumerate}
     \item Un attribut \lstinline{public} String nommé \lstinline{name}
     \item Un attribut \lstinline{private} List nommé \lstinline{tricks}
@@ -49,12 +50,12 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nb_chiens}
    	\end{enumerate}
    	
-   	Ensuite, créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur}, elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et un \lstinline{constructeur} en \lstinline{python} sera la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants et initialisera les attributs de notre instance :
+   	Créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur}, elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et le \lstinline{constructeur} en \lstinline{Python} sera défini par la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants qui seront utilisés pour initialiser les attributs de notre instance :
    	\begin{enumerate}
-    \item Une chaîne de caractère \lstinline{name}
-    \item Une liste \lstinline{tricks}
-    \item Une chaîne de caractère \lstinline{race}
-    \item Un entier \lstinline{age}
+    \item Une chaîne de caractère \lstinline{name},
+    \item Une liste \lstinline{tricks},
+    \item Une chaîne de caractère \lstinline{race},
+    \item Un entier \lstinline{age}.
    	\end{enumerate}
    	
    	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances crées.
@@ -87,7 +88,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
         \lstinputlisting{ressources/Example.java}
     \end{conseil} 
 
-    Pour les attributs publics, il vous suffit d'utiliser \lstinline{nom_instance.attribut} pour l'obtenir. \\
+    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nom_instance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
     
     Créez les méthodes suivantes :
     \begin{itemize}
@@ -101,7 +102,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item \lstinline{setMood()}
     \end{itemize}
     
-    Créez également une méthode de classe permettant de retourner le nombre de \lstinline{Dog} instanciés (une méthode \lstinline{getter}).
+    Créez également une méthode de classe permettant de retourner le nombre de \lstinline{Dog} instanciés (un \lstinline{getter}).
    	
 \begin{conseil}
     Intellij vous permet de générer automatiquement certaines méthodes telles que les getters et setters. Vous pouvez consulter le lien suivant pour plus d'informations: \url{https://www.jetbrains.com/help/idea/generating-code.html\#generate-delegation-methods}.
@@ -115,7 +116,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs - Listes\\
-    Créez une méthode \lstinline{public} nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
+    Créez une méthode publique nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
    La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une \lstinline{LinkedList} temporaire.
@@ -126,8 +127,8 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs - setter\\
-    Créez deux méthodes permettant de modifier l'attribut \lstinline{mood} du \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
+\begin{Exercice}[5 minutes] Manipulation d'attributs - \lstinline{setter}\\
+    Créez deux méthodes permettant de modifier l'attribut \lstinline{mood} de l'objet \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
 
 \begin{solution}
 	\lstinputlisting{ressources/Question4.java}
@@ -135,7 +136,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{get_oldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans''. \\
+    Créez une méthode nommée \lstinline{get_oldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans''. \\
    	
 \begin{conseil}
    L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
@@ -149,7 +150,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
     Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte sous le format suivant: 
-    \lstinline{nom_chien} a \lstinline{age_chien} ans, est un \lstinline{race_chien} et a une humeur de \lstinline{mood_chien}. Il sait faire les tours suivants : \lstinline{tricks_chien}.
+    ``\lstinline{nom_chien} a \lstinline{age_chien} ans, est un \lstinline{race_chien} et a une humeur de \lstinline{mood_chien}. Il sait faire les tours suivants : \lstinline{tricks_chien}''.
 
     \begin{Example}{\faLightbulb \quad Informations utiles}
         La méthode \lstinline{toString()} hérite de la super classe \lstinline{Object}. La notion d'héritage sera présentée la semaine prochaine. Retenez juste qu'il est possible de choisir ce que vaudra le texte descriptif de nos objets de type \lstinline{Dog}. Il est également possible de redéfinir d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seraient additionnés ou soustraits. \\
@@ -160,7 +161,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \end{solution}
 \end{Exercice}
 
-Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant dans votre classe Main :
+Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant à l'intérieur de votre méthode \lstinline{main} :
 
 	\lstinputlisting{ressources/question6_main.java}
 	
@@ -173,19 +174,19 @@ Dans cette section, nous allons simuler un jeu de combat entre deux protagoniste
 Chaque \lstinline{Fighter} aura des attributs qui le définissent. Ces attributs sont:
 \begin{itemize}
     \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
-    \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
+    \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut-
     \item \lstinline{attaque:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts infligés à l'adversaire.
-    \item \lstinline{défense:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts reçus.
+    \item \lstinline{défense:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts reçus.\\
 \end{itemize}
 
-2 attributs de classe seront également utilisés :
+Deux attributs de classe seront également utilisés :
 \begin{itemize}
 \item \lstinline{instances :} Liste comprenant les combattants qui ont été instanciés et qui sont toujours en vie.
-\item \lstinline{attack_modifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.
+\item \lstinline{attack_modifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.\\
 \end{itemize}
 
-Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{Fighter}. Chaque instance de cette classe pourra attaquer les autres instances.
-
+Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{Fighter}. Chaque instance de la classe \lstinline{Fighter} pourra attaquer les autres instances.
+\\
 Vous devrez compléter les 4 méthodes suivantes :
 \begin{enumerate}
 \item \lstinline{isAlive()}
@@ -212,7 +213,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
     Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nom_instance} est mort'' sera affiché.
     
 \begin{conseil}
-Prenez le problème dans l'autre sens, créez une liste temporaire, si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
+Prenez le problème dans l'autre sens, créez une liste temporaire. Si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
 L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette liste d'instances en utilisant une boucle \lstinline{for}. 
 
 \end{conseil}
@@ -223,7 +224,7 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] checkHealth()\\
-    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et imprime le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nom_instance} a encore \lstinline{health_instance} points de vie". 
+    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nom_instance} a encore \lstinline{health_instance} points de vie". 
 
 \begin{solution}
 	\lstinputlisting{ressources/checkhealth.java}
@@ -233,8 +234,8 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \begin{Exercice}[10 minutes] attack(String type Fighter other)\\
     Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
-    Commencez par contrôler si \lstinline{other} est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
-    
+    Commencez par contrôler si \lstinline{other} est encore en vie.Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
+
      Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attack_modifier(type)} * \lstinline{attack_instance} - \lstinline{defense_other}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
     
 
@@ -257,11 +258,11 @@ Vous devriez obtenir ce résultat : \\
 
 \section{Notions de POO en Python}
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
-Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question11.py}.
+Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question11.py}.\\
 
-\begin{Exercice}[15 minutes] Classe Point
+\begin{Exercice}[15 minutes] Classe \lstinline{Point}
     \begin{itemize}
-        \item Créez une classe \lstinline{Point} et un constructeur par défaut contenant deux paramètres (x et y).
+        \item Créez une classe \lstinline{Point} et un constructeur par défaut contenant deux paramètres (\lstinline{x} et \lstinline{y}).
         \begin{conseil}
             Pour rappel, un constructeur est une fonction \lstinline{__init()__} que vous redéfinirez dans votre classe.
         \end{conseil}
@@ -275,7 +276,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
         \begin{conseil}
             En Python, le mot-clé \lstinline{self} est l'équivalent de \lstinline{this} utilisé en Java.
         \end{conseil}
-        \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du Point (\lstinline{self}) et un autre point \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
+        \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du \lstinline{Point} (\lstinline{self}) et un autre \lstinline{Point} \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
         \begin{conseil}
             Pour rappel, la distance euclidienne entre deux points est définie par la formule $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$.
 

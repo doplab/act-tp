@@ -1,5 +1,4 @@
 public class Dog {
-
     public String name;
     private List tricks;
     private String race;
