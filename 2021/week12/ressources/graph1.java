@@ -61,25 +61,4 @@ public class Graph {
                 this.generate_edge(from_vertex, to_vertex, weight);
             }
         }
-    }
-
-    // Méthode nous permettant de supprimer une arête du graph.
-    public void del_edge(String from_vertex, String to_vertex){
-        for( Edge edge : this.edges ){
-            if (edge.from_vertex == from_vertex & edge.to_vertex == to_vertex){
-                this.edges.remove(edge);
-                System.out.println("Edge between " + from_vertex + " and " + to_vertex + " has been deleted.");
-                break;
-            }
-        }
-    }
-
-    public void print(){
-        for(int i=0; i< this.vertices.size(); ++i){
-            System.out.println("The vertex number " + (i+1) + " has a value of: " + this.vertices.get(i));
-        }
-        for (Edge edge : this.edges){
-            edge.print();
-        }
-    }
-}
+    }    // Suite à la page suivante

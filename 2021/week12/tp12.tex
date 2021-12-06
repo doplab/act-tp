@@ -10,30 +10,28 @@
 \titre
 \cours{Programmation orientée objet}
 
-Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'intéraction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
+Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
 Afin d'atteindre ces objectifs, nous utiliserons principalement le langage \lstinline{Java} qui offre une panoplie d'outils pour mieux comprendre ce paradigme de programmation.
 \\
 %TODO: Rajouter un lien vers les vidéos
-\begin{note}{"Nathan"}
-    q1-9: basique
-    q10,11: avancé
-    q12: basique
-\end{note}
-Les codes présentés dans les énoncés se trouvent sur Moodle, dans le dossier \lstinline{Ressources}.
 
-\begin{conseil}
-	A partir de cette semaine, nous travaillerons de plus en plus en Java. Nous vous invitons donc à lire le guide de démarrage en Java qui se trouve sur 	Moodle:
-	\url{https://moodle.unil.ch/mod/folder/view.php?id=1132337}.
+Le code présenté dans les énoncés se trouvent sur Moodle, dans le dossier \lstinline{Ressources}.
 
-	Une classe est un modèle pour l'objet. Avant de créer un objet, nous devons d'abord définir la classe.
-	Nous pouvons considérer la classe comme le croquis (prototype) d'une maison. Elle contient tous les détails concernant les sols, les portes, les 	fenêtres, etc. Sur la base de ces descriptions, nous construisons la maison. La maison est l'objet.
-	Puisque de nombreuses maisons peuvent être construites à partir de la même description, nous pouvons créer de nombreux objets à partir d'une classe.
-	On peut créer une classe en Java en utilisant le mot-clé class. 
-	Par exemple ;
-	\lstinputlisting{ressources/Bicycle.java}
-	Ici, les champs (fields) et les méthodes représentent respectivement l'état et le comportement de l'objet.
-	Les champs sont utilisés pour stocker des données les méthodes sont utilisées pour effectuer certaines opérations.
-\end{conseil}
+\begin{comment}
+    \begin{conseil}
+        A partir de cette semaine, nous travaillerons de plus en plus en Java. Nous vous invitons donc à lire le guide de démarrage en Java qui se trouve sur 	Moodle:
+        \url{https://moodle.unil.ch/mod/folder/view.php?id=1132337}.
+
+        Une classe est un modèle pour l'objet. Avant de créer un objet, nous devons d'abord définir la classe.
+        Nous pouvons considérer la classe comme le croquis (prototype) d'une maison. Elle contient tous les détails concernant les sols, les portes, les 	fenêtres, etc. Sur la base de ces descriptions, nous construisons la maison. La maison est l'objet.
+        Puisque de nombreuses maisons peuvent être construites à partir de la même description, nous pouvons créer de nombreux objets à partir d'une classe.
+        On peut créer une classe en Java en utilisant le mot-clé class. 
+        Par exemple ;
+        \lstinputlisting{ressources/Bicycle.java}
+        Ici, les champs (fields) et les méthodes représentent respectivement l'état et le comportement de l'objet.
+        Les champs sont utilisés pour stocker des données les méthodes sont utilisées pour effectuer certaines opérations.
+    \end{conseil}
+\end{comment}
 
 
 \section{Création de votre première classe en Java}
@@ -62,7 +60,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
    	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances crées.
    	
 \begin{conseil}
-   N'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
+    Pour revoir les notions de base du langage Java, n'hésitez pas à consulter le guide de démarrage en Java sur Moodle:
+	\url{https://moodle.unil.ch/mod/folder/view.php?id=1132337}
+
+   Pour cet exercice, n'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
    
    Le mot \lstinline{static} correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
    
@@ -77,9 +78,16 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] Getters et setters\\
-    Il faut maintenant créer des méthodes nommées \lstinline{setter} et \lstinline{getter} pour les attributs privés. Ce sont ces méthodes qui vous permettront d'interagir avec les attributs \lstinline{private} des instances de la classe. Pour les attributs publics, il vous suffit d'utiliser \lstinline{nom_instance.attribut} pour l'obtenir. \\
-    
-    Les méthodes \lstinline{getter} d'accéder à la valeur d'un attribut. Les \lstinline{setter} permettent de modifier la valeur de l'attribut. Les \lstinline{setter} sont souvent utilisés pour modifier la valeur d'attributs privés. \\
+    Il faut maintenant créer des méthodes de type \lstinline{getter} et \lstinline{setter} afin d'interagir avec les attributs \lstinline{private} des instances de la classe. 
+    Les \lstinline{getters} renverront les attributs souhaités tandis que les \lstinline{setters} les modifieront.
+
+    Les \lstinline{setters} sont souvent utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
+    \begin{conseil}
+        Exemple de \lstinline{getters} et de \lstinline{setters}:
+        \lstinputlisting{ressources/Example.java}
+    \end{conseil} 
+
+    Pour les attributs publics, il vous suffit d'utiliser \lstinline{nom_instance.attribut} pour l'obtenir. \\
     
     Créez les méthodes suivantes :
     \begin{itemize}
@@ -107,7 +115,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs - Listes\\
-    Créez une méthode \lstinline{public} nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractère et l'ajoute à la liste \lstinline{tricks}. \\
+    Créez une méthode \lstinline{public} nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
    La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une \lstinline{LinkedList} temporaire.
@@ -119,7 +127,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs - setter\\
-    Créez deux méthodes qui vont avoir un impact sur l'attribut \lstinline{mood} du \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera mood de 1 et \lstinline{eat()} l'incrémentera de 3. \\
+    Créez deux méthodes permettant de modifier l'attribut \lstinline{mood} du \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
 
 \begin{solution}
 	\lstinputlisting{ressources/Question4.java}
@@ -127,11 +135,11 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{get_oldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'age du \lstinline{Dog} le plus agé sous le format suivant : "\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans". \\
+    Créez une méthode nommée \lstinline{get_oldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans''. \\
    	
 \begin{conseil}
    L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
-   Faites attention à la façon d'accéder aux différents attributs de votre deuxième chien (utiliser le nom que vous avez donné à votre argument et ajoutez un \lstinline{.}  derrière) ainsi que \lstinline{public} vs \lstinline{private}. 
+   Faites attention à la façon d'accéder aux différents attributs de votre deuxième chien (pour rappel, les attributs privés ne sont accessibles qu'à travers des \lstinline{getters} que vous aurez préalablement définis).
 \end{conseil}
     
 \begin{solution}
@@ -140,11 +148,11 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
-    Créez une méthode \lstinline{toString()} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez une texte sous le format suivant: 
+    Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte sous le format suivant: 
     \lstinline{nom_chien} a \lstinline{age_chien} ans, est un \lstinline{race_chien} et a une humeur de \lstinline{mood_chien}. Il sait faire les tours suivants : \lstinline{tricks_chien}.
 
     \begin{Example}{\faLightbulb \quad Informations utiles}
-        La méthode \lstinline{toString()} hérite de la super classe Object. La notion d'héritage sera présentée la semaine prochaine. Retenez juste qu'il est possible de choisir ce que vaudra le texte descriptif de nos objets de type \lstinline{Dog}. Il est également possible de redéfinir d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seraient additionnés ou soustraits. \\
+        La méthode \lstinline{toString()} hérite de la super classe \lstinline{Object}. La notion d'héritage sera présentée la semaine prochaine. Retenez juste qu'il est possible de choisir ce que vaudra le texte descriptif de nos objets de type \lstinline{Dog}. Il est également possible de redéfinir d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seraient additionnés ou soustraits. \\
     \end{Example}
 
     \begin{solution}
@@ -194,7 +202,7 @@ Voici le squelette du code (à télécharger sur Moodle) : \\
 \lstinputlisting{ressources/Combattant.java}
 
 \begin{Exercice}[5 minutes] isAlive()\\
-    Définir une méthode \lstinline{isAlive()} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
+    Définir une méthode \lstinline{isAlive()} de type \lstinline{Boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 
 \begin{solution}
 	\lstinputlisting{ressources/isalive.java}
@@ -203,10 +211,12 @@ Voici le squelette du code (à télécharger sur Moodle) : \\
 
 
 \begin{Exercice}[10 minutes] checkDead()\\
-    Définir une méthode \lstinline{checkDead()} qui consiste à parcourir la liste des instances, et à contrôler que chacune d'elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nom_instance} est mort'' sera affiché.
+    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nom_instance} est mort'' sera affiché.
     
 \begin{conseil}
-Prenez le problème dans l'autre sens, créez une liste temporaire, si l'instance est vivante ajoutez la à cette nouvelle liste, et pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.
+Prenez le problème dans l'autre sens, créez une liste temporaire, si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
+L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette liste d'instances en utilisant une boucle \lstinline{for}. 
+
 \end{conseil}
 
 \begin{solution}
@@ -223,7 +233,7 @@ Prenez le problème dans l'autre sens, créez une liste temporaire, si l'instanc
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] attack(String type Fighter other)\\
-    Définir une méthode \lstinline{attack(String type, Fighter other)} qui consiste à retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
+    Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
     Commencez par contrôler si \lstinline{other} est encore en vie, si ce n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
     
@@ -247,119 +257,7 @@ Vous devriez obtenir ce résultat : \\
 
 \newpage
 
-\section{Manipulation de graphes en POO (Java)}
-
-%\subsection{Introduction}
-% TODO: Cette sous-section devrait être convertie en introduction. Les questions sont intéressantes. Toutefois, elles perdent de leur utilité si les étudiants n'ont pas accès aux réponses de façon immédiate. Il serait préférable de les reformuler et de les utiliser comme rappel avant de commencer à faire les exercices suivants.
-
-
-%Ici, on cherche à pousser votre réflexion sur le processus de conception de classes pour implémenter un concept existant en dehors de la programmation.
-%Pour cela, il faut se placer du point de vue de l'utilisateur pour savoir ce dont il aurait besoin. 
-%Il faut aussi savoir de quoi est constitué le concept que l'on cherche à implémenter. C'est-à-dire, pour utiliser une analogie, les différentes briques qui sont utilisées pour construire le mur qui est votre objet final.
-
-Cette partie constitue un rappel sur la notion de graphe orienté. Avant de traiter les exercices de la partie 3, veuillez répondre aux questions suivantes:
-    \begin{enumerate}
-        \item Quels sont les composantes d'un \lstinline{graphe orienté} ?
-        \item Combien de classes sont nécessaires pour représenter un graphe orienté ainsi que toutes ses composantes?
-        \item Sachant que vous avez une classe qui représente les \lstinline{arêtes} et que les \lstinline{sommets} sont représentés par des chaînes de caractères. Quels pourraient être les attributs de la classe \lstinline{graph}.
-    \end{enumerate}
-
-Maintenant que vous avez une idée des attributs de la classe \lstinline{graph} à définir, déterminer quelles méthodes sont nécessaires au fonctionnement de cet objet. Pour ce faire, vous pouvez répondre aux questions suivantes:
-    \begin{enumerate}
-    \item Est-ce que l'utilisateur aura besoin de modifier l'objet une fois celui-ci initialisé ?
-    \item Est-ce que l'utilisateur aura besoin de vérifier l'état de l'objet (existence d'attributs, vérification de valeurs...) ou de certaines parties de l'objet ?
-    \end{enumerate}
-
-\begin{conseil}
-   % Un conseil
-   \begin{enumerate}
-   \item Revenir sur le cours de la semaine 7 sur Moodle.
-   \end{enumerate}
-\end{conseil}
-    
-Voici les réponses aux questions posées ci-dessus. 
-
-\textbf{Certaines questions peuvent avoir plus d'une réponse étant donné qu'il existe plusieurs manières de représenter un graphe en programmation. }
-    %\lstinputlisting{solutions/fichier.java}
-    \begin{enumerate}
-    \item \begin{enumerate}
-          \item Les \lstinline{sommets}.
-          \item Les \lstinline{arêtes}.
-          \item Le \lstinline{poids} de chaque arête.
-          \end{enumerate}
-    \item Il faut 2 classes ( ou 3 si on cherche à avoir plus d'informations dans les sommets):
-        \begin{enumerate}
-        \item Une classe \lstinline{Edge} qui va représenter les arêtes.
-        \item Une classe \lstinline{Graph}.
-        \end{enumerate}
-    \item La classe \lstinline{Graph} va avoir 2 attributs: un ensemble contenant les \lstinline{sommets} et un autre ensemble contenant les \lstinline{arêtes} de celui-ci.
-    
-%    \item Les réponses à cette partie sont courtes mais assez essentielles pour savoir quelles méthodes coder:
- %       \begin{enumerate}
-       % \item Oui, l'utilisateur voudra sûrement rajouter des \lstinline{arêtes}, des \lstinline{sommets} ou potentiellement changer le poids d'une \lstinline{arête}. Il faut donc lui laisser cette possibilité
-       % \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les \lstinline{weighted graphs}. Il est donc utile de pouvoir identifier si un \lstinline{sommet} ou une \lstinline{arête} sont des composants de l'instance.
-       % \item Certaines méthodes pourraient avoir un code très long si on ne ségmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
-        
-       % De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
-  %      \end{enumerate}
-    \end{enumerate}
-
-%\subsection{Partie 2}
-% TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
-
-Le code de la classe \lstinline{Edge} est fourni dans le dossier ressources sur Moodle.
-Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Une fois exécuté, il devrait afficher:\\
-
-    \includegraphics[height=8cm]{ressources/sortie_juste.PNG}
-
-\newpage
-
-\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
-\begin{Exercice}[20 minutes]\\
-
-Voici une partie de la classe \lstinline{graph} codée. Implémentez les méthodes \lstinline{update_weight()}, \lstinline{new_edge()} et \lstinline{edge_exist()}.
-
-         \lstinputlisting{ressources/graph_empty.java}
-    \begin{enumerate}
-        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que l'\lstinline{arête} n'existe pas.
-        \item La méthode \lstinline{edge_exist()} prendra en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode renvoie son poids, sinon, elle renvoie 0.
-        \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edge} et l'ajouter à l'ensemble edges si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console avec print. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura pour paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
-    \end{enumerate}
-
-    \begin{conseil}
-    \begin{enumerate}
-    \item Utiliser une boucle \lstinline{for} pour parcourir toutes les \lstinline{arêtes} dans le \lstinline{graph}. Faire un test sur les attributs de \lstinline{Edge} pour changer le poids.
-    \item Il faut tester pour chaque \lstinline{arête} ( itération) si elle  est égale à celle donnée en paramètres.
-    \item Il faut utiliser les méthodes \lstinline{edge_exist()}, \lstinline{update_edge()} et \lstinline{generate_edge()} pour écrire cette méthode. Il y a 4 tests à effectuer: 
-        \begin{enumerate}
-        \item Si \lstinline{l'arête} existe.
-        \item Si \lstinline{l'arête} existante a le même poids que celle indiquée en paramètre de la méthode.
-        \item Si \lstinline{l'arête} existante n'a pas le même poids que celle indiquée en paramètre de la méthode.
-        \item Utilisez le résultat de \lstinline{edge_exist} pour simplifier ces tests.
-        \end{enumerate}
-    \end{enumerate}
-    \end{conseil}
-    \begin{solution}
-    \textbf{Java :}
-         \lstinputlisting{ressources/Edge.java}
-    \end{solution}
-    \begin{solution}
-    \textbf{Java :}
-         \lstinputlisting{ressources/graph.java}
-    \end{solution}
-    % TODO: Découper les fichiers de solutions pour qu'ils tiennent sur une page. Les renommer graph_1.java, graph_2,java par exemple et les mettre dans un dossier "Display" ou "Affichage". Mettre le fichier complet dans le dossier solution.
-    \begin{solution}
-    \textbf{Java :}
-         \lstinputlisting{ressources/graph2.java}
-    \end{solution}
-
-\end{Exercice}
-
-\newpage
-
-\section{Notions de POO en Python}\optionnel\\
+\section{Notions de POO en Python}
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier \> Nouveau \> Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question12.py}.
 
