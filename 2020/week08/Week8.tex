@@ -49,9 +49,6 @@ Implémentez la rechere du voisin le plus proche. Ce dernier fonctionne de la fa
 \end{solution}
 \end{Exercice}
 
-\begin{note}{Maeva}
-    Ceci devrait être un exercice avancé
-\end{note}
 
 \begin{Exercice}[15 minutes]\textbf{K-nearest-neighbor search}\\
 
@@ -116,6 +113,7 @@ ADD(node,point,cutaxis):\\
 \lstinputlisting[language = python]{Question5_solution.py}\\
 
 \underline{Commentaire #1} : Si la coordonnée du point à ajouter est inférieure à celle du noeud selon l'axe de découpe en considération, alors le point dois se trouver dans le sous arbre de gauche. Par convention, le noeud de gauche correspond dans la liste [(x,y), noeud de gauche, noeud de droite] à l'indice 1, par conséquent, on appelle la fonction de façon récursive pour ajouter le point, mais cette fois-ci en partant de 1 cran plus bas dans l'arbre. Cela se répète jusqu'à ce qu'un ait atteint les feuilles et qu'on nouveau noeud doivent être crée.
+
 \end{solution}
 \end{Exercice}
 
