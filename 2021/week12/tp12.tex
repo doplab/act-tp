@@ -191,13 +191,11 @@ Vous devrez compléter les 4 méthodes suivantes :
 \item \lstinline{isAlive()}
 \item \lstinline{checkDead()}
 \item \lstinline{checkHealth()}
-\item \lstinline{attack(String type, Fighter other)}
+\item \lstinline{attack(String type, Fighter other)}\\
 \end{enumerate}
 
 
-
-
-Voici le squelette du code (à télécharger sur Moodle) : \\
+Voici le squelette du code (à télécharger sur Moodle) :
 
 \lstinputlisting{ressources/Combattant.java}
 
@@ -259,7 +257,7 @@ Vous devriez obtenir ce résultat : \\
 
 \section{Notions de POO en Python}
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
-Dans votre IDE, créez un nouveau projet Python (Fichier \> Nouveau \> Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question12.py}.
+Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question11.py}.
 
 \begin{Exercice}[15 minutes] Classe Point
     \begin{itemize}
@@ -277,11 +275,11 @@ Dans votre IDE, créez un nouveau projet Python (Fichier \> Nouveau \> Projet). 
         \begin{conseil}
             En Python, le mot-clé \lstinline{self} est l'équivalent de \lstinline{this} utilisé en Java.
         \end{conseil}
-        \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du Point (\lstinline{self}) et une autre point \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
+        \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du Point (\lstinline{self}) et un autre point \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
         \begin{conseil}
             Pour rappel, la distance euclidienne entre deux points est définie par la formule $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$.
 
-            Utilisez la fonction \lstinline{sqrt()} de la librairie \lstinline{math} pour calculer la racine carrée. Pensez à importer la libraire \lstinline{math}
+            Utilisez la fonction \lstinline{sqrt()} de la librairie \lstinline{math} pour calculer la racine carrée. Pensez à importer la libraire \lstinline{math}.
         \end{conseil}
         \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p2} et qui retournera un objet \lstinline{Point} situé entre \lstinline{self} et \lstinline{p2}.
         \begin{conseil}
@@ -297,7 +295,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier \> Nouveau \> Projet). 
 \end{Exercice}
 
 \begin{solution}
-    \lstinputlisting{solutions/question12_solution.py}
+    \lstinputlisting{solutions/question11_solution.py}
 \end{solution}
 
 \end{document}
