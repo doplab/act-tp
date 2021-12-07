@@ -1,24 +1,24 @@
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 
-public class Edge {
-    public String from_vertex; // node de départ
-    public String to_vertex;  // node d arrivée ( chaîne de caractère)
+class Edge {
+    public String fromVertex; // node de départ
+    public String toVertex;  // node d arrivée (chaîne de caractère)
     public double weight;  // poids de l arête
 
-    public Edge(String from_vertex, String to_vertex, double weight) {
-        this.from_vertex = from_vertex;
-        this.to_vertex = to_vertex;
+    public Edge(String fromVertex, String toVertex, double weight) {
+        this.fromVertex = fromVertex;
+        this.toVertex = toVertex;
         this.weight = weight;
     }
 
     public void print(){
-        Map<String, String> edge_rep = new HashMap <String,String>(); // Création d un dictionnaire pour pouvoir afficher une arête
-        edge_rep.put("from_vertex",this.from_vertex);
-        edge_rep.put("to_vertex",this.to_vertex);
-        edge_rep.put("weight", String.valueOf(this.weight));
-        System.out.println(edge_rep);
+        Map<String, String> edgeRep = new HashMap <String,String>(); // Création d un dictionnaire pour pouvoir afficher une arête
+        edgeRep.put("From Vertex",this.fromVertex);
+        edgeRep.put("To Vertex",this.toVertex);
+        edgeRep.put("Weight", String.valueOf(this.weight));
+        System.out.println(edgeRep);
     }
-
 }
