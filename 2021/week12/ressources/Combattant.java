@@ -3,15 +3,15 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Combattant {
+public class Fighter {
     private String name;
     private int health;
     private int attack;
     private int defense;
-    private static List<Combattant> instances = new ArrayList<Combattant>();
-    private static HashMap<String, Integer> attack_modifier = new HashMap(Map.of("poing",1,"pied",2,"tete",3));
+    private static List<Fighter> instances = new ArrayList<Fighter>();
+    private static HashMap<String, Integer> attackModifier = new HashMap(Map.of("poing",1,"pied",2,"tete",3));
 
-    public Combattant (String name, int health, int attack, int defense) {
+    public Fighter(String name, int health, int attack, int defense) {
         this.name = name;
         this.health = health;
         this.attack = attack;
@@ -67,3 +67,4 @@ public class Combattant {
         // à compléter
     }
 }
+

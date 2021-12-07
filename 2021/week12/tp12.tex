@@ -116,7 +116,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs - Listes\\
-    Créez une méthode publique nommée \lstinline{add_trick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
+    Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
    La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une \lstinline{LinkedList} temporaire.
@@ -136,7 +136,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{get_oldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nom_chien} est le chien le plus agé avec \lstinline{age_chien} ans''. \\
+    Créez une méthode nommée \lstinline{getOldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nomChien} est le chien le plus agé avec \lstinline{ageChien} ans''. \\
    	
 \begin{conseil}
    L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
@@ -150,7 +150,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
     Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte sous le format suivant: 
-    ``\lstinline{nom_chien} a \lstinline{age_chien} ans, est un \lstinline{race_chien} et a une humeur de \lstinline{mood_chien}. Il sait faire les tours suivants : \lstinline{tricks_chien}''.
+    ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
 
     \begin{Example}{\faLightbulb \quad Informations utiles}
         La méthode \lstinline{toString()} hérite de la super classe \lstinline{Object}. La notion d'héritage sera présentée la semaine prochaine. Retenez juste qu'il est possible de choisir ce que vaudra le texte descriptif de nos objets de type \lstinline{Dog}. Il est également possible de redéfinir d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seraient additionnés ou soustraits.
@@ -184,7 +184,7 @@ Chaque \lstinline{Fighter} aura des attributs qui le définissent. Ces attributs
 Deux attributs de classe seront également utilisés :
 \begin{itemize}
 \item \lstinline{instances :} Liste comprenant les combattants qui ont été instanciés et qui sont toujours en vie.
-\item \lstinline{attack_modifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.\\
+\item \lstinline{attackModifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.\\
 \end{itemize}
 
 Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{Fighter}. Chaque instance de la classe \lstinline{Fighter} pourra attaquer les autres instances.
@@ -203,7 +203,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
 \lstinputlisting{ressources/Combattant.java}
 
 \begin{Exercice}[5 minutes] isAlive()\\
-    Définir une méthode \lstinline{isAlive()} de type \lstinline{Boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
+    Définir une méthode \lstinline{isAlive()} de type \lstinline{boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 
 \begin{solution}
 	\lstinputlisting{ressources/isalive.java}
@@ -212,7 +212,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
 
 
 \begin{Exercice}[10 minutes] checkDead()\\
-    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nom_instance} est mort'' sera affiché.
+    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nomInstance} est mort'' sera affiché.
     
 \begin{conseil}
 Prenez le problème dans l'autre sens, créez une liste temporaire. Si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
@@ -226,7 +226,7 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] checkHealth()\\
-    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nom_instance} a encore \lstinline{health_instance} points de vie". 
+    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nomInstance} a encore \lstinline{healthInstance} points de vie". 
 
 \begin{solution}
 	\lstinputlisting{ressources/checkhealth.java}
@@ -248,7 +248,7 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \end{Exercice}
 
 
-Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Ressources sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
+Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Code sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
 
 \lstinputlisting{ressources/main2.java}
 

@@ -1,4 +1,4 @@
-    public Boolean isAlive() {
+    public boolean isAlive() {
         if (this.health > 0) {
             return true;
         } else {

@@ -1,5 +1,5 @@
 public static void checkHealth() {
-        for (Combattant f : Combattant.instances) {
+        for (Fighter f : Fighter.instances) {
             System.out.println(f.getName() + " a encore " + f.getHealth() + " points de vie");
         }
     }
