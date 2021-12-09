@@ -1,0 +1,236 @@
+\documentclass[10pt]{article}
+\usepackage[usenames]{color} %pour la couleur
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage[utf8]{inputenc} %utile pour taper directement les caractères accentués
+\begin{document}
+\begin{align*}\input{header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation orientée objet: Héritage et Polymorphisme - exercices basiques}
+
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Les exercices sont construits autour des concepts d'héritage, de surcharge d'opérateurs/méthodes et de polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. À chaque exercice, le langage de programmation à utiliser sera spécifié.
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
+
+\section{Notions d'héritage - Java}
+
+Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
+Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe mère. 
+
+\begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
+Créez la classe mère \lstinline{Livre} avec les caractéristiques suivantes:
+\begin{itemize}
+	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
+	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
+	\item un attribut \lstinline{privé int} nommé \lstinline{annee},
+	\item un attribut \lstinline{privé int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
+	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus,
+	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut \lstinline{note},
+	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut \lstinline{note},
+	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()} \\
+\end{itemize}
+
+Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez "Note : pas encore attribuée" au lieu de "Note : \lstinline{note}" via la méthode \lstinline{toString()}. \\
+
+
+Créez les classes filles avec les caractéristiques suivantes:\\
+\lstinline{class Livre_Audio extends Livre}
+\begin{itemize}
+	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
+
+\end{itemize}
+\lstinline{class Livre_Illustre extends Livre}
+\begin{itemize}	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
+
+\end{itemize}
+
+\begin{conseil}
+En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
+
+Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la sous-classe selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
+
+L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une sous-classe.
+
+Vous pouvez vous servir de \lstinline{\n} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage.
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/heritage-solution-1.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
+
+Maintenant que vous avez créé la classe mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+
+En instanciant l'objet, vous pourriez utiliser les valeurs suivantes : titre: "Hamlet", auteur: "Shakespeare", année: "1609" et le narrateur "William.\\
+
+Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
+
+Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
+
+La méthode étant définie dans la classe mère, elle n'a pas connaissance de la variable \lstinline{narrateur} définie dans la sous-classe. Redéfinissez la méthode dans la classe fille pour y inclure l'information sur le narrateur. \\
+
+Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
+
+\begin{conseil}
+\textbf{Attention}, on vous demande de créer un objet \lstinline{Livre} et non pas \lstinline{Livre_Audio}.
+
+Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé\lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} représentait l'instance avec laquelle la méthode était appelée. 
+
+
+L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/heritage-solution-2.java}
+	\lstinputlisting{Solutions/heritage-solution-3.java}
+\end{solution}
+
+\end{Exercice}
+
+\newpage
+Lorsque toutes les étapes auront été effectuées, effectuez ce \lstinline{main} : \\
+
+\lstinputlisting{ressources/heritage-main.java}
+
+
+Vous devriez obtenir : \\
+
+
+\lstinputlisting{ressources/heritage-main-prompt.java}
+
+\newpage
+\section{Polymorphisme - Java}
+
+Les exercices de cette section sont une suite des exercices de la section 2 de la semaine passée.
+Dans cette partie, vous serez amenés à créer 2 nouvelles sous-classes de la classe mère \lstinline{Combattant}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Combattant}, le soignera au lieu de le blesser. La deuxième classe représentera un combattant spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini au moment où vous l'instancierez). Pensez à télécharger la dernière version de la classe \lstinline{Combattant} dans le dossier ressources.\\
+
+Voici le squelette du code que vous trouverez également dans le dossier ressources du Moodle : \\
+
+\lstinputlisting{ressources/combattant-squelette.java}
+
+\begin{Exercice}[5 minutes] Sous-classe \lstinline{Soigneur} \\
+
+Commencez par déclarer une nouvelle sous-classe \lstinline{Soigneur}. Cette sous-classe prendra un nouvel attribut \lstinline{private}, \lstinline{int}, nommé \lstinline{résurrection}, qui vaudra 1 lors de l'instanciation. \\
+
+Déclarez le \lstinline{constructeur} de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec ce nouvel attribut (\lstinline{résurrection}). \\
+
+\begin{conseil}
+Pensez à utiliser le constructeur de votre classe mère \lstinline{Combattant}
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/soigneur.java}\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] Méthode \lstinline{résurrection(Combattant other)} de la sous-classe \lstinline{Soigneur} \\
+
+Commencez par déclarer une nouvelle méthode nommée \lstinline{résurrection(Combattant other)}. \\
+Cette méthode permettra de faire revenir un \lstinline{Combattant} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
+
+Commencez par contrôler que l'instance depuis laquelle la méthode est appelée soit toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\ 
+
+Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le via : \lstinline{nom_other} est toujours en vie. \\
+
+Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
+
+Si tous ces éléments sont réunis, faites revenir le \lstinline{Combattant} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Combattant}. Pensez aussi à:\begin{itemize}
+	\item Mettre l'attribut \lstinline{résurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
+	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other} est revenu à la vie !
+\end{itemize}
+
+\begin{conseil}
+Utilisez un branchement conditionnel pour les contrôles. \\
+
+Une nouvelle méthode nommée \lstinline{addInstances(Combattant other)} a été créée dans la classe \lstinline{Combattant}. Regardez à quoi elle sert et utilisez la. \\
+
+Pour les indications en fonction des différentes conditions, imprimez simplement la phrase en question. \\
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/resurrection.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] Méthode \lstinline{attack} de la sous-classe \lstinline{Soigneur} \\
+
+Réécrivez la méthode \lstinline{attack} de la sous-classe \lstinline{Soigneur} afin d'ajouter des points de vie à \lstinline{other} au lieu de lui en retirer. \\
+
+Le seul argument nécessaire pour cette méthode sera le \lstinline{Combattant} \lstinline{other}. \\
+
+Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.
+Contrôlez ensuite si \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez : \lstinline{nom_other} est déjà mort, ressuscitez le afin de pouvoir le soigner. Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via : \lstinline{nom_other} a déjà le maximum de points de vie. \\
+
+Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de \lstinline{other}, puis appelez la méthode de classe \lstinline{checkHealth()}.
+
+\begin{conseil}
+Pensez à utiliser du branchement conditionnel pour les contrôles. \\
+
+Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'instance depuis laquelle la méthode est appelée. Ajoutez la valeur de cet attribut \lstinline{attack} au \lstinline{Combattant} \lstinline{other}
+
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/soigneur-attack.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] Sous-classe \lstinline{Attaquant} \\
+
+Commencez par déclarer une nouvelle sous-classe \lstinline{Attaquant}. Cette sous-classe prendra un nouvel attribut \lstinline{private}, \lstinline{int}, nommé \lstinline{multiplicateur}, qui sera passé en argument du \lstinline{constructeur} de la sous-classe. \\
+Déclarez le \lstinline{constructeur} de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec ce nouvel attribut \lstinline{multiplicateur}. \\
+
+\begin{conseil}
+Pensez à utiliser le \lstinline{constructeur} de votre classe mère \lstinline{Combattant}.
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/attaquant.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] Méthode \lstinline{attack} de la sous-classe \lstinline{Attaquant} \\
+
+Réécrivez la méthode \lstinline{attack} de la sous-classe \lstinline{Attaquant} afin d'effectuer plusieurs attaques sur \lstinline{other} en fonction de l'attribut \lstinline{multiplicateur}. \\
+
+Y'a t-il besoin de contrôler si l'instance depuis laquelle la méthode est appelée est encore en vie ? \\
+
+Indiquez systématiquement le numéro de l'attaque, puis effectuez l'attaque. Répétez le procédé jusqu'à ce que le numéro de l'attaque soit égal à celui de \lstinline{multiplicateur_instance}.
+
+\begin{conseil}
+Aidez vous de la méthode \lstinline{attack} de la classe mère \lstinline{Combattant}.\\
+
+Comment peut-on effectuer plusieurs fois une même séquence d'action en programmation ? \\
+
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting{Solutions/attaquant-attack.java}
+\end{solution}
+
+\end{Exercice}
+
+Si tout est correct, en utilisant ce \lstinline{main} : \\
+
+\lstinputlisting{ressources/combattant-main.java} 
+
+Vous devriez obtenir : \\
+
+\lstinputlisting{Solutions/combattant-main-solution.java} 
+
+\end{document}
+\end{align*}
+\end{document}
