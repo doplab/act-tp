@@ -1,4 +1,4 @@
-class Attaquant extends Combattant{
+class Attaquant extends Fighter{
 
     private int multiplicateur;
 
