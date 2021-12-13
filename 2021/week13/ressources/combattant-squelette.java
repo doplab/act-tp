@@ -3,22 +3,22 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Combattant {
+public class Fighter {
     private String name;
     private int health;
     private int attack;
     private int defense;
-    private static List<Combattant> instances = new ArrayList<Combattant>();
+    private static List<Fighter> instances = new ArrayList<Fighter>();
     private static HashMap<String, Integer> attack_modifier = new HashMap(Map.of("poing", 2, "pied", 2, "tete", 3));
 
-    public Combattant(String name, int health, int attack, int defense) {
+    public Fighter(String name, int health, int attack, int defense) {
     this.name = name;
     this.health = health;
     this.attack = attack;
     this.defense = defense;
     instances.add(this);
 
-public static void addInstances(Combattant other){
+public static void addInstances(Fighter other){
     instances.add(other);
 }
 
@@ -63,35 +63,35 @@ public Boolean isAlive() {
 }
 
 public static void checkDead() {
-    // Initialisation de la liste de Combattants en vie
-    List<Combattant> temp = new ArrayList<Combattant>();
-    //Ici, on parcourt les instances de Combattant
-    for (Combattant f : Combattant.instances) {
-        // Et on fait appel à la méthode isAlive() pour vérifier que le Combattant est en vie
+    // Initialisation de la liste de Fighter en vie
+    List<Fighter> temp = new ArrayList<Fighter>();
+    //Ici, on parcourt les instances de Fighter
+    for (Fighter f : Fighter.instances) {
+        // Et on fait appel à la méthode isAlive() pour vérifier que le Fighter est en vie
         if (f.isAlive()) {
             temp.add(f);
         } else {
             System.out.println(f.getName() + " est mort");
         }
     }
-    Combattant.instances = temp;
+    Fighter.instances = temp;
 }
 
 
 public static void checkHealth() {
-    for (Combattant f : Combattant.instances) {
+    for (Fighter f : Fighter.instances) {
         System.out.println(f.getName() + " a encore " + f.getHealth() + " points de vie");
     }
     System.out.println("------------------------------");
 }
 
 
-public void attack (String type,Combattant other){
+public void attack (String type,Fighter other){
     if(other.isAlive()) {
-        int damage = (Integer)Combattant.attack_modifier.get(type) * this.attack - other.getDefense();
+        int damage = (Integer)Fighter.attack_modifier.get(type) * this.attack - other.getDefense();
         other.setHealth(other.getHealth() - damage);
-        Combattant.checkDead();
-        Combattant.checkHealth();
+        Fighter.checkDead();
+        Fighter.checkHealth();
     }
     else{
         System.out.println(other.getName() + " est déjà mort");
@@ -99,7 +99,7 @@ public void attack (String type,Combattant other){
 }
 }
 
-class Soigneur extends Combattant { // a la capacité de soigner et réssuciter quelqu un
+class Soigneur extends Fighter { // a la capacité de soigner et réssuciter quelqu un
 
     //TODO
 
@@ -111,16 +111,16 @@ class Soigneur extends Combattant { // a la capacité de soigner et réssuciter 
 //TODO
 
 
-public void résurrection(Combattant other){
+public void résurrection(Fighter other){
     //TODO
 }
 
-public void attack(Combattant other) {
+public void attack(Fighter other) {
     //TODO
 }
 }
 
-class Attaquant extends Combattant{ // a la capacité d attaquer deux fois
+class Attaquant extends Fighter{ // a la capacité d attaquer deux fois
 
     //TODO
 
@@ -130,7 +130,7 @@ class Attaquant extends Combattant{ // a la capacité d attaquer deux fois
 
 //TODO
 
-public void attack(String type, Combattant other) {
+public void attack(String type, Fighter other) {
     //TODO
 }
 }
