@@ -1,4 +1,4 @@
-public void attack(Combattant other) {
+public void attack(Fighter other) {
     if(!this.isAlive()) {
         System.out.println(this.getName() + " est mort et ne peut plus rien faire");
     }
@@ -10,7 +10,7 @@ public void attack(Combattant other) {
             System.out.println(other.getName() + " est déjà mort, ressucitez le pour pouvoir le soigner");
         } else {
             other.setHealth(other.getHealth() + this.getAttack());
-            Combattant.checkHealth();
+            Fighter.checkHealth();
         }
     }
 }
