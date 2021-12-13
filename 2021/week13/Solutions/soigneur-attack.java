@@ -7,7 +7,7 @@ public void attack(Fighter other) {
             System.out.println(other.getName() + " a déjà le maximum de points de vie");
         }
         if (!other.isAlive()) {
-            System.out.println(other.getName() + " est déjà mort, ressucitez le pour pouvoir le soigner");
+            System.out.println(other.getName() + " est déjà mort, ressuscitez-le pour pouvoir le soigner");
         } else {
             other.setHealth(other.getHealth() + this.getAttack());
             Fighter.checkHealth();

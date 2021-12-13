@@ -5,12 +5,13 @@ class Attaquant extends Fighter{
     public Attaquant(String name, int health, int attack, int defense, int multiplicateur){
     super(name,health,attack,defense);
     this.multiplicateur = multiplicateur;
-}
+    }
 
-public int getMultiplicateur() {
-    return multiplicateur;
-}
+    public int getMultiplicateur() {
+        return multiplicateur;
+    }
 
-public void setMultiplicateur(int multiplicateur){
-    this.multiplicateur = multiplicateur;
+    public void setMultiplicateur(int multiplicateur){
+        this.multiplicateur = multiplicateur;
+    }
 }

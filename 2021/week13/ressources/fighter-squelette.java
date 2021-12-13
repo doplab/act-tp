@@ -17,6 +17,7 @@ public class Fighter {
     this.attack = attack;
     this.defense = defense;
     instances.add(this);
+}
 
 public static void addInstances(Fighter other){
     instances.add(other);
@@ -126,7 +127,7 @@ class Attaquant extends Fighter{ // a la capacité d attaquer deux fois
 
     public Attaquant(String name, int health, int attack, int defense, int multiplicateur){
     //TODO
-}
+    }
 
 //TODO
 
