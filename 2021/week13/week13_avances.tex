@@ -1,0 +1,159 @@
+
+
+\input{../header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutionfalse
+\ShowConseiltrue
+\ShowSolutiontrue
+\titre
+\cours{Programmation orientée objet: Héritage et Polymorphisme - exercices avancés}
+
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Les exercices sont construits autour des concepts d'héritage, de surcharge d'opérateurs/méthodes et de polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. Cette série d'exercices vous allez utiliser Python comme language de programmation.
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
+\section{Rappel: Surcharge des opérateurs - Python}
+Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
+
+\begin{note}{"Nathan"}
+    q1-6: basique
+    q7: avancé
+    q8: avancé
+    q9-11: basique
+    q12,13: avancé
+    q14,15: basique
+    q16,17: avancé
+\end{note}
+
+\begin{Exercice}[5 minutes] \textbf{Création de classe} \\
+    Dans un projet que vous aurez au préalable préparé, créez un fichier appelé \lstinline{surcharge.py}.
+    À l'intérieur de ce fichier, créer une classe \lstinline{Fraction} qui aura comme attributs privés un numérateur et un dénominateur. 
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Constructeur par défaut} \\
+Définir un constructeur à votre classe. Assignez des valeurs par défaut à vos attributs. \\
+Si un seul argument est passé à votre constructeur, la fraction devra être égale à l'entier correspondant.\\
+Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
+
+    \begin{conseil}
+		Les valeurs par défaut seront assignées à votre objet au cas où il est instancié sans valeurs. Ainsi en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant pour valeurs un numérateur à 0 et un dénominateur à 1 soit $\frac{0}{1}$.\\
+		En Python, vous pouvez donner des valeurs par défaut aux arguments de vos méthodes lors de leur définition. Par exemple, vous pouvez faire: \lstinline{def add(self, x=10, y=5):(...)}.
+    \end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Type casting}\\
+	Convertir les attributs en entier.
+	\begin{conseil}
+		Pensez à utiliser la fonction \lstinline{int}.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes} \\
+	Redéfinir la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
+	\begin{conseil}
+		Une fois la méthode \lstinline{__str()__} redéfinie, lorsqu'on fera un \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, il affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. \lstinline{numérateur} et \lstinline{dénominateur} étant les valeurs que vous passerez à votre objet \lstinline{Fraction}.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice} [5 minutes] \textbf{Accesseurs et mutateurs} \\
+	Créer des \lstinline{getters} et \lstinline{setters} pour chacun des attributs de votre classe \lstinline{Fraction}.
+\end{Exercice}
+
+\begin{Exercice} [10 minutes] \textbf{Simplification de fractions}\\
+	Définir une méthode \lstinline{simplification} qui réduit la \lstinline{Fraction}. Cette méthode ne renverra rien, elle modifiera simplement l'instance. Pour la suite des exercices, assurez-vous de toujours manipuler des fractions simplifiées. Pour ce faire, vous pouvez faire appel à votre méthode \lstinline{simplification} après chaque opération sur un objet de type \lstinline{Fraction}.
+
+	\begin{conseil}
+		Afin de simplifier une fraction, vous devez diviser le numérateur et le dénominateur par leur plus grand diviseur commun. Pensez à utiliser la méthode \lstinline{math.gcd} pour trouver le plus grand diviseur commun entre deux nombres.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes - \_\_eq\_\_}\\
+	Redéfinissez la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
+	\begin{conseil}
+		Pour vérifier l'égalité entre $a/b$ et $c/d$, tester que $a*d$ est égal à $b*c$. \\
+		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
+		\\La fonction \lstinline{isinstance} prend en entrée une valeur et un type. Elle vérifie que cette valeur est du type défini. Par exemple: \lstinline{isinstance(nombre, int)} renverra \lstinline{True} si la variable \lstinline{nombre} est de type \lstinline{int} et \lstinline{False} dans le cas contraire.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
+	Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
+	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
+\end{Exercice}
+
+
+\begin{solution}
+	\lstinputlisting{solutions/surcharge1.py}
+\end{solution}
+\begin{solution}
+	\lstinputlisting{solutions/surcharge2.py}
+\end{solution}
+
+\newpage
+
+\section{Héritage en Python }
+\begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
+
+Dans la série dernière, vous avez rencontré un exemple de classe en Python. Celui-là représente un point de 2 dimensions, x et y, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe des points de 3 dimensions en utilisant de l'héritage sur la classe \lstinline{Point} qu'on a implémentée! 
+%À travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
+
+
+Avant de commencer, nous voudrions attirer votre attention sur les points suivants de la classe mère \lstinline{Point}:
+\begin{itemize}
+	%\item Tout d'abord, nous avons récrit la classe de la semaine dernière pour utiliser les 'decorators' en Python. Par exemple, vous trouverez une explication \href{https://python-reference.readthedocs.io/en/latest/docs/property/setter.html}{\textcolor{cyan}{ici}} pour le décorateur \textbf{setter}. Lisez bien les documentations et le code suivant pour comprendre l'usage de ces décorateurs.
+	\item Nous avons changé le nom de la méthode \lstinline{distance()} en \lstinline{distance_euclidean()} pour la distinguer des autres types de distance. 
+	\item Traiter la classe \lstinline{Point} comme une classe mère et la faire hériter de la classe \lstinline{Point3D} n'est pas la meilleure structure d'un programme Python, mais on la garde pour le moment afin de vous montrer comment les méthodes de classe mère peuvent être manipulées dans une classe fille.
+\end{itemize}
+
+Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier \lstinline{Ressources}):
+\lstinputlisting{ressources/Point.py} 
+
+Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, implémentez les opérations ci-dessous:
+
+\begin{itemize}
+	\item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser la \lstinline{list} en Python.
+	\item Recalculez la distance euclidienne et le milieu pour le point 3D.
+	\item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres calculs de distance: \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+\end{itemize}
+\lstinputlisting{ressources/Point3D.py} 
+
+\begin{conseil}
+%Recherchez sur Internet des documentations sur les décorateurs Python, notamment sur 'property', 'setter' et 'getter'. 
+
+Que fait \lstinline{super().__init__()}?\\
+Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (y_1 - y_2)^2}$.
+\end{conseil}
+\begin{solution}
+\lstinputlisting{Solutions/Point3D.py} 
+\end{solution}
+\end{Exercice} 
+
+\begin{Exercice}[15 minutes]\textbf{Un exemple appliqué}
+
+Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assistant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
+
+La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
+
+Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeurs}, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
+
+D'autre part, pour les \lstinline{Collaborateurs}, la paye est calculée sur une base horaire i.e \textit{taux horaire $\times$ nombres d'heures de travail (par mois)}.
+
+
+Complétez le code ci-dessous:
+
+\lstinputlisting{ressources/Enseignant.py} 
+
+\begin{conseil}
+Pensez à redéfinir les attributs de la classe mère en utilisant \lstinline{super().__init__()}.
+\end{conseil}
+
+\begin{solution}
+\lstinputlisting{Solutions/Enseignant.py} 
+\end{solution}
+\end{Exercice}
+%\end{comment}
+
+\end{document}
