@@ -28,7 +28,7 @@ Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous fer
 
 \begin{Exercice}[5 minutes] \textbf{Création de classe} \\
     Dans un projet que vous aurez au préalable préparé, créez un fichier nommé \lstinline{surcharge.py}.
-    À l'intérieur de ce fichier, créer une classe \lstinline{Fraction} qui aura comme attributs privés un numérateur et un dénominateur. 
+    À l'intérieur de ce fichier, créez une classe \lstinline{Fraction} qui aura comme attributs privés un numérateur et un dénominateur. 
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Constructeur par défaut} \\
@@ -38,7 +38,8 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 
     \begin{conseil}
 		Les valeurs par défaut seront assignées à votre objet au cas où il est instancié sans valeurs. Ainsi en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant pour valeurs un numérateur à 0 et un dénominateur à 1 soit $\frac{0}{1}$.\\
-		En Python, vous pouvez donner des valeurs par défaut aux arguments de vos méthodes lors de leur définition. Par exemple, vous pouvez faire: \lstinline{def add(self, x=10, y=5):(...)}.
+		En Python, vous pouvez donner des valeurs par défaut aux arguments de vos méthodes lors de leur définition. Par exemple, vous pouvez faire: 
+			\lstinline{def add(self, x=10, y=5):...}
     \end{conseil}
 \end{Exercice}
 
@@ -52,7 +53,7 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes} \\
 	Redéfinir la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
 	\begin{conseil}
-		Une fois la méthode \lstinline{__str()__} redéfinie, lorsqu'on fera un \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, il affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. \lstinline{numérateur} et \lstinline{dénominateur} étant les valeurs que vous passerez à votre objet \lstinline{Fraction}.
+		Une fois la méthode \lstinline{__str()__} redéfinie, lorsqu'on fera un \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, il affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. \lstinline{Numérateur} et \lstinline{dénominateur} étant les valeurs que vous passerez à votre objet \lstinline{Fraction}.
 	\end{conseil}
 \end{Exercice}
 
@@ -69,7 +70,7 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes - \_\_eq\_\_}\\
-	Redéfinissez la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
+	Redéfinir la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
 	\begin{conseil}
 		Pour vérifier l'égalité entre $a/b$ et $c/d$, tester que $a*d$ est égal à $b*c$. \\
 		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
@@ -78,7 +79,7 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
-	Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
+	Redéfinir les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
 	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
 \end{Exercice}
 
@@ -95,10 +96,10 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \section{Notions d'héritage - Java}
 
 Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
-Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe mère. \\
+Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
 
 \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
-Créez la classe mère \lstinline{Livre} avec les caractéristiques suivantes:
+Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
 	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
@@ -143,7 +144,7 @@ Voici le squelette du programme à compléter:
 \begin{conseil}
 En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
 
-Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
+Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
 
@@ -158,7 +159,7 @@ Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pou
 
 \begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
 
-Maintenant que vous avez créé la classe mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
 
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 
@@ -207,7 +208,7 @@ Les exercices de cette section sont la suite des exercices de la section 2 de la
 N'hésitez pas à réutiliser les solutions disponibles sur Moodle.
 
 
-Dans cette partie, vous devriez créer 2 nouvelles classe-filles de la classe mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe représentera un Fighter spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
+Dans cette partie, vous devez créer 2 nouvelles classe-filles de la classe-mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe représentera un Fighter spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
 
 % Voici le squelette du code que vous trouverez également dans le dossier code sur Moodle : \\
 Avant d'effectuer la série de questions suivantes, téléchargez le fichier \lstinline{fighter-squelette.java} disponible sur Moodle.\\
@@ -220,7 +221,7 @@ Commencez par déclarer une nouvelle classe-fille \lstinline{Soigneur}. Cette cl
 Créez le constructeur de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec le nouvel attribut (\lstinline{résurrection}). \\
 
 \begin{conseil}
-Pensez à utiliser le constructeur de votre classe mère \lstinline{Fighter}
+Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}
 \end{conseil}
 
 \begin{solution}
@@ -234,7 +235,7 @@ Créez une méthode \lstinline{résurrection(Fighter other)} qui permettra de fa
 
 Commencez par contrôler que l'instance depuis laquelle la méthode est appelée soit toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\ 
 
-Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le via : \lstinline{nom_other} est toujours en vie. \\
+Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le en affichant le texte suivant : ``\lstinline{nom_other} est toujours en vie.'' \\
 
 Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
 
@@ -242,7 +243,7 @@ Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lsti
 
 \begin{itemize}
 	\item Mettre l'attribut \lstinline{résurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
-	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : \lstinline{nom_other} est revenu à la vie !
+	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : ``\lstinline{nom_other} est revenu à la vie !''
 \end{itemize}
 
 \begin{conseil}
@@ -265,16 +266,16 @@ Réécrivez la méthode \lstinline{attack} de la classe-fille \lstinline{Soigneu
 
 Le seul argument nécessaire pour cette méthode sera une autre instance de \lstinline{Fighter} qu'on pourrait nommer \lstinline{other}. \\
 
-Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.
+Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, affichez : ``\lstinline{nom_instance} est mort et ne peut plus rien faire.''
 
-Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez : \lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner. Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via : \lstinline{nom_other} a déjà le maximum de points de vie. \\
+Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
 
 Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de \lstinline{other}, puis appelez la méthode de classe \lstinline{checkHealth()}.
 
 \begin{conseil}
-Pensez à utiliser du branchement conditionnel pour les contrôles. \\
+Pensez à utiliser un branchement conditionnel pour les contrôles. \\
 
-Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'instance depuis laquelle la méthode est appelée. Ajoutez la valeur de cet attribut \lstinline{attack} au \lstinline{Fighter} \lstinline{other}
+Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'instance depuis laquelle la méthode est appelée. Ajoutez la valeur de cet attribut \lstinline{attack} au \lstinline{Fighter} \lstinline{other}.
 
 \end{conseil}
 
@@ -286,7 +287,7 @@ Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'ins
 
 \begin{Exercice}[5 minutes] Classe-fille \lstinline{Attaquant} \\
 
-Commencez par déclarer une nouvelle classe-fille \lstinline{Attaquant}. Cette classe-fille prendra un nouvel attribut privé nommé \lstinline{multiplicateur} de type \lstinline{int}, qui sera passé comme argument du \lstinline{constructeur} de la classe-fille. \\
+Commencez par déclarer une nouvelle classe-fille \lstinline{Attaquant} héritant de la classe \lstinline{Fighter}. Cette classe-fille prendra un nouvel attribut privé nommé \lstinline{multiplicateur} de type \lstinline{int}, qui sera passé comme argument du \lstinline{constructeur} de la classe-fille. \\
 
 Déclarez le \lstinline{constructeur} de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec ce nouvel attribut \lstinline{multiplicateur}. \\
 
@@ -304,11 +305,11 @@ Pensez à utiliser le \lstinline{constructeur} de votre classe-mère \lstinline{
 
 Réécrivez la méthode \lstinline{attack} de la classe-fille \lstinline{Attaquant} afin d'effectuer plusieurs attaques sur \lstinline{other} en fonction de l'attribut \lstinline{multiplicateur}. \\
 
-Pensez à toujours indiquer le type de l'attaque lorsque vous faites appel à la méthode \lstinline{attack()}.
+Assurez-vous de toujours indiquer le type de l'attaque lorsque vous faites appel à la méthode \lstinline{attack()}.
 
 \begin{conseil}
-Pensez à contrôler que l'instance depuis laquelle la méthode est appelée est encore en vie ? 
-Aidez-vous de la méthode \lstinline{attack} de la classe mère \lstinline{Fighter}.\\
+Pensez à contrôler que l'instance depuis laquelle la méthode est appelée est encore en vie.
+Aidez-vous de la méthode \lstinline{attack} de la classe-mère \lstinline{Fighter}.\\
 
 Pour effectuer plusieurs attaques, vous pouvez utiliser une boucle allant de 0 à \lstinline{multiplicateur}.
 

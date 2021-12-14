@@ -16,8 +16,7 @@
             self.add__ = self.__add__(Fraction(other))
             return self.add__
         else:
-            raise TypeError(
-                "Unsupported operand types for +: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
+            print("Unsupported operand types for +: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
 
     def __mul__(self, other):
         if isinstance(other, Fraction):
@@ -26,8 +25,7 @@
             return Fraction(self.__num * other, self.__den)
         # On affiche un message d'erreur lorsque other n'est pas une Fraction
         else:
-            raise TypeError(
-                "Unsupported operand types for *: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
+            print("Unsupported operand types for *: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
 
 if __name__ == '__main__':
     f1 = Fraction()

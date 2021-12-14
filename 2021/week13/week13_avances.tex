@@ -19,19 +19,19 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \section{Héritage en Python }
 \begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
 
-Lors de la séance de TP de la semaine 12, vous avez défini une classe \lstinline{Point} représentant un point de 2 dimensions, avec des coordonnées x et y, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe des points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment. 
+Lors de la séance précédente, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment. 
 %À travers cet exercice, nous voudrions également vous présenter une syntaxe en Python qui concerne l'utilisation des 'décorateurs'.\\
 
 
-Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier \lstinline{Ressources}):
+Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
 \lstinputlisting{ressources/Point.py} 
 
-Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, implémentez les opérations ci-dessous:
+Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
 
 \begin{itemize}
-	\item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une \lstinline{list} en Python.
+	\item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
 	\item Recalculez la distance euclidienne et le milieu pour le point 3D.
-	\item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+	\item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
 \end{itemize}
 \lstinputlisting{ressources/Point3D.py} 
 
