@@ -32,6 +32,8 @@ public abstract class Item {
         return this.ingredients;
     }
 
+    // Cette méthode peut être générée automatiquement en faisant un clic droit sur la classe, puis "Generate equals and HashCode"
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Item) {
             Item i = (Item) o;

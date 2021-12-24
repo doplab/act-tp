@@ -16,7 +16,7 @@ Cette série d'exercices est divisée en 3 sections dont les premières portant 
 
 Les exercices doivent être faits uniquement en \lstinline{Java}.
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Ressources}.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
 
 \section{Classes abstraites}
 
@@ -79,9 +79,9 @@ Les méthodes déclarées dans une interface doivent être implémentées dans d
 
 \lstinputlisting{ressources/interface_exemple2.java} 
 \begin{itemize}
-    \item Implémentez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe} qui ne retourne aucune valeur.
-    \item Implémentez une interface \lstinline{Drinkable} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
-    \item Implémentez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie dans la section 1) et qui implémente l'interface \lstinline{Edible}. Implémentez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe} (dans la classe \lstinline{Food}).
+    \item Implémentez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe()} qui ne retourne aucune valeur.
+    \item Implémentez une interface \lstinline{Drinkable()} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
+    \item Implémentez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie dans la section 1) et qui implémente l'interface \lstinline{Edible}. Implémentez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe()} (dans la classe \lstinline{Food}).
 \end{itemize}
 
 \begin{conseil}
@@ -108,7 +108,7 @@ Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food}
 
 \begin{Exercice}[15 minutes]\textbf{Poker Game}
 
-Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
+Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
 
 Suivez les instructions ci-dessous pour écrire le programme.
 
@@ -190,7 +190,7 @@ Suivez les instructions ci-dessous pour compléter le programme.
 
     \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
     \item Les méthodes communes à toutes les sous-classes, doivent être déclarées abstraites dans la classe parente \lstinline{Personnage}. Changer cette classe pour qu'elle soit maintenant abstraite avec la/les méthode(s) abstraite(s) correspondante(s).
-    \item \textbf{Attention :} Utiliser un setteur pour réduire les \lstinline{pv} de l’autre personnage.
+    \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les \lstinline{pv} de l’autre personnage.
     
     \lstinputlisting[language=java]{ressources/RolePlayFilles.java}
 \end{itemize}
