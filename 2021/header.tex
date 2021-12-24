@@ -26,6 +26,7 @@
 \newtcolorbox{Conseils}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Warning}[1]{colback=white,left=20pt,colframe=warning,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Note}[1]{colback=white,left=20pt,colframe=grey,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Dessin}[1]{colback=white,left=20pt,colframe=grey,fonttitle=\bfseries,title=#1}
 
 \setlength\parindent{0pt}
 
@@ -165,5 +166,13 @@
 
     \fi}  
 
-%\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
+    \newif\ifShowDessin
+    \NewEnviron{dessin}[1]{
+      \ifShowDessin
+      \begin{Dessin}{\faPen \quad Figure}
+        \BODY
+      \end{Dessin}
+  
+      \fi}  
 
+%\newcommand{\Conseil}[1]{\ifShowIndice\ \newline\faLightbulb[regular]~#1\fi}
