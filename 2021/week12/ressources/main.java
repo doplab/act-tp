@@ -1,14 +1,13 @@
 public class Main {
     public static void main(String[] args){
-        graph test_graph = new graph();
-        test_graph.add_vertex("Lausanne");
-        test_graph.add_vertex("Geneve");
-        test_graph.new_edge("Geneve", "Lausanne", 35);
-        test_graph.new_edge("Lausanne", "Berne", 100);
-        test_graph.new_edge("Geneve", "Berne", 120);
+        Graph test_graph = new Graph();
+        test_graph.addVertex("Lausanne");
+        test_graph.addVertex("Geneve");
+        test_graph.newEdge("Geneve", "Lausanne", 35);
+        test_graph.newEdge("Lausanne", "Berne", 100);
+        test_graph.newEdge("Geneve", "Berne", 120);
         test_graph.print();
-        test_graph.del_edge("Geneve", "Berne");
+        test_graph.delEdge("Geneve", "Berne");
         test_graph.print();
     }
-
 }

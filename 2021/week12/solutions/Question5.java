@@ -1,4 +1,4 @@
-public String get_oldest(Dog other) {
+public String getOldest(Dog other) {
     if (other.getAge() < this.getAge()){
         return this.name + " est le chien le plus agé avec " + this.age + " ans";
     }

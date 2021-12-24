@@ -1,22 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        Dog Lola = new Dog("Loola",List.of("rollover"),"Bouviier",10);
-        Dog Tobi = new Dog("Tobi",List.of("rollover","do a barrel"),"Doggo",17);
-        System.out.println(Lola.getAge());
-        System.out.println(Lola.getMood());
-        System.out.println(Lola.getRace());
-        System.out.println(Lola.name);
-        System.out.println(Lola.getTricks());
-        Lola.setAge(13);
-        Lola.setMood(8);
-        Lola.setRace("Bouvier");
-        Lola.name = "Lola";
-        Lola.setTricks(List.of("rollover","do a barrel"));
-        Lola.eat();
-        Lola.leash();
-        Lola.add_trick("sit");
-        System.out.println(Dog.getNb_chiens());
-        System.out.println(Lola.get_oldest(Tobi));
-        System.out.println(Lola);
+        Dog lola = new Dog("Lola",List.of("rollover"),"Bouvier",10);
+        Dog tobi = new Dog("Tobi",List.of("rollover","do a barrel"),"Doggo",17);
+        System.out.println(lola.getAge());
+        System.out.println(lola.getMood());
+        System.out.println(lola.getRace());
+        System.out.println(lola.name);
+        System.out.println(lola.getTricks());
+        lola.setAge(13);
+        lola.setMood(8);
+        lola.setRace("Bouvier");
+        lola.name = "lola";
+        lola.setTricks(List.of("rollover","do a barrel"));
+        lola.eat();
+        lola.leash();
+        lola.addTrick("sit");
+        System.out.println(Dog.getNbChiens());
+        System.out.println(lola.getOldest(tobi));
+        System.out.println(lola);
     }
 }

@@ -64,7 +64,7 @@ Voici les réponses aux questions posées ci-dessus.
  %       \begin{enumerate}
        % \item Oui, l'utilisateur voudra sûrement rajouter des \lstinline{arêtes}, des \lstinline{sommets} ou potentiellement changer le poids d'une \lstinline{arête}. Il faut donc lui laisser cette possibilité
        % \item Les graphs sont souvent accompagnés par des algorithmes de recherche, par exemple l'algorithme de Kruskal pour les \lstinline{weighted graphs}. Il est donc utile de pouvoir identifier si un \lstinline{sommet} ou une \lstinline{arête} sont des composants de l'instance.
-       % \item Certaines méthodes pourraient avoir un code très long si on ne ségmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
+       % \item Certaines méthodes pourraient avoir un code très long si on ne segmentarise pas leur contenu. Cela peut entraver la relecture de votre code par vous ou par un tiers. 
         
        % De plus dans un cadre d'optimisation, il faut éviter un maximum la redondance du code. Il est donc de bonne pratique de définir des méthodes qui vont éviter cela dans une classe.
   %      \end{enumerate}
@@ -74,7 +74,7 @@ Voici les réponses aux questions posées ci-dessus.
 % TODO: Edge doit être mis au singulier pour éviter qu'ils ne confondent l'objet à son instance.
 
 Le code de la classe \lstinline{Edge} est fourni dans le dossier ressources sur Moodle.
-Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Ressources} sur Moodle pour effectuer des tests. Une fois exécuté, il devrait afficher:\\
+Utiliser le fichier \lstinline{Main.java} dans le dossier \lstinline{Code} sur Moodle pour effectuer des tests. Une fois exécuté, il devrait afficher:\\
 
     \includegraphics[height=8cm]{ressources/sortie_juste.PNG}
 
@@ -89,7 +89,7 @@ Voici une partie de la classe \lstinline{graph} que vous devez compléter. Impl�
 
          \lstinputlisting{ressources/graph_empty.java}
     \begin{enumerate}
-        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle imprimera une phrase indiquant que l'\lstinline{arête} n'existe pas.
+        \item La méthode \lstinline{update_weight()} doit prendre en paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée ainsi que le poids d'une \lstinline{arête}. Si cette \lstinline{arête} existe alors elle change son poids. Sinon, elle affichera une phrase indiquant que l'\lstinline{arête} n'existe pas.
         \item La méthode \lstinline{edge_exist()} prendra en paramètre le \lstinline{sommet} d'origine et le \lstinline{sommet} d'arrivée. Si cette \lstinline{arête} est dans le \lstinline{graph} alors la méthode renvoie son poids, sinon, elle renvoie 0.
         \item La méthode \lstinline{new_edge} doit créer une instance de \lstinline{Edge} et l'ajouter à l'ensemble \lstinline{edges} si la connexion n'existe pas déjà. Si elle existe avec un autre poids mettre à jour le poids. Si elle existe de façon identique alors retournez la dans la console en utilisant un \lstinline{System.out.print}. Enfin, si on est dans aucun des deux cas précédents utiliser la méthode \lstinline{generate_edge} qui vous est donnée pour créer et ajouter cette arête au \lstinline{graph}. La méthode \lstinline{new_edge} aura pour paramètres: le \lstinline{sommet} d'origine, le \lstinline{sommet} d'arrivée, le poids.
     \end{enumerate}
