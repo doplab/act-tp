@@ -1,0 +1,213 @@
+\input{../header.tex}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show \input{../header.tex}
+
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Classes et types abstraits en Java}
+
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous devez être en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, utiliser le concept d'héritage multiple, factoriser votre code afin de le rendre mieux structuré et plus lisible.
+
+Cette série d'exercices est divisée en 3 sections dont les premières portant sur les classes abstraites et les interfaces en général. La dernière section comporte des exercices pratiques sur les notions abordées précédemment.
+
+Les exercices doivent être faits uniquement en \lstinline{Java}.
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+
+\section{Classes abstraites}
+
+\begin{Exercice}[15 minutes]{Création d'une classe abstraite}
+
+Une classe abstraite est une classe dont l'implémentation n'est pas complète et qui n'est pas instanciable. Elle est déclarée en utilisant le mot-clé \lstinline{abstract}. Elle peut inclure des méthodes abstraites ou non. Bien que ne pouvant être instanciées, les classes abstraites servent de base à des sous-classes qui en sont dérivées.
+Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe-mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
+
+\lstinputlisting{ressources/exo1.java} 
+
+\begin{itemize}
+    \item Implémentez une classe abstraite appelée \lstinline{Item}.
+    1. Elle doit avoir 4 variables (attributs) d'instance et une variable de classe, qui sont les suivantes:
+    \lstinputlisting{ressources/variables_exo1.java} 
+    \begin{conseil}
+        Les variables d'instance sont créées lors de l'instanciation d'un objet (à l'aide du mot clé \lstinline{new}) et détruites lors de la destruction de l'objet. Les variables de classes (variables statiques), quant à elles, sont créées lors de l'exécution du programme et détruites lors de l'arrêt du programme. En Java, les variables de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.VariableName}.
+    \end{conseil}
+    \item Créer un constructeur pour initialiser les variables \lstinline{name, price, ingredients et id}. La variable \lstinline{id} incrémentera à chaque instanciation de la classe.
+    \begin{conseil}
+        Pensez à utilisez \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
+    \end{conseil}
+    \item Implémentez les \lstinline{getters} des variables \lstinline{id, name, price et ingredients}.
+    \item Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
+\end{itemize}
+\begin{conseil}
+La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en entrée un objet de type \lstinline{Object} et doit retourner \lstinline{True} si l'objet instancié est égal à l'objet passé en paramètre.
+\end{conseil}
+    \begin{solution}  
+        \lstinputlisting{solutions/solution1.java} 
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[15 minutes]{Classe abstraite et types d'attributs}
+\begin{itemize}
+    \item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés : \lstinline{largeur} et \lstinline{longueur} et deux méthodes abstraites : \lstinline{getaire}()et \lstinline{getperimetre}().
+    \item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getaire()} et \lstinline{getperimetre()}.
+\end{itemize}
+
+\begin{conseil}
+    Un attribut protégé est accessible aussi bien dans la classe-mère que dans la(les) classe(s)-fille(s). On utilise le mot clé \lstinline{protected} pour rendre les attributs protégés. \\
+    Pour rappel, pour créer une classe fille, utiliser le mot-clé \lstinline{extends}:\lstinline{public class Carre extends Figure}.
+\end{conseil}
+
+
+\begin{solution}
+\lstinputlisting{solutions/Figure.java} 
+\end{solution}
+\end{Exercice}
+
+\newpage
+\section{Interfaces}
+
+\begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 1)}\\
+
+En Java, une interface se déclare comme suit:
+\lstinputlisting{ressources/interface_exemple1.java} 
+
+Les méthodes déclarées dans une interface doivent être implémentées dans des sous-classes :
+
+\lstinputlisting{ressources/interface_exemple2.java} 
+\begin{itemize}
+    \item Implémentez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe()} qui ne retourne aucune valeur.
+    \item Implémentez une interface \lstinline{Drinkable()} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
+    \item Implémentez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie dans la section 1) et qui implémente l'interface \lstinline{Edible}. Implémentez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe()} (dans la classe \lstinline{Food}).
+\end{itemize}
+
+\begin{conseil}
+Vous pouvez reprendre la classe \lstinline{Item} du premier exercice.\\
+Dans la méthode \lstinline{eatMe()}, vous pouvez simplement afficher un message en utilisant un \lstinline{println}.
+\end{conseil}
+
+Certains aliments ne sont pas seulement \lstinline{Edible} (mangeable) mais aussi \lstinline{Drinkable} (buvable) comme les soupes par exemple.\\
+
+4. Implémentez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, implémentez à la fois un constructeur pour \lstinline{Soup} ainsi que la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).\\
+
+Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food} à l'aide des lignes suivantes pour tester les méthodes \lstinline{eatMe()} et \lstinline{drinkMe()}.
+\lstinputlisting{ressources/fin_interface.java} 
+
+\begin{solution}
+\lstinputlisting{solutions/interface.java} 
+\end{solution}
+\end{Exercice}
+
+\newpage
+
+\section{Exercises Complémentaires \optionnel}
+
+
+\begin{Exercice}[15 minutes]\textbf{Poker Game}
+
+Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
+
+Suivez les instructions ci-dessous pour écrire le programme.
+
+\textbf{La classe \lstinline{Carte}}
+\begin{itemize}
+    \item Attributs: \lstinline{valeur (int), couleur (int)}. Attention, la couleur d'une carte est représentée ici par une valeur de 0 à 3 au lieu d'une chaîne de caractères.
+    \item Implémentez un constructeur qui prend en argument une valeur et une couleur.
+    \item Implémentez un getter \lstinline{getInfo()} qui affiche dans la console la valeur et la couleur de la carte, vous pouvez vous aider de fonctions privées
+    \lstinline{getCouleur()} et \lstinline{getValeur()} pour afficher les cas particuliers.
+\end{itemize}
+
+\lstinputlisting[language=java]{ressources/PokerCarte.java}
+
+
+\textbf{La classe \lstinline{Joueur}}
+\begin{itemize}
+    \item Attributs: \lstinline{mainDeCartes (Carte[])} (un tableau de carte de taille maximal 2), \lstinline{balance (int)} (le solde total du joueur), \lstinline{mise (int)} (la mise du joueur), \lstinline{monTour (boolean)} (valant true si c’est au tour du joueur).
+    \item Implémentez le constructeur qui prend en argument \textbf{deux cartes} (puis les ajoute à sa main), une balance initiale, une mise initiale de 0. Vous pouvez initialiser \lstinline{monTour} comme \lstinline{false} au début.
+    \item Implémentez une fonction \lstinline{miser()} qui propose une mise sur la table mais ne retourne rien (utiliser le mot \lstinline{void}). Définir la nouvelle mise du joueur.
+    \item Implémentez la méthode \lstinline{montrerMain()} qui montre les cartes sur la table.
+    \item Implémentez une méthode \lstinline{gagner()} qui prend en argument la somme des gains sur la table que le joueur vient de gagner, ajoutez là à son solde.
+    \item \textbf{Attention:} \lstinline{miser()} et \lstinline{gagner()} s'appliquent seulement si c’est au tour du joueur.
+\end{itemize}
+\lstinputlisting[language=java]{ressources/PokerJoueur.java}
+
+\textbf{La classe \lstinline{Paquet}}:
+\begin{itemize}
+    \item Attributs: \lstinline{paquet (ArrayList<Carte>)} (un jeu de cartes complet), \lstinline{NBR_CARTES (int)} (un attribut final et static (constante) ayant pour valeur \lstinline{52}), \lstinline{NBR_MELANGEs (int)} (une constante qui correspond au nombre de mélanges effectués de valeur \lstinline{100}).
+    \item Dans le constructeur ne prenant aucun argument, générer le deck en créant au fur et à mesure des cartes. 
+    \item Implémenter une fonction public \lstinline{melanger()} qui mélange le jeu de carte et appeler là dans le constructeur après avoir construit le jeu de carte.
+    \item Implémenter une fonction getter \lstinline{getCarte()} qui retourne la carte placée en haut de la pile et la retire du jeu.
+\end{itemize}
+\begin{conseil}
+Utilisez \lstinline{Random r = new Random();} sa fonction \lstinline{nextInt()} et utilisez des index et une variable \lstinline{Carte} temporaire pour pouvoir échanger les positions des cartes.
+\end{conseil}
+
+\lstinputlisting[language=java]{ressources/PokerPaquet.java}
+
+
+\begin{solution}
+\lstinputlisting[language=java]{solutions/PokerCarte.java}
+\end{solution}
+\begin{solution}
+\lstinputlisting[language=java]{solutions/PokerJoueur.java}
+\end{solution}
+\begin{solution}
+\lstinputlisting[language=java]{solutions/PokerPaquet.java}
+\end{solution}
+\end{Exercice}
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
+\begin{Exercice}[15 minutes]\textbf{Un jeu de rôle avec des personnages}
+
+Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
+
+Ainsi, il semble intéressant de construire une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
+\begin{itemize}
+    \item \lstinline{nom (String)} : le nom du personnage
+    \item \lstinline{niveau (int)} : le niveau du personnage
+    \item \lstinline{pv (int)} : les points de vie du personnage
+    \item \lstinline{vitalite (int)} : la vitalité (ou santé) du personnage
+    \item \lstinline{force (int)} : la force du personnage
+    \item \lstinline{dexterite (int)} : la dextérité du personnage
+    \item \lstinline{endurance (int)} : l’endurance du personnage
+    \item \lstinline{intelligence (int)} : l’intelligence du personnage\\\\\\
+\end{itemize}
+
+Suivez les instructions ci-dessous pour compléter le programme.
+
+\begin{itemize}
+    \item Implémentez le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
+    \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Character} qui affiche des informations du personnage dans la console.
+    \item Chaque personnage de ce jeu a un compteur de leur vie restante. Celui-ci va être manipulé par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
+    \item Implémentez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leur constructeur respectif. 
+    
+    \lstinputlisting[language=java]{ressources/RolePlayMere.java}
+
+    \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
+    \item Les méthodes communes à toutes les sous-classes, doivent être déclarées abstraites dans la classe parente \lstinline{Personnage}. Changer cette classe pour qu'elle soit maintenant abstraite avec la/les méthode(s) abstraite(s) correspondante(s).
+    \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les \lstinline{pv} de l’autre personnage.
+    
+    \lstinputlisting[language=java]{ressources/RolePlayFilles.java}
+\end{itemize}
+
+\begin{solution}
+    \lstinputlisting[language=java,lastline=70]{solutions/RolePlayMere.java}
+\end{solution}
+\begin{solution}
+    \lstinputlisting[language=java,firstline=71, firstnumber=71]{solutions/RolePlayMere.java}
+\end{solution}
+
+\begin{solution}
+    \lstinputlisting[language=java,lastline=67]{solutions/RolePlayFilles.java}
+\end{solution}
+\begin{solution}
+    \lstinputlisting[language=java,firstline=68, firstnumber=68]{solutions/RolePlayFilles.java}
+\end{solution}
+\end{Exercice}
+
+\end{document}
