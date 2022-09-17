@@ -1,0 +1,617 @@
+<h1 class="unnumbered" id="algorithmes-et-pensée-computationnelle">Algorithmes et Pensée Computationnelle</h1>
+<p><em>Algorithmes de tri et Complexité</em><br />
+</p>
+<p>Le but de cette série d’exercices est d’aborder les notions présentées durant la séance de cours. Cette série d’exercices sera orientée autour des points suivants:</p>
+<ol>
+<li><p>la complexité des algorithmes,</p></li>
+<li><p>la récursivité et</p></li>
+<li><p>les algorithmes de tri</p></li>
+</ol>
+<p>Les languages de programmation qui seront utilisés pour cette série d’exercices sont Java et Python.</p>
+<h1 id="complexité-30-minutes">Complexité (30 minutes)</h1>
+<p>Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation <span class="math inline"><em>O</em>()</span>. Le code est écrit en Python et en Java.<br />
+</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Complexité</strong><br />
+Quelle est la complexité du programme ci-dessous?<br />
+<strong>Python :</strong></p>
+<pre><code>{language=Python}
+    # Entrée: n un nombre entier
+    def algo1(n):
+        s = 0
+        for i in range(10*n):
+            s += i
+        return s</code></pre>
+<p><strong>Java :</strong></p>
+<pre><code>{language=Java}
+        public static int algo1(int n) {
+            int s = 0;
+            for (int i=0; i &lt; 10*n; i++){
+                s += i;
+            }
+            return s;
+        }</code></pre>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>3</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(log (<em>n</em>))</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>Rappelez vous que la notation <span class="math inline"><em>O</em>()</span> sert à exprimer la complexité d’algorithmes dans le <strong>pire des cas</strong>. Les règles suivantes vous seront utiles. Pour <span class="math inline"><em>n</em></span> étant la taille de vos données, on a que :</p>
+<ol>
+<li><p>Les constantes sont ignorées : <span class="math inline"><em>O</em>(2<em>n</em>) = 2 * <em>O</em>(<em>n</em>) = <em>O</em>(<em>n</em>)</span></p></li>
+<li><p>Les termes dominés sont ignorés : <span class="math inline"><em>O</em>(2<em>n</em><sup>2</sup> + 5<em>n</em> + 50)</span> = <span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span></p></li>
+</ol>
+<p>L’algorithme est composé d’une boucle qui incrémente une variable <code>s</code>. Il effectue <span class="math inline">10 * <em>n</em></span> l’opération et par conséquent a une complexité de <span class="math inline"><em>O</em>(<em>n</em>)</span>.</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Complexité</strong><br />
+Quelle est la complexité du programme ci-dessous?<br />
+<strong>Python :</strong></p>
+<div class="sourceCode" id="cb3" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co"># Entrée: L est une liste de nombres entiers et M un nombre entier</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>        <span class="kw">def</span> algo2(L, M):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>            i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>            <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(L) <span class="kw">and</span> L[i] <span class="op">&lt;=</span> M:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>            s <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>            <span class="cf">return</span> s</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb4" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">algo2</span>(<span class="dt">int</span>[] L, <span class="dt">int</span> M) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>            <span class="dt">int</span> i = <span class="dv">0</span>;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>            <span class="kw">while</span> (i &lt; L.<span class="fu">length</span> &amp;&amp; L[i] &lt;= M){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>                i += <span class="dv">1</span>;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>            }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>            <span class="dt">int</span> s = i - <span class="dv">1</span>;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>            <span class="kw">return</span> s;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>        }</span></code></pre></div>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>3</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(log (<em>n</em>))</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>L’algorithme est composé d’une boucle <code>while</code> qui va parcourir une liste <code>L</code> jusqu’à trouver une valeur qui est supérieure à <code>M</code>. Ainsi, dans le pire des cas, l’algorithme parcourt toute la liste, et a donc une complexité de <span class="math inline"><em>O</em>(<em>n</em>)</span>, <span class="math inline"><em>n</em></span> étant la taille de la liste.</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Complexité</strong><br />
+Quelle est la complexité du programme ci-dessous?<br />
+<strong>Python :</strong></p>
+<div class="sourceCode" id="cb5" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">#Entrée: L et M sont 2 listes de nombre entiers</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>        <span class="kw">def</span> algo3(L, M):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>            n <span class="op">=</span> <span class="bu">len</span>(L)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>            m <span class="op">=</span> <span class="bu">len</span>(M)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>                L[i] <span class="op">=</span> L[i]<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(m):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>                M[j] <span class="op">=</span> M[j]<span class="op">%</span><span class="dv">2</span></span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb6" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">algo3</span>(<span class="dt">int</span>[] L, <span class="dt">int</span>[] M) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>                <span class="dt">int</span> n = L.<span class="fu">length</span>;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>                <span class="dt">int</span> m = M.<span class="fu">length</span>;</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>                <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i &lt; n; i++){</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>                    L[i] = L[i]*<span class="dv">2</span>;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>                }</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>                <span class="kw">for</span> (<span class="dt">int</span> j=<span class="dv">0</span>; j &lt; m; j++){</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>                    M[j] = M[j]%<span class="dv">2</span>;</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>                }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>            }</span></code></pre></div>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em> + <em>m</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(2<sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>L’algorithme est composé de 2 boucles. La première parcourt une liste <code>L</code> et multiplie par 2 les éléments de la liste. L’autre parcourt une liste <code>M</code> et assigne à chaque élément le reste de la division euclidienne de l’élément par 2. Soient <span class="math inline"><em>n</em></span> et <span class="math inline"><em>m</em></span> les tailles respectives de <code>L</code> et de <code>M</code>, on obtient une complexité de <span class="math inline"><em>O</em>(<em>n</em> + <em>m</em>)</span>. Ainsi, l’élément ayant la plus grande complexité sera utilisé pour déterminer la complexité de l’algorithme dans son ensemble.</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Complexité</strong><br />
+Quelle est la complexité du programme ci-dessous?<br />
+<strong>Python :</strong></p>
+<div class="sourceCode" id="cb7" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">#Entrée: L est une liste de nombre entiers</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="kw">def</span> algo4(L):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>        n <span class="op">=</span> <span class="bu">len</span>(L)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>        i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>        s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>        <span class="cf">while</span> i <span class="op">&lt;</span> math.log(n):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>            s <span class="op">+=</span> L[i]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>        <span class="cf">return</span> s</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb8" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.lang.Math;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>        <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">algo4</span>(<span class="dt">int</span>[] L) {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>            <span class="dt">int</span> n = L.<span class="fu">length</span>;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>            <span class="dt">int</span> s = <span class="dv">0</span>;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>            <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i &lt; <span class="bu">Math</span>.<span class="fu">log</span>(n); i++){</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>                s += L[i];</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>            }</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>        }</span></code></pre></div>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(log (<em>n</em>))</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>L’algorithme est composé d’une boucle qui va itérer sur <span class="math inline">log (<em>n</em>)</span> éléments et va calculer la somme de ces éléments. Ainsi, l’algorithme a une complexité de <span class="math inline"><em>O</em>(log <em>n</em>)</span>. Le temps d’exécution de ce programme peut être visualisé sur la courbe jaune du graphe ci-dessous (<a href="#bigO" data-reference-type="ref" data-reference="bigO">1</a>).</p>
+<figure>
+<img src="ressources/complexity.png" id="bigO" style="width:10cm" alt="Représentation de complexités temporelles" /><figcaption aria-hidden="true">Représentation de complexités temporelles</figcaption>
+</figure>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Complexité</strong><br />
+Quelle est la complexité du programme ci-dessous?<br />
+<strong>Python :</strong></p>
+<div class="sourceCode" id="cb9" data-language="Python"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Entrée: n un nombre entier</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>        <span class="kw">def</span> algo5(n):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>            m <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>                <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>                    m <span class="op">+=</span> i<span class="op">+</span>j</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>            <span class="cf">return</span> m</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb10" data-language="Java"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">algo5</span>(<span class="dt">int</span> n) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>                <span class="dt">int</span> m = <span class="dv">0</span>;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>                <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i &lt; n; i++){</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>                    <span class="kw">for</span> (<span class="dt">int</span> j=<span class="dv">0</span>; j &lt; i; j++){</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>                        m += i+j;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                    }</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>                }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>                <span class="kw">return</span> m;</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>            }</span></code></pre></div>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(log (<em>n</em>))</span></p></li>
+<li><p><span class="math inline"><em>O</em>(2<sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>L’algorithme est composé de 2 boucles <strong>imbriquées</strong> suivant une suite définie par <span class="math inline">$\frac{n(n-1)}{2}$</span>. L’algorithme va additionner les index <span class="math inline"><em>i</em></span> et <span class="math inline"><em>j</em></span> à chaque itération et les rajouter à <span class="math inline"><em>m</em></span>. Cela veut dire que nous parcourons la liste un maximum de <span class="math inline"><em>n</em> × <em>n</em></span> fois, <span class="math inline"><em>n</em></span> étant la taille de la liste. La complexité de l’algorithme est ainsi de <span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span>.</p>
+<h1 id="récursivité-15-minutes">Récursivité (15 minutes)</h1>
+<p>Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre.</p>
+<p><strong>Question :</strong> (<em>5 minutes</em>) <strong>Somme des chiffres</strong><br />
+Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est : 1+2+6 = 9.</p>
+<p>Pour obtenir les chiffres qui composent un nombre, utilisez l’opérateur <code>\%</code> (modulo - <a href="https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)">https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)</a>).<br />
+Pour obtenir le nombre 12 à partir du nombre 126, il vous suffit de faire la division entière par 10. En Python, on utilise l’opérateur <code>\\\\</code> : 126 <code>\\\\</code> 10 = 12. En Java, la division entre deux variables de type <code>int</code> est entière, et vous n’aurez ainsi qu’à utiliser l’opérateur de division normal <code>\\</code> : 126 <code>\\</code> 10 = 12</p>
+<p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">def</span> sum_digits(number):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="cf">if</span> number <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>        <span class="cf">return</span> (number <span class="op">%</span> <span class="dv">10</span>) <span class="op">+</span> sum_digits(number <span class="op">//</span> <span class="dv">10</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a><span class="bu">print</span>(sum_digits(<span class="dv">126</span>))</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question6 {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sum_digits</span>(<span class="dt">int</span> number) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>        <span class="kw">if</span>(number == <span class="dv">0</span>){</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>            <span class="kw">return</span> <span class="dv">0</span>;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>        } <span class="kw">else</span>{</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>            <span class="kw">return</span> (number%<span class="dv">10</span>) + <span class="fu">sum_digits</span>(number/<span class="dv">10</span>);</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>        }</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    }</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">sum_digits</span>(<span class="dv">126</span>));</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>    }</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>}</span></code></pre></div>
+<p><strong>Question :</strong> (<em></em>) [10 minutes] <strong>Fibonacci</strong><br />
+La suite de Fibonacci est définie récursivement par les propriétés suivantes:</p>
+<ul>
+<li><p>si n est égal à 0 ou 1 : fibo(0) = fibo(1) = 1</p></li>
+<li><p>si n est supérieur ou égal à 2, alors ; fibo (n) = fibo(n - 1) + fibo(n - 2)</p></li>
+</ul>
+<p>Voici son implémentation en Java :</p>
+<pre><code>{language=Java}
+        public static int fibonacci(int n) {
+            if(n == 0 | n == 1){
+                return n;
+            } else{
+                return fibonacci(n-1) + fibonacci(n-2);
+            }
+        }
+        </code></pre>
+<p>Quel est la complexité de l’algorithme ci-dessus?</p>
+<p>Aidez-vous d’un exemple (<code>fibonacci(3)</code>, <code>fibonacci(4)</code>,...)<br />
+Pour formaliser la formule de complexité, on peut poser que <span class="math inline"><em>T</em>(<em>n</em>)</span> énumère le nombre d’opérations requises pour calculer <code>fibonacci(n)</code>. Ainsi, <span class="math inline"><em>T</em>(<em>n</em>) = <em>T</em>(<em>n</em> − 1) + <em>T</em>(<em>n</em> − 2) + <em>c</em></span>, <span class="math inline"><em>c</em></span> étant une constante. Vous pouvez alors énumérer le nombre d’opérations pour <code>fibonacci(3)</code>, <code>fibonacci(4)</code>... et esssayer de trouver la complexité en terme de <span class="math inline"><em>O</em>()</span>.</p>
+<p> <br />
+</p>
+<ol>
+<li><p><span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(<em>n</em>)</span></p></li>
+<li><p><span class="math inline"><em>O</em>(log (<em>n</em>))</span></p></li>
+<li><p><span class="math inline"><em>O</em>(2<sup><em>n</em></sup>)</span></p></li>
+</ol>
+<p>La complexité de cet algorithme est <span class="math inline"><em>O</em>(2<sup><em>n</em></sup>)</span>.</p>
+<h1 id="algorithmes-de-tri-60-minutes">Algorithmes de Tri (60 minutes)</h1>
+<p><strong>Question :</strong> (<em></em>) [20 minutes] <strong>Tri à bulles (Bubble Sort)</strong><br />
+Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste.</p>
+<p>Concrètement, si un premier nombre <span class="math inline"><em>x</em></span> est plus grand qu’un deuxième nombre <span class="math inline"><em>y</em></span> et que l’on souhaite trier l’ensemble par ordre croissant, alors <span class="math inline"><em>x</em></span> et <span class="math inline"><em>y</em></span> sont mal placés et il faut les inverser. Si, au contraire, <span class="math inline"><em>x</em></span> est plus petit que <span class="math inline"><em>y</em></span>, alors on ne fait rien et l’on compare <span class="math inline"><em>y</em></span> à <span class="math inline"><em>z</em></span>, l’élément suivant.</p>
+<p>Soit la liste <code>l = [1, 2, 4, 3, 1]</code>, triez les éléments de la liste en utilisant un tri à bulles. Combien d’itérations effectuez-vous?</p>
+<ul>
+<li><p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">def</span> tri_bulle(l):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(l)):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>        <span class="co">#TODO: Code à compléter</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    tri_bulle(l)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>    <span class="bu">print</span>(liste_triee)</span></code></pre></div></li>
+<li><p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question8 {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_bulle</span>(<span class="dt">int</span>[] l) {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; l.<span class="fu">length</span> - <span class="dv">1</span>; i++){</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>            <span class="co">//</span><span class="al">TODO</span><span class="co">: Code à compléter </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>        }</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>    }</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printArray</span>(<span class="dt">int</span> l[]){ </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>; </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i) </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>); </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a>  </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(); </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>    } </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>    </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a>        <span class="dt">int</span>[] l = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>};</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a>        <span class="fu">tri_bulle</span>(l);</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>        <span class="fu">printArray</span>(l);</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a>    }</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>}</span></code></pre></div></li>
+</ul>
+<p>En Java, utilisez une variable temporaire que vous nommerez <code>temp</code> afin de faire l’échange de valeur entre deux éléments de la liste.</p>
+<p> <br />
+</p>
+<p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">def</span> tri_bulle(l):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>    n <span class="op">=</span> <span class="bu">len</span>(l)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>        <span class="co"># Les i derniers éléments sont dans leur bonne position </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n<span class="op">-</span>i<span class="op">-</span><span class="dv">1</span>): </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>    </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>            <span class="co"># parcourir la liste de 0 à n-i-1 </span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>            <span class="co"># Echanger si l&#39;élément trouvé est supérieur </span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a>            <span class="co"># au prochain élément</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a>            <span class="cf">if</span> l[j] <span class="op">&gt;</span> l[j<span class="op">+</span><span class="dv">1</span>] : </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>                l[j], l[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> l[j<span class="op">+</span><span class="dv">1</span>], l[j] </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a>    tri_bulle(l)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true"></a>    <span class="bu">print</span>(l)</span></code></pre></div>
+<p><strong>Java:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question8 {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_bulle</span>(<span class="dt">int</span>[] l) {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>;</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n - <span class="dv">1</span>; i++){</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>            <span class="kw">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; n-i-<span class="dv">1</span>; j++) {</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>                <span class="kw">if</span> (l[j] &gt; l[j+<span class="dv">1</span>]) { </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>                    <span class="co">// échange l[j+1] et l[i] </span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a>                    <span class="dt">int</span> temp = l[j]; </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a>                    l[j] = l[j+<span class="dv">1</span>]; </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>                    l[j+<span class="dv">1</span>] = temp; </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>                } </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a>        }</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a>    }</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true"></a>    </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printArray</span>(<span class="dt">int</span> l[]){ </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>; </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i) </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>); </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true"></a>    </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(); </span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true"></a>    } </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true"></a>    </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true"></a>        <span class="dt">int</span>[] l = {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>};</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true"></a>        <span class="fu">tri_bulle</span>(l);</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true"></a>        <span class="fu">printArray</span>(l);</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true"></a>    }</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true"></a>}</span></code></pre></div>
+<p>L’algorithme a une complexité de <span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span> car il contient deux boucles qui parcourent la liste.<br />
+<br />
+<br />
+</p>
+<p><strong>Question :</strong> (<em>10 minutes</em>) <strong>Tri par insertion - 1 (Python)</strong><br />
+Soit un nombre entier <code>n</code>, et une liste triée <code>l</code>. Ecrivez un programme Python qui insère la valeur <code>n</code> dans la liste <code>l</code> tout en s’assurant que la liste <code>l</code> reste triée.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">def</span> insertion_entier(liste, number):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> : Compléter ici</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="bu">print</span>(insertion_entier([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>], <span class="dv">1</span>))</span></code></pre></div>
+<p><span>Exemple</span> En passant les arguments suivants à votre programme: n=5 et l=[2,4,6]. Ce dernier devra retourner <code>l =[2,4,5,6]</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="kw">def</span> insertion_entier(liste, number):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>    <span class="co"># ajoute un élément à la liste</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>    liste.append(number)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>    n <span class="op">=</span> <span class="bu">len</span>(liste) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> liste[n <span class="op">-</span> <span class="dv">1</span>] <span class="op">&gt;</span> number:</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>        liste[n] <span class="op">=</span> liste[n <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a>        n <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a>    liste[n] <span class="op">=</span> number</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a>    <span class="cf">return</span> liste</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a><span class="bu">print</span>(insertion_entier([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>], <span class="dv">1</span>))</span></code></pre></div>
+<p><strong>Question :</strong> (<em></em>) [20 minutes] <strong>Tri par insertion - 2 (Insertion Sort)</strong><br />
+Dans l’algorithme de tri par insertion, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés. Pour faire l’analogie avec l’exemple du jeu de cartes, lorsqu’on est à la i-ème étape du parcours, le i-ème élément est la carte saisie, les éléments précédents sont la main triée et les éléments suivants correspondent aux cartes encore en désordre sur la table.</p>
+<p>L’objectif d’une étape est d’insérer le i-ème élément à sa place parmi ceux qui le précède. Il faut pour cela trouver où l’élément doit être inséré en le comparant aux autres, puis décaler les éléments afin de pouvoir effectuer l’insertion. En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire “remonter” l’élément au fur et à mesure jusqu’à rencontrer un élément plus petit.</p>
+<p>Compléter le code suivant pour trier la liste <code>l</code> définie ci-dessous en utilisant un tri par insertion. Combien d’itérations effectuez-vous?</p>
+<ul>
+<li><p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="kw">def</span> tri_insertion(l):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(l)):</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>        <span class="co">#TODO: Code à compléter</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">43</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a>    tri_insertion(l)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>    <span class="bu">print</span>(l)</span></code></pre></div></li>
+<li><p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question10 {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_insertion</span>(<span class="dt">int</span>[] l) {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; l.<span class="fu">length</span>; i++){</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>            <span class="co">//</span><span class="al">TODO</span><span class="co">: Code à compléter </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>        }</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    }</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>    </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printArray</span>(<span class="dt">int</span> l[]){ </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>; </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i) </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>); </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(); </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>    } </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true"></a>    </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true"></a>        <span class="dt">int</span>[] l = {<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">43</span>};</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true"></a>        <span class="fu">tri_insertion</span>(l);</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true"></a>        <span class="fu">printArray</span>(l);</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true"></a>    }</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true"></a>}</span></code></pre></div></li>
+</ul>
+<p>Référez vous à la figure du dessous pour un exemple de tri par insertion.<br />
+Référez vous aussi aux diapositives 18 à 72 du cours.</p>
+<p><img src="ressources/tri_insertion.png" style="width:10cm" alt="image" /></p>
+<p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="kw">def</span> tri_insertion(l):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(l)):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>        key <span class="op">=</span> l[i]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>        j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a>        <span class="cf">while</span> j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> key <span class="op">&lt;</span> l[j]:</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a>            l[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> l[j]</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>            j <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>        l[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> key</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">43</span>]</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a>    tri_insertion(l)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a>    <span class="bu">print</span>(l)</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question10 {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_insertion</span>(<span class="dt">int</span>[] l) {</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; l.<span class="fu">length</span>; i++){</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a>            <span class="dt">int</span> key = l[i];</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a>            <span class="dt">int</span> j = i - <span class="dv">1</span>;</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a>            <span class="kw">while</span> (j &gt;= <span class="dv">0</span> &amp;&amp; l[j] &gt; key) {</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a>                l[j + <span class="dv">1</span>] = l[j];</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a>                j = j - <span class="dv">1</span>;</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a>            }</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a>            l[j + <span class="dv">1</span>] = key;</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a>        }</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a>    }</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printArray</span>(<span class="dt">int</span> l[]){</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>;</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>);</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true"></a>    }</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true"></a>        <span class="dt">int</span>[] l = {<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">43</span>};</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true"></a>        <span class="fu">tri_insertion</span>(l);</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true"></a>        <span class="fu">printArray</span>(l);</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true"></a>    }</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true"></a>}</span></code></pre></div>
+<p>La complexité de l’algorithme est de <span class="math inline"><em>O</em>(<em>n</em><sup>2</sup>)</span> car nous utilisons 2 boucles imbriquées, qui dans le pire des cas, parcourent la liste deux fois.</p>
+<p><strong>Question :</strong> (<em></em>) [30 minutes] <strong>Tri fusion (Merge Sort)</strong><br />
+À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur <em>fusion</em>). Le principe de l’algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu’aucune des deux listes ne soit vide, sinon la réponse est immédiate).</p>
+<p>Les étapes à suivre pour implémenter l’algorithme sont les suivantes:</p>
+<ol>
+<li><p>Si le tableau n’a qu’un élément, il est déjà trié.</p></li>
+<li><p>Sinon, séparer le tableau en deux parties plus ou moins égales.</p></li>
+<li><p>Trier récursivement les deux parties avec l’algorithme de tri fusion.</p></li>
+<li><p>Fusionner les deux tableaux triés en un seul tableau trié.</p></li>
+</ol>
+<p>Soit la liste <code>l</code> suivante [38, 27, 43, 3, 9, 82, 10], triez les éléments de la liste en utilisant un tri fusion. Combien d’itération effectuez-vous?</p>
+<ul>
+<li><p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="kw">def</span> merge(partie_gauche, partie_droite):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: Code à compléter</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a><span class="kw">def</span> tri_fusion(l):</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: Code à compléter</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">43</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">82</span>, <span class="dv">10</span>]</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a>    <span class="bu">print</span>(tri_fusion(l))</span></code></pre></div></li>
+<li><p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question11 {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>    <span class="co">// Fusionne 2 sous-listes de arr[]. </span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a>    <span class="co">// Première sous-liste est arr[l..m] </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a>    <span class="co">// Deuxième sous-liste est arr[m+1..r] </span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">merge</span>(<span class="dt">int</span> arr[], <span class="dt">int</span> l, <span class="dt">int</span> m, <span class="dt">int</span> r) {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Code à compléter </span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a>    }</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a>    </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a>    <span class="co">// Fonction principale qui trie arr[l..r] en utilisant </span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a>    <span class="co">// merge() </span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_fusion</span>(<span class="dt">int</span> arr[], <span class="dt">int</span> l, <span class="dt">int</span> r){</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Code à compléter </span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a>    }</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a>    </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printArray</span>(<span class="dt">int</span> l[]){ </span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a>        <span class="dt">int</span> n = l.<span class="fu">length</span>; </span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i) </span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a>            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(l[i] + <span class="st">&quot; &quot;</span>); </span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a>  </span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(); </span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true"></a>    } </span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true"></a>    </span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true"></a>        <span class="dt">int</span>[] l = {<span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">43</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">82</span>, <span class="dv">10</span>};</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true"></a>        <span class="fu">tri_fusion</span>(l, <span class="dv">0</span>, l.<span class="fu">length</span> - <span class="dv">1</span>);</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true"></a>        <span class="fu">printArray</span>(l);</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true"></a>    }</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true"></a>}</span></code></pre></div></li>
+</ul>
+<ul>
+<li><p>L’algorithme est récursif.</p></li>
+<li><p>Revenez à la visualisation de l’algorithme dans les diapositives 83 à 111 pour comprendre comment marche concrètement le tri fusion.</p></li>
+</ul>
+<p><strong>Python :</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">def</span> merge(partie_gauche, partie_droite):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>    <span class="co"># créer la liste qui sera retournée à la fin</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a>    liste_fusionnee <span class="op">=</span> []</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a>    <span class="co"># définir un compteur pour l&#39;index de la liste de gauche</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a>    compteur_gauche <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a>    <span class="co"># pareil pour la liste de droite</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a>    compteur_droite <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a>    longueur_gauche <span class="op">=</span> <span class="bu">len</span>(partie_gauche)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a>    longueur_droite <span class="op">=</span> <span class="bu">len</span>(partie_droite)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a>    <span class="co"># continuer jusqu&#39;à ce que l&#39;un des index (ou les deux) atteigne l&#39;une des longueurs (ou les deux)</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a>    <span class="cf">while</span> compteur_gauche <span class="op">&lt;</span> longueur_gauche <span class="kw">and</span> compteur_droite <span class="op">&lt;</span> longueur_droite:</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a>        <span class="co"># comparer les éléments actuels, ajouter le plus petit à la liste fusionnée</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a>        <span class="co"># et augmenter le compteur de cette liste</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a>        <span class="cf">if</span> partie_gauche[compteur_gauche] <span class="op">&lt;</span> partie_droite[compteur_droite]:</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true"></a>            liste_fusionnee.append(partie_gauche[compteur_gauche])</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true"></a>            compteur_gauche <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true"></a>            liste_fusionnee.append(partie_droite[compteur_droite])</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true"></a>            compteur_droite <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true"></a></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true"></a>    <span class="co"># s&#39;il y a encore des éléments dans les listes, il faut les ajouter à la liste fusionnée</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true"></a>    liste_fusionnee <span class="op">+=</span> partie_gauche[compteur_gauche:longueur_gauche]</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true"></a>    liste_fusionnee <span class="op">+=</span> partie_droite[compteur_droite:longueur_droite]</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true"></a></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true"></a>    <span class="cf">return</span> liste_fusionnee  <span class="co"># retourner la liste fusionnée</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true"></a></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true"></a><span class="kw">def</span> tri_fusion(l):</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true"></a>    <span class="co"># complèter la fonction</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true"></a>    longueur <span class="op">=</span> <span class="bu">len</span>(l)  <span class="co"># calculer la longueur de la liste</span></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true"></a>    <span class="co"># s&#39;il n&#39;y a pas plus d&#39;un élément, retourner la liste</span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true"></a>    <span class="cf">if</span> longueur <span class="op">==</span> <span class="dv">1</span> <span class="kw">or</span> longueur <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true"></a>        <span class="cf">return</span> l</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true"></a>    <span class="co"># sinon, diviser la liste en deux</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true"></a>    <span class="cf">elif</span> longueur <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true"></a>        <span class="co"># convertir la variable en nombre entier (l&#39;index ne peut pas être un nombre à virgule)</span></span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true"></a>        index_milieu <span class="op">=</span> <span class="bu">int</span>(longueur <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true"></a>        <span class="co"># la partie gauche va du 1er élément à celui du milieu</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true"></a>        partie_gauche <span class="op">=</span> l[<span class="dv">0</span>:index_milieu]</span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true"></a>        <span class="co"># la partie droite va du milieu à la fin de la liste</span></span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true"></a>        partie_droite <span class="op">=</span> l[index_milieu:longueur]</span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true"></a></span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true"></a>        <span class="co"># appeler la fonction tri_fusion à nouveau sur la partie gauche (récursivité)</span></span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true"></a>        partie_gauche_triee <span class="op">=</span> tri_fusion(partie_gauche)</span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true"></a>        <span class="co"># même chose pour la partie droite</span></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true"></a>        partie_droite_triee <span class="op">=</span> tri_fusion(partie_droite)</span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true"></a></span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true"></a>        liste_fusionnee <span class="op">=</span> merge(partie_gauche_triee, partie_droite_triee)  <span class="co"># enfin, joindre les 2 parties</span></span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true"></a></span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true"></a>        <span class="co"># retourner le résultat</span></span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true"></a>        <span class="cf">return</span> liste_fusionnee</span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true"></a></span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true"></a></span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true"></a>    l <span class="op">=</span> [<span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">43</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">82</span>, <span class="dv">10</span>]</span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true"></a>    <span class="bu">print</span>(tri_fusion(l))</span></code></pre></div>
+<p><strong>Java :</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="co">// Solution question 11 - 1/2</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> question11 {</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>    <span class="co">// Fusionne 2 sous-listes de arr[].</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a>    <span class="co">// Première sous-liste est arr[l..m]</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a>    <span class="co">// Deuxième sous-liste est arr[m+1..r]</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">merge</span>(<span class="dt">int</span> arr[], <span class="dt">int</span> l, <span class="dt">int</span> m, <span class="dt">int</span> r) {</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true"></a>        <span class="co">// Trouver la taille des deux sous-listes à fusionner</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true"></a>        <span class="dt">int</span> n1 = m - l + <span class="dv">1</span>;</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true"></a>        <span class="dt">int</span> n2 = r - m;</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true"></a>        <span class="co">/* Créer des listes temporaires */</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true"></a>        <span class="dt">int</span> L[] = <span class="kw">new</span> <span class="dt">int</span>[n1];</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true"></a>        <span class="dt">int</span> R[] = <span class="kw">new</span> <span class="dt">int</span>[n2];</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true"></a>        <span class="co">/*Copier les données dans les sous-listes temporaires */</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n1; ++i) {</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true"></a>            L[i] = arr[l + i];</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true"></a>        }</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true"></a>        <span class="kw">for</span> (<span class="dt">int</span> j = <span class="dv">0</span>; j &lt; n2; ++j) {</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true"></a>            R[j] = arr[m + <span class="dv">1</span> + j];</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true"></a>        }</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true"></a>        <span class="co">/* Fusionner les sous-listes temporaires */</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true"></a>        <span class="co">// Indexes initiaux de la première et seconde sous-liste</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true"></a>        <span class="dt">int</span> i = <span class="dv">0</span>, j = <span class="dv">0</span>;</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true"></a></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true"></a>        <span class="co">// Index initial de la sous-liste fusionnée</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true"></a>        <span class="dt">int</span> k = l;</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true"></a>        <span class="kw">while</span> (i &lt; n1 &amp;&amp; j &lt; n2) {</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true"></a>            <span class="kw">if</span> (L[i] &lt;= R[j]) {</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true"></a>                arr[k] = L[i];</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true"></a>                i++;</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true"></a>            } <span class="kw">else</span> {</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true"></a>                arr[k] = R[j];</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true"></a>                j++;</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true"></a>            }</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true"></a>            k++;</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true"></a>        }</span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true"></a></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true"></a>        <span class="co">/* Copier les élements restants de L[] */</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true"></a>        <span class="kw">while</span> (i &lt; n1) {</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true"></a>            arr[k] = L[i];</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true"></a>            i++;</span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true"></a>            k++;</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true"></a>        }</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true"></a></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true"></a>        <span class="co">/* Copier les élements restants de R[] */</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true"></a>        <span class="kw">while</span> (j &lt; n2) {</span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true"></a>            arr[k] = R[j];</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true"></a>            j++;</span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true"></a>            k++;</span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true"></a>        }</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true"></a>    }</span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true"></a></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true"></a>    <span class="co">// Fonction principale qui trie arr[l..r] en utilisant</span></span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true"></a>    <span class="co">// merge()</span></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">tri_fusion</span>(<span class="dt">int</span> arr[], <span class="dt">int</span> l, <span class="dt">int</span> r) {</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true"></a>        <span class="kw">if</span> (l &lt; r) {</span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true"></a>            <span class="co">// Trouver le milieu de la liste</span></span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true"></a>            <span class="dt">int</span> m = (l + r) / <span class="dv">2</span>;</span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true"></a></span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true"></a>            <span class="co">// Trier les première et la deuxième parties de la liste</span></span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true"></a>            <span class="fu">tri_fusion</span>(arr, l, m);</span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true"></a>            <span class="fu">tri_fusion</span>(arr, m + <span class="dv">1</span>, r);</span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true"></a></span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true"></a>            <span class="co">// Fusionner les deux parties</span></span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true"></a>            <span class="fu">merge</span>(arr, l, m, r);</span>
+<span id="cb27-68"><a href="#cb27-68" aria-hidden="true"></a>        }</span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="co">// Solution question 11 - 2/2</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">affiche_liste</span>(<span class="dt">int</span> l[]) {</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a>    <span class="dt">int</span> n = l.<span class="fu">length</span>;</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a>    <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a>        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(l[i] + <span class="st">&quot; &quot;</span>);</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a>}</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a>    <span class="dt">int</span>[] l = {<span class="dv">38</span>, <span class="dv">27</span>, <span class="dv">43</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">82</span>, <span class="dv">10</span>};</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a>    <span class="fu">tri_fusion</span>(l, <span class="dv">0</span>, l.<span class="fu">length</span> - <span class="dv">1</span>);</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a>    <span class="fu">affiche_liste</span>(l);</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true"></a>}</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : <span class="math inline"><em>T</em>(<em>n</em>) = 2<em>T</em>(<em>n</em>/2) + <em>O</em>(<em>n</em>)</span>. En effet, l’algorithme comporte 3 étapes :</p>
+<ol>
+<li><p>“Divide Step”, qui divise les listes en deux sous-listes, et cela prend un temps constant</p></li>
+<li><p>“Conquer Step”, qui trie récursivement les sous-listes de taille <span class="math inline"><em>n</em>/2</span> chacune, et cette étape est représentée par le terme <span class="math inline">2<em>T</em>(<em>n</em>/2)</span> dans l’équation.</p></li>
+<li><p>La dernière étape consiste à fusionner les listes, sa complexité est de <span class="math inline"><em>O</em>(<em>n</em>)</span>.</p></li>
+</ol>
+<p>La solution à cette équation est <span class="math inline"><em>O</em>(<em>n</em>log <em>n</em>)</span>.</p>
