@@ -1,0 +1,414 @@
+\input{../header.tex}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutionfalse
+\ShowConseiltrue
+\titre
+\cours{Architecture des ordinateurs - Exercices de base}
+
+Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée sur les conversions en base binaire, décimale ou hexadécimale, ainsi que des opérations de base en suivant le modèle Von Neumann. \\
+
+\section{Conversions}
+
+\begin{Exercice}[5 minutes]  \textbf{Conversion $Base_{10}$ - $Base_2$}\\
+    \begin{enumerate}
+        \item Convertir le nombre 10$_{(10)}$ en base 2.
+        \item Convertir le nombre 45$_{(10)}$ en base 2.
+        \item Convertir le nombre 173$_{(10)}$ en base 2.
+    \end{enumerate}
+
+    \begin{conseil}
+        Vous pouvez utiliser la table des puissances de 2 pour vous aider. \\
+        
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
+            \hline
+            \textbf{valeur} & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        %Useful link: http://www.circuits-logiques.polymtl.ca/help/Chapitre05.pdf
+    \end{conseil}
+
+    \begin{solution}
+        Il existe 2 méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2. Ici le nombre 45 sera entièrement développé. \\
+        
+        
+        \textbf{Méthode 1 :} \\
+        
+        Cette deuxième méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande valeur de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
+        
+Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
+        
+   		\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
+            \hline
+            \textbf{valeur} & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
+            \hline
+            \textbf{binaire} & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        On obtient donc 101101$_{(2)}$ \\
+	
+	\textbf{Méthode 2 :} \\
+	
+	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut. \\
+       	
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{nombre} & \textbf{reste}\\ [0.5ex]
+            \hline
+            45 &  - \\ [0.5ex] 
+            \hline
+            22 & 1 \\ [0.5ex] 
+            \hline
+            11 & 0 \\ [0.5ex] 
+            \hline
+            5 & 1 \\ [0.5ex] 
+            \hline
+            2 & 1 \\ [0.5ex] 
+            \hline
+            1 & 0 \\ [0.5ex] 
+            \hline
+            0 & 1 \\ [0.5ex]
+            \hline
+            
+        \end{tabular} \\
+
+        Ici, on obtient 101101$_{(2)}$ \\
+	Les réponses sont les suivantes :
+        \begin{enumerate}
+        \item 10$_{(10)}$ = 1010$_{(2)}$
+        \item 45$_{(10)}$ = 101101$_{(2)}$
+        \item 173$_{(10)}$ = 10101101$_{(2)}$
+        \end{enumerate}
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[15 minutes]  \textbf{Conversion $Base_{10}$ - $Base_3$, $Base_8$, $Base_{16}$}\\
+    \begin{enumerate}
+        \item Convertir le nombre 40$_{(10)}$ en base 8.
+        \item Convertir le nombre 52$_{(10)}$ en base 3.
+        \item Convertir le nombre 254$_{(10)}$ en base 16.
+    \end{enumerate}
+
+    \begin{conseil}
+        S'inspirer de la solution de la question précédente. \\
+        
+        N'oubliez pas qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
+    \end{conseil}
+    \begin{solution}
+        Dans cette solution, la méthode 1 sera utilisée pour 52 en base 3, et la méthode 2  pour 254 en base 16. \\
+        
+        \textbf{Méthode 1 pour 52 (ici, nous sommes en base 3 donc on divise par 3) :} \\
+       	
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{nombre} & \textbf{reste}\\ [0.5ex]
+            \hline
+            52 &  - \\ [0.5ex] 
+            \hline
+            17 & 1 \\ [0.5ex] 
+            \hline
+            5 & 2 \\ [0.5ex] 
+            \hline
+            1 & 2 \\ [0.5ex] 
+            \hline
+            0 & 1 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+
+        Ici, on obtient 1221$_{(3)}$ \\
+        \textbf{Méthode 2 pour 254 (ici, nous sommes en base 10)} \\
+        
+        Ici, il faut prendre en compte le nombre de fois qu'on peut multiplier le nombre par la valeur de la puissance. Ici on a 256 qui est trop grand, il faut donc partir sur 16. On voit qu'on peut aller jusqu'à 15*16 qui vaut 240. Donc on entre 15 sous la valeur 16 et on soustrait. 254-240 = 14. Il nous reste donc 14*1, on met alors 14 sous la valeur 1. \\
+        
+   		\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{puissance} & $16^{2}$ & $16^{1}$ & $16^{0}$ \\ [0.5ex] 
+            \hline
+            \textbf{valeur} & 256 & 16 & 1 \\ [0.5ex] 
+            \hline
+            \textbf{hexa} & 0 & 15 & 14 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        On obtient donc 15 14 (qui s'écrit FE$_{(16)}$)\\
+        
+        Les réponses sont les suivantes :
+        \begin{enumerate}
+        \item 40$_{(10)}$ = 50$_{(8)}$
+        \item 52$_{(10)}$ = 1221$_{(3)}$
+        \item 254$_{(10)}$ = FE$_{(16)}$
+        \end{enumerate}
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Conversion $Base_{3}$ - $Base_{16}$ en $Base_8$}
+    \begin{enumerate}
+        \item Convertir le nombre 10110$_{(2)}$ en base 10.
+        \item Convertir le nombre 4321$_{(5)}$ en base 10.
+        \item Convertir le nombre ABC$_{(16)}$ en base 10.
+    \end{enumerate}
+    \begin{conseil}
+         % Ici utilisez les tables de puissances utilisées pour la méthode 2 (présentée dans la solution du premier exercice). \\
+        
+         N'oubliez pas qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
+    \end{conseil}
+    \begin{solution}
+        Reprenons la table des puissances utilisée précédemment (exemple avec ABC$_{(16)}$) : \\
+        
+        Ici, A vaut 10, B vaut 11 et C vaut 12 \\
+        
+        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            \textbf{puissance} & $16^{2}$ & $16^{1}$ & $16^{0}$ \\ [0.5ex] 
+            \hline
+            \textbf{valeur} & 256 & 16 & 1 \\ [0.5ex] 
+            \hline
+            \textbf{hexa} & 10 & 11 & 12 \\ [0.5ex] 
+            \hline
+        \end{tabular} \\
+        
+        Ici on obtient donc 10*256 + 11*16 + 12*1 = 2560 + 176 + 12 = 2748$_{(10)}$ \\
+        
+        \begin{enumerate}
+        \item Convertir le nombre 10110$_{(2)}$  = 22$_{(10)}$
+        \item Convertir le nombre 4321$_{(5)}$ = 586$_{(10)}$
+        \item Convertir le nombre ABC$_{(16)}$ = 2748$_{(10)}$
+        \end{enumerate}
+    
+    \end{solution}
+
+\end{Exercice}
+\newpage
+
+\section{Arithmétique}
+
+\begin{Exercice}[15 minutes] \textbf{Addition de nombres binaires}
+    \begin{enumerate}
+        \item Additionner \lstinline{01010101}$_{(2)}$ et \lstinline{10101010}$_{(2)}$
+        \item Additionner \lstinline{01011111}$_{(2)}$ et \lstinline{10000001}$_{(2)}$
+        \item Additionner \lstinline{01110100}$_{(2)}$ et \lstinline{00011010}$_{(2)}$
+    \end{enumerate}
+    \begin{conseil}
+\textbf{Table d'addition binaire:}\\
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    retenue & 1 & 0 & 0 & 0 & 0 \\ [0.5ex] 
+    \hline
+    a & 0 & 1 & 1 & 0 & 0 \\ [0.5ex] 
+    \hline
+    b & 0 & 1 & 0 & 1 & 0 \\ [0.5ex] 
+    \hline
+    a+b & 1 & 0 & 1 & 1 & 0 \\ [0.5ex] 
+    \hline
+\end{tabular}
+    \end{conseil}
+    \begin{solution}
+        Il faut utiliser la table d'addition. Pour commencer, entrez a et b, puis commencez à additionner chaque colonne. Si l' addition vaut 1, le résultat est 1 et la retenue est 0. Si l'addition vaut 2, le résultat est 0 et la retenue est 1. Si l'addition vaut 3, le résultat est 1 et la retenue est 1. N'oubliez pas d' additionner également la retenue à chaque colonne ! \\
+        
+        Voici un exemple pour le deuxième point : \\
+        \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+	    retenue & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+	    \hline
+            a & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex] 
+            \hline
+            b & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
+            \hline
+            a + b & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex]
+            \hline
+        \end{tabular} \\
+
+        On obtient donc 11100000$_{(2)}$ \\
+        \begin{enumerate}
+            \item Additionner 01010101$_{(2)}$ + 10101010$_{(2)}$ = 11111111$_{(2)}$
+            \item Additionner 01011111$_{(2)}$ + 10000001$_{(2)}$ = 11100000$_{(2)}$
+            \item Additionner 01110100$_{(2)}$ + 00011010$_{(2)}$ = 10001110$_{(2)}$
+        \end{enumerate}
+
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Soustraction de nombres binaires}\\
+    Effectuer les opérations suivantes:
+
+    \begin{enumerate}
+        \item 01111111$_{(2)}$ - 01000000$_{(2)}$
+        \item 10000000$_{(2)}$ - 00000001$_{(2)}$
+        \item 10101010$_{(2)}$ - 01010101$_{(2)}$
+    \end{enumerate}
+
+    \begin{conseil}
+        \textbf{Table de soustraction binaire:}\\
+         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+            \hline
+            retenue & 0 & 1 & 0 & 0 \\ [0.5ex] 
+            \hline
+            a & 1 & 1 & 0 & 0 \\ [0.5ex] 
+            \hline
+            b & 1 & 0 & 1 & 0 \\ [0.5ex] 
+            \hline
+            a-b & 0 & 0 & 1 & 0 \\ [0.5ex] 
+            \hline
+        \end{tabular}
+    \end{conseil}
+    \begin{solution}
+        Il faut utiliser la table de soustraction. Pour commencer, entrez a et b, puis commencez à soustraire chaque colonne. Si la soustraction vaut 0, le résultat est 0 et la retenue est 0. Si la soustraction vaut 1, le résultat est 1 et la retenue est 0. Si la soustraction vaut -1, le résultat est 1 et la retenue est 1. Si la soustraction vaut -2, le résultat est 0 et la retenue est 1. N'oubliez pas de soustraire la retenue à chaque fois ! \\
+
+Voici un exemple pour le deuxième point : \\
+\begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+    \hline
+retenue & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\ [0.5ex]
+\hline
+    a & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ [0.5ex] 
+    \hline
+    b & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ [0.5ex] 
+    \hline
+    a - b & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ [0.5ex]
+    \hline
+\end{tabular} \\
+On obtient donc 1111111$_{(2)}$ \\
+ 		
+ 		\begin{enumerate}
+        \item 01111111$_{(2)}$ - 01000000$_{(2)}$ = 111111$_{(2)}$
+        \item 10000000$_{(2)}$ - 00000001$_{(2)}$ = 1111111$_{(2)}$
+        \item 10101010$_{(2)}$ - 01010101$_{(2)}$ = 1010101$_{(2)}$
+    \end{enumerate}
+    \end{solution}
+
+    \textbf{\\ \faTerminal  Exemple:}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.52\textwidth]{img/substract.png}
+            \caption{Exemple de soustraction de nombres binaires}
+        \end{figure}
+
+\end{Exercice}
+\newpage
+\section{Modèle de Von Neumann}
+Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Van Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
+
+\textbf{État d'origine:}\\
+A l'origine, notre \lstinline{Program Counter (PC)} vaut \lstinline{00100000}.\\
+
+Dans la mémoire, les instructions sont les suivantes:
+
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Adresse} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00011111 & 00100100\\ [0.5ex] 
+    \hline
+    00100000 & 10110110\\ [0.5ex] 
+    \hline
+    00100001 & 11101101\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+Les registres contiennent les valeurs suivantes:
+
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Registre} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00 & 11100011\\ [0.5ex] 
+    \hline
+    01 & 01101100\\ [0.5ex] 
+    \hline
+    10 & 00100101\\ [0.5ex] 
+    \hline
+    11 & 00000000\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+Les opérations disponibles pour l'unité de contrôle sont les suivantes:
+\\
+\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+    \hline
+    \textbf{Numéro} & \textbf{Valeur}\\ [0.5ex]
+    \hline
+    00 & MOV\\ [0.5ex] 
+    \hline
+    01 & XOR\\ [0.5ex] 
+    \hline
+    10 & ADD\\ [0.5ex] 
+    \hline
+    11 & SUB\\ [0.5ex]
+    \hline
+\end{tabular}
+\\\\
+
+
+\begin{Exercice}[10 minutes]\textbf{Fetch}\\
+    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Program Counter} et de l'\lstinline{Instruction Register}?
+
+    \begin{conseil}
+        Pour rappel, l'\textbf{unité de contrôle (Control Unit)} commande et contrôle le fonctionnement du système. Elle est chargée du \textbf{séquençage} des opérations. Après chaque opération \lstinline{FETCH}, la valeur du \textbf{Program Counter} est incrémentée (valeur initiale + 1).
+    \end{conseil}
+
+    \begin{solution}
+        À la fin de l'opération \lstinline{Fetch}, le \lstinline{Program Counter} vaudra \lstinline{00100001} tandis que l'\lstinline{Instruction Register} vaudra \lstinline{10110110}, ce qui correspond à la valeur de l'adresse mémoire \lstinline{00100000}.
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Decode}
+    \begin{enumerate}
+        \item Quelle est la valeur de l'opération à exécuter?
+        \item Quelle est l'adresse du registre dans lequel le résultat doit être enregistré?
+        \item Quelle est la valeur du premier nombre de l'opération?
+        \item Quelle est la valeur du deuxième nombre de l'opération?
+    \end{enumerate}
+
+    \begin{conseil}
+        Pensez à décomposer la valeur de l'\lstinline{Instruction Register} pour obtenir toutes les informations demandées. \\
+        Utilisez la même convention que celle présentée dans les diapositives du cours (Computer Architecture - Page 15) \\
+        Les données issues de la décomposition de l'\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
+    \end{conseil}
+
+    \begin{solution}
+        En décomposant l'\lstinline{Instruction Register} (10110110), on obtient les données suivantes:
+        \begin{itemize}
+            \item \lstinline{10}, correspond à l'opération à effectuer,
+            \item \lstinline{11}, correspond à \textbf{l'adresse} du registre où sera sauvegardé le résultat,
+            \item \lstinline{01}, correspond à \textbf{l'adresse} du premier nombre,
+            \item \lstinline{10}, correspond à \textbf{l'adresse} du deuxième nombre.\\
+        \end{itemize}
+        
+    À partir de ces informations, on peut répondre aux questions posées:
+       \begin{enumerate}
+           \item Valeur de l'opération: \lstinline{ADD}
+           \item Adresse du registre dans lequel le résultat doit être enregistré: \lstinline{11}
+           \item Premier nombre de l'opération: \lstinline{01101100}
+           \item Deuxième nombre de l'opération: \lstinline{00100101}
+       \end{enumerate}
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Execute}\\
+    Quel est résultat de l'opération?
+    \begin{conseil}
+        Toutes les informations permettant d'effectuer l'opération se trouvent dans les données de l'\lstinline{Instruction Register}.
+    \end{conseil}
+    \begin{solution}
+        \begin{tabular}{ccccccccc}
+            & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 \\
+          + & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+          \hline
+            & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{1} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{1} \\
+          \end{tabular}
+    \end{solution}
+\end{Exercice}
+
+
+\end{document}
