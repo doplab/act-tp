@@ -152,46 +152,6 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Conversion d'un nombre binaire (au format complément à 2) en base 10}\\
-    
-    Soit le nombre binaire suivant exprimé sur 8 bits au format complément à 2: 10010011$_{(2)}$. Convertissez ce nombre en base 10. \\
-	
-    \begin{conseil}
-    
-    \begin{itemize}
-    	\item Utilisez le même tableau que celui de la question 4 des exercices de base (complément à 2).
-    \end{itemize}
-    
-    \end{conseil}
-    
-    \begin{solution}
-       Il faut appliquer le processus de la question 4 (complément à 2), mais de façon inversée. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et puis multiplier par -1. \\
-       
-       \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
-            \hline
-            a & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\ [0.5ex] 
-            \hline
-            b & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\ [0.5ex]
-            \hline
-            c & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex]
-            \hline
-        \end{tabular} \\
-        
-        a : écrire le nombre en binaire \\
-        
-        b : soustraire 1 \\
-        
-        c : inverser tous les bits \\
-        
-        On obtient donc 01101101$_{(2)}$ = 109$_{(10)}$ \\
-        
-        Pour finir, on obtient -109$_{(10)}$ après multiplication par -1.
-       
-    \end{solution}
-\end{Exercice}
-
-
-
 \begin{Exercice}[10 minutes] \textbf{Floating point}\\
     
     Voici la représentation en binaire d'un nombre à virgule flottante: \\
@@ -321,35 +281,6 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
         
     \end{solution}
 \end{Exercice}
-\newpage
-
-\begin{Exercice}[10 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
-    Qu'afficheront les programmes suivants ? \\
-    
-    \textbf{Python:}
-    \lstinputlisting{updated/Question9.py}
-    
-    \textbf{\\Java:}
-    \lstinputlisting{updated/Question9.java}
-     
-    
-     \begin{conseil}
-           Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
-         
-     \end{conseil}
-     \begin{solution}
-      
-     \textbf{Python:}\\
-     3\\
-     3.0
-     
-     \textbf{\\Java:}\\
-     3\\
-     3.14 \\
-            
-     \end{solution}   
- \end{Exercice}
-
 
 \newpage
 
