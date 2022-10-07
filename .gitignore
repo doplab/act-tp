@@ -1,6 +1,9 @@
 # Folders
 act-lectures
 
+# Vidéos
+*.mov
+
 # mat ignore
 run_jupyter.sh
 
