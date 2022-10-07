@@ -7,7 +7,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Programmation de base}
@@ -81,7 +81,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 
     \begin{conseil}
         \begin{itemize}
-        	\item En Python, on obtient l'opposé d'une variable booléenne en utilisant \lstinline{not(variable)} et \lstinline{\!(variable)} en Java. Ici, le même principe s'applique. L'opposé de 0 en binaire est 1.
+        	\item L'opposé de 0 en binaire est 1 et inversément.
         	\item Pour étudier la différence, il faut regarder les différentes manières d'exprimer -0 en binaire (se référer à la diapositive 11 du cours de la semaine 3).
         \end{itemize} 
     \end{conseil}
@@ -284,40 +284,6 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
 
 \newpage
 
-\section{Manipulation des chaînes de caractères}
-
-\begin{Exercice}[5 minutes] \textbf{Format d'impression (Python uniquement)}\\
-    Créez et assignez des valeurs à 2 variables \textit{prenom} (str) et \textit{age} (int), puis affichez: "Je m'appelle \textit{prenom} et j'ai \textit{age} ans". Gérez le format de l'impression via l'opérateur +, puis en utilisant la fonction \lstinline{format()}. \\
-    
-     \begin{conseil}
-        N'hésitez pas à consulter ce lien pour plus de détails concernant l'utilisation de la fonction format(): \url{https://docs.python.org/fr/3/library/stdtypes.html\#str.format}
-     \end{conseil}
-     \begin{solution}
-      
-     \lstinputlisting{updated/solutions/Question8.py}
-            
-     \end{solution}   
- \end{Exercice}
-
-\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
-    Créez une variable \textit{mon\_mot} de type ``chaîne de caractères'' avec pour valeur \textbf{``Hard But Cool !!''}. Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez enfin une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats. Qu'obtenez-vous? \\
-    
-     \begin{conseil}
-           Pour Python, utilisez \lstinline{[]}, et pour Java, utilisez la fonction \lstinline{substring()} ainsi que la fonction \lstinline{length()} qui permet d'obtenir la taille d'un élément.
-         
-     \end{conseil}
-     \begin{solution}
-     
-     \textbf{Python:}
-     \lstinputlisting{resources/solutions/Question9.py}
-     
-     \textbf{\\Java:}
-     \lstinputlisting{resources/solutions/Question9.java}
-            
-     \end{solution}   
- \end{Exercice}
-
-\newpage
 \section{Opérateurs et conditions Booléennes (Python uniquement)}
 Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True}, soit \lstinline{False}. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : $==$ (est égal), $!=$ (n'est pas égal), $<$ (est strictement plus petit), $<=$ (est plus petit ou égal), $>$ (est strictement plus grand), $>=$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
 
