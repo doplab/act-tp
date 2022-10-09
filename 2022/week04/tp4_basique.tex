@@ -123,19 +123,16 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 \section{Gestion des exceptions}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question6.py}
-    
+    \lstinputlisting{ressources/Questions/Question6.py}  
      \begin{conseil}
         \begin{itemize}
-            \item La fonction len() compte le nombre d’élément dans la variable.
-          
+            \item Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
         \end{itemize}  
        
     \end{conseil}
      \begin{solution}
-        Le résultat de la division est: 2.5 \\
-        On ne peut pas diviser une chaine de caractère 
-        
+        \lstinline{Le résultat de la division est: 2.5}\\
+        \lstinline{On ne peut pas diviser une chaîne de caractères.}
      \end{solution}   
  \end{Exercice}
 
@@ -143,7 +140,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \lstinputlisting{ressources/Questions/Question7.py}
     
      \begin{conseil}
-         La chaine de caractère vide est representée par "" 
+         La chaîne de caractères vide est représentée par ``'' 
     \end{conseil}
      \begin{solution}
         Nous ne pouvons pas diviser un nombre par 0.
@@ -155,18 +152,18 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     
      \begin{conseil}
         \begin{itemize}
-            \item La fonction float() permet de convertir une variable en nombre à décimal.
-            \item La fonction int() permet de convertir une variable en nombre entier.
+            \item La fonction \lstinline{float()} permet de convertir une variable en nombre à décimal.
+            \item La fonction \lstinline{int()} permet de convertir une variable en nombre entier.
         \end{itemize}  
     \end{conseil}
 
      \begin{solution}
-        Nous ne pouvons pas convertir une chaine de caractère.
+        Nous ne pouvons pas convertir une chaîne de caractères.
      \end{solution}
 
 \end{Exercice}
  
-\begin{Exercice}[5 minutes] Est ce que le programme suivant s'execute correctement ? Si la réponse est non, expliquez pourquoi et comment vous corrigerez le programme ? \textbf{Gestion d'erreurs (Java)}\\
+\begin{Exercice}[5 minutes] Est ce que le programme suivant s'exécute correctement ? Si la réponse est non, expliquez pourquoi et comment vous corrigerez le programme ? \textbf{Gestion d'erreurs (Java)}\\
     \lstinputlisting{ressources/Questions/Question9.java}
 
     
@@ -174,10 +171,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
         Référez vous aux cours pour la gestion d'erreur en Java (slide 26)         
      \end{conseil}
      \begin{solution}
-     Le programme suivant est faux, le type d'erreur que la fonction division() retourne est different de celui qu'on intercepte dans le catch. \\
-     Pour corriger cela, il suffit de mettre au lieu de IndexOutOfBoundsException le type de l'erreur retourné par la fonction division() qui est ArithmeticException.
-        
-         
+     Le programme suivant est faux, le type d'erreur que la fonction \lstinline{division()} retourne est différent de celui qu'on intercepte dans le \lstinline{catch}. \\
+     Pour corriger cela, il suffit de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}, qui correspond au type d'erreur retourné par la fonction \lstinline{division}.
      \end{solution}   
  \end{Exercice}
 

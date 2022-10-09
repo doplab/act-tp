@@ -21,6 +21,4 @@ public class Question9 {
             System.out.println("Nous ne pouvons pas effectuer une division par 0");
         }
     }
-
-   
 }
