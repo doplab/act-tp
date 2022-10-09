@@ -7,7 +7,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Fonctions, gestion de la mémoire et des exceptions - Exercices de base}
@@ -122,25 +122,63 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
 \section{Gestion des exceptions}
 
-\begin{Exercice}[5 minutes] \textbf{Template (langage à utiliser)}\\
-    Exercice 1 - structure \\
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question6.py}
     
      \begin{conseil}
-        % Ajouter un conseil
-         
+        \begin{itemize}
+            \item La fonction len() compte le nombre d’élément dans la variable.
+          
+        \end{itemize}  
+       
+    \end{conseil}
+     \begin{solution}
+        Le résultat de la division est: 2.5 \\
+        On ne peut pas diviser une chaine de caractère 
+        
+     \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question7.py}
+    
+     \begin{conseil}
+         La chaine de caractère vide est representée par "" 
+    \end{conseil}
+     \begin{solution}
+        Nous ne pouvons pas diviser un nombre par 0.
+     \end{solution}   
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question8.py}
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item La fonction float() permet de convertir une variable en nombre à décimal.
+            \item La fonction int() permet de convertir une variable en nombre entier.
+        \end{itemize}  
+    \end{conseil}
+
+     \begin{solution}
+        Nous ne pouvons pas convertir une chaine de caractère.
+     \end{solution}
+
+\end{Exercice}
+ 
+\begin{Exercice}[5 minutes] Est ce que le programme suivant s'execute correctement ? Si la réponse est non, expliquez pourquoi et comment vous corrigerez le programme ? \textbf{Gestion d'erreurs (Java)}\\
+    \lstinputlisting{ressources/Questions/Question9.java}
+
+    
+     \begin{conseil}
+        Référez vous aux cours pour la gestion d'erreur en Java (slide 26)         
      \end{conseil}
      \begin{solution}
-     
-     \textbf{Python:} 
-     % Ajouter une solution en Python
-     
-     \textbf{\\Java:} 
-      % Ajouter une solution en Java
+     Le programme suivant est faux, le type d'erreur que la fonction division() retourne est different de celui qu'on intercepte dans le catch. \\
+     Pour corriger cela, il suffit de mettre au lieu de IndexOutOfBoundsException le type de l'erreur retourné par la fonction division() qui est ArithmeticException.
         
          
      \end{solution}   
  \end{Exercice}
-
-
 
 \end{document}
