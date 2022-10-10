@@ -231,12 +231,42 @@ Au terme de cette séance, l'étudiant sera capable de:
     \lstinputlisting{resources/Questions/Question12.py}
 
      \begin{conseil}
-        En Python, la fonction \lstinline{not} renvoie l'opposé d'une valeur booléenne. Par exemple, \lstinline{not(False)} renverra \lstinline{True}. En Java, on utilise un point d'exclamation avant la valeur.
+         En Python, la fonction \lstinline{not} renvoie l'opposé d'une valeur booléenne. Par exemple, \lstinline{not(False)} renverra \lstinline{True}. En Java, on utilise un point d'exclamation avant la valeur.
      \end{conseil}
      \begin{solution}
         Garbinato : Professeur du cours Algorithmique et pensée computationelle.
      \end{solution}   
  \end{Exercice}
 
+ \begin{Exercice}[10 minutes] \textbf{Branchement conditionnel en Java}\\
+   Qu'affiche le programme suivant? 
+   
+   \lstinputlisting{solutions/question12.java}
+    
+     \begin{conseil}
+          \begin{itemize}
+             \item \lstinline{break} indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
+             \item L'absence de \lstinline{break} indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un \lstinline{break}.
+             \item Lorsque l'on pose case n où n est un nombre cela est équivalent au test \lstinline{n == numero_mois}. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si \lstinline{numero_mois = "Juin"}, à ce moment là \lstinline{n} sera aussi une chaîne de caractères).
+          \end{itemize}
+         
+     \end{conseil}
+     \begin{solution}
+     
+     Juillet
+     
+    Aout
+    
+    Décembre \\
+    
+    Explications : \\
+    
+    \begin{itemize}
+             \item Comme la case 7 ne contient pas de break et modifie \lstinline{numero_mois}, la lecture du code va continuer.
+             \item On rentre dans le case 9, qui contient un break. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
+       \end{itemize}
+            
+     \end{solution}   
+ \end{Exercice}
 
 \end{document}
