@@ -7,8 +7,6 @@ public class Question8 {
             float result = a/b; 
             System.out.println("Le résultat de la division de " + a + "/" + b + "= " + result);
         }
-       
-    
 }
     public static void main(String args[]){
         int value1 = 2;

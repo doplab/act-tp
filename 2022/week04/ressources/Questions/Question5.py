@@ -14,4 +14,4 @@ try:
     print(f"Le résultat de la division est: {result}")
     
 except TypeError as error:
-    print("On ne peut pas diviser une chaine de caractère")
+    print("On ne peut pas diviser une chaîne de caractères")

@@ -10,7 +10,7 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Fonctions, gestion de la mémoire et des exceptions - Exercices de base}
+\cours{Fonctions, gestion de la mémoire et des exceptions}
 
 Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, l'étudiant sera capable de :
 \begin{itemize}
@@ -24,12 +24,10 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
 \section{Variables et Fonctions}
 \begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python))}\\
-    Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. Appelez la plusieurs fois et observez le résultat.  \\
+    Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. \\
      
       \begin{conseil}
-          \begin{itemize}
-              \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions. 
-          \end{itemize}        
+        Référez vous aux diapositives du cours pour la création et l'appel des fonctions.    
       \end{conseil}
       \begin{solution}
       
@@ -48,7 +46,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \begin{conseil}
         \begin{itemize}
             \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions.
-            \item Pour retourner une valeur au lieu de l'afficher, utilisez le mot clé \lstinline{return} (pour Python et Java).
+            \item Pour retourner une valeur au lieu de l'afficher, utilisez le mot-clé \lstinline{return} (pour Python et Java).
         \end{itemize}        
     \end{conseil}
     \begin{solution}
@@ -79,7 +77,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \end{solution}   
   \end{Exercice} 
 
-  \begin{Exercice}[5 minutes] \textbf{Portée des variables}\\
+  \begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
     Qu'affiche le programme suivant? \\
 
     \lstinputlisting{ressources/Questions/Question4.py}
@@ -145,10 +143,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
     \lstinputlisting{ressources/Questions/Question5.py}  
      \begin{conseil}
-        \begin{itemize}
-            \item Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
-        \end{itemize}  
-       
+        Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
     \end{conseil}
      \begin{solution}
         \lstinline{Le résultat de la division est: 2.5}\\
@@ -183,7 +178,10 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
 \end{Exercice}
  
-\begin{Exercice}[5 minutes] Est ce que le programme suivant s'exécute correctement ? Si la réponse est non, expliquez pourquoi et comment vous corrigerez le programme ? \textbf{Gestion d'erreurs (Java)}\\
+\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} 
+    Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
+    \\
+    
     \lstinputlisting{ressources/Questions/Question8.java}
 
     
@@ -191,8 +189,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
         Référez-vous à la diapositive 26 du cours de cette semaine.           
      \end{conseil}
      \begin{solution}
-     Le programme suivant est faux, le type d'erreur que la fonction \lstinline{division()} retourne est différent de celui qu'on intercepte dans le \lstinline{catch}. \\
-     Pour corriger cela, il suffit de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}, qui correspond au type d'erreur retourné par la fonction \lstinline{division}.
+        À l'intérieur de la fonction \lstinline{division}, lorsque b est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans le \lstinline{main}, l'erreur qui est interceptée est \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
      \end{solution}   
  \end{Exercice}
 
