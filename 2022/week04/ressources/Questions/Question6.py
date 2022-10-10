@@ -1,8 +1,17 @@
-value1 = 4
-value2 = ""
+value1 = "Algorithms"
+value2 = 4
 
 try:
-    count = len(value2)
-    result= value1/count
-except ZeroDivisionError as error:
-    print("Nous ne pouvons pas diviser un nombre par 0")
+    size = len(value1)
+    result = size/value2
+    print(f"Le résultat de la division est: {result}")
+
+except Exception as error:
+    print("On ne peut pas effectuer l'opération")
+
+try:
+    result = value1/2
+    print(f"Le résultat de la division est: {result}")
+    
+except TypeError as error:
+    print("On ne peut pas diviser une chaîne de caractères")

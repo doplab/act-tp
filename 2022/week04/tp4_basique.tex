@@ -96,52 +96,26 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{solution}
  \end{Exercice}
 
- \begin{comment}
- \begin{Exercice}[5 minutes] \textbf{Portée des variables (à compléter)}\\
-    Exercice 1 - structure \\
+ \begin{Exercice}[10 minutes] \textbf{Portée des variables} (Java) \\
+    Qu'affiche le programme suivant?
+    \lstinputlisting{ressources/Questions/Question5.java}
+    Que se passerait-il si on décommente (enlever les // devant l'instruction) la ligne 17?
+
+    \begin{conseil}
+        Tenir compte de l’endroit où chaque variable est définie et quelles opérations sont réalisées sur celle-ci.
+    \end{conseil}
+
+    \begin{solution}
+        On obtiendra une erreur de compilation du programme car la variable b est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
+    \end{solution}
     
-     \begin{conseil}
-        % Ajouter un conseil
-         
-     \end{conseil}
-     \begin{solution}
-     
-     \textbf{Python:} 
-     % Ajouter une solution en Python
-     
-     \textbf{\\Java:} 
-      % Ajouter une solution en Java
-        
-         
-     \end{solution}   
+
  \end{Exercice}
 
-
-\section{Gestion de la mémoire}
-
-\begin{Exercice}[5 minutes] \textbf{Template (langage à utiliser)}\\
-    Exercice 1 - structure \\
-    
-     \begin{conseil}
-        % Ajouter un conseil
-         
-     \end{conseil}
-     \begin{solution}
-     
-     \textbf{Python:} 
-     % Ajouter une solution en Python
-     
-     \textbf{\\Java:} 
-      % Ajouter une solution en Java
-        
-         
-     \end{solution}   
- \end{Exercice}
-\end{comment}
 \section{Gestion des exceptions}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question5.py}  
+    \lstinputlisting{ressources/Questions/Question6.py}  
      \begin{conseil}
         Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
     \end{conseil}
@@ -152,7 +126,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \end{Exercice}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question6.py}
+    \lstinputlisting{ressources/Questions/Question7.py}
     
      \begin{conseil}
          La chaîne de caractères vide est représentée par ``'' 
@@ -163,7 +137,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \end{Exercice}
 
  \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question7.py}
+    \lstinputlisting{ressources/Questions/Question8.py}
     
      \begin{conseil}
         \begin{itemize}
@@ -182,7 +156,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
     \\
     
-    \lstinputlisting{ressources/Questions/Question8.java}
+    \lstinputlisting{ressources/Questions/Question9.java}
 
     
      \begin{conseil}

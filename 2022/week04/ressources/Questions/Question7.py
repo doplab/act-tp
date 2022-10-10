@@ -1,14 +1,8 @@
-value1 = "Algorithms"
-value2 = 4
-
+value1 = 4
+value2 = ""
 
 try:
-    decimal = float(value2)
-except ValueError as error:
-    print("Nous ne pouvons pas convertir un entier en décimal")
-
-finally:
-    try:
-        value2 = int(value1)
-    except ValueError as error:
-        print("Nous ne pouvons pas convertir une chaîne de caractères en nombre")
+    count = len(value2)
+    result= value1/count
+except ZeroDivisionError as error:
+    print("Nous ne pouvons pas diviser un nombre par 0")
