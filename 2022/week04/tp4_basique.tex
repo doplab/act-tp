@@ -17,7 +17,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \item Utiliser des librairies contenant des fonctions prédéfinies,
     \item définir une fonction et l'utiliser dans un programme,
     \item connaître quelle est la portée d'une variable,
-    \item comprendre comment fonctionne la gestion de la mémoire,
+    \item comprendre comment fonctionne une pile d'exécution (call stack),
     \item gérer des exceptions.
 \end{itemize}
 
@@ -43,7 +43,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
   \end{Exercice}
   
     \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
-    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple\_1} et \textit{multiple\_2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
+    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple1} et \textit{multiple2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
 
     \begin{conseil}
         \begin{itemize}
@@ -53,10 +53,10 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{conseil}
     \begin{solution}
         \textbf{Python}:
-        % \lstinputlisting{resources/Question23.py}
+        \lstinputlisting{ressources/Solutions/Question2.py}
         
         \textbf{\\Java}:
-        % \lstinputlisting{resources/Question23.java}
+        \lstinputlisting{ressources/Solutions/Question2.java}
     \end{solution}   
 \end{Exercice} 
   
@@ -72,10 +72,10 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \end{conseil}
       \begin{solution}
           \textbf{Python}:
-          % \lstinputlisting{resources/solutions/Question20.py}
+          \lstinputlisting{ressources/Solutions/Question3.py}
           
           \textbf{\\Java}:
-          % \lstinputlisting{resources/solutions/Question20.java}
+          \lstinputlisting{ressources/Solutions/Question3.java}
       \end{solution}   
   \end{Exercice} 
 
@@ -117,7 +117,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
          
      \end{solution}   
  \end{Exercice}
-\end{comment}
+
 
 \section{Gestion de la mémoire}
 
@@ -139,11 +139,11 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
          
      \end{solution}   
  \end{Exercice}
-
+\end{comment}
 \section{Gestion des exceptions}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question6.py}  
+    \lstinputlisting{ressources/Questions/Question5.py}  
      \begin{conseil}
         \begin{itemize}
             \item Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
@@ -157,7 +157,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \end{Exercice}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question7.py}
+    \lstinputlisting{ressources/Questions/Question6.py}
     
      \begin{conseil}
          La chaîne de caractères vide est représentée par ``'' 
@@ -168,7 +168,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \end{Exercice}
 
  \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
-    \lstinputlisting{ressources/Questions/Question8.py}
+    \lstinputlisting{ressources/Questions/Question7.py}
     
      \begin{conseil}
         \begin{itemize}
@@ -184,7 +184,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 \end{Exercice}
  
 \begin{Exercice}[5 minutes] Est ce que le programme suivant s'exécute correctement ? Si la réponse est non, expliquez pourquoi et comment vous corrigerez le programme ? \textbf{Gestion d'erreurs (Java)}\\
-    \lstinputlisting{ressources/Questions/Question9.java}
+    \lstinputlisting{ressources/Questions/Question8.java}
 
     
      \begin{conseil}

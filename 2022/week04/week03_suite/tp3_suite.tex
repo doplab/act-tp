@@ -118,8 +118,10 @@ Au terme de cette séance, l'étudiant sera capable de:
      Créez 2 variables \textit{nb\_bonbons} avec pour valeur 11 et \textit{nb\_personnes} avec pour valeur 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \textit{bonbons\_personnes}. Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \textit{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
      
       \begin{conseil}
-            Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière. En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique. Vous pouvez aussi formater le type du résultat lorsque vous créez une variable.
-          
+         \begin{itemize}
+            \item Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière.
+            \item En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique.
+         \end{itemize}
       \end{conseil}
       \begin{solution}
       
@@ -262,10 +264,9 @@ Au terme de cette séance, l'étudiant sera capable de:
     Explications : \\
     
     \begin{itemize}
-             \item Comme la case 7 ne contient pas de break et modifie \lstinline{numero_mois}, la lecture du code va continuer.
-             \item On rentre dans le case 9, qui contient un break. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
+             \item Comme le \lstinline{case 7} ne contient pas de \lstinline{break} et modifie \lstinline{numero_mois}, la lecture du code va continuer.
+             \item On rentre dans le \lstinline{case 9}, qui contient un \lstinline{break}. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
        \end{itemize}
-            
      \end{solution}   
  \end{Exercice}
 

@@ -1,4 +1,4 @@
-public class Question9 {
+public class Question8 {
 
     public static void division(int a, int b) throws ArithmeticException{
         if(b==0){
