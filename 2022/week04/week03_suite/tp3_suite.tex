@@ -121,6 +121,7 @@ Au terme de cette séance, l'étudiant sera capable de:
          \begin{itemize}
             \item Attention, en Python il existe 2 opérateurs de division, / effectue une division classique, tandis que // effectue une division entière.
             \item En Java, si vous travaillez uniquement avec des int, / effectuera une division entière tandis que si vous travaillez avec au moins un float, / effectuera une division classique.
+            \item L'opérateur \% (modulo) permet de calculer le reste d'une division. Par exemple, 10\%2=0.
          \end{itemize}
       \end{conseil}
       \begin{solution}
@@ -139,7 +140,7 @@ Au terme de cette séance, l'étudiant sera capable de:
     Gardez vos variables de l'exercice précédent (\textbf{Calculs (division) (Java ou Python)}), augmentez la valeur de \textit{nb\_bonbons} de 1, et diminuez celle de \textit{nb\_personnes} de 1.  \\
     
      \begin{conseil}
-           Vous pouvez utiliser les opérateurs += et -= en Python, et les opérateurs ++ et \textit{- -} en Java.
+           Vous pouvez utiliser les opérateurs += et -= en Python, et les opérateurs ++ (incrémentation) et $--$ (décrémentation) en Java.
          
      \end{conseil}
      \begin{solution}
@@ -206,10 +207,10 @@ Au terme de cette séance, l'étudiant sera capable de:
     \end{solution}   
 \end{Exercice}
 \begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
-   Il est possible d'obtenir la longueur d'une chaîne de caractère (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractère de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   Il est possible d'obtenir la longueur d'une chaîne de caractères (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractères de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
    
     \begin{conseil}
-      	La fonction présentée dans l'énoncé de la question n'est valable que pour python. L'équivalent pour Java est la fonction \lstinline{length()}.
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour Python. L'équivalent pour Java est la fonction \lstinline{length()}.
         
     \end{conseil}
     \begin{solution}
@@ -227,7 +228,7 @@ Au terme de cette séance, l'étudiant sera capable de:
 \section{Conditions}
 % TODO: Exercice à compléter
 
-\begin{Exercice}[5 minutes] \textbf{Conditions (python)}\\
+\begin{Exercice}[5 minutes] \textbf{Conditions (Python)}\\
     Qu'affiche le programme suivant? \\
     
     \lstinputlisting{resources/Questions/Question12.py}
@@ -249,7 +250,7 @@ Au terme de cette séance, l'étudiant sera capable de:
           \begin{itemize}
              \item \lstinline{break} indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
              \item L'absence de \lstinline{break} indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un \lstinline{break}.
-             \item Lorsque l'on pose case n où n est un nombre cela est équivalent au test \lstinline{n == numero_mois}. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si \lstinline{numero_mois = "Juin"}, à ce moment là \lstinline{n} sera aussi une chaîne de caractères).
+             \item Lorsque l'on pose \lstinline{case n} où \lstinline{n} est un nombre cela est équivalent au test \lstinline{n == numero_mois}. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si \lstinline{numero_mois = "Juin"}, à ce moment là \lstinline{n} sera aussi une chaîne de caractères).
           \end{itemize}
          
      \end{conseil}
@@ -261,8 +262,7 @@ Au terme de cette séance, l'étudiant sera capable de:
     
     Décembre \\
     
-    Explications : \\
-    
+    Explications:
     \begin{itemize}
              \item Comme le \lstinline{case 7} ne contient pas de \lstinline{break} et modifie \lstinline{numero_mois}, la lecture du code va continuer.
              \item On rentre dans le \lstinline{case 9}, qui contient un \lstinline{break}. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.

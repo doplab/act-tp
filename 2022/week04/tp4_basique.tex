@@ -7,15 +7,15 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Fonctions, gestion de la mémoire et des exceptions}
 
 Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, l'étudiant sera capable de :
 \begin{itemize}
-    \item Utiliser des librairies contenant des fonctions prédéfinies,
     \item définir une fonction et l'utiliser dans un programme,
+    \item utiliser des librairies contenant des fonctions prédéfinies,
     \item connaître quelle est la portée d'une variable,
     \item comprendre comment fonctionne une pile d'exécution (call stack),
     \item gérer des exceptions.
@@ -63,7 +63,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
      
       \begin{conseil}
           \begin{itemize}
-              \item Référez vous au cours pour la création et l'appel des fonctions.
+              \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions.
               \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
               \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
           \end{itemize}        
@@ -99,14 +99,14 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \begin{Exercice}[10 minutes] \textbf{Portée des variables} (Java) \\
     Qu'affiche le programme suivant?
     \lstinputlisting{ressources/Questions/Question5.java}
-    Que se passerait-il si on décommente (enlever les // devant l'instruction) la ligne 17?
+    Que se passerait-il si on décommente la ligne 17 (enlever les //)?
 
     \begin{conseil}
         Tenir compte de l’endroit où chaque variable est définie et quelles opérations sont réalisées sur celle-ci.
     \end{conseil}
 
     \begin{solution}
-        On obtiendra une erreur de compilation du programme car la variable b est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
+        On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
     \end{solution}
     
 
