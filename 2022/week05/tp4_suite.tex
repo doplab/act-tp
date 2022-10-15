@@ -1,0 +1,80 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\ShowWarningtrue
+\titre
+\cours{Fonctions, mémoire et exceptions}
+
+Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, l'étudiant sera capable de :
+\begin{itemize}
+    \item définir une fonction et l'utiliser dans un programme,
+    \item utiliser des librairies contenant des fonctions prédéfinies,
+    \item connaître quelle est la portée d'une variable,
+    \item comprendre comment fonctionne une pile d'exécution (call stack) \\
+    % \item gérer des exceptions.
+\end{itemize}
+
+\section{Gestion des exceptions}
+
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{resources/Questions/tp4_Question1.py}  
+     \begin{conseil}
+        Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
+    \end{conseil}
+     \begin{solution}
+        \lstinline{Le résultat de la division est: 2.5}\\
+        \lstinline{On ne peut pas diviser une chaîne de caractères.}
+     \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{resources/Questions/tp4_Question2.py}
+    
+     \begin{conseil}
+         La chaîne de caractères vide est représentée par ``'' 
+    \end{conseil}
+     \begin{solution}
+        Nous ne pouvons pas diviser un nombre par 0.
+     \end{solution}   
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{resources/Questions/tp4_Question3.py}
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item La fonction \lstinline{float()} permet de convertir une variable en nombre à décimal.
+            \item La fonction \lstinline{int()} permet de convertir une variable en nombre entier.
+        \end{itemize}  
+    \end{conseil}
+
+     \begin{solution}
+        Nous ne pouvons pas convertir une chaîne de caractères.
+     \end{solution}
+
+\end{Exercice}
+ 
+\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} 
+    Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
+    \\
+    
+    \lstinputlisting{resources/Questions/tp4_Question4.java}
+
+    
+     \begin{conseil}
+        Référez-vous à la diapositive 26 du cours de cette semaine.           
+     \end{conseil}
+     \begin{solution}
+        À l'intérieur de la fonction \lstinline{division}, lorsque b est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans le \lstinline{main}, l'erreur qui est interceptée est \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
+     \end{solution}   
+ \end{Exercice}
+
+\end{document}
