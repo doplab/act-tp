@@ -35,18 +35,6 @@
     \end{Example}
 
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
-        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Affichez le 4ème élément de ce tuple.
-    
-        \begin{conseil}
-            Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez \lstinline{[]}.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question1.py} 
-        \end{solution}
-    \end{Exercice}
-
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple - 2}\\
         Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
     
         \begin{conseil}
@@ -55,32 +43,6 @@
         
         \begin{solution}
             \lstinputlisting{resources/question2.py} 
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple - 3}\\
-        Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l'opérateur \lstinline{in}. Si l'élément est dans la liste, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. \\
-        
-        Qu'affichera le code suivant ? \\
-        
-        \lstinputlisting{resources/question3.py}
-        
-        Choisissez parmi les éléments suivants : \\
-        
-        \begin{itemize}
-        \item 6 est contenu dans le tuple
-        \item True
-        \item 6 n'est pas contenu dans le Tuple
-        \item False \\
-        \end{itemize}
-    
-        \begin{conseil}
-            Contrôlez si l'élément est contenu dans le tuple et regardez quel branche sera prise.
-        \end{conseil}
-        
-        \begin{solution}
-           ``6 est contenu dans le tuple'' \\
-           6 est un élément de notre tuple, la condition sera donc remplie.
         \end{solution}
     \end{Exercice}
     
@@ -93,43 +55,7 @@
             ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Example}
     
-     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 1}\\
-        Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée \lstinline{element_2}, puis stockez la taille de la liste dans une variable nommée \lstinline{taille_liste}. Affichez ces deux variables.\\
-    
-        \begin{conseil}
-            Comme pour les tuples, vous pouvez utiliser \lstinline{[]} pour accéder à un élément, et la fonction \lstinline{len()} pour obtenir le nombre d'éléments contenus dans la liste.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question4.py} 
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2}\\
-       Qu'affichera le code suivant ? \\
-       
-       \lstinputlisting{resources/question5.py} 
-       
-       Choisissez parmi les éléments suivants :
-       
-       	\begin{itemize}
-        \item 1, 2, 2, 4, 5, 6 \\
-        \item 0, 1, 2, 3, 4, 5 \\
-        \item 0, 1, 2, 3, 4, 5, 6 \\
-        \item 0, 1, 2, 2, 4, 5, 6 \\
-        \end{itemize}
-    
-        \begin{conseil}
-            En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
-        \end{conseil}
-        
-        \begin{solution}
-            [0, 1, 2, 3, 4, 5, 6] \\
-            Le script change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 3}\\
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste}\\
        Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez ``OK'', s'il n'y est pas, rajoutez le à votre liste. \\
        
        Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté : \\
@@ -161,27 +87,9 @@
                 "age": 48,
                 "talents": ["programmation", "entreprenariat", "aéronautique"]
             }   \end{lstlisting}
-				
-	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
-       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les éléments suivants :
-       
-       \lstinputlisting{resources/animals.txt}
-       
-       Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
-       
-       Accédez à la traduction du mot ``souris'', et stockez le résultat dans une variable nommée \lstinline{souris_traduite}, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée \lstinline{taille_fr_eng}. Affichez le contenu des deux variables que vous venez de créer.
-    
-        \begin{conseil}
-            Comme pour les listes, vous pouvez accéder aux éléments de dictionnaires en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder. Comme pour les listes, la fonction \lstinline{len()} vous aidera à obtenir le nombre d'éléments dans le dictionnaire.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question7.py} 
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 2}\\
-       Gardez le même dictionnaire qu'auparavant. La traduction du mot ``oiseau'' est mal orthographiée, modifiez la valeur associée à ``oiseau" pour qu'elle devienne ``bird''. Ajoutez un nouvel élément au dictionnaire en associant le mot ``horse'' au mot ``cheval''. \\
+		
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire}\\
+       Gardez le dictionnaire de la question 7 des exercices basiques. La traduction du mot ``oiseau'' est mal orthographiée, modifiez la valeur associée à ``oiseau" pour qu'elle devienne ``bird''. Ajoutez un nouvel élément au dictionnaire en associant le mot ``horse'' au mot ``cheval''. \\
        
        Utilisez ce code pour avoir un aperçu des changements:
        
@@ -198,35 +106,6 @@
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 3}\\
-      	Qu'affiche le programme suivant? \\
-       
-      	\lstinputlisting{resources/question9.py} 
-      	
-      	Choisissez parmi les possibilités suivantes : \\
-      	
-      	\begin{itemize}
-      	\item programmation \\
-      	True\\
-      	\item Musk \\
-      	False\\
-      	\item 48 \\
-      	False\\
-      	\item aéronautique \\
-      	True \\
-      	\end{itemize}
-    
-        \begin{conseil}
-            L'élément associé à la valeur ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
-        \end{conseil}
-        
-        \begin{solution}
-            aéronautique \\
-            True \\
-            
-            En effet, via elon\_musk[``talents''], on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
-        \end{solution}
-    \end{Exercice}
     
     \subsection{Structures de données (Java)}
     Dans cette partie, les exercices devront être effectués en Java. \\
@@ -257,74 +136,8 @@
         \end{itemize} 
         
     \end{Example}
-	     
-	\begin{Exercice}[10 minutes] \textbf{Manipulation des listes en Java}\\
-      	Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
-      	
-      	Créez une liste \lstinline{ma_liste_m} liée à la liste \lstinline{ma_liste}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
-      	
-      	Ajoutez ceci au début de votre code:
-      	\begin{lstlisting}[language=Java]
-             import java.util.List;
-	     import java.util.LinkedList; \end{lstlisting}
-	     
-	     Ajoutez ceci à la fin de votre code:
-	     
-	    \begin{lstlisting}[language=Java]
-             for(int i=0;i<ma_liste_m.size();i++){
-            		System.out.println(ma_liste_m.get(i));
-	       } \end{lstlisting} 
     
-        \begin{conseil}
-            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{size()}. \\
-            
-            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{addLast(value)}. \\
-            
-           	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
-           	
-           	\lstinputlisting{resources/questionexemple.java}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question10.java}
-        \end{solution}
-    \end{Exercice}
-    \newpage
-    
-    \begin{Exercice}[15 minutes] \textbf{Manipulation d'un dictionnaire en Java}\\
-      	Créez un dictionnaire \lstinline{mon_dictionnaire} contenant les éléments suivants :
-      	
-      	("étudiants", 14000, ``enseignants'', 2300, ``collaborateurs'', 0)\\
-      	
-          Affichez le nombre d'étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable \lstinline{taille_dictionnaire}. Affichez le contenu de \lstinline{taille_dictionnaire}. 
-          Modifiez la valeur de \lstinline{collaborateurs}, remplacez 0 par 950. Rajoutez un nouvel élément \lstinline{pays} dans votre dictionnaire avec pour valeur 86.\\
-      	
-      	Ajoutez ceci au début de votre code :
-       
-      	\begin{lstlisting}[language=Java]
-             import java.util.HashMap;
-	     import java.util.Map; \end{lstlisting}
-	     
-	     Ajoutez ceci à la fin de votre code :
-	     
-	    \begin{lstlisting}[language=Java]
-             for (String keys : mon_dictionnaire.keySet()){
-            		System.out.println(keys + " : "+ mon_dictionnaire.get(keys));
-	       } \end{lstlisting} 
-    
-        \begin{conseil}
-           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{get(key)} et à la taille via la fonction \lstinline{size()}.
-            
-           Pour insérer / corriger un élément, utilisez la fonction \lstinline{put(key,value)}.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question11.java}
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[15 minutes] \textbf{Lecture de code}\\
+    \begin{Exercice}[5 minutes] \textbf{Lecture de code}\\
       	Qu'affichera le code suivant ?
       	
       	\lstinputlisting{resources/question12.java}
@@ -388,277 +201,7 @@
      	
      	\end{itemize}
      	
-     	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Python}\\
-      	Qu'affichera le code suivant ?
-      	
-      	\begin{lstlisting}[language=Python]
-             ma_liste = [1,2,3,4,5]
-             for c in ma_liste :
-             	print(c) 
-             	\end{lstlisting}
-             	
-        Choisissez parmi les possibilités suivantes :
-        
-        \begin{itemize}
-        \item 
-        1  
-        2 
-        3 
-        4 
-        5 
-        \item 
-        5 
-        4 
-        3 
-        2 
-        1 
-        \item 3 
-        2 
-        1 
-        5 
-        4 
-        \item 4 
-        3 
-        5 
-        1 
-        2
-        \end{itemize}
-    
-        \begin{conseil}
-		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
-        \end{conseil}
-        
-        \begin{solution}
-            1 
-            2 
-            3 
-            4 
-            5
-        \end{solution}
-    \end{Exercice}
-    
-    
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Java}\\
-      	Qu'affichera le code suivant ?
-      	
-      	\begin{lstlisting}[language=Java]
-             List ma_liste = List.of(2,3,4,5,6);
-             for(int i=0;i<ma_liste.size();i++){
-            		System.out.print(ma_liste.get(i));
-             }
-        	 \end{lstlisting}
-             	
-        Choisissez parmi les possibilités suivantes :
-        
-        \begin{itemize}
-        
-        \item 5 
-        4 
-        3 
-        2 
-        1 
-        \item 1  
-        2 
-        3 
-        4 
-        5 
-        \item 4 
-        3 
-        5 
-        1 
-        2 
-        \item 2 
-        3 
-        4 
-        5 
-        6
-        \end{itemize}
-    
-        \begin{conseil}
-		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
-        \end{conseil}
-        
-        \begin{solution}
-            2 
-            3 
-            4 
-            5 
-            6
-        \end{solution}
-    \end{Exercice} 	
-    
-    
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Python}\\
-      	Qu'affichera le code suivant ?
-      	
-      	\begin{lstlisting}[language=Python]
-                i = 0
-    		while i<5:
-        		print(i)
-        		i += 1
-        		 \end{lstlisting}
-             	
-        Choisissez parmi les possibilités suivantes :
-        
-        \begin{itemize}
-        
-        \item 0 
-        1 
-        2 
-        3 
-        4 
-        \item 1  
-        2 
-        3 
-        4 
-        5 
-        \item 4 
-        3 
-        2 
-        1 
-        5 
-        \item 2 
-        3 
-        4 
-        0 
-        1
-        \end{itemize}
-    
-        \begin{conseil}
-		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
-        \end{conseil}
-        
-        \begin{solution}
-            0 
-            1 
-            2 
-            3 
-            4
-        \end{solution}
-    \end{Exercice}
-    
-    
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Java}\\
-      	Qu'affichera le code suivant ?
-      	
-      	\begin{lstlisting}[language=Java]
-            int i = 0;
-            while(i<5){
-            	i++;
-            	System.out.print(i + " ");
-            }
-     	\end{lstlisting}
-             	
-        Choisissez parmi les possibilités suivantes :
-        
-        \begin{itemize}
-        
-        \item 0 
-        1 
-        2 
-        3 
-        4 
-        \item 1  
-        2 
-        3 
-        4 
-        5 
-        \item 4 
-        3 
-        2 
-        1 
-        0 
-        \item 5 
-        4 
-        3 
-        2 
-        1
-        \end{itemize}
-    
-        \begin{conseil}
-		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
-        \end{conseil}
-        
-        \begin{solution}
-            1 
-            2 
-            3 
-            4 
-            5
-        \end{solution}
-    \end{Exercice} 
-	
-	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1}\\
-      	Qu'affichera le code suivant ?
-      	
-      	\begin{lstlisting}[language=Python]
-         	ma_liste = ["J'aime","Python"]
-      		for x in range(len(ma_liste)):
-      			print(x)
-           		print(ma_liste[x])
-           	#0
-           	#J'aime
-           	#1
-           	#Python
-     	\end{lstlisting}
-             	
-        Choisissez parmi les possibilités suivantes :
-        
-        \begin{itemize}
-        
-        \item 0 
-        J'aime 
-        1 
-        Python 
-        \item J'aime  
-        1 
-        Python 
-        2     
-        \item J'aime 
-        0 
-        Python 
-        1 
-        \item 1 
-        J'aime 
-        2
-        Python
-        \end{itemize}
-    
-        \begin{conseil}
-		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
-        \end{conseil}
-        
-        \begin{solution}
-            0\\
-            J'aime\\
-            1\\
-            Python
-            
-        \end{solution}
-    \end{Exercice} 	
-	
-	Dans les exercices suivants, les programmes doivent être écrits en Python.\\\\	
-	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2}
-      	
-      	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat.
-    
-        \begin{conseil}
-           \begin{itemize}
-           	\item Lorsque \lstinline{range(n)} est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1.
-           	\item Déclarer une variable en dehors de la boucle. Au terme de l'itération, cette variable contiendra la somme des entiers de 0 à 20.
-           \end{itemize}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question18.py}
-        \end{solution}
-    \end{Exercice}
-
-
-   \begin{Exercice}[10 minutes] \textbf{Création d'une liste à partir d'un tuple}
+   \begin{Exercice}[10 minutes] \textbf{Création d'une liste à partir d'un tuple (Python)}
       	
       	Transformer le tuple (1,4,5,8) en une liste à l'aide d'une boucle \lstinline{for}.
     
@@ -676,172 +219,31 @@
         \end{solution}
     \end{Exercice}
 
-    
- \begin{Exercice}[10 minutes] \textbf{Boucle while et input()}
-      	
-      	A l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur.
-    
-        \begin{conseil}
-           \begin{itemize}
-           	\item Définir à l'extérieur de la boucle une variable de type booléen utilisée pour le test dans \lstinline{while}.
-           	\item Utilisez la fonction \lstinline{input()} pour récupérer la saisie de l'utilisateur.
-           	\item La fonction \lstinline{input()} retourne un \lstinline{str} (chaîne de caractères), pensez à changer son type.
-           \end{itemize}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{resources/question20.py}
-        \end{solution}
-    \end{Exercice}
-    
-
      \section{Récursivité}
     
     La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\\\
-    
-	\begin{Exercice}[5 minutes] \textbf{Lecture de code - 1} 
-	
-	Qu'affiche le programme suivant? \\ 
-	
-	\lstinputlisting{resources/question15_1.py} 
-	
-	Choisissez parmi les possibilités suivantes : \\
-	
-	\begin{itemize}
-	\item 4  
-	3 
-	2 
-	1 
-	0 
-	\item 5 
-	4 
-	3 
-	2 
-    1 
-    0
-	\item 0 
-	1 
-	2 
-	3 
-	4 
-	\item 1 
-	2 
-	3 
-	4
-    5
-    0
-    \end{itemize}
-    \begin{solution} 
-			5  
-			4  
-			3  
-			2  
-			1  
-			0  
-		\end{solution} 
-    
-\end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Lecture de code - 2}
+    \begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
+
+Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
+
+Début de la suite : [0,1,1,2,3,5,8,13,...]
     
-	Qu'affiche le programme suivant?
-	\lstinputlisting{resources/question15_2.py}
-	
-	Choisissez parmi les possibilités suivantes : \\
-	
-	\begin{itemize}
-	\item 4  
-	3 
-	2 
-	1 
-	0 
-	\item 5 
-	4 
-	3 
-	2 
-	1 
-	\item 0 
-	1 
-	2 
-	3 
-	4 
-	\item 1 
-	2 
-	3 
-	4 
-	5
-	\end{itemize}
-	
-	 
-	
-		\begin{conseil} 
-		\begin{itemize} 
-			\item La principale différence entre ces 2 programmes est l'endroit où est placé le \lstinline{print()}. 
-			\item Reproduire étape par étape le développement sur un papier pourrait aider. 
-		\end{itemize} 
-		\end{conseil} 
-	
-		\begin{solution} 
-			0  
-			1  
-			2  
-			3  
-			4  
-			5 
-	
-		\end{solution} 
-	
-	\end{Exercice}
-    \begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
-	
-        Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
+
+    \begin{conseil} 
+        L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
+    \end{conseil} 
+
+    \begin{solution}
+        Via Itération : \\
         
-        Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier tel que : \\
-        
-        factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
-          
-        
-            \begin{conseil} 
-            On peut écrire cette fonction comme suit : \\
+            \lstinputlisting{resources/question4ait.java} 
             
-            f(n) = f(n) * f(n-1) si n $>$ 0 \\
-            
-            f(n) = 1 si n = 0
-            
-            \end{conseil} 
+        Via récursivité : \\
         
-            \begin{solution} 
-                \textbf{Python:}
-                \lstinputlisting{resources/question3a.py}
-                \textbf{Java:}
-                \lstinputlisting{resources/question3a.java}
-            \end{solution} 
-        
-        \end{Exercice}
-    
-        \begin{Exercice}[15 minutes] \textbf{Fibonacci - Java} 
-        
-        Ecrivez deux fonctions permettant de calculer un nombre donné de la suite de Fibonacci. L'une doit utiliser la récursivité, et l'autre l'itération. Pour rappel, chaque élément de la suite de Fibonacci est la somme des deux derniers éléments. L'élément 0 vaut 0, l'élément 1 vaut 1 et l'élément 2 vaut 1. \\
-        
-        Début de la suite : [0,1,1,2,3,5,8,13,...]
-          
-        
-            \begin{conseil} 
-                L'algorithme permettant de faire une suite de Fibonacci a été présenté dans les diapositives du cours. En cas de difficulté, n'hésitez pas à vous y référer.
-            \end{conseil} 
-        
-            \begin{solution}
-                Via Itération : \\
-                
-                    \lstinputlisting{resources/question4ait.java} 
-                    
-                Via récursivité : \\
-                
-                    \lstinputlisting{resources/question4ar.java}
-            \end{solution} 
-        
-        \end{Exercice}
-        
-        
+            \lstinputlisting{resources/question4ar.java}
+    \end{solution} 
+
+    \end{Exercice}
+
 \end{document}
