@@ -3,6 +3,7 @@ act-lectures
 
 # Vidéos
 *.mov
+*.mp4
 
 # mat ignore
 run_jupyter.sh
