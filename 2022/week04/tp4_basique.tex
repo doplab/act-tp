@@ -7,20 +7,24 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \titre
-\cours{Fonctions, gestion de la mémoire et des exceptions}
+\cours{Fonctions, mémoire et exceptions}
 
 Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, l'étudiant sera capable de :
 \begin{itemize}
     \item définir une fonction et l'utiliser dans un programme,
     \item utiliser des librairies contenant des fonctions prédéfinies,
     \item connaître quelle est la portée d'une variable,
-    \item comprendre comment fonctionne une pile d'exécution (call stack),
-    \item gérer des exceptions.
+    \item comprendre comment fonctionne une pile d'exécution (call stack) \\
+    % \item gérer des exceptions.
 \end{itemize}
 
+\begin{attention}
+    Les exceptions n'ayant pu être présentées en cours, les exercices portant sur cette notion seront inclus dans les feuilles d'exercices de la semaine prochaine.
+\end{attention}
 
 \section{Variables et Fonctions}
 \begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python))}\\
@@ -108,11 +112,12 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \begin{solution}
         On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
     \end{solution}
-    
-
  \end{Exercice}
 
-\section{Gestion des exceptions}
+ \newpage
+
+ \begin{comment}
+    \section{Gestion des exceptions}
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
     \lstinputlisting{ressources/Questions/Question6.py}  
@@ -167,4 +172,5 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
      \end{solution}   
  \end{Exercice}
 
+\end{comment}
 \end{document}

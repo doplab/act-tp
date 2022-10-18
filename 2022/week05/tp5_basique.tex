@@ -7,14 +7,14 @@
 \begin{document}
 
     % Change the following values to true to show the solutions or/and the hints
-    \ShowSolutiontrue
+    \ShowSolutionfalse
     \ShowConseiltrue
     \titre
     \cours{Structure de données, Itération et récursivité - Basiques}
 
     Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les dictionnaires. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
 
-    Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
+    Au terme de la séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
 
@@ -65,7 +65,7 @@
         \end{itemize}
     
         \begin{conseil}
-            Contrôlez si l'élément est contenu dans le tuple et regardez quel branche sera prise.
+            Contrôlez si l'élément est contenu dans le tuple et regardez quelle branche sera prise.
         \end{conseil}
         
         \begin{solution}
@@ -179,7 +179,7 @@
             aéronautique \\
             True \\
             
-            En effet, via elon\_musk[``talents''], on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
+            En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
         \end{solution}
     \end{Exercice}
     
@@ -231,9 +231,9 @@
 	       } \end{lstlisting} 
     
         \begin{conseil}
-            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{size()}. \\
+            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{.get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{.size()}. \\
             
-            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{addLast(value)}. \\
+            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{.addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{.addLast(value)}. \\
             
            	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
            	
@@ -268,9 +268,9 @@
 	       } \end{lstlisting} 
     
         \begin{conseil}
-           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{get(key)} et à la taille via la fonction \lstinline{size()}.
+           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{.get(key)} et à la taille via la fonction \lstinline{.size()}.
             
-           Pour insérer / corriger un élément, utilisez la fonction \lstinline{put(key,value)}.
+           Pour insérer / corriger un élément, utilisez la fonction \lstinline{.put(key,value)}.
         \end{conseil}
         
         \begin{solution}
@@ -291,7 +291,7 @@
     	
     	
              	
-     	La syntaxe en Java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
+     	La syntaxe en Java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. Il est également d'utiliser la syntaxe suivante pour itérer directement sur les éléments d'une liste: \lstinline{for(var nom_de_variable : nom_de_la_liste)} ou \lstinline{for(var nom_de_variable : nom_du_dictionnaire.keySet())} pour un dictionnaire\\
      	
         	 
         \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre.\\
@@ -577,7 +577,7 @@
     
  \begin{Exercice}[10 minutes] \textbf{Boucle while et input()}
       	
-      	A l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur.
+      	À l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur.
     
         \begin{conseil}
            \begin{itemize}

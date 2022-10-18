@@ -7,7 +7,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -24,7 +24,9 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
 \section{Gestion des exceptions}
 
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Types d'erreurs (Python)}\\
+    Qu'affiche le programme suivant?
+
     \lstinputlisting{resources/Questions/tp4_Question1.py}  
      \begin{conseil}
         Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
@@ -35,7 +37,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
      \end{solution}   
  \end{Exercice}
 
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+\begin{Exercice}[5 minutes]\textbf{Types d'erreurs (Python)}\\
+    Qu'affiche le programme suivant? 
     \lstinputlisting{resources/Questions/tp4_Question2.py}
     
      \begin{conseil}
@@ -46,7 +49,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
      \end{solution}   
  \end{Exercice}
 
- \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+ \begin{Exercice}[5 minutes]\textbf{Types d'erreurs (Python)}\\
+    Qu'affiche le programme suivant? 
     \lstinputlisting{resources/Questions/tp4_Question3.py}
     
      \begin{conseil}
@@ -57,12 +61,12 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{conseil}
 
      \begin{solution}
-        Nous ne pouvons pas convertir une chaîne de caractères.
+        Nous ne pouvons pas convertir une chaîne de caractères en nombre
      \end{solution}
 
 \end{Exercice}
  
-\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} 
+\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} \\
     Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
     \\
     
@@ -70,7 +74,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
     
      \begin{conseil}
-        Référez-vous à la diapositive 26 du cours de cette semaine.           
+        Référez-vous à la diapositive 26 du cours de la semaine 4.       
      \end{conseil}
      \begin{solution}
         À l'intérieur de la fonction \lstinline{division}, lorsque b est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans le \lstinline{main}, l'erreur qui est interceptée est \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
