@@ -7,11 +7,10 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Complexité, Programmation orientée objet et Polymorphisme - exercices avancés}
+\cours{Programmation orientée objet et Polymorphisme - exercices avancés}
 
 Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
 \begin{enumerate}
-    \item la complexité des algorithmes
     \item la programmation orientée objet
     \item le polymorphisme
 \end{enumerate}
@@ -20,53 +19,6 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 
 Le temps indiqué (\faClock) est à titre indicatif.
 
-
-\section{Complexité (10 minutes)}
-
-Pour chacun des programmes ci-dessous, donnés à chaque fois en Python et Java, indiquez en une phrase, ce que font ces algorithmes et calculez leur complexité temporelle avec la notation $O( )$. Le code est écrit en Python et en Java. \\
-
-
-\begin{Exercice}[10 minutes] \textbf{Complexité} \\
-    Quelle est la complexité du programme ci-dessous?\\
-        \textbf{Python :}
-        \begin{lstlisting}[language=Python]
-        # Entrée: n un nombre entier
-        def algo5(n):
-            m = 0
-            for i in range(n):
-                for j in range(i):
-                    m += i+j
-            return m
-        \end{lstlisting}
-        
-        \textbf{Java :}
-        \begin{lstlisting}[language=Java]
-            public static int algo5(int n) {
-                int m = 0;
-                for (int i=0; i < n; i++){
-                    for (int j=0; j < i; j++){
-                        m += i+j;
-                    }
-                }
-                return m;
-            }
-        \end{lstlisting}
-    
-        \begin{enumerate}
-            \item $O(n^2)$
-            \item $O(n)$
-            \item $O(\log(n))$
-            \item $O(2^n)$
-        \end{enumerate}
-
-    \begin{solution} 
-    L'algorithme est composé de 2 boucles \textbf{imbriquées} suivant une suite définie par $\frac{n(n-1)}{2}$. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
-    Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi de $O(n^2)$.
-    \end{solution}
-    
-\end{Exercice}
-    
-\newpage
 \section{Interaction entre plusieurs instances d'une même classe (30 minutes)}
 
 Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
