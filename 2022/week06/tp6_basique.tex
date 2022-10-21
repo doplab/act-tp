@@ -7,13 +7,10 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Programmation orientée objet et Polymorphisme- exercices basiques}
+\cours{Programmation orientée objet - Exercices basiques}
 
-Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
-\begin{enumerate}
-    \item La programmation orientée objet 
-    \item Le polymorphisme
-\end{enumerate}
+Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
+% Afin d'atteindre ces objectifs, nous utiliserons principalement le langage \lstinline{Java} qui offre une panoplie d'outils pour mieux comprendre ce paradigme de programmation.
 
 Les languages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
@@ -138,11 +135,11 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
     Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte sous le format suivant: 
     ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
-    \begin{Example}{\faLightbulb \quad Informations utiles}
-        La méthode \lstinline{toString()} hérite de la super classe \lstinline{Object}. La notion d'héritage sera présentée la semaine prochaine. Retenez juste qu'il est possible de choisir ce que vaudra le texte descriptif de nos objets de type \lstinline{Dog}. Il est également possible de redéfinir d'autres méthodes comme par exemple l'addition ou la soustraction, ce qui permettrait de choisir comment 2 objets de type \lstinline{Dog} seraient additionnés ou soustraits.
-        Avant de redéfinir la méthode \lstinline{toString()}, ajoutez l'annotation \lstinline{@Override}.
-        \\
-    \end{Example}
+
+    \begin{conseil}
+        La méthode \lstinline{toString()} permet d'obtenir une représentation textuelle d'un objet. Elle est définie par défaut pour tout objet. Pour la redéfinir, on utilise le mot-clé \lstinline{@Override} avant la méthode.
+    \end{conseil}
+
     \begin{solution}
         \lstinputlisting{solutions/Question6.java}
     \end{solution}
@@ -155,7 +152,7 @@ Vous devriez obtenir ce résultat :
 
 
 \newpage
-\section{Notions de POO en Python (30 minutes)}
+\section{Notions de POO en Python (30 minutes)} % TODO: Revoir le temps total
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question11.py}.\\
 \begin{Exercice}[15 minutes] Classe \lstinline{Point}
@@ -240,7 +237,7 @@ Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pou
 	\lstinputlisting{solutions/heritage-solution-1.java}
 \end{solution}
 \end{Exercice}
-\begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
+\begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
 Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\

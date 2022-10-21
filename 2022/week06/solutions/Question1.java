@@ -13,5 +13,4 @@ public class Dog {
         this.age = age;
         nb_chiens++;
     }
-
 }
