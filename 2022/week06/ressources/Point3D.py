@@ -1,14 +1,12 @@
 class Point3D(Point):
-    def __init__(self, x, y, z):
+    def __init__(self, x, y):
         super().__init__(x, y)
-        self.__z = z
+        # Rajoutez un nouvel attribut z propre à la classe Point3D
         
-    def get_z(self):
-        ...
     
-    def set_z(self, z):
-        ...
+    # Définir le getter et le setter sur le nouvel attribut z
         
+    # Complétez les méthodes suivantes
     def vector_representation(self): # représentée sous forme de liste
         ...
         

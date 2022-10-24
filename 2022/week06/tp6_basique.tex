@@ -152,7 +152,8 @@ Vous devriez obtenir ce résultat :
 
 
 \newpage
-\section{Notions de POO en Python (30 minutes)} % TODO: Revoir le temps total
+\section{Notions de POO en Python (30 minutes)}
+\label{sec:notions_python}
 Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question11.py}.\\
 \begin{Exercice}[15 minutes] Classe \lstinline{Point}
@@ -229,7 +230,7 @@ Voici le squelette du programme à compléter:
 	}\end{lstlisting}
 \begin{conseil}
 En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
+Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
 L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
 Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
 \end{conseil}
@@ -259,8 +260,42 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \newpage
 Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:\\
 \lstinputlisting{ressources/heritage-main.java}
-Vous devriez obtenir : \\
-\lstinputlisting{ressources/heritage-main-prompt.java}
+Vous devriez obtenir:
+\lstinputlisting[language=TeX]{ressources/heritage-main-prompt.txt}
+\newpage
 
+\section{Notions d'héritage - Python (30 minutes)}
+\begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
 
+    Dans la section~\ref{sec:notions_python}, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
+    Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
+    
+
+    % Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
+    % Ce fichier doit être retiré du dossier Code
+    % \lstinputlisting{ressources/Point.py} 
+    
+    Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
+    
+    \begin{itemize}
+        \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
+        \item Recalculez la distance euclidienne et le milieu pour le point 3D.
+        \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+    \end{itemize}
+
+    Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
+    \lstinputlisting{ressources/Point3D.py} 
+    
+    \begin{conseil}
+        \begin{itemize}
+            \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
+            \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
+            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (y_1 - y_2)^2}$.
+        \end{itemize}
+    \end{conseil}
+    \begin{solution}
+    \lstinputlisting{solutions/Point3D.py} 
+    \end{solution}
+    \end{Exercice} 
+    
 \end{document}
