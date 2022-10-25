@@ -11,9 +11,9 @@
 
 Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
 
-Les languages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
-Le temps indiqué (\faClock) est à titre indicatif.
+Le temps indiqué (\faClock) est à titre strictement indicatif.
 
 \section{Interaction entre plusieurs instances d'une même classe - Java (30 minutes)}
 
@@ -70,7 +70,7 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \begin{Exercice}[10 minutes] attack(String type Fighter other)\\
     Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
-    Commencez par contrôler si \lstinline{other} est encore en vie.Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
+    Commencez par contrôler si \lstinline{other} est encore en vie. Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
      Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attack_modifier(type)} * \lstinline{attack_instance} - \lstinline{defense_other}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
     
 \begin{solution}
@@ -79,8 +79,8 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \end{Exercice}
 Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Code sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
 \lstinputlisting{ressources/main2.java}
-Vous devriez obtenir ce résultat : \\
-\lstinputlisting{ressources/main2solution.java}
+Vous devriez obtenir ce résultat : 
+\lstinputlisting[language=TeX]{ressources/main2solution.java}
 
 
 \section{Notions d'héritage - Python (30 minutes)}
@@ -89,7 +89,7 @@ Vous devriez obtenir ce résultat : \\
     
     Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assistant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
     
-    La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
+    La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne de caractères qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
     
     Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeurs}, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
     

@@ -23,11 +23,11 @@ public void setNote(int note) {
 public String toString() {
     if (note == -1){
         return "A propos du livre \n------------------ \nTitre : " +titre+ "\nAuteur : "+auteur+ "\nAnnée : "+annee+ "\nNote : non attribuée";
-    }
+        }
     else{
         return "A propos du livre \n------------------ \nTitre : " +titre+ "\nAuteur : "+auteur+ "\nAnnée : "+annee+ "\nNote : "+note;
+        }
     }
-}
 }
 
 class Livre_Audio extends Livre {
@@ -37,8 +37,7 @@ class Livre_Audio extends Livre {
     super(titre, auteur, annee);
     System.out.println("Création d'un livre audio");
     this.narrateur = narrateur;
-}
-
+    }
 }
 
 class Livre_Illustre extends Livre {
@@ -49,6 +48,5 @@ class Livre_Illustre extends Livre {
     super(titre, auteur, annee);
     System.out.println("Création d'un livre illustré");
     this.illustrateur = illustrateur;
-}
-
+    }
 }

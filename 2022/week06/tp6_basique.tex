@@ -12,9 +12,9 @@
 Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
 % Afin d'atteindre ces objectifs, nous utiliserons principalement le langage \lstinline{Java} qui offre une panoplie d'outils pour mieux comprendre ce paradigme de programmation.
 
-Les languages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
-Le temps indiqué (\faClock) est à titre indicatif.
+Le temps indiqué (\faClock) est à titre strictement indicatif.
 
 \section{Création de votre première classe en Java (40 minutes)}
 
@@ -148,7 +148,7 @@ Pour contrôler que vos méthodes et attributs ont été implémentés correctem
 	\lstinputlisting{ressources/question6_main.java}
 	
 Vous devriez obtenir ce résultat :
-    \lstinputlisting{ressources/mainsolution.java}
+    \lstinputlisting{ressources/mainsolution_question6.java}
 
 
 \newpage
@@ -229,10 +229,12 @@ Voici le squelette du programme à compléter:
 	class Livre_Illustre extends Livre {
 	}\end{lstlisting}
 \begin{conseil}
-En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
-L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
-Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
+    \begin{itemize}
+        \item En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
+        Le mot clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
+        \item L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
+        \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
+    \end{itemize}
 \end{conseil}
 \begin{solution}
 	\lstinputlisting{solutions/heritage-solution-1.java}
@@ -258,7 +260,7 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \end{solution}
 \end{Exercice}
 \newpage
-Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:\\
+Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:
 \lstinputlisting{ressources/heritage-main.java}
 Vous devriez obtenir:
 \lstinputlisting[language=TeX]{ressources/heritage-main-prompt.txt}
@@ -290,7 +292,7 @@ Vous devriez obtenir:
         \begin{itemize}
             \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
             \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
-            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (y_1 - y_2)^2}$.
+            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
         \end{itemize}
     \end{conseil}
     \begin{solution}

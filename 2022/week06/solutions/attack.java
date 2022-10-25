@@ -1,4 +1,4 @@
-public void attack (String type,Combattant other){
+public void attack (String type, Combattant other){
     if(other.isAlive()) {
         int damage = (Integer)Combattant.attack_modifier.get(type) * this.attack - other.getDefense();
         other.setHealth(other.getHealth() - damage);
