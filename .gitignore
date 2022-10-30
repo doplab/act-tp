@@ -1,9 +1,14 @@
 # Folders
 act-lectures
 
+# Hidden files
+.DS_Store
+
 # Vidéos
 *.mov
 *.mp4
+*.mkv
+
 
 # mat ignore
 run_jupyter.sh
