@@ -8,13 +8,18 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \titre
 \cours{Consolidation 1}
 
 Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Le temps indiqué (\faClock) est à titre strictement indicatif.
 
+\begin{attention}
+    Il n'est pas nécessaire de faire tous les exercices pendant la séance de TP. Privilégiez les exercices qui vous paraissent difficiles et posez des questions aux assistants.
+
+\end{attention}
 
 \section{Introduction et architecture des ordinateurs}
 
@@ -33,10 +38,12 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{conseil}
 
     \begin{solution}
-        1. FFFFFF$_{(16)}$ = 16777215$_{(10)}$\\
-        2. 4321$_{(5)}$ = 586$_{(10)}$\\
-        3. ABC$_{(16)}$ = 101010111100$_{(2)}$\\
-        5. 11101$_{(2)}$ = 29$_{(10)}$
+        \begin{enumerate}
+            \item FFFFFF$_{(16)}$ = 16777215$_{(10)}$
+            \item 4321$_{(5)}$ = 586$_{(10)}$
+            \item ABC$_{(16)}$ = 101010111100$_{(2)}$
+            \item 11101$_{(2)}$ = 29$_{(10)}$
+        \end{enumerate}
     \end{solution}
 \end{Exercice}
 
@@ -181,11 +188,11 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{solution}
         La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
     \end{solution}
-    \begin{conseil}
+    \begin{attention}
         \textbf{Attention!}\\
         Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
         Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
-    \end{conseil}
+    \end{attention}
 \end{Exercice}
 
 % Week 3
@@ -201,7 +208,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{conseil}
    % Un conseil
    \begin{itemize}
-       \item Se référer aux techniques apprises dans la série 1 et la série 3
+       \item Se référer aux techniques apprises pendant les semaines 1 et 3.
        \item Faire un tableau des puissances de 2 sur 8 bits.
    \end{itemize}
 \end{conseil}
@@ -234,8 +241,8 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{lstlisting}
         jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi" \end{lstlisting}
 
-Modifiez la valeur associée au nombre 5 pour qu’elle soit ``vendredi''. Ajoutez le couple clé-valeur 7 : ``dimanche''. Affichez la valeur associée à la clé 3.
-Grâce à une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
+Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez le couple clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
+À l'aide d'une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
 
     \begin{solution}
         \lstinputlisting{solutions/dictionary.py}
@@ -268,14 +275,14 @@ Grâce à une écriture en compréhension, créez une liste contenant les valeur
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
-   Pour la version itérative, parcourez toute la chaîne de caractère et incrémentez un compteur lorsque vous avez une voyelle.
+   Pour la version itérative, parcourez toute la chaîne de caractères et incrémentez un compteur lorsque vous avez une voyelle.
    
-   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
+   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractères. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
    
-   Aidez vous d'une liste de toutes les voyelles et de la fonction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
+   Aidez vous d'une liste contenant toutes les voyelles et de l'instruction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
 \end{conseil}
 
-Voici les templates : \\
+Voici les templates que vous pouvez réutiliser: \\
 
 \textbf{Python} \\
 
@@ -298,9 +305,6 @@ Voici les templates : \\
 \textbf{Java :} \\
 
     \lstinputlisting{solutions/iteration_recursion_solution.java}
-    
-    
-    
 \end{solution}
 
 \end{Exercice}
@@ -362,7 +366,7 @@ Qu'affichent les programmes suivants ? \\
     Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
 
     \begin{conseil}
-       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+       En Python, pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
     \end{conseil}
     
     \begin{solution}   
@@ -374,7 +378,7 @@ Qu'affichent les programmes suivants ? \\
 
 \begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
 
-    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
+    En Java, quel mot-clé est utilisé pour lever une exception?
 
     \begin{enumerate}
         \item catch
@@ -413,15 +417,15 @@ Qu'affichent les programmes suivants ? \\
 
 \begin{Exercice}[15 minutes]\textbf{Poker Game}
 
-    Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
+    Cet exercice vous demande de construire un jeu de poker en Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte. Ces parties devraient être représentées par trois classes respectives.
     
     Suivez les instructions ci-dessous pour écrire le programme.
     
     \textbf{La classe \lstinline{Carte}}
     \begin{itemize}
         \item Attributs: \lstinline{valeur (int), couleur (int)}. Attention, la couleur d'une carte est représentée ici par une valeur de 0 à 3 au lieu d'une chaîne de caractères.
-        \item Implémentez un constructeur qui prend en argument une valeur et une couleur.
-        \item Implémentez un getter \lstinline{getInfo()} qui affiche dans la console la valeur et la couleur de la carte, vous pouvez vous aider de fonctions privées
+        \item Définir un constructeur qui prend en argument une valeur et une couleur.
+        \item Définir un getter \lstinline{getInfo()} qui affiche dans la console la valeur et la couleur de la carte, vous pouvez vous aider de fonctions privées
         \lstinline{getCouleur()} et \lstinline{getValeur()} pour afficher les cas particuliers.
     \end{itemize}
     
@@ -430,11 +434,11 @@ Qu'affichent les programmes suivants ? \\
     
     \textbf{La classe \lstinline{Joueur}}
     \begin{itemize}
-        \item Attributs: \lstinline{mainDeCartes (Carte[])} (un tableau de carte de taille maximal 2), \lstinline{balance (int)} (le solde total du joueur), \lstinline{mise (int)} (la mise du joueur), \lstinline{monTour (boolean)} (valant true si c’est au tour du joueur).
-        \item Implémentez le constructeur qui prend en argument \textbf{deux cartes} (puis les ajoute à sa main), une balance initiale, une mise initiale de 0. Vous pouvez initialiser \lstinline{monTour} comme \lstinline{false} au début.
-        \item Implémentez une fonction \lstinline{miser()} qui propose une mise sur la table mais ne retourne rien (utiliser le mot \lstinline{void}). Définir la nouvelle mise du joueur.
-        \item Implémentez la méthode \lstinline{montrerMain()} qui montre les cartes sur la table.
-        \item Implémentez une méthode \lstinline{gagner()} qui prend en argument la somme des gains sur la table que le joueur vient de gagner, ajoutez là à son solde.
+        \item Attributs: \lstinline{mainDeCartes (Carte[])} (un tableau de cartes de taille maximal 2), \lstinline{balance (int)} (le solde total du joueur), \lstinline{mise (int)} (la mise du joueur), \lstinline{monTour (boolean)} (valant \lstinline{true} si c’est au tour du joueur).
+        \item Définir le constructeur qui prend en argument \textbf{deux cartes} (puis les ajoute à sa main), une balance initiale, une mise initiale de 0. Vous pouvez initialiser \lstinline{monTour} comme \lstinline{false} au début.
+        \item Définir une fonction \lstinline{miser()} qui propose une mise sur la table mais ne retourne rien (utiliser le mot-clé \lstinline{void}). Définir la nouvelle mise du joueur.
+        \item Définir la méthode \lstinline{montrerMain()} qui montre les cartes sur la table.
+        \item Définir une méthode \lstinline{gagner()} qui prend en argument la somme des gains sur la table que le joueur vient de gagner, ajoutez-la à son solde.
         \item \textbf{Attention:} \lstinline{miser()} et \lstinline{gagner()} s'appliquent seulement si c’est au tour du joueur.
     \end{itemize}
     \lstinputlisting[language=java]{ressources/PokerJoueur.java}
