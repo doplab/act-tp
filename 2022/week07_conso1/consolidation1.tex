@@ -8,12 +8,18 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \titre
 \cours{Consolidation 1}
 
 Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Le temps indiqué (\faClock) est à titre strictement indicatif.
+
+\begin{attention}
+    Il n'est pas nécessaire de faire tous les exercices pendant la séance de TP. Privilégiez les exercices qui vous paraissent difficiles et posez des questions aux assistants.
+
+\end{attention}
 
 
 \section{Introduction et architecture des ordinateurs}
@@ -33,10 +39,12 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{conseil}
 
     \begin{solution}
-        1. FFFFFF$_{(16)}$ = 16777215$_{(10)}$\\
-        2. 4321$_{(5)}$ = 586$_{(10)}$\\
-        3. ABC$_{(16)}$ = 101010111100$_{(2)}$\\
-        5. 11101$_{(2)}$ = 29$_{(10)}$
+        \begin{enumerate}
+            \item FFFFFF$_{(16)}$ = 16777215$_{(10)}$
+            \item 4321$_{(5)}$ = 586$_{(10)}$
+            \item ABC$_{(16)}$ = 101010111100$_{(2)}$
+            \item 11101$_{(2)}$ = 29$_{(10)}$
+        \end{enumerate}
     \end{solution}
 \end{Exercice}
 
@@ -181,11 +189,10 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{solution}
         La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
     \end{solution}
-    \begin{conseil}
-        \textbf{Attention!}\\
+    \begin{attention}
         Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
         Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
-    \end{conseil}
+    \end{attention}
 \end{Exercice}
 
 % Week 3
@@ -201,7 +208,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{conseil}
    % Un conseil
    \begin{itemize}
-       \item Se référer aux techniques apprises dans la série 1 et la série 3
+        \item Se référer aux techniques apprises pendant les semaines 1 et 3.
        \item Faire un tableau des puissances de 2 sur 8 bits.
    \end{itemize}
 \end{conseil}
@@ -234,8 +241,8 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{lstlisting}
         jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi" \end{lstlisting}
 
-Modifiez la valeur associée au nombre 5 pour qu’elle soit ``vendredi''. Ajoutez le couple clé-valeur 7 : ``dimanche''. Affichez la valeur associée à la clé 3.
-Grâce à une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
+    Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez le couple clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
+    À l'aide d'une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
 
     \begin{solution}
         \lstinputlisting{solutions/dictionary.py}
@@ -265,7 +272,7 @@ Grâce à une écriture en compréhension, créez une liste contenant les valeur
     Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
 
     \begin{conseil}
-       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+        En Python, pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
     \end{conseil}
     
     \begin{solution}   
@@ -277,7 +284,7 @@ Grâce à une écriture en compréhension, créez une liste contenant les valeur
 
 \begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions} (Java)\\
 
-    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
+    En Java, quel mot-clé est utilisé pour lever une exception?
 
     \begin{enumerate}
         \item catch
@@ -320,14 +327,14 @@ Grâce à une écriture en compréhension, créez une liste contenant les valeur
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
-   Pour la version itérative, parcourez toute la chaîne de caractère et incrémentez un compteur lorsque vous avez une voyelle.
+   Pour la version itérative, parcourez toute la chaîne de caractères et incrémentez un compteur lorsque vous avez une voyelle.
    
-   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
+   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractères. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
    
-   Aidez vous d'une liste de toutes les voyelles et de la fonction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
+   Aidez vous d'une liste contenant toutes les voyelles et de l'instruction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
 \end{conseil}
 
-Voici les templates : \\
+Voici les templates que vous pouvez réutiliser: \\
 
 \textbf{Python} \\
 
@@ -406,10 +413,10 @@ Qu'affichent les programmes suivants ? \\
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Itération et Récursivité}:\\
-    Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de ligne et de colonne. 
-    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant la fonction if. 
+    Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de lignes et de colonnes. 
+    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant la fonction \lstinline{if}. 
     \begin{conseil}
-        Utilisez l'argument \lstinline{end} de la fonction print de python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “|” pour générer les colonnes et les lignes.
+        Utilisez l'argument \lstinline{end} de la fonction \lstinline{print} de Python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “$|$” pour générer les colonnes et les lignes.
     \end{conseil}
 
     \begin{solution}
@@ -425,7 +432,7 @@ Qu'affichent les programmes suivants ? \\
     
     Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
-    Ainsi, il semble intéressant de construire une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
+    Ainsi, il serait judicieux de créer une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
     \begin{itemize}
         \item \lstinline{nom (String)} : le nom du personnage
         \item \lstinline{niveau (int)} : le niveau du personnage
@@ -434,26 +441,26 @@ Qu'affichent les programmes suivants ? \\
         \item \lstinline{force (int)} : la force du personnage
         \item \lstinline{dexterite (int)} : la dextérité du personnage
         \item \lstinline{endurance (int)} : l’endurance du personnage
-        \item \lstinline{intelligence (int)} : l’intelligence du personnage\\\\\\
+        \item \lstinline{intelligence (int)} : l’intelligence du personnage\\
     \end{itemize}
     
     Suivez les instructions ci-dessous pour compléter le programme.
     
     \begin{itemize}
-        \item Implémentez le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
+        \item Définir le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
         
         % Remplacer la méthode getInfo par toString(). On pourrait demander à l'étudiant de redéfinir la méthode toString() de telle sorte qu'on puisse avoir des infos lorsqu'on fait un print sur une instance de Personnage.
        % \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
-       \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, redéfinissez la méthode \lstinline{toString()} dans la classe \lstinline{Personnage} qui retourne une chaine de caractère avec toutes les informations du 
-       personnage. Cette méthode nous permettra d'afficher dans la console les infos lorsqu'on fait un print sur une instance de Personnage.
+       \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, redéfinissez la méthode \lstinline{toString()} dans la classe \lstinline{Personnage} qui retourne une chaîne de caractères avec toutes les informations du 
+       personnage. Cette méthode nous permettra d'afficher dans la console les informations du personnage lorsqu'on fait un \lstinline{print} sur une instance de \lstinline{Personnage}.
 
-        \item Chaque personnage de ce jeu a un compteur de leur vie restante. Celui-ci va être manipulé par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
-        \item Implémentez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leur constructeur respectif. 
+        \item Chaque personnage de ce jeu a un compteur de vies. Celui-ci va être modifié par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
+        \item Créer les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leurs constructeurs respectifs. 
         
         \lstinputlisting[language=java]{ressources/RolePlayMere.java}
     
         \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les \lstinline{pv} de l’autre personnage.
+        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les points de vie (\lstinline{pv}) de l’autre personnage.
         
         \lstinputlisting[language=java]{ressources/RolePlayFilles.java}
     \end{itemize}
@@ -501,7 +508,7 @@ Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou
 \begin{solution}
     \textbf{Faux}\\
     \lstinline{print()} permet uniquement d'afficher un message dans la console. Autrement dit, \lstinline{print()} sert à communiquer un message à l'utilisateur final du programme, celui-ci n'ayant pas accès au code.\\\\
-    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L.\\
+    \lstinline{return} est une instruction qu'on utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L. Il est important de noter que dans une fonction, toutes les instructions définies après un \lstinline{return} ne seront pas exécutées.\\
 
     Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
     En Python, notre programme ressemblera à ça:
@@ -538,6 +545,7 @@ recherche_lineaire(Liste,x)
 \end{solution}
 \end{Exercice}
 
+\begin{comment}
 \begin{Exercice}[2 minutes]\\
 Si le programme Python contient une erreur, celle-ci sera détectée avant l'exécution du programme. 
 
@@ -549,6 +557,7 @@ Si le programme Python contient une erreur, celle-ci sera détectée avant l'ex�
     \textbf{Faux}: En Python, les erreurs sont détectées pendant l'exécution du programme.
 \end{solution}
 \end{Exercice}
+\end{comment}
 
 
 \begin{Exercice}[2 minutes]\\
@@ -651,13 +660,12 @@ Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure
 
 \begin{multicols}{2}
 \begin{lstlisting}
+    
 //Programme A
 public class Main {
-
     public static void main(String[] args) {
         ma_function();
         autre_fonction();
-    
 
         static void ma_function(){
             System.out.println("Voici ma fonction!");
@@ -668,8 +676,6 @@ public class Main {
         }
     }
 }
-
-
 
 \end{lstlisting}
 \columnbreak
