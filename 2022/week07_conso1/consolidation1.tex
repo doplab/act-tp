@@ -411,67 +411,9 @@ Qu'affichent les programmes suivants ? \\
 % Week 6
 \section{Programmation orientée objet - classes et héritage}
 
-\begin{Exercice}[15 minutes]\textbf{Poker Game}
+\begin{Exercice}[15 minutes]\textbf{Jeu de rôle}
 
-    Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
     
-    Suivez les instructions ci-dessous pour écrire le programme.
-    
-    \textbf{La classe \lstinline{Carte}}
-    \begin{itemize}
-        \item Attributs: \lstinline{valeur (int), couleur (int)}. Attention, la couleur d'une carte est représentée ici par une valeur de 0 à 3 au lieu d'une chaîne de caractères.
-        \item Implémentez un constructeur qui prend en argument une valeur et une couleur.
-        \item Implémentez un getter \lstinline{getInfo()} qui affiche dans la console la valeur et la couleur de la carte, vous pouvez vous aider de fonctions privées
-        \lstinline{getCouleur()} et \lstinline{getValeur()} pour afficher les cas particuliers.
-    \end{itemize}
-    
-    \lstinputlisting[language=java]{ressources/PokerCarte.java}
-    
-    
-    \textbf{La classe \lstinline{Joueur}}
-    \begin{itemize}
-        \item Attributs: \lstinline{mainDeCartes (Carte[])} (un tableau de carte de taille maximal 2), \lstinline{balance (int)} (le solde total du joueur), \lstinline{mise (int)} (la mise du joueur), \lstinline{monTour (boolean)} (valant true si c’est au tour du joueur).
-        \item Implémentez le constructeur qui prend en argument \textbf{deux cartes} (puis les ajoute à sa main), une balance initiale, une mise initiale de 0. Vous pouvez initialiser \lstinline{monTour} comme \lstinline{false} au début.
-        \item Implémentez une fonction \lstinline{miser()} qui propose une mise sur la table mais ne retourne rien (utiliser le mot \lstinline{void}). Définir la nouvelle mise du joueur.
-        \item Implémentez la méthode \lstinline{montrerMain()} qui montre les cartes sur la table.
-        \item Implémentez une méthode \lstinline{gagner()} qui prend en argument la somme des gains sur la table que le joueur vient de gagner, ajoutez là à son solde.
-        \item \textbf{Attention:} \lstinline{miser()} et \lstinline{gagner()} s'appliquent seulement si c’est au tour du joueur.
-    \end{itemize}
-    \lstinputlisting[language=java]{ressources/PokerJoueur.java}
-    
-    \textbf{La classe \lstinline{Paquet}}:
-    \begin{itemize}
-        \item Attributs: \lstinline{paquet (ArrayList<Carte>)} (un jeu de cartes complet), \lstinline{NBR_CARTES (int)} (un attribut final et static (constante) ayant pour valeur \lstinline{52}), \lstinline{NBR_MELANGEs (int)} (une constante qui correspond au nombre de mélanges effectués de valeur \lstinline{100}).
-        \item Dans le constructeur ne prenant aucun argument, générer le deck en créant au fur et à mesure des cartes. 
-        \item Implémenter une fonction public \lstinline{melanger()} qui mélange le jeu de carte et appelez la dans le constructeur après avoir construit le jeu de cartes.
-        \item Implémenter une fonction getter \lstinline{getCarte()} qui retourne la carte placée en haut de la pile et la retire du jeu.
-    \end{itemize}
-    \begin{conseil}
-        % TODO: Conseil pas clair. Merci d'expliquer à quoi sert Random et comment l'utiliser.
-
-    Utilisez \lstinline{Random r = new Random();} sa fonction \lstinline{nextInt()} et utilisez des index et une variable \lstinline{Carte} temporaire pour pouvoir échanger les positions des cartes.
-    \end{conseil}
-    
-    \lstinputlisting[language=java]{ressources/PokerPaquet.java}
-    
-    
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerCarte.java}
-    \end{solution}
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerJoueur.java}
-    \end{solution}
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerPaquet.java}
-    \end{solution}
-    \end{Exercice}
-    
-    \begin{note}{Maeva}
-        Ceci devrait être un exercice avancé
-    \end{note}
-    \begin{Exercice}[15 minutes]\textbf{Un jeu de rôle avec des personnages}
-    
-        % TODO: Attention, les étudiants n'ont pas vu les notions de classes et méthodes abstraites. Dans cet exercice, Personnage doit être défini comme étant une classe-mère normale et sans méthodes abstraites.
     Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
     Ainsi, il semble intéressant de construire une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
@@ -492,15 +434,16 @@ Qu'affichent les programmes suivants ? \\
         \item Implémentez le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
         
         % Remplacer la méthode getInfo par toString(). On pourrait demander à l'étudiant de redéfinir la méthode toString() de telle sorte qu'on puisse avoir des infos lorsqu'on fait un print sur une instance de Personnage.
-        \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
-        
+       % \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
+       \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, redéfinissez la méthode \lstinline{toString()} dans la classe \lstinline{Personnage} qui retourne une chaine de caractère avec toutes les informations du 
+       personnage. Cette méthode nous permettra d'afficher dans la console les infos lorsqu'on fait un print sur une instance de Personnage.
+
         \item Chaque personnage de ce jeu a un compteur de leur vie restante. Celui-ci va être manipulé par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
         \item Implémentez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leur constructeur respectif. 
         
         \lstinputlisting[language=java]{ressources/RolePlayMere.java}
     
         \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item Les méthodes communes à toutes les sous-classes, doivent être déclarées abstraites dans la classe parente \lstinline{Personnage}. Changer cette classe pour qu'elle soit maintenant abstraite avec la/les méthode(s) abstraite(s) correspondante(s).
         \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les \lstinline{pv} de l’autre personnage.
         
         \lstinputlisting[language=java]{ressources/RolePlayFilles.java}

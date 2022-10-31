@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Personnage {
+public class Personnage {
 
     private String nom;
     private int niveau;
@@ -37,7 +37,9 @@ public abstract class Personnage {
     }
 
 
-    public abstract void attaqueBasique(Personnage other);
+    public void attaqueBasique(Personnage other){
+        System.out.println(this.getNom() + " attaque " + other.getNom());
+    }
 
     public String getNom() {
         return nom;
