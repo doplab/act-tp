@@ -8,18 +8,21 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \titre
 \cours{Consolidation 1}
 
 Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Le temps indiqué (\faClock) est à titre strictement indicatif.
+
+\begin{attention}
+    Il n'est pas nécessaire de faire tous les exercices pendant la séance de TP. Privilégiez les exercices qui vous paraissent difficiles et posez des questions aux assistants.
+
+\end{attention}
 
 
 \section{Introduction et architecture des ordinateurs}
-
-
-Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de conversions en base binaire, décimale, hexadécimale, base 5 et de calcul de base en suivant le modèle Von Neumann. \\
 
 \subsection{Conversion}
 
@@ -28,7 +31,6 @@ Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La 
         \item Convertir le nombre FFFFFF$_{(16)}$ en base 10.
         \item Convertir le nombre 4321$_{(5)}$ en base 10.
         \item Convertir le nombre ABC$_{(16)}$ en base 2.
-        \item Convertir le nombre 254$_{(10)}$ en base 15.
         \item Convertir le nombre 11101$_{(2)}$ en base 10.
     \end{enumerate}
     
@@ -37,45 +39,15 @@ Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La 
     \end{conseil}
 
     \begin{solution}
-        1. FFFFFF$_{(16)}$ = 16777215$_{(10)}$\\
-        2. 4321$_{(5)}$ = 586$_{(10)}$\\
-        3. ABC$_{(16)}$ = 101010111100$_{(2)}$\\
-        4. 254$_{(10)}$ = 11E$_{(15)}$\\
-        5. 11101$_{(2)}$ = 29$_{(10)}$
+        \begin{enumerate}
+            \item FFFFFF$_{(16)}$ = 16777215$_{(10)}$
+            \item 4321$_{(5)}$ = 586$_{(10)}$
+            \item ABC$_{(16)}$ = 101010111100$_{(2)}$
+            \item 11101$_{(2)}$ = 29$_{(10)}$
+        \end{enumerate}
     \end{solution}
 \end{Exercice}
 
-\begin{comment}
-    % Les étudiants n'ont pas rencontré de difficultés sur des exercices similaires
-\subsection{Arithmétique binaire}
-
-\begin{Exercice}[5 minutes] \textbf{Addition et soustraction de nombres binaires}
-    \begin{enumerate}
-        \item Additionner \lstinline{10110101}$_{(2)}$ et \lstinline{00010101}$_{(2)}$
-        \item Soustraire \lstinline{11000101}$_{(2)}$ et \lstinline{01000000}$_{(2)}$
-
-    \end{enumerate}
-    
-     \begin{conseil}
-        Cf: exercice 4,5 week 1
-    \end{conseil}
-    
-  
-
-    \begin{solution}
-        1. {10110101}$_{(2)}$ + {00010101}$_{(2)}$ = {11001010}$_{(2)}$\\
-        2. {11000101}$_{(2)}$ - {01000000}$_{(2)}$ = {10000101}$_{(2)}$
-    \end{solution}
-\end{Exercice}
-
-
-
-
-
-
-
-
-\end{comment}
 \subsection{Conversion et arithmétique}
 \begin{Exercice}[5 minutes] \textbf{Conversion, addition et soustraction:}\\
     Effectuez les opérations suivantes:
@@ -196,6 +168,15 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 2
 \section{Logiciels système}
 
+\begin{Exercice}[10 minutes]
+    En utilisant l’invite de commandes (Terminal), créer un programme Python demandant à l’utilisateur d’entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s’afficher : \textit{``Bonjour, je m’appelle *prénom nom*''}.
+\end{Exercice}
+
+\begin{solution}
+    \lstinputlisting{solutions/terminal.py}
+\end{solution}
+
+
 \begin{Exercice}[5 minutes]
     Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
     \begin{enumerate}
@@ -208,11 +189,10 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{solution}
         La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
     \end{solution}
-    \begin{conseil}
-        \textbf{Attention!}\\
+    \begin{attention}
         Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
         Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
-    \end{conseil}
+    \end{attention}
 \end{Exercice}
 
 % Week 3
@@ -228,7 +208,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{conseil}
    % Un conseil
    \begin{itemize}
-       \item Se référer aux techniques apprises dans la série 1 et la série 3
+        \item Se référer aux techniques apprises pendant les semaines 1 et 3.
        \item Faire un tableau des puissances de 2 sur 8 bits.
    \end{itemize}
 \end{conseil}
@@ -246,24 +226,115 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 
 \end{Exercice}
 
+\begin{Exercice}[5 minutes]
+    Qu'affiche le programme suivant?
+    \lstinputlisting{ressources/conditions.py}
+
+    \begin{solution}
+        output 2 \\
+        output 3
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
+    À partir du dictionnaire suivant :
+    \begin{lstlisting}
+        jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi" \end{lstlisting}
+
+    Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez le couple clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
+    À l'aide d'une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
+
+    \begin{solution}
+        \lstinputlisting{solutions/dictionary.py}
+    \end{solution}
+\end{Exercice}
 
 
 % Week 4
+\section{Fonctions, mémoire et exceptions}
+\begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{ressources/Question4.py}
+
+    \begin{solution}
+            x=2 \\
+            x=3 \\
+            None
+    \end{solution}
+
+    
+ \end{Exercice}
+
+ \begin{Exercice}[10 minutes]\textbf{Fonctions et Exceptions} (Python)\\
+
+    Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
+    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
+
+    \begin{conseil}
+        En Python, pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+    \end{conseil}
+    
+    \begin{solution}   
+        \textbf{Python :}
+        \lstinputlisting{solutions/question10.py}
+    \end{solution}
+    
+    \end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions} (Java)\\
+
+    En Java, quel mot-clé est utilisé pour lever une exception?
+
+    \begin{enumerate}
+        \item catch
+        \item throw
+        \item raise 
+        \item try
+    \end{enumerate}
+    
+    \begin{solution}   
+    Le mot-clé pour lever une exception en Java est \lstinline{throw}.
+        
+    \end{solution}
+        
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions}(Java)\\
+
+    Qu'affiche le programme suivant ?
+    \lstinputlisting{ressources/Question12.java}
+
+    
+        
+        \begin{solution}   
+        Le programme affiche OUTPUT 2.             
+        \end{solution}
+        
+ \end{Exercice}
+
+
+
+    
+
+
+
+% Week 5
 \section{Itération et récursivité}
 
-\begin{Exercice}[15 minutes] Itération et Récursivité\\
+\begin{Exercice}[15 minutes]\textbf{Itération et Récursivité} \\
 
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
-   Pour la version itérative, parcourez toute la chaîne de caractère et incrémentez un compteur lorsque vous avez une voyelle.
+   Pour la version itérative, parcourez toute la chaîne de caractères et incrémentez un compteur lorsque vous avez une voyelle.
    
-   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractère. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
+   Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractères. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
    
-   Aidez vous d'une liste de toutes les voyelles et de la fonction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
+   Aidez vous d'une liste contenant toutes les voyelles et de l'instruction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
 \end{conseil}
 
-Voici les templates : \\
+Voici les templates que vous pouvez réutiliser: \\
 
 \textbf{Python} \\
 
@@ -341,128 +412,27 @@ Qu'affichent les programmes suivants ? \\
 
 \end{Exercice}
 
-% Week 5
-\section{Fonctions, mémoire et exceptions}
-
-\begin{Exercice}[10 minutes]Fonctions et Exceptions (Python)\\
-
-    Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
-    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
-
+\begin{Exercice}[15 minutes] \textbf{Itération et Récursivité}:\\
+    Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de lignes et de colonnes. 
+    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant la fonction \lstinline{if}. 
     \begin{conseil}
-       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+        Utilisez l'argument \lstinline{end} de la fonction \lstinline{print} de Python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “$|$” pour générer les colonnes et les lignes.
     \end{conseil}
-    
-    \begin{solution}   
-        \textbf{Python :}
-        \lstinputlisting{solutions/question10.py}
+
+    \begin{solution}
+        \lstinputlisting[language=python]{solutions/question17.py}
     \end{solution}
-    
-    \end{Exercice}
-
-\begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
-
-    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
-
-    \begin{enumerate}
-        \item catch
-        \item throw
-        \item raise 
-        \item try
-    \end{enumerate}
-    
-    \begin{solution}   
-    Le mot-clé pour lever une exception en Java est \lstinline{throw}.
-        
-    \end{solution}
-        
- \end{Exercice}
-
- \begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
-
-    Qu'affiche le programme suivant ?
-    \lstinputlisting{ressources/Question12.java}
-
-    
-        
-        \begin{solution}   
-        Le programme affiche OUTPUT 2.             
-        \end{solution}
-        
- \end{Exercice}
-
-
-
-    
-
+\end{Exercice}
 
 % Week 6
 \section{Programmation orientée objet - classes et héritage}
 
-\begin{Exercice}[15 minutes]\textbf{Poker Game}
+\begin{Exercice}[15 minutes]\textbf{Jeu de rôle}
 
-    Cet exercice vous demande de construire un jeu de poker en implémentant un programme Java. Celui-ci~comprend trois parties importantes: un paquet de cartes (un ``\textbf{deck}''), un joueur, et une carte, et elles devraient être représentées par trois classes respectives.
     
-    Suivez les instructions ci-dessous pour écrire le programme.
-    
-    \textbf{La classe \lstinline{Carte}}
-    \begin{itemize}
-        \item Attributs: \lstinline{valeur (int), couleur (int)}. Attention, la couleur d'une carte est représentée ici par une valeur de 0 à 3 au lieu d'une chaîne de caractères.
-        \item Implémentez un constructeur qui prend en argument une valeur et une couleur.
-        \item Implémentez un getter \lstinline{getInfo()} qui affiche dans la console la valeur et la couleur de la carte, vous pouvez vous aider de fonctions privées
-        \lstinline{getCouleur()} et \lstinline{getValeur()} pour afficher les cas particuliers.
-    \end{itemize}
-    
-    \lstinputlisting[language=java]{ressources/PokerCarte.java}
-    
-    
-    \textbf{La classe \lstinline{Joueur}}
-    \begin{itemize}
-        \item Attributs: \lstinline{mainDeCartes (Carte[])} (un tableau de carte de taille maximal 2), \lstinline{balance (int)} (le solde total du joueur), \lstinline{mise (int)} (la mise du joueur), \lstinline{monTour (boolean)} (valant true si c’est au tour du joueur).
-        \item Implémentez le constructeur qui prend en argument \textbf{deux cartes} (puis les ajoute à sa main), une balance initiale, une mise initiale de 0. Vous pouvez initialiser \lstinline{monTour} comme \lstinline{false} au début.
-        \item Implémentez une fonction \lstinline{miser()} qui propose une mise sur la table mais ne retourne rien (utiliser le mot \lstinline{void}). Définir la nouvelle mise du joueur.
-        \item Implémentez la méthode \lstinline{montrerMain()} qui montre les cartes sur la table.
-        \item Implémentez une méthode \lstinline{gagner()} qui prend en argument la somme des gains sur la table que le joueur vient de gagner, ajoutez là à son solde.
-        \item \textbf{Attention:} \lstinline{miser()} et \lstinline{gagner()} s'appliquent seulement si c’est au tour du joueur.
-    \end{itemize}
-    \lstinputlisting[language=java]{ressources/PokerJoueur.java}
-    
-    \textbf{La classe \lstinline{Paquet}}:
-    \begin{itemize}
-        \item Attributs: \lstinline{paquet (ArrayList<Carte>)} (un jeu de cartes complet), \lstinline{NBR_CARTES (int)} (un attribut final et static (constante) ayant pour valeur \lstinline{52}), \lstinline{NBR_MELANGEs (int)} (une constante qui correspond au nombre de mélanges effectués de valeur \lstinline{100}).
-        \item Dans le constructeur ne prenant aucun argument, générer le deck en créant au fur et à mesure des cartes. 
-        \item Implémenter une fonction public \lstinline{melanger()} qui mélange le jeu de carte et appelez la dans le constructeur après avoir construit le jeu de cartes.
-        \item Implémenter une fonction getter \lstinline{getCarte()} qui retourne la carte placée en haut de la pile et la retire du jeu.
-    \end{itemize}
-    \begin{conseil}
-        % TODO: Conseil pas clair. Merci d'expliquer à quoi sert Random et comment l'utiliser.
-
-    Utilisez \lstinline{Random r = new Random();} sa fonction \lstinline{nextInt()} et utilisez des index et une variable \lstinline{Carte} temporaire pour pouvoir échanger les positions des cartes.
-    \end{conseil}
-    
-    \lstinputlisting[language=java]{ressources/PokerPaquet.java}
-    
-    
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerCarte.java}
-    \end{solution}
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerJoueur.java}
-    \end{solution}
-    \begin{solution}
-    \lstinputlisting[language=java]{solutions/PokerPaquet.java}
-    \end{solution}
-    \end{Exercice}
-    
-    \begin{note}{Maeva}
-        Ceci devrait être un exercice avancé
-    \end{note}
-    \begin{Exercice}[15 minutes]\textbf{Un jeu de rôle avec des personnages}
-    
-        % TODO: Attention, les étudiants n'ont pas vu les notions de classes et méthodes abstraites. Dans cet exercice, Personnage doit être défini comme étant une classe-mère normale et sans méthodes abstraites.
     Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
-    Ainsi, il semble intéressant de construire une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
+    Ainsi, il serait judicieux de créer une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
     \begin{itemize}
         \item \lstinline{nom (String)} : le nom du personnage
         \item \lstinline{niveau (int)} : le niveau du personnage
@@ -471,25 +441,26 @@ Qu'affichent les programmes suivants ? \\
         \item \lstinline{force (int)} : la force du personnage
         \item \lstinline{dexterite (int)} : la dextérité du personnage
         \item \lstinline{endurance (int)} : l’endurance du personnage
-        \item \lstinline{intelligence (int)} : l’intelligence du personnage\\\\\\
+        \item \lstinline{intelligence (int)} : l’intelligence du personnage\\
     \end{itemize}
     
     Suivez les instructions ci-dessous pour compléter le programme.
     
     \begin{itemize}
-        \item Implémentez le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
+        \item Définir le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
         
         % Remplacer la méthode getInfo par toString(). On pourrait demander à l'étudiant de redéfinir la méthode toString() de telle sorte qu'on puisse avoir des infos lorsqu'on fait un print sur une instance de Personnage.
-        \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
-        
-        \item Chaque personnage de ce jeu a un compteur de leur vie restante. Celui-ci va être manipulé par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
-        \item Implémentez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leur constructeur respectif. 
+       % \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
+       \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, redéfinissez la méthode \lstinline{toString()} dans la classe \lstinline{Personnage} qui retourne une chaîne de caractères avec toutes les informations du 
+       personnage. Cette méthode nous permettra d'afficher dans la console les informations du personnage lorsqu'on fait un \lstinline{print} sur une instance de \lstinline{Personnage}.
+
+        \item Chaque personnage de ce jeu a un compteur de vies. Celui-ci va être modifié par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
+        \item Créer les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leurs constructeurs respectifs. 
         
         \lstinputlisting[language=java]{ressources/RolePlayMere.java}
     
         \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item Les méthodes communes à toutes les sous-classes, doivent être déclarées abstraites dans la classe parente \lstinline{Personnage}. Changer cette classe pour qu'elle soit maintenant abstraite avec la/les méthode(s) abstraite(s) correspondante(s).
-        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les \lstinline{pv} de l’autre personnage.
+        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les points de vie (\lstinline{pv}) de l’autre personnage.
         
         \lstinputlisting[language=java]{ressources/RolePlayFilles.java}
     \end{itemize}
@@ -537,7 +508,7 @@ Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou
 \begin{solution}
     \textbf{Faux}\\
     \lstinline{print()} permet uniquement d'afficher un message dans la console. Autrement dit, \lstinline{print()} sert à communiquer un message à l'utilisateur final du programme, celui-ci n'ayant pas accès au code.\\\\
-    \lstinline{return} est une déclaration qui s'utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L.\\
+    \lstinline{return} est une instruction qu'on utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L. Il est important de noter que dans une fonction, toutes les instructions définies après un \lstinline{return} ne seront pas exécutées.\\
 
     Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
     En Python, notre programme ressemblera à ça:
@@ -574,6 +545,7 @@ recherche_lineaire(Liste,x)
 \end{solution}
 \end{Exercice}
 
+\begin{comment}
 \begin{Exercice}[2 minutes]\\
 Si le programme Python contient une erreur, celle-ci sera détectée avant l'exécution du programme. 
 
@@ -585,6 +557,7 @@ Si le programme Python contient une erreur, celle-ci sera détectée avant l'ex�
     \textbf{Faux}: En Python, les erreurs sont détectées pendant l'exécution du programme.
 \end{solution}
 \end{Exercice}
+\end{comment}
 
 
 \begin{Exercice}[2 minutes]\\
@@ -687,13 +660,12 @@ Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure
 
 \begin{multicols}{2}
 \begin{lstlisting}
+    
 //Programme A
 public class Main {
-
     public static void main(String[] args) {
         ma_function();
         autre_fonction();
-    
 
         static void ma_function(){
             System.out.println("Voici ma fonction!");
@@ -704,8 +676,6 @@ public class Main {
         }
     }
 }
-
-
 
 \end{lstlisting}
 \columnbreak
