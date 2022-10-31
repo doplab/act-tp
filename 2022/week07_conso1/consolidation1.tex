@@ -18,9 +18,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \section{Introduction et architecture des ordinateurs}
 
-
-Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée autour de conversions en base binaire, décimale, hexadécimale, base 5 et de calcul de base en suivant le modèle Von Neumann. \\
-
 \subsection{Conversion}
 
 \begin{Exercice}[10 minutes]  \textbf{Conversion }\\
@@ -28,7 +25,6 @@ Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La 
         \item Convertir le nombre FFFFFF$_{(16)}$ en base 10.
         \item Convertir le nombre 4321$_{(5)}$ en base 10.
         \item Convertir le nombre ABC$_{(16)}$ en base 2.
-        \item Convertir le nombre 254$_{(10)}$ en base 15.
         \item Convertir le nombre 11101$_{(2)}$ en base 10.
     \end{enumerate}
     
@@ -40,42 +36,10 @@ Le but de cette section est de comprendre le fonctionnement d'un ordinateur. La 
         1. FFFFFF$_{(16)}$ = 16777215$_{(10)}$\\
         2. 4321$_{(5)}$ = 586$_{(10)}$\\
         3. ABC$_{(16)}$ = 101010111100$_{(2)}$\\
-        4. 254$_{(10)}$ = 11E$_{(15)}$\\
         5. 11101$_{(2)}$ = 29$_{(10)}$
     \end{solution}
 \end{Exercice}
 
-\begin{comment}
-    % Les étudiants n'ont pas rencontré de difficultés sur des exercices similaires
-\subsection{Arithmétique binaire}
-
-\begin{Exercice}[5 minutes] \textbf{Addition et soustraction de nombres binaires}
-    \begin{enumerate}
-        \item Additionner \lstinline{10110101}$_{(2)}$ et \lstinline{00010101}$_{(2)}$
-        \item Soustraire \lstinline{11000101}$_{(2)}$ et \lstinline{01000000}$_{(2)}$
-
-    \end{enumerate}
-    
-     \begin{conseil}
-        Cf: exercice 4,5 week 1
-    \end{conseil}
-    
-  
-
-    \begin{solution}
-        1. {10110101}$_{(2)}$ + {00010101}$_{(2)}$ = {11001010}$_{(2)}$\\
-        2. {11000101}$_{(2)}$ - {01000000}$_{(2)}$ = {10000101}$_{(2)}$
-    \end{solution}
-\end{Exercice}
-
-
-
-
-
-
-
-
-\end{comment}
 \subsection{Conversion et arithmétique}
 \begin{Exercice}[5 minutes] \textbf{Conversion, addition et soustraction:}\\
     Effectuez les opérations suivantes:
@@ -196,6 +160,15 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 2
 \section{Logiciels système}
 
+\begin{Exercice}[10 minutes]
+    En utilisant l’invite de commandes (Terminal), créer un programme Python demandant à l’utilisateur d’entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s’afficher : \textit{``Bonjour, je m’appelle *prénom nom*''}.
+\end{Exercice}
+
+\begin{solution}
+    \lstinputlisting{solutions/terminal.py}
+\end{solution}
+
+
 \begin{Exercice}[5 minutes]
     Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
     \begin{enumerate}
@@ -246,9 +219,48 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 
 \end{Exercice}
 
+\begin{Exercice}[5 minutes]
+    Qu'affiche le programme suivant?
+    \lstinputlisting{ressources/conditions.py}
+
+    \begin{solution}
+        output 2 \\
+        output 3
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
+    À partir du dictionnaire suivant :
+    \begin{lstlisting}
+        jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi" \end{lstlisting}
+
+Modifiez la valeur associée au nombre 5 pour qu’elle soit ``vendredi''. Ajoutez le couple clé-valeur 7 : ``dimanche''. Affichez la valeur associée à la clé 3.
+Grâce à une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
+
+    \begin{solution}
+        \lstinputlisting{solutions/dictionary.py}
+    \end{solution}
+\end{Exercice}
 
 
 % Week 4
+\section{Fonctions, mémoire et exceptions}
+\begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{ressources/Question4.py}
+
+    \begin{solution}
+            x=2 \\
+            x=3 \\
+            None
+    \end{solution}
+
+    
+ \end{Exercice}
+
+
+% Week 5
 \section{Itération et récursivité}
 
 \begin{Exercice}[15 minutes] Itération et Récursivité\\

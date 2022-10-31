@@ -1,26 +1,29 @@
-\documentclass{article}
-\input{header.tex}
+\input{../../header.tex}
 
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
 
-% Set page size and margins
-% Replace `letterpaper' with `a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Exercices pour la séance de révision}
 \author{Abiola Adeye: abiola.adeye@epfl.ch}
 
+% TODO: Add hints and solutions to your exercises
+
+
+
 \begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+
 \maketitle
 
-\section{Semaine 1}
+\section*{Semaine 1}
 \begin{Exercice}[15 minutes] \textbf{Soustraction de nombres binaires}\\
     Effectuer les opérations suivantes:
     \begin{enumerate}
@@ -31,7 +34,7 @@
     
 \end{Exercice}
 
-\section{Semaine 2}
+\section*{Semaine 2}
 
 \begin{Exercice}[10 minutes]
         En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
@@ -41,7 +44,7 @@
 
 \end{Exercice}
 
-\section{Semaine 3}
+\section*{Semaine 3}
 \begin{Exercice}[10 minutes] \textbf{Floating point}\\
     
     Voici la représentation en binaire d'un nombre à virgule flottante: \\
@@ -59,18 +62,24 @@
     
 \end{Exercice}
 
-\section{Semaine 4}
+\section*{Semaine 4}
 
 \begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
     Qu'affiche le programme suivant? \\
 
     \lstinputlisting{Question4.py}
 
+    \begin{solution}
+            x=2 \\
+            x=3 \\
+            None
+    \end{solution}
+
     
  \end{Exercice}
  
  
- \section{Semaine 5}
+ \section*{Semaine 5}
  
  \begin{Exercice}[10 minutes] \textbf{Manipulation des listes en Java}\\
       	Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
@@ -79,23 +88,24 @@
       	
       	Ajoutez ceci au début de votre code:
       	\begin{lstlisting}[language=Java]
-             import java.util.List;
-	     import java.util.LinkedList; \end{lstlisting}
+             
+import java.util.List;
+import java.util.LinkedList; \end{lstlisting}
 	     
 	     Ajoutez ceci à la fin de votre code:
 	     
 	    \begin{lstlisting}[language=Java]
-             for(int i=0;i<ma_liste_m.size();i++){
-            		System.out.println(ma_liste_m.get(i));
-	       } \end{lstlisting} 
+for(int i=0;i<ma_liste_m.size();i++){
+	System.out.println(ma_liste_m.get(i));
+} \end{lstlisting} 
     
 \end{Exercice}
 
 
-\section{Semaine 6}       
+\section*{Semaine 6}       
 
 \begin{Exercice}[10 minutes] Création de classe et encapsulation\\
-    Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants :
+    Créez une classe \lstinline{Dog} contenant les attributs suivants:
     \begin{enumerate}
     \item Un attribut \lstinline{public} String nommé \lstinline{name}
     \item Un attribut \lstinline{private} List nommé \lstinline{tricks}
