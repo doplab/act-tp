@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Consolidation 1}
@@ -295,7 +295,7 @@ Voici les templates : \\
 
 \begin{Exercice}[5 minutes] Lecture de code (Récursivité)\\
 
-Qu'afficheront les programmes suivants ? \\
+Qu'affichent les programmes suivants ? \\
 
 \begin{conseil}
    Ces deux programmes comportent des fonctions itératives, lisez bien le code de haut en bas et lorsque la fonction fait appel à elle-même, revenez au début de la fonction et effectuez de nouveau les instructions avec les nouveaux paramètres.
@@ -346,30 +346,23 @@ Qu'afficheront les programmes suivants ? \\
 
 \begin{Exercice}[10 minutes]Fonctions et Exceptions (Python)\\
 
-    Implémenter une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche 
-    sur la console Bonjour suivi du nom passé en paramètre, faite en sorte que l'appel échoue avec une exception de type 
-    \textbf{ValueError} si le 
-    paramètre name n'est pas une chaine de caractère ou si c'est une chaine vide.
-    
+    Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
+    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
+
     \begin{conseil}
-       Pour trouver le type d'une variable utilisez la methode \lstinline{type(var)}.
+       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
     \end{conseil}
     
-    
-    
     \begin{solution}   
-    \textbf{Python :} \\
-    
+        \textbf{Python :}
         \lstinputlisting{solutions/question10.py}
-        
-        
     \end{solution}
     
     \end{Exercice}
 
 \begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
 
-    Quel mot clé est utilisé pour déclencher explicitement une exception?
+    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
 
     \begin{enumerate}
         \item catch
@@ -378,12 +371,10 @@ Qu'afficheront les programmes suivants ? \\
         \item try
     \end{enumerate}
     
-      
+    \begin{solution}   
+    Le mot-clé pour lever une exception en Java est \lstinline{throw}.
         
-        \begin{solution}   
-        Le mot clé pour déclencher une erreur en Java est throw.
-            
-        \end{solution}
+    \end{solution}
         
  \end{Exercice}
 
@@ -440,10 +431,12 @@ Qu'afficheront les programmes suivants ? \\
     \begin{itemize}
         \item Attributs: \lstinline{paquet (ArrayList<Carte>)} (un jeu de cartes complet), \lstinline{NBR_CARTES (int)} (un attribut final et static (constante) ayant pour valeur \lstinline{52}), \lstinline{NBR_MELANGEs (int)} (une constante qui correspond au nombre de mélanges effectués de valeur \lstinline{100}).
         \item Dans le constructeur ne prenant aucun argument, générer le deck en créant au fur et à mesure des cartes. 
-        \item Implémenter une fonction public \lstinline{melanger()} qui mélange le jeu de carte et appeler là dans le constructeur après avoir construit le jeu de carte.
+        \item Implémenter une fonction public \lstinline{melanger()} qui mélange le jeu de carte et appelez la dans le constructeur après avoir construit le jeu de cartes.
         \item Implémenter une fonction getter \lstinline{getCarte()} qui retourne la carte placée en haut de la pile et la retire du jeu.
     \end{itemize}
     \begin{conseil}
+        % TODO: Conseil pas clair. Merci d'expliquer à quoi sert Random et comment l'utiliser.
+
     Utilisez \lstinline{Random r = new Random();} sa fonction \lstinline{nextInt()} et utilisez des index et une variable \lstinline{Carte} temporaire pour pouvoir échanger les positions des cartes.
     \end{conseil}
     
@@ -466,6 +459,7 @@ Qu'afficheront les programmes suivants ? \\
     \end{note}
     \begin{Exercice}[15 minutes]\textbf{Un jeu de rôle avec des personnages}
     
+        % TODO: Attention, les étudiants n'ont pas vu les notions de classes et méthodes abstraites. Dans cet exercice, Personnage doit être défini comme étant une classe-mère normale et sans méthodes abstraites.
     Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
     Ainsi, il semble intéressant de construire une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
@@ -484,7 +478,10 @@ Qu'afficheront les programmes suivants ? \\
     
     \begin{itemize}
         \item Implémentez le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
-        \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Character} qui affiche des informations du personnage dans la console.
+        
+        % Remplacer la méthode getInfo par toString(). On pourrait demander à l'étudiant de redéfinir la méthode toString() de telle sorte qu'on puisse avoir des infos lorsqu'on fait un print sur une instance de Personnage.
+        \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
+        
         \item Chaque personnage de ce jeu a un compteur de leur vie restante. Celui-ci va être manipulé par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
         \item Implémentez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d’abord leur constructeur respectif. 
         
