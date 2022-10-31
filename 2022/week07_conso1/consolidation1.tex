@@ -259,11 +259,63 @@ Grâce à une écriture en compréhension, créez une liste contenant les valeur
     
  \end{Exercice}
 
+ \begin{Exercice}[10 minutes]\textbf{Fonctions et Exceptions} (Python)\\
+
+    Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
+    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
+
+    \begin{conseil}
+       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+    \end{conseil}
+    
+    \begin{solution}   
+        \textbf{Python :}
+        \lstinputlisting{solutions/question10.py}
+    \end{solution}
+    
+    \end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions} (Java)\\
+
+    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
+
+    \begin{enumerate}
+        \item catch
+        \item throw
+        \item raise 
+        \item try
+    \end{enumerate}
+    
+    \begin{solution}   
+    Le mot-clé pour lever une exception en Java est \lstinline{throw}.
+        
+    \end{solution}
+        
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions}(Java)\\
+
+    Qu'affiche le programme suivant ?
+    \lstinputlisting{ressources/Question12.java}
+
+    
+        
+        \begin{solution}   
+        Le programme affiche OUTPUT 2.             
+        \end{solution}
+        
+ \end{Exercice}
+
+
+
+    
+
+
 
 % Week 5
 \section{Itération et récursivité}
 
-\begin{Exercice}[15 minutes] Itération et Récursivité\\
+\begin{Exercice}[15 minutes]\textbf{Itération et Récursivité} \\
 
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
@@ -353,60 +405,17 @@ Qu'affichent les programmes suivants ? \\
 
 \end{Exercice}
 
-% Week 5
-\section{Fonctions, mémoire et exceptions}
-
-\begin{Exercice}[10 minutes]Fonctions et Exceptions (Python)\\
-
-    Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
-    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
-
+\begin{Exercice}[15 minutes] \textbf{Itération et Récursivité}:\\
+    Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de ligne et de colonne. 
+    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant la fonction if. 
     \begin{conseil}
-       Pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+        Utilisez l'argument \lstinline{end} de la fonction print de python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “|” pour générer les colonnes et les lignes.
     \end{conseil}
-    
-    \begin{solution}   
-        \textbf{Python :}
-        \lstinputlisting{solutions/question10.py}
+
+    \begin{solution}
+        \lstinputlisting[language=python]{solutions/question17.py}
     \end{solution}
-    
-    \end{Exercice}
-
-\begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
-
-    En Java, quel mot-clé est utilisé pour lever explicitement une exception?
-
-    \begin{enumerate}
-        \item catch
-        \item throw
-        \item raise 
-        \item try
-    \end{enumerate}
-    
-    \begin{solution}   
-    Le mot-clé pour lever une exception en Java est \lstinline{throw}.
-        
-    \end{solution}
-        
- \end{Exercice}
-
- \begin{Exercice}[5 minutes]Gestion d'exceptions (Java)\\
-
-    Qu'affiche le programme suivant ?
-    \lstinputlisting{ressources/Question12.java}
-
-    
-        
-        \begin{solution}   
-        Le programme affiche OUTPUT 2.             
-        \end{solution}
-        
- \end{Exercice}
-
-
-
-    
-
+\end{Exercice}
 
 % Week 6
 \section{Programmation orientée objet - classes et héritage}
