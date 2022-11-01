@@ -1,5 +1,5 @@
-sizeX = int(input("Définissez le nombre de ligne que le tableau va faire :"))
-sizeY = int(input("Définissez le nombre de colonne que le tableau va faire :"))
+sizeX = int(input("Définissez le nombre de lignes que le tableau va faire :"))
+sizeY = int(input("Définissez le nombre de colonnes que le tableau va faire :"))
 
 # On va sélectionner une case en rentrant ces coordonnées
 valueX = int(input("Entrez une line à sélectionner : "))

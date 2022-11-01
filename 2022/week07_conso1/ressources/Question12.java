@@ -1,4 +1,4 @@
-public class Question12{
+public class Question14{
   public static void main(String args[]) {
     try {
       int i  = 7 / 0;
