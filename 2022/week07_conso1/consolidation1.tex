@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -15,7 +15,7 @@
 Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Le temps indiqué (\faClock) est à titre strictement indicatif.
-
+\\
 \begin{attention}
     Il n'est pas nécessaire de faire tous les exercices pendant la séance de TP. Privilégiez les exercices qui vous paraissent difficiles et posez des questions aux assistants.
 
@@ -141,7 +141,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \end{Exercice}
    \begin{conseil}
     Pensez à décomposer la valeur de l’\lstinline{Instruction Register} pour obtenir toutes les informations demandées.\\
-    Utilisez la même convention que celle présentée dans les diapositives du cours (Architecture des ordinateurs (Semaine 2) - Diapositive 15)\\
+    Utilisez la même convention que celle présentée dans les diapositives du cours (Architecture des ordinateurs - semaine 1)\\
     Les données issues de la décomposition de l’\lstinline{Instruction Register} ne sont pas des valeurs brutes, mais des références. Trouvez les tables concordantes pour y récupérer les valeurs.
 
     \end{conseil}
@@ -203,7 +203,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
         \item Convertir 52$_{(10)}$ en base 2 sur 8 bits.
         \item Convertir 100$_{(10)}$ en base 2 sur 8 bits.
         \item Calculer en base 2 la soustraction de 01100100$_{(2)}$ par 00110100$_{(2)}$.
-        \item Déterminer au complément à deux l'opposé ( multiplication par -1 en base 10) de 0110000$_{(2)}$.
+        \item Déterminer au complément à deux l'opposé (multiplication par -1 en base 10) de 0110000$_{(2)}$.
     \end{enumerate}
 \begin{conseil}
    % Un conseil
@@ -239,7 +239,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{Exercice}[5 minutes]
     À partir du dictionnaire suivant :
     \begin{lstlisting}
-        jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi" \end{lstlisting}
+        jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi"} \end{lstlisting}
 
     Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez le couple clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
     À l'aide d'une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
@@ -267,7 +267,6 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
  \end{Exercice}
 
  \begin{Exercice}[10 minutes]\textbf{Fonctions et Exceptions} (Python)\\
-
     Écrivez une fonction \lstinline{check_name()} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
     Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
 
@@ -322,8 +321,18 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 % Week 5
 \section{Itération et récursivité}
 
-\begin{Exercice}[15 minutes]\textbf{Itération et Récursivité} \\
+\begin{Exercice}[10 minutes] \textbf{Fonctions et itération}
+    \\
+    En Python, définissez une fonction nommée \lstinline{overlap} qui prend comme arguments deux listes et retourne une liste des éléments contenus dans les deux listes sans duplication.
+    Par exemple:
+    \lstinline{print(overlap([1, 2, 3, 4], [9, 4, 3, 7, 1]))} renverra \lstinline{[1, 3, 4]}.
 
+    \begin{solution}
+        \lstinputlisting{solutions/overlap.py}
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes]\textbf{Itération et Récursivité} \\
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
@@ -337,17 +346,14 @@ Créez une fonction itérative, puis une fonction récursive qui calculent le no
 Voici les templates que vous pouvez réutiliser: \\
 
 \textbf{Python} \\
-
     \lstinputlisting{ressources/iteration_recursion_exercice.py} 
 
 \textbf{Java} \\
-
     \lstinputlisting{ressources/iteration_recursion_exercice.java}
 
     
 \begin{solution}
 \textbf{Python :} \\
-
     \lstinputlisting{solutions/iteration_recursion_solution.py}
     
 \end{solution}
@@ -414,7 +420,7 @@ Qu'affichent les programmes suivants ? \\
 
 \begin{Exercice}[15 minutes] \textbf{Itération et Récursivité}:\\
     Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de lignes et de colonnes. 
-    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant la fonction \lstinline{if}. 
+    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant une condition. 
     \begin{conseil}
         Utilisez l'argument \lstinline{end} de la fonction \lstinline{print} de Python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “$|$” pour générer les colonnes et les lignes.
     \end{conseil}
@@ -430,7 +436,7 @@ Qu'affichent les programmes suivants ? \\
 \begin{Exercice}[15 minutes]\textbf{Jeu de rôle}
 
     
-    Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans notre jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
+    Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans ce jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
     Ainsi, il serait judicieux de créer une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
     \begin{itemize}
@@ -561,7 +567,7 @@ Si le programme Python contient une erreur, celle-ci sera détectée avant l'ex�
 
 
 \begin{Exercice}[2 minutes]\\
-Il est possible de faire appel à une fonction définie ``plus bas'' dans le code sans que cela ne pose problème.
+En Python, il est possible de faire appel à une fonction définie ``plus bas'' dans le code sans que cela ne pose problème.
 
 \begin{lstlisting}
 import math
@@ -660,7 +666,7 @@ Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure
 
 \begin{multicols}{2}
 \begin{lstlisting}
-    
+
 //Programme A
 public class Main {
     public static void main(String[] args) {
@@ -707,7 +713,7 @@ public class Main {
 \end{enumerate}
 \begin{solution}
     \textbf{Le programme B}\\
-    Le fichier dans son ensemble représente une classe Java, ici la classe s'appelle \textbf{Main} (Vous aurez plus d'informations sur le fonctionnement des classes lorsque nous aborderons la programmation orientée objet). À l'intérieur de cette classe se trouve la méthode \lstinline{public static void main()}, il s'agit de la porte d'entrée de notre programme, celle que l'on exécute et celle dans laquelle nous rédigeons notre code.\\
+    Le fichier dans son ensemble représente une classe Java, ici la classe s'appelle \textbf{Main}. À l'intérieur de cette classe se trouve la méthode \lstinline{public static void main()}, il s'agit de la porte d'entrée de notre programme, celle que l'on exécute et celle dans laquelle nous rédigeons notre code.\\
     Les autres fonctions, qui peuvent être appelées, se définissent au sein de la classe au même échelon que la fonction \lstinline{public static void main()} comme dans le programme B ci-dessus. 
 \end{solution}
 \end{Exercice}
