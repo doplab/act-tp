@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -255,7 +255,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
     Qu'affiche le programme suivant? \\
 
-    \lstinputlisting{ressources/Question4.py}
+    \lstinputlisting{ressources/portee_variables.py}
 
     \begin{solution}
             x=2 \\
@@ -276,7 +276,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     
     \begin{solution}   
         \textbf{Python :}
-        \lstinputlisting{solutions/question10.py}
+        \lstinputlisting{solutions/portee_variables_check_name.py}
     \end{solution}
     
     \end{Exercice}
@@ -300,11 +300,8 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
  \end{Exercice}
 
  \begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions}(Java)\\
-
     Qu'affiche le programme suivant ?
-    \lstinputlisting{ressources/Question12.java}
-
-    
+    \lstinputlisting{ressources/exceptions.java}
         
         \begin{solution}   
         Le programme affiche OUTPUT 2.             
@@ -371,7 +368,6 @@ Voici les templates que vous pouvez réutiliser: \\
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Lecture de code (Récursivité)\\
-
 Qu'affichent les programmes suivants ? \\
 
 \begin{conseil}
@@ -518,7 +514,7 @@ Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou
 
     Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
     En Python, notre programme ressemblera à ça:
-    \lstinputlisting{ressources/question16.py}
+    \lstinputlisting{ressources/double_nombre.py}
 
     Notre programme renverra une erreur de type \lstinline{TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'} si on remplace la ligne 2 par \lstinline{print(nombre**2)} car la fonction \lstinline{double_nombre} renverra \lstinline{None}.
 \end{solution}
