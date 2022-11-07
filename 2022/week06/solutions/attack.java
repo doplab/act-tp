@@ -1,9 +1,9 @@
-public void attack (String type, Combattant other){
+public void attack (String type, Fighter other){
     if(other.isAlive()) {
-        int damage = (Integer)Combattant.attack_modifier.get(type) * this.attack - other.getDefense();
+        int damage = (Integer)Fighter.attack_modifier.get(type) * this.attack - other.getDefense();
         other.setHealth(other.getHealth() - damage);
-        Combattant.checkDead();
-        Combattant.checkHealth();
+        Fighter.checkDead();
+        Fighter.checkHealth();
     }
     else{
         System.out.println(other.getName() + " est déjà mort");
