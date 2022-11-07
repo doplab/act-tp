@@ -7,7 +7,7 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Programmation orientée objet: Héritage et Polymorphisme - Exercices basiques}
+\cours{Programmation orientée objet: Héritage et Polymorphisme}
 
 Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Nous commencerons par un rappel des notions de surcharge d'opérateurs avant d'introduire des exercices sur l'héritage et le polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. À chaque exercice, le langage de programmation à utiliser sera spécifié.
 
@@ -16,15 +16,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \section{Rappel: Surcharge des opérateurs - Python}
 Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
 
-\begin{note}{"Nathan"}
-    q1-6: basique
-    q7: avancé
-    q8: avancé
-    q9-11: basique
-    q12,13: avancé
-    q14,15: basique
-    q16,17: avancé
-\end{note}
 
 \begin{Exercice}[5 minutes] \textbf{Création de classe} \\
     Dans un projet que vous aurez au préalable préparé, créez un fichier nommé \lstinline{surcharge.py}.
@@ -144,7 +135,7 @@ Voici le squelette du programme à compléter:
 \begin{conseil}
 En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
 
-Le mot clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
+Le mot-clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
 
@@ -158,7 +149,6 @@ Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pou
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
-
 Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
 
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
@@ -177,7 +167,7 @@ Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinli
 \begin{conseil}
 \textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{Livre_Audio}.
 
-Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
+Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot-clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
 
 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
@@ -196,17 +186,15 @@ Lorsque toutes les étapes auront été effectuées, placez le code suivant dans
 \lstinputlisting{ressources/heritage-main.java}
 
 
-Vous devriez obtenir : \\
-
+Vous devriez obtenir :
 
 \lstinputlisting{ressources/heritage-main-prompt.java}
 
 \newpage
 \section{Polymorphisme - Java}
 
-Les exercices de cette section sont la suite des exercices de la section 2 de la semaine passée.
+Les exercices de cette section s'inspirent des exercices de la section 1 des exercices avancés de la semaine 6.
 N'hésitez pas à réutiliser les solutions disponibles sur Moodle.
-
 
 Dans cette partie, vous devez créer 2 nouvelles classe-filles de la classe-mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe représentera un Fighter spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
 
@@ -216,7 +204,7 @@ Avant d'effectuer la série de questions suivantes, téléchargez le fichier \ls
 % \lstinputlisting{ressources/fighter-squelette.java}
 
 \begin{Exercice}[5 minutes] classe-fille \lstinline{Soigneur} \\
-Commencez par déclarer une nouvelle classe-fille \lstinline{Soigneur}. Cette classe-fille aura un nouvel attribut privé nommé \lstinline{résurrection} qui vaudra 1 lors de l'instanciation de la classe. \\
+Créez une nouvelle classe-fille \lstinline{Soigneur} qui hérite de la classe \lstinline{Fighter}. Cette classe-fille aura un nouvel attribut privé nommé \lstinline{résurrection} qui vaudra 1 lors de l'instanciation de la classe. \\
 
 Créez le constructeur de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec le nouvel attribut (\lstinline{résurrection}). \\
 
@@ -251,7 +239,7 @@ Utilisez un branchement conditionnel pour les contrôles. \\
 
 Une nouvelle méthode nommée \lstinline{addInstances(Fighter other)} a été créée dans la classe \lstinline{Fighter}. Regardez à quoi elle sert et utilisez la. \\
 
-Pour les indications en fonction des différentes conditions, imprimez simplement la phrase en question. \\
+Pour les indications en fonction des différentes conditions, affichez simplement la phrase en question. \\
 \end{conseil}
 
 \begin{solution}
@@ -325,8 +313,7 @@ Si tout est correct, en utilisant ce \lstinline{main} : \\
 
 \lstinputlisting{ressources/combattant-main.java} 
 
-Vous devriez obtenir : \\
-
+Vous devriez obtenir:
 \lstinputlisting{Solutions/combattant-main-solution.java} 
 
 \end{document}

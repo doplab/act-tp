@@ -100,7 +100,7 @@ public void attack (String type,Fighter other){
 }
 }
 
-class Soigneur extends Fighter { // a la capacité de soigner et réssuciter quelqu un
+class Soigneur extends Fighter { // a la capacité de soigner et ressusciter quelqu un
 
     //TODO
 
