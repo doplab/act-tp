@@ -1,4 +1,4 @@
-    # Question 8
+# Question 8
     def add(self, f):
         self.__num = self.__num * f.__den + f.__num * self.__den
         self.__den = self.__den * f.__den
@@ -31,6 +31,8 @@ if __name__ == '__main__':
     f1 = Fraction()
     print(f1)
     f1 = Fraction(4)
+    print(f1)
+    f1=Fraction(numerateur=5, denominateur=0)
     print(f1)
     f1 = Fraction(denominateur=5)
     print(f1)
