@@ -8,8 +8,8 @@ abstract class Figure {
         this.longueur = longueur;
     }
 
-    public abstract float getperimetre();
-    public abstract float getaire();
+    public abstract float getPerimetre();
+    public abstract float getAire();
 }
 
 class Carre extends Figure {
@@ -19,12 +19,12 @@ class Carre extends Figure {
     }
 
     @Override
-    public float getperimetre() {
+    public float getPerimetre() {
         return this.largeur * 4;
     }
 
     @Override
-    public float getaire() {
+    public float getAire() {
         return this.largeur * this.largeur;
     }
 
@@ -37,12 +37,12 @@ class Rectangle extends Figure {
     }
 
     @Override
-    public float getperimetre(){
+    public float getPerimetre(){
         return (this.largeur + this.longueur)*2;
 
     }
     @Override
-    public float getaire(){
+    public float getAire(){
         return this.largeur * this.longueur;
     }
 }
@@ -52,7 +52,7 @@ public class Main {
         Carre c = new Carre(5.0f);
         Rectangle r = new Rectangle(4.0f, 3.0f);
 
-        System.out.println(c.getperimetre());
-        System.out.println(r.getaire());
+        System.out.println(c.getPerimetre());
+        System.out.println(r.getAire());
     }
 }
