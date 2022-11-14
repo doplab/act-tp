@@ -6,7 +6,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowNotefalse
 \titre
@@ -14,9 +14,9 @@
 
 % Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. 
 
-Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous devez être en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, utiliser le concept d'héritage multiple, factoriser votre code afin de le rendre mieux structuré et plus lisible.
+Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous devez être en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, factoriser votre code afin de le rendre mieux structuré et plus lisible.
 
-Cette feuille d'exercices est divisée en 2 sections. L'une portant sur les classes abstraites et l'autre sur les interfaces. 
+Cette feuille d'exercices est divisée en 3 sections. La première portant sur des notions de bases en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces. 
 
 Une autre feuille comportant des exercices de consolidation sur les notions abordées précédemment est disponible sur Moodle.
 
@@ -32,7 +32,7 @@ L'encapsulation sert à cacher les détails d'implémentation. L'encapsulation s
 
 En Java, il est recommandé de déclarer les attributs des classes comme étant \lstinline{private} et de mettre à disposition des utilisateurs des méthodes publiques d'accès afin qu'ils puissent accéder ou modifier la valeur des attributs privés.\\
 
-Les méthodes publiques d'accès comme \lstinline{getName}et \lstinline{setName} doivent être nommées avec soit \lstinline{get} soit \lstinline{set} suivi du nom de l'attribut avec la 1ère lettre en majuscule (Java Naming convention)[https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html]). 
+Les méthodes publiques d'accès comme \lstinline{getName} et \lstinline{setName} doivent être nommées avec soit \lstinline{get} soit \lstinline{set} suivi du nom de l'attribut avec la 1ère lettre en majuscule \href{https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html}{(Java Naming convention)}. 
 
 Le mot clé \lstinline{this} fait référence à l'objet en question.\\
 
@@ -69,6 +69,49 @@ Le mot clé \lstinline{this} fait référence à l'objet en question.\\
 	\begin{solution}
 		\lstinputlisting{solutions/Vehicle.java} 
 	\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[30 minutes]{Surcharge de méthodes, égalité et identité - Java}
+
+En Java, créez une classe \lstinline{Fraction} ayant pour attributs privés un numérateur et un dénominateur. 
+\begin{conseil}
+	Vous pouvez vous inspirer des solutions d'exercices de la semaine 8.
+\end{conseil}
+Assignez des valeurs à vos attributs dans le constructeur que vous définirez. Dans le corps de votre classe, définir les méthodes suivantes:
+\begin{itemize}
+	\item Définir une méthode nommée \lstinline{gcd} qui prend comme arguments les deux attributs définis précédemment et qui retourne leur plus grand diviseur commun. Pour cela, vous devez implémenter l'\href{https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide#:~:text=le%20code%5D-,Principe}{algorithme d'Euclide} de façon récursive.
+	\begin{conseil}
+		L'algorithme d'Euclide fonctionne comme suit:
+		\begin{itemize}
+			\item Si A = 0 alors gcd(A, B) = B.
+			\item Si B = 0 alors gcd(A, B) = A.
+			\item Si aucune des conditions ci-dessus n'est remplie, faire appel à \lstinline{gcd} de façon récursive avec pour premier argument \lstinline{B} et pour deuxième \lstinline{R} avec \lstinline{R = A\%B}. \lstinline{R} étant le reste de la division entre \lstinline{A} et \lstinline{B}.
+		\end{itemize}
+	\end{conseil}
+	\item Définir une méthode \lstinline{simplify} qui sera appelée dans le constructeur après l'initialisation des attributs. 
+	\item Redéfinir la méthode \lstinline{toString()} pour produire une représentation textuelle des instances de \lstinline{Fraction}.
+	\item Redéfinir la méthode \lstinline{equals()} pour tester l'égalité entre deux fractions. Cette méthode prendra comme argument un objet \lstinline{other} de type \lstinline{Object}.
+	\item Dans la méthode \lstinline{equals()}, vérifier que l'instance \lstinline{Fraction} (\lstinline{this}) n'est pas \textbf{identique} à l'objet \lstinline{other}. Si les deux objets sont identiques, renvoyer \lstinline{true}. Vérifier également que les deux objets sont de même type. Dans le cas contraire, renvoyer \lstinline{false}.
+	\begin{conseil}
+		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass())} et les comparer.
+	\end{conseil}
+	\item Dans votre \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
+	\lstinputlisting{ressources/fraction_main.java}.
+	\item Pourquoi les lignes 5 et 6 renvoient-elles des résultats différents?	
+\end{itemize}
+
+\begin{solution}
+	\lstinputlisting{solutions/fraction.java}
+
+	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{.hashcode()}. Vous pouvez essayer en exécutant la ligne suivante: \lstinline{System.out.println(f1.hashcode())}.
+
+	L'instruction \lstinline{f1.equals(f2)} fait appel à la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons défini dans cette méthode.
+\end{solution}
+
+
+
+
+
 \end{Exercice}
 	
 
@@ -123,7 +166,6 @@ Le mot clé \lstinline{this} fait référence à l'objet en question.\\
 	\end{solution}
 	\end{Exercice}
 	
-	\newpage
 \section{Interfaces}
 \begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 1)}\\
 
@@ -156,8 +198,7 @@ Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food}
 \end{solution}
 \end{Exercice}
 
-\newpage
-
+\begin{comment}
 \section{Exercices complémentaires}
 
 \begin{Exercice}[10 minutes] \textbf{Programmation de base}\\
@@ -179,6 +220,7 @@ Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food}
 
 % Question sur la manipulation avancée de listes et dictionnaires
 
+\end{comment}
 
 
 \end{document}
