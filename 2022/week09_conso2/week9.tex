@@ -10,7 +10,7 @@
 \ShowConseiltrue
 \ShowNotefalse
 \titre
-\cours{Classes abstraites et interfaces}
+\cours{Consolidation POO + Classes abstraites et interfaces}
 
 % Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. 
 
@@ -73,11 +73,11 @@ Le mot clé \lstinline{this} fait référence à l'objet en question.\\
 
 \begin{Exercice}[30 minutes]{Surcharge de méthodes, égalité et identité - Java}
 
-En Java, créez une classe \lstinline{Fraction} ayant pour attributs privés un numérateur et un dénominateur. 
+En Java, créez une classe \lstinline{Fraction} ayant pour attributs un numérateur et un dénominateur. 
 \begin{conseil}
 	Vous pouvez vous inspirer des solutions d'exercices de la semaine 8.
 \end{conseil}
-Assignez des valeurs à vos attributs dans le constructeur que vous définirez. Dans le corps de votre classe, définir les méthodes suivantes:
+Assignez des valeurs à vos attributs dans le constructeur que vous définirez. Dans le corps de votre classe, effectuez les opérations suivantes:
 \begin{itemize}
 	\item Définir une méthode nommée \lstinline{gcd} qui prend comme arguments les deux attributs définis précédemment et qui retourne leur plus grand diviseur commun. Pour cela, vous devez implémenter l'\href{https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide#:~:text=le%20code%5D-,Principe}{algorithme d'Euclide} de façon récursive.
 	\begin{conseil}
@@ -89,13 +89,16 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		\end{itemize}
 	\end{conseil}
 	\item Définir une méthode \lstinline{simplify} qui sera appelée dans le constructeur après l'initialisation des attributs. 
-	\item Redéfinir la méthode \lstinline{toString()} pour produire une représentation textuelle des instances de \lstinline{Fraction}.
-	\item Redéfinir la méthode \lstinline{equals()} pour tester l'égalité entre deux fractions. Cette méthode prendra comme argument un objet \lstinline{other} de type \lstinline{Object}.
-	\item Dans la méthode \lstinline{equals()}, vérifier que l'instance \lstinline{Fraction} (\lstinline{this}) n'est pas \textbf{identique} à l'objet \lstinline{other}. Si les deux objets sont identiques, renvoyer \lstinline{true}. Vérifier également que les deux objets sont de même type. Dans le cas contraire, renvoyer \lstinline{false}.
+	\item Redéfinir la méthode \lstinline{toString} pour produire une représentation textuelle des instances de \lstinline{Fraction}.
+	\item Redéfinir la méthode \lstinline{equals} pour tester l'égalité entre deux fractions. Cette méthode prendra comme argument un objet \lstinline{other} de type \lstinline{Object}.
+	\begin{conseil}
+		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}
+	\end{conseil}
+	\item Dans la méthode \lstinline{equals}, vérifier que l'instance \lstinline{Fraction} (\lstinline{this}) n'est pas \textbf{identique} à l'objet \lstinline{other}. Si les deux objets sont identiques, renvoyer \lstinline{true}. Vérifier également que les deux objets sont de même type. Dans le cas contraire, renvoyer \lstinline{false}.
 	\begin{conseil}
 		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass())} et les comparer.
 	\end{conseil}
-	\item Dans votre \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
+	\item Dans le \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
 	\lstinputlisting{ressources/fraction_main.java}.
 	\item Pourquoi les lignes 5 et 6 renvoient-elles des résultats différents?	
 \end{itemize}
@@ -103,7 +106,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 \begin{solution}
 	\lstinputlisting{solutions/fraction.java}
 
-	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{.hashcode()}. Vous pouvez essayer en exécutant la ligne suivante: \lstinline{System.out.println(f1.hashcode())}.
+	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{.hashcode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashcode())}.
 
 	L'instruction \lstinline{f1.equals(f2)} fait appel à la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons défini dans cette méthode.
 \end{solution}
@@ -157,7 +160,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	
 	\begin{conseil}
 		Un attribut protégé est accessible aussi bien dans la classe-mère que dans la(les) classe(s)-fille(s). On utilise le mot clé \lstinline{protected} pour rendre des attributs protégés. \\
-		Pour rappel, pour créer une classe fille, on utilise le mot-clé \lstinline{extends}:\lstinline{public class Carre extends Figure}.
+		Pour rappel, pour créer une classe fille, on utilise le mot-clé \lstinline{extends}. Par exemple: \lstinline{public class Carre extends Figure}.
 	\end{conseil}
 	
 	
@@ -165,9 +168,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\lstinputlisting{solutions/Figure.java} 
 	\end{solution}
 	\end{Exercice}
-	
+	\newpage
 \section{Interfaces}
-\begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 1)}\\
+\begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 4)}\\
 
 En Java, une interface se déclare comme suit:
 \lstinputlisting{ressources/interface_exemple1.java} 
@@ -178,11 +181,11 @@ Les méthodes déclarées dans une interface doivent être implémentées dans d
 \begin{itemize}
 	\item Implémentez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe} qui ne retourne aucune valeur.
 	\item Implémentez une interface \lstinline{Drinkable} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
-	\item Implémentez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie dans la section 1) et qui implémente l'interface \lstinline{Edible}. Implémentez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe} (dans la classe \lstinline{Food}).
+	\item Implémentez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie à la question 4) et qui implémente l'interface \lstinline{Edible}. Implémentez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe} (dans la classe \lstinline{Food}).
 \end{itemize}
 
 \begin{conseil}
-Vous pouvez reprendre la classe \lstinline{Item} du premier exercice.\\
+Vous pouvez reprendre la classe \lstinline{Item} de la question 4.\\
 Dans la méthode \lstinline{eatMe()}, vous pouvez simplement afficher un message en utilisant un \lstinline{println}.
 \end{conseil}
 
