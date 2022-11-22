@@ -59,18 +59,17 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
         s = 0
         for i in range(10*n):
             s += i
-        return s
-    \end{lstlisting}
+        return s \end{lstlisting}
     
     \textbf{Java :}
     \begin{lstlisting}{language=Java}
-        public static int algo(int n) {
-            int s = 0;
-            for (int i=0; i < 10*n; i++){
-                s += i;
-            }
-            return s;
-        }  \end{lstlisting}
+    public static int algo(int n) {
+        int s = 0;
+        for (int i=0; i < 10*n; i++){
+            s += i;
+        }
+        return s;
+    }  \end{lstlisting}
 
     \begin{enumerate}
         \item $O(n)$
@@ -264,9 +263,9 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     
 \end{Exercice}
 
-\section{Algorithmes de Tri (60 minutes)}
+\section{Algorithmes de Tri (50 minutes)}
 
-\begin{Exercice}[10 minutes] \textbf{Tri par insertion (Python)}\\
+\begin{Exercice}[20 minutes] \textbf{Tri par insertion (Python)}\\
     Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme Python qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
 
     \lstinputlisting{ressources/question9.py}
@@ -325,10 +324,10 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
 \end{Exercice}
 
 
-\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - Python} \\
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - Python \optionnel} \\
     Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
     
-    Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
+    Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième  nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
     
     Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste en utilisant un tri à bulles. Combien d'itérations effectuez-vous?
     
