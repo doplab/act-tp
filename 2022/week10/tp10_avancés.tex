@@ -20,7 +20,7 @@ Le but de cette série d'exercices est d'aborder les notions présentées durant
     \item les algorithmes de tri
 \end{enumerate}
 
-Les languages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
 Le temps indiqué (\faClock) est à titre indicatif.
 
@@ -42,14 +42,12 @@ Le temps indiqué (\faClock) est à titre indicatif.
         } else{
             return fibonacci(n-1) + fibonacci(n-2);
         }
-    }
-            
-    \end{lstlisting}
+    } \end{lstlisting}
     
     Quel est la complexité de l'algorithme ci-dessus?
     
     \begin{conseil}
-    Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...) \\
+    Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...). \\
     Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et essayer de trouver la complexité en terme de $O()$.
     \end{conseil}
     
@@ -116,7 +114,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice} [20 minutes] \textbf{Tri par insertion - 2 (Insertion Sort)} \\
+\begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
 
     Dans l'algorithme de tri par insertion, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés. Pour faire l'analogie avec l'exemple du jeu de cartes, lorsqu'on est à la i-ème étape du parcours, le i-ème élément est la carte saisie, les éléments précédents sont la main triée et les éléments suivants correspondent aux cartes encore en désordre sur la table. 
     
@@ -131,8 +129,8 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \end{itemize}
     
     \begin{conseil}
-        Référez vous à la figure du dessous pour un exemple de tri par insertion. \\
-        Référez vous aussi aux diapositives 18 à 72 du cours.
+        La figure ci-dessous illustre un exemple de tri par insertion. \\
+        Référez-vous aussi aux diapositives 15 à 69 du cours.
     \end{conseil}
     
     \begin{figure}[h!]
