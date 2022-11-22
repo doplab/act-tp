@@ -6,6 +6,7 @@ def insertion_entier(liste, number):
         liste[n] = liste[n - 1]
         n -= 1
     liste[n] = number
-    return liste
+    return liste 
+
 
 print(insertion_entier([2, 4, 6], 1))
