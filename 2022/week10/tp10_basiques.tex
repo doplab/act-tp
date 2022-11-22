@@ -12,7 +12,7 @@
 Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
 \begin{enumerate}
     \item la récursivité,
-    \item la complexité des algorithmes et
+    \item la complexité des algorithmes et,
     \item les algorithmes de tri
 \end{enumerate}
 
@@ -55,7 +55,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     \textbf{Python :}
     \begin{lstlisting}{language=Python}
     # Entrée: n un nombre entier
-    def algo1(n):
+    def algo(n):
         s = 0
         for i in range(10*n):
             s += i
@@ -64,7 +64,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     
     \textbf{Java :}
     \begin{lstlisting}{language=Java}
-        public static int algo1(int n) {
+        public static int algo(int n) {
             int s = 0;
             for (int i=0; i < 10*n; i++){
                 s += i;
@@ -80,7 +80,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     \end{enumerate}
     
     \begin{conseil}
-    Rappelez vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
+    Rappelez-vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
     \begin{enumerate}
         \item Les constantes sont ignorées : $O(2n) = 2*O(n) = O(n)$ 
         \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
@@ -97,7 +97,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     \textbf{Python :}
     \begin{lstlisting}[language=Python]
         # Entrée: L est une liste de nombres entiers et M un nombre entier
-        def algo2(L, M):
+        def algo(L, M):
             i = 0
             while i < len(L) and L[i] <= M:
                 i += 1
@@ -107,7 +107,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
     
     \textbf{Java :}
     \begin{lstlisting}[language=Java]
-        public static int algo2(int[] L, int M) {
+        public static int algo(int[] L, int M) {
             int i = 0;
             while (i < L.length && L[i] <= M){
                 i += 1;

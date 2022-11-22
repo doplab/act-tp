@@ -10,5 +10,5 @@ def fibonacci(number, previous):
 
     return previous[number]
 
-
-print(fibonacci(50, previous=previous_fibonacci))
+if __name__ == "__main__":
+    print(fibonacci(50, previous=previous_fibonacci))
