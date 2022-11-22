@@ -1,4 +1,4 @@
-public class question11 {
+public class question5 {
     // Fusionne 2 sous-listes de arr[]. 
     // Première sous-liste est arr[l..m] 
     // Deuxième sous-liste est arr[m+1..r] 

@@ -24,30 +24,71 @@ Les languages de programmation qui seront utilisés pour cette série d'exercice
 
 Le temps indiqué (\faClock) est à titre indicatif.
 
-\section{Récursivité (5 minutes) }
-\begin{Exercice}[5 minutes] \textbf{Somme des chiffres} \\
-    Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est : 1+2+6 = 9.
+\section{Récursivité (20 minutes) }
+\begin{Exercice} [5 minutes] \textbf{Fibonacci}\\
+\label{exercice:1}
+    La suite de Fibonacci est définie récursivement par les propriétés suivantes:
+    \begin{itemize}
+        \item si n est égal à 0 ou 1 : fibo(0) = fibo(1) = 1
+        \item si n est supérieur ou égal à 2, alors ; fibo (n) = fibo(n - 1) + fibo(n - 2)
+    \end{itemize}
+    
+    Voici son implémentation en Java :
+    
+    \begin{lstlisting}{language=Java}
+            public static int fibonacci(int n) {
+                if(n == 0 | n == 1){
+                    return n;
+                } else{
+                    return fibonacci(n-1) + fibonacci(n-2);
+                }
+            }
+            
+    \end{lstlisting}
+    
+    Quel est la complexité de l'algorithme ci-dessus?
     
     \begin{conseil}
-    
-    Pour obtenir les chiffres qui composent un nombre, utilisez l'opérateur \lstinline{\%} (modulo - \url{https://fr.wikipedia.org/wiki/Modulo\_(op\%C3\%A9ration)}). \\
-    Pour obtenir le nombre 12 à partir du nombre 126, il vous suffit de faire la division entière par 10. En Python, on utilise l'opérateur \lstinline{\/\/} : 126 \lstinline{\/\/} 10 = 12. En Java, la division entre deux variables de type \lstinline{int} est entière, et vous n'aurez ainsi qu'à utiliser l'opérateur de division normal \lstinline{\/} : 126 \lstinline{\/} 10 = 12.
-    
+    Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...) \\
+    Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et essayer de trouver la complexité en terme de $O()$.
     \end{conseil}
     
-    \begin{solution}
-    \textbf{Python :}
-        \lstinputlisting{solutions/question6.py}
-                
-    \textbf{Java :}
-       \lstinputlisting{solutions/question6.java}
+    \ \\
     
+    \begin{enumerate}
+        \item $O(n^2)$
+        \item $O(n)$
+        \item $O(\log(n))$
+        \item $O(2^n)$
+    \end{enumerate}
+    
+    \begin{solution}
+        La complexité de cet algorithme est $O(2^n)$.
     \end{solution}
 \end{Exercice}
 
-\section{Algorithmes de Tri (60 minutes)}
+\begin{Exercice}[15 minutes] - Fibonacci et utilisation de la mémoire (Python)
 
-\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - java} \\
+Le calcul des éléments de la suite de Fibonacci en utilisant l'algorithme de la question~\ref{exercice:1} est fastidieux. Cela est dû au fait que certaines opérations sont effectuées plusieurs fois. Vous pouvez le vérifier en passant un grand nombre à la fonction \lstinline{fibonacci}. Par exemple \lstinline{fibonacci(50)} peut prendre plusieurs heures avant de donner un résultat!
+
+En Python, simplifiez cet algorithme en écrivant une fonction \lstinline{fibonacci} qui prend en entrée un nombre \lstinline{n} et un dictionnaire \lstinline{previous_fibonacci}. Le dictionnaire stockera chacune des opérations des appels récursifs. Ce dictionnaire aura pour clé un nombre \lstinline{n} et pour valeur le résultat de l'appel de la fonction~\lstinline{fibonacci(n)}. 
+
+Avant de faire appel à la fonction de façon récursive, vérifiez que le nombre passé en paramètre n'existe pas dans le dictionnaire \lstinline{previous_fibonacci}.
+
+\begin{conseil}
+    Au lancement du programme, \lstinline{previous_fibonacci} aura pour valeur \lstinline{\{0\:0\, 1\:1\}} ce qui correspond aux conditions de sortie des appels récursifs.\\
+    La fonction \lstinline{fibonacci} retournera le dernier élément du dictionnaire~\lstinline{previous_fibonacci}.
+\end{conseil}
+
+\begin{solution}
+    \lstinputlisting{solutions/fibonacci_memoization.py} 
+\end{solution}
+
+\end{Exercice}
+
+\section{Algorithmes de Tri (40 minutes)}
+
+\begin{Exercice} [20 minutes] \textbf{Tri à bulles (Bubble Sort) - Java} \optionnel \\
 Le tri à bulles consiste à parcourir une liste et à comparer ses éléments. Le tri est effectué en permutant les éléments de telle sorte que les éléments les plus grands soient placés à la fin de la liste. 
 
 Concrètement, si un premier nombre $x$ est plus grand qu'un deuxième nombre $y$ et que l'on souhaite trier l'ensemble par ordre croissant, alors $x$ et $y$ sont mal placés et il faut les inverser. Si, au contraire, $x$ est plus petit que $y$, alors on ne fait rien et l'on compare $y$ à $z$, l'élément suivant.
@@ -84,9 +125,9 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     Compléter le code suivant pour trier la liste \lstinline{l} définie ci-dessous en utilisant un tri par insertion. Combien d'itérations effectuez-vous?
     \begin{itemize}
         \item \textbf{Python :}
-            \lstinputlisting{ressources/question10.py} 
+            \lstinputlisting{ressources/insertion_sort_advanced.py} 
         \item \textbf{Java :}
-            \lstinputlisting{ressources/question10.java} 
+            \lstinputlisting{ressources/insertion_sort_advanced.java} 
     \end{itemize}
     
     \begin{conseil}
@@ -101,9 +142,9 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
 
     \begin{solution}
         \textbf{Python :}
-            \lstinputlisting{solutions/question10.py} 
+            \lstinputlisting{solutions/insertion_sort_advanced.py} 
         \textbf{Java :}
-            \lstinputlisting{solutions/question10.java}
+            \lstinputlisting{solutions/insertion_sort_advanced.java}
     
     La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées, qui dans le pire des cas, parcourent la liste deux fois.
     \end{solution}
@@ -126,7 +167,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
     \begin{itemize}
         \item \textbf{Java :}
-            \lstinputlisting{ressources/question11.java}
+            \lstinputlisting{ressources/merge_sort_advanced.java}
     \end{itemize}
     
     \begin{conseil}

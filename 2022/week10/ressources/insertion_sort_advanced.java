@@ -1,4 +1,4 @@
-public class question10 {
+public class question4 {
     public static void tri_insertion(int[] l) {
         for (int i = 1; i < l.length; i++){
             //TODO: Code à compléter 

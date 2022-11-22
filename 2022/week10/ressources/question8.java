@@ -1,4 +1,4 @@
-public class question8 {
+public class question3 {
     public static void tri_bulle(int[] l) {
         for (int i = 0; i < l.length - 1; i++){
             //TODO: Code à compléter 

@@ -1,4 +1,4 @@
-// Solution question 11 - 2/2
+// Solution question 5 - 2/2
 public static void affiche_liste(int l[]) {
     int n = l.length;
     for (int i = 0; i < n; ++i)

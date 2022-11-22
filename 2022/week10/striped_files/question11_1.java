@@ -1,5 +1,5 @@
-// Solution question 11 - 1/2
-public class question11 {
+// Solution question 5 - 1/2
+public class question5 {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]
     // Deuxième sous-liste est arr[m+1..r]
@@ -37,14 +37,14 @@ public class question11 {
             k++;
         }
 
-        /* Copier les élements restants de L[] */
+        /* Copier les éléments restants de L[] */
         while (i < n1) {
             arr[k] = L[i];
             i++;
             k++;
         }
 
-        /* Copier les élements restants de R[] */
+        /* Copier les éléments restants de R[] */
         while (j < n2) {
             arr[k] = R[j];
             j++;
