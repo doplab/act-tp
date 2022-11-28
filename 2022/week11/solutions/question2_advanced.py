@@ -1,7 +1,13 @@
 def plus_proche_binaire(liste, n):
     # SOLUTION
+  
     min = 0
-    max = len(liste)
+    max = len(liste) 
+    
+    if(n >= liste[max - 1]):
+        return liste[max -1]
+    if(n <= liste[min]):
+        return liste[min]
     found = False # boolean variable
     while min <= max and not found:  # 0<10 and true puis 6<10 and true, etc.
         mid = (max + min) // 2  # mid = 5 --> 16 in list
@@ -13,16 +19,15 @@ def plus_proche_binaire(liste, n):
         else:
             found = True
     if found:
-        return n
-    else:
-        if abs(liste[mid-1]-n) < abs(liste[mid]-n) :
-            return liste[mid-1]
-        elif abs(liste[mid+1]-n) < abs(liste[mid]-n) :
-            return liste[mid+1]
-        else :
-            return liste[mid]
+        return liste[mid]
+    else: #min = max + 1 on choisit le plus proche entre min et max 
+        if abs(liste[min]-n) < abs(liste[max]-n) :
+            return liste[min]
+        else:
+           return liste[max]
+        
 
 
 L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]
-e = 41
+e = 60
 print(plus_proche_binaire(L, e))

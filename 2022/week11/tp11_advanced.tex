@@ -4,7 +4,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Algorithmes de recherche - Exercices avancés}
@@ -25,30 +25,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \section{Recherche binaire}
 
-% ADVANCED
-\begin{Exercice}[10 minutes] Recherche binaire (Python)\\
 
-    Soient une liste d’entiers triés \lstinline{L} et un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste L en utilisant une recherche binaire. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez \lstinline{-1}.\\
-    
-    \begin{Example}{\faTerminal \quad Exemple}
-        L = [123, 321, 328, 472, 549] \\
-        e = 328\\
-    
-    Résultat attendu: 2
-    \end{Example}
-    
-    \lstinputlisting{resources/question1_advanced.py}
-    
-    \begin{conseil}
-        Inspirez-vous des conseils des exercices précédents (exercices basiques).
-    \end{conseil}
-    
-        \begin{solution}
-            \textbf{Python :}
-            \lstinputlisting{solutions/question1_advanced.py}
-        \end{solution}
-    
-    \end{Exercice}
     
 
 % ADVANCED
@@ -80,8 +57,8 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
     Considérez une matrice ordonnée \lstinline{m} et un élément \lstinline{l}.\\
     
     Pour rappel, une matrice ordonnée répond aux critères suivants :\\
-     \lstinline{[i][j]<=m[i+1][j]} (une ligne va du plus petit au plus grand)\\
-     \lstinline{[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\
+     \lstinline{m[i][j]<=m[i+1][j]} (une ligne va du plus petit au plus grand)\\
+     \lstinline{m[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\
  
     
     Écrivez un algorithme qui retourne la position de l’élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n’est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
