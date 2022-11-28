@@ -1,5 +1,5 @@
 def recherche_binaire_iterative(liste,s,r,x):
-    while s < r:
+    while s <= r:
         mid = int(s + (r-s)/2)
         print(f"La moitié correspond à {mid}")
         # if x is present at mid
