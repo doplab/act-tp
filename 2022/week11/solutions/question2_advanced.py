@@ -1,33 +1,11 @@
-def plus_proche_binaire(liste, n):
-    # SOLUTION
-  
-    min = 0
-    max = len(liste) 
-    
-    if(n >= liste[max - 1]):
-        return liste[max -1]
-    if(n <= liste[min]):
-        return liste[min]
-    found = False # boolean variable
-    while min <= max and not found:  # 0<10 and true puis 6<10 and true, etc.
-        mid = (max + min) // 2  # mid = 5 --> 16 in list
-        print(mid)
-        if n > liste[mid]:  # 41>16
-            min = mid + 1  # min = 5+1=6
-        elif n < liste[mid]:
-            max = mid - 1
-        else:
-            found = True
-    if found:
-        return liste[mid]
-    else: #min = max + 1 on choisit le plus proche entre min et max 
-        if abs(liste[min]-n) < abs(liste[max]-n) :
-            return liste[min]
-        else:
-           return liste[max]
-        
+def recherche_matricielle(m,l):
+    #complètez ici
+    for ligne in range(len(m)): # "Pour chaque ligne de la matrice" ou "Pour chaque liste de la liste"
+        for colonne in range(len(m[ligne])): # "Pour chaque colonne de la matrice" ou "Pour chaque élément de la liste"
+            if m[ligne][colonne] == l:
+                return (ligne,colonne)
+    return (-1,-1)
 
-
-L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]
-e = 60
-print(plus_proche_binaire(L, e))
+m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+l=61
+print(recherche_matricielle(m,l))
