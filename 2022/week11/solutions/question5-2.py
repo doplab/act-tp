@@ -2,17 +2,17 @@ def recherche_binaire_iterative(liste,s,r,x):
     while s <= r:
         mid = int(s + (r-s)/2)
         print(f"La moitié correspond à {mid}")
-        # if x is present at mid
+        # Si l'élément du milieu correspond à x, on retourne mid
         if liste[mid] == x:
             print("X dans liste à l'index: ", mid)
             return mid
-        # If x is greater, ignore left half
+        # Si x est plus grand, on ignore la moitié de gauche
         elif liste[mid] < x:
             s = mid+1
-        # If x is smaller, ignore right half
+        # Si x est plus petit, on ignore la moitié de droite
         else:
             r= mid-1
-    # If we reach here, then the element was not present
+    # Si on sort de la boucle, c'est que l'élément est absent de la liste
     print("X absent de liste")
     return -1
 

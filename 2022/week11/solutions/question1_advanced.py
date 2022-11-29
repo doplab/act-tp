@@ -4,7 +4,7 @@ def recherche_binaire(liste,e):
     #SOLUTION
     while first <= last:
         mid = int((first+last)/2) #l'élément du milieu. La fonction int() permet d'obtenir un entier dans le cas ou "first + last" est un nombre impair
-        print(mid)
+        # print(mid)
         if liste[mid] == e:
             return mid #Si la condition est juste, la fonction retourne l'index de la valeur recherchée dans la liste
         else:
@@ -15,6 +15,6 @@ def recherche_binaire(liste,e):
     return -1 # Si la condition de la ligne 8 n'est jamais remplie, la fonction retourne -1 
 
 L = [123, 321, 328, 472, 549]
-e = 328
-recherche_binaire(L,e)
+e = 500
+print(recherche_binaire(L,e))
 
