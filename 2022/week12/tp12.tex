@@ -13,9 +13,11 @@
 
 Le but de cette séance est de comprendre le fonctionnement des graphes et d'appliquer des algorithmes courants sur des graphes simples. \\
 
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Le temps indiqué (\faClock) est à titre indicatif.
+
 \section{Breadth-First Search}
 
-\begin{Exercice}[5 minutes]  \textbf{Adjacency list et adjacency matrix : Python}\\
+\begin{Exercice}[10 minutes]  \textbf{Adjacency list et adjacency matrix : Python}\\
     L'adjacency list (ou liste de contiguïté) et l'adjacency matrix (ou matrice de contiguïté) sont les 2 méthodes dont nous disposons pour représenter un graphe. Utilisez ces 2 méthodes de représentations pour stocker le graphe ci-dessous dans un programme Python :\\
     \includegraphics[]{resources/Graphe1.PNG}   
 
@@ -29,8 +31,8 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 \end{Exercice}
 
 
-\begin{Exercice}[15 minutes]  \textbf{Breadth-First Search algorithm : Python}\\
-    Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes : \textbf{Breadth-First search}. Le but du Breadth-first search est de trouver tout les sommets atteignables à partir d'un sommet de départ.\\
+\begin{Exercice}[20 minutes]  \textbf{Breadth-First Search algorithm : Python}\\
+    Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes : \textbf{Breadth-First Search}. Le but du Breadth-First Search est de trouver tout les sommets atteignables à partir d'un sommet de départ.\\
     Implémentez l'algorithme en suivant les étapes suivantes :\\
     \begin{enumerate}
     
@@ -54,7 +56,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     \end{conseil}
     \begin{solution}
         \lstinputlisting[language=python]{solutions/Question2_solution.py}
-        Si vous avez correctement codé votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet 'A' devrait être ['A', 'B', 'C', 'F', 'D', 'E']
+        Si vous avez correctement écrit votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet 'A' devrait être ['A', 'B', 'C', 'F', 'D', 'E']
     \end{solution}
 \end{Exercice}
 
@@ -84,7 +86,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
         Un Minimum Spanning Tree, s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 6 sommets. L'algorithme devrait donc s'arrêter lorsque 5 arêtes ont été choisies.
     \end{conseil}
     \begin{solution}
-        Vous trouverez ci-dessous les étapes de la construction du MST(Minimum spanning tree) :\\
+        Vous trouverez ci-dessous les étapes de la construction du Minimum spanning tree :\\
         \includegraphics[]{resources/K1.PNG}\\
         \includegraphics[]{resources/K2.PNG}\\
         \includegraphics[]{resources/K3.PNG}\\
@@ -92,14 +94,14 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     \begin{solution}
         \includegraphics[]{resources/K4.PNG}\\
         \includegraphics[]{resources/K5.PNG}\\
-        L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaire.
+        L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaires.
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Kruskal : Python}\\
-    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python. Parcourez la fonction \textbf{Kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
+    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Parcourez la fonction \textbf{Kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
     \lstinputlisting[language=python]{solutions/Question3_solution.py}
     \begin{conseil}
-        La partie \lstinline{class Graph} est une notion que vous verrez dans les chapitres dédiés à la programmation orientée objet. Pour le moment, il n'est pas important de comprendre son fonctionnement. L'output de l'algorithme est : \\
+        L'output de l'algorithme est : \\
         1 - 2: 2\\
         2 - 5: 2\\
         2 - 3: 3\\
@@ -145,14 +147,14 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
     \end{solution} 
 \end{Exercice}
 \begin{Exercice}[5 minutes] \textbf{Reconnaître des réseaux semblables}\\
-    Supposons maintenant que vous travaillez chez Facebook, qui a récemment racheté Whatsapp et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer à qui correspondent les individus de Facebook sur Whatsapp ?\\
+    Supposons maintenant que vous travaillez chez Meta, qui a racheté Whatsapp, et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer visuellement à qui correspondent les individus de Facebook sur Whatsapp ?\\
     
     \includegraphics[]{resources/Network2.PNG}\\
     \includegraphics[]{resources/Network3.PNG}
     
     
     \begin{conseil}
-    Quelques hints pour vous aider à résoudre cet exercice :
+    Quelques conseils pour vous aider à résoudre cet exercice :
     \begin{enumerate}
         \item Identifiez les sommets des 2 graphes avec des caractéristiques semblables.
         \item Il est possible que les sommets ne soient pas tous identifiables.
@@ -174,13 +176,13 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 
 
 \section{Algorithme de Dijkstra : Python}
-Nous allons nous intéresser à l'algorithme de Dijkstra qui permet de calculer le chemin le plus court entre 2 sommets d'un graphe. Cet algorithme est par exemple utilisé par les systèmes de navigation (GPS par exemple) pour trouver le chemin le plus court ou le moins coûteux entre 2 points. Les questions de cet exercice sont à remplir sur le fichier Exercice3.py disponible sur Moodle dans le dossier Ressources. \\
+Nous allons nous intéresser à l'algorithme de Dijkstra qui permet de calculer le chemin le plus court entre 2 sommets d'un graphe. Cet algorithme est par exemple utilisé par les systèmes de navigation (GPS par exemple) pour trouver le chemin le plus court ou le moins coûteux entre 2 points. Les questions de cet exercice sont à remplir sur le fichier tp12.py disponible sur Moodle dans le dossier Ressources. \\
 \begin{Exercice}[10 minutes]\textbf{Un petit échauffement}\\
 
 Avant de rentrer dans le vif du sujet, nous allons devoir passer par quelques étapes préliminaires afin que vous puissiez coder l'algorithme par vous même. Considérez le graphe suivant :\\
-\includegraphics[]{resources/Dijkstra.PNG}
+\includegraphics[scale=0.8]{resources/Dijkstra.PNG}
 
-Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif sera de le compléter. Premièrement, représentez le graphe sous la forme d'une \lstinline{adjacency matrix}.
+Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera de le compléter. Premièrement, représentez le graphe sous la forme d'une \lstinline{adjacency matrix}.
 \end{Exercice}
 \begin{conseil}
     Représentez la matrice avec les colonnes et les lignes par ordre alphabétique.
@@ -192,18 +194,18 @@ Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif s
 \begin{Exercice}[10 minutes]\textbf{Outils pratiques}\\
     La première étape étant complétée, nous allons maintenant nous intéresser à comment récupérer des informations de notre graphe. Voici une liste non-exhaustive d'opérations que l'on peut effectuer :\\
     \begin{enumerate}
-        \item get\_node() permet d'accéder à un nœud. Par exemple, en faisant graphe.get\_node('A'), j'obtiens des informations concernant le nœud A.
-        \item Lorsque l'on accède à un nœud par la fonction get\_node(), on peut ensuite accéder à la liste de toutes les arêtes qui s'y connecte par l'attribut \lstinline{relationships}. On peut par la suite distinguer les arêtes partant du nœud et les arêtes y arrivant à l'aide des attributs \lstinline{relationship._from} et \lstinline{relationship.to}.
+        \item \lstinline{get_node()} permet d'accéder à un nœud. Par exemple, en faisant \lstinline{graphe.get_node('A')}, j'obtiens des informations concernant le nœud A.
+        \item Lorsque l'on accède à un nœud par la fonction \lstinline{get_node()}, on peut ensuite accéder à la liste de toutes les arêtes qui s'y connecte par l'attribut \lstinline{relationships}. On peut par la suite distinguer les arêtes partant du nœud et les arêtes y arrivant à l'aide des attributs \lstinline{relationship._from} et \lstinline{relationship.to}.
     \end{enumerate}
     
     L'exemple de code ci-dessous devrait vous aider à mieux comprendre :
     \lstinputlisting[language = python]{solutions/Question8_exemple.py}
     
-    Pour vous assurez que vous avez bien compris cette partie avant de commencer, complétez la fonction linked du fichier Exercice3.py de sorte à ce que la fonction permette d'afficher tout les nœuds \textbf{partant} d'un sommet donné et d'afficher le poids de l'arête reliant ces 2 sommets.\\
+    Pour vous assurez que vous avez bien compris cette partie avant de commencer, complétez la fonction \lstinline{linked} du fichier tp12.py de sorte à ce que la fonction permette d'afficher tout les nœuds \textbf{partant} d'un sommet donné et d'afficher le poids de l'arête reliant ces 2 sommets.\\
     
     
     \begin{conseil}
-        Quelques hints pour écrire ce programme :
+        Quelques conseils pour écrire ce programme :
         \begin{enumerate}
             \item Vous devrez retirez les sommets reliés par une arête avec un poids de 99999
             \item Utilisez une boucle for pour parcourir les arêtes
@@ -216,9 +218,9 @@ Ouvrez le fichier Exercice3.py, et prenez connaissance du code, votre objectif s
 \end{Exercice}
 \newpage
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
-    L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe.~L'algorithme~de~Dijkstra~que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
+    L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe. L'algorithme de Dijkstra que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
     
-    Complétez la fonction \lstinline{dijkstra} du fichier \lstinline{Exercice3.py}. Pour y arriver, vous pouvez suivre les étapes suivantes:
+    Complétez la fonction \lstinline{dijkstra} du fichier \lstinline{tp12.py}. Pour y arriver, vous pouvez suivre les étapes suivantes:
     \begin{enumerate}
         \item L'algorithme de Dijkstra est un algorithme récursif. Nous l'avons vu lors des dernières semaines, il est nécessaire d'avoir une condition d'arrêt. L'algorithme appelle la fonction \lstinline{dijkstra} de façon récursive en spécifiant l'origine (qui changera à chaque appel de la fonction \lstinline{dijkstra}) et la destination. Quelle condition semble appropriée pour terminer l'appel récursif ? Implémentez cette condition dans la partie \textbf{Question 9.1}
         

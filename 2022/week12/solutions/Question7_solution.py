@@ -1,5 +1,6 @@
 #Question 7
 
+i = 0
 Adjacency_matrix = [[0,7,i,i,14,i,i,i ],
                      [i,0,8,i,i,i,i,i  ],
                      [i,i,0,6,i,i,i,i  ],
