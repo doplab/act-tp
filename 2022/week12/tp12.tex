@@ -6,7 +6,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Algorithmes de graphes}
@@ -32,7 +32,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 
 \begin{Exercice}[20 minutes]  \textbf{Breadth-First Search algorithm : Python}\\
-    Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes : \textbf{Breadth-First Search}. Le but du Breadth-First Search est de trouver tout les sommets atteignables à partir d'un sommet de départ.\\
+    Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes : \textbf{Breadth-First Search}. Le but du Breadth-First Search est de trouver tous les sommets atteignables à partir d'un sommet de départ.\\
     Implémentez l'algorithme en suivant les étapes suivantes :\\
     \begin{enumerate}
     
@@ -52,6 +52,8 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
             \item Pour parcourir les sommets adjacents, utilisez une boucle for .
             \item L'algorithme devrait retourner une liste contenant l'ensemble des sommets atteignables.
             \item Vous pouvez utiliser l'image du graphe pour déterminer si l'output de votre l'algorithme est correct.
+            \item Pensez à utiliser deux listes qui contiendront la liste des nœuds à visiter et ceux qui restent à visiter.
+            \item Vous pouvez utiliser la méthode .pop() pour supprimer un élément d'une liste et retourner l'élément supprimé. Cet élément peut être stocké dans une variable.
         \end{enumerate}
     \end{conseil}
     \begin{solution}
@@ -60,7 +62,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{solution}
 \end{Exercice}
 
-\newpage
 
 \section{Minimum Spanning tree}
     Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés). Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{minimum spanning tree}. Un minimum spanning tree S de G est un sous-graphe connexe de G tel que :
@@ -111,7 +112,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{conseil}
 \end{Exercice}
 
-\newpage
 
 \begin{Exercice}[10 minutes] \textbf{Social Network Analysis : Papier}\\
     Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe :\\
@@ -146,6 +146,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         Si l'on ajoute une personne qui n'est ni un ami, ni l'ami d'un ami, alors aucune arête n'est reliée à ce sommet. Par conséquent, ce sommet a un degré 0.
     \end{solution} 
 \end{Exercice}
+
 \begin{Exercice}[5 minutes] \textbf{Reconnaître des réseaux semblables}\\
     Supposons maintenant que vous travaillez chez Meta, qui a racheté Whatsapp, et que vous disposiez des 2 graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer visuellement à qui correspondent les individus de Facebook sur Whatsapp ?\\
     
@@ -172,7 +173,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{solution}
 \end{Exercice}
 
-\newpage
+
 
 
 \section{Algorithme de Dijkstra : Python}
@@ -190,7 +191,7 @@ Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera d
 \begin{solution}
     \lstinputlisting[language=python]{solutions/Question7_solution.py}
 \end{solution}
-\newpage
+
 \begin{Exercice}[10 minutes]\textbf{Outils pratiques}\\
     La première étape étant complétée, nous allons maintenant nous intéresser à comment récupérer des informations de notre graphe. Voici une liste non-exhaustive d'opérations que l'on peut effectuer :\\
     \begin{enumerate}
@@ -216,7 +217,7 @@ Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera d
         \lstinputlisting[language = python]{solutions/Question8_solution.py}
     \end{solution}
 \end{Exercice}
-\newpage
+
 \begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
     L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe. L'algorithme de Dijkstra que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
     
