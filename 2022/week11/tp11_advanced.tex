@@ -4,7 +4,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Algorithmes de recherche - Exercices avancés}
@@ -21,7 +21,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
-\lstinputlisting{resources/question2_advanced.py}
+\lstinputlisting{resources/question1_advanced.py}
 
 \begin{conseil}
     Pensez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée à \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme trouve la valeur la plus proche de \lstinline{e}. 
@@ -30,7 +30,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
 
     \begin{solution}
         \textbf{Python :}
-        \lstinputlisting{solutions/question2_advanced.py}
+        \lstinputlisting{solutions/question1_advanced.py}
     \end{solution}
 
 \end{Exercice}
@@ -57,7 +57,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
         \textbf{Exemple 2}: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrice m.
     \end{Example}
 
-    \lstinputlisting{resources/question3_advanced.py}
+    \lstinputlisting{resources/question2_advanced.py}
 
     \begin{conseil}
     Pour cet exercice, il est nécessaire d'utiliser des boucles \lstinline{for} imbriquées, c'est-à-dire: une boucle \lstinline{for} dans une autre boucle \lstinline{for}. Cela permet de parcourir tous les éléments d'une liste (ou d'un tableau) à deux dimensions (dans notre cas une matrice). 
@@ -65,7 +65,7 @@ Soient une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinli
 
     \begin{solution}
         \textbf{Python :}
-        \lstinputlisting{solutions/question3_advanced.py}
+        \lstinputlisting{solutions/question2_advanced.py}
     \end{solution}
 
 \end{Exercice}

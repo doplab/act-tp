@@ -1,8 +1,7 @@
-def plus_proche_binaire(liste,n):
+def recherche_matricielle(m,l):
         #complètez ici
-        
-        
-L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
-e = 41
-print(plus_proche_binaire(L,e))
-# Résultat attendu : 56\\
+    
+    
+m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+l=7
+recherche_matricielle(m,l)

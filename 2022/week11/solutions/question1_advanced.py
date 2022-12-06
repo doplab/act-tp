@@ -1,20 +1,33 @@
-def recherche_binaire(liste,e):
-    first = 0 #correspond à l'index du premier élément de la liste
-    last = len(liste) #correspond à l'index du dernier élément de la liste
-    #SOLUTION
-    while first <= last:
-        mid = int((first+last)/2) #l'élément du milieu. La fonction int() permet d'obtenir un entier dans le cas ou "first + last" est un nombre impair
-        # print(mid)
-        if liste[mid] == e:
-            return mid #Si la condition est juste, la fonction retourne l'index de la valeur recherchée dans la liste
+def plus_proche_binaire(liste, n):
+    # SOLUTION
+  
+    min = 0
+    max = len(liste) 
+    
+    if(n >= liste[max - 1]):
+        return liste[max -1]
+    if(n <= liste[min]):
+        return liste[min]
+    found = False # boolean variable
+    while min <= max and not found:  # 0<10 and true puis 6<10 and true, etc.
+        mid = (max + min) // 2  # mid = 5 --> 16 in list
+        print(mid)
+        if n > liste[mid]:  # 41>16
+            min = mid + 1  # min = 5+1=6
+        elif n < liste[mid]:
+            max = mid - 1
         else:
-            if liste[mid] > e:
-                last = mid-1
-            else:
-                first = mid+1
-    return -1 # Si la condition de la ligne 8 n'est jamais remplie, la fonction retourne -1 
+            found = True
+    if found:
+        return liste[mid]
+    else: #min = max + 1 on choisit le plus proche entre min et max 
+        if abs(liste[min]-n) < abs(liste[max]-n) :
+            return liste[min]
+        else:
+           return liste[max]
+        
 
-L = [123, 321, 328, 472, 549]
-e = 500
-print(recherche_binaire(L,e))
 
+L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]
+e = 60
+print(plus_proche_binaire(L, e))

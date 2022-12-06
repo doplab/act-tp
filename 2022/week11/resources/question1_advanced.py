@@ -1,10 +1,8 @@
-def recherche_binaire(liste,e):
-    first = 0 
-    last = len(L)-1
-    
-    #complètez ici
-    
-    
-L = [123, 321, 328, 472, 549]
-e = 328
-recherche_binaire(L,e)
+def plus_proche_binaire(liste,n):
+        #complètez ici
+        
+        
+L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]  
+e = 41
+print(plus_proche_binaire(L,e))
+# Résultat attendu : 56\\
