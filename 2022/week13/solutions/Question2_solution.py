@@ -1,5 +1,6 @@
-def nearest_neighbor(start, point_set):  # start correspond au point de départ, point_set correspond 
-                                                                    # à l'ensemble des points
+# Question 2
+def nearest_neighbor(start, point_set):  # start correspond au point de départ, point_set correspond
+    # à l'ensemble des points
     min_distance = None
     for i in range(len(point_set)):  # on parcourt tous les points de l'ensemble
         if i == 0:
@@ -19,9 +20,10 @@ def nearest_neighbor(start, point_set):  # start correspond au point de départ,
     return nearest_nei, min_distance
 
 
-a = [(1, 2), (5, 6), (7, 8), (2, 5), (9, 1)]  # Liste de points
-b = (3, 4)  # Point de départ
+if __name__ == '__main__':
+    a = [(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]  # Liste de points
+    b = (4, 4)  # Point de départ
 
-point, distance = nearest_neighbor(b, a)
-print(f'{point}, {distance}')
-# Devrait retourner (2, 5), 1.4142135623730951
+    point, distance = nearest_neighbor(b, a)
+    print(f'{point}, {distance}')
+    # Devrait retourner (3, 5), 1.4142135623730951

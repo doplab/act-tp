@@ -8,12 +8,12 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Algorithmes spatiaux}
 
-Le but de cette séance est de comprendre les caractéristiques de données spatiales et les structures de données couramment utilisées pour les manipuler. Lors de cette séance, nous implémenterons des algorithmes de manipulation de structures de données spatiales vus en cours. Au terme de la seance, l’étudiant sera en mesure d’utiliser quelques algorithmes spatiaux pour resoudre des problèmes de base de façon efficiente.\\
+Le but de cette séance est de comprendre les caractéristiques de données spatiales et les structures de données couramment utilisées pour les manipuler. Lors de cette séance, nous implémenterons des algorithmes de manipulation de structures de données spatiales vus en cours. Au terme de la séance, l’étudiant sera en mesure d’utiliser quelques algorithmes spatiaux pour résoudre des problèmes de base de façon efficiente.\\
 
 \section{Nearest-Neighbor}
 Dans cette section, nous allons implémenter une recherche du plus proche voisin. Le but de cette méthode est de trouver le voisin le plus proche du point de départ en tenant compte de ce point de ``départ" et un ensemble de points. Nous allons implémenter cet algorithme et ensuite l'étendre à un algorithme des ``k plus proches voisins'' (recherche des k voisins les plus proches plutôt que du seul voisin le plus proche).\\
@@ -21,10 +21,10 @@ Nous vous recommandons de traiter les questions dans l'ordre.\\
 
 \begin{Exercice}[5 minutes]\textbf{La fonction de distance : Python}\\
 
-Pour implémenter notre recherche, nous avons besoin d'écrire une fonction permettant de calculer la distance entre 2 points. Programmez une fonction qui permet de calculer la distance entre 2 points.\\
+Pour implémenter notre recherche, nous avons besoin d'écrire une fonction permettant de calculer la distance entre 2 points. Ecrivez une fonction qui permet de calculer la distance entre 2 points.\\
 
 \begin{conseil}
-    Soit 2 points en 2 dimensions $({x_1},{y_1})$ et $({x_2},{y_2})$, la distance euclidienne entre ces 2 points est donnée par : $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$. En Python, la fonction permettant de faire une racine carrée est \lstinline{sqrt} de la librairie \lstinline{math}.
+    Soit 2 points en 2 dimensions $({x_1},{y_1})$ et $({x_2},{y_2})$, la distance euclidienne entre ces 2 points est donnée par : $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$. En Python, la fonction permettant de faire une racine carrée est \lstinline{sqrt} de la librairie \lstinline{math}. Pour mettre au carré, on utilise \lstinline{nombre\*\*2}.
 \end{conseil}
 
 \begin{solution}
@@ -35,7 +35,7 @@ Pour implémenter notre recherche, nous avons besoin d'écrire une fonction perm
 
 \begin{Exercice}[10 minutes]\textbf{Nearest-neighbor search}\\
 
-Implémentez la recherche du voisin le plus proche. Ce dernier fonctionne de la façon suivante :
+Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne de la façon suivante :
 \begin{enumerate}
     \item Traversez chaque point.
     \item Pour chaque point, calculez la distance entre ce point et le point de départ.
@@ -43,7 +43,7 @@ Implémentez la recherche du voisin le plus proche. Ce dernier fonctionne de la 
 \end{enumerate}
     
 \begin{conseil}
-    Utilisez la fonction de distance de la question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[[2,3],[5,6],[1,4],[2,4],[3,5]]} et que le point de départ est \lstinline{[4,4]}, alors l'output devra être ([3,5] 1.414).\\
+    Utilisez la fonction de distance de la question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{[4,4]}, alors l'output devra être \lstinline{([3,5] 1.414)}. \lstinline{[3, 5]} étant les coordonnées du point le plus proche et \lstinline{1.414} étant la distance euclidienne entre notre point de départ et le point le plus proche.  \\
     
     Note : Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
@@ -59,9 +59,9 @@ Implémentez la recherche du voisin le plus proche. Ce dernier fonctionne de la 
 Améliorez l'algorithme du voisin le plus proche effectué plus haut afin qu'il puisse retourner des \textit{K}-plus proches voisins.\\
 
 \begin{conseil}
-Appliquez l'algorithme du plus proche voisin \textit{K}-fois. À la fin de chaque itération, retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon vous trouverez le second voisin le plus proche, le troisième, etc...\\
+Appliquez l'algorithme du plus proche voisin \textit{K}-fois. À la fin de chaque itération, retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon, vous trouverez le second voisin le plus proche, le troisième, etc...\\
 
-Votre fonction devra retourner une liste sous la forme : $[[x_1,y_2, distance1],[x_2,y_2,distance2],...]$. En considérant un input \lstinline{[[2,3],[5,6],[1,4],[2,4],[3,5]]}, un point de départ \lstinline{[4,4]} et un nombre de voisins $K=2$, l'output de votre algorithme devra être : \lstinline{[[3, 5, 1.4142135623730951], [2, 4, 2.0]]}.\\
+Votre fonction devra retourner une liste sous la forme : $[(x_1,y_2, distance1),(x_2,y_2,distance2),...]$. En considérant un input \lstinline{[(2,3),(5,6),(1,4),(2,4),(3,5)]}, un point de départ \lstinline{(4,4)} et un nombre de voisins $K=2$, l'output de votre algorithme devra être : \lstinline{[(3, 5, 1.4142135623730951), (2, 4, 2.0)]}. Attention au type des variables que vous manipulez. Pour rappel, les tuples sont immuables en Python. Pensez à créer de nouveaux tuples contenant les coordonnées des points et leurs distances.\\
 
 Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le même programme que celui de la Question 1 et la Question 2.
 \end{conseil}
