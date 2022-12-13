@@ -6,7 +6,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \titre
 \cours{Algorithmes de graphes}
@@ -202,7 +202,7 @@ Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera d
     L'exemple de code ci-dessous devrait vous aider à mieux comprendre :
     \lstinputlisting[language = python]{solutions/Question8_exemple.py}
     
-    Pour vous assurez que vous avez bien compris cette partie avant de commencer, complétez la fonction \lstinline{linked} du fichier tp12.py de sorte à ce que la fonction permette d'afficher tout les nœuds \textbf{partant} d'un sommet donné et d'afficher le poids de l'arête reliant ces 2 sommets.\\
+    Pour vous assurez que vous avez bien compris cette partie avant de commencer, complétez la fonction \lstinline{linked} du fichier \lstinline{tp12.py} de sorte à ce que la fonction permette d'afficher tout les nœuds \textbf{partant} d'un sommet donné et d'afficher le poids de l'arête reliant ces 2 sommets.\\
     
     
     \begin{conseil}
@@ -211,7 +211,8 @@ Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera d
             \item Vous devrez retirez les sommets reliés par une arête avec un poids de 99999
             \item Utilisez une boucle for pour parcourir les arêtes
         \end{enumerate}
-    Votre output devrait être A 18, F 11.
+
+    En faisant appel à votre fonction \lstinline{linked()} avec les paramètres \lstinline{graphe} (définie dans le fichier \lstinline{tp12.py}) et \lstinline{'D'}, vous devriez obtenir \lstinline{A 18} et \lstinline{F 11} qui correspondent aux nœuds liés à \lstinline{D} et à leur poids.
     \end{conseil}
     \begin{solution}
         \lstinputlisting[language = python]{solutions/Question8_solution.py}

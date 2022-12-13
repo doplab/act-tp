@@ -11,4 +11,4 @@ def linked(graph,N):
         else : 
             print(rel.to.value, rel.value) # Sinon on affiche la destination, puis le poids de l'arrête.
         
-    return None
+    return None 

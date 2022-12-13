@@ -1,7 +1,7 @@
 #Question 8
 
 A = graphe.get_node('A')
-Arete_liee_noeud_A = A.relationships #Cette variable continent une liste d'arêtes
+Arete_liee_noeud_A = A.relationships #Cette variable contient une liste d'arêtes
 
 print("Le nombre d'arêtes liées à A est : {}.".format(len(Arete_liee_noeud_A)))
 
