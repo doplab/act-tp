@@ -1,6 +1,8 @@
+from Exercice1_solution import calculate_distance
 # Question 2
 def nearest_neighbor(start, point_set):  # start correspond au point de départ, point_set correspond
     # à l'ensemble des points
+    nearest_nei = None
     min_distance = None
     for i in range(len(point_set)):  # on parcourt tous les points de l'ensemble
         if i == 0:
