@@ -19,6 +19,8 @@
 \usepackage{environ}
 \usepackage{graphicx}
 %\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
+\usepackage{courier}
+
 
 
 \newtcolorbox{Example}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
@@ -49,6 +51,7 @@
   \textit{#1}\\
 \end{center}
   }
+
 
 
 \newcommand{\exemple}[1]{\newline~\textbf{Exemple :} #1}
@@ -93,8 +96,9 @@
 	breakatwhitespace=true,
 }
 \lstset{
-    language=Python,
-	basicstyle=\bfseries\footnotesize,
+  language=Python,
+	%basicstyle=\bfseries\footnotesize,
+  basicstyle=\footnotesize\ttfamily,
 	breaklines=true,
 	breakatwhitespace=true,
 	commentstyle=\color{grey},
