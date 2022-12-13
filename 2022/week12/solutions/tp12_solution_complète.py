@@ -1,8 +1,7 @@
 # Exercice 3
 
 class Graph:
-    # Cette partie du code permet de créer un graphe lorsqu'on appelle 
-Graph(), il faut spécifier une matrice d'adjacence
+    # Cette partie du code permet de créer un graphe lorsqu'on appelle Graph(), il faut spécifier une matrice d'adjacence
     def __init__(self, connections):
         if connections is None:
             raise ValueError("Graph cannot be None")
@@ -110,7 +109,7 @@ Adjacency_matrix = None
 
 # Question 7
 
-i = 0
+i = 99999
 Adjacency_matrix = [[0, 7, i, i, 14, i, i, i],
                     [i, 0, 8, i, i, i, i, i],
                     [i, i, 0, 6, i, i, i, i],
