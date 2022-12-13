@@ -1,6 +1,7 @@
 import math  # permet d'importer la librairie nécessaire au calcul de la racine carrée
 import matplotlib.pyplot as plt
 
+
 # Question 1
 def calculate_distance(point1, point2):
     # Cette fonction retourne la distance euclidienne entre 2 points
@@ -11,6 +12,7 @@ def calculate_distance(point1, point2):
 def nearest_neighbor(start, point_set):  # start correspond au point de départ, point_set correspond
     # à l'ensemble des points
     min_distance = None
+    nearest_nei = []
     for i in range(len(point_set)):  # on parcourt tous les points de l'ensemble
         if i == 0:
             # La distance minimale n'étant pas définie, on doit l'initialiser à la première itération, c'est ce qu'on
@@ -28,6 +30,7 @@ def nearest_neighbor(start, point_set):  # start correspond au point de départ,
 
     return nearest_nei, min_distance
 
+
 # Question 3
 def K_nearest_neighbor(start, point_set, K):
     k_nearest_nei = []
@@ -36,7 +39,8 @@ def K_nearest_neighbor(start, point_set, K):
             K):  # À chaque itération, on applique l'algorithme du nearest neighbour mais sur un ensemble de points réduit
         point, distance = nearest_neighbor(start, point_set)
         k_nearest_nei.append((point[0], point[1], distance))
-        point_set.remove(point)  # On retire de l'ensemble de points le voisin le plus proche, de cette manière, à chaque itération,
+        point_set.remove(
+            point)  # On retire de l'ensemble de points le voisin le plus proche, de cette manière, à chaque itération,
         # le voisin le plus proche sera de plus en plus éloigné.
 
     return k_nearest_nei
@@ -54,7 +58,6 @@ if __name__ == '__main__':
     plt.scatter([i[0] for i in a], [i[1] for i in a])
     plt.scatter(b[0], b[1])
     plt.show()
-
 
     print(K_nearest_neighbor(b, a, 2))
     print(a)
