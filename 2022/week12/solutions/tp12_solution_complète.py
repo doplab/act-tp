@@ -105,8 +105,7 @@ et a un certain poids.
 
 
 # Question 7
-i = 99999  # Utilisez cette variable pour représenter les relations entre 
-sommets qui ne sont pas dans le graphe.
+i = 99999  # Utilisez cette variable pour représenter les relations entre sommets qui ne sont pas dans le graphe.
 Adjacency_matrix = None
 
 # Question 7
@@ -166,8 +165,7 @@ récupérer les infos
 point N
 
     for rel in relationships:  # Parcourt les relations du point N
-        if rel.value == 99999:  # Si le poids est de 99999 il n'y pas de 
-relation dans le graphe -> itération suivante
+        if rel.value == 99999:  # Si le poids est de 99999 il n'y pas de relation dans le graphe -> itération suivante
             continue
         else:
             print(rel.to.value, rel.value)  # Sinon on affiche la 
