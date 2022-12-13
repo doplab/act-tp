@@ -2,6 +2,7 @@
 def nearest_neighbor(start, point_set):  # start correspond au point de départ, point_set correspond
     # à l'ensemble des points
     min_distance = None
+    nearest_nei = None
     for i in range(len(point_set)):  # on parcourt tous les points de l'ensemble
         if i == 0:
             # La distance minimale n'étant pas définie, on doit l'initialiser à la première itération, c'est ce qu'on
