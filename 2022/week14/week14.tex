@@ -1,0 +1,514 @@
+\input{../header}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabto}
+\usepackage{subfigure}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\ShowNotefalse
+\ShowDessintrue
+\titre
+\cours{Algorithmes probabilistes}
+
+Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci permettent de résoudre des problèmes complexes en relativement peu de temps. La contrepartie est que le résultat obtenu est généralement une solution approximative du problème initial. Néanmoins, ces algorithmes demeurent très utiles pour beaucoup d'applications.
+
+\section{Monte-Carlo}
+\begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
+    Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Code}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+    \\
+    \begin{conseil}
+     \begin{enumerate}
+            \item Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurrence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+        \item Pour générer des nombres pseudo-aléatoires en Python, vous pouvez utiliser la méthode \lstinline{random.random()} après avoir importé le module \lstinline{random}.
+    \end{enumerate}
+    \end{conseil}
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/Piece_correction.py}
+    \end{solution}
+    \end{Exercice}
+
+
+\begin{Exercice}[15 minutes]\textbf{Une approximation de $\pi$ : Python}\\
+    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 < x < 1$ et $0 < y < 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur du cercle si $x^2 + y^2 < 1$. Vous trouverez ci-dessous une illustration de la situation:
+    \begin{center}
+    \includegraphics[]{resources/Cercle.PNG}
+    \end{center}
+    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devrait appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+    \begin{conseil}
+        La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction.
+    \end{conseil}
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/Pi.py}
+    \end{solution}
+    
+\end{Exercice}
+\newpage
+\section{Fingerprinting}
+\begin{Exercice}[15 minutes]\textbf{Fingerprinting: Une mission pour l'agente secrète Alice: Python}\\
+    Dans cet exercice, vous prendrez le rôle de l'agente secrète Alice. Cette dernière enquêtait sur la disparition de son collègue,
+    l'agent Bob, et se doutait que l'indice clé qui la mènerait à la vérité se trouvait dans la boîte mail de Bob. Alice arriva à trouver
+    un bout de papier avec écrit dessus : ``\textit{Mon mot de passe est l'empreinte de ceciestmonmotdepasse}''. Aidez Alice à trouver l'empreinte du mot de passe! \\
+
+    Pour cela, vous devez compléter deux fonctions :
+    \begin{enumerate}
+        \item \lstinline{is_a_prime_number(num)} qui vérifie que \lstinline{num} est un nombre premier ou pas. Un nombre premier est un entier naturel 
+        qui admet exactement deux diviseurs distincts entiers et positifs. Ces deux diviseurs sont 1 et le nombre considéré, 
+        puisque tout nombre a pour diviseurs 1 et lui-même, les nombres premiers étant ceux qui n’en possèdent aucun autre.
+        
+        \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
+              \begin{enumerate}
+                  \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
+                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
+              \end{enumerate}
+    \end{enumerate}
+
+    Si vous réussissez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
+
+    À vos ordis, détectives!
+
+    \lstinputlisting[language = python]{resources/fingerprinting.py}
+\begin{conseil}
+Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$ à $n/2$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
+\end{conseil}
+
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/fingerprinting_solution.py}
+    \end{solution}
+\end{Exercice}
+
+\newpage
+\section{Las Vegas}
+
+\begin{Exercice}[10 minutes]\textbf{Un point dans un cercle unitaire : Python} \optionnel\\
+    Les algorithmes de Monte Carlo sont des algorithmes probabilistes dont la sortie peut être incorrecte avec une certaine probabilité, qui est généralement faible. En revanche, un algorithme de Las Vegas est un algorithme probabiliste qui trouve toujours le bon résultat lorsqu'il existe. Son inconvénient est que sa complexité temporelle ne peut être garantie à l'avance car elle dépend des données passées en paramètres.\\ \\
+    L'objectif de cet exercice est de programmer un algorithme probabiliste permettant de donner un point contenu dans un cercle unitaire. 
+    
+    \begin{conseil}
+       Vous pouvez vous inspirer de l'exercice 2 \textit{(Approximation de $\pi$ )}.
+    \end{conseil}
+    \begin{solution}
+     \lstinputlisting[language = python]{solutions/LV_Point.py}
+    \end{solution}
+    \end{Exercice}
+
+\begin{Exercice}[20 minutes] \textbf{Quicksort - Algorithme de Las Vegas: Python}\\
+    Dans cet exercice, vous allez implémenter un algorithme de tri rapide (quicksort) sur une liste d'éléments avec l'algorithme de Las Vegas.
+\\\\
+    L'algorithme de tri rapide applique un paradigme \textit{divide-and-conquer} afin de trier un ensemble de nombres~\lstinline{A}. Il fonctionne en trois étapes: 
+    \begin{enumerate}
+        \item il choisit d'abord un élément pivot, \lstinline{A[q]}, en utilisant un générateur de nombres aléatoires (d'où sa nature d'algorithme dit probabiliste) ;
+        \item puis il réorganise le tableau en deux sous-tableaux $A[p...q-1]$ et $A[q+1...r]$, où les éléments des premier et deuxième tableaux sont respectivement plus petits et plus grands que $A[q]$.
+        \item L'algorithme applique ensuite récursivement les étapes de tri rapide ci-dessus sur les deux tableaux indépendants, produisant ainsi un tableau entièrement trié.\\
+    \end{enumerate}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{resources/quicksort.png}
+        \caption{Illustration de l'algorithme de tri rapide}
+    \end{figure}
+    Complétez le code suivant:
+    \lstinputlisting[language = python]{resources/quicksort.py}
+    \begin{conseil}
+        Pour le choix de votre élément pivot, pensez à utiliser la méthode \lstinline{randint()} de la librairie \lstinline{random}.
+    \end{conseil}
+
+
+    \begin{solution}
+        \lstinputlisting[language = python]{solutions/quicksort_solution.py}
+    \end{solution}
+     
+
+
+\end{Exercice}
+
+\newpage
+\section{Treap}
+\begin{Exercice}[30 minutes]\textbf{Insertion dans un Treap: Python et Papier}\\
+    Un arbre binaire de recherche montre de meilleures performances lorsqu'il est équilibré. Ainsi, la complexité d'une opération de recherche, d'insertion ou de suppression d'un nœud dans l'arbre équilibré \textit{a} est de $O(log n)$. Cette complexité est de $O(n)$ dans l'arbre \textit{b}.
+
+    \begin{figure}[h]
+        \centering
+        \subfigure[Arbre équilibré]{
+        \includegraphics[width=.3\textwidth]{resources/binary_tree.png}
+        }
+        \subfigure[Arbre non équilibré]{
+        \includegraphics[width=.3\textwidth]{resources/linked_tree.png}
+        }
+        \caption{Exemple d'arbres binaires de recherche}
+        \label{fig:architecture}
+    \end{figure}
+
+    Afin de s'assurer d'obtenir un arbre binaire de recherche presque équilibré, on peut utiliser les propriétés d'un Heap (ou tas) dont les éléments sont ordonnés en suivant une priorité. Dans un Max-heap (Figure~\ref{fig:maxheap}), le nœud ayant la priorité maximale se trouve toujours au sommet de l'arbre. Les nœuds parents auront toujours une priorité plus grande que les nœuds enfants. Dans un Min-heap tel que présenté en cours, le nœud ayant la plus faible priorité se trouve au sommet et dans cette configuration, les nœuds parents auront toujours une priorité plus petite que les nœuds enfants.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=.38\textwidth]{resources/heap.png}
+        \caption{Exemple de Max-heap}
+        \label{fig:maxheap}
+    \end{figure}
+
+    Un Treap (ou arbretas) est une fusion entre un arbre binaire de recherche et un Heap. En construisant un Treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
+
+    \begin{itemize}
+        \item Le nœud de gauche a une valeur plus petite que le nœud parent, tandis que le nœud de droite a toujours une valeur plus grande que le nœud parent. --\textit{propriété d'un arbre binaire de recherche}
+        \item Chaque enfant a une priorité plus petite que la priorité du parent. --\textit{propriété d'un max-heap}
+    \end{itemize}
+
+    Lors de l'insertion dans un Treap, si un nœud ne respecte pas les propriétés édictées ci-dessus, on procède à une rotation en permutant la position du nœud avec celle de son parent jusqu'à ce qu'on obtienne un Treap.
+
+ 
+    Soit la liste suivante:
+
+    \lstinline{liste = [5, 2, 1, 4, 9, 8, 10]}
+
+    Dans le fichier \lstinline{treap.py} se trouvant sur Moodle, créer une nouvelle liste \lstinline{nodes} qui contient des ensembles de tuples à deux éléments. Chaque tuple contiendra un élément de \lstinline{liste} et une valeur aléatoire (comprise entre 0 et 99) représentant une priorité.
+
+    Notez ci-dessous les valeurs que vous obtiendrez:\\ 
+
+    {\Large
+    nodes = [(5, ...), (2, ...), (1, ...), (4, ...), (9, ...), (8, ...), (10, ...)]\\}
+
+    \begin{comment}
+        Un Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une combinaison d'un arbre de recherche binaire et d'un heap.
+        Un heap ou \emph{tas} est un arbre binaire presque complet (tous les niveaux sont remplis sauf, éventuellement, le dernier) dont les éléments sont ordonnés.
+        Ainsi, le treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
+        insérés par ordre de priorité. \\
+
+        \lstinputlisting[language = python]{resources/treap.py}
+    \end{comment}
+
+    Placez les éléments de \lstinline{nodes} dans un Treap. Utilisez l'espace ci-dessous pour dessiner le Treap qui sera obtenu.
+
+
+    \begin{conseil}
+        \begin{itemize}
+            \item Commencez d'abord par construire un arbre binaire de recherche en utilisant uniquement les clés, ensuite utilisez les priorités pour réorganiser les nœuds de votre arbre.
+            \item Une fois complété, le programme \lstinline{treap.py} se trouvant sur Moodle générera un Treap en tenant compte de la position des éléments. 
+            \item Utilisez la fonction \lstinline{random.randrange(100)} pour générer des nombres aléatoires compris entre 0 et 99.
+            \item La propriété du Heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses nœuds enfants.
+            Les méthodes \lstinline{left_rotate} et \lstinline{right_rotate} permettent de réarranger les nœuds de façon à ce que la propriété du Heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
+            \begin{center}
+                \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
+            \end{center}
+        
+        \end{itemize}
+        
+        
+    \end{conseil}
+
+    \begin{dessin}{}
+        \vspace{14cm}
+    \end{dessin}
+
+    \begin{solution}
+        \textbf{Code:}
+        \lstinputlisting{solutions/treap.py}
+
+    \textbf{\\Treap obtenu:} \\
+    \lstinline{[(4,94), [(1,66), None, [(2,1), None, None]], [(10,30), [(5,26), None, [(8,20), None, [(9,4), None, None]]], None]]}
+
+    \begin{center}
+        \includegraphics[width=\linewidth]{solutions/treap.png}
+    \end{center}    
+    \end{solution}
+\end{Exercice}
+
+
+
+\newpage
+\begin{comment}
+\section{Chaînes de Markov}
+
+\begin{Exercice}[15 minutes]\textbf{Un exemple simple de la chaîne de Markov}
+
+Les slides nous ont donné un exemple de la chaîne de Markov. Celui-ci comprend une matrice de transition et un calcul des probabilités de  3 états $x=(1,2,3)$ ($x$ est un vecteur ayant 3 éléments) à $t+3$  i.e $x^{(t+3)}$. Avant de continuer, assurez-vous que vous comprenez la formule de la \href{https://fr.wikipedia.org/wiki/Probabilit\%C3\%A9_conditionnelle}{\color{cyan} probabilité conditionnelle} dans les slides, et les opérations basiques de matrices et vecteurs qui y sont présentées (\href{https://fr.wikiversity.org/wiki/Initiation_aux_matrices/Puissance_d\%27une_matrice}{\color{cyan} puissance} et \href{https://fr.wikipedia.org/wiki/Produit_scalaire}{\color{cyan} produit scalaire}).\\
+
+On va formaliser le concept de la chaîne de Markov avec les notations suivantes.\\
+\begin{enumerate}
+    \item Un processus ou une séquence $X_0, X_1, X_2, ..., X_n$ ($0,1,2,...,n$ signifiant de différents moments) est une chaîne de Markov si
+    \begin{align} 
+    P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right).
+    \end{align}
+    En d'autres termes, toute information utile pour la prédiction du futur de la valeur $X$ d'une chaîne de Markov est uniquement dans l'état présent.
+     
+\item  Le nombre $P\left(X_{n+1}=j | X_n=i\right)$ est appelé \textit{probabilité de transition} de l'état $i$ à l'état $j$ (en un pas), et on écrit:
+\begin{align}
+p_{ij} = P\left(X_{n+1}=j | X_n=i\right)
+\end{align}
+
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) est $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ est de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ \textbf{a deux propriétés importantes}: i, $p_{ij} \geq 0$ et ii, $\sum_i p_{ij} = 1$ (i.e chaque élément de la matrice est supérieur ou égal à 0, et la somme des probabilités à chaque ligne est toujours égale à 1).
+
+\item Soit $\mu_n = (\mu_n(1), ..., \mu_n(N))$ un vecteur-ligne des probabilités, avec $\mu_n(i) = P(X_n=i)$. Par exemple, si on a 3 états et $\mu_2 = (0.5, 0.2, 0.3)$, on peut dire qu'à temps 2, la probabilité est 0.5 qu'on soit à l'état 1, 0.2 qu'on soit à l'état 2, et 0.3 qu'on soit à 3. \textbf{La variable $x^{(t+3)}$ des slides serait $\mu_3$ avec ces notations}!
+
+$\mu_n$ est aussi appelée probabilités marginales, qui indiquent les probabilités des états à temps $n$, et elles sont calculées comme suit (vérifiez que cette formule s'accorde avec le calcul de $x^{(t+3)}$ des slides) :
+\[ 
+\mu_n = \mu_0 \mathbf{P}^n
+\]
+$\mu_0$ est donc appelée \textit{la loi initiale} (la loi de $X_0$); dans les slides, $\mu_0 = (0,\; 1, \; 0)$. En général, on a qu'à connaître $\mu_0$ et $\mathbf{P}$ pour simuler une chaîne de Markov. Cette information sera utile pour l'exercice 7 et 8. \\ 
+\end{enumerate}
+
+Et on a ci-dessous un résumé de la terminologie:
+
+\begin{enumerate}
+    \item $\mathbf{P}(i,j)$ : élément à ligne $i$ et colonne $j$ de la matrice $\mathbf{P}$.
+    \item Matrice de transition $\mathbf{P}$ a $\mathbf{P}(i,j) = P(X_{n+1}=j|X_n=i)=p_{ij}$.
+    \item $\mathbf{P}_n = \mathbf{P}^n$.
+    \item Probabilité marginale : $\mu_n(i) = P(X_n = i)$.
+    \item $\mu_n = \mu_0 \mathbf{P}^n$
+\end{enumerate}
+
+Etant donné que $X_0, X_1, ...$ est une chaîne de Markov avec 3 états $\{0, 1, 2\}$ et la matrice de transition:
+
+\[ 
+\mathbf{P} =
+\begin{bmatrix}
+0.1 & 0.2 & 0.7 \\
+0.9 & 0.1 & 0.0 \\
+0.1 & 0.8 & 0.1
+\end{bmatrix}
+\]
+Supposons que $\mu_0 = (0.3, \; 0.4, \; 0.3)$. Trouvez $P(X_0 = 0, X_1=1, X_2=2)$ et $P(X_0=0, X_1=1, X_2=1)$.
+
+\begin{conseil}
+    Cet exercice vous demande de trouver deux probabilités \textbf{jointes}. Peut-être vous rappelez-vous qu'en général, 
+    \[ 
+    P(X=x, Y=y) = P(X=x)P(Y=y|X=x).
+    \]
+    Pouvez-vous le reformuler avec 3 variables ? En plus, notez bien que $X_0, X_1, ...$ est une chaîne de Markov i.e $P\Big(X_{n+1}=j | X_0=i_0, X_1=i_1, ... , X_{n-1}=i_{n-1},X_n=i\Big) = P\left(X_{n+1}=j | X_n=i\right)$. 
+\end{conseil}
+
+\begin{solution}
+\begin{align*}
+    1. \; &P(X_0=0,X_1=1, X_2=2) \\ 
+    &= P(X_2=2|X_1=1,X_0=0)P(X_1=1|X_0=0)P(X_0 =0) \text{ (Bayes, règle de chaîne)}\\
+    &= P(X_2=2|X_1=1)P(X_1=1|X_0=0)P(X_0=0) \text{ (définition de la chaîne de Markov)}\\ 
+    &=p_{12} \times p_{01} \times P(X_0=0) = 0.0 \times 0.2 \times 0.3 = 0.0\\
+    \\
+    2. \; & P(X_0=0,X_1=1, X_2=1)=P(X_0 =0)\times p_{01} \times p_{11}\\
+    &= 0.3 \times 0.2\times 0.1 = 0.006
+\end{align*}
+\end{solution}
+
+\end{Exercice}
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
+\begin{Exercice}[10 minutes]\textbf{Probabilités marginales: Python}
+
+En utilisant la loi initiale $\mu_0$ et la matrice \textbf{P} de la question précédente, trouvez $\mu_1$, $\mu_2$.
+
+\begin{conseil}
+    Relisez et familiarisez-vous avec les notations et la terminologie ci-dessus! Si les slides s'avèrent plus utiles, considérez $\mu_1 = x^{(t+1)}, \mu_2 = x^{(t+2)}$.
+\end{conseil}
+
+On peut aussi essayer de les trouver en écrivant un programme Python! Nous vous fournissons une fonction qui calcule le produit scalaire entre un vecteur et une matrice. Essayez d'écrire une fonction pour trouver la puissance d'une matrice (en utilisant la fonction de produit scalaire) et puis une autre fonction pour les probabilités marginales.
+
+\lstinputlisting[language=python]{resources/ProbMarginales_temp.py}
+
+\begin{conseil}
+    Souvenez-vous que $\mathbf{P}^2$ est le produit scalaire entre $\mathbf{P}$ et $\mathbf{P}$! Chaque ligne de  $\mathbf{P}^2$ sera donc le produit scalaire entre une ligne de $\mathbf{P}$ et $\mathbf{P}$.
+\end{conseil}
+\begin{solution}
+    \begin{align}
+    \mu_1 &= \mu_0 \mathbf{P}^1 =
+    \left(\begin{matrix}
+    0.42 & 0.34 & 0.24
+    \end{matrix}\right)\\
+    \mu_2 &= \mu_0 \mathbf{P}^2 =
+    \left(\begin{matrix}
+    0.37 & 0.31 & 0.32
+    \end{matrix}\right) 
+    \end{align}
+
+    \lstinputlisting[language=python]{solutions/ProbMarginales.py}
+
+\end{solution}
+
+\end{Exercice}
+
+\begin{note}{Maeva}
+    Ceci devrait être un exercice avancé
+\end{note}
+\begin{Exercice}[20 minutes]\textbf{Simuler une chaîne de Markov: Python}\\
+Pour cet exercice, vous n'avez pas à utiliser les calculs des exercices précédents.\\
+
+Comme mentionné plus haut, la simulation d'une chaîne de Markov ($X_0, X_1, ...$) exige seulement deux éléments: la loi initiale $\mu_0$ et la matrice de transition $\mathbf{P}$. Spécifiquement, l'algorithme est:
+
+\begin{enumerate}
+    \item Supposer que les probabilités initiales (les probabilités des états potentiels de $X_0$) sont dans le vecteur $\mu_0$. Trouver $X_0$.
+    \item Le résultat de l'étape 1 est donc $X_0 = i$, l'état de $X$ à temps 0; obtenir $X_1$ selon les probabilités à la $i$th ligne de $\mathbf{P}$ où $P(X_1=j|X_0=i)=p_{ij}$. Trouver $X_1$.
+    \item Le résultat de l'étape 2 est $X_1 = j$, l'état de $X$ à temps 1; obtenir $X_2 \sim \mathbf{P}$ où $P(X_2=k|X_1=j)=p_{jk}$.
+    \item Répéter jusqu'à la fin (le nombre d'iterations est arbitraire).
+\end{enumerate}
+
+Écrivez une fonction simple afin d'implémenter l'algorithme ci-dessus. Nommez-la \textbf{sim\_markov()}, celle-ci prend comme paramètres \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}. Essayez avec des valeurs différentes de \textbf{P}, \textbf{mu\_0} et \textbf{n\_iters}.
+\lstinputlisting[language=python]{SimMarkov_temp.py}
+
+
+\begin{conseil}
+    Pensez à utiliser la méthode \textbf{random.choices()}. Elle vous permet de sélectionner de façon (pseudo-)aléatoire des éléments d'une liste. N'hésitez pas à vous référer à la documentation officielle pour plus de détails.
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language = python]{solutions/SimMarkov.py}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[20 minutes]\textbf{Coder une chaîne de Markov avec un dictionnaire Python}
+
+Cette fois-ci, vous allez utiliser un dictionnaire au lieu de vecteurs et matrices!
+
+Supposez qu'il y'ait trois choix d'états avec les transitions dans l'image ci-dessous. Supposez également que la loi initiale des états est (0.3, 0.2, 0.5) pour \textbf{Sunny, Snowy, et Rainy} respectivement. Simulez une chaîne de Markov en utilisant un dictionnaire imbriqué, écrit comme suit
+\lstinputlisting[language=python]{WeatherMarkovDict.py}
+\begin{center}
+        \includegraphics[width=\linewidth]{Etats_markov.png}
+\end{center}
+    
+Complétez le programme ci-dessous.
+\lstinputlisting[language=python]{resources/WeatherMarkov_temp.py}
+
+\begin{conseil}
+    De nouveau, pensez à utiliser la méthode \textbf{random.choices()}.
+\end{conseil}
+\begin{solution}
+    \lstinputlisting[language=python]{solutions/WeatherMarkov.py}
+\end{solution}
+\end{Exercice}
+\end{comment}
+
+
+\section{Chaînes de Markov}
+
+Une chaîne de Markov est une suite de variables aléatoires (X$_n$,$n$ $\in \mathbb{N}$) qui permet de modéliser l'évolution dynamique d’un système aléatoire : X$_n$ représente l’état du système à l’instant \lstinline{n}. ("Nous pouvons considérer une chaîne de markov comme une variable aléatoire qui change avec le temps. Le temps discret \lstinline{n} est alors un paramètre supplémentaire du système"). La propriété fondamentale des chaînes de Markov, appelée propriété de Markov est que son évolution future ne dépend du passé qu'au travers de sa valeur actuelle : c'est-à-dire que X$_{n+1}$ ne dépend que de X$_n$ et non pas de  X$_{n-1}$,  X$_{n-2}$.
+
+% .... Autrement dit, conditionnellement à  X$_{n}$, et $(X_0, ..., X_n)$ et $(X_{n+k}, k \in N)$ sont indépendants. 
+
+Les applications des chaînes de Markov sont très nombreuses (réseaux, simulation de propagation d'un virus, ingénierie financière, ...). Une chaîne de Markov peut être associée à un graphe orienté où le changement d'état s'effectue suivant une certain probabilité. \\
+
+\noindent \textbf{Exemple:} Durant l’hiver Pierre peut être dans trois états: en bonne santé (état $x_1$), enrhumé (état $x_2$), grippé (état $x_3$). Son état le jour $n+1$ dépend de son état au jour $n$ et pas des jours précédents:
+\begin{itemize}
+    \item S’il est en bonne santé, il le reste le lendemain avec une probabilité égale à 5/6, il s’enrhume avec une probabilité égale à 1/12 et attrape la grippe avec une probabilité égale à 1/12;
+    \item S’il est enrhumé il le reste avec une probabilité égale à 1/2, guérit avec une probabilité égale à 1/4 et attrape la grippe
+avec une probabilité égale à 1/4;
+    \item S’il est grippé, il le reste avec probabilité égale à 3/4 et guérit avec une probabilité égale à 1/4.
+\end{itemize}
+
+L’évolution de l’état de santé de Pierre peut être représenté par le graphe de la figure \ref{fig:graph_markov_exemple}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.7\textwidth]{resources/graph_markov_example.png}
+    \caption{Exemple graph etat de santé de Pierre}
+    \label{fig:graph_markov_exemple}
+\end{figure}
+
+La matrice $\mathbf{P}$ dont l'élément à l'indice $(i,j)$ (ligne $i$, colonne $j$) $p_{ij}$ est appelée \textit{matrice de transition}. Si on a $N$ états, $P$ est de dimension $N \times N$ ($N$ lignes et $N$ colonnes). Si les chaînes sont homogènes, $\mathbf{P}$ \textbf{a deux propriétés importantes}: $i$, $p_{ij} \geq 0$ et $ii$, $\sum_i p_{ij} = 1$ (i.e chaque élément de la matrice est supérieur ou égal à 0, et la somme des probabilités à chaque ligne est toujours égale à 1). La matrice de transition associée à l'état de santé de Pierre est donc la suivante:
+
+\[ 
+\mathbf{P} =
+\begin{bmatrix}
+5/6 & 1/12 & 1/12 \\
+1/4 & 1/2 & 1/4 \\
+1/4 & 0 & 3/4
+\end{bmatrix}
+\]
+
+\newpage
+
+\begin{Exercice}[5 minutes]\textbf{Complétion de la chaîne de Markov}
+
+On vous donne un diagramme de Markov et sa matrice de transition associée partiellement remplies. Complétez les à l'aide des données déjà inscrites.
+
+\begin{figure}[h!]
+	   \centering
+	   \includegraphics[width=.7\textwidth]{resources/Markov_incomplete.png}
+\end{figure}
+
+	\[ 
+		\mathbf{P} =
+		\begin{bmatrix}
+		. & . & 0.2 \\
+		0.1 & . & 0.3 \\
+		. & . & .
+		\end{bmatrix}
+	\]
+
+\begin{solution}
+        Le diagramme de Markov correspondant est le suivant:
+
+	
+	    \centering
+	    \includegraphics[width=.7\textwidth]{solutions/Markov_complete.png}
+	
+	Et sa matrice de transition est:
+
+	\[ 
+		\mathbf{P} =
+		\begin{bmatrix}
+		0.3 & 0.5 & 0.2 \\
+		0.1 & 0.6 & 0.3 \\
+		0.1 & 0.1 & 0.8
+		\end{bmatrix}
+	\]
+	
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Problème - Chaîne de Markov}
+
+Suite à  de longs mois d’observation, on a réussi à créer un modèle de prédiction météo en prenant en compte le temps du jour précédent. On sait que lorsqu’il fait beau, les chances qu’il fasse beau le lendemain sont de 80\%, celles qu’il pleuve de 19\% et celles qu’il neige de 1\%. Quand il pleut, les chances qu’il fasse beau le lendemain sont de 20\%, celles qu’il pleuve de 70\% et celles qu’il neige de 10\%. Enfin, quand il neige, les chances qu’il fasse beau le lendemain sont de 10\%, celles qu’il pleuve de 20\% et celles qu’il neige de 70\%.\\
+Avec ces informations, dessinez une représentation de Markov sous forme de graphe puis créez la matrice de transition correspondante.
+
+
+    \begin{solution}
+        Le diagramme de Markov correspondant est le suivant:
+
+	    \centering
+	    \includegraphics[width=.7\textwidth]{solutions/Etats_markov.png}
+	
+	Et sa matrice de transition est:
+
+	\[ 
+		\mathbf{P} =
+		\begin{bmatrix}
+		0.8 & 0.19 & 0.01 \\
+		0.2 & 0.7 & 0.1 \\
+		0.1 & 0.2 & 0.7
+		\end{bmatrix}
+	\]
+	
+    \end{solution}
+
+
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Le dé - Chaîne de Markov \optionnel}
+
+Un joueur lance un dé à 6 faces un nombre indéterminé de fois. Chaque chiffre a la même probabilité de sortir à chaque lancer. Tant que le joueur n'a pas obtenu tous les chiffres, il continue à lancer le dé. En assimilant la somme des chiffres obtenus aux états d'une chaîne de Markov, représentez sa matrice de transition associée.
+
+	 \begin{solution}
+
+	\[ 
+		\mathbf{P} =
+		\begin{bmatrix}
+		0 & 1 & 0 & 0 & 0 & 0 & 0  \\
+		0 & 1/6 & 5/6 & 0 & 0 & 0 & 0  \\
+		0 & 0 & 2/6 & 4/6 & 0 & 0 & 0  \\
+		0 & 0 & 0 & 3/6 & 3/6 & 0 & 0  \\
+		0 & 0 & 0 & 0 & 4/6 & 2/6 & 0  \\
+		0 & 0 & 0 & 0 & 0 & 5/6 & 1/6  \\
+		0 & 0 & 0 & 0 & 0 & 0 & 1 
+		\end{bmatrix}
+	\]
+	 \end{solution}
+\end{Exercice}
+
+
+
+\end{document}
