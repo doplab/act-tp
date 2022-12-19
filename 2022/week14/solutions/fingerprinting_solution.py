@@ -2,10 +2,10 @@ import base64
 
 # num est un nombre entier
 def is_a_prime_number(num):
-    if num <= 1:
+    if num<=1:
         return False
-    for i in range(2, int(num**.5)):
-        if num % i == 0:
+    for i in range(2, (num//2)+1):
+        if num%i==0:
             return False
     return True
 
