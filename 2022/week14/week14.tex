@@ -20,11 +20,11 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
-    Supposez que vous lanciez une pièce de monnaie \lstinline{l} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Code}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+    Supposez que vous lanciez une pièce de monnaie \textbf{l} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,l,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Code}). La fonction \textit{Piece(l)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
     \\
     \begin{conseil}
      \begin{enumerate}
-            \item Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essai. Puis divisez le nombre d'occurrence de l'événement par le nombre total d'essai. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
+            \item Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essais. Puis divisez le nombre d'occurrence de l'événement par le nombre total d'essais. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
         \item Pour générer des nombres pseudo-aléatoires en Python, vous pouvez utiliser la méthode \lstinline{random.random()} après avoir importé le module \lstinline{random}.
     \end{enumerate}
     \end{conseil}
@@ -39,7 +39,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
     \begin{center}
     \includegraphics[]{resources/Cercle.PNG}
     \end{center}
-    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devrait appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx [\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}}]\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
     \begin{conseil}
         La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction.
     \end{conseil}
@@ -64,16 +64,17 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
         \item \lstinline{fingerprinting(p, message)} qui implémente l'algorithme de fingerprinting suivant :
               \begin{enumerate}
                   \item Si \lstinline{p} est un nombre premier, calculez la valeur de hachage de la chaîne à l'aide de la fonction \lstinline{hash(...)}, puis calculez le modulo du résultat du hachage.
-                  \item Sinon, imprimez un message qui dit que le nombre n'est pas un nombre premier.    
+                  \item Sinon, affichez un message qui dit que le nombre n'est pas un nombre premier.    
               \end{enumerate}
     \end{enumerate}
 
-    Si vous réussissez à implémenter les deux fonctions correctement, le code vous imprimera : \lstinline{Connection réussie? True}.
+    Si vous réussissez à implémenter les deux fonctions correctement, le programme vous affichera : \lstinline{Connexion réussie? True}.
 
     À vos ordis, détectives!
 
     \lstinputlisting[language = python]{resources/fingerprinting.py}
 \begin{conseil}
+    % À revoir
 Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$ à $n/2$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
 \end{conseil}
 
@@ -390,7 +391,7 @@ Une chaîne de Markov est une suite de variables aléatoires (X$_n$,$n$ $\in \ma
 
 Les applications des chaînes de Markov sont très nombreuses (réseaux, simulation de propagation d'un virus, ingénierie financière, ...). Une chaîne de Markov peut être associée à un graphe orienté où le changement d'état s'effectue suivant une certain probabilité. \\
 
-\noindent \textbf{Exemple:} Durant l’hiver Pierre peut être dans trois états: en bonne santé (état $x_1$), enrhumé (état $x_2$), grippé (état $x_3$). Son état le jour $n+1$ dépend de son état au jour $n$ et pas des jours précédents:
+\noindent \textbf{Exemple:} Durant l’hiver, Pierre peut être dans trois états: en bonne santé (état $x_1$), enrhumé (état $x_2$), grippé (état $x_3$). Son état le jour $n+1$ dépend de son état au jour $n$ et pas des jours précédents:
 \begin{itemize}
     \item S’il est en bonne santé, il le reste le lendemain avec une probabilité égale à 5/6, il s’enrhume avec une probabilité égale à 1/12 et attrape la grippe avec une probabilité égale à 1/12;
     \item S’il est enrhumé il le reste avec une probabilité égale à 1/2, guérit avec une probabilité égale à 1/4 et attrape la grippe

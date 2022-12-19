@@ -22,7 +22,7 @@ password = "ceciestmonmotdepasse"
 your_details = (19, hash(password))
 success = login(password, your_details)
 
-print("Connection réussie? " + str(success))
+print("Connexion réussie? " + str(success))
 if success:
     message = '''SmUgc2VyYWlzIGNvbmZpbsOpIGNoZXogbWVzIHBhcmVudHMgw
                     6AgbGEgY2FtcGFnbmUgbGVzIGRldXggcHJvY2hhaW5lIHNlbWF
