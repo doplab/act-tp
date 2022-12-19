@@ -456,6 +456,11 @@ On vous donne un diagramme de Markov et sa matrice de transition associée parti
 		0.1 & 0.1 & 0.8
 		\end{bmatrix}
 	\]
+
+    En effet, à partir du graphe on peut constater que la propabilité pour rester dans l'état A sachant que l'état précédent est A
+    est 0.3 donc l'élement à la position [1,1] de la matrice sera égal à 0.3. Ensuite, en utlisant le fait que la somme des probabilités d'une ligne doit 
+    être égale à 1 nous trouvons l'élement [1,3] donc p = 1 - 0.3 - 0.2. 
+    Il en est de même pour le reste des lignes de la matrice.
 	
     \end{solution}
 \end{Exercice}
@@ -491,7 +496,9 @@ Avec ces informations, dessinez une représentation de Markov sous forme de grap
 
 \begin{Exercice}[10 minutes]\textbf{Le dé - Chaîne de Markov \optionnel}
 
-Un joueur lance un dé à 6 faces un nombre indéterminé de fois. Chaque chiffre a la même probabilité de sortir à chaque lancer. Tant que le joueur n'a pas obtenu tous les chiffres, il continue à lancer le dé. En assimilant la somme des chiffres obtenus aux états d'une chaîne de Markov, représentez sa matrice de transition associée.
+Un joueur lance un dé à 6 faces un nombre indéterminé de fois. Chaque chiffre a la même probabilité de sortir à chaque lancer. Tant que le joueur n'a pas obtenu tous les chiffres, il continue à lancer le dé. 
+En assimilant le nombre de chiffres(faces) distincts obtenus aux états d'une chaîne de Markov, représentez sa matrice de transition associée.
+
 
 	 \begin{solution}
 
@@ -508,6 +515,20 @@ Un joueur lance un dé à 6 faces un nombre indéterminé de fois. Chaque chiffr
 		\end{bmatrix}
 	\]
 	 \end{solution}
+
+    Pour la résolution de cet exercice on aura 7 états: 
+    \begin{itemize}
+        \item Etat 0: avant le lancement du des, 0 face obtenus.
+        \item Etat 1: une face obtenue avec propabilité 1 si l'état précedent est l'état initial, comme on tombera toujours sur une nouvelle face au premier lancer. 
+        Sinon on reste au même état avec une probabilité 1/6 (on tombe sur le même chiffre).
+        \item Etat 2: deux faces distincts obtenues, on peut arriver à cet état soit à partir de l'état 1 en tombant sur une nouvelle 
+        face avec une probabilité 5/6 ou aussi en restant au même état si on obtient une des deux faces connues avec une probabilité 2/6 . 
+        \item ...
+        \item Etat 6 : toutes les faces sont obtenues on peut que retomber sur le même état, donc propabilité égale à 1. 
+    \end{itemize}
+    
+    
+
 \end{Exercice}
 
 
