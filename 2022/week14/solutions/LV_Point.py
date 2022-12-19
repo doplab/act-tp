@@ -11,11 +11,10 @@ def inside(point):  # Point est défini sous la forme d'un tuple
 
 
 def app():
-    count = 0  # On initialise le nombre de points dans le cercle
     for i in range(10000):
         temp1 = random.random()  # Génère la première coordonnée
         temp2 = random.random()  # Génère la deuxième coordonnée
-        temp = [temp1, temp2]  # Crée le point
+        temp = (temp1, temp2)  # Crée le point
 
         if (inside(temp)) :
             return temp # Retourne le point trouvé.

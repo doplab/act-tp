@@ -1,85 +1,97 @@
-from random import randrange
+import random
 
-# Un noeud de la treap
-class TreapNode:
-	def __init__(self, data, priority=100, left=None, right=None):
-		self.data = data
-		self.priority = randrange(priority)
-		self.left = left
-		self.right = right
-
-# Fonction pour faire une rotation à gauche
-def rotateLeft(root):
-	R = root.right
-	X = root.right.left
-
-	# rotate
-	R.left = root
-	root.right = X
-
-	# set root
-	return R
+random.seed(2)
 
 
-# Fonction pour faire une rotation à droite
-def rotateRight(root):
-	L = root.left
-	Y = root.left.right
+class TreapNode(object):
+    def __init__(self, key, priority, data):
+        self.key = key
+        self.priority = priority
+        self.size = 1
+        self.cnt = 1
+        self.data = data
+        self.left = None
+        self.right = None
 
-	# rotation
-	L.right = root
-	root.left = Y
+    def left_rotate(self):
+        a = self
+        b = a.right
+        a.right = b.left
+        b.left = a
+        a = b
+        b = a.left
+        b.size = b.left_size() + b.right_size() + b.cnt
+        a.size = a.left_size() + a.right_size() + a.cnt
+        return a
 
-	# retourne la nouvelle racine
-	return L
+    def right_rotate(self):
+        a = self
+        b = a.left
+        a.left = b.right
+        b.right = a
+        a = b
+        b = a.right
+        b.size = b.left_size() + b.right_size() + b.cnt
+        a.size = a.left_size() + a.right_size() + a.cnt
+        return a
 
-# Fonction récursive pour insérer une clé avec une priorité dans une Treap
-def insertNode(root, data):
-	if root is None:
-		return TreapNode(data)
+    def left_size(self):
+        return 0 if self.left is None else self.left.size
 
-    # si data est inférieure à celle la racine root, insérer dans le sous-arbre gauche
-    # sinon insérer dans le sous-arbre droit
-	if data < root.data:
-		root.left = insertNode(root.left, data)
+    def right_size(self):
+        return 0 if self.right is None else self.right.size
 
-		# faire une rotation à droite si la propriété de la heap est violée 
-		if root.left and root.left.priority > root.priority:
-			root = rotateRight(root)
-	else:
-		root.right = insertNode(root.right, data)
-
-		# faire une rotation à gauche si la propriété de la heap est violée 
-		if root.right and root.right.priority > root.priority:
-			root = rotateLeft(root)
-
-	return root
+    def __repr__(self):
+        return '[(%s,%s), %s, %s]' % (
+            str(self.key), self.priority, str(self.left), str(self.right))
 
 
-# Affiche les noeuds de la treap
-def printTreap(root, space):
-	height = 10
+class Treap(object):
+    def __init__(self):
+        self.root = None
 
-	if root is None:
-		return
+    def _insert(self, node, key, priority, data=None):
+        if node is None:
+            node = TreapNode(key, priority, data)
+            return node
+        node.size += 1
+        if key < node.key:
+            node.left = self._insert(node.left, key, priority, data)
+            if node.left.priority > node.priority:
+                node = node.right_rotate()
+        elif key >= node.key:
+            node.right = self._insert(node.right, key, priority, data)
+            if node.right.priority > node.priority:
+                node = node.left_rotate()
 
-	space += height
-	printTreap(root.right, space)
+        return node
 
-	for i in range(height, space):
-		print(' ', end='')
+    def insert(self, key, priority, data=None):
+        self.root = self._insert(self.root, key, priority, data)
 
-	print((root.data, root.priority))
-	printTreap(root.left, space)
+    def size(self):
+        return 0 if self.root is None else self.root.size
+
+    def __repr__(self):
+        return str(self.root)
 
 
 if __name__ == '__main__':
-	# Clés de la treap
-	keys = [5, 2, 1, 4, 9, 8, 10]
+    root = None
+    treap = Treap()
 
-	# Construction de la treap
-	root = None
-	for key in keys:
-		root = insertNode(root, key)
+    liste = [5, 2, 1, 4, 9, 8, 10]
+    nodes = []
 
-	printTreap(root, 0)
+    # Création de la liste de noeuds + priorités
+    for i in liste:
+        pair = (i, random.randrange(100))
+        nodes.append(pair)
+
+    print(f"Noeuds avant insertion: {nodes}")
+
+    # Construction de la treap
+    for j in nodes:
+        treap.insert(j[0], j[1], root)
+
+    print(f"Treap: {treap}")
