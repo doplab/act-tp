@@ -36,13 +36,15 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \begin{Exercice}[15 minutes]\textbf{Une approximation de $\pi$ : Python}\\
     L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation:
-    \begin{center}
-    \includegraphics[]{resources/Cercle.PNG}
-    \end{center}
-    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche du vrai chiffre $\pi$.\\
+    
+    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche de la vraie valeur de $\pi$.\\
+    
     \begin{conseil}
         La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction.
     \end{conseil}
+    \begin{center}
+        \includegraphics[]{resources/Cercle.PNG}
+    \end{center}
     \begin{solution}
         \lstinputlisting[language = python]{solutions/Pi.py}
     \end{solution}
@@ -88,7 +90,10 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
 
 \begin{Exercice}[10 minutes]\textbf{Un point dans un cercle unitaire : Python} \optionnel\\
     Les algorithmes de Monte Carlo sont des algorithmes probabilistes dont la sortie peut être incorrecte avec une certaine probabilité, qui est généralement faible. En revanche, un algorithme de Las Vegas est un algorithme probabiliste qui trouve toujours le bon résultat lorsqu'il existe. Son inconvénient est que sa complexité temporelle ne peut être garantie à l'avance car elle dépend des données passées en paramètres.\\ \\
-    L'objectif de cet exercice est de programmer un algorithme probabiliste permettant de donner un point contenu dans un cercle unitaire. 
+    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant de générer les coordonnées d'un point contenu dans un cercle unitaire. Pour cela, vous pouvez générer des points \lstinline{n} fois jusqu'à ce que vous trouviez un point qui soit contenu dans le cercle.
+    
+    
+    donner un point contenu dans un cercle unitaire. 
     
     \begin{conseil}
        Vous pouvez vous inspirer de l'exercice 2 \textit{(Approximation de $\pi$ )}.
