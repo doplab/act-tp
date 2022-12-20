@@ -1,8 +1,8 @@
 import random
 
 def inside(point):#Point définit sous la forme d'un tuple
-    # Cette fonction permet de vérifier si un point se trouve à l'intérieur du cercle
-    if (point[0]**2+point[1]**2) < 1:
+    # Cette fonction permet de vérifier si un point se trouve à l'intérieur ou sur le cercle
+    if (point[0]**2+point[1]**2) <= 1:
         return 1
     
     else: 
@@ -10,7 +10,7 @@ def inside(point):#Point définit sous la forme d'un tuple
     
 def app():
     count = 0 #On initialise le nombre de points dans le cercle
-    iter = 10000 # Plus cette valeur augmente, plus on se rapproche de la valeur de pi
+    iter = 100000000 # Plus cette valeur augmente, plus on se rapproche de la valeur de pi
     for i in range(iter):
         temp1 = random.random()#Génère la première coordonnée
         temp2 = random.random()#Génère la deuxième coordonnée
