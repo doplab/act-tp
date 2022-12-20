@@ -1,9 +1,9 @@
 import random
 
 def sim_markov_dict(mu_0, P, n_iters):    
-    # liste d'etats
+    # liste d'états
     states = list(mu_0.keys())
-    # premier etat
+    # premier état
     current_state = ... # Partie à compléter
     future_states = []
     ... # Partie à compléter
