@@ -10,7 +10,7 @@ def inside(point):#Point définit sous la forme d'un tuple
     
 def app():
     count = 0 #On initialise le nombre de points dans le cercle
-    iter = 100000000 # Plus cette valeur augmente, plus on se rapproche de la valeur de pi
+    iter = 10000 # Plus cette valeur augmente, plus on se rapproche de la valeur de pi
     for i in range(iter):
         temp1 = random.random()#Génère la première coordonnée
         temp2 = random.random()#Génère la deuxième coordonnée

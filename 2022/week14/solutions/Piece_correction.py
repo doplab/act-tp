@@ -12,7 +12,7 @@ def proba(n, l, iter=10000):
     # temps à s'exécuter). 10000 est un bon nombre d'itérations.
     occurences = 0
     for i in range(iter):
-        temp = Piece(l)  # On simule une expérience de l lancés.
+        temp = Piece(l)  # On simule une expérience de l lancers.
         count = sum(temp)  # On compte le nombre de fois que l'on obtient pile
         if count == n:  # Si le nombre de pile obtenu correspond à la probabilité que l'on veut estimer
             occurences += 1  # On ajoute 1 à notre estimateur de probabilité
