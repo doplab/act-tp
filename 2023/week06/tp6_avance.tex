@@ -1,0 +1,111 @@
+\input{../header.tex}
+
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation orientée objet - Exercices avancés}
+
+Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
+
+Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+
+Le temps indiqué (\faClock) est à titre strictement indicatif.
+
+\section{Interaction entre plusieurs instances d'une même classe - Java (30 minutes)}
+
+Dans cette section, nous allons simuler un jeu de combat entre deux protagonistes représentant des instances d'une classe \lstinline{Fighter} que nous allons créer.
+Chaque \lstinline{Fighter} aura des attributs qui le définissent. Ces attributs sont:
+
+\begin{itemize}
+    \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
+    \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
+    \item \lstinline{attaque:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts infligés à l'adversaire.
+    \item \lstinline{défense:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts reçus.\\
+\end{itemize}
+
+Deux attributs de classe seront également utilisés :
+\begin{itemize}
+\item \lstinline{instances :} Liste comprenant les combattants qui ont été instanciés et qui sont toujours en vie.
+\item \lstinline{attackModifier :} Dictionnaire comportant 3 types d'attaques, chacune modifiant les dégâts qui vont être infligés. Les trois types d'attaques sont \lstinline{poing, pied et tête} modifiant respectivement l'attaque par 1, 2, 3.\\
+\end{itemize}
+Le but de cette partie est d'étudier les interactions entre deux instances d'une même classe. Cette classe se présentera sous la forme d'un \lstinline{Fighter}. Chaque instance de la classe \lstinline{Fighter} pourra attaquer les autres instances.
+\\
+Vous devrez compléter les 4 méthodes suivantes :
+\begin{enumerate}
+\item \lstinline{isAlive()}
+\item \lstinline{checkDead()}
+\item \lstinline{checkHealth()}
+\item \lstinline{attack(String type, Fighter other)}\\
+\end{enumerate}
+
+Voici le squelette du code (à télécharger sur Moodle) :
+\lstinputlisting{ressources/Fighter.java}
+\begin{Exercice}[5 minutes] isAlive()\\
+    Définir une méthode \lstinline{isAlive()} de type \lstinline{boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
+\begin{solution}
+	\lstinputlisting{solutions/isalive.java}
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] checkDead()\\
+    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nomInstance} est mort'' sera affiché.
+    
+\begin{conseil}
+Prenez le problème dans l'autre sens, créez une liste temporaire. Si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
+L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette liste d'instances en utilisant une boucle \lstinline{for}. 
+\end{conseil}
+\begin{solution}
+	\lstinputlisting{solutions/checkdead.java}
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[5 minutes] checkHealth()\\
+    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nomInstance} a encore \lstinline{healthInstance} points de vie". 
+\begin{solution}
+	\lstinputlisting{solutions/checkhealth.java}
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] attack(String type Fighter other)\\
+    Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
+    
+    Commencez par contrôler si \lstinline{other} est encore en vie. Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
+     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attack_modifier(type)} * \lstinline{attack_instance} - \lstinline{defense_other}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
+    
+\begin{solution}
+	\lstinputlisting{solutions/attack.java}
+\end{solution}
+\end{Exercice}
+Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Code sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
+\lstinputlisting{ressources/main2.java}
+Vous devriez obtenir ce résultat : 
+\lstinputlisting[language=TeX]{ressources/main2solution.java}
+
+
+\section{Notions d'héritage - Python (30 minutes)}
+
+\begin{Exercice}[30 minutes]\textbf{Un exemple appliqué}
+    
+    Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assistant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
+    
+    La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne de caractères qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
+    
+    Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeurs}, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
+    
+    D'autre part, pour les \lstinline{Collaborateurs}, la paye est calculée sur une base horaire i.e \textit{taux horaire $\times$ nombres d'heures de travail (par mois)}.
+    
+    
+    Complétez le code ci-dessous:
+    
+    \lstinputlisting{ressources/Enseignant.py} 
+    
+    \begin{conseil}
+    Pensez à redéfinir les attributs de la classe mère en utilisant \lstinline{super().__init__()}.
+    \end{conseil}
+    
+    \begin{solution}
+    \lstinputlisting{solutions/Enseignant.py} 
+    \end{solution}
+    \end{Exercice}
+\end{document}

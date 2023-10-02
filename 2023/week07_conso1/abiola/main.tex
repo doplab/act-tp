@@ -1,0 +1,131 @@
+\input{../../header.tex}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Exercices pour la séance de révision}
+\author{Abiola Adeye: abiola.adeye@epfl.ch}
+
+% TODO: Add hints and solutions to your exercises
+
+
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+
+\maketitle
+
+\section*{Semaine 1}
+\begin{Exercice}[15 minutes] \textbf{Soustraction de nombres binaires}\\
+    Effectuer les opérations suivantes:
+    \begin{enumerate}
+        \item 01111111$_{(2)}$ - 01000000$_{(2)}$
+        \item 10000000$_{(2)}$ - 00000001$_{(2)}$
+        \item 10101010$_{(2)}$ - 01010101$_{(2)}$
+    \end{enumerate}
+    
+\end{Exercice}
+
+\section*{Semaine 2}
+
+\begin{Exercice}[10 minutes]
+        En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
+
+        \lstinputlisting[language=Python]{question8.py}
+        
+
+\end{Exercice}
+
+\section*{Semaine 3}
+\begin{Exercice}[10 minutes] \textbf{Floating point}\\
+    
+    Voici la représentation en binaire d'un nombre à virgule flottante: \\
+    
+     \begin{tabular}{| p{1cm} | p{3cm} | p{9.5cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
+            \hline
+            signe & exposant & mantisse \\ [0.5ex] 
+            \hline
+            0 & 10110101 & 01000001000000000000001 \\ [0.5ex]
+            \hline
+	\end{tabular}
+	\\
+    Que vaut cette représentation en base 10 ? Utiliser la représentation des floating points (avec un biais de 127). Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
+	
+    
+\end{Exercice}
+
+\section*{Semaine 4}
+
+\begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{Question4.py}
+
+    \begin{solution}
+            x=2 \\
+            x=3 \\
+            None
+    \end{solution}
+
+    
+ \end{Exercice}
+ 
+ 
+ \section*{Semaine 5}
+ 
+ \begin{Exercice}[10 minutes] \textbf{Manipulation des listes en Java}\\
+      	Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
+      	
+      	Créez une liste \lstinline{ma_liste_m} liée à la liste \lstinline{ma_liste}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
+      	
+      	Ajoutez ceci au début de votre code:
+      	\begin{lstlisting}[language=Java]
+             
+import java.util.List;
+import java.util.LinkedList; \end{lstlisting}
+	     
+	     Ajoutez ceci à la fin de votre code:
+	     
+	    \begin{lstlisting}[language=Java]
+for(int i=0;i<ma_liste_m.size();i++){
+	System.out.println(ma_liste_m.get(i));
+} \end{lstlisting} 
+    
+\end{Exercice}
+
+
+\section*{Semaine 6}       
+
+\begin{Exercice}[10 minutes] Création de classe et encapsulation\\
+    Créez une classe \lstinline{Dog} contenant les attributs suivants:
+    \begin{enumerate}
+    \item Un attribut \lstinline{public} String nommé \lstinline{name}
+    \item Un attribut \lstinline{private} List nommé \lstinline{tricks}
+    \item Un attribut \lstinline{private} String nommé \lstinline{race}
+    \item Un attribut \lstinline{private} int nommé \lstinline{age}
+    \item Un attribut \lstinline{private} int nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien)
+    \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nb_chiens}
+   	\end{enumerate}
+   	
+   	Créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur}, elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et le \lstinline{constructeur} en \lstinline{Python} sera défini par la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants qui seront utilisés pour initialiser les attributs de notre instance :
+   	\begin{enumerate}
+    \item Une chaîne de caractères \lstinline{name},
+    \item Une liste \lstinline{tricks},
+    \item Une chaîne de caractères \lstinline{race},
+    \item Un entier \lstinline{age}.
+   	\end{enumerate}
+   	
+   	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances crées.
+   	
+
+\end{Exercice}
+
+\end{document}
