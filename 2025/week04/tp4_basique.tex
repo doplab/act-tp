@@ -1,0 +1,170 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\ShowWarningtrue
+\titre
+\cours{Fonctions, mémoire et exceptions}
+
+Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, l'étudiant sera capable de: 
+\begin{itemize}
+    \item définir une fonction et l'utiliser dans un programme,
+    \item utiliser des librairies contenant des fonctions prédéfinies,
+    \item connaître quelle est la portée d'une variable,
+    \item comprendre comment fonctionne une pile d'exécution (call stack),
+    \item gérer des exceptions.
+\end{itemize}
+
+
+\section{Variables et Fonctions}
+\begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python)}\\
+    Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. \\
+     
+      \begin{conseil}
+        Référez vous aux diapositives du cours pour la création et l'appel des fonctions.    
+      \end{conseil}
+      \begin{solution}
+      
+          \textbf{Python}:
+            \lstinputlisting{ressources/Solutions/Question1.py}
+          
+          \textbf{\\Java}:
+            \lstinputlisting{ressources/Solutions/Question1.java}
+             
+      \end{solution}   
+  \end{Exercice}
+  
+    \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple1} et \textit{multiple2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
+
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'afficher, utilisez le mot-clé \lstinline{return} (pour Python et Java).
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{ressources/Solutions/Question2.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{ressources/Solutions/Question2.java}
+    \end{solution}   
+\end{Exercice} 
+  
+  \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java ou Python)}\\
+      Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimètre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
+     
+      \begin{conseil}
+          \begin{itemize}
+              \item Référez vous aux diapositives du cours pour la création et l'appel des fonctions.
+              \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot clé \lstinline{return} (pour Python et Java).
+              \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+          \end{itemize}        
+      \end{conseil}
+      \begin{solution}
+          \textbf{Python}:
+          \lstinputlisting{ressources/Solutions/Question3.py}
+          
+          \textbf{\\Java}:
+          \lstinputlisting{ressources/Solutions/Question3.java}
+      \end{solution}   
+  \end{Exercice} 
+
+  \begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{ressources/Questions/Question4.py}
+
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item Le mot-clé \lstinline{global} permet d'accéder aux variables globales (définies à l'extérieur de la fonction).
+            \item Soyez attentif au type des éléments retournés par chacune des fonctions.
+        \end{itemize}
+     \end{conseil}
+     \begin{solution}
+            x=2 \\
+            x=3 \\
+            None   
+    \end{solution}
+ \end{Exercice}
+
+ \begin{Exercice}[10 minutes] \textbf{Portée des variables} (Java) \\
+    Qu'affiche le programme suivant?
+    \lstinputlisting{ressources/Questions/Question5.java}
+    Que se passerait-il si on décommente la ligne 17 (enlever les //)?
+
+    \begin{conseil}
+        Tenir compte de l’endroit où chaque variable est définie et quelles opérations sont réalisées sur celle-ci.
+    \end{conseil}
+
+    \begin{solution}
+        On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
+    \end{solution}
+ \end{Exercice}
+
+
+\section{Gestion des exceptions}
+
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question6.py}  
+     \begin{conseil}
+        Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
+    \end{conseil}
+     \begin{solution}
+        \lstinline{Le résultat de la division est: 2.5}\\
+        \lstinline{On ne peut pas diviser une chaîne de caractères.}
+     \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question7.py}
+    
+     \begin{conseil}
+         La chaîne de caractères vide est représentée par ``'' 
+    \end{conseil}
+     \begin{solution}
+        Nous ne pouvons pas diviser un nombre par 0.
+     \end{solution}   
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes] Qu'affiche le programme suivant? \textbf{Types d'erreurs (Python)}\\
+    \lstinputlisting{ressources/Questions/Question8.py}
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item La fonction \lstinline{float()} permet de convertir une variable en nombre à décimal.
+            \item La fonction \lstinline{int()} permet de convertir une variable en nombre entier.
+        \end{itemize}  
+    \end{conseil}
+
+     \begin{solution}
+        Nous ne pouvons pas convertir une chaîne de caractères.
+     \end{solution}
+
+\end{Exercice}
+ 
+\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} 
+    Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
+    \\
+    
+    \lstinputlisting{ressources/Questions/Question9.java}
+
+    
+     \begin{conseil}
+        Référez-vous à la diapositive 26 du cours de cette semaine.           
+     \end{conseil}
+     \begin{solution}
+        À l'intérieur de la fonction \lstinline{division}, lorsque b est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans le \lstinline{main}, l'erreur qui est interceptée est \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
+     \end{solution}   
+ \end{Exercice}
+
+\end{document}
