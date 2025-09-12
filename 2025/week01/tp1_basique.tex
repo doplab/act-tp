@@ -42,7 +42,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         
         \textbf{Méthode 1 :} \\
         
-        Cette deuxième méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande valeur de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
+        Cette deuxième méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande puissance de 2 à l'aide de cette table qui peut être soustrait à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
         
 Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         
@@ -62,23 +62,21 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 	
 	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut. \\
        	
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.1\textwidth} | C{0.2\textwidth} |} 
             \hline
-            \textbf{nombre} & \textbf{reste}\\ [0.5ex]
+            \textbf{nombre} & \textbf{reste (après division par 2)}\\ [0.5ex]
             \hline
-            45 &  - \\ [0.5ex] 
+            45 &  1 \\ [0.5ex] 
             \hline
-            22 & 1 \\ [0.5ex] 
+            22 & 0 \\ [0.5ex] 
             \hline
-            11 & 0 \\ [0.5ex] 
+            11 & 1 \\ [0.5ex] 
             \hline
             5 & 1 \\ [0.5ex] 
             \hline
-            2 & 1 \\ [0.5ex] 
+            2 & 0 \\ [0.5ex] 
             \hline
-            1 & 0 \\ [0.5ex] 
-            \hline
-            0 & 1 \\ [0.5ex]
+            1 & 1 \\ [0.5ex] 
             \hline
             
         \end{tabular} \\
@@ -104,35 +102,33 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \begin{conseil}
         S'inspirer de la solution de la question précédente. \\
         
-        N'oubliez pas qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
+        N'oubliez pas qu'en hexadécimal (base 16), A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
     \end{conseil}
     \begin{solution}
         Dans cette solution, la méthode 1 sera utilisée pour 52 en base 3, et la méthode 2  pour 254 en base 16. \\
         
-        \textbf{Méthode 1 pour 52 (ici, nous sommes en base 3 donc on divise par 3) :} \\
+        \textbf{Méthode 2 pour 52 (ici, nous sommes en base 3 donc on divise par 3) :} \\
        	
         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
             \textbf{nombre} & \textbf{reste}\\ [0.5ex]
             \hline
-            52 &  - \\ [0.5ex] 
+            52 &  1 \\ [0.5ex] 
             \hline
-            17 & 1 \\ [0.5ex] 
+            17 & 2 \\ [0.5ex] 
             \hline
             5 & 2 \\ [0.5ex] 
             \hline
-            1 & 2 \\ [0.5ex] 
-            \hline
-            0 & 1 \\ [0.5ex] 
+            1 & 1 \\ [0.5ex] 
             \hline
         \end{tabular} \\
 
         Ici, on obtient 1221$_{(3)}$ \\
-        \textbf{Méthode 2 pour 254 (ici, nous sommes en base 10)} \\
+        \textbf{Méthode 1 pour 254 (ici, nous sommes en base 10)} \\
         
         Ici, il faut prendre en compte le nombre de fois qu'on peut multiplier le nombre par la valeur de la puissance. Ici on a 256 qui est trop grand, il faut donc partir sur 16. On voit qu'on peut aller jusqu'à 15*16 qui vaut 240. Donc on entre 15 sous la valeur 16 et on soustrait. 254-240 = 14. Il nous reste donc 14*1, on met alors 14 sous la valeur 1. \\
         
-   		\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+   		\begin{tabular}{| C{0.15\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
             \textbf{puissance} & $16^{2}$ & $16^{1}$ & $16^{0}$ \\ [0.5ex] 
             \hline
