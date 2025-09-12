@@ -4,7 +4,9 @@
 # Usage: ./generate_pdfs.sh <week_directory>
 # Example: ./generate_pdfs.sh week01
 
-BASE_DIR="$HOME/Documents/act-2025/act-tp/2025"
+#BASE_DIR="$HOME/Documents/act-2025/act-tp/2025"
+# Base DIR must be current folder
+BASE_DIR="$(pwd)"
 
 # Check if directory name is provided
 if [ $# -eq 0 ]; then
