@@ -1,17 +1,20 @@
 \input{../header.tex}
-
+\usepackage{tikz}
+\usepackage{booktabs}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\def\x{1}
+\def\y{1}
 
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Architecture des ordinateurs - Exercices de base}
 
-Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée sur les conversions en base binaire, décimale ou hexadécimale, ainsi que des opérations de base en suivant le modèle Von Neumann. \\
+Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La série d'exercices sera axée sur les conversions en base binaire, décimale ou hexadécimale, ainsi que des opérations de base en suivant le modèle d'architecture de Von Neumann. \\
 
 \section{Conversions}
 
@@ -25,7 +28,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \begin{conseil}
         Vous pouvez utiliser la table des puissances de 2 pour vous aider. \\
         
-        \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.15\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
             \hline
             \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
             \hline
@@ -42,7 +45,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
         
         \textbf{Méthode 1 :} \\
         
-        Cette première méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande puissance de 2 à l'aide de cette table qui peut être soustrait à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
+        Cette première méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande puissance de 2 à l'aide de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
         
 Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         
@@ -60,26 +63,91 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 	
 	\textbf{Méthode 2 :} \\
 	
-	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut. \\
-       	
-        \begin{tabular}{| C{0.1\textwidth} | C{0.2\textwidth} |} 
-            \hline
-            \textbf{nombre} & \textbf{reste (après division par 2)}\\ [0.5ex]
-            \hline
-            45 &  1 \\ [0.5ex] 
-            \hline
-            22 & 0 \\ [0.5ex] 
-            \hline
-            11 & 1 \\ [0.5ex] 
-            \hline
-            5 & 1 \\ [0.5ex] 
-            \hline
-            2 & 0 \\ [0.5ex] 
-            \hline
-            1 & 1 \\ [0.5ex] 
-            \hline
-            
-        \end{tabular} \\
+	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut.  \vspace*{0.5cm} \\
+       	\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tabular}{| C{0.19\textwidth} | C{0.55\textwidth} |} 
+        \hline
+        \textbf{nombre} & \textbf{reste (après division par 2)}\\ [0.5ex]
+        \hline
+        45 &  1 (1er bit de droite à gauche) \\ [0.5ex] 
+        \hline
+        22 & 0 \\ [0.5ex] 
+        \hline
+        11 & 1 \\ [0.5ex] 
+        \hline
+        5 & 1 \\ [0.5ex] 
+        \hline
+        2 & 0 \\ [0.5ex] 
+        \hline
+        1 & 1 \\ [0.5ex] 
+        \hline
+    \end{tabular}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+    \centering
+
+     \resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[scale=1.3]
+    % Ladder pattern: vertical down, horizontal right, vertical down, horizontal right, etc.
+    \draw[thick] (0,4) -- (0,3);        % vertical down
+    \node[left] at (0,3.5) {\Huge 45};
+    \node[left] at (0,2.5) {\Huge -44};
+    \node[right, draw=blue, thick, inner sep=2pt] at (0.2-\x,2.5-\y) {\Large R:1};
+    \draw[thick] (0,3) -- (1,3);        % horizontal right
+    \node[above] at (0.5,3) {\Huge 2};
+    \node[left] at (1,2.5) {\Huge 22};
+    \draw[thick] (1,3) -- (1,2);        % vertical down
+    \node[left] at (1,1.5) {\Huge -22};
+    \node[right, draw=blue, thick, inner sep=2pt] at (1.2-\x,1.5-\y) {\Large R:0};
+    \draw[thick] (1,2) -- (2,2);        % horizontal right
+    \node[above] at (1.5,2) {\Huge 2};
+    \node[left] at (2,1.5) {\Huge 11};
+    \draw[thick] (2,2) -- (2,1);        % vertical down
+    \node[left] at (2,0.5) {\Huge -10};
+    \node[right, draw=blue, thick, inner sep=2pt] at (2.2-\x,0.5-\y) {\Large R:1};
+    \draw[thick] (2,1) -- (3,1);        % horizontal right
+    \node[above] at (2.5,1) {\Huge 2};
+    \node[left] at (3,0.5) {\Huge 5};
+    \draw[thick] (3,1) -- (3,0);        % vertical down
+    \node[left] at (3,-0.5) {\Huge -4};
+    \node[right, draw=blue, thick, inner sep=2pt] at (3.2-\x,-0.5-\y) {\Large R:1};
+    \draw[thick] (3,0) -- (4,0);        % horizontal right
+    \node[above] at (3.5,0) {\Huge 2};
+    \node[left] at (4,-0.5) {\Huge 2};
+    \draw[thick] (4,0) -- (4,-1);       % vertical down
+    \node[left] at (4,-1.5) {\Huge -2};
+    \node[right, draw=blue, thick, inner sep=2pt] at (4.2-\x,-1.5-\y) {\Large R:0};
+    \draw[thick] (4,-1) -- (5,-1);      % horizontal right
+    \node[above] at (4.5,-1) {\Huge 2};
+    \node[left] at (5,-1.5) {\Huge 1};
+    \draw[thick] (5,-1) -- (5,-2);      % vertical down
+    \node[left] at (5,-2.5) {\Huge -0};
+    \node[right, draw=blue, thick, inner sep=2pt] at (5.2-\x,-2.5-\y) {\Large R:1};
+    \draw[thick] (5,-2) -- (6,-2);      % horizontal right
+    \node[above] at (5.5,-2) {\Huge 2};
+    \node[left] at (6,-2.5) {\Huge 0};
+    
+    % Red curves connecting all blue border nodes
+    % Define the positions of the blue border nodes
+    \coordinate (node1) at (0.2-\x,2.5-\y);
+    \coordinate (node2) at (1.2-\x,1.5-\y);
+    \coordinate (node3) at (2.2-\x,0.5-\y);
+    \coordinate (node4) at (3.2-\x,-0.5-\y);
+    \coordinate (node5) at (4.2-\x,-1.5-\y);
+    \coordinate (node6) at (5.2-\x,-2.5-\y);
+    
+    % Connect nodes with red curves
+    \draw[red, thick, bend right=40] (node1) to (node2);
+    \draw[red, thick, bend right=40] (node2) to (node3);
+    \draw[red, thick, bend right=40] (node3) to (node4);
+    \draw[red, thick, bend right=40] (node4) to (node5);
+    \draw[red, thick, bend right=40] (node5) to (node6);
+    
+\end{tikzpicture}
+     }
+\end{minipage}
+\vspace*{0.5cm}
 
         Ici, on obtient 101101$_{(2)}$ \\    
 	
@@ -294,8 +362,8 @@ On obtient donc 1111111$_{(2)}$ \\
 
 \end{Exercice}
 \newpage
-\section{Modèle de Von Neumann}
-Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Von Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
+\section{Modèle d'architecture de Von Neumann}
+Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle d'architecture de Von Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
 \textbf{État d'origine:}\\
 A l'origine, notre \lstinline{Program Counter (PC)} vaut \lstinline{00100000}.\\
