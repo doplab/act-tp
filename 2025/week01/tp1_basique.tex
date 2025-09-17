@@ -2,6 +2,8 @@
 \usepackage{tikz}
 \usepackage{booktabs}
 \usepackage{array}
+\usetikzlibrary{arrows.meta}
+
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \def\x{1}
 \def\y{1}
@@ -10,6 +12,7 @@
 
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
+\ShowWarningtrue
 \ShowConseiltrue
 \titre
 \cours{Architecture des ordinateurs - Exercices de base}
@@ -138,11 +141,11 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \coordinate (node6) at (5.2-\x,-2.5-\y);
     
     % Connect nodes with red curves
-    \draw[red, thick, bend right=40] (node1) to (node2);
-    \draw[red, thick, bend right=40] (node2) to (node3);
-    \draw[red, thick, bend right=40] (node3) to (node4);
-    \draw[red, thick, bend right=40] (node4) to (node5);
-    \draw[red, thick, bend right=40] (node5) to (node6);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node1) to (node2);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node2) to (node3);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node3) to (node4);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node4) to (node5);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node5) to (node6);
     
 \end{tikzpicture}
      }
@@ -353,70 +356,75 @@ On obtient donc 1111111$_{(2)}$ \\
     \end{enumerate}
     \end{solution}
 
-    \textbf{\\ \faTerminal  Exemple:}
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=0.52\textwidth]{img/substract.png}
-            \caption{Exemple de soustraction de nombres binaires}
-        \end{figure}
+    % \textbf{\\ \faTerminal  Exemple:}
+    %     \begin{figure}[h]
+    %         \centering
+    %         \includegraphics[width=0.52\textwidth]{img/substract.png}
+    %         \caption{Exemple de soustraction de nombres binaires}
+    %     \end{figure}
 
 \end{Exercice}
 \newpage
 \section{Modèle d'architecture de Von Neumann}
 Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle d'architecture de Von Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
+\begin{attention}
+Tous les nombres dans les questions de cette section sont en base 2.
+\end{attention}
+
 \textbf{État d'origine:}\\
-A l'origine, notre \lstinline{Program Counter (PC)} vaut \lstinline{00100000}.\\
+A l'origine, notre \lstinline{Program Counter (PC)} vaut $\texttt{00100000}_{(2)}$ \\ %\lstinline{$00100000_{(2)}$}.
 
 Dans la mémoire, les instructions sont les suivantes:
 
-\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+\begin{tabular}{| C{0.13\textwidth} | C{0.13\textwidth} |} 
     \hline
     \textbf{Adresse} & \textbf{Valeur}\\ [0.5ex]
     \hline
-    00011111 & 00100100\\ [0.5ex] 
+    $00011111$ & $00100100$\\ [0.5ex] 
     \hline
-    00100000 & 10110110\\ [0.5ex] 
+    $00100000$ & $10110110$\\ [0.5ex] 
     \hline
-    00100001 & 11101101\\ [0.5ex]
+    $00100001$ & $11101101$\\ [0.5ex]
     \hline
 \end{tabular}
 \\\\
 Les registres contiennent les valeurs suivantes:
 
-\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+\begin{tabular}{| C{0.13\textwidth} | C{0.13\textwidth} |} 
     \hline
     \textbf{Registre} & \textbf{Valeur}\\ [0.5ex]
     \hline
-    00 & 11100011\\ [0.5ex] 
+    $00$ & $11100011$\\ [0.5ex] 
     \hline
-    01 & 01101100\\ [0.5ex] 
+    $01$ & $01101100$\\ [0.5ex] 
     \hline
-    10 & 00100101\\ [0.5ex] 
+    $10$ & $00100101$\\ [0.5ex] 
     \hline
-    11 & 00000000\\ [0.5ex]
+    $11$ & $00000000$\\ [0.5ex]
     \hline
 \end{tabular}
 \\\\
 Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \\
-\begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
+\begin{tabular}{| C{0.13\textwidth} | C{0.13\textwidth} |} 
     \hline
     \textbf{Numéro} & \textbf{Valeur}\\ [0.5ex]
     \hline
-    00 & MOV\\ [0.5ex] 
+    $00$ & MOV\\ [0.5ex] 
     \hline
-    01 & XOR\\ [0.5ex] 
+    $01$ & XOR\\ [0.5ex] 
     \hline
-    10 & ADD\\ [0.5ex] 
+    $10$ & ADD\\ [0.5ex] 
     \hline
-    11 & SUB\\ [0.5ex]
+    $11$ & SUB\\ [0.5ex]
     \hline
 \end{tabular}
 \\\\
 
 
 \begin{Exercice}[10 minutes]\textbf{Fetch}\\
+
     À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Program Counter} et de l'\lstinline{Instruction Register}?
 
     \begin{conseil}
@@ -431,7 +439,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{Exercice}[10 minutes] \textbf{Decode}
     \begin{enumerate}
         \item Quelle est la valeur de l'opération à exécuter?
-        \item Quelle est l'adresse du registre dans lequel le résultat doit être enregistré?
+        \item Quelle est le numéro du registre dans lequel le résultat doit être enregistré?
         \item Quelle est la valeur du premier nombre de l'opération?
         \item Quelle est la valeur du deuxième nombre de l'opération?
     \end{enumerate}
