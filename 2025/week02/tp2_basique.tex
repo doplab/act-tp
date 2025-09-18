@@ -1,7 +1,14 @@
 \input{../header.tex}
 
 \usepackage{array}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+     urlcolor=blue}
+
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
 
 \begin{document}
 
@@ -39,7 +46,7 @@ Basique: un exercice essentiel pour maîtriser les notions de cours ou tout simp
     \begin{comment}
         \textit{(\faClock \enskip 60 minutes)}
     \end{comment}
-    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve à cette adresse: \url{https://moodle.unil.ch/mod/resource/view.php?id=1761727}.
+    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve \href{https://moodle.unil.ch/mod/resource/view.php?id=1761727}{à cette adresse Moodle}.
 \end{section}
 
 \begin{section}{Systèmes d'exploitation}
