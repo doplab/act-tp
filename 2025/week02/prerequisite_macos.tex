@@ -1,0 +1,118 @@
+\input{../header.tex}
+\usepackage{menukeys}
+\usepackage{fontawesome6}
+\usepackage{graphicx}
+\usepackage{breakurl}
+
+\usepackage{subcaption}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\ShowWarningtrue
+\ShowNotetrue
+
+\titre
+\cours{Prise en main de l'environnement de travail}
+
+Le but de cette séance est d'installer et de configurer les outils sur \textbf{MacOS} qui seront utilisés tout au long du semestre. 
+
+\subsection*{Prérequis}
+Avant d'installer les outils de développement, vous devez vous assurer d'avoir installé Python et le kit de développement Java (Java).
+\begin{enumerate}
+    \item \textbf{Python}. Pour installer Python, rendez-vous sur le site officiel de Python \url{https://www.python.org/downloads}. Selectionnez la dernière version de Python et cliquez sur \textbf{Download Python 3.13.7} comme dans la capture d'écran ci-dessous.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/mac/download_python.png}
+    \end{figure}
+    
+    Installez le fichier téléchargé. Pour tester que tout fonctionne, ouvrez votre terminal et tapez la commande \lstinline{python3 --version}, vous devriez avoir la fenêtre ci-dessous.
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1\textwidth]{img/mac/pythonversion.png}
+        \caption{Aperçu du terminal à la fin d'installation de Python}
+    \end{figure}
+
+    \item \textbf{Java Development Kit (JDK)}. Le JDK contient tout 
+    le nécessaire pour développer des applications Java. 
+    Pour le télécharger, se rendre sur le site 
+    d'Oracle \url{https://www.oracle.com/java/technologies/downloads/} 
+    et sélectionner la version correspondante 
+    à MacOS: \texttt{x64} si 
+    votre MacOS utilise un processeur Intel et \texttt{ARM64} si votre processeur utilise 
+    un processeur de la série M (Apple Silicon).  
+    \begin{conseil}
+        Pour déterminer si votre MacOS utilise un processeur Intel ou M: Sur votre Mac, choisissez le menu Pomme \faApple $\rightarrow$ Réglages Système \faGear (la deuxième option dans le menu), cliquez sur Général  dans la barre latérale. Alternativement, \keys{\cmd + \Space} puis composez \texttt{About}.  
+    \end{conseil}
+    Sélectionnez le DMG Installer correspondant au processeur comme determiné ci-dessus et une fois le fichier de type \texttt{pkg} est téléchargé, cliquez le afin de commencer l'installation. Lire et accepter 
+    les conditions d'utilisation et gardez les options sélectionnées par défaut. Après installation, vous devriez voir \texttt{javac 25} en exécutant la commande \texttt{javac --version} dans le terminal. 
+\end{enumerate}
+
+\subsection*{IntelliJ}
+
+L'IDE (Integrated Development Environment) qui sera utilisé tout au long du semestre sera la version gratuite de \textbf{IntelliJ}, Community Edition. Pour l'utiliser, vous devez suivre les étapes suivantes:
+\begin{enumerate}
+    \item Télécharger la version community d'IntelliJ directement sur le site internet \url{https://www.jetbrains.com/edu-products/download/?section=idea}. 
+    \begin{attention}
+    Il ne faut pas importer les settings que vous avez dans un autre editeur de code (par exemple, Visual Studio Code) dans IntelliJ.
+    \end{attention}
+    \item Pour utiliser Python sur IntelliJ, vous devez installer le plugin Python en cliquant sur \texttt{More via plugins...} et ensuite \texttt{OK}.
+    % \begin{figure}[h!]
+    %     \includegraphics[width=0.5\textwidth]{img/mac/pythonplugin1.pdf}
+    % \end{figure}
+
+    \begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/mac/pythonplugin1.pdf}
+        \caption{Création d'un nouveau projet - Install Plugin}
+        \label{fig:sub1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \raisebox{0.7cm}{ % adjust the value as needed
+            \includegraphics[width=\textwidth]{img/mac/pythonplugin2.pdf}
+        }
+        \caption{Installation du plugin Python}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Utilisation de Python dans Intellij}
+    \label{fig:installpython}
+\end{figure}
+    
+    \item Pour créer un nouveau projet, cliquez sur \texttt{Create} à partir de la fenêtre d'accueil, sélectionnez Python ou Java sur le menu latéral à gauche. Définissez l'emplacement de votre kit de développement logiciel et donnez un nom à votre projet (Assurez-vous de choisir une version Python $>=$ 3.11). Cliquez sur \texttt{Create}.
+    \begin{figure}[ht]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/mac/javaproject.png}
+        \caption{Création d'un projet Java}
+        \label{fig:sub1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \raisebox{0.0cm}{ % adjust the value as needed
+            \includegraphics[width=\textwidth]{img/mac/pythonproject.png}
+        }
+        \caption{Création d'un projet Python}
+        \label{fig:sub2}
+    \end{subfigure}
+    \label{fig:createproject}
+\end{figure}
+\end{enumerate}
+\newpage
+
+\subsection*{Votre premier programme}
+
+\begin{itemize}
+    \item \textbf{Python: }\url{https://www.jetbrains.com/help/idea/creating-empty-python-project.html}
+    \item \textbf{Java: }\burl{https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html#run_app}
+\end{itemize}
+
+\end{document}

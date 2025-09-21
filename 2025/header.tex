@@ -7,9 +7,9 @@
 \usepackage{tcolorbox}
 \usepackage{xspace}
 \usepackage[french]{babel}
-\usepackage{url}
 \usepackage{hyperref}
-\usepackage{fontawesome5}
+\usepackage{xurl}
+\usepackage{fontawesome6}
 \usepackage{marginnote}
 \usepackage{ulem}
 \usepackage{tcolorbox}
@@ -155,7 +155,7 @@
   \newif\ifShowWarning
   \NewEnviron{attention}{
     \ifShowWarning
-    \begin{Warning}{\faExclamationTriangle \quad Attention}
+    \begin{Warning}{\faTriangleExclamation \quad Attention}
       \BODY
     \end{Warning}
 
