@@ -15,6 +15,7 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutionfalse
 \ShowConseiltrue
+\ShowWarningtrue
 \ShowNotefalse
 
 \titre
@@ -46,7 +47,7 @@ Basique: un exercice essentiel pour maîtriser les notions de cours ou tout simp
     \begin{comment}
         \textit{(\faClock \enskip 60 minutes)}
     \end{comment}
-    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils se trouve \href{https://moodle.unil.ch/mod/resource/view.php?id=1761727}{à cette adresse Moodle}.
+    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils sur Windows se trouve \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/8/prerequisite_win.pdf}{à cette adresse Moodle} et sur MacOS \href{https://moodle.unil.ch/pluginfile.php/3532600/mod_resource/content/8/prerequisite_macos.pdf}{à cette adresse Moodle}.
 \end{section}
 
 \begin{section}{Systèmes d'exploitation}
@@ -84,7 +85,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
         \end{enumerate}
     \end{Exercice}
     \begin{solution}
-                C'est le rôle du processeur d'interpréter les instructions et de les convertir en binaire. Il gère les ressources de l'ordinateur et permet aux différents composants de communiquer entre eux.
+                C'est le rôle du compilateur ou interpréteur d'interpréter les instructions et de les convertir en binaire. Il gère les ressources de l'ordinateur et permet aux différents composants de communiquer entre eux.
     \end{solution}
     % TODO: Explication
     
@@ -160,7 +161,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
-            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher le contenu du répertoire courant.
+            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher les références des fichiers et dossiers du répertoire courant.
         \end{solution}
         \begin{conseil}
             Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou écrire \texttt{help} avant chaque commande sous Windows.
@@ -173,7 +174,7 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (\textit{filesystem})?
         \begin{enumerate}
             \item L'organisation des dossiers.
-            \item L'écriture et la lecture sur les disques.
+            \item L'écriture et la lecture du \textbf{contenu} des fichiers sur les disques.
             \item Les différents chemins d'accès aux différents dossiers et fichiers.
             \item L'organisation des fichiers.
             \item Aucune réponse correcte.
@@ -181,9 +182,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     \end{Exercice}
     
     \begin{solution}
-        L'écriture et la lecture sur les disques. \\
+        L'écriture et la lecture des fichiers sur les disques. \\
 	
-	En effet, cet élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation des fichiers et dossiers. \\ 
+	En effet, cet élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation \textbf{virtuelle} des fichiers et dossiers. L'écriture ou lecture physique est faite par le controlleur du disque et le disque dur. \\ 
     \end{solution}
     
 \end{section}
@@ -192,9 +193,9 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
     Les ordinateurs ne ``comprennent" pas les langages de programmation, il faut passer par un programme qui va convertir le code écrit par un humain en instructions que l'ordinateur comprend (à base de 0 et de 1).
 \\
 Les interprètes et les compilateurs servent à faire ce travail de traduction, ils transforment donc les langages de programmation qui sont faits pour être compris et écrits par des humains, vers des instructions compréhensibles pour des ordinateurs.
-\\
-La façon dont les interprètes et les compilateurs opèrent est différente et les deux approches apportent leur propre lot de bénéfices et d'inconvénients:\\
-    \begin{tabular}{| C{0.45\textwidth} | C{0.45\textwidth} |} 
+La façon dont les interprètes et les compilateurs opèrent est différente et les deux approches apportent leur propre lot de bénéfices et d'inconvénients: \newline 
+    
+\begin{tabular}{| C{0.45\textwidth} | C{0.45\textwidth} |} 
         \hline
         \textbf{Compilateurs} & \textbf{Interpréteurs}\\ [0.5ex]
         \hline
@@ -210,11 +211,15 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
     \end{tabular}
     \\\\
+    \begin{attention}
+    Sur MacOS, pour exécuter de code Python depuis le terminal (shell), on écrit \texttt{python3} alors que sur Windows, on écrit \texttt{python}. Vous pouvez aussi essayer d'écrire les deux et voir laquelle fonctionne. Pour exécuter de code Java, on exécute (dans le terminal) d'abord la compilation en écrivant \texttt{javac Example.java} et ensuite \texttt{java Example [arguments séparés par espaces]}.
+\end{attention}
     \begin{Exercice}[10 minutes]
         En utilisant l'invite de commande (Terminal), créer un fichier contenant les instructions suivantes:
         \begin{lstlisting}
-            if __name__ == "__main__":
-                print("Hello world")\end{lstlisting}
+if __name__ == "__main__":
+    print("Hello world")
+        \end{lstlisting}
         Enregistrer le fichier sous \lstinline{hello.py}. Utiliser l'interpréteur de Python pour exécuter le programme que vous venez de créer.
     \end{Exercice}
     \begin{note}{Arnaud}
@@ -224,8 +229,8 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installé les outils de développement avant d'exécuter le programme.
             \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer \lstinline{Nano} en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
-Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la command \lstinline{touch > hello.py}.
-            \item Sous Windows, vous pouvez utiliser n'importe quel éditeur de texte. Notepad est installé par défaut sous Windows.
+Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la command \lstinline{touch hello.py}.
+            \item Sous Windows, vous pouvez utiliser la commande \texttt{bash -c \textquotesingle nano hello.py\textquotesingle} dans Powershell. 
         \end{itemize}
     \end{conseil}
     \begin{solution}
@@ -293,7 +298,7 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
 
             \textbf{Erreur fréquente}: En utilisant la commande \lstinline{javac}, vous pouvez obtenir l'erreur suivante:\\
             \textbf{javac is not recognized as an internal or external command, operable program or batch file}\\
-            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, rendez-vous dans le dossier ou vous avez installé java et copier le chemin du fichier ``bin''.\\Par exemple sous Windows, dans le terminal, entrez:\\ \textbf{set path=``C:\textbackslash Program Files\textbackslash Java\textbackslash jdk1.8.0\_121\textbackslash bin''}\\(Attention à bien entrez votre chemin comprenant la version que vous avez installée.)
+            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, lisez la dernière section \textbf{Résolution Bug Windows} dans le document disponible à \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/8/prerequisite_win.pdf}{cette adresse Moodle}.
 
         \end{solution}
 
@@ -303,16 +308,14 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
 \begin{section}{Librairies}
     \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une librairie écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
 \\\\
-En Python, de nombreuses librairies sont disponibles de base (\lstinline{list, set, dict, str}, etc.) et de nombreuses autres peuvent être utilisées en utilisant le mot-clé \lstinline{import}.
-
-Le but des exercices ci-dessous est de vous apprendre à lire la documentation d'un langage de programmation. Cela vous permettra d'être plus autonome pour la suite du cours.
+En Python, de nombreuses fonctions et structures de données sont disponibles dans la librairie standard de Python (\lstinline{list, set, dict, str}, etc.) et de nombreuses autres librairies peuvent être utilisées en utilisant le mot-clé \lstinline{import}. Le but des exercices ci-dessous est de vous apprendre à lire la documentation d'un langage de programmation. Cela vous permettra d'être plus autonome pour la suite du cours.
 \\\\
 Dans l'exemple suivant, nous importons la librairie \lstinline{math} qui propose de nombreuses fonctions mathématiques et nous essayons la fonction factorielle pour calculer \lstinline{5!}.
 \begin{Example}{\faTerminal Exemple}
     \begin{lstlisting}
-    import math
-    fact = math.factorial(5)
-    print(fact)\end{lstlisting}
+import math
+fact = math.factorial(5)
+print(fact)\end{lstlisting}
 \end{Example}
 \begin{note}{Arnaud}
     Vraiment utile d'autant approfondir les librairies à ce moment la du cours? J'aurais mis ces exos en avancés.
@@ -372,7 +375,7 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 \begin{solution}
 	On peut citer \lstinline{Numpy}, \lstinline{Scikit}, \lstinline{TensorFlow} qui sont utilisées pour faire du Machine Learning. \\
 	
-	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, Pandas qui permet de faire de l'analyse de données,\lstinline{SQLAlchemy} qui permet de gérer des bases de données. \\
+	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, \texttt{Pandas} qui permet de faire de l'analyse de données,\lstinline{SQLAlchemy} qui permet de gérer des bases de données. \\
 \end{solution} 
 \end{section}
 \end{document}

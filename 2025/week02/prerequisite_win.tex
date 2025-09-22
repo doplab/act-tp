@@ -35,13 +35,13 @@ Avant d'installer les outils de développement, vous devez vous assurer d'avoir 
     
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.7\textwidth]{img/win/python-install.pdf}
+        \fbox{\includegraphics[width=0.7\textwidth]{img/win/python-install.pdf}}
     \end{figure}
     Pour tester que tout fonctionne, ouvrez votre terminal (command prompt ou powershell) et tapez la commande \lstinline{python --version}, vous devriez avoir la fenêtre ci-dessous.
 
     \begin{figure}[h!]
         \centering
-        \fbox{\includegraphics[width=0.7\textwidth]{img/win/python-verify.png}}
+        \fbox{\includegraphics[width=0.5\textwidth]{img/win/python-verify.png}}
         \caption{Aperçu du powershell à la fin d'installation de Python}
     \end{figure}
 
@@ -68,7 +68,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     Cliquez sur \texttt{\faPlus New Project} dans la fenêtre d'accueil ci-dessous.
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.5\textwidth]{img/win/intellij-welcome.PNG}
+        \fbox{\includegraphics[width=0.4\textwidth]{img/win/intellij-welcome.PNG}}
     \end{figure}
     \item Pour utiliser Python sur IntelliJ, 
     vous devez installer le plugin 
@@ -79,7 +79,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{img/win/pythonplugin1.pdf}
+        \fbox{\includegraphics[width=\textwidth]{img/win/pythonplugin1.pdf}}
         \caption{Création d'un nouveau projet - Install Plugin}
         \label{fig:sub1}
     \end{subfigure}
@@ -87,7 +87,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \raisebox{0.7cm}{ % adjust the value as needed
-            \includegraphics[width=\textwidth]{img/win/pythonplugin2.PNG}
+            \fbox{\includegraphics[width=\textwidth]{img/win/pythonplugin2.PNG}}
         }
         \caption{Installation du plugin Python}
         \label{fig:sub2}
@@ -101,7 +101,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{img/win/javaproject.png}
+        \fbox{\includegraphics[width=\textwidth]{img/win/javaproject.png}}
         \caption{Création d'un projet Java}
         \label{fig:sub1}
     \end{subfigure}
@@ -109,7 +109,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \raisebox{0.0cm}{ % adjust the value as needed
-            \includegraphics[width=\textwidth]{img/win/pythonproject.png}
+            \fbox{\includegraphics[width=\textwidth]{img/win/pythonproject.png}}
         }
         \caption{Création d'un projet Python}
         \label{fig:sub2}
@@ -117,7 +117,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \label{fig:createproject}
 \end{figure}
 \end{enumerate}
-\newpage
+
 
 \subsection*{Votre premier programme}
 
@@ -125,7 +125,7 @@ L'IDE (Integrated Development Environment) qui sera utilisé tout au long du sem
     \item \textbf{Python: }\url{https://www.jetbrains.com/help/idea/creating-empty-python-project.html}
     \item \textbf{Java: }\burl{https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html#run_app}
 \end{itemize}
-
+\newpage
 \subsection*{Résolution Bug Windows}
 Sur Windows, lorsque vous tentez d'exécuter un fichier java, il se peut que le message d'erreur suivant s'affiche :\\
  
@@ -141,10 +141,10 @@ Dans ce cas, suivez les étapes suivantes :
     \\
     \item Sélectionnez Variables d'environnement. Dans variables système, identifiez la variable "Path", sélectionnez là et choisissez modifier.\\
     \includegraphics[width=16cm]{img/Res2.PNG}
-    \item Ouvrez votre explorateur de fichiers et trouvez le chemin d'accès à \textbf{jdk\$\{votre version\} $>$ bin}. \\Par exemple : $C:\backslash Program Files\backslash Java\backslash jdk1.8.0\_261\backslash bin.$\\
-    \item Copiez ce chemin d'accès et copiez-le à la dernière ligne de la variable d'environnement Path.\\\
+    \item Ouvrez votre explorateur de fichiers et trouvez le chemin d'accès à \textbf{javac} et \textbf{java}. \\Par exemple : $C:\backslash Program Files\backslash Common Files\backslash Oracle\backslash Java \backslash javapath.$\\
+    \item Copiez ce chemin d'accès et copiez-le à la première ligne de la variable d'environnement Path.\\\
     \includegraphics[width=15cm]{img/win/environment-variables.PNG}\\
-    \item Faites ok. Puis redémarrez votre ordinateur.
+    \item Faites OK. Puis redémarrez votre ordinateur.
     \item Ouvrez votre Terminal, Naviguez vers votre fichier .java et tapez :
         \begin{enumerate}
             \item \lstinline{javac VotreProgramme.java} (Cette commande va créer un fichier avec une extension \lstinline{.class})
