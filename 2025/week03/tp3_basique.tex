@@ -1,14 +1,16 @@
 \input{../header.tex}
-
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage{listings}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
-
+\def\x{1}
+\def\y{1}
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Programmation de base}
@@ -35,7 +37,85 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     
     \begin{solution}
         Méthode 1: Utiliser la division par 2 comme vu dans la première séance d'exercices.\\
-        
+
+        \begin{center}
+        \begin{minipage}{0.3\textwidth}
+    \centering
+
+     \resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[scale=1.3]
+        % Ladder pattern: vertical down, horizontal right, vertical down, horizontal right, etc.
+    \draw[thick] (0,4) -- (0,3);        % vertical down
+    \node[left] at (0,3.5) {\Huge 113};)
+    \node[left] at (0,2.5) {\Huge -112};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (0.2-\x,2.5-\y) {\Large R:1};)
+    \draw[thick] (0,3) -- (1,3);        % horizontal right
+    \node[above] at (0.5,3) {\Huge 2};
+    \node[left] at (1,2.5) {\Huge 56};)
+    \draw[thick] (1,3) -- (1,2);        % vertical down
+    \node[left] at (1,2.5) {\Huge 56};)
+    \node[left] at (1,1.5) {\Huge -56};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (1.2-\x,1.5-\y) {\Large R:0};)
+    \draw[thick] (1,2) -- (2,2);        % horizontal right
+    \node[above] at (1.5,2) {\Huge 2};
+    \node[left] at (2,1.5) {\Huge 28};)
+    \draw[thick] (2,2) -- (2,1);        % vertical down
+    \node[left] at (2,1.5) {\Huge 28};)
+    \node[left] at (2,0.5) {\Huge -28};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (2.2-\x,0.5-\y) {\Large R:0};)
+    \draw[thick] (2,1) -- (3,1);        % horizontal right
+    \node[above] at (2.5,1) {\Huge 2};
+    \node[left] at (3,0.5) {\Huge 14};)
+    \draw[thick] (3,1) -- (3,0);        % vertical down
+    \node[left] at (3,0.5) {\Huge 14};)
+    \node[left] at (3,-0.5) {\Huge -14};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (3.2-\x,-0.5-\y) {\Large R:0};)
+    \draw[thick] (3,0) -- (4,0);        % horizontal right
+    \node[above] at (3.5,0) {\Huge 2};
+    \node[left] at (4,-0.5) {\Huge 7};)
+    \draw[thick] (4,0) -- (4,-1);        % vertical down
+    \node[left] at (4,-0.5) {\Huge 7};)
+    \node[left] at (4,-1.5) {\Huge -6};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (4.2-\x,-1.5-\y) {\Large R:1};)
+    \draw[thick] (4,-1) -- (5,-1);        % horizontal right
+    \node[above] at (4.5,-1) {\Huge 2};
+    \node[left] at (5,-1.5) {\Huge 3};)
+    \draw[thick] (5,-1) -- (5,-2);        % vertical down
+    \node[left] at (5,-1.5) {\Huge 3};)
+    \node[left] at (5,-2.5) {\Huge -2};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (5.2-\x,-2.5-\y) {\Large R:1};)
+    \draw[thick] (5,-2) -- (6,-2);        % horizontal right
+    \node[above] at (5.5,-2) {\Huge 2};
+    \node[left] at (6,-2.5) {\Huge 1};)
+    \draw[thick] (6,-2) -- (6,-3);        % vertical down
+    \node[left] at (6,-2.5) {\Huge 1};)
+    \node[left] at (6,-3.5) {\Huge -0};)
+    \node[right, draw=blue, thick, inner sep=2pt] at (6.2-\x,-3.5-\y) {\Large R:1};)
+    \node[left] at (7,-3.5) {\Huge 0};
+    \draw[thick] (6,-3) -- (7,-3);
+    
+    % Red curves connecting all blue border nodes
+    % Define the positions of the blue border nodes
+    \coordinate (node1) at (0.2-\x,2.5-\y);
+    \coordinate (node2) at (1.2-\x,1.5-\y);
+    \coordinate (node3) at (2.2-\x,0.5-\y);
+    \coordinate (node4) at (3.2-\x,-0.5-\y);
+    \coordinate (node5) at (4.2-\x,-1.5-\y);
+    \coordinate (node6) at (5.2-\x,-2.5-\y);
+    \coordinate (node7) at (6.2-\x,-3.5-\y);
+    
+    % Connect nodes with red curves
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node1) to (node2);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node2) to (node3);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node3) to (node4);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node4) to (node5);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node5) to (node6);
+    \draw[red, thick, bend right=40, -{Stealth[length=8pt,width=6pt]}] (node6) to (node7);
+    
+\end{tikzpicture}
+     }
+\end{minipage}
+        \end{center}
         
         Méthode 2 : Utiliser les puissances de 2 pour décomposer le nombre (vu également dans la première séance d'exercices).
         
@@ -56,13 +136,12 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Entiers signés négatifs}\\
-    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. \\
+    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation de \textbf{signed magnitude} à la diapositive 10 du cours. \\
 
     \begin{conseil}
         \begin{itemize}
         	\item Il faut prendre la représentation sur 7 bits d'un nombre entier non signé.
         	\item On rajoute un 8ème bit qui sera le signe.
-        	\item Pour cet exercice, reprendre l'expression non signée de la question précédente (question 1 - Entiers non signés) et changer le premier bit en conséquence.
         	\item Le premier bit à gauche vaut 0 pour un nombre positif et 1 pour un nombre négatif.
         \end{itemize} 
     \end{conseil}
@@ -115,7 +194,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Complément à 2}\\
-    Quel est le complément à 2 de -113$_{(10)}$ et quelle est l'utilité de cette représentation ? \\
+    Quel est la représentation du complément à 2 (two complement) de -113$_{(10)}$ et quelle est l'utilité de cette représentation ? \\
 
     \begin{conseil}
     
@@ -135,9 +214,9 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         
         a : convertir le nombre en binaire \\
         
-        b : inverser tous les bits \\
+        b : inverser tous les bits (en utilisant \textbf{not}) \\
         
-        c : rajouter 1 au nombre pour obtenir le complément à 2 \\
+        c : rajouter 1 à b pour obtenir le complément à 2 \\
         
         On obtient donc -87$_{(10)}$ = 10101001$_{(2)}$ \\
     \end{conseil}
@@ -166,6 +245,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
             \hline
 	\end{tabular}
 	\\
+    
     Que vaut cette représentation en base 10 ? Utiliser la représentation des floating points (avec un biais de 127). Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
 	
     \begin{conseil}

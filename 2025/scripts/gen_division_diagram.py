@@ -34,6 +34,7 @@ def generate_division_by_2_diagram(number):
             'remainder': remainder,
             'subtracted': current - remainder
         })
+        print('dividend', current)
         current = quotient
     
     # Building the LaTeX code
