@@ -1,7 +1,10 @@
 \input{../header.tex}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+
 \usepackage{listings}
+
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
@@ -12,6 +15,7 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \titre
 \cours{Programmation de base}
 
@@ -366,17 +370,105 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
 
 \newpage
 
-\section{Opérateurs et conditions Booléennes (Python uniquement)}
-Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True}, soit \lstinline{False}. Il est possible de les définir en leur associant une de ces valeurs d'emblée ou de les obtenir en effectuant une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens. Voici les plus utilisés : $==$ (est égal), $!=$ (n'est pas égal), $<$ (est strictement plus petit), $<=$ (est plus petit ou égal), $>$ (est strictement plus grand), $>=$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
+\section{Opérateurs et conditions Booléennes}
+Le principe d'une valeur booléenne est qu'elle 
+ne puisse contenir que 2 valeurs possibles, soit 
+\lstinline{True}, soit \lstinline{False}. Il est possible 
+de les définir en leur associant une 
+de ces valeurs d'emblée ou de les obtenir 
+en effectuant une opération booléenne comme par exemple une comparaison. 
+Pour ce faire, il faut utiliser des opérateurs booléens. 
+Voici les plus utilisés : $=$ (est égal), $!=$ (n'est pas égal), 
+$<$ (est strictement plus petit), 
+$\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
+ $\geq$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
 
-Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
-
+\begin{Exercice}[5 minutes]
+Démontrez l'équivalence suivante:
+\begin{align}
+   (\neg p \vee q) \wedge (p \vee \neg q) \Leftrightarrow (p \wedge q) \vee (\neg p \wedge \neg q)
+\end{align}
 \begin{conseil}
-	Utilisez les tables de vérité présentées à la diapositive 22 du cours.
+	Utilisez la table des règles présentées à la diapositive 23 du cours pour déduire cette équivalence.
 \end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
+    \begin{attention}
+        Dans l'exercice suivant, vous pouvez supposer toujours que $b>a$ et $d>c$ pour les intervalles $L=[a,b]$ et $S=[c,d]$. 
+    \end{attention}
+    \begin{enumerate}
+        \item  À l'aide de la figure ci-dessous, écrivez la condition booléenne en fonction de $a, b, c, d$ pour que les deux intervalles ne se recouvrent pas. 
+        \item Re-écrire cette condition à l'aide de la loi DeMorgan (diapositive 23 du cours). 
+    \end{enumerate}
+\begin{center}
+        \fbox{\begin{minipage}{0.8\textwidth}
+    \centering
+
+     \resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[scale=1.3]
+           % Cas 1: Interval A is completely to the left of interval B
+    \draw[thick] (0,2) -- (8,2);
+    \foreach \x in {0,1,2,3,4,5,6,7,8}
+        \draw (\x,1.9) -- (\x,2.1);
+    
+    % Interval A (left)
+    \draw[very thick, blue] (1,2) -- (2.5,2);
+    \filldraw[blue] (1,2) circle (2pt);
+    \filldraw[blue] (2.5,2) circle (2pt);
+    
+    % Interval B (right)
+    \draw[very thick, red] (4,2) -- (6,2);
+    \filldraw[red] (4,2) circle (2pt);
+    \filldraw[red] (6,2) circle (2pt);
+    
+    % Labels for Cas 1
+    \node[blue, below] at (1.75,1.7) {$L = [a, b]$};
+    \node[red, below] at (5,1.7) {$S = [c, d]$};
+    \node at (4,2.8) {};
+    
+    % Cas 2: Interval A is completely to the right of interval B
+    \draw[thick] (0,0) -- (8,0);
+    \foreach \x in {0,1,2,3,4,5,6,7,8}
+        \draw (\x,-0.1) -- (\x,0.1);
+    
+    % Interval B (left)
+    \draw[very thick, red] (1,0) -- (3,0);
+    \filldraw[red] (1,0) circle (2pt);
+    \filldraw[red] (3,0) circle (2pt);
+    
+    % Interval A (right)
+    \draw[very thick, blue] (5,0) -- (6.5,0);
+    \filldraw[blue] (5,0) circle (2pt);
+    \filldraw[blue] (6.5,0) circle (2pt);
+    
+    % Labels for Cas 2
+    \node[red, below] at (2,-0.3) {$S = [c, d]$};
+    \node[blue, below] at (5.75,-0.3) {$L = [a, b]$};
+    % \node at (4,0.8) {\textbf{Cas 2:} $d < a$};
+    
+    % Gap indicators
+    \draw[<->, dashed, gray] (2.5,1.5) -- (4,1.5);
+    \node[gray, above] at (3.25,1.5) {écart};
+    
+    \draw[<->, dashed, gray] (3,-0.5) -- (5,-0.5);
+    \node[gray, above] at (4,-0.5) {écart};
+    
+    % % Title
+    % \node[font=\large\bfseries] at (4,3.5) {Non-intersecting Intervals};
+
+\end{tikzpicture}
+     }
+\end{minipage}}
+        \end{center}
+\end{Exercice}
+ Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
 
 
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+    \begin{conseil}
+	Utilisez les tables de vérité présentées à la diapositive 22 du cours.
+\end{conseil}
     
     \lstinputlisting{updated/Questions/Question10.py}
 
