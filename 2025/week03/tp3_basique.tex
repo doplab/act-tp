@@ -391,6 +391,17 @@ Démontrez l'équivalence suivante:
 \begin{conseil}
 	Utilisez la table des règles présentées à la diapositive 23 du cours pour déduire cette équivalence.
 \end{conseil}
+\begin{solution}
+   \begin{align*}
+   & (\neg p \vee q) \wedge (p \vee \neg q) &\Leftrightarrow   \\
+   & ((\neg p \vee q) \wedge p) \vee  ((\neg p \vee q) \wedge \neg q) &\Leftrightarrow  \tag{Distribution} \\
+   & (p\wedge (\neg p \vee q)) \vee  ( \neg q \wedge (\neg p \vee q) ) &\Leftrightarrow  \tag{Association} \\
+   & ((p\wedge \neg p) \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee (\neg q \wedge q) )  &\Leftrightarrow \tag{Distribution} \\ 
+   & (F \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee F)  &\Leftrightarrow \tag{Negation} \\
+   & (p\wedge q) \vee  (\neg q \wedge \neg p)  &\Leftrightarrow \tag{Bound} \\
+      & (p\wedge q) \vee  (\neg p \wedge \neg q )   \tag{Commutativity} \\
+\end{align*}
+    \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]
@@ -399,7 +410,7 @@ Démontrez l'équivalence suivante:
     \end{attention}
     \begin{enumerate}
         \item  À l'aide de la figure ci-dessous, écrivez la condition booléenne en fonction de $a, b, c, d$ pour que les deux intervalles ne se recouvrent pas. 
-        \item Re-écrire cette condition à l'aide de la loi DeMorgan (diapositive 23 du cours). 
+        \item Re-écrire la négation de cette condition à l'aide de la loi DeMorgan (diapositive 23 du cours). 
     \end{enumerate}
 \begin{center}
         \fbox{\begin{minipage}{0.8\textwidth}
@@ -449,10 +460,10 @@ Démontrez l'équivalence suivante:
     
     % Gap indicators
     \draw[<->, dashed, gray] (2.5,1.5) -- (4,1.5);
-    \node[gray, above] at (3.25,1.5) {écart};
+    \node[gray, above] at (3.25,1.5) {écart $>$ 0};
     
     \draw[<->, dashed, gray] (3,-0.5) -- (5,-0.5);
-    \node[gray, above] at (4,-0.5) {écart};
+    \node[gray, above] at (4,-0.5) {écart $>$ 0};
     
     % % Title
     % \node[font=\large\bfseries] at (4,3.5) {Non-intersecting Intervals};
@@ -461,6 +472,13 @@ Démontrez l'équivalence suivante:
      }
 \end{minipage}}
         \end{center}
+        \begin{solution}
+            \begin{enumerate}
+                \item $(c > b) \vee (a > d)$
+                \item $(c \leq b) \wedge (a \leq d)$
+            \end{enumerate}
+        
+        \end{solution}
 \end{Exercice}
  Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
 
