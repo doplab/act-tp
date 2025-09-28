@@ -5,4 +5,4 @@ d = c >= b
 print(a==b or d)
 print(a==b and d)
 print(a==b or a==c or False or d)
-print(a<c and not (b ==2 and not d))
+print(a<c and not (4*b==8 and not d))

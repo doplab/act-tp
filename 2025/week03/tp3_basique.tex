@@ -5,6 +5,14 @@
 
 \usepackage{listings}
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
+
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
@@ -13,7 +21,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -383,14 +391,18 @@ $<$ (est strictement plus petit),
 $\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
  $\geq$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
 
-\begin{Exercice}[5 minutes]
-Démontrez l'équivalence suivante:
-\begin{align}
+\begin{Exercice}[7 minutes]
+\begin{enumerate}
+    \item 
+ Démontrez l'équivalence suivante:
+\begin{align*}
    (\neg p \vee q) \wedge (p \vee \neg q) \Leftrightarrow (p \wedge q) \vee (\neg p \wedge \neg q)
-\end{align}
+\end{align*}
 \begin{conseil}
-	Utilisez la table des règles présentées à la diapositive 23 du cours pour déduire cette équivalence.
+	Utilisez la table des règles présentées à la diapositive 23 du cours pour déduire cette équivalence. 
 \end{conseil}
+\item Re-faire cet exercice en utilisant les tables de vérité.
+\end{enumerate}
 \begin{solution}
    \begin{align*}
    & (\neg p \vee q) \wedge (p \vee \neg q) &\Leftrightarrow   \\
@@ -404,7 +416,7 @@ Démontrez l'équivalence suivante:
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]
+\begin{Exercice}[2 minutes]
     \begin{attention}
         Dans l'exercice suivant, vous pouvez supposer toujours que $b>a$ et $d>c$ pour les intervalles $L=[a,b]$ et $S=[c,d]$. 
     \end{attention}
@@ -483,52 +495,105 @@ Démontrez l'équivalence suivante:
  Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
 
 
+% \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+    
+%     \lstinputlisting{updated/Questions/Question10.py}
+
+%     \begin{solution}
+%         \texttt{False} 
+        
+%         \texttt{True} 
+        
+%         \texttt{True} 
+        
+%         \texttt{False} 
+        
+%         \texttt{False}
+%     \end{solution}
+% \end{Exercice}
+    
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+
     \begin{conseil}
 	Utilisez les tables de vérité présentées à la diapositive 22 du cours.
 \end{conseil}
     
-    \lstinputlisting{updated/Questions/Question10.py}
-
-    \begin{solution}
-        False 
-        
-        True 
-        
-        True 
-        
-        False 
-        
-        False
-    \end{solution}
-\end{Exercice}
-    
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
-    
     \lstinputlisting{updated/Questions/Question11.py}
 
     \begin{solution}
-        True 
+        \texttt{True} 
         
-        False 
+        \texttt{False} 
         
-        True 
+        \texttt{True} 
         
-        True
+        \texttt{True}
     \end{solution}
     
 \end{Exercice}
     
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+\begin{Exercice}[5 minutes] 
+    \begin{enumerate}
+        \item Qu'affiche le programme suivant? 
+         \lstinputlisting{updated/Questions/Question12.py}
+        \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c|?
+    \end{enumerate}
+
     
-    \lstinputlisting{updated/Questions/Question12.py}
 
     \begin{solution}
-        output 1\\
-        output 2\\
-        output 3
+        \begin{enumerate}
+        \item \texttt{output 1}\\
+        \texttt{output 2}\\
+        \texttt{output 3}
+        \item \texttt{output 1}\\
+        \texttt{output 3}
+        \end{enumerate}
     \end{solution}
     
 \end{Exercice}
 
+\section{Match (Python) et Switch (Java)}
+L'instruction \href{https://docs.python.org/fr/3.13/tutorial/controlflow.html#tut-match}{match} en Python et
+\href{https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html}{switch} en Java a 
+pour objectif de simplifier la logique conditionnelle 
+en sélectionnant un bloc de code à exécuter parmi plusieurs 
+options. Cette structure compare la valeur d'une variable ou 
+d'une expression à une série de cas (case) prédéfinis. 
+Lorsqu'une correspondance est trouvée, le code associé à ce 
+cas est exécuté, offrant ainsi une alternative plus lisible et 
+organisée qu'une longue chaîne de \texttt{if-elif-else}. \newline 
+
+
+Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/6/switch_explanation.pdf}{cette mémoire disponible sur Moodle}
+pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
+
+\begin{Exercice}[5 minutes] 
+    Écrire le code Java qui demande à l'utilisateurice d'entrer l'étape d'éxecution d'une instruction et affiche les étapes qui reste à exécuter (y compris l'étape courante). 
+    Si l'utilisateurice entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
+
+    \begin{conseil}
+    Rappelez vous de l'architecture de Von Neumann 
+    disponible à la diapositive 
+    17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
+    la saisie texte de l'utilisateurice, utilisez \texttt{nextLine()} telle qu'elle est définie dans \href{https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Scanner.html\#nextLine()}{la documentation Java en ligne}.
+    \end{conseil}
+
+
+   \begin{Example}{Exemple}
+Si l'utilisateurice entre \texttt{decode}, le programme va afficher:
+\begin{lstlisting}[numbers=none, keywordstyle=\color{black}, stringstyle=\color{black}]
+L'étape decode s'exécute ou va être exécutée. 
+L'étape execute s'exécute ou va être exécutée. 
+L'étape store s'exécute ou va être exécutée.
+\end{lstlisting}
+   \end{Example}
+
+    
+
+    \begin{solution}
+         \lstinputlisting{updated/Questions/Question13.java}
+    \end{solution}
+    
+\end{Exercice}
 \end{document}
