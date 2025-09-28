@@ -602,9 +602,8 @@ pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline
 
 
    \begin{Example}{Exemple}
-Si l'utilisateur entre \texttt{decode}, le programme va afficher:
+Si l'utilisateur entre \texttt{execute}, le programme va afficher:
 \begin{lstlisting}[numbers=none, keywordstyle=\color{black}, stringstyle=\color{black}]
-L'étape decode s'exécute ou va être exécutée. 
 L'étape execute s'exécute ou va être exécutée. 
 L'étape store s'exécute ou va être exécutée.
 \end{lstlisting}
@@ -708,9 +707,23 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
     \textbf{\\Java:}\\
     3\\
     3.14 \\
-           
     \end{solution}   
 \end{Exercice}
 
+\section{Chaîne de caractères}
+\begin{Exercice}
+Soit la chaîne de caractères: \texttt{School of Criminal Sciences\textbackslash nUNIL}. 
+\begin{enumerate}
+\item Affichez cette chaîne en Python et en Java. Pourquoi est-elle séparée par une nouvelle ligne ?
+\item Essayez d'afficher uniquement la chaîne \texttt{School of Criminal Sciences} en sélectionnant une sous-chaîne de la chaîne initiale. Pour Python, consultez \href{https://docs.python.org/fr/3.13/library/functions.html\#slice}{la documentation en ligne} et pour Java, consultez \href{https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html\#substring(int,int)}{la documentation Java en ligne}.
+\item Accédez au troisième caractère de la chaîne en Python et en Java. Pour Java, consultez \href{https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html\#charAt(int)}{la documentation en ligne}.
+\end{enumerate}
+\begin{solution}
+   \lstinputlisting{updated/Questions/Question15.py}
+\end{solution}
+\begin{solution}
+   \lstinputlisting{updated/Questions/Question15.java}
+\end{solution}
+\end{Exercice}
 
 \end{document}
