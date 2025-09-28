@@ -2,6 +2,10 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathreplacing}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{trees}
+\usepackage{tcolorbox}
+
 
 \usepackage{listings}
 
@@ -589,11 +593,66 @@ L'étape store s'exécute ou va être exécutée.
 \end{lstlisting}
    \end{Example}
 
-    
-
     \begin{solution}
          \lstinputlisting{updated/Questions/Question12.java}
     \end{solution}
     
 \end{Exercice}
+
+\begin{Exercice}[5 minutes]
+
+% Solution 1: Force baseline alignment with \vspace{0pt}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt}
+\begin{tcolorbox}[width=2in,colframe=black, boxrule=1pt, left=0pt, right=0pt, top=0pt, bottom=0pt]
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+\node [selected] {/var/www/}
+    child { node [selected] {public}
+        child { node [file] {esc.png}}
+        child [missing] {}
+    }
+    child [missing] {}
+    child { node [selected] {src}
+        child { node [file] {Main.class}}
+        child { node [file] {Main.java}}
+    }
+    child [missing] {}
+    child [missing] {}
+    child { node [file] {index.html}};
+\end{tikzpicture}
+\end{tcolorbox}
+\end{minipage}%
+\hspace{-1.5cm}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
+Vous êtes donné l'arborescence à gauche d'un système de fichiers (filesystem).
+Écrivez un programme Python (utilisant \texttt{match}) qui affiche \textbf{seulement les noms des fichiers} dans un seul dossier spécifié à la ligne de commande. 
+Votre programme doit seulement gérer les arguments suivants: \newline 
+
+\begin{itemize}
+    \item[$\bullet$] \texttt{/var/www/./public/..}
+    \item[$\bullet$] \texttt{/var/www/src/..}
+    \item[$\bullet$] \texttt{/var/www/src/}
+    \item[$\bullet$] \texttt{/var/www/public/} \newline 
+\end{itemize}
+
+Pour les autres cas, il faut afficher \texttt{La saisie n'était pas reconnue}.  
+\end{minipage}
+\begin{conseil}
+Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/pluginfile.php/3532635/mod_resource/content/5/3\%20\%E2\%80\%93\%20Programming\%20Basics.pdf}{la diapositive 31 du cours}. 
+\end{conseil}
+
+\begin{solution}
+ \lstinputlisting{updated/Questions/Question13.py}
+\end{solution}
+\end{Exercice}
+
 \end{document}
