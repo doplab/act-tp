@@ -418,6 +418,23 @@ $\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
       & (p\wedge q) \vee  (\neg p \wedge \neg q )   \tag{Commutativity} \\
 \end{align*}
     \end{solution}
+    \begin{solution}
+    \begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & LHS & RHS & LHS $\Leftrightarrow$ RHS \\
+\hline
+T & T & F & F & T & T & T & T & T \\
+T & F & F & T & F & T & F & F & T \\
+F & T & T & F & T & F & F & F & T \\
+F & F & T & T & T & T & T & T & T \\
+\hline
+\end{tabular}
+\end{center}
+Cette opération booléenne est appelé \href{https://en.wikipedia.org/wiki/XNOR_gate}{\textbf{XNOR}}.
+    \end{solution}
+    
 \end{Exercice}
 
 \begin{Exercice}[2 minutes]
