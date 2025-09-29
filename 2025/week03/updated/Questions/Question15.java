@@ -1,13 +1,13 @@
 public class Question15 {
     public static void main(String[] args) {
-        String s = "School of Criminal Sciences\nUNIL";
+        String s = "UNIL\nSchool of Criminal Sciences";
 
-        System.out.println(s); // \n creates a newline
+        System.out.println(s); // \n crée un saut de ligne
 
-        // 2. Print only the substring "School of Criminal Sciences"
-        System.out.println(s.substring(0, 27));
+        // Imprimer uniquement la sous-chaîne School of crimi.
+        System.out.println(s.substring(5, 20));
 
-        // 3. Access the third character
+        // Accéder au troisième caractère
         System.out.println(s.charAt(2)); // 'h'
     }
 }

@@ -1,4 +1,4 @@
-s = "School of Criminal Sciences\nUNIL"
+s = "UNIL\nSchool of Criminal Sciences"
 print(s) 
-print(s[0:27])  
+print(s[5:20])  
 print(s[2]) 
