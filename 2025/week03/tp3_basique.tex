@@ -791,16 +791,20 @@ Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le
 \item Essayez d'afficher uniquement la chaîne \texttt{School of Crimi} en sélectionnant une sous-chaîne de la chaîne initiale. 
 \begin{conseil}
     \begin{itemize}
-        \item Pour créer une sous-chaîne en Java, utilisez la méthode \texttt{myString.substring(int beginIndex, int endIndex)} où \texttt{beginIndex} est l'indice du premier caractére dans la chaîne \texttt{myString} que l'on veut inclure dans la sous-chaîne et \texttt{endIndex} est l'indice du caractère suivant le dernier à inclure (ce caractère n'est pas inclus dans la sous-chaîne).
+        \item Pour créer une sous-chaîne en Java, utilisez la méthode \texttt{myString.substring(int beginIndex, int endIndex)} où \texttt{beginIndex} est l'indice du premier caractére dans la chaîne \texttt{myString} que l'on veut inclure dans la sous-chaîne et \texttt{endIndex} est l'indice du caractère suivant le dernier à inclure (le caractère à l'indice \texttt{endIndex} n'est pas inclus dans la sous-chaîne).
         \item Pour créer une sous-chaîne en Python, utilisez l'opérateur slice \texttt{myString[startIndex, endIndex]} et pareil pour l'interprétation du \texttt{beginIndex}, \texttt{endIndex}, et \texttt{myString}.
     \end{itemize}
 \end{conseil}
-\item Accédez au troisième caractère de la chaîne en Python et en Java. 
+\item Affichez le troisième caractère de la chaîne en Python et en Java. 
 \begin{conseil}
     \begin{itemize}
         \item Pour obtenir le $i$eme caractère en Java, on écrit \texttt{myString.charAt(i)}.
     \item Pour obtenir le $i$eme caractère en Python, on écrit \texttt{myString[i]}.
     \end{itemize}
+\end{conseil}
+\item Imprimer la longueur de la chaîne en Python et en Java.
+\begin{conseil}
+    Utiliser la méthode \texttt{myString.length()} en Java et la fonction \texttt{len} en Python.
 \end{conseil}
 \end{enumerate}
 \begin{solution}
