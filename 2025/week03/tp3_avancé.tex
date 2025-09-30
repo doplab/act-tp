@@ -8,7 +8,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Programmation de base - Exercices avancés}
@@ -17,7 +17,7 @@ Cette feuille d’exercices avancés vous permettra d’approfondir vos connaiss
 Le code présent dans les énoncés  se trouve sur Moodle, dans le dossier "Ressources".
 \\
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/mod/resource/view.php?id=1761727}{tutoriel d'installation des outils et prise en main de l'environnement de travail}.\\
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/pluginfile.php/3532600/mod_resource/content/9/prerequisite_macos.pdf}{tutoriel d'installation des outils (MacOS) et prise en main de l'environnement de travail} ou \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/9/prerequisite_win.pdf}{tutoriel d'installation des outils (Windows)}.\\
 
 
 \section{Représentation de nombres entiers}
@@ -29,67 +29,61 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{conseil}
     
     \begin{itemize}
-    	\item Utilisez le même tableau que celui de la question 4 des exercices de base (complément à 2).
+    	\item Référez-vous à la diapositive 15 du cours. 
     \end{itemize}
     
     \end{conseil}
     
     \begin{solution}
-       Il faut appliquer le processus de la question 4 (complément à 2), mais de façon inversée. Cela permet d'obtenir la valeur positive en binaire du nombre que l'on cherche. Ensuite, il faut convertir cette valeur en base 10 et puis multiplier par -1. \\
+
+       Comme le nombre est exprimé au format complément à 2 sur 8 bits, le dernier (huitième) bit à gauche a une valeur négative.  
+       \\
        
        \begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |} 
             \hline
-            a & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\ [0.5ex] 
+            a & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\  
             \hline
-            b & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\ [0.5ex]
+            b & -$2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ 
             \hline
-            c & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\ [0.5ex]
+            c & -$2^7$ & 0 & 0 & $2^4$ & 0 & 0 & $2^1$ & $2^0$ \\ 
             \hline
         \end{tabular} \\
         
-        a : écrire le nombre en binaire \\
-        
-        b : soustraire 1 \\
-        
-        c : inverser tous les bits \\
-        
-        On obtient donc 01101101$_{(2)}$ = 109$_{(10)}$ \\
-        
-        Pour finir, on obtient -109$_{(10)}$ après multiplication par -1.
+        On obtient donc $-2^7 + 2^4 + 2^1 + 2^0$ = -109$_{(10)}$.
        
     \end{solution}
 \end{Exercice}
 
 
-\section{Bases en programmation}
+% \section{Bases en programmation}
 
 
-\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
-   Qu'affichent les programmes suivants ? \\
+% \begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+%    Qu'affichent les programmes suivants ? \\
    
-   \textbf{Python:}
-   \lstinputlisting{updated/Questions/advanced/Question2a.py}
+%    \textbf{Python:}
+%    \lstinputlisting{updated/Questions/advanced/Question2a.py}
    
-   \textbf{\\Java:}
-   \lstinputlisting{updated/Questions/advanced/Question2a.java}
+%    \textbf{\\Java:}
+%    \lstinputlisting{updated/Questions/advanced/Question2a.java}
     
    
-    \begin{conseil}
-      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+%     \begin{conseil}
+%       	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
         
-    \end{conseil}
-    \begin{solution}
+%     \end{conseil}
+%     \begin{solution}
      
-    \textbf{Python:}\\
-    3\\
-    3.0
+%     \textbf{Python:}\\
+%     3\\
+%     3.0
     
-    \textbf{\\Java:}\\
-    3\\
-    3.14 \\
+%     \textbf{\\Java:}\\
+%     3\\
+%     3.14 \\
            
-    \end{solution}   
-\end{Exercice}
+%     \end{solution}   
+% \end{Exercice}
 
 
 \begin{comment}

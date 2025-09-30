@@ -2,8 +2,20 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathreplacing}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{trees}
+\usepackage{tcolorbox}
+
 
 \usepackage{listings}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
 
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -28,7 +40,46 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
     \item Ecrire des branchements conditionnels.\\
 \end{itemize} 
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/mod/resource/view.php?id=1761727}{tutoriel d'installation des outils et prise en main de l'environnement de travail}.\\
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/pluginfile.php/3532600/mod_resource/content/9/prerequisite_macos.pdf}{tutoriel d'installation des outils (MacOS) et prise en main de l'environnement de travail} ou \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/9/prerequisite_win.pdf}{tutoriel d'installation des outils (Windows)}.
+
+\section{Input / Output}
+
+\begin{Exercice}[5 minutes] \textbf{Output (Java ou Python)}\\
+   Créez une variable \textit{nom} (str) contenant votre nom, et une autre \textit{prenom} (str) contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
+   
+    \begin{conseil}
+        Utilisez la fonction \lstinline{print()} de Python et \lstinline{System.out.println()} de Java. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:} 
+    \lstinputlisting{./tp3-suite/solutions/question1.py}
+    
+    \textbf{\\Java:} 
+    \lstinputlisting{./tp3-suite/solutions/question1.java}  
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Input (Java ou Python)}\\
+   En vous référant à l'exercice précédent (\textbf{Output (Java ou Python)}), demandez à l'utilisateur d'entrer son nom et son prénom via la fonction \lstinline{input()} au lieu d'initialiser vous-même les variables. \\
+   
+    \begin{conseil}
+       Utilisez la fonction \lstinline{input()} en Python, la classe \lstinline{Scanner()} en Java (n'oubliez pas d'ajouter \lstinline{import java.util.Scanner;}) tout au début de votre code. 
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:} 
+    \lstinputlisting{./tp3-suite/solutions/question2.py}
+    
+    \textbf{\\Java:}
+    \lstinputlisting{./tp3-suite/solutions/question2.java}  
+       
+        
+    \end{solution}   
+\end{Exercice}
+
 
 \section{Représentation de nombres entiers}
 
@@ -36,7 +87,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 	Sur 8 bits, convertir 113$_{(10)}$ en base binaire.
    
     \begin{conseil}
-		Faire un tableau comme présenté dans la diapositive 10 du cours (programmation de base). Essayer de décomposer le nombre en une somme de puissances de 2.
+		Faire un tableau comme présenté dans la diapositive 13 du cours (programmation de base). Essayer de décomposer le nombre en une somme de puissances de 2.
     \end{conseil}
     
     \begin{solution}
@@ -140,7 +191,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Entiers signés négatifs}\\
-    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 10 du cours. \\
+    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 13 du cours. \\
 
     \begin{conseil}
         \begin{itemize}
@@ -167,7 +218,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{conseil}
         \begin{itemize}
         	\item L'opposé de 0 en binaire est 1 et inversément.
-        	\item Pour étudier la différence, il faut regarder les différentes manières d'exprimer -0 en binaire (se référer à la diapositive 11 du cours de la semaine 3).
+        	\item Pour étudier la différence, il faut regarder les différentes manières d'exprimer -0 en binaire (se référer à la diapositive 14 du cours).
         \end{itemize} 
     \end{conseil}
     
@@ -255,7 +306,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{conseil}
     
     \begin{itemize}
-    	\item Se référer à la diapositive 15 du cours (programmation de base) pour plus de détails.
+    	\item Se référer à la diapositive 21 du cours pour plus de détails.
     	\item Poser chaque calcul, et ensuite tout fusionner avec la formule.
     	\item L'exposant et la mantisse sont des entiers positifs, donc non signés.
     	\item Pour vérifier votre résultat, vous pouvez utiliser l'outil suivant: \url{https://www.h-schmidt.net/FloatConverter/IEEE754.html}
@@ -273,9 +324,6 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         \end{itemize}
     \end{solution}
 \end{Exercice}
-\newpage
-
-\newpage
 
 \section{Typage}
 
@@ -368,7 +416,6 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
     \end{solution}
 \end{Exercice}
 
-\newpage
 
 \section{Opérateurs et conditions Booléennes}
 Le principe d'une valeur booléenne est qu'elle 
@@ -383,152 +430,389 @@ $<$ (est strictement plus petit),
 $\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
  $\geq$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
 
-\begin{Exercice}[5 minutes]
-Démontrez l'équivalence suivante:
-\begin{align}
+\begin{Exercice}[7 minutes]
+\begin{enumerate}
+    \item 
+ Démontrez l'équivalence suivante:
+\begin{align*}
    (\neg p \vee q) \wedge (p \vee \neg q) \Leftrightarrow (p \wedge q) \vee (\neg p \wedge \neg q)
-\end{align}
+\end{align*}
 \begin{conseil}
-	Utilisez la table des règles présentées à la diapositive 23 du cours pour déduire cette équivalence.
+	Utilisez la table des règles présentées à la diapositive 29 du cours pour déduire cette équivalence. 
 \end{conseil}
+\item Re-faire cet exercice en utilisant les tables de vérité.
+\end{enumerate}
 \begin{solution}
    \begin{align*}
    & (\neg p \vee q) \wedge (p \vee \neg q) &\Leftrightarrow   \\
    & ((\neg p \vee q) \wedge p) \vee  ((\neg p \vee q) \wedge \neg q) &\Leftrightarrow  \tag{Distribution} \\
-   & (p\wedge (\neg p \vee q)) \vee  ( \neg q \wedge (\neg p \vee q) ) &\Leftrightarrow  \tag{Association} \\
+   & (p\wedge (\neg p \vee q)) \vee  ( \neg q \wedge (\neg p \vee q) ) &\Leftrightarrow  \tag{Commutativity} \\
    & ((p\wedge \neg p) \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee (\neg q \wedge q) )  &\Leftrightarrow \tag{Distribution} \\ 
    & (F \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee F)  &\Leftrightarrow \tag{Negation} \\
    & (p\wedge q) \vee  (\neg q \wedge \neg p)  &\Leftrightarrow \tag{Bound} \\
       & (p\wedge q) \vee  (\neg p \wedge \neg q )   \tag{Commutativity} \\
 \end{align*}
     \end{solution}
+    \begin{solution}
+    \begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & LHS & RHS & LHS $\Leftrightarrow$ RHS \\
+\hline
+T & T & F & F & T & T & T & T & T \\
+T & F & F & T & F & T & F & F & T \\
+F & T & T & F & T & F & F & F & T \\
+F & F & T & T & T & T & T & T & T \\
+\hline
+\end{tabular}
+\end{center}
+Cette opération booléenne est appelé \href{https://en.wikipedia.org/wiki/XNOR_gate}{\textbf{XNOR}}.
+    \end{solution}
+    
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]
-    \begin{attention}
-        Dans l'exercice suivant, vous pouvez supposer toujours que $b>a$ et $d>c$ pour les intervalles $L=[a,b]$ et $S=[c,d]$. 
-    \end{attention}
-    \begin{enumerate}
-        \item  À l'aide de la figure ci-dessous, écrivez la condition booléenne en fonction de $a, b, c, d$ pour que les deux intervalles ne se recouvrent pas. 
-        \item Re-écrire la négation de cette condition à l'aide de la loi DeMorgan (diapositive 23 du cours). 
-    \end{enumerate}
-\begin{center}
-        \fbox{\begin{minipage}{0.8\textwidth}
-    \centering
+% \begin{Exercice}[2 minutes]
+%     \begin{attention}
+%         Dans l'exercice suivant, vous pouvez supposer toujours que $b>a$ et $d>c$ pour les intervalles $L=[a,b]$ et $S=[c,d]$. 
+%     \end{attention}
+%     \begin{enumerate}
+%         \item  À l'aide de la figure ci-dessous, écrivez la condition booléenne en fonction de $a, b, c, d$ pour que les deux intervalles ne se recouvrent pas. 
+%         \item Re-écrire la négation de cette condition à l'aide de la loi DeMorgan (diapositive 29 du cours). 
+%     \end{enumerate}
+% \begin{center}
+%         \fbox{\begin{minipage}{0.8\textwidth}
+%     \centering
 
-     \resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[scale=1.3]
-           % Cas 1: Interval A is completely to the left of interval B
-    \draw[thick] (0,2) -- (8,2);
-    \foreach \x in {0,1,2,3,4,5,6,7,8}
-        \draw (\x,1.9) -- (\x,2.1);
+%      \resizebox{\textwidth}{!}{%
+% \begin{tikzpicture}[scale=1.3]
+%            % Cas 1: Interval A is completely to the left of interval B
+%     \draw[thick] (0,2) -- (8,2);
+%     \foreach \x in {0,1,2,3,4,5,6,7,8}
+%         \draw (\x,1.9) -- (\x,2.1);
     
-    % Interval A (left)
-    \draw[very thick, blue] (1,2) -- (2.5,2);
-    \filldraw[blue] (1,2) circle (2pt);
-    \filldraw[blue] (2.5,2) circle (2pt);
+%     % Interval A (left)
+%     \draw[very thick, blue] (1,2) -- (2.5,2);
+%     \filldraw[blue] (1,2) circle (2pt);
+%     \filldraw[blue] (2.5,2) circle (2pt);
     
-    % Interval B (right)
-    \draw[very thick, red] (4,2) -- (6,2);
-    \filldraw[red] (4,2) circle (2pt);
-    \filldraw[red] (6,2) circle (2pt);
+%     % Interval B (right)
+%     \draw[very thick, red] (4,2) -- (6,2);
+%     \filldraw[red] (4,2) circle (2pt);
+%     \filldraw[red] (6,2) circle (2pt);
     
-    % Labels for Cas 1
-    \node[blue, below] at (1.75,1.7) {$L = [a, b]$};
-    \node[red, below] at (5,1.7) {$S = [c, d]$};
-    \node at (4,2.8) {};
+%     % Labels for Cas 1
+%     \node[blue, below] at (1.75,1.7) {$L = [a, b]$};
+%     \node[red, below] at (5,1.7) {$S = [c, d]$};
+%     \node at (4,2.8) {};
     
-    % Cas 2: Interval A is completely to the right of interval B
-    \draw[thick] (0,0) -- (8,0);
-    \foreach \x in {0,1,2,3,4,5,6,7,8}
-        \draw (\x,-0.1) -- (\x,0.1);
+%     % Cas 2: Interval A is completely to the right of interval B
+%     \draw[thick] (0,0) -- (8,0);
+%     \foreach \x in {0,1,2,3,4,5,6,7,8}
+%         \draw (\x,-0.1) -- (\x,0.1);
     
-    % Interval B (left)
-    \draw[very thick, red] (1,0) -- (3,0);
-    \filldraw[red] (1,0) circle (2pt);
-    \filldraw[red] (3,0) circle (2pt);
+%     % Interval B (left)
+%     \draw[very thick, red] (1,0) -- (3,0);
+%     \filldraw[red] (1,0) circle (2pt);
+%     \filldraw[red] (3,0) circle (2pt);
     
-    % Interval A (right)
-    \draw[very thick, blue] (5,0) -- (6.5,0);
-    \filldraw[blue] (5,0) circle (2pt);
-    \filldraw[blue] (6.5,0) circle (2pt);
+%     % Interval A (right)
+%     \draw[very thick, blue] (5,0) -- (6.5,0);
+%     \filldraw[blue] (5,0) circle (2pt);
+%     \filldraw[blue] (6.5,0) circle (2pt);
     
-    % Labels for Cas 2
-    \node[red, below] at (2,-0.3) {$S = [c, d]$};
-    \node[blue, below] at (5.75,-0.3) {$L = [a, b]$};
-    % \node at (4,0.8) {\textbf{Cas 2:} $d < a$};
+%     % Labels for Cas 2
+%     \node[red, below] at (2,-0.3) {$S = [c, d]$};
+%     \node[blue, below] at (5.75,-0.3) {$L = [a, b]$};
+%     % \node at (4,0.8) {\textbf{Cas 2:} $d < a$};
     
-    % Gap indicators
-    \draw[<->, dashed, gray] (2.5,1.5) -- (4,1.5);
-    \node[gray, above] at (3.25,1.5) {écart $>$ 0};
+%     % Gap indicators
+%     \draw[<->, dashed, gray] (2.5,1.5) -- (4,1.5);
+%     \node[gray, above] at (3.25,1.5) {écart $>$ 0};
     
-    \draw[<->, dashed, gray] (3,-0.5) -- (5,-0.5);
-    \node[gray, above] at (4,-0.5) {écart $>$ 0};
+%     \draw[<->, dashed, gray] (3,-0.5) -- (5,-0.5);
+%     \node[gray, above] at (4,-0.5) {écart $>$ 0};
     
-    % % Title
-    % \node[font=\large\bfseries] at (4,3.5) {Non-intersecting Intervals};
+%     % % Title
+%     % \node[font=\large\bfseries] at (4,3.5) {Non-intersecting Intervals};
 
-\end{tikzpicture}
-     }
-\end{minipage}}
-        \end{center}
-        \begin{solution}
-            \begin{enumerate}
-                \item $(c > b) \vee (a > d)$
-                \item $(c \leq b) \wedge (a \leq d)$
-            \end{enumerate}
+% \end{tikzpicture}
+%      }
+% \end{minipage}}
+%         \end{center}
+%         \begin{solution}
+%             \begin{enumerate}
+%                 \item $(c > b) \vee (a > d)$
+%                 \item $(c \leq b) \wedge (a \leq d)$
+%             \end{enumerate}
         
-        \end{solution}
-\end{Exercice}
+%         \end{solution}
+% \end{Exercice}
  Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
 
 
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
-    \begin{conseil}
-	Utilisez les tables de vérité présentées à la diapositive 22 du cours.
-\end{conseil}
+% \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
     
-    \lstinputlisting{updated/Questions/Question10.py}
+%     \lstinputlisting{updated/Questions/Question10.py}
 
-    \begin{solution}
-        False 
+%     \begin{solution}
+%         \texttt{False} 
         
-        True 
+%         \texttt{True} 
         
-        True 
+%         \texttt{True} 
         
-        False 
+%         \texttt{False} 
         
-        False
-    \end{solution}
-\end{Exercice}
+%         \texttt{False}
+%     \end{solution}
+% \end{Exercice}
     
 \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+
+    \begin{conseil}
+	Utilisez les tables de vérité présentées à la diapositive 28 du cours.
+\end{conseil}
     
     \lstinputlisting{updated/Questions/Question11.py}
 
     \begin{solution}
-        True 
+        \texttt{True} 
         
-        False 
+        \texttt{False} 
         
-        True 
+        \texttt{True} 
         
-        True
+        \texttt{True}
     \end{solution}
     
 \end{Exercice}
     
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+\begin{Exercice}[5 minutes] 
+    \begin{enumerate}
+        \item Qu'affiche le programme suivant? 
+         \lstinputlisting{updated/Questions/Question12.py}
+        \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c|?
+    \end{enumerate}
+
     
-    \lstinputlisting{updated/Questions/Question12.py}
 
     \begin{solution}
-        output 1\\
-        output 2\\
-        output 3
+        \begin{enumerate}
+        \item \texttt{output 1}\\
+        \texttt{output 2}\\
+        \texttt{output 3}
+        \item \texttt{output 1}\\
+        \texttt{output 3}
+        \end{enumerate}
     \end{solution}
     
+\end{Exercice}
+
+\section{Match (Python) et Switch (Java)}
+L'instruction \href{https://docs.python.org/fr/3.13/tutorial/controlflow.html#tut-match}{match} en Python et
+\href{https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html}{switch} en Java a 
+pour objectif de simplifier la logique conditionnelle 
+en sélectionnant un bloc de code à exécuter parmi plusieurs 
+options. Cette structure compare la valeur d'une variable ou 
+d'une expression à une série de cas (case) prédéfinis. 
+Lorsqu'une correspondance est trouvée, le code associé à ce 
+cas est exécuté, offrant ainsi une alternative plus lisible et 
+organisée qu'une longue chaîne de \texttt{if-elif-else}. \newline 
+
+
+Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{cette mémoire disponible sur Moodle}
+pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
+
+\begin{Exercice}[5 minutes] 
+    Écrire le code Java qui demande à l'utilisateur d'entrer l'étape d'éxecution d'une instruction et affiche les étapes qui reste à exécuter (y compris l'étape courante). 
+    Si l'utilisateur entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
+
+    \begin{conseil}
+    Rappelez-vous de l'architecture de Von Neumann 
+    disponible à la diapositive 
+    17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
+    la saisie texte de l'utilisateur, utilisez \texttt{nextLine()} telle qu'elle est définie dans \href{https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Scanner.html\#nextLine()}{la documentation Java en ligne}.
+    \end{conseil}
+
+
+   \begin{Example}{Exemple}
+Si l'utilisateur entre \texttt{execute}, le programme va afficher:
+\begin{lstlisting}[numbers=none, keywordstyle=\color{black}, stringstyle=\color{black}]
+L'étape execute s'exécute ou va être exécutée. 
+L'étape store s'exécute ou va être exécutée.
+\end{lstlisting}
+   \end{Example}
+
+    \begin{solution}
+         \lstinputlisting{updated/Questions/Question12.java}
+    \end{solution}
+    
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
+
+% Solution 1: Force baseline alignment with \vspace{0pt}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt}
+\begin{tcolorbox}[width=2in,colframe=black, boxrule=1pt, left=0pt, right=0pt, top=0pt, bottom=0pt]
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+\node [selected] {/var/www/}
+    child { node [selected] {public}
+        child { node [file] {esc.png}}
+        child [missing] {}
+    }
+    child [missing] {}
+    child { node [selected] {src}
+        child { node [file] {Main.class}}
+        child { node [file] {Main.java}}
+    }
+    child [missing] {}
+    child [missing] {}
+    child { node [file] {index.html}};
+\end{tikzpicture}
+\end{tcolorbox}
+\end{minipage}%
+\hspace{-1.5cm}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
+Soit l'arborescence à gauche d'un système de fichiers (filesystem).
+Écrivez un programme Python (utilisant \texttt{match}) qui affiche \textbf{seulement les noms des fichiers} dans un seul dossier spécifié à la ligne de commande. 
+Votre programme doit seulement gérer les arguments suivants: \newline 
+
+\begin{itemize}
+    \item[$\bullet$] \texttt{/var/www/./public/..}
+    \item[$\bullet$] \texttt{/var/www/src/..}
+    \item[$\bullet$] \texttt{/var/www/src/}
+    \item[$\bullet$] \texttt{/var/www/public/} \newline 
+\end{itemize}
+
+Pour les autres cas, il faut afficher \texttt{La saisie n'était pas reconnue}.  
+\end{minipage}
+\begin{conseil}
+Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/pluginfile.php/3532635/mod_resource/content/5/3\%20\%E2\%80\%93\%20Programming\%20Basics.pdf}{la diapositive 37 du cours}. 
+\end{conseil}
+
+
+\textbf{Re-faire} cet exercice en utilisant \texttt{input} pour lire la saisie de l'utilisateur.
+\begin{conseil}
+La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/library/functions.html\#input}{disponible sur ce lien}.
+\end{conseil} 
+
+\begin{solution}
+ \lstinputlisting{updated/Questions/Question13.py}
+\end{solution}
+
+\begin{solution}
+ \lstinputlisting{updated/Questions/Question13_2.py}
+\end{solution}
+\end{Exercice}
+
+\section{Type casting}
+
+
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Qu'affichent les programmes suivants ? \\
+   
+   \textbf{Python:}
+   \lstinputlisting{updated/Questions/advanced/Question2a.py}
+   
+   \textbf{\\Java:}
+   \lstinputlisting{updated/Questions/advanced/Question2a.java}
+    
+   
+    \begin{conseil}
+      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \textbf{Python:}\\
+    3\\
+    3.0
+    
+    \textbf{\\Java:}\\
+    3\\
+    3.14 \\
+    \end{solution}   
+\end{Exercice}
+
+\section{Chaîne de caractères}
+\begin{Exercice}[10 minutes]
+
+Soit la chaîne de caractères: \texttt{UNIL\textbackslash nSchool\textvisiblespace of\textvisiblespace Criminal\textvisiblespace Sciences}. 
+
+\begin{figure}[ht]
+
+\begin{tikzpicture}[scale=1]
+    % Define the string characters
+    \def\chars{{"U", "N", "I", "L", "\textbackslash n", "S", "c", "h", "o", "..."}}
+
+    \node at (-1.3, 0.5) {\large \texttt{myString}=``};
+    \node at (12, 0.5) {\large ''};
+    \node at (-1, -0.5) {\large $indices$};
+
+    
+    % Draw cells for each character
+    \foreach \i in {0,...,9} {
+        % Draw character cell
+        \draw[fill=blue!10, draw=blue!30] (\i*1.2, 0) rectangle (\i*1.2+1, 1);
+        \node at (\i*1.2+0.5, 0.5) {\Large\pgfmathparse{\chars[\i]}\pgfmathresult};
+        
+        % Draw index cell
+        \draw[fill=green!10, draw=green!30] (\i*1.2, -1) rectangle (\i*1.2+1, 0);
+        \ifnum\i=9
+            \node at (\i*1.2+0.5, -0.5) {9 à 31};
+        \else
+            \node at (\i*1.2+0.5, -0.5) {\large\i};
+        \fi
+    }
+    
+    % Add labels
+    % \node[above] at (5.4, 1.2) {\textbf{Caractères}};
+    % \node[below] at (5.4, -1.2) {\textbf{Indices}};
+\end{tikzpicture}
+
+\end{figure}
+
+\begin{attention}
+Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le caractère espace. 
+\end{attention}
+\begin{enumerate}
+\item Affichez cette chaîne en Python et en Java. Pourquoi est-elle séparée par une nouvelle ligne?
+\item Essayez d'afficher uniquement la chaîne \texttt{School of Crimi} en sélectionnant une sous-chaîne de la chaîne initiale. 
+\begin{conseil}
+    \begin{itemize}
+        \item Pour créer une sous-chaîne en Java, utilisez la méthode \texttt{myString.substring(int beginIndex, int endIndex)} où \texttt{beginIndex} est l'indice du premier caractére dans la chaîne \texttt{myString} que l'on veut inclure dans la sous-chaîne et \texttt{endIndex} est l'indice du caractère suivant le dernier à inclure (le caractère à l'indice \texttt{endIndex} n'est pas inclus dans la sous-chaîne).
+        \item Pour créer une sous-chaîne en Python, utilisez l'opérateur slice \texttt{myString[startIndex, endIndex]} et pareil pour l'interprétation du \texttt{beginIndex}, \texttt{endIndex}, et \texttt{myString}.
+    \end{itemize}
+\end{conseil}
+\item Affichez le troisième caractère de la chaîne en Python et en Java. 
+\begin{conseil}
+    \begin{itemize}
+        \item Pour obtenir le $i$eme caractère en Java, on écrit \texttt{myString.charAt(i)}.
+    \item Pour obtenir le $i$eme caractère en Python, on écrit \texttt{myString[i]}.
+    \end{itemize}
+\end{conseil}
+\item Imprimer la longueur de la chaîne en Python et en Java.
+\begin{conseil}
+    Utiliser la méthode \texttt{myString.length()} en Java et la fonction \texttt{len} en Python.
+\end{conseil}
+\end{enumerate}
+\begin{solution}
+   \lstinputlisting{updated/Questions/Question15.py}
+\end{solution}
+\begin{solution}
+   \lstinputlisting{updated/Questions/Question15.java}
+\end{solution}
 \end{Exercice}
 
 \end{document}
