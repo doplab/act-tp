@@ -19,7 +19,7 @@ if [ ! -d "$target_dir" ]; then
 fi
 
 # Extensions to remove
-extensions=("log" "aux" "out")
+extensions=("log" "aux" "out" "snm" "toc" "vrb" "nav")
 
 # Counter for removed files
 removed_count=0
