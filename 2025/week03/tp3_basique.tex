@@ -6,7 +6,6 @@
 \usetikzlibrary{trees}
 \usepackage{tcolorbox}
 
-
 \usepackage{listings}
 
 \hypersetup{
@@ -25,7 +24,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -54,10 +53,10 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{solution}
     
     \textbf{Python:} 
-    \lstinputlisting{./tp3-suite/solutions/question1.py}
+    \lstinputlisting{./code/question1.py}
     
     \textbf{\\Java:} 
-    \lstinputlisting{./tp3-suite/solutions/question1.java}  
+    \lstinputlisting{./code/Question1.java}  
     \end{solution}   
 \end{Exercice}
 
@@ -71,10 +70,10 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{solution}
     
     \textbf{Python:} 
-    \lstinputlisting{./tp3-suite/solutions/question2.py}
+    \lstinputlisting{./code/question2.py}
     
     \textbf{\\Java:}
-    \lstinputlisting{./tp3-suite/solutions/question2.java}  
+    \lstinputlisting{./code/question2.java}  
        
         
     \end{solution}   
@@ -344,12 +343,12 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 		En Python :    
         
-    	\lstinputlisting{updated/solutions/Question6.py} 
+    	\lstinputlisting{code/question8.py} 
     	
     	
     	En Java : 
     	
-    	\lstinputlisting{updated/solutions/Question6.java} 
+    	\lstinputlisting{code/Question8.java} 
     	
     	Il existe d'autres types de variable, comme par exemple les \lstinline{double}.
  
@@ -363,11 +362,11 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
     
     \textbf{Java :}
     
-    \lstinputlisting{updated/Questions/Question7.java} 
+    \lstinputlisting{code/Question9.java} 
     
     \textbf{Python :}
     
-    \lstinputlisting{updated/Questions/Question7.py} 
+    \lstinputlisting{code/question9.py} 
     
 
     \begin{conseil}
@@ -458,12 +457,12 @@ $\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|c|c||c|c|c|c||c|c||c|}
 \hline
-$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & LHS & RHS & LHS $\Leftrightarrow$ RHS \\
+$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & Partie gauche & Partie droite \\
 \hline
-T & T & F & F & T & T & T & T & T \\
-T & F & F & T & F & T & F & F & T \\
-F & T & T & F & T & F & F & F & T \\
-F & F & T & T & T & T & T & T & T \\
+T & T & F & F & T & T & T & T \\
+T & F & F & T & F & T & F & F \\
+F & T & T & F & T & F & F & F \\
+F & F & T & T & T & T & T & T \\
 \hline
 \end{tabular}
 \end{center}
@@ -574,7 +573,7 @@ Cette opération booléenne est appelé \href{https://en.wikipedia.org/wiki/XNOR
 	Utilisez les tables de vérité présentées à la diapositive 28 du cours.
 \end{conseil}
     
-    \lstinputlisting{updated/Questions/Question11.py}
+    \lstinputlisting{code/question11.py}
 
     \begin{solution}
         \texttt{True} 
@@ -591,7 +590,7 @@ Cette opération booléenne est appelé \href{https://en.wikipedia.org/wiki/XNOR
 \begin{Exercice}[5 minutes] 
     \begin{enumerate}
         \item Qu'affiche le programme suivant? 
-         \lstinputlisting{updated/Questions/Question12.py}
+         \lstinputlisting{code/question12.py}
         \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c|?
     \end{enumerate}
 
@@ -645,7 +644,7 @@ L'étape store s'exécute ou va être exécutée.
    \end{Example}
 
     \begin{solution}
-         \lstinputlisting{updated/Questions/Question12.java}
+         \lstinputlisting{code/Question13.java}
     \end{solution}
     
 \end{Exercice}
@@ -708,11 +707,11 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
 \end{conseil} 
 
 \begin{solution}
- \lstinputlisting{updated/Questions/Question13.py}
+ \lstinputlisting{code/question14.py}
 \end{solution}
 
 \begin{solution}
- \lstinputlisting{updated/Questions/Question13_2.py}
+ \lstinputlisting{code/question14_2.py}
 \end{solution}
 \end{Exercice}
 
@@ -723,10 +722,10 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
    Qu'affichent les programmes suivants ? \\
    
    \textbf{Python:}
-   \lstinputlisting{updated/Questions/advanced/Question2a.py}
+   \lstinputlisting{code/question15.py}
    
    \textbf{\\Java:}
-   \lstinputlisting{updated/Questions/advanced/Question2a.java}
+   \lstinputlisting{code/Question15.java}
     
    
     \begin{conseil}
@@ -808,10 +807,10 @@ Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le
 \end{conseil}
 \end{enumerate}
 \begin{solution}
-   \lstinputlisting{updated/Questions/Question15.py}
+   \lstinputlisting{code/question16.py}
 \end{solution}
 \begin{solution}
-   \lstinputlisting{updated/Questions/Question15.java}
+   \lstinputlisting{code/Question16.java}
 \end{solution}
 \end{Exercice}
 
