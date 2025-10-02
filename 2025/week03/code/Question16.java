@@ -1,4 +1,4 @@
-public class Question15 {
+public class Question16 {
     public static void main(String[] args) {
         String s = "UNIL\nSchool of Criminal Sciences";
 

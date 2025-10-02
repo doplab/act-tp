@@ -1,0 +1,8 @@
+Define the Main class
+Define the main method entry point
+Print the first hello message
+Print the second hello message
+Print the third hello message
+Print the fourth hello message
+Close the main method
+Close the Main class
