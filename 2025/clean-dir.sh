@@ -18,8 +18,8 @@ if [ ! -d "$target_dir" ]; then
     exit 1
 fi
 
-# Extensions to remove
-extensions=("log" "aux" "out")
+# Extensions to remove including fls
+extensions=("log" "aux" "out" "fdb_latexmk" "fls")
 
 # Counter for removed files
 removed_count=0
