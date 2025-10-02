@@ -1,4 +1,4 @@
-public class Question15 {
+public class Question16 {
     public static void main(String[] args) {
         String s = "UNIL\nSchool of Criminal Sciences";
 
@@ -8,7 +8,7 @@ public class Question15 {
         System.out.println(s.substring(5, 20));
 
         // Accéder au troisième caractère
-        System.out.println(s.charAt(2)); // 'h'
+        System.out.println(s.charAt(2)); // 'I'
 
         System.out.println(s.length());
     }

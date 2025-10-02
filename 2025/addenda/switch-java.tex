@@ -27,12 +27,12 @@
 \section*{Explication (\texttt{switch} Java \faJava)}
 Dans les instructions switch en Java :
 \begin{enumerate}
-\item Les cas avant la première correspondance sont \textbf{ignorés}
- \item L'exécution commence au \textbf{premier cas correspondant}
- \item Tous les cas suivants sont \textbf{exécutés} indépendamment de leurs étiquettes (fall-through)
- \item L'exécution se poursuit jusqu'à ce qu'une instruction \texttt{break} soit rencontrée
- \item L'instruction \texttt{break} provoque une \textbf{sortie} immédiate du switch
- \item Les cas après le break ne sont \textbf{pas exécutés}
+\item Les cas avant la première correspondance sont \textbf{ignorés}.
+ \item L'exécution commence au \textbf{premier cas correspondant}.
+ \item Tous les cas suivants sont \textbf{exécutés} indépendamment de leurs étiquettes (fall-through).
+ \item L'exécution se poursuit jusqu'à ce qu'une instruction \texttt{break} soit rencontrée.
+ \item L'instruction \texttt{break} provoque une \textbf{sortie} immédiate du switch.
+ \item Les cas après le break ne sont \textbf{pas exécutés}.
 \end{enumerate}
 Ce comportement est souvent appelé « fall-through » et est une source courante de bogues lorsque les instructions \texttt{break} sont accidentellement omises.
 \end{minipage}
@@ -70,7 +70,7 @@ Ce comportement est souvent appelé « fall-through » et est une source courant
 \draw[arrow, orange, very thick] (case5) -- (case6);
 
 % Exit arrow
-\draw[arrow, red, very thick] (case6.east) -- ++(1.5,0) node[right] {EXIT (à cause du \texttt{break})};
+\draw[arrow, red, very thick] (case6.east) -- ++(1.5,0) node[right] {Sortie (à cause du \texttt{break})};
 
 Annotations
 \node[right=0.1cm of case1, yshift=1cm] (start) {\texttt{switch (variable ou expression)}};
