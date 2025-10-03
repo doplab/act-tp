@@ -239,7 +239,7 @@ On écrit de cette façon afin de rendre les choses plus explicites. Cependant, 
 
 
 % slide 3
-\begin{frame}[fragile]{\texttt{main} (aucun argument de la ligne de commande)}
+\begin{frame}[fragile]{\texttt{main} — Aucun argument de la ligne de commande}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -500,7 +500,7 @@ public class LeapYear {
   \end{scope}
 
   % Second picture shifted down by 0.5 cm
-  \begin{scope}[yshift=-6.5cm] % radius 1cm + 0.5cm gap
+  \begin{scope}[yshift=-4.5cm] % radius 1cm + 0.5cm gap
     % Draw the stack rectangles
   \draw[thick] (0,0.0) rectangle (4.0,-1.0);
   \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
@@ -548,7 +548,7 @@ public class LeapYear {
 
 
 % slide 5
-\begin{frame}[fragile]{\texttt{reportLeapYear}:L6 (allocation de la variable \texttt{leap})}
+\begin{frame}[fragile]{\texttt{reportLeapYear}:L6 — Allocation de la variable \texttt{leap}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -623,7 +623,7 @@ public class LeapYear {
   \end{scope}
 
   % Second picture shifted down by 0.5 cm
-  \begin{scope}[yshift=-6.5cm] % radius 1cm + 0.5cm gap
+  \begin{scope}[yshift=-4.5cm] % radius 1cm + 0.5cm gap
     % Draw the stack rectangles
   \draw[thick] (0,0.0) rectangle (4.0,-1.0);
   \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
@@ -674,7 +674,7 @@ public class LeapYear {
 
 
 % slide 5
-\begin{frame}[fragile]{\texttt{reportLeapYear}:L6 (appel de la méthode \texttt{isLeap})}
+\begin{frame}[fragile]{\texttt{reportLeapYear}:L6 — Appel de la méthode \texttt{isLeap}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -720,7 +720,7 @@ public class LeapYear {
     % Right column: Stack diagram
     \column{0.32\textwidth}
     \begin{tikzpicture}[font=\sffamily, scale=0.5]
-    \begin{scope}[yshift=4cm]
+    \begin{scope}[yshift=2cm]
           % Draw the stack rectangles
   \draw (0,0.0) rectangle (4.0,-1.0);
   \draw (0,-1.0) rectangle (4.0,-2.0);
@@ -741,7 +741,7 @@ public class LeapYear {
     (4.0,-3.0) -- (4.0,0) node[midway,xshift=2.2cm,text width=3.5cm,align=left]
     {\tiny stack frame \\ \textit{\textbf{\textcolor{blue}{isLeap}}} };
     \end{scope}
-    \begin{scope}[yshift=-0.7cm]
+    \begin{scope}[yshift=-1.5cm]
       % Draw the stack rectangles
   \draw (0,-0.0) rectangle (4.0,-1.0);
   \draw (0,-1.0) rectangle (4.0,-2.0);
@@ -798,7 +798,7 @@ public class LeapYear {
   % \end{scope}
 
   % Second picture shifted down by 0.5 cm
-  \begin{scope}[yshift=-6.5cm] % radius 1cm + 0.5cm gap
+  \begin{scope}[yshift=-6cm] % radius 1cm + 0.5cm gap
     % Draw the stack rectangles
   \draw[thick] (0,0.0) rectangle (4.0,-1.0);
   \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
@@ -847,7 +847,7 @@ public class LeapYear {
 
 
 % slide 5
-\begin{frame}[fragile]{\texttt{isLeap:L3}}
+\begin{frame}[fragile]{\texttt{isLeap:L3} — Calcul d'une valeur booléenne}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -878,7 +878,7 @@ public class LeapYear {
             % Compute a window rectangle around the current line
             \path let \p1=(code.north west), \p2=(code.north east) in
                 coordinate (winNW) at (\x1, \y1-3.4em)  % top-left of the window
-                coordinate (winSE) at (\x2, \y1-2.1em); % bottom-right of the window
+                coordinate (winSE) at (\x2, \y1-2.2em); % bottom-right of the window
             
             % Wash out (pseudo-blur) everything except the window using even-odd rule
             \fill[black,opacity=0.3,even odd rule]
@@ -997,9 +997,159 @@ public class LeapYear {
 
 
 
+\begin{frame}[fragile]{\texttt{isLeap:L3} — Sortie de la méthode \texttt{isLeap}}
+\begin{columns}[T]
+    % Left column: Code with spotlight
+    \column{0.63\textwidth}
+    \begin{tikzpicture}
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=north west] (code) at (0,0) {
+            \begin{minipage}{\textwidth}
+   \begin{lstlisting}[style=JavaStyle,firstnumber=1]
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    }
+}
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1, \y1-3.4em)  % top-left of the window
+                coordinate (winSE) at (\x2, \y1-2.2em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.3,even odd rule]
+                ([yshift=0.34cm]code.south west) rectangle ([yshift=-0.27cm]code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    
+    % Right column: Stack diagram
+    \column{0.32\textwidth}
+    \begin{tikzpicture}[font=\sffamily, scale=0.5]
+  %   \begin{scope}[yshift=2cm]
+  %         % Draw the stack rectangles
+  % \draw (0,0.0) rectangle (4.0,-1.0);
+  % \draw (0,-1.0) rectangle (4.0,-2.0);
+  % \draw (0,-2.0) rectangle (4.0,-3.0);
+
+  % % Labels inside rectangles
+  % \node at (2.0,-0.5) {2000};
+  % \node at (2.0,-1.5) {true};
+  % \node at (2.0,-2.5) {};
+
+  % % Variable names on left
+  % \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-0.5) {year};
+  % \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-1.5) {\footnotesize $retVal$};
+  % \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-2.5) {\footnotesize $retAddr$};
+
+  % % Bracket for annotation
+  % \draw[decorate,decoration={brace,amplitude=5pt,mirror}]
+  %   (4.0,-3.0) -- (4.0,0) node[midway,xshift=2.2cm,text width=3.5cm,align=left]
+  %   {\tiny stack frame \\ \textit{\textbf{\textcolor{blue}{isLeap}}}};
+  %   \end{scope}
+    \begin{scope}[yshift=-1.5cm]
+      % Draw the stack rectangles
+  \draw (0,-0.0) rectangle (4.0,-1.0);
+  \draw (0,-1.0) rectangle (4.0,-2.0);
+  \draw (0,-2.0) rectangle (4.0,-3.0);
+  \draw (0,-3.0) rectangle (4.0,-4.0);
+
+  % Fill gray areas
+  \fill[gray!50] (0,-2.0) rectangle (4.0,-3.0);
+
+  % Labels inside rectangles
+
+  \node at (2.0,-1.5) {2000};
+  \node at (2.0,-2.5) {};
+  \node at (2.0,-3.5) {};
+
+  % Variable names on left
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-0.5) {leap};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-1.5) {year};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-2.5) {\footnotesize $retVal$};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-3.5) {\footnotesize $retAddr$};
+
+  % Bracket for annotation
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror}]
+    (4.0,-4.0) -- (4.0,0) node[midway,xshift=2.2cm,text width=3.5cm,align=left]
+    {\tiny stack frame \\ \textit{\textbf{\textcolor{blue}{reportLeapYear}}}};
+  \end{scope}
+
+  % Second picture shifted down by 0.5 cm
+  \begin{scope}[yshift=-6.0cm] % radius 1cm + 0.5cm gap
+    % Draw the stack rectangles
+  \draw[thick] (0,0.0) rectangle (4.0,-1.0);
+  \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
+  \draw[thick] (0,-2.0) rectangle (4.0,-3.0);
+  \draw[thick] (0,-3.05) rectangle (4.0,-4.0);
+
+  % Fill gray areas
+  \fill[gray!50] (0,-2.0) rectangle (4.0,-3.0);
+  \fill[gray!50] (0,-3.05) rectangle (4.0,-4.0);
+
+  % Labels inside rectangles
+  \node at (2.0,-0.5) {2000};
+  \node at (2.0,-1.5) {[\ ]};
+  \node at (2.0,-2.5) {};
+  \node at (2.0,-3.5) {};
+
+  % Variable names on left
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-0.5) {year};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-1.5) {args};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-2.5) {\footnotesize $retVal$};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-3.5) {\footnotesize $retAddr$};
+
+  % Bracket for annotation
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror}]
+    (4.0,-4.0) -- (4.0,0) node[midway,xshift=2.2cm,text width=3.5cm,align=left]
+    {\tiny stack frame \\ \textit{\textbf{\textcolor{blue}{main}}} };
+  \end{scope}
+    % \
+      
+    \end{tikzpicture}
+\end{columns}
+\vspace{1cm}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % slide 5
-\begin{frame}[fragile]{\texttt{reportLeapYear:L6} (affectation de la variable \texttt{leap})}
+\begin{frame}[fragile]{\texttt{reportLeapYear:L6} — Affectation de la variable \texttt{leap}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -1074,7 +1224,7 @@ public class LeapYear {
   \end{scope}
 
   % Second picture shifted down by 0.5 cm
-  \begin{scope}[yshift=-6.5cm] % radius 1cm + 0.5cm gap
+  \begin{scope}[yshift=-4.5cm] % radius 1cm + 0.5cm gap
     % Draw the stack rectangles
   \draw[thick] (0,0.0) rectangle (4.0,-1.0);
   \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
@@ -1156,7 +1306,7 @@ public class LeapYear {
 
 
 % slide 6
-\begin{frame}[fragile]{\texttt{reportLeapYear}:L7 affichage d'un message avec \texttt{System.out.println}}
+\begin{frame}[fragile]{\texttt{reportLeapYear}:L7 — Affichage d'un message avec \texttt{System.out.println}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -1231,7 +1381,7 @@ public class LeapYear {
   \end{scope}
 
   % Second picture shifted down by 0.5 cm
-  \begin{scope}[yshift=-6.5cm] % radius 1cm + 0.5cm gap
+  \begin{scope}[yshift=-4.5cm] % radius 1cm + 0.5cm gap
     % Draw the stack rectangles
   \draw[thick] (0,0.0) rectangle (4.0,-1.0);
   \draw[thick] (0,-1.0) rectangle (4.0,-2.0);
@@ -1287,7 +1437,7 @@ public class LeapYear {
 
 
 
-\begin{frame}[fragile]{\texttt{reportLeapYear}:L7 sortie de la méthode \texttt{reportLeapYear}}
+\begin{frame}[fragile]{\texttt{reportLeapYear}:L7 — Sortie de la méthode \texttt{reportLeapYear}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
@@ -1395,7 +1545,7 @@ public class LeapYear {
 
 
 
-\begin{frame}[fragile]{\texttt{main}:L11 sortie de la méthode \texttt{main}}
+\begin{frame}[fragile]{\texttt{main}:L11 — Sortie de la méthode \texttt{main}}
 \begin{columns}[T]
     % Left column: Code with spotlight
     \column{0.63\textwidth}
