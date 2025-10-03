@@ -8,7 +8,7 @@ public class Question16 {
         System.out.println(s.substring(5, 20));
 
         // Accéder au troisième caractère
-        System.out.println(s.charAt(2)); // 'h'
+        System.out.println(s.charAt(2)); // 'I'
 
         System.out.println(s.length());
     }
