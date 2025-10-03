@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usepackage{listings}
 \newcommand\blank[1]{\rule[-.2ex]{#1}{.4pt}}
 \usepackage{tikz}
@@ -49,9 +49,9 @@
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=1]
     
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World: 1");
+package scripts;
+
+public class LeapYear {
     \end{lstlisting}
             \end{minipage}
         };
@@ -71,13 +71,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 1:} Define the Main class
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -91,10 +84,10 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=1]
     
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World: 1");
-        System.out.println("Hello World: 2");
+package scripts;
+
+public class LeapYear {
+    static boolean isLeap(int year) {
     \end{lstlisting}
             \end{minipage}
         };
@@ -114,13 +107,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 2:} Define the main method entry point
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -134,11 +120,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=1]
     
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World: 1");
-        System.out.println("Hello World: 2");
-        System.out.println("Hello World: 3");
+package scripts;
+
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
     \end{lstlisting}
             \end{minipage}
         };
@@ -158,13 +144,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 3:} Print the first hello message
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -178,11 +157,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=2]
     
-    public static void main(String[] args) {
-        System.out.println("Hello World: 1");
-        System.out.println("Hello World: 2");
-        System.out.println("Hello World: 3");
-        System.out.println("Hello World: 4");
+
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
     \end{lstlisting}
             \end{minipage}
         };
@@ -202,13 +181,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 4:} Print the second hello message
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -222,11 +194,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=3]
     
-        System.out.println("Hello World: 1");
-        System.out.println("Hello World: 2");
-        System.out.println("Hello World: 3");
-        System.out.println("Hello World: 4");
-        System.out.println("Hello World: 5");
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
     \end{lstlisting}
             \end{minipage}
         };
@@ -246,13 +218,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 5:} Print the third hello message
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -266,11 +231,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=4]
     
-        System.out.println("Hello World: 2");
-        System.out.println("Hello World: 3");
-        System.out.println("Hello World: 4");
-        System.out.println("Hello World: 5");
-        System.out.println("Hello World: 6");
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
+    static void reportLeapYear(int year) {
     \end{lstlisting}
             \end{minipage}
         };
@@ -290,13 +255,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 6:} Print the fourth hello message
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -310,11 +268,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=5]
     
-        System.out.println("Hello World: 3");
-        System.out.println("Hello World: 4");
-        System.out.println("Hello World: 5");
-        System.out.println("Hello World: 6");
-        System.out.println("Hello World: 7");
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
     \end{lstlisting}
             \end{minipage}
         };
@@ -334,13 +292,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 7:} Close the main method
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -354,11 +305,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=6]
     
-        System.out.println("Hello World: 4");
-        System.out.println("Hello World: 5");
-        System.out.println("Hello World: 6");
-        System.out.println("Hello World: 7");
-        System.out.println("Hello World: 8");
+    }
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
     \end{lstlisting}
             \end{minipage}
         };
@@ -378,13 +329,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 8:} Close the Main class
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -398,10 +342,10 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=7]
     
-        System.out.println("Hello World: 5");
-        System.out.println("Hello World: 6");
-        System.out.println("Hello World: 7");
-        System.out.println("Hello World: 8");
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
     }
     \end{lstlisting}
             \end{minipage}
@@ -422,13 +366,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 9:} Executing line 9
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -442,10 +379,11 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=8]
     
-        System.out.println("Hello World: 6");
-        System.out.println("Hello World: 7");
-        System.out.println("Hello World: 8");
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
     }
+
     \end{lstlisting}
             \end{minipage}
         };
@@ -465,13 +403,6 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 10:} Executing line 10
-        };
     \end{tikzpicture}
     \end{center}
     \end{frame}
@@ -485,8 +416,121 @@ public class Main {
             \begin{minipage}{\textwidth}
     \begin{lstlisting}[style=JavaStyle,firstnumber=9]
     
-        System.out.println("Hello World: 7");
-        System.out.println("Hello World: 8");
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+
+    public static void main(String[] args) {
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=10]
+    
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+
+    public static void main(String[] args) {
+        int year = 2000;
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=11]
+    
+    }
+
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=12]
+    
+
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
     }
     \end{lstlisting}
             \end{minipage}
@@ -507,13 +551,77 @@ public class Main {
             % Draw the red box around the visible line
             \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
         \end{scope}
-        
-        % Explanation box below the code
-        \node[anchor=north,fill=blue!10,draw=blue!50,thick,rounded corners,
-            text width=0.8\textwidth,align=left,inner sep=10pt] 
-            at ($(current page.north)+(0,-1.5cm)$) {
-            \textbf{Line 11:} Executing line 11
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=13]
+    
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    }
+    \end{lstlisting}
+            \end{minipage}
         };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=14]
+    
+        int year = 2000;
+        reportLeapYear(year);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
     \end{tikzpicture}
     \end{center}
     \end{frame}

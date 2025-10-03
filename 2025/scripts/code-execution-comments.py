@@ -19,7 +19,7 @@ def generate_beamer_slides(code_lines, explanations):
     line_height = 1.1
     
     # Header
-    header = r'''\documentclass{beamer}
+    header = r'''\documentclass[aspectratio=169]{beamer}
 \usepackage{listings}
 \newcommand\blank[1]{\rule[-.2ex]{#1}{.4pt}}
 \usepackage{tikz}

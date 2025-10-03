@@ -164,13 +164,21 @@ if __name__ == "__main__":
     
     # Example 2: Function call stack with arrows
     print("=== Example 2: Function Call Stack with Arrows ===")
+    # latex_code2 = generator.generate(
+    #     num_rectangles=5,
+    #     gray_indices=[4],
+    #     bracket_text="stack frame of \\\\ \\textit{\\textbf{\\textcolor{blue}{calculate}}} function",
+    #     variables=["result", "x", "y", "temp", None],
+    #     labels=["42", "10", "32", "0", ""],
+    #     arrows=[None, "straight", None, "straight", "curved"]
+    # )
     latex_code2 = generator.generate(
-        num_rectangles=5,
-        gray_indices=[4],
+        num_rectangles=3,
+        gray_indices=[],
         bracket_text="stack frame of \\\\ \\textit{\\textbf{\\textcolor{blue}{calculate}}} function",
-        variables=["result", "x", "y", "temp", None],
-        labels=["42", "10", "32", "0", ""],
-        arrows=[None, "straight", None, "straight", "curved"]
+        variables=["year","retValue", "retAddr"],
+        labels=["2000", "true", ""],
+        arrows=['','', ""]
     )
     print(latex_code2)
     print("\n")
@@ -185,7 +193,7 @@ if __name__ == "__main__":
         labels=["'Alice'", "25", "'NYC'"]
     )
     print(latex_code3)
-    
+
     # Save to file
     output_file = "stack.tex"
     with open(output_file, "w") as f:
