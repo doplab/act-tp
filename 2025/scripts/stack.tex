@@ -1,0 +1,26 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usetikzlibrary{positioning,decorations.pathreplacing}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+  % Draw the stack rectangles
+  \draw (0,0.0) rectangle (4.0,-1.0);
+  \draw (0,-1.0) rectangle (4.0,-2.0);
+  \draw (0,-2.0) rectangle (4.0,-3.0);
+
+  % Labels inside rectangles
+  \node at (2.0,-0.5) {2000};
+  \node at (2.0,-1.5) {true};
+  \node at (2.0,-2.5) {};
+
+  % Variable names on left
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-0.5) {year};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-1.5) {retValue};
+  \node[anchor=east, text=red!70!black, font=\bfseries] at (0,-2.5) {retAddr};
+
+  % Bracket for annotation
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror}]
+    (4.0,-3.0) -- (4.0,0) node[midway,xshift=2.2cm,text width=3.5cm,align=left]
+    {stack frame of \\ \textit{\textbf{\textcolor{blue}{calculate}}} function};
+
+\end{tikzpicture}
+\end{document}

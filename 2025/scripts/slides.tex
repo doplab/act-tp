@@ -1,0 +1,629 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{listings}
+\newcommand\blank[1]{\rule[-.2ex]{#1}{.4pt}}
+\usepackage{tikz}
+\usetikzlibrary{shapes.callouts, positioning, arrows.meta,calc,backgrounds}
+\usepackage[dvipsnames]{xcolor}
+
+% Use plain theme with no decorations
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{headline}{}
+
+% Define Java code style
+\lstdefinestyle{JavaStyle}{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{Maroon},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    breaklines=true,
+    frame=single,
+    tabsize=2,
+    showstringspaces=false,
+    firstnumber=auto
+}
+
+\title{Understanding Java Code Execution}
+\subtitle{Step-by-Step Walkthrough}
+\author{Programming Tutorial}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=1]
+    
+package scripts;
+
+public class LeapYear {
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-2.6em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-1.5em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=1]
+    
+package scripts;
+
+public class LeapYear {
+    static boolean isLeap(int year) {
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-3.7em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-2.6em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=1]
+    
+package scripts;
+
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=2]
+    
+
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=3]
+    
+public class LeapYear {
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=4]
+    
+    static boolean isLeap(int year) {
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
+    static void reportLeapYear(int year) {
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=5]
+    
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    }
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=6]
+    
+    }
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=7]
+    
+
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=8]
+    
+    static void reportLeapYear(int year) {
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=9]
+    
+        boolean leap = isLeap(year);
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+
+    public static void main(String[] args) {
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=10]
+    
+        System.out.println("isLeap(" + year + ")=" + leap);
+    }
+
+    public static void main(String[] args) {
+        int year = 2000;
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=11]
+    
+    }
+
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=12]
+    
+
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=13]
+    
+    public static void main(String[] args) {
+        int year = 2000;
+        reportLeapYear(year);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}[fragile]{Code Execution Flow}
+    \begin{center}
+    \begin{tikzpicture}[remember picture, overlay]
+        % Code listing (named node so we can reference its bounds)
+        \node[anchor=center] (code) at (current page.center) {
+            \hspace{1cm}
+            \begin{minipage}{\textwidth}
+    \begin{lstlisting}[style=JavaStyle,firstnumber=14]
+    
+        int year = 2000;
+        reportLeapYear(year);
+    }
+    \end{lstlisting}
+            \end{minipage}
+        };
+        
+        % === Spotlight the current line: draw a semi-opaque overlay with a hole ===
+        \begin{scope}[on background layer]
+            % Compute a window rectangle around the current line
+            \path let \p1=(code.north west), \p2=(code.north east) in
+                coordinate (winNW) at (\x1+0.9em, \y1-4.8em)  % top-left of the window
+                coordinate (winSE) at (\x2-0.9em, \y1-3.7em); % bottom-right of the window
+            
+            % Wash out (pseudo-blur) everything except the window using even-odd rule
+            \fill[black,opacity=0.5,even odd rule]
+                (code.south west) rectangle (code.north east)
+                (winNW) rectangle (winSE);
+            
+            % Draw the red box around the visible line
+            \draw[red,very thick,rounded corners=2pt] (winNW) rectangle (winSE);
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+    \end{frame}
+
+    \end{document}
