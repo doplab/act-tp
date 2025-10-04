@@ -107,8 +107,15 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{conseil}
 
     \begin{solution}
-        On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
-    \end{solution}
+        \begin{itemize}
+            \item  Le programme affiche: \\
+            \lstinline{a = 2} \\
+            \lstinline{a = 2} \\
+            \lstinline{b = 3} \\ 
+
+            \item On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l’intérieur de la méthode \lstinline{g()} et n’existe donc qu’au sein de celle-ci. La variable \lstinline{b} n’étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l’objet d’un appel en dehors de la fonction \lstinline{g()}.
+        \end{itemize}
+        \end{solution}
  \end{Exercice}
 
 
