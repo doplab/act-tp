@@ -3,6 +3,14 @@
 \usepackage{listings}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
 
 \begin{document}
 
@@ -24,7 +32,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
 
 \section{Variables et Fonctions}
-\begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Les fonctions (fonctions basiques) (Java \textbf{et} Python)}\\
     Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche ``pong''. \\
      
       \begin{conseil}
@@ -41,7 +49,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \end{solution}   
   \end{Exercice}
   
-    \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java ou Python)}\\
+    \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonction multiplication) (Java \textbf{et} Python)}\\
     Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple1} et \textit{multiple2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez la.   \\
 
     \begin{conseil}
@@ -59,7 +67,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{solution}   
 \end{Exercice} 
   
-  \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java ou Python)}\\
+  \begin{Exercice}[5 minutes] \textbf{Les Fonctions (Fonctions Aire et Périmètre) (Java \textbf{et} Python)}\\
       Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimètre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
      
       \begin{conseil}
@@ -148,7 +156,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     
      \begin{conseil}
         \begin{itemize}
-            \item La fonction \lstinline{float()} permet de convertir une variable en nombre à décimal.
+            \item La fonction \lstinline{float()} permet de convertir une variable en nombre décimal.
             \item La fonction \lstinline{int()} permet de convertir une variable en nombre entier.
         \end{itemize}  
     \end{conseil}
@@ -167,11 +175,58 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 
     
      \begin{conseil}
-        Référez-vous à la diapositive 26 du cours de cette semaine.           
+        Référez-vous à la diapositive 22 du cours de cette semaine.           
      \end{conseil}
      \begin{solution}
         À l'intérieur de la fonction \lstinline{division}, lorsque b est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans le \lstinline{main}, l'erreur qui est interceptée est \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
      \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Gestion d'erreurs (Java)} 
+    \begin{enumerate}
+    \item Qu'affiche le programme suivant supposant que l'utilisateur saisit l'entrée suivante? \\
+
+    \begin{itemize}
+        \item Entrez le premier entier: 12
+        \item Entrez le deuxième entier: 2
+        \item Entrez l'opération (+, -, *, /): *
+    \end{itemize}
+
+    \begin{conseil}
+            Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document} sur le \texttt{switch} en Java. Référez-vous à la diapositive 23 du cours. 
+     \end{conseil}
+
+     \item Que devez-vous modifier pour qu'il fonctionne?
+    \end{enumerate}
+    \lstinputlisting{ressources/Questions/Calculator.java}
+    \begin{solution}
+    \texttt{Entrez le premier entier: 12 \\ 
+Entrez le deuxième entier: 2 \\
+Entrez l'opération (+, -, *, /): * \\ 
+24.0\\
+6.0\\
+Exception in thread "main" java.lang.IllegalArgumentException: L'opération n'est pas valide \\
+        at Calculator.main(Calculator.java:28)}
+    \end{solution}
+\begin{solution}
+Il faut simplement ajouter un \texttt{break;} après l'affichage du résultat d'une opération. 
+\end{solution}
+
+ \end{Exercice}
+
+ \begin{Exercice}
+   Qu'affiche le programme (question11.py) suivant supposant que l'utilisateur exécute le programme de la manière suivante dans le terminal? \\ \newline 
+   \texttt{python3 question11.py 9} \\ 
+   \begin{conseil}
+   Référez-vous à la diapositive 10 du cours.
+   \end{conseil}
+   \lstinputlisting{ressources/Questions/question11.py}
+   \begin{solution}
+   
+\texttt{Une erreur est survenue \\
+Valeur finale de balance: 20
+    }
+   \end{solution}
  \end{Exercice}
 
 \end{document}
