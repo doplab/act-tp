@@ -4,7 +4,7 @@ public class Question9 {
             throw new ArithmeticException();
         }else{
             float result = a/b; 
-            System.out.println("Le résultat de la division de " + a + "/" + b + "= " + result);
+            System.out.println("Le résultat de la division " + a + "/" + b + " = " + result);
         }
        
     
