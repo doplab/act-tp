@@ -728,6 +728,28 @@ Python & 2 & 1 & Python \\
             \end{solution} 
         
 \end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Fonction getBinaryRepresentation() — Java} 
+	
+ La représentation binaire d'un entier plus grand que 0 peut être résolue de manière récursive: 
+ \begin{equation}
+    f(a) = \begin{cases}
+        f\left(\frac{a}{2}\right) + \texttt{'0'} & \text{si } a \bmod 2 = 0 \\
+        f\left(\frac{a}{2}\right) + \texttt{'1'} & \text{si } a \bmod 2 = 1
+    \end{cases}
+\end{equation}
+Dans cette formula, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $a>0$ et $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
+        Ecrivez la fonction \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivante une approche récursive. \\ 
+        
+            \begin{conseil} 
+            La méthode \lstinline[language=Java]|Integer.parseInt(arg)| permet de convertir une chaîne de caractères \texttt{arg} en entier et la méthode \lstinline[language=Java]|String.valueOf(nbr)| permet de convertir \texttt{nbr} en chaîne de caractères.  
+            \end{conseil} 
+        
+            \begin{solution} 
+                \lstinputlisting[language=Java]{resources/solutions/Question21.java}
+            \end{solution} 
+        
+\end{Exercice}
     
         
 \end{document}
