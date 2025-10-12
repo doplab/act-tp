@@ -1,7 +1,7 @@
 fr_eng = {
                 "chat": "cat",
                 "chien": "dog",
-                "oiseau": "bir",
+                "oiseau": "bird",
                 "poule": "chicken",
                 "papillon": "butterfly",
                 "souris": "mouse",

@@ -11,6 +11,7 @@
     % Change the following values to true to show the solutions or/and the hints
     \ShowSolutiontrue
     \ShowConseiltrue
+    \ShowWarningtrue
     \titre
     \cours{Structure de données, Itération et récursivité - Basiques}
 
@@ -48,9 +49,12 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
     
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
-        Vous pouvez contrôler si un élément est contenu dans un tuple, ou une liste, en utilisant l'opérateur \lstinline{in}. Si l'élément est dans la liste, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. \\
         
         Qu'affiche le code suivant ? \\
+
+        \begin{conseil}
+        Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est dans la liste, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
+        \end{conseil}
         
         \lstinputlisting{resources/Questions/question2.py}
         
@@ -102,10 +106,10 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
        Choisissez parmi les éléments suivants :
        
        	\begin{itemize}
-        \item 1, 2, 2, 4, 5, 6 \\
-        \item 0, 1, 2, 3, 4, 5 \\
-        \item 0, 1, 2, 3, 4, 5, 6 \\
-        \item 0, 1, 3, 2, 4, 5, 6 \\
+        \item 1, 2, 2, 4, 5, 6 
+        \item 0, 1, 2, 3, 4, 5 
+        \item 0, 1, 2, 3, 4, 5, 6 
+        \item 0, 1, 3, 2, 4, 5, 6
         \end{itemize}
     
         \begin{conseil}
@@ -114,7 +118,7 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
         
         \begin{solution}
             [0, 1, 2, 3, 4, 5, 6] \\
-            Le script change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
+            Le programme change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
         \end{solution}
     \end{Exercice}
 
@@ -124,20 +128,22 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
 	
 	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé étant le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond, alternativement, nous pouvons retrouver le contenu d’une page d’un livre en utilisant le numéro de celle-ci, dans ce cas le numéro est la clé et le texte de la page, la valeur. \\
 	
-	Pour créer un dictionnaire, il suffit de lister les couples \lstinline{clé, valeurs} entre 2 accolades : \\
+	Pour créer un dictionnaire, il suffit de lister les couples \lstinline{clé, valeurs} entre
+    deux accolades : \\
 	
 	 \begin{lstlisting}[language=Python]
-          elon_musk = {
-                "prénom": "Elon",
-                "nom": "Musk",
-                "age": 48,
-                "talents": ["programmation", "entreprenariat", "aéronautique"]
-            }   \end{lstlisting}
+elon_musk = {
+    "prénom": "Elon",
+    "nom": "Musk",
+    "age": 48,
+    "talents": ["programmation", "entreprenariat", "aéronautique"]
+}   
+        \end{lstlisting}
 				
 	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
-       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les éléments suivants :
+       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes :
        
-       \lstinputlisting{resources/animals.txt}
+       \lstinputlisting[numbers=none]{resources/animals.txt}
        
        Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
        
@@ -185,19 +191,24 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \subsection{Structures de données (Java)}
     Dans cette partie, les exercices devront être effectués en Java. \\
     Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\
-    \textbf{Déclaration d'un tuple en Java:}
+    \textbf{Déclaration et affectation d'un tuple (array) en Java de type Object[]:}
      \begin{lstlisting}[language=Java]
-              Object[] mon_tuple = {1,2,3,4}; \end{lstlisting} 
+Object[] mon_tuple = {1,2,3,4}; \end{lstlisting} 
+\textbf{Déclaration et affectation d'un tuple (array) en Java de type String[]:}
+     \begin{lstlisting}[language=Java]
+String[] mon_tuple = {"UNIL","ACT"}; \end{lstlisting} 
+
+Pour la déclaration généralement, on écrit: \textbf{\lstinline[language=Java]|T[] nom_variable|}, où \texttt{T} est le type d'éléments dans le tuple.
               
-    \textbf{\\ Déclaration d'une liste en Java:}
+    \textbf{\\ Déclaration et affectation d'une liste en Java:}
     
     \begin{lstlisting}[language=Java]
-              List ma_liste = List.of(1,2,3,4); \end{lstlisting}
+List ma_liste = List.of(1,2,3,4); \end{lstlisting}
             
-    \textbf{\\ Déclaration d'un dictionnaire en Java:} 
+    \textbf{\\ Déclaration et affectation d'un dictionnaire en Java:} 
     
     \begin{lstlisting}[language=Java]
-              HashMap mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
+HashMap mon_dictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
               
     
     \begin{Example}{\faTerminal \quad Informations utiles}
@@ -205,9 +216,9 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
             \item En Java, les listes sont immuables, comme les tuples en Python. Au cas où vous devriez modifier une liste, on vous recommande d'utiliser une liste liée (\lstinline{LinkedList}). Une liste liée se déclare comme suit :
     
             \begin{lstlisting}[language=Java]
-                List liste = List.of(1,2,3,4);
-                LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
-            \item En Java, les listes ne peuvent contenir que des éléments homogènes c'est-à-dire de même type.
+List liste = List.of(1,2,3,4);
+LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
+            \item En Java, les listes ne peuvent contenir que des éléments de même type.
         \end{itemize} 
         
     \end{Example}
@@ -219,15 +230,15 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
       	
       	Ajoutez ceci au début de votre code:
       	\begin{lstlisting}[language=Java]
-             import java.util.List;
-	     import java.util.LinkedList; \end{lstlisting}
+import java.util.List;
+import java.util.LinkedList; \end{lstlisting}
 	     
 	     Ajoutez ceci à la fin de votre code:
 	     
 	    \begin{lstlisting}[language=Java]
-             for(int i=0;i<ma_liste_m.size();i++){
-            		System.out.println(ma_liste_m.get(i));
-	       } \end{lstlisting} 
+for(int i=0;i<ma_liste_m.size();i++){
+    System.out.println(ma_liste_m.get(i));
+} \end{lstlisting} 
     
         \begin{conseil}
             Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{.get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{.size()}. \\
@@ -730,9 +741,9 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
             \begin{conseil} 
             On peut écrire cette fonction comme suit : \\
             
-            f(n) = f(n) * f(n-1) si n $>$ 0 \\
+            $f(n) = f(n) * f(n-1)$ si $n >$ 0 \\
             
-            f(n) = 1 si n = 0
+            $f(n) = 1$ si $n = 0$
             
             \end{conseil} 
         

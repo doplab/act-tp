@@ -1,1 +1,1 @@
-"chat": "cat", "chien": "dog", "oiseau": "bir", "poule": "chicken", "papillon": "butterfly", "souris": "mouse", "ours": "bear", "mouton": "sheep", "cochon": "pig" 
+"chat": "cat", "chien": "dog", "oiseau": "bird", "poule": "chicken", "papillon": "butterfly", "souris": "mouse", "ours": "bear", "mouton": "sheep", "cochon": "pig" 
