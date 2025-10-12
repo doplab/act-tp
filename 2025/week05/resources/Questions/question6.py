@@ -1,8 +1,8 @@
 elon_musk = {
-                "prénom": "Elon",
-                "nom": "Musk",
-                "age": 48,
-                "talents": ["programmation", "entreprenariat", "aéronautique"]
+    "prénom": "Elon",
+    "nom": "Musk",
+    "age": 48,
+    "talents": ["programmation", "entreprenariat", "aéronautique"]
 }
 
 print(elon_musk["talents"][2])

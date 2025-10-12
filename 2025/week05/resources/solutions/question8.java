@@ -1,10 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class Question8 {
 
     public static void main(String[] args) {
-        HashMap<String, Integer> mon_dictionnaire = new HashMap<String, Integer>(Map.of("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
+        HashMap<String, Integer> mon_dictionnaire = new HashMap<String, Integer>(
+                Map.of("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
         System.out.println(mon_dictionnaire.get("étudiants"));
         int taille_dictionnaire = mon_dictionnaire.size();
         System.out.println(taille_dictionnaire);
