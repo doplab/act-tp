@@ -42,7 +42,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question1.py} 
+            \lstinputlisting{code/question1.py} 
         \end{solution}
     \end{Exercice}
 
@@ -56,7 +56,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est dans la liste, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
         \end{conseil}
         
-        \lstinputlisting{resources/Questions/question2.py}
+        \lstinputlisting{code/question2-enonce.py}
         
         % Choisissez parmi les éléments suivants : \\
         
@@ -72,7 +72,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-           ``6 est contenu dans le tuple'' \\
+           \faTerminal \texttt{6 est contenu dans le tuple} \\
            6 est un élément de notre tuple, la condition sera donc remplie.
         \end{solution}
     \end{Exercice}
@@ -94,14 +94,14 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question3.py} 
+            \lstinputlisting{code/question3.py} 
         \end{solution}
     \end{Exercice}
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2}\\
        Qu'affiche le code suivant ? \\
        
-       \lstinputlisting{resources/questions/question4.py} 
+       \lstinputlisting{code/question4-enonce.py} 
        
        Choisissez parmi les éléments suivants :
        
@@ -143,7 +143,7 @@ elon_musk = {
 	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
        Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes :
        
-       \lstinputlisting[numbers=none]{resources/animals.txt}
+       \lstinputlisting[numbers=none]{code/animals.txt}
        
        Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
        
@@ -154,25 +154,25 @@ elon_musk = {
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question5.py} 
+            \lstinputlisting{code/question5.py} 
         \end{solution}
     \end{Exercice}
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 2}\\
       	Qu'affiche le programme suivant? \\
        
-      	\lstinputlisting{resources/questions/question6.py} 
+      	\lstinputlisting{code/question6-enonce.py} 
       	
       	Choisissez parmi les possibilités suivantes : \\
       	
       	\begin{itemize}
-      	\item programmation \\
+      	\item[(A)] programmation \\
       	True
-      	\item Musk \\
+      	\item[(B)] Musk \\
       	False
-      	\item 48 \\
+      	\item[(C)] 48 \\
       	False
-      	\item aéronautique \\
+      	\item[(D)] aéronautique \\
       	True
       	\end{itemize}
     
@@ -182,7 +182,7 @@ elon_musk = {
         
         \begin{solution}
             aéronautique \\
-            True \\
+            \quad True \\
             
             En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
         \end{solution}
@@ -247,12 +247,12 @@ for(int i=0;i<ma_liste_m.size();i++){
             
            	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
            	
-           	\lstinputlisting{resources/questionexemple.java}
+           	\lstinputlisting{code/Exemple.java}
 		     
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question7.java}
+            \lstinputlisting{code/Question7.java}
         \end{solution}
     \end{Exercice}
     
@@ -284,7 +284,7 @@ for (String key : mon_dictionnaire.keySet()){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question8.java}
+            \lstinputlisting{code/Question8.java}
         \end{solution}
     \end{Exercice}
     
@@ -553,7 +553,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question18.py}
+            \lstinputlisting{code/question14.py}
         \end{solution}
     \end{Exercice}
 
@@ -572,7 +572,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question15.py}
+            \lstinputlisting{code/question15.py}
         \end{solution}
     \end{Exercice}
 
@@ -586,7 +586,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{resources/solutions/question16.py}
+        \lstinputlisting{code/question16.py}
     \end{solution}
 \end{Exercice}
 
@@ -601,7 +601,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{resources/solutions/question17.java}
+        \lstinputlisting{code/Question17.java}
     \end{solution}
 \end{Exercice}
 
@@ -613,9 +613,9 @@ Python & 2 & 1 & Python \\
 	
 	Qu'affiche le programme suivant? \\ 
 	
-	\lstinputlisting{resources/questions/question18.py} 
+	\lstinputlisting{code/question18-enonce.py} 
 	
-	Choisissez parmi les possibilités suivantes : \\
+	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
 	\begin{itemize}
 	\item 4  
@@ -655,9 +655,9 @@ Python & 2 & 1 & Python \\
 \begin{Exercice}[5 minutes] \textbf{Lecture de code - 2}
     
 	Qu'affiche le programme suivant?
-	\lstinputlisting{resources/questions/question19.py}
+	\lstinputlisting{code/question19-enonce.py}
 	
-	Choisissez parmi les possibilités suivantes : \\
+	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
 	\begin{itemize}
 	\item 4  
@@ -722,31 +722,31 @@ Python & 2 & 1 & Python \\
         
             \begin{solution} 
                 \textbf{Python:}
-                \lstinputlisting{resources/solutions/question20.py}
+                \lstinputlisting{code/question20.py}
                 \textbf{Java:}
-                \lstinputlisting{resources/solutions/question20.java}
+                \lstinputlisting{code/Question20.java}
             \end{solution} 
         
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] \textbf{Fonction getBinaryRepresentation() — Java} 
 	
- La représentation binaire d'un entier plus grand que 0 peut être résolue de manière récursive: 
+ Le calcul de la représentation binaire d'un entier plus grand que 0 peut être résolu de manière récursive: 
  \begin{equation}
     f(a) = \begin{cases}
-        f\left(\frac{a}{2}\right) + \texttt{'0'} & \text{si } a \bmod 2 = 0 \\
-        f\left(\frac{a}{2}\right) + \texttt{'1'} & \text{si } a \bmod 2 = 1
+        f\left(\frac{a}{2}\right) + \texttt{"0"} & \text{si } a \bmod 2 = 0 \\
+        f\left(\frac{a}{2}\right) + \texttt{"1"} & \text{si } a \bmod 2 = 1
     \end{cases}
 \end{equation}
-Dans cette formula, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $a>0$ et $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
-        Ecrivez la fonction \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivante une approche récursive. \\ 
+Dans cette formule, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $a>0$ et le symbole $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
+        Ecrivez la fonction \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivant une approche récursive. \\ 
         
             \begin{conseil} 
             La méthode \lstinline[language=Java]|Integer.parseInt(arg)| permet de convertir une chaîne de caractères \texttt{arg} en entier et la méthode \lstinline[language=Java]|String.valueOf(nbr)| permet de convertir \texttt{nbr} en chaîne de caractères.  
             \end{conseil} 
         
             \begin{solution} 
-                \lstinputlisting[language=Java]{resources/solutions/Question21.java}
+                \lstinputlisting[language=Java]{code/Question21.java}
             \end{solution} 
 \end{Exercice}
     
