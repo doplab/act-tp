@@ -15,12 +15,11 @@
     \titre
     \cours{Structure de données, Itération et récursivité - Basiques}
 
-    Le but de cette séance est de mettre en pratique les connaissances du cours sur les structures de données (tuples, listes, dictionnaires), l'itération et la récursivité. Au term de cette séance, l'étudiant saura distinguer structures immuables et non immuables, et écrire des programmes utilisant itération et récursivité. \newline \newline  
+    Le but de cette séance est de mettre en pratique les connaissances du cours sur les structures de données (tuples, listes, dictionnaires), l'itération et la récursivité. Au terme de cette séance, l'étudiant saura distinguer structures immuables et non immuables, et écrire des programmes utilisant itération et récursivité. \newline \newline  
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
 
-    Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
     \subsection{Tuples}
     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
     L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
@@ -42,21 +41,20 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question1.py} 
+            \lstinputlisting{code/question1.py} 
         \end{solution}
     \end{Exercice}
 
     
     
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple — Python}\\
         
         Qu'affiche le code suivant ? \\
-
+        \lstinputlisting{code/question2-enonce.py}
         \begin{conseil}
-        Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est dans la liste, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
+        Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou un dictionnaire, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est là dedans, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
         \end{conseil}
         
-        \lstinputlisting{resources/Questions/question2.py}
         
         % Choisissez parmi les éléments suivants : \\
         
@@ -72,7 +70,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-           ``6 est contenu dans le tuple'' \\
+           \faTerminal \texttt{6 est contenu dans le tuple} \\
            6 est un élément de notre tuple, la condition sera donc remplie.
         \end{solution}
     \end{Exercice}
@@ -86,7 +84,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
 ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Example}
     
-     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 1}\\
+     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 1 — Python}\\
         Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Stockez le deuxième élément de la liste dans une variable nommée \lstinline{element_2}, puis stockez la taille de la liste dans une variable nommée \lstinline{taille_liste}. Affichez ces deux variables.\\
     
         \begin{conseil}
@@ -94,23 +92,23 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question3.py} 
+            \lstinputlisting{code/question3.py} 
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2}\\
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste - 2 — Python}\\
        Qu'affiche le code suivant ? \\
        
-       \lstinputlisting{resources/questions/question4.py} 
+       \lstinputlisting{code/question4-enonce.py} 
        
        Choisissez parmi les éléments suivants :
        
        	\begin{itemize}
-        \item 1, 2, 2, 4, 5, 6 
-        \item 0, 1, 2, 3, 4, 5 
-        \item 0, 1, 2, 3, 4, 5, 6 
-        \item 0, 1, 3, 2, 4, 5, 6
-        \end{itemize}
+    \item \([1, 2, 2, 4, 5, 6]\)
+    \item \([0, 1, 2, 3, 4, 5]\)
+    \item \([0, 1, 2, 3, 4, 5, 6]\)
+    \item \([0, 1, 3, 2, 4, 5, 6]\)
+\end{itemize}
     
         \begin{conseil}
             En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
@@ -140,10 +138,10 @@ elon_musk = {
 }   
         \end{lstlisting}
 				
-	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1}\\
+	\begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 1 – Python}\\
        Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes :
        
-       \lstinputlisting[numbers=none]{resources/animals.txt}
+       \lstinputlisting[numbers=none]{code/animals.txt}
        
        Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
        
@@ -154,25 +152,25 @@ elon_musk = {
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question5.py} 
+            \lstinputlisting{code/question5.py} 
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 2}\\
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 2 — Python}\\
       	Qu'affiche le programme suivant? \\
        
-      	\lstinputlisting{resources/questions/question6.py} 
+      	\lstinputlisting{code/question6-enonce.py} 
       	
       	Choisissez parmi les possibilités suivantes : \\
       	
       	\begin{itemize}
-      	\item programmation \\
+      	\item[(A)] programmation \\
       	True
-      	\item Musk \\
+      	\item[(B)] Musk \\
       	False
-      	\item 48 \\
+      	\item[(C)] 48 \\
       	False
-      	\item aéronautique \\
+      	\item[(D)] aéronautique \\
       	True
       	\end{itemize}
     
@@ -182,7 +180,7 @@ elon_musk = {
         
         \begin{solution}
             aéronautique \\
-            True \\
+            \quad True \\
             
             En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
         \end{solution}
@@ -223,7 +221,7 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
         
     \end{Example}
 	     
-	\begin{Exercice}[10 minutes] \textbf{Manipulation des listes en Java}\\
+	\begin{Exercice}[10 minutes] \textbf{Manipulation des listes — Java}\\
       	Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
       	
       	Créez une liste \lstinline{ma_liste_m} liée à la liste \lstinline{ma_liste}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
@@ -247,16 +245,16 @@ for(int i=0;i<ma_liste_m.size();i++){
             
            	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
            	
-           	\lstinputlisting{resources/questionexemple.java}
+           	\lstinputlisting{code/Exemple.java}
 		     
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question7.java}
+            \lstinputlisting{code/Question7.java}
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[15 minutes] \textbf{Manipulation de dictionnaires en Java}\\
+    \begin{Exercice}[15 minutes] \textbf{Manipulation de dictionnaires — Java}\\
       	Créez un dictionnaire \lstinline{mon_dictionnaire} contenant les associations suivantes :
       	
       	\texttt{("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0)}\\
@@ -284,7 +282,7 @@ for (String key : mon_dictionnaire.keySet()){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question8.java}
+            \lstinputlisting{code/Question8.java}
         \end{solution}
     \end{Exercice}
     
@@ -316,7 +314,7 @@ for (String key : mon_dictionnaire.keySet()){
      	\end{itemize}
      	
      	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Python}\\
+    \begin{Exercice}[5 minutes] \textbf{Boucle for — Python}\\
       	Qu'affiche le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -352,7 +350,7 @@ for c in ma_liste :
     \end{Exercice}
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle for en Java}\\
+    \begin{Exercice}[5 minutes] \textbf{Boucle for — Java}\\
       	Qu'affiche le code suivant?
       	
       	\begin{lstlisting}[language=Java]
@@ -402,7 +400,7 @@ for(int i=0;i<ma_liste.size();i++){
     \end{Exercice} 	
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Python}\\
+    \begin{Exercice}[5 minutes] \textbf{Boucle while — Python}\\
       	Qu'affiche le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -454,7 +452,7 @@ print(result)
     \end{Exercice}
     
     
-    \begin{Exercice}[5 minutes] \textbf{Boucle while en Java}\\
+    \begin{Exercice}[5 minutes] \textbf{Boucle while — Java}\\
       	Qu'affiche le code suivant ?
       	
       	\begin{lstlisting}[language=Java]
@@ -504,7 +502,7 @@ while(i<5){
         \end{solution}
     \end{Exercice} 
 	
-	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1}\\
+	\begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 1 — Python}\\
       	Qu'affiche le code suivant ?
       	
       	\begin{lstlisting}[language=Python]
@@ -536,11 +534,9 @@ Python & 2 & 1 & Python \\
             Python
             
         \end{solution}
-    \end{Exercice} 	
+    \end{Exercice} 		
 	
-	Dans les exercices suivants, les programmes doivent être écrits en Python.\\\\	
-	
-    \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2}
+    \begin{Exercice}[5 minutes] \textbf{Boucle for et fonction range() - 2 — Python}
       	
       	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat.
     
@@ -553,12 +549,12 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/question18.py}
+            \lstinputlisting{code/question14.py}
         \end{solution}
     \end{Exercice}
 
     
- \begin{Exercice}[10 minutes] \textbf{Boucle while et input()}
+ \begin{Exercice}[10 minutes] \textbf{Boucle while et input() — Python}
       	
       	À l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de rentrer une valeur. Tant que cette valeur ne correspond pas à 10, le programme redemande à l'utilisateur une nouvelle valeur.
     
@@ -572,36 +568,36 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{resources/solutions/question15.py}
+            \lstinputlisting{code/question15.py}
         \end{solution}
     \end{Exercice}
 
 
-\begin{Exercice}[5 minutes] \textbf{Listes en compréhension (Python)}
+\begin{Exercice}[5 minutes] \textbf{Listes en compréhension — Python}
 
-    Définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10. Ensuite, créez une liste en compréhension qui parcourt \lstinline{nombres}, récupère tous les nombres pairs et les stocke dans une nouvelle variable de type \lstinline{list} nommée \lstinline{nombres_pairs}. Affichez le contenu de la variable \lstinline{nombres_pairs}.
+    Définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10 (bornes incluses). Ensuite, créez une liste en compréhension qui parcourt \lstinline{nombres}, récupère tous les nombres pairs et les stocke dans une nouvelle variable de type \lstinline{list} nommée \lstinline{nombres_pairs}. Affichez le contenu de la variable \lstinline{nombres_pairs}.
 
     \begin{conseil}
         Pour générer une liste de nombres compris entre 0 et 10, vous pouvez utiliser l'instruction suivante: \lstinline{nombres = list(range(10))}.
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{resources/solutions/question16.py}
+        \lstinputlisting{code/question16.py}
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] \textbf{Itérateurs (Java)}
+\begin{Exercice}[10 minutes] \textbf{Itérateurs—Java}
 
     En Java, définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10. 
     En utilisant un \lstinline{Iterator}, supprimez tous les nombres impairs présents dans \lstinline{nombres}.
     Affichez le contenu de \lstinline{nombres}.
 
     \begin{conseil}
-        La diapositive 25 du cours montre comment supprimer un élément d'une liste en utilisant un \lstinline{iterator}.
+        La diapositive 28 du cours montre comment supprimer un élément d'une liste en utilisant un \lstinline{iterator}.
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{resources/solutions/question17.java}
+        \lstinputlisting{code/Question17.java}
     \end{solution}
 \end{Exercice}
 
@@ -609,13 +605,13 @@ Python & 2 & 1 & Python \\
     
     La récursivité est le fait d'appeler une fonction de façon récursive c'est-à-dire une fonction qui s'appelle elle-même de façon directe ou indirecte. \\\\
     
-\begin{Exercice}[5 minutes] \textbf{Lecture de code - 1} 
+\begin{Exercice}[5 minutes] \textbf{Lecture de code - 1—Python} 
 	
 	Qu'affiche le programme suivant? \\ 
 	
-	\lstinputlisting{resources/questions/question18.py} 
+	\lstinputlisting{code/question18-enonce.py} 
 	
-	Choisissez parmi les possibilités suivantes : \\
+	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
 	\begin{itemize}
 	\item 4  
@@ -652,12 +648,12 @@ Python & 2 & 1 & Python \\
     
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Lecture de code - 2}
+\begin{Exercice}[5 minutes] \textbf{Lecture de code - 2 — Python}
     
 	Qu'affiche le programme suivant?
-	\lstinputlisting{resources/questions/question19.py}
+	\lstinputlisting{code/question19-enonce.py}
 	
-	Choisissez parmi les possibilités suivantes : \\
+	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
 	\begin{itemize}
 	\item 4  
@@ -702,7 +698,7 @@ Python & 2 & 1 & Python \\
 	
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] \textbf{Fonction factoriel()} 
+\begin{Exercice}[10 minutes] \textbf{Fonction factoriel() — Python et Java} 
 	
         Ecrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
         
@@ -714,7 +710,7 @@ Python & 2 & 1 & Python \\
             \begin{conseil} 
             On peut écrire cette fonction comme suit : \\
             
-            $f(n) = f(n) * f(n-1)$ si $n >$ 0 \\
+            $f(n) = n * f(n-1)$ si $n >$ 0 \\
             
             $f(n) = 1$ si $n = 0$
             
@@ -722,11 +718,36 @@ Python & 2 & 1 & Python \\
         
             \begin{solution} 
                 \textbf{Python:}
-                \lstinputlisting{resources/solutions/question20.py}
+                \lstinputlisting{code/question20.py}
                 \textbf{Java:}
-                \lstinputlisting{resources/solutions/question20.java}
+                \lstinputlisting{code/Question20.java}
             \end{solution} 
         
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Méthode getBinaryRepresentation() — Java} 
+	
+ Le calcul de la représentation binaire d'un entier plus grand que 0 peut être résolu de manière récursive: 
+ \begin{equation}
+    f(a) = \begin{cases}
+        f\left(\frac{a}{2}\right) + \texttt{"0"} & \text{si } a \bmod 2 = 0 \\
+        f\left(\frac{a}{2}\right) + \texttt{"1"} & \text{si } a \bmod 2 = 1
+    \end{cases}
+\end{equation}
+Le cas de base étant:
+\begin{equation}
+f(0) = \texttt{""} (\text{la chaîne vide})
+\end{equation}
+Dans cette formule, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $\mathbf{a\geq 1}$ et le symbole $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
+        Ecrivez la fonction \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivant une approche récursive. \\ 
+        
+            \begin{conseil} 
+            La méthode \lstinline[language=Java]|Integer.parseInt(arg)| permet de convertir une chaîne de caractères \texttt{arg} en entier et la méthode \lstinline[language=Java]|String.valueOf(nbr)| permet de convertir \texttt{nbr} en chaîne de caractères.  
+            \end{conseil} 
+        
+            \begin{solution} 
+                \lstinputlisting[language=Java]{code/Question21.java}
+            \end{solution} 
 \end{Exercice}
     
         

@@ -1,4 +1,5 @@
-public static int factoriel(int x){
+public class Question20{
+    public static int factoriel(int x){
         if (x == 0){
             return 1;
         }
@@ -9,3 +10,4 @@ public static int factoriel(int x){
     public static void main(String[] args) {
         System.out.println(factoriel(5));
     }
+}

@@ -1,4 +1,6 @@
-public static int fibonacci_i(int n){
+public class Question6Iterative{
+
+    public static int fibonacci_i(int n){
         if (n==0 || n==1){
             return n;
         }
@@ -14,3 +16,7 @@ public static int fibonacci_i(int n){
             return new_fib;
         }
     }
+    public static void main(String[] args){
+        System.out.println(fibonacci_i(10));
+    }
+}
