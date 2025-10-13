@@ -50,12 +50,11 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple — Python}\\
         
         Qu'affiche le code suivant ? \\
-
+        \lstinputlisting{code/question2-enonce.py}
         \begin{conseil}
         Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou un dictionnaire, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est là dedans, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
         \end{conseil}
         
-        \lstinputlisting{code/question2-enonce.py}
         
         % Choisissez parmi les éléments suivants : \\
         
@@ -105,11 +104,11 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
        Choisissez parmi les éléments suivants :
        
        	\begin{itemize}
-        \item 1, 2, 2, 4, 5, 6 
-        \item 0, 1, 2, 3, 4, 5 
-        \item 0, 1, 2, 3, 4, 5, 6 
-        \item 0, 1, 3, 2, 4, 5, 6
-        \end{itemize}
+    \item \([1, 2, 2, 4, 5, 6]\)
+    \item \([0, 1, 2, 3, 4, 5]\)
+    \item \([0, 1, 2, 3, 4, 5, 6]\)
+    \item \([0, 1, 3, 2, 4, 5, 6]\)
+\end{itemize}
     
         \begin{conseil}
             En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit ou vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
@@ -576,7 +575,7 @@ Python & 2 & 1 & Python \\
 
 \begin{Exercice}[5 minutes] \textbf{Listes en compréhension — Python}
 
-    Définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10. Ensuite, créez une liste en compréhension qui parcourt \lstinline{nombres}, récupère tous les nombres pairs et les stocke dans une nouvelle variable de type \lstinline{list} nommée \lstinline{nombres_pairs}. Affichez le contenu de la variable \lstinline{nombres_pairs}.
+    Définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10 (bornes incluses). Ensuite, créez une liste en compréhension qui parcourt \lstinline{nombres}, récupère tous les nombres pairs et les stocke dans une nouvelle variable de type \lstinline{list} nommée \lstinline{nombres_pairs}. Affichez le contenu de la variable \lstinline{nombres_pairs}.
 
     \begin{conseil}
         Pour générer une liste de nombres compris entre 0 et 10, vous pouvez utiliser l'instruction suivante: \lstinline{nombres = list(range(10))}.
@@ -594,7 +593,7 @@ Python & 2 & 1 & Python \\
     Affichez le contenu de \lstinline{nombres}.
 
     \begin{conseil}
-        La diapositive 25 du cours montre comment supprimer un élément d'une liste en utilisant un \lstinline{iterator}.
+        La diapositive 28 du cours montre comment supprimer un élément d'une liste en utilisant un \lstinline{iterator}.
     \end{conseil}
 
     \begin{solution}
