@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-class Question17 {
+class Question18 {
     public static void main(String[] args) {
         List<Integer> nombres = new ArrayList<>();
         for (int i  =0; i < 11; i++){

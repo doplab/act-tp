@@ -1,16 +1,13 @@
-public class Question21 {
-    public static void main(String[] args) {
-        // Essayez d'exécuter avec un argument de la ligne de commande
-        System.out.println(getBinaryRepresentation(args[0]));
-    }
-
-    public static String getBinaryRepresentation(String arg) {
-        int a = Integer.parseInt(arg);
-        if (a == 0) {
-            return "";
+public class Question21{
+    public static int factoriel(int x){
+        if (x == 0){
+            return 1;
         }
-        int b = a / 2;
-        int r = a % 2;
-        return getBinaryRepresentation(String.valueOf(b)) + String.valueOf(r);
+        else{
+            return x*factoriel(x-1);
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println(factoriel(5));
     }
 }

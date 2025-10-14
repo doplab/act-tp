@@ -34,10 +34,10 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
     \end{Example}
 
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
-        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Affichez le 4ème élément de ce tuple.
+        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Affichez le 4ème élément de ce tuple. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
     
         \begin{conseil}
-            Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez \lstinline{[]}. Les indices commencent à zéro.
+            Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez \lstinline{[]}. Les indices commencent à zéro. Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
         \end{conseil}
         
         \begin{solution}
@@ -185,6 +185,22 @@ elon_musk = {
             En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entreprenariat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
         \end{solution}
     \end{Exercice}
+
+    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un dictionnaire - 3 — Python}\\
+      	
+        1. \ Vous disposez de deux dictionnaires contenant les notes d'étudiants dans différentes matières : notes\_biologie et notes\_chimie. Chaque dictionnaire associe le nom d'un étudiant à sa note dans la matière correspondante. Votre objectif est de créer un nouveau dictionnaire qui regroupe les notes de chaque étudiant sous forme de liste, où chaque liste contient d'abord la note de biologie puis la note de chimie. Complétez le programme suivant: \\
+
+        \begin{conseil}
+            Pour parcourir un dictionnaire en Python: utilisez \texttt{for key in dictionnaire.keys()} ou \texttt{for key in dictionnaire}. Pour parcourir les valeurs utilisez \texttt{for key in dictionnaire.values()}.
+        \end{conseil}
+       
+      	\lstinputlisting{code/question7-enonce.py} 
+      	2. \ Affichez le nombre d'étudiants dont la note moyenne est plus grand que 5.
+
+        \begin{solution}
+            \lstinputlisting{code/question7.py}
+        \end{solution}
+    \end{Exercice}
     
     \subsection{Structures de données (Java)}
     Dans cette partie, les exercices devront être effectués en Java. \\
@@ -250,7 +266,7 @@ for(int i=0;i<ma_liste_m.size();i++){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{code/Question7.java}
+            \lstinputlisting{code/Question8.java}
         \end{solution}
     \end{Exercice}
     
@@ -282,7 +298,7 @@ for (String key : mon_dictionnaire.keySet()){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{code/Question8.java}
+            \lstinputlisting{code/Question9.java}
         \end{solution}
     \end{Exercice}
     
@@ -549,7 +565,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{code/question14.py}
+            \lstinputlisting{code/question15.py}
         \end{solution}
     \end{Exercice}
 
@@ -568,7 +584,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{code/question15.py}
+            \lstinputlisting{code/question16.py}
         \end{solution}
     \end{Exercice}
 
@@ -582,7 +598,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{code/question16.py}
+        \lstinputlisting{code/question17.py}
     \end{solution}
 \end{Exercice}
 
@@ -597,7 +613,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{code/Question17.java}
+        \lstinputlisting{code/Question18.java}
     \end{solution}
 \end{Exercice}
 
@@ -609,7 +625,7 @@ Python & 2 & 1 & Python \\
 	
 	Qu'affiche le programme suivant? \\ 
 	
-	\lstinputlisting{code/question18-enonce.py} 
+	\lstinputlisting{code/question19-enonce.py} 
 	
 	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
@@ -651,7 +667,7 @@ Python & 2 & 1 & Python \\
 \begin{Exercice}[5 minutes] \textbf{Lecture de code - 2 — Python}
     
 	Qu'affiche le programme suivant?
-	\lstinputlisting{code/question19-enonce.py}
+	\lstinputlisting{code/question20-enonce.py}
 	
 	Choisissez parmi les possibilités suivantes (On écrit tout à la même ligne par souci de concision): \\
 	
@@ -718,9 +734,9 @@ Python & 2 & 1 & Python \\
         
             \begin{solution} 
                 \textbf{Python:}
-                \lstinputlisting{code/question20.py}
+                \lstinputlisting{code/question21.py}
                 \textbf{Java:}
-                \lstinputlisting{code/Question20.java}
+                \lstinputlisting{code/Question21.java}
             \end{solution} 
         
 \end{Exercice}
@@ -746,7 +762,7 @@ Dans cette formule, $f(a)$ renvoie la représentation binaire sous forme d'une c
             \end{conseil} 
         
             \begin{solution} 
-                \lstinputlisting[language=Java]{code/Question21.java}
+                \lstinputlisting[language=Java]{code/Question22.java}
             \end{solution} 
 \end{Exercice}
     

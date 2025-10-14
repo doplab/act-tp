@@ -18,35 +18,35 @@
 
     Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
 
-    Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
+    Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
 
     Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
-    \subsection{Tuples}
-    Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
-    L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
+%     \subsection{Tuples}
+%     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
+%     L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
     
-    Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
-    \\
-    En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner, encadré par des parenthèses, un groupe de valeurs séparées entre elles par des virgules:
-    \begin{Example}{\faTerminal \quad Exemple}
-        \begin{lstlisting}[language=Python]
-            mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
+%     Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
+%     \\
+%     En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner, encadré par des parenthèses, un groupe de valeurs séparées entre elles par des virgules:
+%     \begin{Example}{\faTerminal \quad Exemple}
+%         \begin{lstlisting}[language=Python]
+% mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
 
-    \end{Example}
+%     \end{Example}
 
-    \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
-        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
+%     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
+%         Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
     
-        \begin{conseil}
-            Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
-        \end{conseil}
+%         \begin{conseil}
+%             Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
+%         \end{conseil}
         
-        \begin{solution}
-            \lstinputlisting{code/advanced/question1.py} 
-        \end{solution}
-    \end{Exercice}
+%         \begin{solution}
+%             \lstinputlisting{code/advanced/question1.py} 
+%         \end{solution}
+%     \end{Exercice}
     
     \subsection{Listes}
     La différence entre une liste et un tuple est que l'on peut modifier les éléments d'une liste. Par exemple, il est possible de remplacer un élément d'une liste par un autre tandis qu'il est impossible de le faire avec un tuple.
@@ -54,7 +54,7 @@
     Pour créer une liste, il suffit de définir une variable avec des valeurs entre crochets :
     \begin{Example}{\faTerminal \quad Exemple}
         \begin{lstlisting}[language=Python]
-            ma_liste = [1,2,3,4,5]   \end{lstlisting}
+ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Example}
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste}\\
@@ -63,8 +63,8 @@
        Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté : \\
        
        \begin{lstlisting}[language=Python]
-            for c in ma_liste :
-            	print(c)   \end{lstlisting}
+for c in ma_liste:
+    print(c)   \end{lstlisting}
     
         \begin{conseil}
             Comme pour les tuples, vous pouvez utiliser l'opérateur \lstinline{in} pour contrôler si un élément est présent dans votre liste.
@@ -96,8 +96,8 @@ elon_musk = {
        Utilisez ce code pour avoir un aperçu des changements:
        
        \begin{lstlisting}[language=Python]
-            for x in fr_eng :
-    			print(x + " : " + fr_eng[x])   \end{lstlisting}
+for x in fr_eng :
+    print(x + " : " + fr_eng[x])   \end{lstlisting}
     
         \begin{conseil}
             Comme avec les listes, vous pouvez accéder aux éléments d'un dictionnaire en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder.
@@ -119,7 +119,7 @@ elon_musk = {
     \textbf{\\ Déclaration d'une liste en Java:}
     
     \begin{lstlisting}[language=Java]
-              List ma_liste = List.of(1,2,3,4); \end{lstlisting}
+List ma_liste = List.of(1,2,3,4); \end{lstlisting}
             
     \textbf{\\ Déclaration d'un dictionnaire en Java:} 
     
@@ -132,8 +132,8 @@ elon_musk = {
             \item En Java, les listes sont immuables, comme les tuples en Python. Au cas où vous devriez modifier une liste, on vous recommande d'utiliser une liste liée (\lstinline{LinkedList}). Une liste liée se déclare comme suit :
     
             \begin{lstlisting}[language=Java]
-                List liste = List.of(1,2,3,4);
-                LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
+List liste = List.of(1,2,3,4);
+LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
             \item En Java, les listes ne peuvent contenir que des éléments homogènes c'est-à-dire de même type.
         \end{itemize} 
         

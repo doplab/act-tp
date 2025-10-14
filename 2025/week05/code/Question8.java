@@ -1,18 +1,17 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.LinkedList;
 
 public class Question8 {
 
     public static void main(String[] args) {
-        HashMap<String, Integer> mon_dictionnaire = new HashMap<String, Integer>(
-                Map.of("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
-        System.out.println(mon_dictionnaire.get("étudiants"));
-        int taille_dictionnaire = mon_dictionnaire.size();
-        System.out.println(taille_dictionnaire);
-        mon_dictionnaire.put("collaborateurs", 950);
-        mon_dictionnaire.put("pays", 86);
-        for (String keys : mon_dictionnaire.keySet()) {
-            System.out.println(keys + " : " + mon_dictionnaire.get(keys));
+        List ma_liste = List.of(1, 2, 3, 4);
+        System.out.println(ma_liste.get(1));
+        System.out.println(ma_liste.size());
+        LinkedList ma_liste_m = new LinkedList(ma_liste);
+        ma_liste_m.addFirst(0);
+        ma_liste_m.addLast(6);
+        for (int i = 0; i < ma_liste_m.size(); i++) {
+            System.out.println(ma_liste_m.get(i));
         }
     }
 }
