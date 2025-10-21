@@ -19,6 +19,10 @@ Le temps indiqué (\faClock) est à titre strictement indicatif.
 \section{Itération en Java}
 \begin{Exercice}[5 minutes]
 
+    \begin{conseil}
+La méthode \texttt{String.valueOf} permet de convertir un nombre en chaîne de caractères.
+    \end{conseil}
+
 Qu'affiche le programme Java suivant (on n'écrit pas la classe ou la méthode \texttt{main} par souci de concision):
 \begin{lstlisting}[language=Java]
 String result = "";
@@ -27,7 +31,7 @@ int j = 0;
 for (j=Integer.parseInt(x); j !=0; j = j/2){
     result = String.valueOf(j%2) + result;
 }
-System.out.prinln(result + j);
+System.out.println(result + j);
 \end{lstlisting}
 Choisissez parmi les éléments suivants :
        
@@ -39,12 +43,18 @@ Choisissez parmi les éléments suivants :
     \item \(\texttt{java: bad operand types for binary operator '+'..}\)
 \end{itemize}
 \begin{solution}
-    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation de la variable \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder aprés la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
+    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation de la variable \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
 \end{solution}
 \end{Exercice}
 
 \section{Récursion en Java et Python (10 minutes)}
-\begin{Exercice}[10 minutes] \textbf{isPalindrome() — Python et Java}  Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction qui renvoie \texttt{True} si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
+\begin{Exercice}[10 minutes] \textbf{isPalindrome() — Python et Java}
+    \begin{conseil}
+        En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
+        
+        Une sous-chaîne est obtenue en Java avec \texttt{myString.substring(i, j)} où $i$ est l'indice du premier caractère et $j-1$ est l'indice du dernier caractère. En Python, utilisez \texttt{myString[i:j]}.
+    \end{conseil}
+      Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction qui renvoie \texttt{True} si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
 \begin{equation}
     f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
 \end{equation}
@@ -58,9 +68,9 @@ Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \begin{align*}
     f(a) &= \texttt{True} \text{ si } n=1 
 \end{align*}
-et le case de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
+et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
 
-Ecrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est une chaîne de caractères.
+Ecrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{ressources/Palindrome.java}
