@@ -1,10 +1,11 @@
 \input{../header.tex}
-
+\usepackage{amsmath}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
 
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \titre
 \cours{Programmation orientée objet - Exercices basiques}
@@ -15,6 +16,70 @@ Le but de cette séance est de se familiariser avec un paradigme de programmatio
 Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
 
 Le temps indiqué (\faClock) est à titre strictement indicatif.
+\section{Itération en Java}
+\begin{Exercice}[5 minutes]
+
+    \begin{conseil}
+La méthode \texttt{String.valueOf} permet de convertir un nombre en chaîne de caractères.
+    \end{conseil}
+
+Qu'affiche le programme Java suivant (on n'écrit pas la classe ou la méthode \texttt{main} par souci de concision):
+\begin{lstlisting}[language=Java]
+String result = "";
+String x = "5";
+int j = 0; 
+for (j=Integer.parseInt(x); j !=0; j = j/2){
+    result = String.valueOf(j%2) + result;
+}
+System.out.println(result + j);
+\end{lstlisting}
+Choisissez parmi les éléments suivants :
+       
+    \begin{itemize}
+    \item \(5210\)
+    \item \(1110\)
+    \item \(1010\)
+    \item \(1011\)
+    \item \(\texttt{java: bad operand types for binary operator '+'..}\)
+\end{itemize}
+\begin{solution}
+    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation de la variable \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
+\end{solution}
+\end{Exercice}
+
+\section{Récursion en Java et Python (10 minutes)}
+\begin{Exercice}[10 minutes] \textbf{isPalindrome() — Python et Java}
+    \begin{conseil}
+        En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
+        
+        Une sous-chaîne est obtenue en Java avec \texttt{myString.substring(i, j)} où $i$ est l'indice du premier caractère et $j-1$ est l'indice du dernier caractère. En Python, utilisez \texttt{myString[i:j]}.
+    \end{conseil}
+      Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction qui renvoie \texttt{True} si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
+\begin{equation}
+    f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
+\end{equation}
+Ici, $a[1:n-1]$ est la sous chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
+\begin{conseil}
+    Revoir la \href{https://moodle.unil.ch/mod/folder/view.php?id=1965123}{question 16 du TP3} pour voir les règles concernant la notation des bornes d'une sous chaîne de caractères. 
+\end{conseil}
+On dit donc que $a$ est un palindrome si le premier caractère et le dernier caractère sont égaux \textbf{et} la sous chaîne entre les deux est un palindrome. \\  \\
+
+Le cas de base (une chaîne $a$ d'un seul caractère) est:
+\begin{align*}
+    f(a) &= \texttt{True} \text{ si } n=1 
+\end{align*}
+et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
+
+Ecrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
+
+\begin{solution}[Java]
+\lstinputlisting[language=Java]{ressources/Palindrome.java}
+\end{solution}
+\begin{solution}[Python]
+    \lstinputlisting[language=Python]{ressources/palindrome.py}
+\end{solution}
+
+\end{Exercice}
 
 \section{Création de votre première classe en Java (40 minutes)}
 
@@ -44,8 +109,8 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
    	
 \begin{conseil}
     %Modifier le conseil
-    Pour revoir les notions de base du langage Java, n'hésitez pas à consulter le guide de démarrage en Java sur Moodle:
-	\url{https://moodle.unil.ch/mod/folder/view.php?id=1761756}.
+    % Pour revoir les notions de base du langage Java, n'hésitez pas à consulter le guide de démarrage en Java sur Moodle:
+	% \url{https://moodle.unil.ch/mod/folder/view.php?id=1761756}.
 
    Pour cet exercice, n'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
    
@@ -264,40 +329,40 @@ Lorsque toutes les étapes auront été effectuées, placez le code suivant dans
 \lstinputlisting{ressources/heritage-main.java}
 Vous devriez obtenir:
 \lstinputlisting[language=TeX]{ressources/heritage-main-prompt.txt}
-\newpage
+% \newpage
 
-\section{Notions d'héritage - Python (15 minutes)}
-\begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
+% \section{Notions d'héritage - Python (15 minutes)}
+% \begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
 
-    Dans la section~\ref{sec:notions_python}, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
-    Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
+%     Dans la section~\ref{sec:notions_python}, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
+%     Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
     
 
-    % Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
-    % Ce fichier doit être retiré du dossier Code
-    % \lstinputlisting{ressources/Point.py} 
+%     % Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
+%     % Ce fichier doit être retiré du dossier Code
+%     % \lstinputlisting{ressources/Point.py} 
     
-    Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
+%     Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
     
-    \begin{itemize}
-        \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
-        \item Recalculez la distance euclidienne et le milieu pour le point 3D.
-        \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
-    \end{itemize}
+%     \begin{itemize}
+%         \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
+%         \item Recalculez la distance euclidienne et le milieu pour le point 3D.
+%         \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+%     \end{itemize}
 
-    Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
-    \lstinputlisting{ressources/Point3D.py} 
+%     Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
+%     \lstinputlisting{ressources/Point3D.py} 
     
-    \begin{conseil}
-        \begin{itemize}
-            \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
-            \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
-            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
-        \end{itemize}
-    \end{conseil}
-    \begin{solution}
-    \lstinputlisting{solutions/Point3D.py} 
-    \end{solution}
-    \end{Exercice} 
+%     \begin{conseil}
+%         \begin{itemize}
+%             \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
+%             \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
+%             \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
+%         \end{itemize}
+%     \end{conseil}
+%     \begin{solution}
+%     \lstinputlisting{solutions/Point3D.py} 
+%     \end{solution}
+%     \end{Exercice} 
     
 \end{document}
