@@ -276,8 +276,10 @@ Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 \end{itemize}
 
 Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
-Créez les classes filles avec les caractéristiques suivantes:\\
+
+Créez les classes filles avec les caractéristiques suivantes: \newline 
 \lstinline{class Livre_Audio extends Livre}
+
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
 \end{itemize}
@@ -287,12 +289,13 @@ Créez les classes filles avec les caractéristiques suivantes:\\
 \end{itemize}
 Voici le squelette du programme à compléter:
 \begin{lstlisting}
-	class Livre {
-	}
-	class Livre_Audio extends Livre {
-	}
-	class Livre_Illustre extends Livre {
-	}\end{lstlisting}
+class Livre {
+}
+class Livre_Audio extends Livre {
+}
+class Livre_Illustre extends Livre {
+}
+\end{lstlisting}
 \begin{conseil}
     \begin{itemize}
         \item En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
@@ -301,8 +304,9 @@ Voici le squelette du programme à compléter:
         \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
     \end{itemize}
 \end{conseil}
+\vspace*{-2cm}
 \begin{solution}
-	\lstinputlisting{solutions/heritage-solution-1.java}
+	\lstinputlisting{solutions/Livre.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
@@ -310,8 +314,11 @@ Maintenant que vous avez créé la classe-mère et les classes filles correspond
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
 titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et le narrateur ``William''.\\
+
 Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
-Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
+
+Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\ 
+
 Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{Livre_Audio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
 Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
 \begin{conseil}
@@ -321,12 +328,14 @@ L'instruction \lstinline{super} doit toujours être la première instruction dan
 \end{conseil}
 \begin{solution}
 	\lstinputlisting{solutions/heritage-solution-2.java}
-	\lstinputlisting{solutions/heritage-solution-3.java}
+\end{solution}
+\begin{solution}
+    \lstinputlisting{solutions/Main.java}
 \end{solution}
 \end{Exercice}
 \newpage
 Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:
-\lstinputlisting{ressources/heritage-main.java}
+\lstinputlisting{ressources/Main.java}
 Vous devriez obtenir:
 \lstinputlisting[language=TeX]{ressources/heritage-main-prompt.txt}
 % \newpage

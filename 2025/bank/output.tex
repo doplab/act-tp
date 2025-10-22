@@ -1,0 +1,111 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{fontawesome6}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{trees}
+\begin{document}
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+node [selected] {\faFolder /User}
+child { 
+    node [selected] {\faFolder /public}
+    child { 
+        node [file] {\faFile esc.png}
+    }
+}
+child [missing] {}
+child { 
+    node [selected] {\faFolder /src}
+    child { 
+        node [file] {\faFile Main.class}
+    }
+    child { 
+        node [file] {\faFile Main.java}
+    }
+}
+child [missing] {}
+child [missing] {}
+child { 
+    node [file] {\faFile index.html}
+};
+\end{tikzpicture}
+\end{document}
+
+==================================================
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{fontawesome6}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{trees}
+\begin{document}
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+node [selected] {\faFolder /project}
+child { 
+    node [selected] {\faFolder /docs}
+    child { 
+        node [file] {\faFile README.md}
+    }
+    child { 
+        node [file] {\faFile guide.pdf}
+    }
+}
+child [missing] {}
+child [missing] {}
+child { 
+    node [selected] {\faFolder /src}
+    child { 
+        node [selected] {\faFolder /components}
+        child { 
+            node [file] {\faFile Header.jsx}
+        }
+        child { 
+            node [file] {\faFile Footer.jsx}
+        }
+    }
+    child [missing] {}
+    child [missing] {}
+    child { 
+        node [file] {\faFile App.js}
+    }
+    child { 
+        node [file] {\faFile index.js}
+    }
+}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child { 
+    node [selected] {\faFolder /tests}
+    child { 
+        node [file] {\faFile test.py}
+    }
+}
+child [missing] {}
+child { 
+    node [file] {\faFile package.json}
+}
+child { 
+    node [file] {\faFile .gitignore}
+};
+\end{tikzpicture}
+\end{document}

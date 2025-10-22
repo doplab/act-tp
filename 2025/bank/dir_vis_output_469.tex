@@ -1,0 +1,68 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{fontawesome6}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{trees}
+\begin{document}
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+\node [selected] {\faFolder[regular] /project}
+child { 
+    node [selected] {\faFolder[regular] /docs}
+    child { 
+        node [file] {\faFile[regular] README.md}
+    }
+    child { 
+        node [file] {\faFile[regular] guide.pdf}
+    }
+}
+child [missing] {}
+child [missing] {}
+child { 
+    node [selected] {\faFolder[regular] /src}
+    child { 
+        node [selected] {\faFolder[regular] /components}
+        child { 
+            node [file] {\faFile[regular] Header.jsx}
+        }
+        child { 
+            node [file] {\faFile[regular] Footer.jsx}
+        }
+    }
+    child [missing] {}
+    child [missing] {}
+    child { 
+        node [file] {\faFile[regular] App.js}
+    }
+    child { 
+        node [file] {\faFile[regular] index.js}
+    }
+}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child [missing] {}
+child { 
+    node [selected] {\faFolder[regular] /tests}
+    child { 
+        node [file] {\faFile[regular] test.py}
+    }
+}
+child [missing] {}
+child { 
+    node [file] {\faFile[regular] package.json}
+}
+child { 
+    node [file] {\faFile[regular] .gitignore}
+};
+\end{tikzpicture}
+\end{document}
