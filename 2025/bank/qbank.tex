@@ -422,9 +422,14 @@ Quelle commande a été passée (\#LINE REMOVED)?
 \mcqlist{dir, cd Users, cd .., ls}
 \end{Exercice}
 
+
 \begin{Exercice}[10 minutes]\textbf{Aurore}
 Laquelle des affirmations suivantes est fausse?
-\mcqlist{Un langage compilé est traduit ligne par ligne au moment de l'exécution, En java, l'étape de compilation et d'interprétation sont séparées, Un langage interprété est plus lent à exécuter, Les langages python et java nécessitent les deux une traduction en bytecode, Toutes les affirmations sont correctes}
+\mcqlist{Un langage compilé est traduit ligne par ligne au moment de l'exécution, 
+{En Java, l'étape de compilation et d'interprétation sont séparées}, 
+Un langage interprété est plus lent à exécuter, 
+Les langages python et java nécessitent les deux une traduction en bytecode, 
+Toutes les affirmations sont correctes}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
@@ -507,6 +512,149 @@ else:
 Ecrivez le complément à 2 de $21_{10}$ sur 8 bits:
 \mcqlist{1110 1011, 1110 1010, 0001 0101, 0001 0100}
 \end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Aurore}
+Laquelle des affirmations suivantes est correcte concernant l'expression:
+
+\begin{equation*}
+((\neg p \wedge q) \wedge (\neg p \vee \neg q)) \vee ((p \wedge q) \wedge \neg q)
+\end{equation*}
+\mcqlist{Si p est faux et q est vrai\, l'expression est fausse, 
+Si p est vrai et q est faux\, l'expression est fausse,
+Si p est faux et q est faux\, l'expression est vraie,
+Toutes les affirmations sont correctes}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Aurore}
+On attribue à une variable \texttt{variable1} la valeur 2. On attribue à une variable \texttt{variable2} la valeur "hello". On essaie ensuite d'attribuer à \texttt{variable2} la valeur de \texttt{variable1} (en écrivant \texttt{variable2} = \texttt{variable1}). Laquelle des affirmations suivantes est correcte?
+
+\mcqlist{
+    {En Java, le code va afficher une erreur},
+   {En Java, le code va afficher une erreur, à moins que les variables ait été les deux déclarées de type var},
+   {En Python, le code va afficher une erreur},
+   {En Python, le code va convertir l'entier deux en la chaîne de caractère "2" pour l'attribuer à variable2}
+}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Qu'affiche le programme Java suivant?
+
+\begin{lstlisting}[style=javastyle]
+public class Test {
+  public static void main(String[] args) {
+    int a = 5;
+    int b = 3;
+    boolean c = (a > b) && (b > 10);
+    System.out.println(c);
+  }
+}
+\end{lstlisting}
+
+\mcqlist{True, False, Le programme provoque une erreur de compilation, c}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Quelle est la représentation du complément à 2 (two complement) de -143 sur 8 bits?
+
+\mcqlist{10010001, 01110001, 01100001, Aucue des réponses n'est correcte}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Qu'affiche le programme Java suivant?
+\begin{lstlisting}[style=javastyle]
+public class Test {
+  public static void main(String[] args) {
+    int a = 5;
+    int b = 3;
+    boolean c = (a > b) && ((b < 10) || (a < b)) || (a == b);
+    System.out.println(c);
+  }
+}
+\end{lstlisting}
+\mcqlist{True, False, Le programme provoque une erreur de compilation, c}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Sean}
+    Dans la table de vérité suivante, par quelle expression faut-il remplacer \#LINE REMOVED pour obtenir la troisième colonne. 
+    
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & \#LINE REMOVED \\
+            \hline
+            0 & 0 & 1 \\
+            \hline
+            0 & 1 & 1 \\
+            \hline
+            1 & 0 & 1 \\
+            \hline
+            1 & 1 & 0 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \mcqlist{
+    $((\neg p \vee q) \wedge (p \vee \neg q))$,
+    $(\neg ((p \wedge q) \vee (\neg p \wedge \neg q)))$,
+    $((p \vee q) \wedge \neg (p \wedge q))$,
+    $\neg (p \wedge q)$,
+    Aucune des réponses n'est correcte
+    }
+\end{Exercice}
+    % \item \textbf{B)} Donnez le code Python qui implémente la fonction NAND qui prend deux arguments booléens (A et B) et retourne le résultat de l'opération NAND.
+
+    % \item \textbf{C)} Donnez une expression booléenne de la porte NAND sans utiliser l'opérateur $\text{and}$. 
+\begin{Exercice}[10 minutes]\textbf{Sean}
+ Soit la fonction $f(p,q) = (\neg p) \vee (\neg q)$, par quelle expression faut-il remplacer \#LINE REMOVED dans le code Java suivant pour que la méthode \texttt{computeF(boolean p, boolean q)} soit équivalente à la fonction $f$?
+    \begin{lstlisting}[style=javastyle]
+public static boolean computeF(boolean p, boolean q){
+    return #LINE REMOVED;
+}\end{lstlisting} 
+\mcqlist{p \&\& (q || !q),
+p || !q,
+!(p \&\& q),
+not p or not q,
+Aucune des réponses n'est correcte
+}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Sean}
+Quelle expression est équivalente à l'expression $\neg( \neg (A \wedge A) \wedge \neg(B \wedge B))$:
+
+\mcqlist{
+     $A \lor B$, 
+     $A \land B$, 
+     $(\lnot A \lor \lnot B)$, 
+     $\lnot(A \lor B) $, 
+     Aucune des réponses n'est correcte
+}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Maxim}
+En Python, quel opérateur réalise une division entière?
+
+\mcqlist{
+    /,
+    \%,
+    //,
+    div()
+}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Python, quelle exception sera levée pour une division par zéro?
+\mcqlist{
+    ValueError,
+    TypeError,
+    ZeroDivisionError,
+    ArithmeticError
+} 
+\end{Exercice}
+
+
 
 
 \end{document}
