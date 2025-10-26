@@ -217,19 +217,19 @@ Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}
 
 \end{Exercice}
 
-\begin{Exercice}[15 minutes] Méthode \lstinline{résurrection(Fighter other)} de la classe-fille \lstinline{Soigneur} \\
-Créez une méthode \lstinline{résurrection(Fighter other)} qui permettra de faire revenir un \lstinline{Fighter} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
+\begin{Exercice}[15 minutes] Méthode \lstinline{resurrection(Fighter other)} de la classe-fille \lstinline{Soigneur} \\
+Créez une méthode \lstinline{resurrection(Fighter other)} qui permettra de faire revenir un \lstinline{Fighter} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
 
 Commencez par contrôler que l'instance depuis laquelle la méthode est appelée soit toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\ 
 
 Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le en affichant le texte suivant : ``\lstinline{nom_other} est toujours en vie.'' \\
 
-Pour finir, contrôlez que l'attribut \lstinline{résurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
+Pour finir, contrôlez que l'attribut \lstinline{resurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
 
 Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez aussi à:
 
 \begin{itemize}
-	\item Mettre l'attribut \lstinline{résurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
+	\item Mettre l'attribut \lstinline{resurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
 	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : ``\lstinline{nom_other} est revenu à la vie !''
 \end{itemize}
 
@@ -255,7 +255,7 @@ Le seul argument nécessaire pour cette méthode sera une autre instance de \lst
 
 Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, affichez : ``\lstinline{nom_instance} est mort et ne peut plus rien faire.''
 
-Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
+Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez-le : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
 
 Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de \lstinline{other}, puis appelez la méthode de classe \lstinline{checkHealth()}.
 

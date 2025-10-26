@@ -1,17 +1,16 @@
-public void résurrection(Fighter other){
-    if(!this.isAlive()) {
+public void resurrection(Fighter other) {
+    if (!this.isAlive()) {
         System.out.println(this.getName() + " est mort et ne peut plus rien faire");
-    }
-    else{
+    } else {
         if (other.isAlive()) {
             System.out.println(other.getName() + " est toujours en vie !");
         } else {
-            if (this.getRésurrection() == 0) {
-                System.out.println(this.getName() + " ne peut plus ressuciter personne");
+            if (this.getResurrection() == 0) {
+                System.out.println(this.getName() + " ne peut plus ressusciter personne");
             } else {
                 other.setHealth(10);
                 Fighter.addInstances(other);
-                this.setRésurrection(0);
+                this.setResurrection(0);
                 System.out.println(other.getName() + " vient de revenir à la vie");
                 Fighter.checkHealth();
             }
