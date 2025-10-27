@@ -22,7 +22,7 @@ class Fraction:
         return self.__den
 
     def set_num(self, n):
-        self.__num = n
+        self.__num = int(n)
 
     def set_den(self, d):
         d = int(d)

@@ -4,28 +4,28 @@ class Soigneur extends Fighter {
 
     private int resurrection;
 
-    public Soigneur(String name, int health, int attack, int defense, int soin){
-        super(name,health,attack,defense);
+    public Soigneur(String name, int health, int attack, int defense, int soin) {
+        super(name, health, attack, defense);
         resurrection = 1;
     }
 
-    public int getResurrection(){
+    public int getResurrection() {
         return this.resurrection;
     }
 
-    public void setResurrection(int etat){
+    public void setResurrection(int etat) {
         this.resurrection = etat;
     }
 
-    public void resurrection(Fighter other){
-        if(!this.isAlive()) {
+    public void resurrection(Fighter other) {
+        if (!this.isAlive()) {
             System.out.println(this.getName() + " est mort et ne peut plus rien faire");
             return;
         }
         if (other.isAlive()) {
             System.out.println(other.getName() + " est toujours en vie !");
             return;
-        } 
+        }
         if (this.getResurrection() == 0) {
             System.out.println(this.getName() + " ne peut plus ressuciter personne");
             return;
@@ -38,10 +38,9 @@ class Soigneur extends Fighter {
     }
 
     public void attack(Fighter other) {
-        if(!this.isAlive()) {
+        if (!this.isAlive()) {
             System.out.println(this.getName() + " est mort et ne peut plus rien faire");
-        }
-        else{
+        } else {
             if (other.getHealth() >= 10) {
                 System.out.println(other.getName() + " a déjà le maximum de points de vie");
             }
