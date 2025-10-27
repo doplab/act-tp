@@ -69,8 +69,8 @@ class Fraction:
         if isinstance(other, Fraction):
             return self.plus(other)
         elif isinstance(other, int):
-            self.add__ = self.__add__(Fraction(other))
-            return self.add__
+            result = self.plus(Fraction(other))
+            return result
         else:
             raise TypeError(
                 "Unsupported operand types for +: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
