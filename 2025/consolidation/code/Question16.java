@@ -2,11 +2,11 @@ import java.util.List;
 
 public class Question16 {
 
-    public static int nb_voyelles_itérative(String S, List L) {
+    public static int nb_voyelles_iterative(String S, List L) {
         // TODO
     }
 
-    public static int nb_voyelles_récursive(String S, List L) {
+    public static int nb_voyelles_recursive(String S, List L) {
         // TODO
     }
 
