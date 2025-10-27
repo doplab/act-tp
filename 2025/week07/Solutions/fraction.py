@@ -45,14 +45,14 @@ class Fraction:
         self.__den = int(self.__den / pgcd)
 
     # Question 7
-    def __eq__(self, f):
-        if isinstance(f, Fraction):
+    def __eq__(self, other):
+        if isinstance(other, Fraction):
             # vu que les fractions sont toujours en représentation simplifiée, on pourrait se contenter de
-            # self.__numerateur == f.__numerateur and self.__denominateur = f.denominateur
-            return self.__num * f.__den == f.__num * self.__den
+            # self.__numerateur == other.__numerateur and self.__denominateur = other.denominateur
+            return self.__num * other.__den == other.__num * self.__den
         # Au cas où on reçoit un seul argument, on créé une fraction ayant pour numérateur l'argument et 1 comme dénominateur
-        elif isinstance(f, int):
-            return self.__eq__(Fraction(f))
+        elif isinstance(other, int):
+            return self.__eq__(Fraction(other))
         else:
             return False
     # Question 8
