@@ -2,40 +2,39 @@ package com.company;
 
 class Soigneur extends Fighter {
 
-    private int résurrection;
+    private int resurrection;
 
     public Soigneur(String name, int health, int attack, int defense, int soin){
         super(name,health,attack,defense);
-        résurrection = 1;
+        resurrection = 1;
     }
 
-    public int getRésurrection(){
-        return this.résurrection;
+    public int getResurrection(){
+        return this.resurrection;
     }
 
-    public void setRésurrection(int etat){
-        this.résurrection = etat;
+    public void setResurrection(int etat){
+        this.resurrection = etat;
     }
 
-    public void résurrection(Fighter other){
+    public void resurrection(Fighter other){
         if(!this.isAlive()) {
             System.out.println(this.getName() + " est mort et ne peut plus rien faire");
+            return;
         }
-        else{
-            if (other.isAlive()) {
-                System.out.println(other.getName() + " est toujours en vie !");
-            } else {
-                if (this.getRésurrection() == 0) {
-                    System.out.println(this.getName() + " ne peut plus ressuciter personne");
-                } else {
-                    other.setHealth(10);
-                    Fighter.addInstances(other);
-                    this.setRésurrection(0);
-                    System.out.println(other.getName() + " vient de revenir à la vie");
-                    Fighter.checkHealth();
-                }
-            }
+        if (other.isAlive()) {
+            System.out.println(other.getName() + " est toujours en vie !");
+            return;
+        } 
+        if (this.getResurrection() == 0) {
+            System.out.println(this.getName() + " ne peut plus ressuciter personne");
+            return;
         }
+        other.setHealth(10);
+        Fighter.addInstances(other);
+        this.setResurrection(0);
+        System.out.println(other.getName() + " vient de revenir à la vie");
+        Fighter.checkHealth();
     }
 
     public void attack(Fighter other) {
