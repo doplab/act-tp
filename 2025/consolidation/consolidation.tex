@@ -3,6 +3,10 @@
 \usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx} % for \resizebox
+
+\usetikzlibrary{decorations.pathreplacing,positioning,arrows.meta}
 \usepackage{listings}
 \usepackage[T1]{fontenc}
 
@@ -10,7 +14,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -32,7 +36,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \begin{Exercice}[10 minutes]  \textbf{Conversion }\\
     \begin{enumerate}
-        \item Convertir le nombre FFFFFF$_{(16)}$ en base 10.
         \item Convertir le nombre 4321$_{(5)}$ en base 10.
         \item Convertir le nombre ABC$_{(16)}$ en base 2.
         \item Convertir le nombre 11101$_{(2)}$ en base 10.
@@ -396,6 +399,78 @@ Qu'affichent les programmes suivants ? \\
     \textbf{Programme 1 :} \\
 
     PythonohtyP
+
+    \begin{tikzpicture}[
+    every node/.style={
+        align=center,
+        font=\small
+    },
+    concat/.style={draw, fill=yellow!20, rounded corners, minimum width=5cm, minimum height=0.7cm},
+    basecase/.style={draw, fill=blue!10, rounded corners, minimum width=2cm, minimum height=0.7cm},
+    return/.style={draw, fill=green!20, rounded corners, minimum width=3cm, minimum height=0.7cm},
+]
+
+% Base case at bottom
+\node[basecase] (base) at (0, 0) {recursion\_1("n") $\Rightarrow$ "n"};
+
+% Level 4
+\node[concat] (c4) at (0, 1.5) {"o" + recursion\_1("n") + "o"};
+\draw[decorate, decoration={brace, amplitude=10pt}, thick] 
+    (c4.north west) -- (c4.north east) node[midway, above=12pt] {recursion\_1("on")};
+
+% Level 3
+\node[concat] (c3) at (0, 3.5) {"h" + recursion\_1("on") + "h"};
+\draw[decorate, decoration={brace, amplitude=10pt}, thick] 
+    (c3.north west) -- (c3.north east) node[midway, above=12pt] {recursion\_1("hon")};
+
+% Level 2
+\node[concat] (c2) at (0, 5.5) {"t" + recursion\_1("hon") + "t"};
+\draw[decorate, decoration={brace, amplitude=10pt}, thick] 
+    (c2.north west) -- (c2.north east) node[midway, above=12pt] {recursion\_1("thon")};
+
+% Level 1
+\node[concat] (c1) at (0, 7.5) {"y" + recursion\_1("thon") + "y"};
+\draw[decorate, decoration={brace, amplitude=10pt}, thick] 
+    (c1.north west) -- (c1.north east) node[midway, above=12pt] {recursion\_1("ython")};
+
+% Level 0
+\node[concat] (c0) at (0, 9.5) {"P" + recursion\_1("ython") + "P"};
+\draw[decorate, decoration={brace, amplitude=10pt}, thick] 
+    (c0.north west) -- (c0.north east) node[midway, above=12pt] {recursion\_1("Python")};
+
+% Return values to the right
+\node[return, right=1.5cm of c4] (ret4) {"o" + "n" + "o" = "ono"};
+\node[return, right=1.5cm of c3] (ret3) {"h" + "ono" + "h" = "honoh"};
+\node[return, right=1.5cm of c2] (ret2) {"t" + "honoh" + "t" = "thonoht"};
+\node[return, right=1.5cm of c1] (ret1) {"y" + "thonoht" + "y" = "ythonohty"};
+\node[return, right=1.5cm of c0] (ret0) {"P" + "ythonohty" + "P" = "PythonohtyP"};
+
+% Draw arrows from concat to returns
+\draw[-Stealth, red, dashed, thick] (c4) -- (ret4);
+\draw[-Stealth, red, dashed, thick] (c3) -- (ret3);
+\draw[-Stealth, red, dashed, thick] (c2) -- (ret2);
+\draw[-Stealth, red, dashed, thick] (c1) -- (ret1);
+\draw[-Stealth, red, dashed, thick] (c0) -- (ret0);
+
+% % Draw vertical arrows showing flow
+% \draw[-Stealth, thick, blue] (base) -- (c4);
+% \draw[-Stealth, thick, blue] (c4) -- (c3);
+% \draw[-Stealth, thick, blue] (c3) -- (c2);
+% \draw[-Stealth, thick, blue] (c2) -- (c1);
+% \draw[-Stealth, thick, blue] (c1) -- (c0);
+
+% Add title
+\node[above=1.5cm of c0, xshift=3cm, draw=none, fill=none, font=\large\bfseries] {Diagramme de récursivité (Recursion Tree): recursion\_1(\textquotedbl Python\textquotedbl)};
+
+% % Add legend
+% \node[below=1cm of base, draw=none, fill=none, align=left, font=\footnotesize] {
+%     \textbf{Legend:}\\
+%     \tikz{\node[concat,minimum width=1.5cm,minimum height=0.5cm] {Concatenation};} \\
+%     \tikz{\node[return,minimum width=1.5cm,minimum height=0.5cm] {Return Value};} \\
+%     \tikz{\node[basecase,minimum width=1.5cm,minimum height=0.5cm] {Base Case};}
+% };
+
+\end{tikzpicture}
     
 \end{solution}
 
@@ -416,7 +491,101 @@ Qu'affichent les programmes suivants ? \\
     adore
     
     Python
-    
+
+
+    \fbox{%
+
+\resizebox{0.93\textwidth}{!}{%
+
+    \begin{tikzpicture}[
+    every node/.style={
+        align=center,
+        font=\footnotesize
+    },
+    call/.style={draw, fill=blue!10, rounded corners, minimum width=2.5cm, minimum height=0.6cm},
+    print/.style={draw, fill=orange!20, rounded corners, minimum width=1.8cm, minimum height=0.5cm},
+    basecase/.style={draw, fill=green!20, rounded corners, minimum width=2cm, minimum height=0.6cm},
+    edge/.style={draw, -Stealth, thick, blue!70}
+]
+
+% Level 0 - Root
+\node[call] (root) at (0, 0) {recursion\_2(\shortstack{["J", "adore","Python"]})};
+
+% Level 1 - First call
+\node[call] (L1) at (-5.5, -3) {recursion\_2(\shortstack{["adore","Python"]})};
+
+% Level 2 - Left base case (no print here)
+\node[basecase] (L2a) at (-9, -5) {recursion\_2(["Python"])};
+
+% NEW print under L2a
+\node[print] (L2a_print) at (-9, -7) {print("Python")};
+
+% Level 2 - Print between calls
+\node[print] (L2print) at (-5.5, -7) {print("adore")};
+
+% Level 2 - Right branch base case (no print here)
+\node[basecase] (L2b) at (-2.5, -5) {recursion\_2(["Python"])};
+
+% NEW print under L2b
+\node[print] (L2b_print) at (-2.5, -7) {print("Python")};
+
+% Level 1 - Print at root level
+\node[print,  align=left] (L1print) at (0, -7) {print("J")};
+
+% Level 1 - Second call (mirror of first)
+\node[call] (R1) at (5.5, -3) {recursion\_2(\shortstack{["adore","Python"]})};
+
+% Level 2 - Right side, left base case (no print here)
+\node[basecase] (R2a) at (2.5, -5) {recursion\_2(["Python"])};
+
+% NEW print under R2a
+\node[print] (R2a_print) at (2.5, -7) {print("Python")};
+
+% Level 2 - Right side, print between calls
+\node[print] (R2print) at (5.5, -7) {print("adore")};
+
+% Level 2 - Right side, right base case (no print here)
+\node[basecase] (R2b) at (9, -5) {recursion\_2(["Python"])};
+
+% NEW print under R2b
+\node[print] (R2b_print) at (9, -7) {print("Python")};
+
+% Draw edges
+\draw[edge] (root) -- (L1);
+\draw[edge] (L1) -- (L2a);
+\draw[edge] (L2a) -- (L2a_print);
+\draw[edge] (L1) -- (L2print);
+\draw[edge] (L1) -- (L2b);
+\draw[edge] (L2b) -- (L2b_print);
+\draw[edge] (root) -- (L1print);
+\draw[edge] (root) -- (R1);
+\draw[edge] (R1) -- (R2a);
+\draw[edge] (R2a) -- (R2a_print);
+\draw[edge] (R1) -- (R2print);
+\draw[edge] (R1) -- (R2b);
+\draw[edge] (R2b) -- (R2b_print);
+
+% Add curly brace
+\draw[decorate, decoration={brace, amplitude=8pt}, thick] 
+    (root.north west) -- (root.north east) node[midway, above=10pt] {recursion\_2(["J", "adore", "Python"])};
+
+% Add title
+\node[above=0.8cm of root, draw=none, fill=none, font=\large\bfseries]
+ {Diagramme de récursivité (Recursion Tree): recursion\_2(["J", "adore", "Python"])};
+
+% Execution order numbers
+% ADD THE NODES WITH NUMBERS HERE
+
+% Output summary box
+\node[below=3cm of R2b, draw, xshift=-9cm, fill=yellow!10, rounded corners,
+      minimum width=8cm, align=left, font=\small] {
+    \textbf{Ordre d'affichage:}\\
+     Python →  adore →  Python →  J →  Python →  adore →  Python
+};
+
+\end{tikzpicture}
+}
+    }
 \end{solution}
 
 \end{Exercice}
@@ -475,10 +644,10 @@ Qu'affichent les programmes suivants ? \\
     \end{itemize}
     
     \begin{solution}
-        \lstinputlisting[language=java,lastline=58]{solutions/Personnage.java}
+        \lstinputlisting[language=java,lastline=50]{solutions/Personnage.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=59, firstnumber=59]{solutions/Personnage.java}
+        \lstinputlisting[language=java,firstline=51, firstnumber=51]{solutions/Personnage.java}
     \end{solution}
     
     \begin{solution}
@@ -750,7 +919,6 @@ print(nombre_decimal_pi(20))
 
 \begin{Exercice}[3 minutes] \\
 Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure et peut être compilé sans erreur?
-\newpage 
 
 \begin{lstlisting}[
     frame=single,
