@@ -6,7 +6,7 @@ public abstract class Animal {
 }
 
 public class Cat extends Animal {
-        // Implémentation d une méthode abstraite
-        void run() {
-            speed += 10;
-        }
+    // Implémentation d une méthode abstraite
+    void run() {
+        speed += 10;
+    }
