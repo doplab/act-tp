@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public abstract class Item {
 
     private int id;
@@ -9,7 +8,7 @@ public abstract class Item {
     private double price;
     private ArrayList<String> ingredients;
 
-    public Item (String name, double price, ArrayList<String> ingredients) {
+    public Item(String name, double price, ArrayList<String> ingredients) {
         this.id = ++count;
         this.name = name;
         this.price = price;
@@ -32,6 +31,7 @@ public abstract class Item {
         return this.ingredients;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Item) {
             Item i = (Item) o;
@@ -40,6 +40,7 @@ public abstract class Item {
         return false;
     }
 
+    @Override
     public String toString() {
         return "*-*-*-*-*-*" +
                 "\nID: " + this.getID() +
