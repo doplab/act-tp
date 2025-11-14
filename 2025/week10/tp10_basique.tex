@@ -306,14 +306,32 @@ public static int algo(int n) {
     \end{itemize}
     
     \end{conseil}
+
+    \begin{conseil}
+\textbf{Théorème 1} \quad La récurrence
+
+\begin{align*}
+T(n) &= a\,T(n/b) + c n^{k} \\
+T(1) &= c
+\end{align*}
+
+où $a$, $b$, $c$ et $k$ sont des constantes, se résout comme suit :
+
+\begin{align*}
+T(n) &\in \Theta(n^{k}) \quad \text{si } a < b^{k} \\
+T(n) &\in \Theta(n^{k} \log n) \quad \text{si } a = b^{k} \\
+T(n) &\in \Theta(n^{\log_{b}{a}}) \quad \text{si } a > b^{k}
+\end{align*}
+
+    \end{conseil}
     
     \begin{solution}
         \textbf{Python :}
-        \lstinputlisting[language=python, lastline=51]{solutions/merge_sort.py}
+        \lstinputlisting[language=python, lastline=30]{solutions/merge_sort.py}
     \end{solution}
 
     \begin{solution}
-\lstinputlisting[language=python, firstline=52, firstnumber=52]{solutions/merge_sort.py}
+\lstinputlisting[language=python, firstline=31, firstnumber=31]{solutions/merge_sort.py}
     \end{solution}
    
     \begin{solution}

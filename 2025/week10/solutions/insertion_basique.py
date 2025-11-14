@@ -8,5 +8,11 @@ def insertion_entier(liste, number):
     liste[n] = number
     return liste 
 
+# solution alternative
+def insertion_entier(liste,number):
+    for i in range(len(liste)):
+        if number <= liste[i] :
+            return liste[:i] + [number] + liste[i:]
+    return liste + [number]
 
 print(insertion_entier([2, 4, 6], 1))
