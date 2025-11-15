@@ -8,7 +8,8 @@ public class Question3 {
                     int temp = l[j]; 
                     l[j] = l[j+1]; 
                     l[j+1] = temp; 
-                } 
+                }
+            } 
         }
     }
 
