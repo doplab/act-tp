@@ -1,5 +1,5 @@
 // Solution question 5 - 1/2
-public class Question5Part1 {
+public class Question5 {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]
     // Deuxième sous-liste est arr[m+1..r]
@@ -49,21 +49,5 @@ public class Question5Part1 {
             arr[k] = R[j];
             j++;
             k++;
-        }
-    }
-
-    // Fonction principale qui trie arr[l..r] en utilisant
-    // merge()
-    public static void tri_fusion(int arr[], int l, int r) {
-        if (l < r) {
-            // Trouver le milieu de la liste
-            int m = (l + r) / 2;
-
-            // Trier les première et la deuxième parties de la liste
-            tri_fusion(arr, l, m);
-            tri_fusion(arr, m + 1, r);
-
-            // Fusionner les deux parties
-            merge(arr, l, m, r);
         }
     }
