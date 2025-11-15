@@ -6,7 +6,6 @@ def fibonacci(number, previous):
     counter += 1
     if number not in previous:
         previous[number] = fibonacci(number - 1, previous) + fibonacci(number - 2, previous)
-        print(previous)
 
     return previous[number]
 
