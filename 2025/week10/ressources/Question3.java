@@ -7,15 +7,15 @@ public class Question3 {
 
     public static void printArray(int l[]) {
         int n = l.length;
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             System.out.print(l[i] + " ");
-
+        }
         System.out.println();
     }
 
     public static void main(String[] args) {
         int[] l = { 1, 2, 4, 3, 1 };
-        tri_bulle(l);
+        Question3.tri_bulle(l);
         printArray(l);
     }
 }

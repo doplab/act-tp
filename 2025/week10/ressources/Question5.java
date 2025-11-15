@@ -14,15 +14,15 @@ public class Question5 {
 
     public static void printArray(int l[]) {
         int n = l.length;
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             System.out.print(l[i] + " ");
-
+        }
         System.out.println();
     }
 
     public static void main(String[] args) {
         int[] l = { 38, 27, 43, 3, 9, 82, 10 };
-        tri_fusion(l, 0, l.length - 1);
+        Question5.tri_fusion(l, 0, l.length - 1);
         printArray(l);
     }
 }
