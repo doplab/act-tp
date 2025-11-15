@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% Configuration pour le code Python
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\title{Complexité et notation \emph{Big O}}
+\date{Novembre 2025}
+
+\begin{document}
+
+\maketitle
+
+\subsubsection*{Ce document couvre les notions de complexité des algorithmes et en particulier la notation \emph{big O}}
+
+La notation \emph{Big O} a pour but d'exprimer la complexité temporelle des algorithmes dans le pire scenario d'exécution (\textit{Worst Case scenario}) et suit quelques principes de base:
+
+\begin{itemize}
+    \item Les constantes sont ignorées
+    
+    $O(2n) = 2 \cdot O(n) = O(n)$
+    
+    \item Les termes dominés sont ignorés
+    
+    $O(2n^2 + 5n + 50) = O(n^2)$
+    
+    % \item Utilisez différentes variables pour différents inputs
+    
+    \item Uniquement le pire cas d'exécution est considéré
+\end{itemize}
+
+\section*{Complexités les plus fréquentes}
+
+Les complexités les plus fréquentessont les suivantes:
+
+\subsubsection*{Constante $O(1)$}
+
+Cela veut dire que la complexité ne depend pas de la taille du vecteur en input.
+\begin{itemize}
+    \item Les méthodes \emph{append} et \emph{pop} sur les listes en Python.
+\end{itemize}
+
+\subsubsection*{Logarithmique $O(\log(n))$}
+
+\begin{itemize}
+    \item L'algorithme de recherche binaire
+\end{itemize}
+
+\subsubsection*{Linéaire $O(n)$}
+
+\begin{itemize}
+    \item Les boucles \emph{for} et \emph{while}
+\end{itemize}
+
+\subsubsection*{Quadratique, Cubique, etc. $O(n^2)$, $O(n^3)$}
+
+\begin{itemize}
+    \item Boucles imbriquées ayant le même nombre d'itérations
+    \item L'algorithme de tri par insertion tel que vu en cours à une complexité de $O(n^2)$
+\end{itemize}
+
+\subsubsection*{Exponentielle $O(2^n)$}
+
+\begin{itemize}
+    \item Fibonacci par récursivité comme vu en exercice
+\end{itemize}
+
+\begin{comment}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{complexity_chart.png}
+    \caption{Complexité}
+    \label{fig:complexity}
+\end{figure}
+\end{comment}
+
+\section*{Exemples}
+
+La boucle ci-dessous va exécuter \emph{n} fois (le \emph{n}  ici est choisi arbitrairement et représente la taille du vecteur \emph{array}) une opération de complexité $O(1)$, la complexité totale est donc $n \cdot O(1) = O(n)$.
+
+\begin{lstlisting}
+for number in array:
+    array.pop()
+\end{lstlisting}
+
+Dans le prochain exemple nous avons deux vecteurs, si leur taille est respectivement de \emph{n} et \emph{m} alors la complexité sera de $O(n \cdot m)$ et non $O(n^2)$. Cela s'explique par le fait que les deux boucles imbriquées n'itèrent pas sur le même vecteur.
+
+\begin{lstlisting}
+def intersection_size(arrayA,arrayB):
+    count = 0
+    for a in arrayA:
+        for b in arrayB:
+            if a == b:
+                count += 1
+    return count
+\end{lstlisting}
+
+Les deux fonctions ci-dessous ont la même complexité de $O(n)$
+
+\begin{lstlisting}
+def find_extrem_1(array):
+    mini , maxi = (array[0], )*2   
+    for numbers in array:          
+        if numbers < mini:
+            mini = numbers
+    for numbers in array:          
+        if numbers > maxi: 
+            maxi = numbers
+    return mini , maxi
+
+def find_extrem_2(array):
+    mini , maxi = (array[0], )*2   
+    for numbers in array:          
+        if numbers < mini:
+            mini = numbers
+        elif numbers > maxi:
+            maxi = numbers
+    return mini , maxi
+\end{lstlisting}
+
+\end{document}
