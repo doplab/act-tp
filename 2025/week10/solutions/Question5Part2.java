@@ -1,5 +1,20 @@
 // Solution question 5 - 2/2
-public class Question5Part2 {
+    // Fonction principale qui trie arr[l..r] en utilisant
+    // merge()
+    public static void tri_fusion(int arr[], int l, int r) {
+        if (l < r) {
+            // Trouver le milieu de la liste
+            int m = (l + r) / 2;
+
+            // Trier les première et la deuxième parties de la liste
+            tri_fusion(arr, l, m);
+            tri_fusion(arr, m + 1, r);
+
+            // Fusionner les deux parties
+            merge(arr, l, m, r);
+        }
+    }
+
     public static void affiche_liste(int l[]) {
         int n = l.length;
         for (int i = 0; i < n; ++i)
