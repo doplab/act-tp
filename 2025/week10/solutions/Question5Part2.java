@@ -17,8 +17,9 @@
 
     public static void affiche_liste(int l[]) {
         int n = l.length;
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             System.out.println(l[i] + " ");
+        }
     }
 
     public static void main(String[] args) {
