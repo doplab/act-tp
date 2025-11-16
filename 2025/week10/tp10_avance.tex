@@ -109,10 +109,13 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \textbf{Java:}
     \lstinputlisting{solutions/Question3.java} 
 
+    \end{solution}
 
-    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles qui parcourent la liste.\\\\\\
+    \begin{solution}
+    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles imbriquées qui parcourent la liste.
+    \end{solution}
             
-\end{solution}
+
 \end{Exercice}
 
 \begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
@@ -144,8 +147,10 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
             \lstinputlisting{solutions/insertion_sort_advanced.py} 
         \textbf{Java :}
             \lstinputlisting{solutions/insertion_sort_advanced.java}
-    
-    La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées, qui dans le pire des cas, parcourent la liste deux fois.
+    \end{solution}
+
+    \begin{solution}
+         La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées. Dans le pire des cas, la boucle intérieure parcourt la liste une fois pour chaque tour de la boucle extérieure.
     \end{solution}
     
 \end{Exercice}
@@ -179,10 +184,12 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
      \begin{solution}
         \textbf{Java :}
-        \lstinputlisting{solutions/Question5Part1.java}
+        \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=52]{solutions/Question5.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting{solutions/Question5Part2.java}
+        \lstinputlisting[language=java, firstline=53, firstnumber = 53]{solutions/Question5.java}
+    \end{solution}
+    \begin{solution}
         
         Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
         \begin{enumerate}
