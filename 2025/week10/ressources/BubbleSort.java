@@ -1,6 +1,6 @@
-public class Question4 {
-    public static void tri_insertion(int[] l) {
-        for (int i = 1; i < l.length; i++) {
+public class BubbleSort {
+    public static void tri_bulle(int[] l) {
+        for (int i = 0; i < l.length - 1; i++) {
             // TODO: Code à compléter
         }
     }
@@ -10,11 +10,12 @@ public class Question4 {
         for (int i = 0; i < n; ++i) {
             System.out.print(l[i] + " ");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        int[] l = { 2, 43, 1, 3, 43 };
-        Question4.tri_insertion(l);
+        int[] l = { 1, 2, 4, 3, 1 };
+        Question3.tri_bulle(l);
         printArray(l);
     }
 }

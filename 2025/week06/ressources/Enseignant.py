@@ -10,7 +10,7 @@ class Professeur(Enseignant):
     def paye_mensuelle(self):
         ...
         
-class Collaborateur(Lecturer):
+class Collaborateur(Enseignant):
     def __init__(self, name, years_experience, hours_per_month, rate):
         ...
     def paye_mensuelle(self):

@@ -1,3 +1,6 @@
+import math
+import Point
+
 class Point3D(Point):
     def __init__(self, x, y, z):
         super().__init__(x, y)
@@ -28,8 +31,7 @@ class Point3D(Point):
         other_x = p2.get_x()
         other_y = p2.get_y()
         other_z = p2.get_z()
-        return sum([abs(self._x - other_x)**order), abs(self._y - other_y)**order,\
-                   abs(self._z - other_z)**order])**(1/order)
+        return sum([abs(self._x - other_x)**order, abs(self._y - other_y)**order, abs(self._z - other_z)**order])**(1/order)
         
     def milieu(self, p2):
         other_x = p2.get_x()
