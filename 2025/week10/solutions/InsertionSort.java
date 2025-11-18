@@ -1,4 +1,4 @@
-public class question4 {
+public class InsertionSort {
     public static void tri_insertion(int[] l) {
         for (int i = 1; i < l.length; i++){
             int key = l[i];
