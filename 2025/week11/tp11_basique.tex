@@ -2,7 +2,7 @@
     \usepackage{array}
     \usepackage[T1]{fontenc}
     \usepackage{tikz}
-    \usetikzlibrary{calc}
+    \usetikzlibrary{calc, backgrounds}
     \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
     
     \begin{document}
@@ -218,39 +218,39 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \begin{conseil}
         Rappelez-vous de la propriété suivante des arbres de recherche binaire:
         \begin{center}
-    \begin{tikzpicture}[
+   \begin{tikzpicture}[
     node distance=1.5cm,
     every node/.style={circle, draw, fill=gray!30, minimum size=0.8cm},
     every path/.style={thick}
 ]
 
-% Nodes
+% 1. Define Nodes first (so we can reference their positions)
 \node (z) at (0,0) {$z$};
 \node (l) at (-1.7,-1.5) {$l$};
 \node (r) at (1.7,-1.5) {$r$};
 
-% Edges
+% 2. Edges
 \draw (z) -- (l);
 \draw (z) -- (r);
 
-% Dashed lines for children (representing subtrees)
+% Dashed lines for children
 \draw[dashed] (l) -- ++(-0.95,-0.95);
 \draw[dashed] (l) -- ++(0.95,-0.95);
 \draw[dashed] (r) -- ++(-0.95,-0.95);
 \draw[dashed] (r) -- ++(0.95,-0.95);
-
-% Parent of z (representing parent of the subtree)
 \draw[dashed] (z) -- ++(0,0.95);
 
-% Background (light blue rectangle)
-\fill[red!10, opacity=0.6, rounded corners] ($(z.north east) + (-0.4,-1.2)$) rectangle ($(l.south west) + (-1.4,-1.9)$) ;
-\fill[blue!10, opacity=0.6, rounded corners] ($(z.north east) + (3.1,-1.2)$) rectangle ($(l.south west) + (2.1,-1.9)$) ;
+% 3. Background Rectangles
+% We use 'on background layer' to push these behind the nodes defined above
+\begin{scope}[on background layer]
+    \fill[red!10, opacity=0.6, rounded corners] 
+        ($(z.north east) + (-0.4,-1.2)$) rectangle ($(l.south west) + (-1.4,-1.9)$);
+        
+    \fill[blue!10, opacity=0.7, rounded corners] 
+        ($(z.north east) + (3.1,-1.2)$) rectangle ($(l.south west) + (2.1,-1.9)$);
+\end{scope}
 
-% descriptors
-% Define corners of red rectangle
-\coordinate (redA) at ($(z.north east) + (-0.5,-1.2)$);
-\coordinate (redB) at ($(l.south west) + (-1.1,-1.9)$);
-
+% 4. Text Descriptors
 \node[
   rectangle,
   draw=none,
@@ -269,9 +269,14 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 
 \end{tikzpicture}
 \end{center}
+Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la valeur du nœud $z$ et tous les nœuds dans le sous-arbre à droite ont une valeur supérieure à la valeur du nœud $z$.
     \end{conseil}
     \begin{solution}
             \includegraphics[width=1\textwidth]{img/question4.png}
+    \end{solution}
+
+    \begin{solution}
+        Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres de recherche binaire. Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres de recherche binaire.   
     \end{solution}
 
         
