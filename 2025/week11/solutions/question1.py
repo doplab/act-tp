@@ -2,7 +2,6 @@
 def recherche_sequentielle(liste, x):
     for index in range(len(liste)):  # i représente l'index
         if liste[index] == x:
-            print("X est présent dans la liste à l'index :", index)
             return index
 
     print("X n'est pas présent dans la liste")
