@@ -1,9 +1,5 @@
-#Version itérative
-    def recherche_binaire_iterative(liste,s,r,x):
-    #complètez ici
+def binary_search(key, array):
+    # Complétez ici
 
-L = [1,3,4,5,7,8,9,15]
-s = 0
-r = len(L)-1
-x = 5
-recherche_binaire_iterative(L,s, r, x)
+if __name__ == '__main__':
+    # Testez votre code ici

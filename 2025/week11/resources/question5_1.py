@@ -1,9 +1,5 @@
-#Version récursive    
-def recherche_binaire_recursive(liste,s,r,x):
-    #complètez ici
+def binary_search_recursive(key, array, low=0, high=None):
+    # Complétez ici
 
-L=[1,3,4,5,7,8,9,15]
-s = 0
-r = len(L)
-x = 5
-recherche_binaire_recursive(L,s, r, x)
+if __name__ == '__main__':
+    # Testez votre code ici

@@ -167,10 +167,13 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \subsection{Exercices}
 
     
-    \begin{Exercice}[20 minutes] Récursivité et itération (Python)\\
+    \begin{Exercice}[20 minutes] Algorithme de recherche binaire — Binary search (Python)\\
     
-    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
-    Ici, \lstinline{x = 5}.\\
+    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \texttt{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
+    
+    \begin{conseil}
+        Testez votre implémentation avec la liste \texttt{L=[1,3,4,5,7,8,9,15]} dans lequel vous cherchez \texttt{key=5}.
+    \end{conseil}
     
     \subsubsection*{Question 3.1 - Version récursive}
     \lstinputlisting{resources/question5_1.py}
@@ -180,27 +183,21 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     
         \begin{conseil}
-            Complétez la fonction récursive \lstinline{recherche_binaire_recursive} et la fonction itérative \lstinline{recherche_binaire_iterative}.\\\\
-            Détails sur les arguments de la fonction:\\
+            Complétez la fonction récursive \lstinline{binary_search_recursive} et la fonction itérative \lstinline{binary_search}.\\\\
+            Détails sur les arguments de la fonction \lstinline{binary_search_recursive}:\\
             \lstinline{L} : La liste dans laquelle nous effectuons la recherche.\\
-            \lstinline{s} : L'indice de départ de la partie de la liste à fouiller (0 au départ).\\
-            \lstinline{r} : Le dernier indice de la partie de la liste à fouiller (\lstinline{len(L) - 1} au départ).\\
-            \lstinline{x} : La valeur recherchée.\\
+            \lstinline{low} : L'indice de départ de la partie de la liste à fouiller (0 au départ).\\
+            \lstinline{high} : Le dernier indice de la partie de la liste à fouiller (\lstinline{len(L) - 1} au départ).\\
+            \lstinline{key} : La valeur recherchée.\\
     
             Ainsi, à chaque itération, vos fonctions vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
-            Pour définir le milieu d'un intervalle qui contient un nombre pair ou impair d'éléments, divisez l'ensemble en 2 et utilisez la fonction \lstinline{int()} pour convertir le résultat en entier. \\
-            Exemple:\\
-                liste1 = [1,2,3,4,5]\\
-                s = 0\\
-                r = len(liste1) - 1\\
-                Calcul du milieu de l'intervalle:\\
-                \lstinline{((s+r)/2) = (0+5)/2 = 2.5 \#Pas de correspondance}\\
-                \lstinline{int((s+r)/2) = int((0+5)/2) = int(2.5) = 2} \\
-                Arrondi vers le bas
-            \\
             
             Pour la version itérative, il est conseillé d'utiliser une boucle \lstinline{while}.
-    
+        \end{conseil}
+
+        \begin{conseil}
+            Pour définir le milieu d'une liste qui contient un nombre pair ou impair d'éléments, divisez l'ensemble en 2 et utilisez la fonction \lstinline{int()} pour convertir le résultat en entier. 
+            \lstinputlisting{solutions/midpoint.py}
         \end{conseil}
     
         \begin{solution}
