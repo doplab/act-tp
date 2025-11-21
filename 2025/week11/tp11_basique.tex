@@ -169,7 +169,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{Exercice}[20 minutes] Algorithme de recherche binaire — Binary search (Python)\\
     
-    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \texttt{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
+    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{key} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \texttt{key} est dans la liste et \lstinline{-1} dans le cas contraire.\\
     
     \begin{conseil}
         Testez votre implémentation avec la liste \texttt{L=[1,3,4,5,7,8,9,15]} dans lequel vous cherchez \texttt{key=5}.
@@ -184,12 +184,13 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
         \begin{conseil}
             Complétez la fonction récursive \lstinline{binary_search_recursive} et la fonction itérative \lstinline{binary_search}.\\\\
-            Détails sur les arguments de la fonction \lstinline{binary_search_recursive}:\\
-            \lstinline{L} : La liste dans laquelle nous effectuons la recherche.\\
-            \lstinline{low} : L'indice de départ de la partie de la liste à fouiller (0 au départ).\\
-            \lstinline{high} : Le dernier indice de la partie de la liste à fouiller (\lstinline{len(L) - 1} au départ).\\
-            \lstinline{key} : La valeur recherchée.\\
-    
+            Détails sur les arguments de la fonction \lstinline{binary_search_recursive}:
+            \begin{itemize}
+            \item \lstinline{L} : La liste dans laquelle nous effectuons la recherche.
+            \item \lstinline{low} : L'indice de départ de la partie de la liste à fouiller (0 au départ).
+            \item \lstinline{high} : Le dernier indice de la partie de la liste à fouiller (\lstinline{len(L) - 1} au départ).
+            \item \lstinline{key} : La valeur recherchée.
+            \end{itemize}
             Ainsi, à chaque itération, vos fonctions vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
             
             Pour la version itérative, il est conseillé d'utiliser une boucle \lstinline{while}.
