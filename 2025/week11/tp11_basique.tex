@@ -38,9 +38,9 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{Exercice}[10 minutes] Recherche séquentielle - 1 (Python)\\
     
-    1. À partir des éléments ci-dessous, écrivez une fonction qui cherche \texttt{x} dans la liste \texttt{L}. \newline 
+    1. À partir des éléments ci-dessous, écrivez une fonction qui cherche un élément \texttt{e} dans la liste \texttt{L}. \newline 
     
-    La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{x} est dans la liste et -1 si \texttt{x} n'est pas dans la liste (avec \texttt{x = 100}).\\
+    La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste (avec \texttt{e = 100}).\\
     
     \textbf{Python:}
       \lstinputlisting{resources/question1.py}
@@ -73,7 +73,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \begin{conseil}
         La fonction \lstinline|index| est appelée sur une liste \texttt{L} afin de déterminer l'index d'un élément \texttt{e}: \lstinline{L.index(e)}.
         \begin{itemize}
-            \item Si \texttt{e} n'est pas dans la liste \texttt{L}: une exception de type \lstinline{ValueError} est levée. 
+            \item Si \texttt{e} n'est pas dans la liste \texttt{L}: la fonction lève une exception de type \lstinline{ValueError}. 
             \item Si \texttt{e} est dans la liste \texttt{L}: la fonction retourne l'index de la première occurrence de \texttt{e}.
         \end{itemize}
     \end{conseil}
@@ -333,9 +333,9 @@ def recherche_arbre(node, value):
         \begin{conseil}
         Indice: Utilisez une fonction récursive.\\
         
-        Pour cette question, vous devez télécharger le fichier \textbf{``question6.py''} sur Moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
+        Pour cette question, vous devez télécharger le fichier \textbf{question6.py} sur Moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
         
-        Il contient également un code de ``vérification''. Celui-ci va automatiquement tester votre fonction avec différents paramètres et vérifier si les résultats obtenus correspondent au résultats attendus.
+        Il contient également un code de ``vérification''. Celui-ci va automatiquement tester votre fonction avec différents paramètres et vérifier si les résultats obtenus correspondent aux résultats attendus.
         \end{conseil}
     
         \begin{solution}

@@ -1,8 +1,8 @@
 # Définition de la fonction
-def recherche_sequentielle(liste, x):
-    for index in range(len(liste)):  # i représente l'index
-        if liste[index] == x:
-            return index
+def recherche_sequentielle(liste, e):
+    for idx in range(len(liste)):  # idx représente l'index
+        if liste[idx] == e:
+            return idx
 
     return -1
 
