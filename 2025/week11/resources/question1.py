@@ -1,5 +1,5 @@
 def recherche_sequentielle(liste, x):
-    # complètez ici
+    # complétez ici
 
 
 L = [3, 55, 6, 8, 3, 5, 56, 33, 6, 5, 3, 2, 99,
