@@ -16,6 +16,6 @@ def recherche_binaire_recursive(L, s, r, x):
 
 L=[1,3,4,5,7,8,9,15]
 s = 0
-r = len(L)-1 #8 --> première moitié = 4 -->"7" in L --> 7>5 --> deuxième moitié = (0+4)/2 = 2, etc.
+r = len(L)-1 #7 --> première moitié = 3 -->"5" in L --> 5==5 --> bingo!
 x = 8
 print(recherche_binaire_recursive(L,s, r, x))
