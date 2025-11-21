@@ -105,10 +105,13 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \textbf{Python :}
         \lstinputlisting{resources/question2.py}
         \begin{conseil}
-            Complétez la fonction \texttt{plus\_proche\_sequentielle} et exécutez le code.\\\\
-            Utilisez les valeurs absolues pour comparer les différences, la plus petite pouvant être positive ou négative. En Python, la fonction \lstinline{abs()} retourne la valeur absolue. Exemple : \lstinline{abs(3-10)} retourne 7.\\\\
-            Étant donné que la liste est \textbf{non triée}, l'algorithme doit obligatoirement la parcourir intégralement.\\\\
-            L'algorithme doit calculer la différence entre \texttt{e} et chaque élément de la liste \texttt{L} en gardant toujours la plus petite différence trouvée. À la fin, il retourne l'élément de la liste correspondant à la plus petite différence.  
+        Complétez la fonction \texttt{plus\_proche\_sequentielle} puis exécutez le code. \\
+
+        Pour comparer les écarts, utilisez les valeurs absolues, car la différence la plus petite peut être positive ou négative. En Python, la fonction \lstinline{abs()} retourne la valeur absolue d'un nombre. Par exemple: \lstinline{abs(3 - 10)} retourne 7.\\
+
+        Étant donné que la liste n'est \textbf{pas triée}, l'algorithme doit nécessairement la parcourir entièrement. \\
+
+        L'algorithme doit calculer la différence entre \texttt{e} et chaque élément de la liste \texttt{L}, tout en conservant en mémoire la plus petite différence rencontrée. À la fin, il retourne l'élément de la liste correspondant à la plus petite différence.
         \end{conseil}
         
         \begin{solution}
@@ -141,7 +144,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 %     \end{solution}
 % \end{Exercice}
     
-    \section{Recherche binaire}
+    \section{Recherche binaire — Binary search}
     
     \subsection{Définition}
     
@@ -149,9 +152,9 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     La complexité de l'algorithme de recherche binaire est \lstinline{O(log n)}. Cependant, il ne faut pas oublier le coût lié à l'obtention d'une liste triée à partir d'une liste non triée.\\
     
-    L'algorithme de recherche binaire divise l'intervalle de recherche par deux à chaque itération jusqu'à ce qu'il trouve l'élément \lstinline{x} ou que l'intervalle soit vide.\\
+    L'algorithme de recherche binaire divise l'intervalle de recherche par deux à chaque itération jusqu'à ce qu'il trouve l'élément \lstinline{key} ou que l'intervalle soit vide.\\
     
-    Ainsi, si \lstinline{x} est plus petit que l'élément du milieu, l'algorithme va choisir la moitié de gauche comme intervalle de recherche et ainsi de suite. Si \lstinline{x} est plus grand que l'élément du milieu la recherche va se faire dans la moitié droite de l'intervalle.\\
+    Ainsi, si \lstinline{key} est plus petit que l'élément du milieu, l'algorithme va choisir la moitié de gauche comme intervalle de recherche et ainsi de suite. Si \lstinline{key} est plus grand que l'élément du milieu la recherche va se faire dans la moitié droite de l'intervalle.\\
     
     La recherche binaire se base sur les comparaisons d'ordre, alors que la recherche séquentielle se base les comparaisons d'égalité pour trouver l'élément recherché.\\
     

@@ -14,11 +14,11 @@ def plus_proche_sequentielle(liste, nb):
 
     return resultat
 
+if __name__ == '__main__':
+    # Déclaration et initialisation de la liste L et de la variable e
+    L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]
+    e = 50
 
-# Déclaration et initialisation de la liste L et de la variable e
-L = [16, 2, 25, 8, 12, 31, 2, 56, 58, 63]
-e = 50
-
-# Exécution de la fonction
-resultat = plus_proche_sequentielle(L, e)
-print(resultat)  # affiche 56
+    # Exécution de la fonction
+    resultat = plus_proche_sequentielle(L, e)
+    print(resultat)  # affiche 56
