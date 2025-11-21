@@ -172,10 +172,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \lstinline{x} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \lstinline{x} est dans la liste et \lstinline{-1} dans le cas contraire.\\
     Ici, \lstinline{x = 5}.\\
     
-    \subsubsection*{Question 5.1 - Version récursive}
+    \subsubsection*{Question 3.1 - Version récursive}
     \lstinputlisting{resources/question5_1.py}
     
-    \subsubsection*{Question 5.2 - Version itérative}
+    \subsubsection*{Question 3.2 - Version itérative}
     \lstinputlisting{resources/question5_2.py}
     
     
@@ -184,7 +184,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
             Détails sur les arguments de la fonction:\\
             \lstinline{L} : La liste dans laquelle nous effectuons la recherche.\\
             \lstinline{s} : L' élément de départ de la partie de la liste à fouiller (0 au départ).\\
-            \lstinline{r} : Le dernier élément de la partie de la liste à fouiller (len(liste) au départ).\\
+            \lstinline{r} : Le dernier élément de la partie de la liste à fouiller (\lstinline{len(L)} au départ).\\
             \lstinline{x} : La valeur recherchée.\\
     
             Ainsi, à chaque itération, vos fonctions vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
@@ -204,11 +204,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{conseil}
     
         \begin{solution}
-            \subsubsection*{5.1 - Version récursive}
+            \subsubsection*{3.1 - Version récursive}
             \lstinputlisting{solutions/question5-1.py}
         \end{solution}
         \begin{solution}
-            \subsubsection*{5.2 - Version itérative}
+            \subsubsection*{3.2 - Version itérative}
             \lstinputlisting{solutions/question5-2.py}
         \end{solution}
     
@@ -233,7 +233,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \subsection{Exercices}
 
-    \begin{Exercice}[10 minutes] Propriété des arbres binaires de recherche\\
+    \begin{Exercice}[10 minutes] Propriété des arbres de recherche binaire\\
 
     Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre binaire de recherche, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
 
