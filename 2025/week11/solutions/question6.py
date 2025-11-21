@@ -3,7 +3,7 @@ import traceback
 
 def recherche_arbre(node, value):
     #Solution
-    if node == None:
+    if node is None:
         return False
     
     if node.value == value:

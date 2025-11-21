@@ -54,7 +54,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \item Avec une boucle \lstinline{for}, pensez à utiliser \lstinline{range(len(liste))}.
         \item Avec une boucle \lstinline{while}, utilisez une variable d'incrémentation \lstinline{i = i + 1}.
     \end{itemize}
-    Utilisez la fonction \lstinline{print()} pour afficher l'index lorsque vous l'aurez trouvé et un autre message le cas échéant. 
+    Utilisez la fonction \lstinline{print()} pour afficher l'index retourné par la fonction de recherche. Si la valeur retournée est -1, affichez un autre message indiquant que l'élément n'était pas dans la liste.  
 \end{conseil}
     
     % \begin{conseil}
@@ -163,7 +163,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour effectuer un calcul factoriel.\\\\
     (Rappel : 4! = 4 x 3 x 2 x 1 = 24)\\
     
-    \lstinputlisting{resources/factorielle.py}
+    \lstinputlisting{resources/factorial.py}
     
     Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. Leur principal inconvénient est le fait qu'elles peuvent provoquer des exécutions infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas permettant d'arrêter la récursivité, celle-ci se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
        
