@@ -4,7 +4,6 @@ def recherche_sequentielle(liste, x):
         if liste[index] == x:
             return index
 
-    print("X n'est pas présent dans la liste")
     return -1
 
 
