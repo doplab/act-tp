@@ -5,7 +5,13 @@ def recherche_sequentielle(liste, e):
             return idx
 
     return -1
-
+def recherche_sequentielle_while(liste, e):
+    i = 0
+    while i < len(liste):
+        if liste[i] == e:
+            return i
+        i += 1
+    return -1
 
 if __name__ == '__main__':
     # Déclaration de la liste et de la variable x
