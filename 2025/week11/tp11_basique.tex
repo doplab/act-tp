@@ -21,7 +21,7 @@
     \end{enumerate}
     \end{comment}
     
-Le but de cette séance est de se familiariser avec les algorithmes de recherche. Dans cette série d'exercices, nous manipulerons des listes et collections en Java et Python. Nous reviendrons sur la notion de récursivité et découvrirons les arbres de recherche. Au terme de cette séance, l'étudiant sera en mesure d'effectuer des recherches de façon efficiente sur un ensemble de données. \newline 
+Le but de cette séance est de se familiariser avec les algorithmes de recherche. Dans cette série d'exercices, nous manipulerons des listes et collections en Java et Python. Nous reviendrons sur la notion de récursivité et découvrirons les arbres de recherche binaire. Au terme de cette séance, l'étudiant sera en mesure d'effectuer des recherches de façon efficiente sur un ensemble de données. \newline 
     
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
     
@@ -43,7 +43,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste (avec \texttt{e = 100}).\\
     
     \textbf{Python:}
-      \lstinputlisting{resources/question1.py}
+      \lstinputlisting{resources/recherche_sequentielle.py}
 
 
 \begin{conseil}
@@ -65,7 +65,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         
     \begin{solution}
     \textbf{Python:}
-    \lstinputlisting[deletekeywords={index}]{solutions/question1.py}
+    \lstinputlisting[deletekeywords={index}]{solutions/recherche_sequentielle.py}
     \end{solution}
 
     2. Re-faire la question en utilisant la fonction \lstinline{index} en Python.
@@ -79,17 +79,12 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \end{conseil}
 
     \begin{exemple}
-        \lstinputlisting[language=python, firstline=17, firstnumber=1, lastline=21]{solutions/question1-2.py}
+        \lstinputlisting[language=python, firstline=17, firstnumber=1, lastline=21]{solutions/recherche_sequentielle_index.py}
     \end{exemple}
 
     \begin{solution}
         \textbf{Python:}
-        \lstinputlisting[language=python, firstline=1, firstnumber=1, lastline=5]{solutions/question1-2.py}
-    \end{solution}
-
-    \begin{solution}
-        \textbf{Python:}
-        \lstinputlisting[language=python, firstline=8, firstnumber=8]{solutions/question1-2.py}
+        \lstinputlisting{solutions/recherche_sequentielle_index.py}
     \end{solution}
     
     \end{Exercice}
@@ -98,12 +93,12 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     Soit une liste d’entiers \textbf{non triée} \texttt{L} ainsi qu’un entier \texttt{e}. Écrivez un programme qui retourne l'élément de la liste \lstinline{L} dont la valeur est la plus proche de \texttt{e} en utilisant une recherche séquentielle.\\
     \begin{exemple}
-        \lstinputlisting[language=python, firstline=18, firstnumber=1, lastline=24]{solutions/question2.py}
+        \lstinputlisting[language=python, firstline=18, firstnumber=1, lastline=24]{solutions/plus_proche_sequentielle.py}
     \end{exemple}
     Au cas où deux éléments se trouveraient à équidistance de \lstinline{e}, renvoyez l'élément le plus petit.\\
     
     \textbf{Python :}
-        \lstinputlisting{resources/question2.py}
+        \lstinputlisting{resources/plus_proche_sequentielle.py}
         \begin{conseil}
         Complétez la fonction \texttt{plus\_proche\_sequentielle} puis exécutez le code. \\
 
@@ -116,7 +111,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         
         \begin{solution}
         \textbf{Python :}
-            \lstinputlisting{solutions/question2.py}
+            \lstinputlisting{solutions/plus_proche_sequentielle.py}
             
         \end{solution}
         
@@ -179,10 +174,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \end{conseil}
     
     \subsubsection*{Question 3.1 - Version récursive}
-    \lstinputlisting{resources/question5_1.py}
+    \lstinputlisting{resources/recherche_binaire_recursive.py}
     
     \subsubsection*{Question 3.2 - Version itérative}
-    \lstinputlisting{resources/question5_2.py}
+    \lstinputlisting{resources/recherche_binaire_iterative.py}
     
     
         \begin{conseil}
@@ -206,11 +201,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
         \begin{solution}
             \subsubsection*{3.1 - Version récursive}
-            \lstinputlisting{solutions/question5-1.py}
+            \lstinputlisting{solutions/recherche_binaire_recursive.py}
         \end{solution}
         \begin{solution}
             \subsubsection*{3.2 - Version itérative}
-            \lstinputlisting{solutions/question5-2.py}
+            \lstinputlisting{solutions/recherche_binaire_iterative.py}
         \end{solution}
     
     \end{Exercice}
@@ -236,7 +231,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 
     \begin{Exercice}[10 minutes] Propriété des arbres de recherche binaire\\
 
-    Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre binaire de recherche, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
+    Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre de recherche binaire, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
 
     \begin{enumerate}
         \item 2, 252, 401, 398, 330, 344, 397, 363.
@@ -304,9 +299,6 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
     \end{conseil}
     \begin{solution}
             \includegraphics[width=1\textwidth]{img/question4.png}
-    \end{solution}
-
-    \begin{solution}
         \begin{itemize}
             \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres de recherche binaire.
             \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres de recherche binaire. 
@@ -318,7 +310,7 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
     
     \begin{Exercice}[20 minutes] Recherche dans un arbre - Python\\
         
-        Dans l'exercice suivant, nous vous donnons un arbre binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
+        Dans l'exercice suivant, nous vous donnons un arbre de recherche binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
         Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{value} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour afficher la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
         Complétez la fonction \lstinline{recherche_arbre}.\\
@@ -330,24 +322,24 @@ def recherche_arbre(node, value):
     # Complétez ici
     
     
-#Attention à inclure les lignes de codes additionnelles présentes dans le fichier "question6.py" sur Moodle
+#Attention à inclure les lignes de codes additionnelles présentes dans le fichier "arbre_recherche_binaire.py" sur Moodle
         \end{lstlisting}
     
         \begin{conseil}
         Indice: Utilisez une fonction récursive.\\
         
-        Pour cette question, vous devez télécharger le fichier \textbf{question6.py} sur Moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
+        Pour cette question, vous devez télécharger le fichier \textbf{arbre\_recherche\_binaire.py} sur Moodle et copier tout son contenu dans votre fichier Python. Celui-ci contient les classes permettant de définir les arbres selon le concept vu en cours. \\
         
         Il contient également un code de ``vérification''. Celui-ci va automatiquement tester votre fonction avec différents paramètres et vérifier si les résultats obtenus correspondent aux résultats attendus.
         \end{conseil}
     
         \begin{solution}
-            \lstinputlisting{solutions/question6-1.py}
+            \lstinputlisting{solutions/recherche_arbre.py}
         \end{solution}
 
         \begin{comment}
             \begin{solution}
-                \lstinputlisting{solutions/question6-2.py}
+                \lstinputlisting{solutions/arbre_recherche_binaire.py}
             \end{solution}
         \end{comment}
     
