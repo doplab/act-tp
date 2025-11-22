@@ -6,6 +6,7 @@ def recherche_matricielle(m,l):
                 return (ligne,colonne)
     return (-1,-1)
 
-m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
-l=61
-print(recherche_matricielle(m,l))
+if __name__ == '__main__':
+    m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]
+    l=61
+    print(recherche_matricielle(m,l))

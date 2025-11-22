@@ -21,18 +21,20 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 % ADVANCED
 \begin{Exercice}[15 minutes] Recherche binaire - plus proche élément (Python)\\
 
-Soit une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
+Soit une liste d'entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
 
 \lstinputlisting{resources/plus_proche_binaire.py}
 
 \begin{conseil}
-    Pensez à définir des variables \lstinline{min} et \lstinline{max} délimitant l'intervalle de recherche et une variable booléenne \lstinline{found} initialisée à \lstinline{false} et qui devient \lstinline{true} lorsque l'algorithme trouve la valeur la plus proche de \lstinline{e}. 
+    Pensez à définir des variables \lstinline{low} et \lstinline{high} délimitant l'intervalle de recherche. 
     
 \end{conseil}
 
     \begin{solution}
-        \textbf{Python :}
-        \lstinputlisting{solutions/plus_proche_binaire.py}
+        \lstinputlisting[firstline=1, firstnumber=1, lastline=20]{solutions/plus_proche_binaire.py}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[firstline=21, firstnumber=21]{solutions/plus_proche_binaire.py}
     \end{solution}
 
 \end{Exercice}
@@ -51,12 +53,12 @@ Soit une liste d’entiers \textbf{triés} \lstinline{L} et un entier \lstinline
      \lstinline{m[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\
  
     
-    Écrivez un algorithme qui retourne la position de l’élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n’est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
+    Écrivez un algorithme qui retourne la position de l'élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n'est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
     
     \begin{Example}{\faTerminal \quad Exemples}
-        \textbf{Exemple 1}: si \lstinline{m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]} et que \lstinline{l=7}. Nous souhaitons avoir la réponse \lstinline{(1,2)} OU \lstinline{(3,1)} (l’une des deux, pas besoin de retourner les deux résultats).\\
+        \textbf{Exemple 1}: si \lstinline{m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]} et que \lstinline{l=7}. Nous souhaitons avoir la réponse \lstinline{(1,2)} OU \lstinline{(3,1)} (l'une des deux, pas besoin de retourner les deux résultats).\\
 
-        \textbf{Exemple 2}: si m=[[1,2],[3,4]] et que l=7. Nous souhaitons avoir la réponse (-1,-1) car 7 n’est pas dans la matrice m.
+        \textbf{Exemple 2}: si \lstinline{m=[[1,2],[3,4]]} et que \lstinline{l=7}. Nous souhaitons avoir la réponse (-1,-1) car 7 n'est pas dans la matrice m.
     \end{Example}
 
     \lstinputlisting{resources/recherche_matricielle.py}
