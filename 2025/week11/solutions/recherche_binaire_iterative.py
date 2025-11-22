@@ -1,4 +1,4 @@
-def binary_search(key, array):
+def recherche_binaire(key, array):
     low = 0
     high = len(array) - 1
 
@@ -17,5 +17,5 @@ def binary_search(key, array):
 if __name__ == '__main__':
     L = [1,3,4,5,7,8,9,15]
     x = 5
-    idx = binary_search(x, L)
+    idx = recherche_binaire(x, L)
     print(idx)

@@ -1,4 +1,4 @@
-def binary_search(key, array):
+def recherche_binaire(key, array):
     # Complétez ici
 
 if __name__ == '__main__':

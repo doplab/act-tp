@@ -1,4 +1,4 @@
-def binary_search_recursive(key, array, low=0, high=None):
+def recherche_binaire_recursive(key, array, low=0, high=None):
     if high is None:
         high = len(array) - 1
 
@@ -9,15 +9,15 @@ def binary_search_recursive(key, array, low=0, high=None):
     mid = (low + high) // 2
 
     if key < array[mid]:
-        return binary_search_recursive(key, array, low, mid - 1)
+        return recherche_binaire_recursive(key, array, low, mid - 1)
     elif key > array[mid]:
-        return binary_search_recursive(key, array, mid + 1, high)
+        return recherche_binaire_recursive(key, array, mid + 1, high)
     else:
         return mid
 
 if __name__ == '__main__':
     L = [1,3,4,5,7,8,9,15]
     x = 5
-    idx = binary_search_recursive(x, L)
+    idx = recherche_binaire_recursive(x, L)
     print(idx)
 
