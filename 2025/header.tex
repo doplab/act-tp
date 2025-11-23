@@ -7,6 +7,7 @@
 \usepackage{tcolorbox}
 \usepackage{xspace}
 \usepackage{amsmath}
+\usepackage{float}
 \usepackage[french]{babel}
 \usepackage{hyperref}
 \usepackage{xurl}
@@ -54,7 +55,7 @@
 
 
 
-\newcommand{\exemple}[1]{\newline~\textbf{Exemple :} #1}
+% \newcommand{\exemple}[1]{\newline~\textbf{Exemple :} #1}
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 %\newcommand{\attention}[1]{\newline\faExclamationTriangle~\textbf{Attention :} #1}
 
@@ -90,7 +91,8 @@
            {ï}{{\"i}}1
            {ë}{{\"e}}1
            {Ç}{{\,C}}1
-           {ç}{{\,c}}1,
+           {ç}{{\,c}}1
+           {ô}{{\^o}}1,
     columns=fullflexible,keepspaces,
 	breaklines=true,
 	breakatwhitespace=true,
@@ -104,7 +106,7 @@
 	commentstyle=\color{grey},
 	stringstyle=\color{slideblue},
   keywordstyle=\color{slideblue},
-	morekeywords={with, as, True, False, Fraction, Float, join, None, main, argparse, self, sort, __eq__, __add__, __mul__ ,__ne__, __radd__, __del__, __ge__, __gt__, split, os, endswith, is_file, scandir, @classmethod, this},
+	morekeywords={with, as, True, False, Fraction, Float, join, index, None, main, argparse, self, sort, __eq__, __add__, __mul__ ,__ne__, __radd__, __del__, __ge__, __gt__, split, os, endswith, is_file, scandir, @classmethod, this},
 	deletekeywords={id},
 	showspaces=false,
 	showstringspaces=false,
@@ -121,7 +123,8 @@
            {ï}{{\"i}}1
            {ë}{{\"e}}1
            {Ç}{{\,C}}1
-           {ç}{{\,c}}1,
+           {ç}{{\,c}}1
+           {ô}{{\^o}}1,
     numbers=left,
 }
 
@@ -139,6 +142,15 @@
 	\begin{Solutions}{\faTerminal \enskip Solution}
 		\BODY
 	\end{Solutions}
+  \fi}
+
+\usepackage{environ}
+\newif\ifShowExample
+\NewEnviron{exemple}{
+  \ifShowExample
+	\begin{Example}{\faTerminal \enskip Exemple}
+		\BODY
+	\end{Example}
   \fi}
 
 \usepackage{environ}
