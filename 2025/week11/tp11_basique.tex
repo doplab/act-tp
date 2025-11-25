@@ -40,7 +40,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     1. À partir des éléments ci-dessous, écrivez une fonction qui cherche un élément \texttt{e} dans la liste \texttt{L}. \newline 
     
-    La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste (avec \texttt{e = 100}).\\
+    La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste.\\
     
     \textbf{Python:}
       \lstinputlisting{resources/recherche_sequentielle.py}
@@ -312,7 +312,7 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
         
         Dans l'exercice suivant, nous vous donnons un arbre de recherche binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
-        Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{value} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour afficher la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
+        Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{value} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour accéder à la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches (sous-arbres) enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
         Complétez la fonction \lstinline{recherche_arbre}.\\
         \begin{lstlisting}[language=Python]
 import sys
