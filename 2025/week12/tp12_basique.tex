@@ -66,7 +66,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
     \begin{solution}
     \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/Question1.py}
-    Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé 'A' mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
+    Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé A mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
     \end{solution}
 
 \end{Exercice}
@@ -87,17 +87,17 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \item Initialisez\!:
 \begin{itemize}
     \item une \textbf{file} (queue FIFO — de type liste) qui contient initialement le sommet de départ.
-    \item une liste (appelée \texttt{visited}) de sommets visités initialement vide.
+    \item une liste, appelée \texttt{visited}, de sommets visités initialement vide.
 \end{itemize}
 
-\item Tant que la \textbf{file} n'est pas vide, répétez\!:
+\item Tant que la \textbf{file} n'est pas vide, répétez les specifications suivantes\!:
 \begin{enumerate}
     \item Retirez le premier sommet de la file et appelez-le $u$.
     \item Pour chaque sommet adjacent $v$ de $u$\!:
     \begin{itemize}
-        \item si $v$ n'est pas encore dans \textbf{visited}, alors :
+        \item si $v$ n'est pas encore dans \texttt{visited}, alors :
         \begin{itemize}
-            \item ajoutez $v$ à \textbf{visited}.
+            \item ajoutez $v$ à \texttt{visited}.
             \item insérez $v$ à la fin de la \textbf{file}.
         \end{itemize}
     \end{itemize}
@@ -109,14 +109,15 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \begin{conseil}
         Quelques conseils pour l'implémentation de votre algorithme :
         \begin{enumerate}
-            \item Utilisez l'adjacency list.
+            \item Utilisez un adjacency list comme définie précédemment à la question 1.
             \item Pour le point (2), utilisez une boucle \lstinline{while} avec la condition appropriée.
-            \item Pour parcourir les sommets adjacents, utilisez une boucle for.
+            \item Pour parcourir les sommets adjacents, utilisez une boucle \lstinline{for}.
             \item L'algorithme devrait retourner une liste contenant l'ensemble des sommets atteignables.
             \item Vous pouvez utiliser l'image du graphe pour déterminer si l'output de votre l'algorithme est correct.
             % \item Pensez à utiliser deux listes qui contiendront la liste des sommets à visiter et ceux qui restent à visiter.
             \item Vous pouvez utiliser la méthode \lstinline{pop()} pour supprimer un élément d'une liste et retourner l'élément supprimé. Cet élément peut être stocké dans une variable.
         \end{enumerate}
+        Référez-vous au pseudo-code présenté en cours.
     \end{conseil}
     \begin{solution}
         \lstinputlisting[language=python]{solutions/Question2.py}
@@ -126,12 +127,12 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 
 \section{Arbre couvrant minimum (ACM) — Minimum Spanning tree (MST)}
-    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés). Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{arbre couvrant minimum} (ACM). Un arbre couvrant minimum S de G est un sous-graphe connexe de G tel que\!:
+    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés). Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{arbre couvrant minimum} (ACM). Un graphe connexe est un graphe dans lequel il existe au moins un chemin entre n'importe quelle paire de sommets. Un arbre couvrant minimum S de G est un sous-graphe connexe de G tel que\!:
     \begin{enumerate}
         \item V' = V, c'est-à-dire que tous les sommets de G sont aussi dans S
         \item (V',E') ne contient pas de cycle (pas de cycle dans S)
         \item S est le graphe satisfaisant (1) et (2) et ayant la plus petite somme des poids
-        \item Pour chaque paire de sommets dans G, S contient le chemin minimax entre ces deux sommets. Le chemin minimax est un chemin pour lequel le poids de l'arête la plus lourde est minimisé.
+        \item Pour chaque paire de sommets dans G, S contient le chemin \textit{minimax} entre ces deux sommets. Le chemin \textit{minimax} est un chemin pour lequel le poids de l'arête la plus lourde est minimisé.
     \end{enumerate}
     
     \textbf{\\}
@@ -280,7 +281,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaires. On remarque que l'ACM n'est pas unique dans ce cas comme on aurait pu choisir l'arête verticale tout à gauche du poids 4 au lieu de l'autre arête du poids 4.
     \end{solution}
 \end{Exercice}
-\begin{Exercice}[30 minutes] \textbf{Algorithme de Kruskal\!: Python}\\
+\begin{Exercice}[30 minutes] \textbf{Lecture du code — Algorithme de Kruskal\!: Python}\\
     Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurez que vous ayez bien compris le fonctionnement\!:\\
     \lstinputlisting[language=python]{solutions/Question3.py}
     \begin{conseil}
@@ -296,10 +297,10 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 
 \begin{Exercice}[10 minutes] \textbf{Social Network Analysis : Papier}\\
-    Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe :\\
+    Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe\!:
     \begin{enumerate}
-        \item  À quoi correspondent les arêtes et les nœuds ? 
-        \item Faut-il utiliser un graphe dirigé ?
+        \item  À quoi correspondent les arêtes et les sommets? 
+        \item Faut-il utiliser un graphe dirigé?
     \end{enumerate}
     Supposez que vous disposiez d'un graphe des relations sociales. Décrivez comment retrouver les éléments suivants :
     \begin{enumerate}
