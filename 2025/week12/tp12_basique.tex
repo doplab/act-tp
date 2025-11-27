@@ -29,7 +29,7 @@ Le but de cette séance est de comprendre le fonctionnement des graphes et d'app
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}. Le temps indiqué (\faClock) est à titre indicatif.
 
-\section{Breadth-First Search}
+\section{Parcours en largeur — Breadth-First Search}
 
 \begin{Exercice}[10 minutes]  \textbf{Adjacency list et adjacency matrix : Python}\\
     L'adjacency list (ou liste de contiguïté) et l'adjacency matrix (ou matrice de contiguïté) sont les deux méthodes dont nous disposons pour représenter un graphe. \newline 
@@ -280,17 +280,17 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaires. On remarque que l'ACM n'est pas unique dans ce cas comme on aurait pu choisir l'arête verticale tout à gauche du poids 4 au lieu de l'autre arête du poids 4.
     \end{solution}
 \end{Exercice}
-\begin{Exercice}[15 minutes] \textbf{Algorithme de Kruskal : Python}\\
-    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Parcourez la fonction \textbf{Kruskal\_algo(Graph)} afin de vous assurez que vous ayez bien compris le fonctionnement :\\
+\begin{Exercice}[30 minutes] \textbf{Algorithme de Kruskal\!: Python}\\
+    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurez que vous ayez bien compris le fonctionnement\!:\\
     \lstinputlisting[language=python]{solutions/Question3.py}
     \begin{conseil}
-        L'output de l'algorithme est : \\
-        1 - 2: 2\\
-        2 - 5: 2\\
-        2 - 3: 3\\
-        3 - 4: 3\\
-        0 - 1: 4\\
-        Il se lit comme une liste d'arêtes et de poids à l'arête correspondante.
+        La sortie de l'algorithme est\!: \\
+        0 - 1: 4 \\ 
+        0 - 2: 4 \\
+        3 - 4: 3 \\
+        5 - 2: 2 \\ 
+        5 - 4: 3 \\
+        Il se lit comme une liste d'arêtes et de poids de l'arête correspondante.
     \end{conseil}
 \end{Exercice}
 
