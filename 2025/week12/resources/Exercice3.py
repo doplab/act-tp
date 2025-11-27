@@ -1,4 +1,4 @@
-#Question 3
+# Question 4
 
 class Graph:
     def __init__(self, vertices):#permet de créer un graphe lorsqu'on écrit p.ex Graph(6), il faut notamment indiquer le nombre de sommets
