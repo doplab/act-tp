@@ -57,9 +57,8 @@ if __name__ == '__main__':
     g.add_edge(0, 2, 4)
     g.add_edge(1, 2, 2)
     g.add_edge(3, 4, 3)
-    g.add_edge(4, 3, 3)
-    g.add_edge(5, 2, 2)
-    g.add_edge(5, 4, 3)
+    g.add_edge(2, 5, 2)
+    g.add_edge(4, 5, 3)
     
     result = kruskal(g)
 
