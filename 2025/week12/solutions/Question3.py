@@ -4,8 +4,8 @@ class Graph:
     def __init__(self, vertices): # permet de créer un graphe lorsqu'on écrit p.ex. Graph(6), il faut notamment indiquer le nombre de sommets
         self.V = vertices # le nombre de sommets
         self.edges = [] # liste de tuples (u, v, w) ou w est le poids de l'arête entre u et v
-        self.parent = list(range(vertices))
-        self.rank = [0]*vertices
+        self.parent = list(range(vertices)) # une liste [0, .., vertices - 1]
+        self.rank = [0]*vertices # une liste [0, ..,0] de longueur vertices  
 
     def add_edge(self, u, v, w): # ajoute une arête entre le sommet u et v avec un poids w
         self.edges.append((u, v, w))
