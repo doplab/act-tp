@@ -2,6 +2,8 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows}
 \usepackage[T1]{fontenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \tikzset{vertex/.style={
@@ -356,6 +358,71 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{solution}
 \end{Exercice}
 
+
+\begin{Exercice}[5 minutes]
+Lesquelles des affirmations suivantes est correctes?
+\begin{conseil}
+Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (reliés entre eux). 
+\end{conseil}
+\begin{enumerate}
+\item L'algorithme du parcours en largeur (breadth-first search) ne se termine pas s'il existe un cycle dans le graphe.
+\item Pour V >> E (nombre de vertices beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
+\item Dans un graphe complet, le nombre d'arêtes est $\frac{n(n-1)}{2}$ et le degré moyen d'un sommet est $n$.
+\item Dans l'algorithme de Kruskal, l'algorithme \texttt{UNION} est utilisé afin de déterminer si deux sommets sont déjà liés dans l'arbre couvrant minimal et de les relier si ce n'est pas le cas. 
+\end{enumerate}
+\begin{solution}
+    \begin{enumerate}
+        \item Fausse: un sommet qui est déjà visité ne sera plus visité.
+        \item Fausse: la matrice de contiguïté a une complexité spatiale de $\Theta(V^2)$ tandis que la complexité spatiale de la liste de contiguïté est $\Theta(V+E)$. 
+        \item Fausse: chaque sommet est relié aux $n-1$ autres sommets — la première partie de l'affirmation est quand même vraie.
+        \item Vraie: cela est exactement l'objectif de \textsc{UNION}. 
+    \end{enumerate}
+ 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]
+Étant donné le graphe suivant, quel est le nombre d'ensembles (disjoint sets) aprés les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+% --- Draw Vertices (Nodes) ---
+    \node[vertex] (A) at (0, 0)  {A};
+    \node[vertex] (B) at (1, 1)  {B};
+    \node[vertex] (C) at (2, 0)  {C};
+    \node[vertex] (D) at (3.5, 0)  {D};
+
+% --- Draw Edges (Assumed to be a Cycle C_n) ---
+    \draw[edge, ->]  (B) -- node[midway, below] {1} (C);
+    \draw[edge, ->]  (A) -- node[midway, above] {4} (B);
+    \draw[edge, ->]  (C) -- node[midway, below] {1} (D);
+    \draw[edge, ->]  (B) -- node[midway, above] {2} (D);
+    \end{tikzpicture}
+\end{center}
+    \begin{algorithm}[H]
+\caption{MST-KRUSKAL($G, w$)}
+\begin{algorithmic}[1]
+
+\State $A \gets \emptyset$
+
+\For{each vertex $v \in G.V$}
+    \State \textsc{Make-Set}($v$)
+\EndFor
+
+\State sort the edges of $G.E$ into nondecreasing order by weight $w$
+
+\For{each edge $(u, v) \in G.E$, taken in nondecreasing order by weight}
+    \If{\textsc{Find-Set}($u$) $\neq$ \textsc{Find-Set}($v$)}
+        \State $A \gets A \cup \{(u, v)\}$
+        \State \textsc{Union}($u, v$)
+    \EndIf
+\EndFor
+
+\State \Return $A$
+
+\end{algorithmic}
+\end{algorithm}
+
+\end{Exercice}
 
 
 \begin{comment}
