@@ -442,15 +442,15 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{conseil}
 \begin{enumerate}
 \item L'algorithme du parcours en largeur (breadth-first search) ne se termine pas s'il existe un cycle dans le graphe.
-\item Pour V >> E (nombre de vertices beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
-\item Dans un graphe complet, le nombre d'arêtes est $\frac{n(n-1)}{2}$ et le degré moyen d'un sommet est $n$.
-\item Dans l'algorithme de Kruskal, l'algorithme \texttt{UNION} est utilisé afin de déterminer si deux sommets sont déjà liés dans l'arbre couvrant minimal et de les relier si ce n'est pas le cas. 
+\item Pour |G| >> ||G|| (nombre de vertices beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
+\item Dans un graphe complet, le nombre d'arêtes est $\frac{n(n-1)}{2}$ et le degré moyen d'un sommet est $n$ où $n=|G|$.
+\item Dans l'algorithme de Kruskal, l'instruction \textsc{UNION} est utilisée afin de déterminer si deux sommets sont déjà liés dans l'arbre couvrant minimal et de les relier si ce n'est pas le cas. 
 \end{enumerate}
 \begin{solution}
     \begin{enumerate}
         \item Fausse: un sommet qui est déjà visité ne sera plus visité.
         \item Fausse: la matrice de contiguïté a une complexité spatiale de $\Theta(V^2)$ tandis que la complexité spatiale de la liste de contiguïté est $\Theta(V+E)$. 
-        \item Fausse: chaque sommet est relié aux $n-1$ autres sommets — la première partie de l'affirmation est quand même vraie.
+        \item Fausse: dans un graphe complet, chaque sommet est relié aux $n-1$ autres sommets — la première partie de l'affirmation sur le nombre d'arêtes est quand même vraie.
         \item Vraie: cela est exactement l'objectif de \textsc{UNION}. 
     \end{enumerate}
  
@@ -458,7 +458,7 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]
-Étant donné le graphe suivant, quel est le nombre d'ensembles (disjoint sets) aprés les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
+Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoints (disjoint sets) aprés les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
 \begin{center}
     \begin{tikzpicture}[scale=2]
 % --- Draw Vertices (Nodes) ---
@@ -498,6 +498,9 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{algorithmic}
 \end{algorithm}
 
+\begin{solution}
+Lors du premier tour de la boucle définie à ligne 6, l'arête BC (ou CD) est examiné. Par conséquent, B et C (ou C et D) sont reliés. Aprés la deuxième itération, les sommets B, C, et D sont reliés dans l'arbre couvrant minimal — ils appartiennent donc au même ensemble disjoint. A n'est pas encore relié après les deux premiers itérations et le sera dans le quatrième tour de la boucle.   
+\end{solution}
 \end{Exercice}
 
 
