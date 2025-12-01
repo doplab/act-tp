@@ -285,7 +285,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \end{Exercice}
 \begin{Exercice}[30 minutes] \textbf{Lecture du code — Algorithme de Kruskal\!: Python}\\
     Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurez que vous ayez bien compris le fonctionnement\!:\\
-    \lstinputlisting[language=python]{solutions/Question3.py}
+    \lstinputlisting[language=python]{solutions/Question4.py}
     \begin{conseil}
         La sortie de l'algorithme est\!: \\
         0 - 1: 4 \\ 
@@ -468,10 +468,10 @@ Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoint
     \node[vertex] (D) at (3.5, 0)  {D};
 
 % --- Draw Edges (Assumed to be a Cycle C_n) ---
-    \draw[edge, ->]  (B) -- node[midway, below] {1} (C);
-    \draw[edge, ->]  (A) -- node[midway, above] {4} (B);
-    \draw[edge, ->]  (C) -- node[midway, below] {1} (D);
-    \draw[edge, ->]  (B) -- node[midway, above] {2} (D);
+    \draw[edge]  (B) -- node[midway, below] {1} (C);
+    \draw[edge]  (A) -- node[midway, above] {4} (B);
+    \draw[edge]  (C) -- node[midway, below] {1} (D);
+    \draw[edge]  (B) -- node[midway, above] {2} (D);
     \end{tikzpicture}
 \end{center}
     \begin{algorithm}[H]
