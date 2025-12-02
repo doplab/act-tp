@@ -78,7 +78,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes\!: \textbf{Breadth-First Search}. Le but du Breadth-First Search est de trouver tous les sommets atteignables à partir d'un sommet de départ.\\
 
     Implémentez l'algorithme en suivant les étapes suivantes :\\
-    \begin{enumerate}
+\begin{enumerate}
     
     % \item Partez du sommet initial, visitez les sommets adjacents, sauvegardez-les comme \textbf{visités}, insérez-les dans une \textbf{queue}.
     
@@ -88,24 +88,24 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \item Initialisez\!:
 \begin{itemize}
-    \item une \textbf{file} (queue FIFO — de type liste) qui contient initialement le sommet de départ.
-    \item une liste, appelée \texttt{visited}, de sommets visités initialement vide.
+    \item une \texttt{file} (queue FIFO — de type liste) qui contient initialement le sommet de départ.
+    \item une liste, appelée \texttt{visited}, de sommets visités initialement le sommet de départ.
+    \item une liste, appelée \texttt{order}, qui stocke l'ordre d'enlèvement de la \texttt{file} — sommets proches au sommet de départ au début de la liste.
 \end{itemize}
 
-\item Tant que la \textbf{file} n'est pas vide, répétez les specifications suivantes\!:
+\item Tant que la \texttt{file} n'est pas vide, répétez les specifications suivantes\!:
 \begin{enumerate}
-    \item Retirez le premier sommet de la file et appelez-le $u$.
-    \item Pour chaque sommet adjacent $v$ de $u$\!:
-    \begin{itemize}
-        \item si $v$ n'est pas encore dans \texttt{visited}, alors :
+    \item Retirez le premier sommet de la file (utilisez \texttt{pop}) et appelez-le $u$. 
+    \item Ajoutez $u$ à \texttt{order}
+    \item Pour chaque sommet adjacent $v$ de $u$\!: si $v$ n'est ni dans \texttt{visited}, alors :
         \begin{itemize}
-            \item ajoutez $v$ à \texttt{visited}.
-            \item insérez $v$ à la fin de la \textbf{file}.
+            \item Insérez $v$ à la fin de la \texttt{file}.
+            \item Insérez $v$ à la fin de \texttt{visited}.
         \end{itemize}
-    \end{itemize}
 \end{enumerate}
 
-\item Quand la \textbf{file} devient vide, tous les sommets atteignables depuis le sommet de départ ont été visités en largeur.
+\item Quand la \texttt{file} devient vide, tous les sommets atteignables depuis le sommet de départ ont été visités en largeur.
+\item Retournez \texttt{order}.
 \end{enumerate}
 
     \begin{conseil}
@@ -426,9 +426,9 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \begin{solution}
         \begin{enumerate}
             \item B correspond à 2 (seul sommet de degré 4)
-            \item A correspond à 1 (seul sommet de degré 1 relié au sommet de degré 4)
+            \item A correspond à 1 (seul sommet de degré 2 relié au sommet de degré 4)
             \item C correspond à 3 (seul sommet de degré 3)
-            \item E correspond à 5 (seul sommet de degré 1 relié au sommet de degré 2)
+            \item E correspond à 5 (seul sommet de degré 1 relié au sommet de degré 3)
         \end{enumerate}
         Les sommets D et F et 4 et 6 ne peuvent pas être dissociés. On ne peut donc pas savoir qui correspond à qui.
     \end{solution}
@@ -499,7 +499,7 @@ Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoint
 \end{algorithm}
 
 \begin{solution}
-2. Explication: Lors du premier tour de la boucle définie à ligne 6, l'arête BC (ou CD) est examiné. Par conséquent, B et C (ou C et D) sont reliés. Aprés la deuxième itération, les sommets B, C, et D sont reliés dans l'arbre couvrant minimal — ils appartiennent donc au même ensemble disjoint. A n'est pas encore relié après les deux premiers itérations et le sera dans le quatrième tour de la boucle.   
+Les deux ensembles sont \{\{A\}, \{B, C, D\}\}. Explication: Lors du premier tour de la boucle définie à ligne 6, l'arête BC (ou CD) est examiné. Par conséquent, B et C (ou C et D) sont reliés. Aprés la deuxième itération, les sommets B, C, et D sont reliés dans l'arbre couvrant minimal — ils appartiennent donc au même ensemble disjoint. A n'est pas encore relié après les deux premiers itérations et le sera dans le quatrième tour de la boucle.   
 \end{solution}
 \end{Exercice}
 
