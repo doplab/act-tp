@@ -89,7 +89,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \item Initialisez\!:
 \begin{itemize}
     \item une \texttt{file} (queue FIFO — de type liste) qui contient initialement le sommet de départ.
-    \item une liste, appelée \texttt{visited}, de sommets visités initialement le sommet de départ.
+    \item une liste, appelée \texttt{visited}, de sommets visités qui contient initialement le sommet de départ.
     \item une liste, appelée \texttt{order}, qui stocke l'ordre d'enlèvement de la \texttt{file} — sommets proches au sommet de départ au début de la liste.
 \end{itemize}
 
@@ -97,7 +97,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \begin{enumerate}
     \item Retirez le premier sommet de la file (utilisez \texttt{pop}) et appelez-le $u$. 
     \item Ajoutez $u$ à \texttt{order}
-    \item Pour chaque sommet adjacent $v$ de $u$\!: si $v$ n'est ni dans \texttt{visited}, alors :
+    \item Pour chaque sommet adjacent $v$ de $u$\!: si $v$ n'est pas dans \texttt{visited}, alors :
         \begin{itemize}
             \item Insérez $v$ à la fin de la \texttt{file}.
             \item Insérez $v$ à la fin de \texttt{visited}.
@@ -458,7 +458,7 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]
-Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoints (disjoint sets) aprés les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
+Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoints (disjoint sets) après les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
 \begin{center}
     \begin{tikzpicture}[scale=2]
 % --- Draw Vertices (Nodes) ---
