@@ -63,11 +63,11 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     Pour l'adjacency list, utilisez un dictionnaire Python. Pour l'adjacency matrix, utilisez une liste multidimensionnelle (ou liste contenant une ou plusieurs listes).
     \end{conseil}
     \begin{solution}
-        \lstinputlisting[language=python, firstline=1, firstnumber=1, lastline=11]{solutions/Question1.py}
+        \lstinputlisting[language=python, firstline=1, firstnumber=1, lastline=11]{solutions/adj_list_matrix.py}
     \end{solution}
 
     \begin{solution}
-    \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/Question1.py}
+    \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/adj_list_matrix.py}
     Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé A mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
     \end{solution}
 
@@ -122,7 +122,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         Référez-vous au pseudo-code présenté en cours.
     \end{conseil}
     \begin{solution}
-        \lstinputlisting[language=python]{solutions/Question2.py}
+        \lstinputlisting[language=python]{solutions/BFS.py}
         Si vous avez correctement écrit votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet B devrait être \lstinline|[ 'B', 'D', 'E', 'F']| et \lstinline|['A', 'B', 'C', 'D', 'E', 'F']| pour B.
     \end{solution}
 \end{Exercice}
@@ -285,7 +285,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \end{Exercice}
 \begin{Exercice}[30 minutes] \textbf{Lecture du code — Algorithme de Kruskal\!: Python}\\
     Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurez que vous ayez bien compris le fonctionnement\!:\\
-    \lstinputlisting[language=python]{solutions/Question4.py}
+    \lstinputlisting[language=python]{solutions/kruskal.py}
     \begin{conseil}
         La sortie de l'algorithme est\!: \\
         0 - 1: 4 \\ 
@@ -442,7 +442,7 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{conseil}
 \begin{enumerate}
 \item L'algorithme du parcours en largeur (breadth-first search) ne se termine pas s'il existe un cycle dans le graphe.
-\item Pour |G| >> ||G|| (nombre de vertices beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
+\item Pour |G| >> ||G|| (nombre de sommets beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
 \item Dans un graphe complet, le nombre d'arêtes est $\frac{n(n-1)}{2}$ et le degré moyen d'un sommet est $n$ où $n=|G|$.
 \item Dans l'algorithme de Kruskal, l'instruction \textsc{UNION} est utilisée afin de déterminer si deux sommets sont déjà liés dans l'arbre couvrant minimal et de les relier si ce n'est pas le cas. 
 \end{enumerate}
@@ -458,7 +458,7 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]
-Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoints (disjoint sets) après les premiers deux appels de \textsc{UNION} dans l'algorithme de Kruskal.
+Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoints (disjoint sets) après les deux premiers appels de \textsc{UNION} dans l'algorithme de Kruskal.
 \begin{center}
     \begin{tikzpicture}[scale=2]
 % --- Draw Vertices (Nodes) ---
@@ -499,7 +499,7 @@ Soit le graphe $G$ donné ci-dessous, déterminer le nombre d'ensembles disjoint
 \end{algorithm}
 
 \begin{solution}
-Les deux ensembles sont \{A\} et \{B, C, D\}. Explication: Lors du premier tour de la boucle définie à ligne 6, l'arête BC (ou CD) est examiné. Par conséquent, B et C (ou C et D) sont reliés. Aprés la deuxième itération, les sommets B, C, et D sont reliés dans l'arbre couvrant minimal — ils appartiennent donc au même ensemble disjoint. A n'est pas encore relié après les deux premiers itérations et le sera dans le quatrième tour de la boucle.   
+Les deux ensembles sont \{\{A\}, \{B, C, D\}\}. Explication: Lors du premier tour de la boucle définie à ligne 6, l'arête BC (ou CD) est examinée. Par conséquent, B et C (ou C et D) sont reliés. Après la deuxième itération, les sommets B, C, et D sont reliés dans l'arbre couvrant minimal — ils appartiennent donc au même ensemble disjoint. A n'est pas encore relié après les deux premières itérations et le sera dans le quatrième tour de la boucle. 
 \end{solution}
 \end{Exercice}
 
