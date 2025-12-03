@@ -1,4 +1,4 @@
-def recherche_binaire(key, array):
+def recherche_binaire_iterative(key, array):
     # Complétez ici
 
 if __name__ == '__main__':
