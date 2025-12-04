@@ -63,11 +63,11 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     Pour l'adjacency list, utilisez un dictionnaire Python. Pour l'adjacency matrix, utilisez une liste multidimensionnelle (ou liste contenant une ou plusieurs listes).
     \end{conseil}
     \begin{solution}
-        \lstinputlisting[language=python, firstline=1, firstnumber=1, lastline=11]{solutions/adj_list_matrix.py}
+        \lstinputlisting[language=python, firstline=1, firstnumber=1, lastline=11]{solutions/graphRepresentation.py}
     \end{solution}
 
     \begin{solution}
-    \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/adj_list_matrix.py}
+    \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/graphRepresentation.py}
     Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé A mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
     \end{solution}
 
@@ -122,7 +122,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         Référez-vous au pseudo-code présenté en cours.
     \end{conseil}
     \begin{solution}
-        \lstinputlisting[language=python]{solutions/BFS.py}
+        \lstinputlisting[language=python]{solutions/bfs.py}
         Si vous avez correctement écrit votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet B devrait être \lstinline|[ 'B', 'D', 'E', 'F']| et \lstinline|['A', 'B', 'C', 'D', 'E', 'F']| pour B.
     \end{solution}
 \end{Exercice}
@@ -504,76 +504,4 @@ Les deux ensembles sont \{A\} et \{B, C, D\}. Explication: Lors du premier tour 
 \end{Exercice}
 
 
-\begin{comment}
-\section{Algorithme de Dijkstra : Python}
-Nous allons nous intéresser à l'algorithme de Dijkstra qui permet de calculer le chemin le plus court entre 2 sommets d'un graphe. Cet algorithme est par exemple utilisé par les systèmes de navigation (GPS par exemple) pour trouver le chemin le plus court ou le moins coûteux entre 2 points. Les questions de cet exercice sont à remplir sur le fichier tp12.py disponible sur Moodle dans le dossier Ressources. \\
-\begin{Exercice}[10 minutes]\textbf{Un petit échauffement}\\
-
-Avant de rentrer dans le vif du sujet, nous allons devoir passer par quelques étapes préliminaires afin que vous puissiez coder l'algorithme par vous même. Considérez le graphe suivant :\\
-\includegraphics[scale=0.8]{resources/Dijkstra.PNG}
-
-Ouvrez le fichier tp12.py, et prenez connaissance du code, votre objectif sera de le compléter. Premièrement, représentez le graphe sous la forme d'une \lstinline{adjacency matrix}.
-\end{Exercice}
-\begin{conseil}
-    Représentez la matrice avec les colonnes et les lignes par ordre alphabétique.
-\end{conseil}
-\begin{solution}
-    \lstinputlisting[language=python]{solutions/Question7_solution.py}
-\end{solution}
-
-\begin{Exercice}[10 minutes]\textbf{Outils pratiques}\\
-    La première étape étant complétée, nous allons maintenant nous intéresser à comment récupérer des informations de notre graphe. Voici une liste non-exhaustive d'opérations que l'on peut effectuer :\\
-    \begin{enumerate}
-        \item \lstinline{get_node()} permet d'accéder à un nœud. Par exemple, en faisant \lstinline{graphe.get_node('A')}, j'obtiens des informations concernant le nœud A.
-        \item Lorsque l'on accède à un nœud par la fonction \lstinline{get_node()}, on peut ensuite accéder à la liste de toutes les arêtes qui s'y connecte par l'attribut \lstinline{relationships}. On peut par la suite distinguer les arêtes partant du nœud et les arêtes y arrivant à l'aide des attributs \lstinline{relationship._from} et \lstinline{relationship.to}.
-    \end{enumerate}
-    
-    L'exemple de code ci-dessous devrait vous aider à mieux comprendre :
-    \lstinputlisting[language = python]{solutions/Question8_exemple.py}
-    
-    Pour vous assurez que vous avez bien compris cette partie avant de commencer, complétez la fonction \lstinline{linked} du fichier \lstinline{tp12.py} de sorte à ce que la fonction permette d'afficher tout les nœuds \textbf{partant} d'un sommet donné et d'afficher le poids de l'arête reliant ces 2 sommets.\\
-    
-    
-    \begin{conseil}
-        Quelques conseils pour écrire ce programme :
-        \begin{enumerate}
-            \item Vous devrez retirez les sommets reliés par une arête avec un poids de 99999
-            \item Utilisez une boucle for pour parcourir les arêtes
-        \end{enumerate}
-
-    En faisant appel à votre fonction \lstinline{linked()} avec les paramètres \lstinline{graphe} (définie dans le fichier \lstinline{tp12.py}) et \lstinline{'D'}, vous devriez obtenir \lstinline{A 18} et \lstinline{F 11} qui correspondent aux nœuds liés à \lstinline{D} et à leur poids.
-    \end{conseil}
-    \begin{solution}
-        \lstinputlisting[language = python]{solutions/Question8_solution.py}
-    \end{solution}
-\end{Exercice}
-
-\begin{Exercice}[15 minutes] \textbf{Algorithme de Dijkstra \optionnel}\\
-    L'algorithme de Dijkstra permet de calculer le chemin le plus court entre 2 sommets d'un graphe. L'algorithme de Dijkstra que l'on va utiliser se construit de façon récursive. On initialise l'algorithme à partir du point de départ. Puis, l'on va se déplacer vers tous les sommets atteignables depuis notre point de départ et appliquer l'algorithme de Dijkstra à ses voisins. Ainsi de suite jusqu'à ce que l'on atteigne le sommet de destination. Pour éviter de créer une boucle infinie à cause des cycles, nous appliquerons uniquement Dijkstra aux voisins qui n'ont pas encore été visité.\\
-    
-    Complétez la fonction \lstinline{dijkstra} du fichier \lstinline{tp12.py}. Pour y arriver, vous pouvez suivre les étapes suivantes:
-    \begin{enumerate}
-        \item L'algorithme de Dijkstra est un algorithme récursif. Nous l'avons vu lors des dernières semaines, il est nécessaire d'avoir une condition d'arrêt. L'algorithme appelle la fonction \lstinline{dijkstra} de façon récursive en spécifiant l'origine (qui changera à chaque appel de la fonction \lstinline{dijkstra}) et la destination. Quelle condition semble appropriée pour terminer l'appel récursif ? Implémentez cette condition dans la partie \textbf{Question 9.1}
-        
-        \item Maintenant, nous allons avoir besoin d'une boucle parcourant toutes les relations voisines à notre point d'origine. Pour rappel, \textit{origin.relationships} donne la liste des relations (sommet d'arrivée et poids de l'arête) à partir d'un sommet de départ. Implémentez cette boucle dans la partie \textbf{Question 9.2}.
-        
-        \item À présent, nous pouvons sauter certaines itérations. Pour rappel, nous avons utilisé une matrice d'adjacence pour représenter notre graphe. Mais certaines relations ont vu leur poids arbitrairement assigné à 99999, pour signifier que 2 sommets n'étaient pas reliés. Implémentez une condition qui permet de passer à l'itération suivante de la boucle dans le cas où le poids de l'arête entre l'origine et le voisin considéré est égal à 99999. Pour accéder au poids d'une relation, utilisez la syntaxe \textit{relationship.value}. Implémentez cette condition sous la section \textbf{Question 9.3}.
-        
-        \item La partie \textit{Appel récursif de la fonction} va faire un appel récursif à la fonction Dijkstra et va retourner le chemin le plus court entre le voisin du point d'origine et le point de destination. Dans les variables \textit{distance\_temp} et \textit{path\_temp} sont contenues respectivement le poids total du chemin le plus court entre le voisin considéré et la destination et l'intitulé de ce chemin (par exemple : ['BCDHG']). Dans la variable \textit{total\_distance}, on stocke la distance du chemin qui partirait de notre point d'origine, passerait par le voisin considéré et ensuite suivrait le chemin le plus court contenu dans la variable \textit{path\_temp} et dont le poids correspond à \textit{distance\_temp}. Votre mission est maintenant d'implémenter un bout de code qui permet de stocker le poids total du meilleur chemin, ainsi que son intitulé (par exemple : ['ABDJF'] Pour cela utilisez la variable distance qui a été initialisée à une valeur infinie. Faites cela dans la partie \textbf{Question 9.4}.
-        
-    \end{enumerate}
-    \begin{conseil}
-        Quelques conseils pour l'implémentation de l'algorithme :
-        \begin{enumerate}
-            \item Le chemin le plus court entre le sommet A et H devrait être ABCDFGH.
-            \item Lorsque vous appliquerez Dijkstra aux voisins d'un sommet, pour choisir le chemin optimal vous devrez additionner la distance entre le sommet de départ et le poids du chemin fourni par Dijkstra.
-            \item Attention, lorsque vous devez déterminer quels voisins sont atteignables, ceux dont le poids est de 99999 ne sont pas atteignables.
-            \item L'algorithme doit retourner un tuple contenant la distance totale du trajet et le trajet.
-        \end{enumerate}
-    \end{conseil}
-    \begin{solution}
-        \lstinputlisting[language = Python]{solutions/Question9_solution.py}
-    \end{solution}
-\end{Exercice}
-\end{comment}
 \end{document}

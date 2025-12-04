@@ -41,7 +41,7 @@ def kruskal(g : Graph):
           
         # Tant que le nombre d'arêtes est inférieur à V-1, notre sous-graphe n'atteint pas tous les sommets -> on continue
         while e < g.V - 1:
-            u, v, w = g.edges[i] # self.graph contient les arêtes par ordre croissant de poids, on commence avec i = 0
+            u, v, w = edges[i] # self.graph contient les arêtes par ordre croissant de poids, on commence avec i = 0
             i = i + 1 # à l'itération suivante on voudra avoir la 2ème arête la plus légère, donc on incrémente
                 
             if g.union(u, v): # Si u et v font déjà parti du Minimum Spanning Tree, i.e. u et v appartiennent au même ensemble
@@ -63,4 +63,4 @@ if __name__ == '__main__':
     result = kruskal(g)
 
     for u, v, weight in result:
-            print(f"{u} - {v}: {weight}") # afficher le résultat
+        print(f"{u} - {v}: {weight}") # afficher le résultat
