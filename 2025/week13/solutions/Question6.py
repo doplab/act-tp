@@ -1,4 +1,4 @@
-# Question 5
+# Question 6
 
 def add_node(node,point,k,cutaxis = 0):
     
