@@ -1,10 +1,57 @@
 \input{../header}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{adjustbox}
+\usepackage{xcolor}
 \usepackage{tabto}
 \usepackage[T1]{fontenc}
+\usepackage{algorithm}
 \usepackage{algpseudocode}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\usetikzlibrary{trees,positioning, shapes.multipart}
+
+
+\newcommand{\vertcirc}{%
+\begin{tikzpicture}[baseline=-0.5ex, line width=0.8pt]
+  \draw (0,0) circle (0.35em);
+  \draw (0,-0.6em) -- (0,0.6em);
+\end{tikzpicture}%
+}
+
+\newcommand{\horcirc}{%
+\begin{tikzpicture}[baseline=-0.5ex, line width=0.8pt]
+  \draw (0,0) circle (0.35em);
+  \draw (-0.6em,0) -- (0.6em,0);
+\end{tikzpicture}%
+}
+
+\tikzset{
+  bnode/.style={
+    draw,
+    rectangle split,
+    rectangle split horizontal,
+    rectangle split parts=2,
+    text width=0.5cm, 
+     align=center,
+    minimum width=2cm,
+    minimum height=0.8cm,
+    inner sep=2pt,
+    thick,
+    font=\bfseries
+  },
+  level 1/.style={sibling distance=4cm, level distance=1.8cm},
+  level 2/.style={sibling distance=2cm, level distance=1.8cm},
+  level 3/.style={sibling distance=1.5cm, level distance=1.8cm},
+  edge from parent/.style={
+    draw,
+    ->,
+    thick
+  }
+}
+
 
 \begin{document}
 
@@ -14,7 +61,7 @@
 \titre
 \cours{Algorithmes spatiaux}
 
-Le but de cette séance est de comprendre les caractéristiques de données spatiales et les structures de données couramment utilisées pour les manipuler. Lors de cette séance, nous implémenterons des algorithmes de manipulation de structures de données spatiales vus en cours. Au terme de la séance, l’étudiant sera en mesure d’utiliser quelques algorithmes spatiaux pour résoudre des problèmes de base de façon efficiente.\\
+Le but de cette séance est de comprendre les caractéristiques des données spatiales et les structures de données couramment utilisées pour les manipuler. Lors de cette séance, nous implémenterons des algorithmes de manipulation de structures de données spatiales présentés en cours. Au terme de la séance, l'étudiant sera en mesure d'utiliser plusieurs algorithmes spatiaux pour résoudre des problèmes de base de façon efficiente.\\
 
 \section{Nearest-Neighbor}
 Dans cette section, nous allons implémenter une recherche du plus proche voisin. Le but de cette méthode est de trouver le voisin le plus proche du point de départ en tenant compte de ce point de ``départ" et un ensemble de points. Nous allons implémenter cet algorithme et ensuite l'étendre à un algorithme des ``k plus proches voisins'' (recherche des k voisins les plus proches plutôt que du seul voisin le plus proche).\\
@@ -29,8 +76,8 @@ Pour implémenter notre recherche, nous avons besoin d'écrire une fonction perm
 \end{conseil}
 
 \begin{solution}
-   \lstinputlisting[language = python]{solutions/Question1_solution.py}
-   Note : Vous auriez pu utiliser \lstinline{**0.5} en lieu et place de la fonction \lstinline{math.sqrt()}.
+   \lstinputlisting[language = python]{solutions/Question1.py}
+   Note: Vous pouvez utiliser \lstinline{**0.5} au lieu de la fonction \lstinline{math.sqrt()}.
 \end{solution}
 \end{Exercice}
 
@@ -40,16 +87,16 @@ Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne d
 \begin{enumerate}
     \item Traversez chaque point.
     \item Pour chaque point, calculez la distance entre ce point et le point de départ.
-    \item Retournez les coordonnées du point le plus proche.
+    \item Retournez un tuple contenant les coordonnées du point le plus proche sous forme d'une liste et la distance.
 \end{enumerate}
     
 \begin{conseil}
-    Utilisez la fonction de distance de la question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{[4,4]}, alors l'output devra être \lstinline{([3,5] 1.414)}. \lstinline{[3, 5]} étant les coordonnées du point le plus proche et \lstinline{1.414} étant la distance euclidienne entre notre point de départ et le point le plus proche.  \\
+    Utilisez la fonction de distance de la Question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{[4,4]}, alors l'output devra être \lstinline{([3,5] 1.414)}. Ici, \lstinline{[3, 5]} sont les coordonnées du point le plus proche et \lstinline{1.414} est la distance euclidienne entre notre point de départ et le point le plus proche.  \\
     
-    Note : Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
+    Note: Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
 \begin{solution}
-    \lstinputlisting[language = python]{solutions/Question2_solution.py}
+    \lstinputlisting[language = python]{solutions/Question2.py}
 \end{solution}
 \end{Exercice}
 
@@ -71,61 +118,307 @@ Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le m�
     \lstinputlisting[language = python]{solutions/Question3_solution.py}
 \end{solution}
 \end{Exercice}
-\newpage
+
 \section{K-dimensional tree}
 
-\begin{Exercice}[5 minutes]\textbf{KD-Tree, un échauffement : Papier}\\
-Vous trouverez ci-dessous une liste de points numérotés de 1 à 10. Placez-les dans un KD-Tree et dessinez la séparation de l'espace qui en résulte.\\
+\begin{Exercice}[5 minutes]\textbf{Lecture du code — Construction d'un KD-Tree}
 
-\includegraphics[]{resources/KD_points.PNG}
+\begin{algorithm}
+\caption{BuildKDTree($\text{points}, \text{depth}, k$)}
+\label{alg:kdtree-build}
+\begin{algorithmic}[1]
+\If{$\text{points} = \emptyset$}
+    \State \textbf{return} $\text{NIL}$
+\EndIf
+\State $\text{axis} \leftarrow \text{depth} \ \% \ k$ \Comment{Select axis based on current depth}
+\State $\text{points} \leftarrow \text{SORT}(\text{points}, \text{key} = \text{axis})$ \Comment{Sort by current axis}
+\State $\text{median\_idx} \leftarrow \text{INTEGER}(\text{length}(\text{points}) / 2 )$ \Comment{Index of median list item}
+\State $\text{median} \leftarrow \text{KDNode}(\text{points}[\text{median\_idx}]$)
+\State $\text{left} \leftarrow \text{points}[1 \ldots \text{median\_idx} - 1]$
+\State $\text{right} \leftarrow \text{points}[\text{median\_idx} + 1 \ldots \text{length}(\text{points})]$
+\State $\text{median.left} \leftarrow \text{BuildKDTree}(\text{left}, \text{depth} + 1, k)$
+\State $\text{median.right} \leftarrow \text{BuildKDTree}(\text{right}, \text{depth} + 1, k)$
+\State \textbf{return} $median$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{conseil}
+Cet algorithme construit récursivement un arbre KD (KD-Tree) à partir d'une liste de points de dimension $k$. À chaque appel, il sélectionne d'abord l'axe de séparation en fonction de la profondeur courante (modulo le nombre de dimensions), puis trie les points selon cet axe et choisit le point médian comme racine du nœud courant afin de garantir un arbre équilibré. Les points situés avant ce médian constituent le sous-ensemble gauche et ceux après le médian le sous-ensemble droit. L'algorithme est appelé récursivement ensuite sur chacun de ces deux sous-ensembles pour construire respectivement les sous-arbres gauche et droit. Le processus se poursuit jusqu'à ce qu'il n'y ait plus de points à insérer.
+\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{KD-Tree, un échauffement : Papier}\\
+Vous trouverez ci-dessous une liste de points numérotés de 1 à 10. Placez-les dans un KD-Tree et dessinez la séparation de l'espace qui en résulte.
+
+\begin{tikzpicture}[scale=0.30]
+
+% --- style for coordinate labels ---
+\tikzset{
+    coordtext/.style={text opacity=0.45, opacity=0.45, font=\small}
+}
+
+% --- axes ---
+\draw[->, thick] (-20,-18) -- (25,-18) node[right] {$x$};
+\draw[->, thick] (-20,-18) -- (-20,12) node[above] {$y$};
+\draw [dashed] (25,-18) -- (25,12);
+\draw [dashed] (-20,12) -- (25,12);
+
+
+% --- x ticks ---
+\foreach \x in {-20,-15,-10,-5,0,5,10,15,20,25}
+    \draw (\x,-18) -- (\x,-18.6) node[below] {\x};
+
+% --- y ticks ---
+\foreach \y in {-15,-10,-5,0,5,10}
+    \draw (-20,\y) -- (-20.6,\y) node[left] {\y};
+
+% --- points with labels ---
+\node[circle, fill=black, inner sep=2pt, label=above:{A}] at (0,10) {};
+\node[coordtext] at (0,10) [above right] {$(0,10)$};
+
+\node[circle, fill=black, inner sep=2pt, label=right:{B}] at (-10,0) {};
+\node[coordtext] at (-10,0) [right, xshift=0.5cm] {$(-10,0)$};
+
+
+\node[circle, fill=black, inner sep=2pt, label=right:{C}] at (20,-5) {};
+\node[coordtext] at (20,-5) [below left, xshift=-0.1cm] {$(20,-5)$};
+
+\node[circle, fill=black, inner sep=2pt, label=right:{D}] at (-12,-7) {};
+\node[coordtext] at (-12,-7) [below left] {$(-12,-7)$};
+
+\node[circle, fill=black, inner sep=2pt, label=left:{E}]  at (-15,5)  {};
+\node[coordtext] at (-15,5) [right, xshift=0.2cm] {$(-15,5)$};
+
+
+\node[circle, fill=black, inner sep=2pt, label=right:{F}] at (0,6)   {};
+\node[coordtext] at (0,6) [right, xshift=0.4cm] {$(0,6)$};
+
+\node[circle, fill=black, inner sep=2pt, label=right:{G}] at (5,-6)  {};
+\node[coordtext] at (5,-6) [right, xshift=0.5cm] {$(5,-6)$};
+
+
+\node[circle, fill=black, inner sep=2pt, label=above:{H}] at (8,7)   {};
+\node[coordtext] at (8,7) [above right, xshift=0.1cm] {$(8,7)$};
+
+\node[circle, fill=black, inner sep=2pt, label=right:{I}] at (7,-15) {};
+\node[coordtext] at (7,-15) [left] {$(7,-15)$};
+
+\node[circle, fill=black, inner sep=2pt, label=right:{J}] at (15,4) {};
+\node[coordtext] at (15,4) [right, xshift=0.4cm] {$(15,4)$};
+
+
+\end{tikzpicture}
 
 \begin{conseil}
 La première division se fait de façon verticale. Veillez à bien insérer les points dans l'ordre (point 1, point 2, etc..). Les nœuds se situant au même niveau devraient diviser l'espace selon le même axe.
 \end{conseil}
+
 \begin{solution}
-    Voici le KD-Tree correspondant :\\
-    \includegraphics[]{resources/Kd-tree.PNG}\\
-    Et la division de l'espace qui en résulte :\\
-    \includegraphics[]{resources/Division espace.PNG}
+Voici le KD-Tree: 
+
+\begin{center}
+\adjustbox{margin=0.4cm}{
+\begin{tikzpicture}[scale=0.8]
+    % Tree
+    \node[bnode] (n1) {\textcolor{blue}{G}\nodepart{two}{$\vertcirc$}}
+        child { node[bnode] (n2) {\textcolor{blue}{E}\nodepart{two}{$\horcirc$}}
+        child { node[bnode] (n4) {\textcolor{blue}{B}\nodepart{two}{$\vertcirc$}} 
+            child { node[bnode] (n11) {\textcolor{blue}{D}\nodepart{two}{$\horcirc$}} }
+            child[edge from parent path={}] {node { } }
+        }
+        child { node[bnode] (n5) {\textcolor{blue}{A}\nodepart{two}{$\vertcirc$}}
+            child { node[bnode] (n6) {\textcolor{blue}{F}\nodepart{two}{$\horcirc$}} }
+            child[edge from parent path={}] {node { } }
+        }
+        }
+        child { node[bnode] (n3) {\textcolor{blue}{J}\nodepart{two}{$\horcirc$}}
+        child { node[bnode] (n7) {\textcolor{blue}{C}\nodepart{two}{$\vertcirc$}}
+            child { node[bnode] (n9) {\textcolor{blue}{I}\nodepart{two}{$\horcirc$}} }
+            child[edge from parent path={}] { node { } }
+        }
+        child { node[bnode] (n8) {\textcolor{blue}{H}\nodepart{two}{$\vertcirc$}} }
+    };
+
+    % "root" label and arrow
+    \node[left=1.5cm of n1] (rootlbl) {\textit{root}};
+    \draw[->,thick] (rootlbl.east) -- (n1.west);
+\end{tikzpicture}
+}
+\end{center}
+La division de l'espace suivant le KD-Tree:
+
+\centering
+\begin{tikzpicture}[scale=0.25,
+            dot/.style={
+                circle,
+                draw=black,
+                fill=white,
+                thick,
+                minimum size=10pt
+            }
+        ]
+
+        % % black line
+        % \draw[black, thick] (0,-18) -- (0,12);
+        % \draw[black, thick] (0,-5) -- (20,-5);
+        % \draw[black, thick] (8,-5) -- (8,12);
+        % \draw[black, thick] (8,4) -- (20,4);
+        % \draw[black, thick] (5,-5) -- (5,-18);
+        % \draw[black, thick] (5,-15) -- (20,-15);
+        % \draw[black, thick] (0,0) -- (-18,0);
+        % \draw[black, thick] (0,6) -- (-18,6);
+        % \draw[black, thick] (-15,12) -- (-15,0);
+        % \draw[black, thick] (-12,-18) -- (-12,0);
+        
+        \draw[black, thick] (5,-18) -- (5,12);
+        \draw[black, thick] (-18,5) -- (5,5);
+        \draw[black, thick] (5,4) -- (21,4);
+        \draw[black, thick] (-10,-18) -- (-10,5);
+        \draw[black, thick] (0,5) -- (0,12);
+        \draw[black, thick] (-18,-7) -- (-10,-7);
+        \draw[black, thick] (8,4) -- (8,12);
+        \draw[black, thick] (20,-18) -- (20,4);
+        \draw[black, thick] (5,-15) -- (20,-15);
+        % \draw[black, thick] (0,-5) -- (20,-5);
+        % \draw[black, thick] (8,-5) -- (8,12);
+        % \draw[black, thick] (8,4) -- (20,4);
+        % \draw[black, thick] (5,-5) -- (5,-18);
+        % \draw[black, thick] (5,-15) -- (20,-15);
+        % \draw[black, thick] (0,0) -- (-18,0);
+        % \draw[black, thick] (0,6) -- (-18,6);
+        % \draw[black, thick] (-15,12) -- (-15,0);
+        % \draw[black, thick] (-12,-18) -- (-12,0);
+
+
+        % circle on top of the line using the style
+        \node[dot] at (0,10)   {A};
+        \node[dot] at (-10,0)  {B};
+        \node[dot] at (20,-5)  {C};
+        \node[dot] at (-12,-7) {D};
+        \node[dot] at (-15,5)  {E};
+        \node[dot] at (0,6)    {F};
+        \node[dot] at (5,-6)   {G};
+        \node[dot] at (8,7)    {H};
+        \node[dot] at (7,-15)  {I};
+        \node[dot] at (15,4)   {J};
+
+\end{tikzpicture}
 \end{solution}
+% \begin{tabular}{|c|}
+% \hline
+% \textbf{Graphe du KD-Tree} \\
+% \hline
+% \adjustbox{margin=0.4cm}{
+% \begin{tikzpicture}[scale=0.8]
+%     % Tree
+%     \node[bnode] (n1) {\textcolor{blue}{A}\nodepart{two}{$\vertcirc$}}
+%         child { node[bnode] (n2) {\textcolor{blue}{B}\nodepart{two}{$\horcirc$}}
+%         child { node[bnode] (n4) {\textcolor{blue}{D}\nodepart{two}{$\vertcirc$}} }
+%         child { node[bnode] (n5) {\textcolor{blue}{E}\nodepart{two}{$\vertcirc$}}
+%             child[edge from parent path={}] {node { } }
+%             child { node[bnode] (n6) {\textcolor{blue}{F}\nodepart{two}{$\horcirc$}} }
+%         }
+%         }
+%         child { node[bnode] (n3) {\textcolor{blue}{C}\nodepart{two}{$\horcirc$}}
+%         child { node[bnode] (n7) {\textcolor{blue}{G}\nodepart{two}{$\vertcirc$}}
+%             child[edge from parent path={}] { node { } }
+%             child { node[bnode] (n9) {\textcolor{blue}{I}\nodepart{two}{$\horcirc$}} }
+%         }
+%         child { node[bnode] (n8) {\textcolor{blue}{H}\nodepart{two}{$\vertcirc$}}
+%             child[edge from parent path={}] { node { } }
+%             child { node[bnode] (n10) {\textcolor{blue}{J}\nodepart{two}{$\horcirc$}} }
+%         }
+%     };
+
+%     % "root" label and arrow
+%     \node[left=1.5cm of n1] (rootlbl) {\textit{root}};
+%     \draw[->,thick] (rootlbl.east) -- (n1.west);
+
+% \end{tikzpicture}
+% }
+% \\
+% \hline
+% \textbf{Division de l'espace suivant le KD-Tree} \\
+% \hline
+% \adjustbox{margin=0.6cm}{
+% \begin{tikzpicture}[scale=0.29,
+%             dot/.style={
+%                 circle,
+%                 draw=black,
+%                 fill=white,
+%                 thick,
+%                 minimum size=10pt
+%             }
+%         ]
+
+%         % black line
+%         \draw[black, thick] (0,-18) -- (0,12);
+%         \draw[black, thick] (0,-5) -- (20,-5);
+%         \draw[black, thick] (8,-5) -- (8,12);
+%         \draw[black, thick] (8,4) -- (20,4);
+%         \draw[black, thick] (5,-5) -- (5,-18);
+%         \draw[black, thick] (5,-15) -- (20,-15);
+%         \draw[black, thick] (0,0) -- (-18,0);
+%         \draw[black, thick] (0,6) -- (-18,6);
+%         \draw[black, thick] (-15,12) -- (-15,0);
+%         \draw[black, thick] (-12,-18) -- (-12,0);
+
+
+%         % circle on top of the line using the style
+%         \node[dot] at (0,10)   {A};
+%         \node[dot] at (-10,0)  {B};
+%         \node[dot] at (20,-5)  {C};
+%         \node[dot] at (-12,-7) {D};
+%         \node[dot] at (-15,5)  {E};
+%         \node[dot] at (0,6)    {F};
+%         \node[dot] at (5,-6)   {G};
+%         \node[dot] at (8,7)    {H};
+%         \node[dot] at (7,-15)  {I};
+%         \node[dot] at (15,4)   {J};
+
+% \end{tikzpicture}
+% }
+% \\
+% \hline
+% \end{tabular}
+% \end{solution}
+
 \end{Exercice}
 
-\newpage
 
 \begin{Exercice}[15 minutes]\textbf{KD-Tree : Python}\\
 
-L'objectif de cet exercice est d'écrire une fonction permettant d'ajouter un nœud à un KD-Tree. Les nœuds sont de la forme ((x,y), enfant à gauche, enfant à droite), x et y étant les coordonnées du nœud considéré. Chaque enfant peut être soit un nœud ou une feuille. Complétez le code contenu dans le fichier \lstinline{Question5.py}.\\
+L'objectif de cet exercice est d'écrire une fonction permettant d'ajouter un nœud à un KD-Tree. Les nœuds sont sous la forme $[(x,y)$, enfant à gauche, enfant à droite$]$, $x$ et $y$ étant les coordonnées du nœud considéré. Chaque enfant peut être soit un nœud ou une feuille. Complétez le code contenu dans le fichier \lstinline{Question6.py}. \newline 
 
-\begin{conseil}
+Voici le pseudo-code permettant d'ajouter un nœud à un KD-Tree:
+    \begin{algorithm}[H]
+        \caption{AddKDTree($\text{node}, \text{point}, \text{cutaxis}, k$)}
+    \begin{algorithmic}[1]
+    \If{$\text{node} = \text{NIL}$}
+        \State $\text{new\_node} \leftarrow \text{KDNode}(\text{point})$    \State \textbf{return} $\text{new\_node}$
+    \EndIf
+    \If{$\text{point}[\text{cutaxis}] \leq \text{node}.\text{point}[\text{cutaxis}]$} \Comment{Insert into the left (lesser) subtree}
+        \State $\text{new\_cutaxis} \leftarrow (\text{cutaxis} + 1) \pmod k$
+        \State $\text{node}.\text{left} \leftarrow \text{AddKDTree}(\text{node}.\text{left}, \text{point}, \text{new\_cutaxis}, k)$
+    \Else
+        \State $\text{new\_cutaxis} \leftarrow (\text{cutaxis} + 1) \pmod k$
+        \State $\text{node}.\text{right} \leftarrow \text{AddKDTree}(\text{node}.\text{right}, \text{point}, \text{new\_cutaxis}, k)$
+    \EndIf
+    \State \textbf{return} $\text{node}$
+    \end{algorithmic}
+    \end{algorithm}
 
-% Veuillez vous référer aux pages 15 et 16 du cours de cette semaine. Ces pages expliquent le pseudo-code présent ci-dessous dont vous devez faire l'implémentation.
-
-Voici le pseudo-code permettant d'ajouter un nœud à un KD-Tree :\\
-
-ADD(node,point,cutaxis):\\
-    \tabto{1cm}if node = NIL\\
-        \tabto{2cm}node $\leftarrow$ Create-Node\\
-        \tabto{2cm}node.point = point\\
-        \tabto{2cm}return node\\
-    \tabto{1cm}if point[cutaxis] $\leq$ node.point[cutaxis]\\
-    \tabto{2cm} node.left = ADD(node.left, point, (cutaxis + 1) modulo k\\
-    \tabto{1cm} else\\
-    \tabto{2cm} node.right = ADD(node.right, point, (cutaxis+1) modulo k\\
-    \tabto{1cm} return node\\
-    
-    Si votre réponse est correcte, votre programme devrait afficher : \lstinline{[(0, 10), [(-10, 0), None, None], None]}.\\
-    Pour rappel, en Python, \lstinline{NIL} correspond à \lstinline{None}. \lstinline{Create-Node} permet de créer un nouveau nœud, vous pouvez vous inspirer de la structure de \lstinline{root} définie dans le fichier \lstinline{Question5.py}.
+\begin{conseil}    
+    Si votre réponse est correcte, votre programme devrait afficher : \lstinline{[(0, 10), [(-10, 0), None, None], None]}. Pour rappel, en Python, \lstinline{NIL} correspond à \lstinline{None}. \lstinline{KDNode} permet de créer un nouveau nœud, vous pouvez vous inspirer de la structure de \lstinline{root} définie dans le fichier \lstinline{Question6.py}.
 \end{conseil}
 
 \begin{solution}
-\lstinputlisting[language = python]{solutions/Question5_solution.py}
+\lstinputlisting[language = python]{solutions/Question6.py}
 
 Si la coordonnée du point à ajouter est inférieure à celle du nœud selon l'axe de découpe en considération, alors le point doit se trouver dans le sous-arbre de gauche. Par convention, le nœud de gauche correspond dans la liste [(x,y), nœud de gauche, nœud de droite] à l'indice 1, par conséquent, on appelle la fonction de façon récursive pour ajouter le point, mais cette fois-ci en partant d'un cran plus bas dans l'arbre. Cela se répète jusqu'à ce qu'on ait atteint les feuilles et qu'un nouveau nœud doive être créé.
 
 \end{solution}
 \end{Exercice}
-
-\newpage
 
 \section{ Quad-Tree}
 \begin{Exercice}[10 minutes]\textbf{Une mise en train : Papier}\\

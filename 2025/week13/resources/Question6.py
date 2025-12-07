@@ -1,4 +1,4 @@
-#Question 5
+# Question 6
 
 root = [(0,10), None, None] #Nous définissons ici juste la racine de l'arbre
 k = 2 # Ici nous travaillerons en 2 dimensions
