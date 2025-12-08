@@ -77,7 +77,7 @@ Pour implémenter notre recherche, nous avons besoin d'écrire une fonction perm
 \end{conseil}
 
 \begin{solution}
-   \lstinputlisting[language = python]{solutions/Question1.py}
+   \lstinputlisting[language = python]{solutions/calculate_distance.py}
    Note: Vous pouvez utiliser \lstinline{**0.5} au lieu de la fonction \lstinline{math.sqrt()}.
 \end{solution}
 \end{Exercice}
@@ -99,7 +99,7 @@ Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne d
     Note: Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
 \begin{solution}
-    \lstinputlisting[language = python]{solutions/Question2.py}
+    \lstinputlisting[language = python]{solutions/nearest_neighbor.py}
 \end{solution}
 \end{Exercice}
 
@@ -121,7 +121,7 @@ Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le m�
 %     \lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=25]{solutions/Question3.py}
 % \end{solution}
 \begin{solution}
- \lstinputlisting[language = python, firstline=26, firstnumber=26]{solutions/Question3.py}
+ \lstinputlisting[language = python, firstline=26, firstnumber=26]{solutions/K_nearest_neighbor.py}
 \end{solution}
 \end{Exercice}
 
@@ -426,10 +426,10 @@ Afin de simplifier la question, vous ne devez pas créer une classe \texttt{KDNo
 \end{conseil}
 
 \begin{solution}
-\lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=17]{solutions/Question6.py}
+\lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=17]{solutions/KD_add_node.py}
 \end{solution}
 \begin{solution}
-\lstinputlisting[language = python, firstline=19, firstnumber=19]{solutions/Question6.py}
+\lstinputlisting[language = python, firstline=19, firstnumber=19]{solutions/KD_add_node.py}
 \end{solution}
 \begin{solution}
 Si la coordonnée du point à ajouter est inférieure à celle du nœud selon l'axe de découpe en considération, alors le point doit se trouver dans le sous-arbre de gauche. Par convention, le nœud de gauche correspond dans la liste [(x,y), nœud de gauche, nœud de droite] à l'indice 1, par conséquent, on appelle la fonction de façon récursive pour ajouter le point, mais cette fois-ci en partant d'un cran plus bas dans l'arbre. Cela se répète jusqu'à ce qu'on ait atteint les feuilles et qu'un nouveau nœud doive être créé.
