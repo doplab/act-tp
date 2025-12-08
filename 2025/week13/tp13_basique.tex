@@ -109,7 +109,7 @@ Améliorez l'algorithme du voisin le plus proche effectué plus haut afin qu'il 
 \begin{conseil}
 Appliquez l'algorithme du plus proche voisin \textit{K}-fois. À la fin de chaque itération, retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon, vous trouverez le second voisin le plus proche, le troisième, etc...\\
 
-Votre fonction devra retourner une liste sous la forme : $[(x_1,y_2, distance1),(x_2,y_2,distance2),...]$. En considérant un input \lstinline{[(2,3),(5,6),(1,4),(2,4),(3,5)]}, un point de départ \lstinline{(4,4)} et un nombre de voisins $K=2$, l'output de votre algorithme devra être : \lstinline{[(3, 5, 1.4142135623730951), (2, 4, 2.0)]}. Attention au type des variables que vous manipulez. Pour rappel, les tuples sont immuables en Python. Pensez à créer de nouveaux tuples contenant les coordonnées des points et leurs distances.\\
+Votre fonction devra retourner une liste sous la forme : $[(point1, distance1),(point2,distance2),...]$. En considérant un input \lstinline{[(2,3),(5,6),(1,4),(2,4),(3,5)]}, un point de départ \lstinline{(4,4)} et un nombre de voisins $K=2$, l'output de votre algorithme devra être : \lstinline{[((3, 5), 1.4142135623730951), ((2, 4), 2.0)]}. Attention au type des variables que vous manipulez. Pour rappel, les tuples sont immuables en Python. Pensez à créer de nouveaux tuples contenant les coordonnées des points et leurs distances.\\
 
 Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le même programme que celui de la Question 1 et la Question 2.
 \end{conseil}
