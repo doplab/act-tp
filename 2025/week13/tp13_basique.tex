@@ -68,7 +68,7 @@ Le but de cette séance est de comprendre les caractéristiques des données spa
 Dans cette section, nous allons implémenter une recherche du plus proche voisin. Le but de cette méthode est de trouver le voisin le plus proche du point de départ en tenant compte de ce point de ``départ" et un ensemble de points. Nous allons implémenter cet algorithme et ensuite l'étendre à un algorithme des ``k plus proches voisins'' (recherche des k voisins les plus proches plutôt que du seul voisin le plus proche).\\
 Nous vous recommandons de traiter les questions dans l'ordre.\\
 
-\begin{Exercice}[5 minutes]\textbf{La fonction de distance : Python}\\
+\begin{Exercice}[5 minutes]\textbf{Python — La fonction de distance}\\
 
 Pour implémenter notre recherche, nous avons besoin d'écrire une fonction permettant de calculer la distance entre 2 points. Ecrivez une fonction qui permet de calculer la distance entre 2 points.\\
 
@@ -82,17 +82,19 @@ Pour implémenter notre recherche, nous avons besoin d'écrire une fonction perm
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes]\textbf{Nearest-neighbor search}\\
+\begin{Exercice}[10 minutes]\textbf{Python — Nearest-neighbor search}\\
 
-Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne de la façon suivante :
+Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne de la façon suivante:
 \begin{enumerate}
+    \item Créez une fonction qui prend comme arguments une liste de points et un point de départ.
+    \item Gérez le cas où la liste de points est vide.
     \item Traversez chaque point.
     \item Pour chaque point, calculez la distance entre ce point et le point de départ.
-    \item Retournez un tuple contenant les coordonnées du point le plus proche sous forme d'une liste et la distance.
+    \item Retournez un tuple contenant les coordonnées du point le plus proche sous forme d'un tuple et la distance — par exemple: $((x, y), dist)$.
 \end{enumerate}
     
 \begin{conseil}
-    Utilisez la fonction de distance de la Question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{(4, 4)}, alors l'output devra être \lstinline{((3, 5) 1.414)}. Ici, \lstinline{[3, 5]} sont les coordonnées du point le plus proche et \lstinline{1.414} est la distance euclidienne entre notre point de départ et le point le plus proche.  \\
+    Utilisez la fonction de distance de la Question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{(4, 4)}, alors l'output devra être \lstinline{((3, 5), 1.414)}. Ici, \lstinline{[3, 5]} sont les coordonnées du point le plus proche et \lstinline{1.414} est la distance euclidienne entre notre point de départ et le point le plus proche.  \\
     
     Note: Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
@@ -420,7 +422,7 @@ Voici le pseudo-code permettant d'ajouter un nœud à un KD-Tree:
 Afin de simplifier la question, vous ne devez pas créer une classe \texttt{KDNode} pour représenter les nœuds. Chaque nœud est représenté comme une liste. Donc, quand vous transformez le pseudocode, \texttt{node.point} sera \texttt{node[0]}, \texttt{node.left} sera \texttt{node[1]}, et \texttt{node.right} sera \texttt{node[2]}.
 \end{attention}
 \begin{conseil}    
-    Si votre réponse est correcte, votre programme devrait afficher : \lstinline{[(0, 10), [(-10, 0), None, None], None]}. Pour rappel, en Python, \lstinline{NIL} correspond à \lstinline{None}. \lstinline{KDNode} permet de créer un nouveau nœud, vous pouvez vous inspirer de la structure de \lstinline{root} définie dans le fichier \lstinline{Question6.py}.
+    Si votre réponse est correcte, votre programme devrait afficher : \lstinline{[(0, 10), [(-10, 0), None, None], None]}. Pour rappel, en Python, \lstinline{NIL} correspond à \lstinline{None}. Dans le pseudocode, \lstinline{KDNode} permet de créer un nouveau nœud. Vous pouvez vous inspirer de la structure de \lstinline{main} définie dans le fichier \lstinline{Question6.py}.
 \end{conseil}
 
 \begin{solution}
