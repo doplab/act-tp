@@ -15,11 +15,10 @@ def nearest_neighbor(start, point_set):  # start correspond au point de départ,
 
     for i in range(len(point_set)):  # on parcourt tous les points de l'ensemble
         distance = calculate_distance(start, point_set[i])
+        # Cette partie du code détermine si le point actuellement considéré, est plus proche du point de départ que les points précédents
         if distance < min_distance:
             min_distance = distance
-            nearest_nei = point_set[i]
-            # Cette partie du code détermine si le point actuellement considéré, est plus proche du point de départ que les points
-        # parcourus jusqu'ici. Si c'est le cas, on redéfinit la distance minimale et on "enregistre" les coordonnées du point
+            nearest_nei = point_set[i] # si c'est le cas, on redéfinit la distance minimale et on "enregistre" les coordonnées du point
 
     return nearest_nei, min_distance # ou (nearest_nei, min_distance)
 
@@ -31,8 +30,7 @@ def K_nearest_neighbor(start, point_set, K):
         point, distance = nearest_neighbor(start, point_set)
         k_nearest_nei.append((point, distance))
         if point is not None: # si K est plus grand que le nombre de points dans point_set, on évite une erreur en vérifiant que point n'est pas None
-            point_set.remove(point)  # On retire de l'ensemble de points le voisin le plus proche, de cette manière, à chaque itération,
-        # le voisin le plus proche sera de plus en plus éloigné.
+            point_set.remove(point)  # On supprime de l'ensemble de points le voisin le plus proche, de cette manière. A chaque itération, le voisin le plus proche sera de plus en plus éloigné.
 
     return k_nearest_nei
 
