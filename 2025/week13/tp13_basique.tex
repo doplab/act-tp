@@ -57,6 +57,7 @@
 
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
+\ShowWarningtrue
 \ShowConseiltrue
 \titre
 \cours{Algorithmes spatiaux}
@@ -91,7 +92,7 @@ Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne d
 \end{enumerate}
     
 \begin{conseil}
-    Utilisez la fonction de distance de la Question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{[4,4]}, alors l'output devra être \lstinline{([3,5] 1.414)}. Ici, \lstinline{[3, 5]} sont les coordonnées du point le plus proche et \lstinline{1.414} est la distance euclidienne entre notre point de départ et le point le plus proche.  \\
+    Utilisez la fonction de distance de la Question 1 et parcourez les points à l'aide d'une boucle \lstinline{for}. Si votre input est \lstinline{[(2, 3), (5, 6), (1, 4), (2, 4), (3, 5)]} et que le point de départ est \lstinline{(4, 4)}, alors l'output devra être \lstinline{((3, 5) 1.414)}. Ici, \lstinline{[3, 5]} sont les coordonnées du point le plus proche et \lstinline{1.414} est la distance euclidienne entre notre point de départ et le point le plus proche.  \\
     
     Note: Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
@@ -114,8 +115,11 @@ Votre fonction devra retourner une liste sous la forme : $[(point1, distance1),(
 Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le même programme que celui de la Question 1 et la Question 2.
 \end{conseil}
 
+% \begin{solution}
+%     \lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=25]{solutions/Question3.py}
+% \end{solution}
 \begin{solution}
-    \lstinputlisting[language = python]{solutions/Question3_solution.py}
+ \lstinputlisting[language = python, firstline=26, firstnumber=26]{solutions/Question3.py}
 \end{solution}
 \end{Exercice}
 
@@ -138,13 +142,18 @@ Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le m�
 \State $\text{right} \leftarrow \text{points}[\text{median\_idx} + 1 \ldots \text{length}(\text{points})]$
 \State $\text{median.left} \leftarrow \text{BuildKDTree}(\text{left}, \text{depth} + 1, k)$
 \State $\text{median.right} \leftarrow \text{BuildKDTree}(\text{right}, \text{depth} + 1, k)$
-\State \textbf{return} $median$
+\State \textbf{return} median
 \end{algorithmic}
 \end{algorithm}
 
 \begin{conseil}
 Cet algorithme construit récursivement un arbre KD (KD-Tree) à partir d'une liste de points de dimension $k$. À chaque appel, il sélectionne d'abord l'axe de séparation en fonction de la profondeur courante (modulo le nombre de dimensions), puis trie les points selon cet axe et choisit le point médian comme racine du nœud courant afin de garantir un arbre équilibré. Les points situés avant ce médian constituent le sous-ensemble gauche et ceux après le médian le sous-ensemble droit. L'algorithme est appelé récursivement ensuite sur chacun de ces deux sous-ensembles pour construire respectivement les sous-arbres gauche et droit. Le processus se poursuit jusqu'à ce qu'il n'y ait plus de points à insérer.
 \end{conseil}
+
+\begin{solution}
+Voir la démonstration des TP pour la visualisation de la construction d'un arbre KD.
+\end{solution}
+
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{KD-Tree, un échauffement : Papier}\\
@@ -210,7 +219,7 @@ Vous trouverez ci-dessous une liste de points numérotés de 1 à 10. Placez-les
 \end{tikzpicture}
 
 \begin{conseil}
-La première division se fait de façon verticale. Veillez à bien insérer les points dans l'ordre (point 1, point 2, etc..). Les nœuds se situant au même niveau devraient diviser l'espace selon le même axe.
+La première division se fait de façon verticale. Veillez à bien insérer le point milieu (median) dans chaque étape. Les nœuds se situant au même niveau devraient diviser l'espace selon le même axe.
 \end{conseil}
 
 \begin{solution}
@@ -392,31 +401,36 @@ L'objectif de cet exercice est d'écrire une fonction permettant d'ajouter un n�
 
 Voici le pseudo-code permettant d'ajouter un nœud à un KD-Tree:
     \begin{algorithm}[H]
-        \caption{AddKDTree($\text{node}, \text{point}, \text{cutaxis}, k$)}
+        \caption{AddKDTree($\text{node}, \text{point}, k, \text{cutaxis}$)}
     \begin{algorithmic}[1]
     \If{$\text{node} = \text{NIL}$}
         \State $\text{new\_node} \leftarrow \text{KDNode}(\text{point})$    \State \textbf{return} $\text{new\_node}$
     \EndIf
     \If{$\text{point}[\text{cutaxis}] \leq \text{node}.\text{point}[\text{cutaxis}]$} \Comment{Insert into the left (lesser) subtree}
         \State $\text{new\_cutaxis} \leftarrow (\text{cutaxis} + 1) \pmod k$
-        \State $\text{node}.\text{left} \leftarrow \text{AddKDTree}(\text{node}.\text{left}, \text{point}, \text{new\_cutaxis}, k)$
+        \State $\text{node}.\text{left} \leftarrow \text{AddKDTree}(\text{node}.\text{left}, \text{point}, k, \text{new\_cutaxis})$
     \Else
         \State $\text{new\_cutaxis} \leftarrow (\text{cutaxis} + 1) \pmod k$
-        \State $\text{node}.\text{right} \leftarrow \text{AddKDTree}(\text{node}.\text{right}, \text{point}, \text{new\_cutaxis}, k)$
+        \State $\text{node}.\text{right} \leftarrow \text{AddKDTree}(\text{node}.\text{right}, \text{point}, k, \text{new\_cutaxis})$
     \EndIf
     \State \textbf{return} $\text{node}$
     \end{algorithmic}
     \end{algorithm}
-
+\begin{attention}
+Afin de simplifier la question, vous ne devez pas créer une classe \texttt{KDNode} pour représenter les nœuds. Chaque nœud est représenté comme une liste. Donc, quand vous transformez le pseudocode, \texttt{node.point} sera \texttt{node[0]}, \texttt{node.left} sera \texttt{node[1]}, et \texttt{node.right} sera \texttt{node[2]}.
+\end{attention}
 \begin{conseil}    
     Si votre réponse est correcte, votre programme devrait afficher : \lstinline{[(0, 10), [(-10, 0), None, None], None]}. Pour rappel, en Python, \lstinline{NIL} correspond à \lstinline{None}. \lstinline{KDNode} permet de créer un nouveau nœud, vous pouvez vous inspirer de la structure de \lstinline{root} définie dans le fichier \lstinline{Question6.py}.
 \end{conseil}
 
 \begin{solution}
-\lstinputlisting[language = python]{solutions/Question6.py}
-
+\lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=17]{solutions/Question6.py}
+\end{solution}
+\begin{solution}
+\lstinputlisting[language = python, firstline=19, firstnumber=19]{solutions/Question6.py}
+\end{solution}
+\begin{solution}
 Si la coordonnée du point à ajouter est inférieure à celle du nœud selon l'axe de découpe en considération, alors le point doit se trouver dans le sous-arbre de gauche. Par convention, le nœud de gauche correspond dans la liste [(x,y), nœud de gauche, nœud de droite] à l'indice 1, par conséquent, on appelle la fonction de façon récursive pour ajouter le point, mais cette fois-ci en partant d'un cran plus bas dans l'arbre. Cela se répète jusqu'à ce qu'on ait atteint les feuilles et qu'un nouveau nœud doive être créé.
-
 \end{solution}
 \end{Exercice}
 
@@ -425,11 +439,26 @@ Si la coordonnée du point à ajouter est inférieure à celle du nœud selon l'
 
 Encodez les images ci-dessous dans un Quad-Tree.\\
 
-\includegraphics[]{resources/Quad-Tree 1.PNG}\\
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Image 1} & \textbf{Image 2} \\
+\hline
+\adjustbox{margin=0.3cm}{
+\includegraphics[]{resources/Quad-Tree 1.PNG}
+}
+&
+\adjustbox{margin=0.3cm}{
 \includegraphics[]{resources/Quad-Tree 2.PNG}
+}
+\\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{conseil}
-   Pour réussir cet exercice vous devez diviser chaque nœud en 4 sous-espaces (le plus petit sous-espace étant un carré) de taille égale, et ce autant de fois que nécessaire. La branche la plus à gauche correspond au quadrant \lstinline{NW} puis en allant de gauche à droite : \lstinline{NE, SW, SE}. \\
+   Pour réussir cet exercice vous devez diviser chaque nœud en 4 sous-espaces (le plus petit sous-espace étant un carré) de taille égale, et ce autant de fois que nécessaire. La branche la plus à gauche (en haut) correspond au quadrant \lstinline{NW} puis en allant de gauche à droite et puis en bas (comme dans le sens de lecture): \lstinline{NE, SW, SE}. \\
     
     \textbf{Indice :} Votre arbre devrait avoir une profondeur de 2 et disposer de 16 feuilles.
 \end{conseil}
