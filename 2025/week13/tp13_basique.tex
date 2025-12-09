@@ -224,6 +224,9 @@ Vous trouverez ci-dessous une liste de points numérotés de 1 à 10. Placez-les
 La première division se fait de façon verticale. Veillez à bien insérer le point milieu (median) dans chaque étape. Les nœuds se situant au même niveau devraient diviser l'espace selon le même axe.
 \end{conseil}
 
+\begin{attention}
+On ne construit pas l'arbre en appelant \texttt{AddKDTree} de manière itérative. On suit l'agorithme présenté dans la Question 4 qui est \texttt{BuildKDTree}.    
+\end{attention}
 \begin{solution}
 Voici le KD-Tree: 
 
@@ -258,7 +261,7 @@ Voici le KD-Tree:
 \end{center}
 La division de l'espace suivant le KD-Tree:
 
-\centering
+\begin{center}
 \begin{tikzpicture}[scale=0.25,
             dot/.style={
                 circle,
@@ -290,6 +293,7 @@ La division de l'espace suivant le KD-Tree:
         \draw[black, thick] (8,4) -- (8,12);
         \draw[black, thick] (20,-18) -- (20,4);
         \draw[black, thick] (5,-15) -- (20,-15);
+        \draw[black, thick] (0,6) -- (-18,6);
         % \draw[black, thick] (0,-5) -- (20,-5);
         % \draw[black, thick] (8,-5) -- (8,12);
         % \draw[black, thick] (8,4) -- (20,4);
@@ -314,6 +318,9 @@ La division de l'espace suivant le KD-Tree:
         \node[dot] at (15,4)   {J};
 
 \end{tikzpicture}
+\end{center}
+
+On aurait pu aussi échanger A et F dans l'arbre et mettre une ligne horizontal à travers A au lieu de F. 
 \end{solution}
 % \begin{tabular}{|c|}
 % \hline
