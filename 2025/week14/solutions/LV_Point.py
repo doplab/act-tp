@@ -8,8 +8,8 @@ def inside(point):  # Point est défini sous la forme d'un tuple
 
 def app():
     while True:
-        x = random.uniform(-1, 1)  # Génère la première coordonnée
-        y = random.uniform(-1, 1)  # Génère la deuxième coordonnée
+        x = random.random()  # Génère la première coordonnée
+        y = random.random()  # Génère la deuxième coordonnée
         p = (x, y)  # Crée le point
 
         if inside(p):
