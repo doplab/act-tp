@@ -6,7 +6,7 @@ def inside(point):  # Point est défini sous la forme d'un tuple
     return (point[0] ** 2 + point[1] ** 2) <= 1
 
 
-def app():
+def generate_point():
     while True:
         x = random.random()  # Génère la première coordonnée
         y = random.random()  # Génère la deuxième coordonnée
@@ -16,4 +16,4 @@ def app():
             return p  # Retourne le point trouvé.
 
 
-print("Voilà un point dans un cercle unitaire  : {}".format(app()))
+print("Voilà un point dans un cercle unitaire  : {0}".format(generate_point()))
