@@ -16,8 +16,9 @@ def app():
         temp2 = random.random()  # Génère la deuxième coordonnée
         temp = (temp1, temp2)  # Crée le point
 
-        if (inside(temp)) :
-            return temp # Retourne le point trouvé.
+        if inside(temp):
+            return temp  # Retourne le point trouvé.
 
 
-print("Voilà un point dans un cercle unitaire  : {}".format(app()))
+print("Voilà un point dans un cercle unitaire  : {0}".format(app()))
+
