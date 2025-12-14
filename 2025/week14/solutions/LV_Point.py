@@ -3,21 +3,17 @@ import random
 
 def inside(point):  # Point est défini sous la forme d'un tuple
     # Cette fonction permet de vérifier si un point se trouve à l'intérieur du cercle
-    if (point[0] ** 2 + point[1] ** 2) < 1:
-        return 1
-
-    else:
-        return 0
+    return (point[0] ** 2 + point[1] ** 2) < 1
 
 
-def app():
-    for i in range(10000):
-        temp1 = random.random()  # Génère la première coordonnée
-        temp2 = random.random()  # Génère la deuxième coordonnée
-        temp = (temp1, temp2)  # Crée le point
+def generate_point():
+    while True:
+        x = random.random()  # Génère la première coordonnée
+        y = random.random()  # Génère la deuxième coordonnée
+        p = (x, y)  # Crée le point
 
-        if (inside(temp)) :
-            return temp # Retourne le point trouvé.
+        if inside(p):
+            return p  # Retourne le point trouvé.
 
 
-print("Voilà un point dans un cercle unitaire  : {}".format(app()))
+print("Voilà un point dans un cercle unitaire  : {0}".format(generate_point()))
