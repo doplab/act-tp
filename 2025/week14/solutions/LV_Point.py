@@ -3,7 +3,7 @@ import random
 
 def inside(point):  # Point est défini sous la forme d'un tuple
     # Cette fonction permet de vérifier si un point se trouve à l'intérieur du cercle
-    return (point[0] ** 2 + point[1] ** 2) <= 1
+    return (point[0] ** 2 + point[1] ** 2) < 1
 
 
 def generate_point():
