@@ -17,15 +17,16 @@ def login(password, your_details):
 
 
 
-# Début de votre programme
-password = "ceciestmonmotdepasse"
-your_details = (19, hash(password))
-success = login(password, your_details)
+# Début de votre programme (ne pas modifier)
+if __name__ == '__main__':
+    password = "ceciestmonmotdepasse"
+    your_details = (19, hash(password))
+    success = login(password, your_details)
 
-print("Connexion réussie? " + str(success))
-if success:
-    message = '''SmUgc2VyYWlzIGNvbmZpbsOpIGNoZXogbWVzIHBhcmVudHMgw
-                    6AgbGEgY2FtcGFnbmUgbGVzIGRldXggcHJvY2hhaW5lIHNlbWF
-                    pbmVzLCBldCBqZSBuJ2F1cmFpcyBwYXMgYWNjw6hzIMOgIEludGV
-                    ybmV0LiDDgCBiaWVudMO0dCE='''
-    print(base64.b64decode(message).decode())
+    print("Connexion réussie? " + str(success))
+    if success:
+        message = '''SmUgc2VyYWlzIGNvbmZpbsOpIGNoZXogbWVzIHBhcmVudHMgw
+                        6AgbGEgY2FtcGFnbmUgbGVzIGRldXggcHJvY2hhaW5lIHNlbWF
+                        pbmVzLCBldCBqZSBuJ2F1cmFpcyBwYXMgYWNjw6hzIMOgIEludGV
+                        ybmV0LiDDgCBiaWVudMO0dCE='''
+        print(base64.b64decode(message).decode())

@@ -1,11 +1,11 @@
 import random
 
 # La fonction Piece retourne une liste contenant des 0 et des 1, considérez un 1 comme un succès, i.e. une fois ou la pièce tombe sur pile, et 0 comme un échec
-def piece(k):
-    return [random.randint(0, 1) for i in range(k)]
+def piece(iter):
+    return [random.randint(0, 1) for i in range(iter)]
 
 def proba(n,k,iter):
-    #CODEZ ICI
+    # Complétez ici
     
     return None
 
