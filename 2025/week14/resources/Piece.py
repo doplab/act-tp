@@ -14,4 +14,4 @@ def proba(n,l,iter):
 
 n = 5
 l = 10
-print("La probabilité d'avoir {} pile en {} lancés de pièce est approximativement égale à {}".format(n, l, proba(n, l,10000)))
+print("La probabilité d'avoir {} piles en {} lancés de pièce est approximativement égale à {}".format(n, l, proba(n, l,10000)))

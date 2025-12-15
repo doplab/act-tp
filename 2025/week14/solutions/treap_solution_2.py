@@ -1,5 +1,5 @@
 # # Solution 2/2
-# Fonction récursive pour insérer une clé avec une priorité dans une Treap
+# Fonction récursive pour insérer une clé avec une priorité dans un Treap
 def insertNode(root, data):
 	if root is None:
 		return TreapNode(data)
@@ -22,7 +22,7 @@ def insertNode(root, data):
 	return root
 
 
-# Affiche les noeuds de la treap
+# Affiche les noeuds du treap
 def printTreap(root, space):
 	height = 10
 

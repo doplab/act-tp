@@ -11,7 +11,7 @@ for i in liste:
 
 print(f"Noeuds avant insertion: {nodes}")
 
-# Construction de la treap
+# Construction du treap
 for j in nodes:
     treap.insert(j[0], j[1], root)
 

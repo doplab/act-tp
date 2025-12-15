@@ -22,7 +22,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
-    Supposez que vous lanciez une pièce de monnaie \textbf{k} fois et que vous voulez calculez la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,k,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Code}). La fonction \textit{Piece(k)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+    Supposez que vous lanciez une pièce de monnaie \textbf{k} fois et que vous vouliez calculer la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \textit{proba(n,k,iter)} contenue dans le fichier \lstinline{Piece.py} (Dans le dossier \lstinline{Code}). La fonction \textit{Piece(k)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
     \\
     \begin{conseil}
      \begin{enumerate}
@@ -37,7 +37,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 
 \begin{Exercice}[15 minutes]\textbf{Une approximation de $\pi$ : Python}\\
-    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation:
+    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation.
     
     La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche de la vraie valeur de $\pi$.\\
     
