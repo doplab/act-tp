@@ -1,6 +1,6 @@
 import random
 
-# La fonction Piece retourne une liste contenant des 0 et des 1, considérez un 1 comme un succès, i.e. une fois où la pièce tombe sur pile, et 0 comme un échec
+# La fonction flip(l) retourne une liste de longueur l contenant des 0 et des 1, considérez un 1 comme un succès, i.e. une fois où la pièce tombe sur pile, et 0 comme un échec.
 
 def piece(l):
     return [random.randint(0, 1) for i in range(l)]
@@ -12,8 +12,8 @@ def proba(n, l, iter=10000):
     # temps à s'exécuter). 10000 est un bon nombre d'itérations.
     occurences = 0
     for i in range(iter):
-        flips = Flip(l)  # On simule une expérience de l lancers.
-        count = sum(temp)  # On compte le nombre de fois que l'on obtient pile
+        flips = flip(l)  # On simule une expérience de l lancers.
+        count = sum(flips)  # On compte le nombre de fois que l'on obtient pile
         if count == n:  # Si le nombre de piles obtenu correspond à la probabilité que l'on veut estimer
             occurences += 1  # On ajoute 1 à notre estimateur de probabilité
     return occurences / iter  # Divise notre estimateur de probabilité par le nombre total d'expériences réalisées.

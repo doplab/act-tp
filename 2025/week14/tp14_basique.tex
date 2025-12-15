@@ -23,9 +23,9 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \section{Monte-Carlo}
 \begin{Exercice}[10 minutes]\textbf{Un jeu de hasard : Python}\\
-    Supposez que vous lanciez une pièce de monnaie \textbf{n} fois et que vous vouliez calculer la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \texttt{proba(n,k,iter)} contenue dans le fichier \lstinline{piece.py} (Dans le dossier \lstinline{code}). \newline 
+    Supposez que vous lanciez une pièce de monnaie \textbf{n} fois et que vous vouliez calculer la probabilité d'avoir un certain nombre de piles. Vous devez programmer un algorithme probabiliste, permettant de calculer cette probabilité. Pour ce faire, vous devez compléter la fonction \texttt{proba(n,k,iter)} contenue dans le fichier \lstinline{piece.py} (dans le dossier \lstinline{code}). \newline 
     
-    La fonction \texttt{piece(n)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
+    La fonction \texttt{flip(n)} permet de créer une liste contenant des 0 et des 1 aléatoirement avec une probabilité $\frac{1}{2}$. Considérez un chiffre 1 comme une réussite (pile) et 0 comme un échec (face).
     \\
     \begin{conseil}
      \begin{enumerate}
@@ -40,7 +40,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 
 \begin{Exercice}[15 minutes]\textbf{Une approximation de $\pi$ : Python}\\
-    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation.
+    L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation :
 
     \begin{center}
         \includegraphics[]{resources/circle.PNG}
@@ -134,7 +134,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     \end{figure}
 
     
-    Un treap (ou arbretas) est une fusion entre un arbre binaire de recherche et un Heap. En construisant un treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
+    Un treap (ou arbretas) est une fusion entre un arbre binaire de recherche et un heap. En construisant un treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
 
     \begin{itemize}
         \item Le nœud de gauche a une valeur plus petite que le nœud parent, tandis que le nœud de droite a toujours une valeur plus grande que le nœud parent. --\textit{propriété d'un arbre binaire de recherche}
@@ -150,7 +150,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     Soit la liste suivante: \lstinline{liste = [5, 2, 1, 4, 9, 8, 10]}. Dans le fichier \lstinline{code/treap.py} se trouvant sur Moodle, créer une nouvelle liste \lstinline{nodes} qui contient des ensembles de tuples à deux éléments. Chaque tuple contiendra un élément de \lstinline{liste} représentant une clé et une valeur aléatoire $r$ (comprise entre 0 et 99) représentant une priorité. \newline 
 
     \begin{attention}
-    Notez ci-dessous les valeurs aléatoires ($r_0$, .., $r_6$) que vous obtiendrez:\\ 
+    Notez les valeurs aléatoires ($r_0$, .., $r_6$) que vous obtiendrez:\\ 
 
     {
     nodes = [(5, $r_0$), (2, $r_1$), (1, $r_2$), (4, $r_3$), (9, $r_4$), (8, $r_5$), (10, $r_6$)]\\}
@@ -158,7 +158,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     \end{attention}
 
     \begin{comment}
-        Un Treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une combinaison d'un arbre de recherche binaire et d'un heap.
+        Un treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une combinaison d'un arbre de recherche binaire et d'un heap.
         Un heap ou \emph{tas} est un arbre binaire presque complet (tous les niveaux sont remplis sauf, éventuellement, le dernier) dont les éléments sont ordonnés.
         Ainsi, le treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
         insérés par ordre de priorité. \\
@@ -166,15 +166,15 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
         \lstinputlisting[language = python]{resources/treap.py}
     \end{comment}
 
-    Placez de manière itérative les éléments de \lstinline{nodes} dans un Treap. Utilisez l'espace ci-dessous pour dessiner le Treap qui sera obtenu.
+    Placez de manière itérative les éléments de \lstinline{nodes} dans un treap. Utilisez l'espace ci-dessous pour dessiner le treap qui sera obtenu.
 
 
     \begin{conseil}
         \begin{itemize}
             \item Commencez d'abord par construire un arbre binaire de recherche en utilisant uniquement les clés, ensuite utilisez les priorités pour réorganiser les nœuds de votre arbre.
             \item Utilisez la fonction \lstinline{random.randrange(100)} pour générer des nombres aléatoires compris entre 0 et 99.
-            \item Une fois complété, le programme \lstinline{treap.py} se trouvant sur Moodle générera un Treap en tenant compte de la position des éléments. 
-            \item La propriété du heap à satisfaire est que la priorité de la racine doit toujours être plus grande que celle de ses nœuds enfants.
+            \item Une fois complété, le programme \lstinline{treap.py} se trouvant sur Moodle générera un treap en tenant compte de la position des éléments. 
+            \item La propriété du heap à satisfaire est que la priorité de la racine soit toujours plus grande que celle de ses nœuds enfants.
             Les méthodes \lstinline{left_rotate} et \lstinline{right_rotate} permettent de réarranger les nœuds de façon à ce que la propriété du heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
             \begin{center}
                 \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
