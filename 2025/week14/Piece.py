@@ -4,11 +4,7 @@ import random
 def Piece(l):
     return [random.randint(0, 1) for i in range(l)]
 
-
-
-def proba(n,l,iter):
+def proba(n,k,iter):
     #CODEZ ICI
     
     return None
-
-

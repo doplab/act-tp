@@ -27,11 +27,11 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
     \begin{conseil}
      \begin{enumerate}
             \item Pour estimer empiriquement la probabilité d'un événement, comptez le nombre de fois que l'événement en question se produit en effectuant un nombre d'essais. Puis divisez le nombre d'occurrences de l'événement par le nombre total d'essais. Par exemple, si vous voulez estimer la probabilité d'obtenir un 2 avec un dé. Lancez le dé 1000 fois, comptez le nombre de fois que vous obtenez 2, et divisez le résultat par 1000.
-        \item La méthode \lstinline{random.randint(début, fin)} contenue dans la fonction \lstinline{piece} permet de choisir de façon aléatoire un nombre dans un intervalle.
+        \item La méthode \lstinline{random.randint(début, fin)} contenue dans la fonction \lstinline{piece} permet de choisir de façon aléatoire un nombre dans l'intervalle [début, fin].
     \end{enumerate}
     \end{conseil}
     \begin{solution}
-        \lstinputlisting[language = python]{solutions/Piece_correction.py}
+        \lstinputlisting[language = python]{solutions/piece.py}
     \end{solution}
     \end{Exercice}
 
@@ -47,6 +47,13 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
     \begin{center}
         \includegraphics[]{resources/Cercle.PNG}
     \end{center}
+    
+    La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le quart de cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche de la vraie valeur de $\pi$.\\
+    
+    \begin{conseil}
+        La fonction \lstinline{random.random()} génère aléatoirement un chiffre compris entre 0 et 1. Etant donné que vous devez simuler des points en 2 dimensions, vous devrez utiliser 2 fois cette fonction dans chaque itération.
+    \end{conseil}
+    
     \begin{solution}
         \lstinputlisting[language = python]{solutions/Pi.py}
     \end{solution}
@@ -78,7 +85,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
     \lstinputlisting[language = python]{resources/fingerprinting.py}
 \begin{conseil}
-Le code ci-dessus se trouve sur Moodle, dans le dossier \lstinline{Code>fingerprinting.py}.\\
+Le code ci-dessus se trouve sur Moodle, dans le dossier \lstinline{code/fingerprinting.py}.\\
 Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$~à~$(n//2+1)$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
 \end{conseil}
 
