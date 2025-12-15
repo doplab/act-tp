@@ -1,3 +1,5 @@
+## Copiez le code de treap.py de la ligne 1 à 75 dans le dossier Moodle code/treap.py 
+
 root = None
 treap = Treap()
 

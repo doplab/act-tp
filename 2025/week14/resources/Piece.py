@@ -9,7 +9,7 @@ def proba(n,k,iter):
     
     return None
 
-
-n = 5
-l = 10
-print("La probabilité d'avoir {} piles en {} lancés de pièce est approximativement égale à {}".format(n, l, proba(n, l,10000)))
+if __name__ == '__main__':
+    n = 10
+    k = 5
+    print(f"La probabilité d'avoir {k} pile en {n} lancés de pièce est approximativement égale à {proba(n, k, 10000)}")
