@@ -13,6 +13,7 @@
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutiontrue
 \ShowConseiltrue
+\ShowWarningtrue
 \ShowNotefalse
 \ShowDessintrue
 \titre
@@ -84,7 +85,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
 \begin{conseil}
 Le code ci-dessus se trouve sur Moodle, dans le dossier \lstinline{code/fingerprinting.py}.\\
-Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$~à~$(n//2+1)$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
+Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres à partir de $2$~à~$(sqrt(n)+1)$ et vérifier si chaque nombre divise $n$. Si un nombre qui divise $n$ est trouvé, il faut retourner \lstinline{False}. Si aucun diviseur est trouvé alors cela signifie que $n$ est premier et il faut retourner \lstinline{True}.
 \end{conseil}
 
     \begin{solution}
