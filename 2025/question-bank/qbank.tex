@@ -168,10 +168,46 @@ Les opérations disponibles sont:
 \hline
 \end{tabular}
 \end{center}
+
+\begin{solution}
+\textbf{a.}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Adresse} & \textbf{Valeur} \\
+\hline
+00000100 & 10100000\\ \hline
+00000101 & 10110010\\ 
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\textbf{b.}
+
+\begin{center}
+\begin{tabular}{|c|l|l|}
+\hline
+\textbf{Registre} & \textbf{Après 1ère instruction} & \textbf{Après 2ème instruction} \\
+\hline
+00 & 00001010 & 00001010 \\ \hline
+01 & 00000000 & 00000000 \\ \hline
+10 & 00010100 & 00010100 \\ \hline
+11 & 00000000 & 00011110 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[15 minutes]\textbf{Sean}
-Quel est le résultat de la soustraction hexadécimale suivante: 694F - 5A3C ?
+Quel est le résultat de la soustraction hexadécimale suivante en base 16: 694F - 5A3C?
+
+\begin{solution}
+0F13
+\end{solution}
 \end{Exercice}
 
 
@@ -191,29 +227,45 @@ Selon le modèle de Von Neumann, partant d'un program counter valant 101010 et d
 \end{tabular}
 \end{table}
 
-À quelle adresse le résultat de la prochaine opération va-t-il être stocké?
+Dans quel registre le résultat de la prochaine opération va-t-il être stocké?
 
 \mcqlist{00, 01, 10, 11}
+
+\begin{solution}
+11
+\end{solution}
 
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Aurore} Quel est le résultat de l'opération suivante : $395_{16}$ + $1011101_{2}$?
-\mcqlist{$1010_{10}$, $3E2_{16}$, $0011 1110 0010_2$, $1010_2$}
+\mcqlist{$1011_{10}$, $3F2_{16}$, $0011 1110 0011_2$, $1010_2$}
 
+\begin{solution}
+$3F2_{16}$
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim} Quelle est la valeur en base 10 de l’opération suivante : $128_9$ - $245_6$?
 \mcqlist{9,6,0,3}
+\begin{solution}
+6
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
 Convertir le nombre $127_{10}$ en base 8.
 \mcqlist{87,177,71,180}
+\begin{solution}
+$177_8$
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
 Quel est le résultat de l'opération suivante $67_8$ + $110111_2$ en base 10? 
 \mcqlist{110, 78, 122, 106}
+\begin{solution}
+    110
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
@@ -241,49 +293,71 @@ En suivant le modèle de von Neuman, l'instruction register (IR) a une valeur de
 \end{tabular}
 \end{center}
 Quelle est la valeur du résultat de l'opération?
-\mcqlist{$111_2$, $1011_2$, $011_2$, $0001_2$}
+\mcqlist{$00000111_2$, $00001011_2$, $00000011_2$, $00000001_2$}
+\begin{solution}
+$00000011_2$ est stocké dans le registre 00.
+\end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes]\textbf{Léa}
-Quelle est la valeur du résultat de l'opération?
-\mcqlist{$111_2$, $1011_2$, $011_2$, $0001_2$}
-\end{Exercice}
+% \begin{Exercice}[10 minutes]\textbf{Léa}
+% Quelle est la valeur du résultat de l'opération?
+% \mcqlist{$111_2$, $1011_2$, $011_2$, $0001_2$}
+% \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Reda}
-Que représentent les deux premiers bits de l'instruction register? (exemple: 11001001)?
+Que représentent les deux premiers bits (partant de gauche) de l'instruction register? (exemple: 11001001)?
 \mcqlist{L'adresse du registre dans lequel il faudra mettre le résultat,
 L'identificateur de l'opération à exécuter,
 L'adresse du registre dans lequel est contenue la valeur sur laquelle faire l'opération,
 Ils n'ont aucune signification}
+
+\begin{solution}
+Option B.
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Reda}
 Quel est le résultat de la soustraction $11011001_2$ - $00110110_2$ en base 10?
-
+\begin{solution}
+163
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
 Quel est le résultat de l'opération suivante : $1011010_2$ - $1000111_2$?
 \mcqlist{$0001111_2$, $0010011_2$, $0100011_2$, $0010101_2$}
+\begin{solution}
+$0010011_2$
+\end{solution}
 \end{Exercice}
 
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
 Quel est le résultat en base 10 de l'opération suivante : $47_{10}$ + $DEF_{16}$ ?
-\mcqlist{3614, 3478, 3589, 3641}
+\mcqlist{3614, 3478, 3589, 3651}
+\begin{solution}
+    3614
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
 Quel est l'avantage principal d'un langage compilé ?
 \mcqlist{Plus facile à corriger, Exécution plus rapide, Plus simple à écrire que les autres langages, Indépendant du système d’exploitation}
+\begin{solution}
+Option B.
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
     Quelle est la différence entre un compilateur et un interpréteur ?
-    \mcqlist{Le compilateur traduit le code au moment de l’exécution, l’interpréteur avant l’exécution,
-    Le compilateur traduit le code avant l’exécution, l’interpréteur au moment de l’exécution,
+    \mcqlist{Le compilateur traduit le code au moment de l’exécution et l’interpréteur traduit le code avant l’exécution,
+    Le compilateur traduit le code avant l’exécution et l'interpréteur traduit le code au moment de l’exécution,
     Les deux font exactement la même chose,
     Le compilateur n’est utilisé que pour les systèmes Unix}
+
+    \begin{solution}
+        Option B. 
+    \end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
@@ -336,14 +410,21 @@ child {
 \end{figure}
 \FloatBarrier
 
-Vous ouvrez un terminal et vous êtes dans le dossier Tps, qu'est ce qui va être affiché dans le terminal si vous tapez ls (on écrit tout à la même ligne par souci de concision):
+Vous ouvrez un terminal et vous êtes dans le dossier TPs, qu'est ce qui va être affiché dans le terminal si vous tapez \texttt{ls} (on écrit tout à la même ligne par souci de concision):
 
 \mcqlist{Solutions tp1.py tp1.java, TPs Solutions tp1.py tp1.java, Cours Cours\_1 Slides\_1 TPs Solutions tp1.py tp1.py Photos Documents, tp1.py tp1.java}
+
+\begin{solution}
+Option A. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
-Vous êtes toujours dans le dossier Tps et vous voulez aller dans le dossier Solutions, quelle commande tapez vous dans le terminal?
+Vous êtes toujours dans le dossier TPs et vous voulez aller dans le dossier Solutions, quelle commande tapez vous dans le terminal?
 \mcqlist{rm Solutions,mv Solutions, cd Solutions, mkdir Solutions}
+\begin{solution}
+Option C. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Sean}
@@ -355,12 +436,18 @@ Vous vous trouvez dans un dossier qui contient deux sous-dossiers : \faFolder[re
     \item[$\bullet$] Le dossier \textcolor{blue}{java} contient un unique fichier nommé \textcolor{green}{hi.java}.
 \end{itemize}
 
-\textbf{(a)} Quelle(s) commande(s) devez-vous taper dans le terminal, ouvert depuis le dossier \textbf{parent} de python, pour exécuter le programme \textit{hello.py} ? \\ 
+\textbf{(a)} Quelle(s) commande(s) devez-vous taper dans le terminal, ouvert depuis le dossier \textbf{parent} de \textcolor{blue}{python}, pour exécuter le programme \textit{hello.py} ? \\ 
 
 \textbf{(b)} Après avoir exécuté les commandes de la question (a), quelles commandes faut-il saisir pour compiler puis exécuter le programme \textit{hi.java} situé dans le dossier \textit{java} ? \\ 
 
 \textbf{(c)} Après avoir exécuté le programme \textit{hi.java}, si vous vous placez dans le dossier \textit{java} et que vous tapez la commande \textbf{ls}, quelle sera la sortie affichée dans le terminal ?
 
+\begin{solution}
+\textbf{a.} \texttt{python python/hello.py} \newline 
+\textbf{b.} \texttt{javac java/hi.java} ensuite \texttt{java java/hi.javac}. Alternativement, \texttt{javac java/hi.java \&\& java java/hi.javac} \newline 
+\textbf{c.} \\
+\texttt{hi.javac} \newline \texttt{hi.java}  
+\end{solution}
 % \vspace{1em}
 % \noindent\rule{\textwidth}{0.4pt}
 
@@ -413,14 +500,19 @@ Vous vous trouvez dans un dossier qui contient deux sous-dossiers : \faFolder[re
 
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
-La commande pwd sous Linux/MacOS permet de:
+La commande \texttt{pwd} permet de:
 \mcqlist{Afficher le chemin absolu du répertoire courant, Supprimer le répertoire courant, Créer un nouveau fichier, Afficher la liste des fichiers dans le répertoire courant.}
+\begin{solution}
+Option A. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
-Parmi ces commandes Linux/MacOS, laquelle permet de créer un nouveau répertoire ?
-\mcqlist{ls, cd, mkdir, pwd}
-
+Parmi ces commandes, laquelle permet de créer un nouveau répertoire ?
+\mcqlist{\texttt{ls}, \texttt{cd}, \texttt{mkdir}, \texttt{pwd}}
+\begin{solution}
+\texttt{mkdir}
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Aurore}
@@ -432,7 +524,10 @@ Voici la ligne de commande d'un terminal sur une machine MacOS/Linux (à gauche)
 
 Quelle commande a été passée (\#LINE REMOVED)?
 
-\mcqlist{dir, cd Users, cd .., ls}
+\mcqlist{\texttt{dir}, \texttt{cd Users}, \texttt{cd ..}, \texttt{ls}}
+\begin{solution}
+\texttt{cd ..}
+\end{solution}
 \end{Exercice}
 
 
@@ -441,8 +536,12 @@ Laquelle des affirmations suivantes est fausse?
 \mcqlist{Un langage compilé est traduit ligne par ligne au moment de l'exécution, 
 {En Java, l'étape de compilation et d'interprétation sont séparées}, 
 Un langage interprété est plus lent à exécuter, 
-Les langages python et java nécessitent les deux une traduction en bytecode, 
+Les langages Python et Java nécessitent les deux une traduction en bytecode, 
 Toutes les affirmations sont correctes}
+
+\begin{solution}
+Option A. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
@@ -451,6 +550,10 @@ En Java, que signifie le mot-clé final appliqué à une variable?
 La variable est constante et ne peut pas changer de valeur, 
  La variable est automatiquement initialisée à zéro, 
  La variable est globale}
+
+ \begin{solution}
+Option B. 
+ \end{solution}
 
 \end{Exercice}
 
@@ -467,6 +570,10 @@ else:
 Que sera affiché?
 
 \mcqlist{impair, pair, 7, Aucun affichage}
+
+\begin{solution}
+Option A. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
@@ -500,6 +607,10 @@ switch (numero_jour) {
 \end{lstlisting}
 
 \mcqlist{Vendredi, Vendredi Samedi Dimanche, Ce n'est pas un jour valide, Vendredi Samedi}
+
+\begin{solution}
+Option D. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
@@ -519,11 +630,19 @@ else:
     print("output 4")
 \end{lstlisting}
 \mcqlist{output 1, output 1 output 4, output 4, output 1 output 3}
+
+\begin{solution}
+Option B. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
 Ecrivez le complément à 2 de $21_{10}$ sur 8 bits:
 \mcqlist{1110 1011, 1110 1010, 0001 0101, 0001 0100}
+
+\begin{solution}
+Option C. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Aurore}
@@ -536,17 +655,25 @@ Laquelle des affirmations suivantes est correcte concernant l'expression:
 Si p est vrai et q est faux\, l'expression est fausse,
 Si p est faux et q est faux\, l'expression est vraie,
 Toutes les affirmations sont correctes}
+
+\begin{solution}
+Option B. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Aurore}
 On attribue à une variable \texttt{variable1} la valeur 2. On attribue à une variable \texttt{variable2} la valeur "hello". On essaie ensuite d'attribuer à \texttt{variable2} la valeur de \texttt{variable1} (en écrivant \texttt{variable2} = \texttt{variable1}). Laquelle des affirmations suivantes est correcte?
 
 \mcqlist{
-    {En Java, le code va afficher une erreur},
    {En Java, le code va afficher une erreur, à moins que les variables ait été les deux déclarées de type var},
    {En Python, le code va afficher une erreur},
+    {En Java, le code va afficher une erreur},
    {En Python, le code va convertir l'entier deux en la chaîne de caractère "2" pour l'attribuer à variable2}
 }
+
+\begin{solution}
+Option C. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
@@ -565,12 +692,20 @@ public class Test {
 
 \mcqlist{True, False, Le programme provoque une erreur de compilation, c}
 
+\begin{solution}
+Option B. 
+\end{solution}
+
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
 Quelle est la représentation du complément à 2 (two complement) de -143 sur 8 bits?
 
-\mcqlist{10010001, 01110001, 01100001, Aucue des réponses n'est correcte}
+\mcqlist{10010001, 01110001, 01100001, Aucune des réponses n'est correcte}
+
+\begin{solution}
+La valeur la plus négative sur 8 bits en complément à deux est $-2^7=-128$. Aucune des résponses n'est correcte.
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Amina}
@@ -585,7 +720,11 @@ public class Test {
   }
 }
 \end{lstlisting}
-\mcqlist{True, False, Le programme provoque une erreur de compilation, c}
+\mcqlist{False, Le programme provoque une erreur de compilation, E, True}
+
+\begin{solution}
+Option D. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Sean}
@@ -614,6 +753,10 @@ public class Test {
     $\neg (p \wedge q)$,
     Aucune des réponses n'est correcte
     }
+
+\begin{solution}
+Option D.
+\end{solution}
 \end{Exercice}
     % \item \textbf{B)} Donnez le code Python qui implémente la fonction NAND qui prend deux arguments booléens (A et B) et retourne le résultat de l'opération NAND.
 
@@ -631,6 +774,10 @@ not p or not q,
 Aucune des réponses n'est correcte
 }
 
+\begin{solution}
+Option C.
+\end{solution}
+
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Sean}
@@ -643,6 +790,10 @@ Quelle expression est équivalente à l'expression $\neg( \neg (A \wedge A) \wed
      $\lnot(A \lor B) $, 
      Aucune des réponses n'est correcte
 }
+
+\begin{solution}
+Option A (loi de Morgan). 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Maxim}
@@ -655,6 +806,9 @@ En Python, quel opérateur réalise une division entière?
     div()
 }
 
+\begin{solution}
+Option C. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Maxim}
@@ -665,6 +819,9 @@ En Python, quelle exception sera levée pour une division par zéro?
     ZeroDivisionError,
     ArithmeticError
 } 
+\begin{solution}
+Option C. 
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Reda}
@@ -682,7 +839,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 
-\textbf{Question 38.A} Supposons qu'on ouvre un terminal Windows dans le dossier qui contient ce fichier python, comment pouvons-nous l'exécuter tout en évitant qu'il nous imprime \texttt{Assurez-vous de passer au moins un argument à votre programme}?
+\textbf{Question 37.A} Supposons qu'on ouvre un terminal Windows dans le dossier qui contient ce fichier python, comment pouvons-nous l'exécuter tout en évitant qu'il nous imprime \texttt{Assurez-vous de passer au moins un argument à votre programme}?
 
 \mcqlist{
     \texttt{python printElements.py one two},
@@ -695,14 +852,14 @@ if __name__ == "__main__":
 \texttt{python printElements.py one two}
 \end{solution}
 
-\textbf{Question 38.B} Selon votre réponse à la question précédente, notez le résultat de l'exécution. 
+\textbf{Question 37.B} Selon votre réponse à la question précédente, notez le résultat de l'exécution. 
 
 \begin{solution}
 \texttt{Elément 2: one}\\
 \texttt{Elément 3: two}
 \end{solution}
 
-\textbf{Question 38.C} Quelle remarque est correcte par rapport à  la ligne 5: \texttt{if len(arguments) > 1}? 
+\textbf{Question 37.C} Quelle remarque est correcte par rapport à  la ligne 5: \texttt{if len(arguments) > 1}? 
 \mcqlist{
     {Il y a une erreur, on devrait plutôt vérifier si la taille de la variable \texttt{arguments} est supérieure strictement à 0.},
     {Le nom du fichier est techniquement le premier argument, il nous faut donc plus d'un élément pour considérer que nous avons reçu des arguments.},
@@ -1646,14 +1803,14 @@ print(a, b)
 \end{lstlisting}
 
 \mcqlist{
-{[3, 2, 1] [2, 1]},
-{[3, 2, 1] [3, 2, 1]},
-{[3, 2, 1, 2, 1] [3, 2, 1, 2, 1]},
+{$[$3, 2, 1$]$ $[$2, 1$]$},
+{$[$3, 2, 1$]$ $[$3, 2, 1$]$},
+{$[$3, 2, 1, 2, 1$]$ $[$3, 2, 1, 2, 1$]$},
 Provoque une erreur: \texttt{RecursionError}
 }
 
 \begin{solution}
-[3, 2, 1, 2, 1] [3, 2, 1, 2, 1]
+Option C.
 \end{solution}
 
 \end{Exercice}
