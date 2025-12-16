@@ -1344,7 +1344,7 @@ Le programme ne compile pas à cause de l'erreur de syntaxe, donc il ne s'exécu
 
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
-Soit le code ci-dessous en Python. Par quoi faut-il remplacer la ligne \#ligne supprimée dans la fonction \texttt{compatibilite} pour qu’elle soit équivalente à la fonction \texttt{compatibiliteRapide}?
+Soit le code ci-dessous en Python. Par quelle expression faut-il remplacer la ligne \texttt{\#LINE REMOVED} dans la fonction \texttt{compatibilite} pour qu’elle soit équivalente à la fonction \texttt{compatibiliteRapide}?
 \begin{lstlisting}[style=pythonstyle]
 def compatibilite(donneur, receveur):
   # modèle simplifié par rapport à la réalité !
@@ -1363,7 +1363,7 @@ def compatibilite(donneur, receveur):
   return False 
 
 def compatibiliteRapide(donneur, receveur):
-  #ligne supprimée
+  #LINE REMOVED
 \end{lstlisting}
 
 \mcqlist{
@@ -2489,12 +2489,13 @@ Name: My Documents
 File est une classe, et Node et Folder sont des classes qui étendent File
 },
 {
-Node, File et Folder sont trois classes qui n'ont aucun lien de parenté.
+Node, File et Folder sont trois classes qui n'ont aucun lien de parenté (héritage).
 }
 }
 
 \begin{solution}
-B, C.
+B, C. Node ne peut pas être une interface car le code accède à un champ d’instance \texttt{node.name}. 
+En Java, les interfaces ne peuvent contenir que des attributs \texttt{public static final}, et non des champs dépendant des instances.
 \end{solution}
 
 Lesquelles des affirmations suivantes sont correctes:
@@ -3150,8 +3151,6 @@ $O(n\cdot m)$
 \begin{Exercice}[5 minutes]\textbf{Aurore}
 En applicant la fonction \textsc{mergeSort} telle que vue en cours sur la liste suivante, quelle est la paire de sous-listes sur laquelle merge() ne sera à aucun moment appelé [9,6,2,4,5,8]? 
 
-\newpage
-
 \begin{lstlisting}[style=pythonstyle, caption={Merge sort — Python}]
 def mergeSort(arr):
     if len(arr) <= 1:
@@ -3176,23 +3175,23 @@ Option D: [2], [4]
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]\textbf{Sean}
+% \begin{Exercice}[5 minutes]\textbf{Sean}
 
-Comment modifier tri-fusion pour que la liste soit triée par ordre décroissant:
+% Comment modifier tri-fusion pour que la liste soit triée par ordre décroissant:
 
-\mcqlist{
-    {Inverser la liste avant de commencer le tri.},
-    {Changer l'ordre des appels récursifs (traiter la partie droite avant la gauche)},
-    {Modifier le signe de comparaison dans l'étape de fusion.},
-    {Aucune de ces réponses}
-}
+% \mcqlist{
+%     {Inverser la liste avant de commencer le tri.},
+%     {Changer l'ordre des appels récursifs (traiter la partie droite avant la gauche)},
+%     {Modifier le signe de comparaison dans l'étape de fusion.},
+%     {Aucune de ces réponses}
+% }
 
-\begin{solution}
-Option C.
-\end{solution}
+% \begin{solution}
+% Option C.
+% \end{solution}
 
 
-\end{Exercice}
+% \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
 Combien de fois la fonction \texttt{merge} va être appelée lors du tri-fusion sur une liste de $n$ éléments  
