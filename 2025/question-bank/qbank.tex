@@ -95,11 +95,10 @@
     \titre
     \cours{Banque des questions}
 
-\begin{attention}
-Cette banque de questions est destinée à vous servir de ressource si vous souhaitez vous entraîner davantage. \textbf{La répartition des thèmes abordés dans cette banque de questions peut ne pas refléter celle des thèmes abordés dans l'examen.} \newline 
+
+Ce document a été conçu afin de vous servir de support additionnel en plus de slides du cours et des exercices. Les questions ne font pas l'objet du contrôle strict que nous appliquons pour la préparation des ressources documentaires. de questions est destinée à vous servir de ressource si vous souhaitez vous entraîner davantage. \textbf{La répartition des thèmes abordés dans cette banque de questions peut ne pas refléter celle des thèmes abordés dans l'examen.} \newline 
 
 Le temps indiqué (\faClock) est à titre indicatif.
-\end{attention}
 
 \begin{Exercice}[10 minutes]\textbf{Sean}
 
@@ -269,7 +268,7 @@ Quel est le résultat de l'opération suivante $67_8$ + $110111_2$ en base 10?
 \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
-En suivant le modèle de von Neuman, l'instruction register (IR) a une valeur de 11000111, les registres contiennent les valeurs suivantes:
+En suivant le modèle de von Neumann, l'Instruction Register (IR) a une valeur de 11000111, les registres contiennent les valeurs suivantes:
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|}
@@ -305,7 +304,7 @@ $00000011_2$ est stocké dans le registre 00.
 % \end{Exercice}
 
 \begin{Exercice}[10 minutes]\textbf{Reda}
-Que représentent les deux premiers bits (partant de gauche) de l'instruction register? (exemple: 11001001)?
+Que représentent les deux premiers bits (partant de gauche) de l'Instruction Register? (exemple: 11001001)?
 \mcqlist{L'adresse du registre dans lequel il faudra mettre le résultat,
 L'identificateur de l'opération à exécuter,
 L'adresse du registre dans lequel est contenue la valeur sur laquelle faire l'opération,
@@ -410,9 +409,9 @@ child {
 \end{figure}
 \FloatBarrier
 
-Vous ouvrez un terminal et vous êtes dans le dossier TPs, qu'est ce qui va être affiché dans le terminal si vous tapez \texttt{ls} (on écrit tout à la même ligne par souci de concision):
+Vous ouvrez un terminal et vous êtes dans le dossier TPs, qu'est ce qui va être affiché dans le terminal si vous tapez \texttt{ls} sur un système d'exploitation UNIX (Linux/MacOS) (on écrit tout à la même ligne par souci de concision):
 
-\mcqlist{Solutions tp1.py tp1.java, TPs Solutions tp1.py tp1.java, Cours Cours\_1 Slides\_1 TPs Solutions tp1.py tp1.py Photos Documents, tp1.py tp1.java}
+\mcqlist{\texttt{Solutions tp1.py tp1.java}, \texttt{TPs Solutions tp1.py tp1.java}, \texttt{Cours Cours\_1 Slides\_1 TPs Solutions tp1.py tp1.py Photos Documents}, \texttt{tp1.py tp1.java}}
 
 \begin{solution}
 Option A. 
@@ -421,7 +420,7 @@ Option A.
 
 \begin{Exercice}[10 minutes]\textbf{Léa}
 Vous êtes toujours dans le dossier TPs et vous voulez aller dans le dossier Solutions, quelle commande tapez vous dans le terminal?
-\mcqlist{rm Solutions,mv Solutions, cd Solutions, mkdir Solutions}
+\mcqlist{\texttt{rm Solutions},\texttt{mv Solutions}, \texttt{cd Solutions},\texttt{mkdir Solutions}}
 \begin{solution}
 Option C. 
 \end{solution}
@@ -897,7 +896,7 @@ public class Main {
     }
 }
 \end{lstlisting}
-Que sera-t-il affiché à la fin du bloc \texttt{switch} (avant la ligne 15): System.out.println();
+Qu'est-ce qui sera affiché à la fin du bloc \texttt{switch} avant la ligne 15: \texttt{System.out.println()};
 
 \begin{solution}
 \texttt{bingo}
@@ -1111,7 +1110,7 @@ public class Question3 {
 }
 \end{lstlisting}
 
-Indiquez pour chaque fonction addition par quel type on doit remplacer les ??? pour que le programme fonctionne (ex : addition\_5: float).
+Indiquez pour chaque fonction addition par quel type doit-on remplacer les ??? pour que le programme fonctionne (ex : addition\_5: float).
 
 \begin{solution}
 addition\_1 : int \newline 
@@ -1165,17 +1164,17 @@ Bloc externe terminé
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Amina}
-Laquelle des affirmations suivantes est incorrecte?
+Laquelle des affirmations suivantes est \textbf{incorrecte}?
 
 \mcqlist{
     Une function en Java doit spécifier un type de retour (même void si elle ne retourne rien).,
-    Le mot-clé public est obligatoire devant toute function.,
+    Le mot-clé \texttt{public} est obligatoire devant toute function.,
     Les parenthèses sont obligatoires même si la function ne prend aucun paramètre.,
-    En Java, une fonction (méthode) doit toujours être déclarée à l’intérieur d’une classe.
+    {En Java, une fonction (méthode) doit toujours être déclarée à l’intérieur d’une classe}.
 }
 
 \begin{solution}
-Le mot-clé public est obligatoire devant toute function.
+Le mot-clé \texttt{public} est obligatoire devant toute function.
 \end{solution}
 
 \end{Exercice}
@@ -1319,7 +1318,7 @@ Interstellar True Matthew Cooper Anne Brand Jessica Murph
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
-Quelle affirmation est vrai à propos du programme java ci-dessous:
+Quelle affirmation est vraie à propos du programme Java ci-dessous:
 \begin{lstlisting}[style=javastyle]
 public class SyntaxeError {
     public static void main(String[] args) {
@@ -1334,9 +1333,9 @@ public class SyntaxeError {
 \end{lstlisting}
 
 \mcqlist{{L'erreur de syntaxe est capturée par le bloc catch au moment de l'exécution, et le programme affiche "Erreur capturée".},
-{L'erreur de syntaxe ne peut pas être capturée, et le programme plante au moment de l'exécution avec une SyntaxError.},
+{L'erreur de syntaxe ne peut pas être capturée et le programme plante au moment de l'exécution avec une SyntaxError.},
 {Le programme ne compile pas à cause de l'erreur de syntaxe, donc il ne s'exécute jamais.},
-{L'erreur de syntaxe est ignorée car elle est à l'intérieur d'un try-catch, et le programme s'exécute mais saute la déclaration de la variable.}
+{L'erreur de syntaxe est ignorée car elle est à l'intérieur d'un bloc try-catch et le programme s'exécute mais saute la déclaration de la variable.}
 }
 \begin{solution}
 Le programme ne compile pas à cause de l'erreur de syntaxe, donc il ne s'exécute jamais.
@@ -1513,7 +1512,7 @@ L’exécution donnera le même résultat que la question précédente.
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Maxim}
-En Python, quelle est la sortie du code suivant?
+En Python, qu'affiche le code suivant?
 \begin{lstlisting}[style=pythonstyle]
 mon_tuple = (1,2,3)
 print(4 in mon_tuple)
@@ -1528,7 +1527,7 @@ False
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[5 minutes]\textbf{Maxim}
-Qu'affiche le code Java suivant:
+En Java, qu'affiche le programme suivant:
 
 \begin{lstlisting}[style=javastyle]
 import java.util.Arrays;
@@ -1605,7 +1604,7 @@ Le programme 1 modifie la liste \texttt{bonjour2}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Aurore}
-Par quoi faut-il remplacer la ligne \#LINE REMOVED pour que le programme suivant :
+Par quoi faut-il remplacer la ligne \texttt{\#LINE REMOVED} pour que le programme suivant :
 \begin{lstlisting}[style=pythonstyle]
 cars = {"nissan":["micra", "aryia"], "citroën":["picasso","cactus","C3"], "opel":["corsa"]}
 for key in cars.keys():
@@ -1968,7 +1967,7 @@ def suite(n):
     return ???
 \end{lstlisting}
 
-Par quoi faut-il remplacer les ??? pour que le code fonctionne?
+Par quoi faut-il remplacer les ??? pour que le code correspond à l'expression donnée plus-haut?
 
 \mcqlist{
     {4, $n + suite(n+1)$},
@@ -1986,61 +1985,61 @@ Par quoi faut-il remplacer les ??? pour que le code fonctionne?
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
 
-Quelle sera la sortie dans la console après l'exécution du programme \texttt{CoffeShop}?
+% Quelle sera la sortie dans la console après l'exécution du programme \texttt{CoffeShop}?
 
-\begin{lstlisting}[style=javastyle]
-// Fichier: CoffeeMachine.java
-public class CoffeeMachine {
-  public static int coffeesMadeCount = 0;
-  public CoffeeMachine() {}
-  public void makeCoffee() {
-      CoffeeMachine.coffeesMadeCount++;
-  }
-}
-\end{lstlisting}
+% \begin{lstlisting}[style=javastyle]
+% // Fichier: CoffeeMachine.java
+% public class CoffeeMachine {
+%   public static int coffeesMadeCount = 0;
+%   public CoffeeMachine() {}
+%   public void makeCoffee() {
+%       CoffeeMachine.coffeesMadeCount++;
+%   }
+% }
+% \end{lstlisting}
 
-\begin{lstlisting}[style=javastyle]
-// Fichier: CoffeeShop.java
-public class CoffeeShop {
-  public static void main(String[] args) {
-    CoffeeMachine machine1 = new CoffeeMachine();
-    CoffeeMachine machine2 = new CoffeeMachine();
-    machine1.makeCoffee();
-    System.out.println(machine1.coffeesMadeCount);
-    machine2.makeCoffee();
-    System.out.println(machine2.coffeesMadeCount);
-    CoffeeMachine.coffeesMadeCount = 0;
-    System.out.println(machine1.coffeesMadeCount);
-    }
-}
-\end{lstlisting}
+% \begin{lstlisting}[style=javastyle]
+% // Fichier: CoffeeShop.java
+% public class CoffeeShop {
+%   public static void main(String[] args) {
+%     CoffeeMachine machine1 = new CoffeeMachine();
+%     CoffeeMachine machine2 = new CoffeeMachine();
+%     machine1.makeCoffee();
+%     System.out.println(machine1.coffeesMadeCount);
+%     machine2.makeCoffee();
+%     System.out.println(machine2.coffeesMadeCount);
+%     CoffeeMachine.coffeesMadeCount = 0;
+%     System.out.println(machine1.coffeesMadeCount);
+%     }
+% }
+% \end{lstlisting}
 
-\mcqlist{
-     1 \; 1 \; 0,
-     1 \; 2 \; 0,
-     1 \; 1 \; 1,
-     1 \; 2 \; 1
-}
+% \mcqlist{
+%      1 \; 1 \; 0,
+%      1 \; 2 \; 0,
+%      1 \; 1 \; 1,
+%      1 \; 2 \; 1
+% }
 
 
-\begin{solution}
-1 \; 2 \; 0
-\end{solution}
+% \begin{solution}
+% 1 \; 2 \; 0
+% \end{solution}
 
-Comment empêcher le CoffeeShop de réinitialiser l'attribut CoffeesMadeCount, tout en laissant le CoffeeShop consulter la valeur de l'attribut, sélectionnez toutes les modifications nécessaires?
+% Comment empêcher le CoffeeShop de réinitialiser l'attribut CoffeesMadeCount, tout en laissant le CoffeeShop consulter la valeur de l'attribut, sélectionnez toutes les modifications nécessaires?
 
-\mcqlist{
-    Rendre CoffeesMadeCount privée,
-    Créer un getter pour CoffeesMadeCount,
-    Créer un setter pour CoffeesMadeCount,
-    Supprimer le mot-clé static de CoffeesMadeCount
-}
+% \mcqlist{
+%     Rendre CoffeesMadeCount privée,
+%     Créer un getter pour CoffeesMadeCount,
+%     Créer un setter pour CoffeesMadeCount,
+%     Supprimer le mot-clé static de CoffeesMadeCount
+% }
 
-\begin{solution}
-Rendre CoffeesMadeCount privée et créer un getter pour CoffeesMadeCount.
-\end{solution}
+% \begin{solution}
+% Rendre CoffeesMadeCount privée et créer un getter pour CoffeesMadeCount.
+% \end{solution}
 
-Sélectionnez les affirmations corrects: 
+Parmi les affirmations suivantes, lesquelles sont corrects: 
 
 \mcqlist{
 {En Java, les attributs d'une classe peuvent être initialisés directement lors de leur déclaration, en dehors de tout constructeur.},
@@ -2109,7 +2108,7 @@ print(p.summary())
 start:P1-tick0-tick1-exec:P1-stop:P1
 \end{solution}
 
-Quelle est la sortie de ce code?
+Qu'affiche le code suivant?
 
 \begin{lstlisting}[style=javastyle]
 class Enseignant {
@@ -2348,7 +2347,7 @@ Quelle ligne ne provoque aucune erreur?
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Aurore}
-Parmi les expressions suivantes, lesquelles rendent true lorsque les objets a et b ont les mêmes attributs et sous quelle condition?
+Parmi les expressions suivantes, lesquelles retournent \texttt{true} lorsque les objets a et b ont les mêmes attributs et sous quelle condition?
 
 \mcqlist{
   {\texttt{a.equals(b) (sans condition particulière)}},
@@ -2385,9 +2384,9 @@ Lesquelles des affirmations suivantes sont vraies?
 \mcqlist{
   {Les attributs name et speed peuvent être définis comme privés ou publics dans la classe mère},
   {La valeur par défaut de \texttt{or} est false},
-  {Les attributs nb\_seats et nb\_mini sont privés},
-  {Les attributs nb\_mini et height sont de même type},
-  {L'attribut nb\_mini est un attribut de classe},
+  {Les attributs \texttt{nb\_seats} et \texttt{nb\_mini} sont privés},
+  {Les attributs \texttt{nb\_mini} et \texttt{height} sont de même type},
+  {L'attribut \texttt{nb\_mini} est un attribut de classe},
   {La classe mère défini exactement deux attributs}
 }
 
@@ -2398,7 +2397,7 @@ C, E.
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Maxim}
-Par quelle valeur faut-il remplacer \#LINE REMOVED afin que le code exécute correctement?
+Par quelle valeur faut-il remplacer \texttt{\#LINE REMOVED} afin que le code exécute correctement?
 
 \begin{lstlisting}[style=pythonstyle]
 class Person:
@@ -2895,27 +2894,71 @@ Option A.
 
 \end{Exercice}
 
-\begin{Exercice}[5 minutes]\textbf{Amina}
+% \begin{Exercice}[5 minutes]\textbf{Amina}
 
-Laquelle des propositions suivantes représente correctement le nombre $5$ en théorie des ensembles?
+% Laquelle des propositions suivantes représente correctement le nombre $5$ en théorie des ensembles?
 
-\mcqlist{
-    {$\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\}$},
-    {
-        $\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\}\}$
-    },
-    {
-        $\{\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing,\{\varnothing\}\}\}\}$
-    },
-    {
-        $\{\varnothing,\{\varnothing,\{\varnothing,\{\varnothing,\{\varnothing\}\}\}\}\}$
+% \mcqlist{
+%     {$\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\}$},
+%     {
+%         $\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}\}\}$
+%     },
+%     {
+%         $\{\{\varnothing\},\{\varnothing,\{\varnothing\}\},\{\varnothing,\{\varnothing,\{\varnothing\}\}\}\}$
+%     },
+%     {
+%         $\{\varnothing,\{\varnothing,\{\varnothing,\{\varnothing,\{\varnothing\}\}\}\}\}$
+%     }
+% }
+
+% \begin{solution}
+% Option B.
+% \end{solution}
+
+% \end{Exercice}
+
+\begin{Exercice}[5 minutes]
+    Lesquelles des propositions suivantes sont vraies? Pour celles qui sont fausses, énoncer leur négation.
+    \mcqlist{
+        {$\exists x \in \mathbb{N},\ x^2 > 5$},
+        {$\forall x \in \mathbb{N},\ x^2 > 5$},
+        {$\forall x \in \mathbb{N},\ \exists y \in \mathbb{N},\ y > x^2$},
+        {$\exists y \in \mathbb{N},\ \forall x \in \mathbb{N},\ y > x^2$}
     }
-}
 
 \begin{solution}
-Option B.
-\end{solution}
+\begin{enumerate}
+    \item $\exists x \in \mathbb{N},\ x^2 > 5$
 
+    Cette proposition est \textbf{vraie}.  
+    En effet, par exemple pour $x = 3$, on a $3^2 = 9 > 5$.
+
+    \item $\forall x \in \mathbb{N},\ x^2 > 5$
+
+    Cette proposition est \textbf{fausse}.  
+    Par exemple, pour $x = 0$ ou $x = 1$, on a $x^2 \le 5$.
+
+    Sa négation est :
+    \[
+    \exists x \in \mathbb{N} \text{ tel que } x^2 \le 5.
+    \]
+
+    \item $\forall x \in \mathbb{N},\ \exists y \in \mathbb{N},\ y > x^2$
+
+    Cette proposition est \textbf{vraie}.  
+    En effet, pour tout $x \in \mathbb{N}$, le nombre $y = x^2 + 1$ appartient à $\mathbb{N}$ et vérifie $y > x^2$.
+
+    \item $\exists y \in \mathbb{N},\ \forall x \in \mathbb{N},\ y > x^2$
+
+    Cette proposition est \textbf{fausse}.  
+    Il n’existe pas de nombre naturel strictement supérieur à tous les carrés $x^2$.
+
+    Sa négation est :
+    \[
+    \forall y \in \mathbb{N},\ \exists x \in \mathbb{N} \text{ tel que } y \le x^2.
+    \]
+\end{enumerate}
+\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Amina}
@@ -3167,7 +3210,7 @@ Option C. Soit $f(n)$ la fonction qui donne le nombre d'appels à \texttt{merge}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
-Quelle est la modification la plus efficace pour correctement supprimer les doublons de la liste pendant son tri avec tri-fusion. 
+Quelle est la modification la plus efficace pour correctement supprimer les doublons de la liste pendant son tri avec l'algorithme de tri-fusion. 
 
 \mcqlist{
     {Trier normalement, puis parcourir la liste finale pour retirer les éléments identiques.},
@@ -3200,7 +3243,7 @@ Quelle combinaison de personnes prend un dessert si toutes les affirmations sont
 }
 
 \begin{solution}
-Option D: Alice et Bon uniquement. Cathy ne peut pas en prendre (car alors Alice et Bob devraient aussi, cela contredit soit Bob soit Cathy).
+Option D: Alice et Bob uniquement. Cathy ne peut pas en prendre (car alors Alice et Bob devraient aussi, cela contredit soit Bob soit Cathy).
 Donc Alice et Bob prennent un dessert.
 \end{solution}
 
@@ -3557,7 +3600,7 @@ Option A.
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]\textbf{Léa}
-Soit le graph décrit par l'adjency matrix si dessous:
+Soit le graphe décrit par la liste d'adjence (adjacency list) ci-dessous:
 
 \begin{lstlisting}
 G = {
@@ -3586,7 +3629,7 @@ Option A.
 
 
 \begin{Exercice}[5 minutes]\textbf{Sean}
-Soit l'algorithme de construction d'un arbre KD avec $K=3$, et un ensemble de points en 3D sous la forme $(x, y, z)$.
+Soit l'algorithme de construction d'un arbre KD (KD-tree) avec $K=3$, et un ensemble de points en 3D sous la forme $(x, y, z)$.
 Si le premier axe de division est l'axe $X$, le deuxième $Y$ et le troisième $Z$, quel axe sera utilisé lors du troisième appel à \textsc{BuildKDTree} étant donné qu'il y a 10 points distincts?
 
 \begin{algorithm}[H]
