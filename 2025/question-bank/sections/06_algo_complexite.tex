@@ -1,0 +1,635 @@
+
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+Soit le code suivant. Quelle est sa complexité?
+
+\begin{lstlisting}[style=pythonstyle]
+def boucle(n):
+    k = 0
+    for i in range(n):
+        for j in range(100):
+            k += 1
+    return k
+\end{lstlisting}
+
+\mcqlist{
+ $O(\log n)$,
+ $O(n)$,
+ $O(n^2)$,
+ $O(1)$
+}
+
+\begin{solution}
+$O(n)$
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+Soit le code suivant. Quelle est sa complexité?
+
+\begin{lstlisting}[style=pythonstyle]
+def boucle(n):
+    k = 0
+    for i in range(n):
+        for j in range(i):
+            k += 1
+    return k
+\end{lstlisting}
+
+\mcqlist{
+ $O(n^2)$,
+ $O(n)$,
+ $O(n\cdot \log n)$,
+ $O(\log n)$
+}
+
+\begin{solution}
+$O(n^2)$
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+Soit le code suivant. Quelle est sa complexité?
+
+\begin{lstlisting}[style=pythonstyle]
+i = 1
+while i < n:
+    for j in range(n):
+        print(i, j)
+    i = i * 2
+\end{lstlisting}
+
+\mcqlist{
+ $O(n^2)$,
+ $O(n)$,
+ $O(n\cdot \log n)$,
+ $O(\log n)$
+}
+
+\begin{solution}
+$O(n\cdot \log n)$
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Quelle est la complexité de la fonction suivante?
+
+\begin{lstlisting}[style=javastyle]
+public static void fonction(String word,int m) {
+   int n = word.length()-1;
+   while (n >= 0) {
+       for (int i=0;i<m;i++) {
+           System.out.println(word.charAt(n));
+       }
+       n--;
+   }
+}
+\end{lstlisting}
+
+\mcqlist{
+    $O(n)$,
+    $O(n^2)$,
+    $O(n\cdot m)$,
+    $O(n+m)$
+}
+
+\begin{solution}
+$O(n\cdot m)$
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+En applicant la fonction \textsc{mergeSort} telle que vue en cours sur la liste suivante, quelle est la paire de sous-listes sur laquelle merge() ne sera à aucun moment appelé [9,6,2,4,5,8]? 
+
+\begin{lstlisting}[style=pythonstyle, caption={Merge sort — Python}]
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    left = mergeSort(arr[:mid])
+    right = mergeSort(arr[mid:])
+    
+    return merge(left, right)
+\end{lstlisting}
+
+\mcqlist{
+    {$[6], [2]$},
+    {$[2, 6, 9], [4, 5, 8]$},
+    {$[4], [5, 8]$},
+    {$[2], [4]$}
+}
+
+\begin{solution}
+Option D: [2], [4]
+\end{solution}
+\end{Exercice}
+
+% \begin{Exercice}[5 minutes]\textbf{Sean}
+
+% Comment modifier tri-fusion pour que la liste soit triée par ordre décroissant:
+
+% \mcqlist{
+%     {Inverser la liste avant de commencer le tri.},
+%     {Changer l'ordre des appels récursifs (traiter la partie droite avant la gauche)},
+%     {Modifier le signe de comparaison dans l'étape de fusion.},
+%     {Aucune de ces réponses}
+% }
+
+% \begin{solution}
+% Option C.
+% \end{solution}
+
+
+% \end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Combien de fois la fonction \texttt{merge} va être appelée lors du tri-fusion sur une liste de $n$ éléments  
+
+\mcqlist{
+    $n$,
+    $\log_2 n$,
+    $n-1$,
+    Cela dépend de la parité de la liste
+}
+
+\begin{solution}
+Option C. Soit $f(n)$ la fonction qui donne le nombre d'appels à \texttt{merge}. On peut définir cette fonction récursivement suivant l'implémentation de \texttt{mergeSort}: $f(n) = 1 + 2\cdot f(\frac{n}{2})$. En remplaçant $f(n) = n-1$ on trouve que cette égalité est vraie. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Quelle est la modification la plus efficace pour correctement supprimer les doublons de la liste pendant son tri avec l'algorithme de tri-fusion. 
+
+\mcqlist{
+    {Trier normalement, puis parcourir la liste finale pour retirer les éléments identiques.},
+    {Vérifier si l'élément existe déjà dans la liste complète avant chaque insertion.},
+    {Si les deux éléments comparés sont égaux dans \texttt{merge}, n'en ajouter qu'un seul au résultat et avancer les deux indices.},
+    {Aucune de ces réponses}
+}
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soient les affirmations suivantes:
+
+\begin{itemize}
+\item Si Alice prend un dessert, Bob en prend un aussi.
+\item Chaque jour, soit Bob, soit Cathy, mais jamais les deux, prend un dessert.
+\item Alice ou Cathy, ou les deux, prennent chaque jour un dessert.
+\item Si Cathy prend un dessert, Alice fait de même.
+\end{itemize}
+
+Quelle combinaison de personnes prend un dessert si toutes les affirmations sont vraies?
+
+\mcqlist{
+    Alice seulement,
+    Bob seulement,
+    Cathy seulement,
+    Alice et Bob uniquement
+}
+
+\begin{solution}
+Option D: Alice et Bob uniquement. Cathy ne peut pas en prendre (car alors Alice et Bob devraient aussi, cela contredit soit Bob soit Cathy).
+Donc Alice et Bob prennent un dessert.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Dans un ensemble E, considérons trois parties A, B, C. On sait que:
+
+\begin{itemize}
+\item $\{h, b\} \subset \overline{A} \cap \overline{B}$
+\item $\{a, f\} \subset A \cup C$
+\end{itemize}
+
+Laquelle des propositions suivantes est vraie?
+
+\mcqlist{
+    {$h \in A$},
+    {$b \in B$},
+    {$a \in A \cup C$},
+    {$f \notin C$}
+}
+
+\begin{solution}
+$a \in A \cup C$.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Lesquelles des affirmations suivantes sont vraies concernant une classe abstraite Java.
+
+\mcqlist{
+    Peut être instanciée directement,
+    Doit obligatoirement contenir au moins une méthode abstraite,
+    Peut contenir des méthodes abstraites ou non,
+    Ne peut pas contenir d’attributs
+}
+
+\begin{solution}
+Option C. Une classe abstraite peut avoir zéro ou plusieurs méthodes abstraites, et des méthodes classiques.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Lesquelles des affirmations suivantes sont vraies concernant une interface Java.
+
+\mcqlist{
+    Les méthodes sont private par défaut,
+    Les méthodes sont public abstract par défaut,
+    Les variables sont privées par défaut,
+    Les variables ne peuvent pas être finales
+}
+
+\begin{solution}
+Option B. Les méthodes sont public abstract par défaut.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Quelle est la séquence correcte d’étapes du tri fusion?
+
+\mcqlist{
+        {
+        Fusionner toute la liste \newline
+        Diviser en deux moitiés \newline
+        Trier séparément \newline
+        Arrêter
+    },
+    {
+        Diviser la liste en deux moitiés \newline
+        Diviser encore chaque moitié jusqu’à obtenir des listes de taille 1 \newline
+        Fusionner les petites listes pour former des listes triées \newline 
+        Continuer les fusions jusqu’à obtenir une seule liste triée \newline
+    },
+    {
+        Trouver le plus petit élément \newline
+        Le placer au début \newline
+        Répéter pour le second plus petit, etc. \newline
+        Arrêter
+    },
+    {
+        Trier d’abord la moitié droite \newline
+        Trier ensuite la moitié gauche \newline
+        Coller les deux moitiés sans les comparer \newline
+        Arrêter
+    }
+}
+
+\begin{solution}
+Option B. 
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Quelle est la complexité du code suivant supposant que la liste \texttt{L} contient $n$ éléments?
+
+\begin{lstlisting}[style=pythonstyle]
+def multiply(L):
+    total = 1
+    for x in L:
+        total = total * x
+    return total
+\end{lstlisting}
+
+\mcqlist{
+    $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$
+}
+
+
+\begin{solution}
+$O(n)$. 
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+
+Quelle condition impérative une collection doit-elle respecter pour qu'on puisse y appliquer une recherche binaire (Binary Search)?
+
+\mcqlist{
+    Elle doit être triée., Elle doit être stockée dans une liste chaînée., Elle ne doit pas contenir de doublons., Elle doit contenir uniquement des entiers.
+}
+
+\begin{solution}
+Option A. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+
+Soit un arbre de recherche binaire vide dans lequel on insère la séquence suivante : {47,23,89,11,37,73,97}. Si on insère ensuite la valeur 31, où atterrit-elle?
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{res/tree.png}
+\end{center}
+
+\mcqlist{
+    Comme enfant droit de 11., Comme enfant gauche de 73., Comme enfant gauche de 37., Comme enfant droit de 23.    
+}
+
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Soit la fonction suivante qui vérifie si une chaîne de caractères est un palindrome. Quelle est sa complexité temporelle supposant que la longueur de la chaîne de caractères est $n$?
+
+\begin{lstlisting}[style=pythonstyle]
+def est_palindrome(chaine: str) -> bool:
+    chaine_nettoyee = "".join(filter(str.isalnum, chaine.lower()))
+    n = len(chaine_nettoyee)
+    
+    gauche = 0
+    droite = n - 1
+    
+    while gauche < droite:
+        if chaine_nettoyee[gauche] != chaine_nettoyee[droite]:
+            return False
+            
+        gauche += 1
+        droite -= 1
+        
+    return True
+\end{lstlisting}
+
+\mcqlist{
+    $O(n)$,  $O(n \log(n)$,  $O(1)$, $O(n^2)$
+}
+
+\begin{solution}
+$O(n)$
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Quelle notation asymptotique donne une borne supérieure asymptotique pour une fonction $f(n)$?
+
+
+\mcqlist{
+     $\Omega$-notation ,  $\Theta$-notation,  $O$-notation, $n_0$-notation
+}
+
+\begin{solution}
+$O$-notation
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Quelles affirmations sont correctes concernant les graphes denses?
+
+\mcqlist{
+    Un graphe complet est un graphe dense.,
+    Un graphe connecté est un graphe dense.,
+    Les listes d'adjacence sont plus efficaces pour représenter des graphes denses.,
+    Les matrices d'adjacence sont plus efficaces pour représenter des graphes denses.
+}
+
+\begin{solution}
+A, D.
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Lesquelles des affirmations suivantes concernant l'algorithme de Kruskal sont vraies?
+
+\mcqlist{
+    L'algorithme de Kruskal utilise une approche gloutonne pour trouver l'arbre couvrant de poids minimal.,
+    L'algorithme de Kruskal fonctionne aussi avec des poids négatifs.,
+    L'algorithme de Krusal fonctionne sur des graphes non-connectés.,
+     L'algorithme de Kruskal trouve l'unique solution optimale pour le problème de l'arbre couvrant de poids minimal.
+}
+
+\begin{solution}
+B, E.
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Lesquelles des affirmations suivantes concernant l'algorithme de parcours en largeur (BFS) sont vraies?
+
+\mcqlist{
+    L'algorithme BFS peut être utilisé pour trouver le plus court chemin dans un graphe non pondéré.,
+    L'algorithme BFS utilise une pile (stack) pour garder la trace des nœuds à visiter.,
+    {L'algorithme BFS visite tous les nœuds à une distance donnée avant de visiter les nœuds à la distance supérieure.},
+    {Si il n'existe pas de chemin entre le nœud de départ et un autre nœud, l'algorithme BFS peut entrer dans une boucle infinie.},
+    {Si le graphe contient des cycles, l'algorithme BFS ne peut pas être utilisé pour trouver le plus court chemin}.
+}
+
+\begin{solution}
+A, C.
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Combien d'appels à \textsc{UNION} sont nécessaires pour fusionner n ensembles disjoints en un seul ensemble?
+
+\mcqlist{
+    $n$,
+    $n - 1$,
+    $n + 1$,
+    $2n$
+}
+
+\begin{solution}
+Option B. L'arbre minimum couvrant a toujours $n-1$ arêtes pour $n$ sommets. Chaque appel à \textsc{UNION} crée une arête.  
+\end{solution}
+\end{Exercice}
+
+%% TODO: Add Reda's questions here 
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+On applique une recherche séquentielle sur la liste \texttt{L = [5, 12, 7, 12, 20]} et on cherche 12.
+
+Que renvoie l’algorithme de recherche séquentielle suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+def recherche_sequentielle(liste, e):
+    if e in liste:
+        return liste.index(e)
+    return -1 
+\end{lstlisting}
+
+\mcqlist{
+1, 3, 12, (1, 3)
+}
+
+\begin{solution}
+1
+\end{solution}
+
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+On cherche \texttt{key = 11} dans la liste triée \texttt{L = [2, 4, 6, 10, 13, 18]}. Que renvoie l'algorithme de recherche binaire suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+def recherche_binaire(key, array):
+    low = 0
+    high = len(array) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if key < array[mid]:
+            high = mid - 1
+        elif key > array[mid]:
+            low = mid + 1
+        else:
+            return mid
+
+    return -1
+\end{lstlisting}
+
+\mcqlist{
+3, KeyError: 11, -1, 11
+}
+
+\begin{solution}
+-1
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+On considère le graphe suivant, représenté par une liste d’adjacence:
+
+\begin{lstlisting}
+G = {
+   'A': ['B','D'],
+   'B': ['C'],
+   'C': ['E'],
+   'D': ['E'],
+   'E': []
+}
+\end{lstlisting}
+
+L'algorithme de BFS: 
+
+\begin{lstlisting}[style=pythonstyle]
+def bfs(graph, start):
+    visited = list(start) # liste des sommets visités
+    queue = [start] # liste des sommets à visiter
+    order = [] # pour stocker l'ordre de sommets
+    u = queue.pop(0) 
+    order.append(u)
+    neighbors = graph[u] # liste des voisins de u
+    for v in neighbors : 
+        if v not in visited : 
+            queue.append(v)
+            visited.append(v)
+return order 
+\end{lstlisting}
+
+Que retourne \texttt{BFS(G, 'A')}?
+
+\mcqlist{
+{$[$'A','B','D','C','E'$]$ }, {$[$'A','D','B','C','E'$]$}, {$[$'A','B','C','D','E'$]$}, {$[$'A','D','E','B','C'$]$}
+}
+
+\begin{solution}
+Option A. 
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soit le graphe décrit par la liste d'adjacence (adjacency list) ci-dessous:
+
+\begin{lstlisting}
+G = {
+  "A": [("B", 3), ("C", 1)],
+  "B": [("A", 3), ("C", 2), ("D", 4)],
+  "C": [("A", 1), ("B", 2), ("D", 5)],
+  "D": [("B", 4), ("C", 5)]
+}
+\end{lstlisting}
+
+Quel ensemble d’arêtes forme l’arbre couvrant minimal obtenu avec Kruskal?
+
+\mcqlist{
+{('A','C',1), ('B','C',2), ('B','D',4)},
+ {('A','C',1), ('A','B',3), ('B','D',4)},
+ {('A','C',1), ('B','C',2), ('A','B',3)},
+{('A','B',3), ('B','C',2), ('C','D',4)}
+}
+
+\begin{solution}
+Option A. 
+\end{solution}
+
+\end{Exercice}
+
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Soit l'algorithme de construction d'un arbre KD (KD-tree) avec $K=3$, et un ensemble de points en 3D sous la forme $(x, y, z)$.
+Si le premier axe de division est l'axe $X$, le deuxième $Y$ et le troisième $Z$, quel axe sera utilisé lors du troisième appel à \textsc{BuildKDTree} étant donné qu'il y a 10 points distincts?
+
+\begin{algorithm}[H]
+\caption{BuildKDTree($\text{points}, \text{depth}, k$)}
+\label{alg:kdtree-build}
+\begin{algorithmic}[1]
+\If{$\text{points} = \emptyset$}
+    \State \textbf{return} $\text{NIL}$
+\EndIf
+\State $\text{axis} \leftarrow \text{depth} \ \% \ k$ \Comment{Select axis based on current depth}
+\State $\text{points} \leftarrow \text{SORT}(\text{points}, \text{key} = \text{axis})$ \Comment{Sort by current axis}
+\State $\text{median\_idx} \leftarrow \text{INTEGER}(\text{length}(\text{points}) / 2 )$ \Comment{Index of median list item}
+\State $\text{median} \leftarrow \text{KDNode}(\text{points}[\text{median\_idx}]$)
+\State $\text{left} \leftarrow \text{points}[1 \ldots \text{median\_idx} - 1]$ \Comment{Left half of the points list}
+\State $\text{right} \leftarrow \text{points}[\text{median\_idx} + 1 \ldots \text{length}(\text{points})]$ \Comment{Right half of the points list}
+\State $\text{median.left} \leftarrow \text{BuildKDTree}(\text{left}, \text{depth} + 1, k)$
+\State $\text{median.right} \leftarrow \text{BuildKDTree}(\text{right}, \text{depth} + 1, k)$
+\State \textbf{return} median
+\end{algorithmic}
+\end{algorithm}
+
+\mcqlist{
+    X, Y, Z
+}
+
+\begin{solution}
+Z
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Lesquelles des affirmations suivantes concernant les quadtrees sont vraies?
+
+\mcqlist{
+    {Les Quadtrees sont toujours des arbres équilibrés.},
+    {Chaque nœud interne d'un Quadtree a exactement quatre enfants.},
+    {Les Quadtrees sont principalement utilisés pour représenter des données en trois dimensions.},
+    {Avec une profondeur de $n$ (hauteur de l'arbre), un Quadtree peut représenter jusqu'à $2^n$ régions distinctes.},
+    {Avec une profondeur de $n$ (hauteur de l'arbre), un Quadtree peut représenter jusqu'à $4^n$ régions distinctes. }
+}
+
+\begin{solution}
+B, E. 
+\end{solution}
+ 
+
+\end{Exercice}
