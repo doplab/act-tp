@@ -1,0 +1,261 @@
+
+
+\begin{Exercice}[10 minutes]\textbf{Sean}
+
+Dans cet exercice nous aimerions que le processeur calcule et enregistre le produit de 3 fois $10_{10}$ ($00001010_2$) dans le registre 11. Le program counter (PC) commence à \textbf{00000100} et les registres sont initialisés comme suit:
+
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Registre} & \textbf{Valeur} \\
+\hline
+00 & 00001010 \\ \hline
+01 & 00000000 \\ \hline
+10 & 00000000 \\ \hline
+11 & 00000000 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+Les opérations disponibles sont:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Numéro} & \textbf{Instruction} \\
+\hline
+00 & MOV \\ \hline
+01 & XOR \\ \hline
+10 & ADD \\ \hline
+11 & SUB \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip % Creates vertical space, equivalent to Typst's \ \
+
+% --- Part a ---
+\noindent % Prevents indentation
+\textbf{a.} Complétez le tableau ci-dessous avec les instructions en binaire nécessaires pour effectuer cette tâche.
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Adresse} & \textbf{Valeur} \\
+\hline
+00000100 & \\ \hline
+00000101 & \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+% --- Part b ---
+\noindent % Prevents indentation
+\textbf{b.} Donnez le contenu des registres après l'exécution de la première instruction et après l'exécution de la deuxième instruction.
+
+\begin{center}
+\begin{tabular}{|c|l|l|}
+\hline
+\textbf{Registre} & \textbf{Après 1ère instruction} & \textbf{Après 2ème instruction} \\
+\hline
+00 & & \\ \hline
+01 & & \\ \hline
+10 & & \\ \hline
+11 & & \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\begin{solution}
+\textbf{a.}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Adresse} & \textbf{Valeur} \\
+\hline
+00000100 & 10100000\\ \hline
+00000101 & 10110010\\ 
+\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\textbf{b.}
+
+\begin{center}
+\begin{tabular}{|c|l|l|}
+\hline
+\textbf{Registre} & \textbf{Après 1ère instruction} & \textbf{Après 2ème instruction} \\
+\hline
+00 & 00001010 & 00001010 \\ \hline
+01 & 00000000 & 00000000 \\ \hline
+10 & 00010100 & 00010100 \\ \hline
+11 & 00000000 & 00011110 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes]\textbf{Sean}
+Quel est le résultat de la soustraction hexadécimale suivante en base 16: 694F - 5A3C?
+
+\begin{solution}
+0F13
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Aurore}
+Selon le modèle de Von Neumann, partant d'un program counter valant 101010 et d'une mémoire contenant les instructions suivantes:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Adresse} & \textbf{Instruction} \\
+\hline
+101001 & 01000111 \\ \hline
+101010 & 01111000 \\ \hline
+101011 & 10001101 \\ \hline
+101100 & 10010110 \\ 
+\hline
+\end{tabular}
+\end{table}
+
+Dans quel registre le résultat de la prochaine opération va-t-il être stocké?
+
+\mcqlist{00, 01, 10, 11}
+
+\begin{solution}
+11
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Aurore} Quel est le résultat de l'opération suivante : $395_{16}$ + $1011101_{2}$?
+\mcqlist{$1011_{10}$, $3F2_{16}$, $0011 1110 0011_2$, $1010_2$}
+
+\begin{solution}
+$3F2_{16}$
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Maxim} Quelle est la valeur en base 10 de l’opération suivante : $128_9$ - $245_6$?
+\mcqlist{9,6,0,3}
+\begin{solution}
+6
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Maxim}
+Convertir le nombre $127_{10}$ en base 8.
+\mcqlist{87,177,71,180}
+\begin{solution}
+$177_8$
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Léa}
+Quel est le résultat de l'opération suivante $67_8$ + $110111_2$ en base 10? 
+\mcqlist{110, 78, 122, 106}
+\begin{solution}
+    110
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Léa}
+En suivant le modèle de von Neumann, l'Instruction Register (IR) a une valeur de 11000111, les registres contiennent les valeurs suivantes:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Registre} & \textbf{Valeur} \\ \hline
+00 & 00000000 \\  \hline
+01 & 00000101 \\  \hline
+10 & 00000110 \\  \hline
+11 & 00000010 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Numéro} & \textbf{Valeur} \\ \hline
+00 & MOV \\  \hline
+01 & XOR \\  \hline
+10 & ADD \\  \hline
+11 & SUB \\ \hline
+\end{tabular}
+\end{center}
+Quelle est la valeur du résultat de l'opération?
+\mcqlist{$00000111_2$, $00001011_2$, $00000011_2$, $00000001_2$}
+\begin{solution}
+$00000011_2$ est stocké dans le registre 00.
+\end{solution}
+\end{Exercice}
+
+% \begin{Exercice}[10 minutes]\textbf{Léa}
+% Quelle est la valeur du résultat de l'opération?
+% \mcqlist{$111_2$, $1011_2$, $011_2$, $0001_2$}
+% \end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Reda}
+Que représentent les deux premiers bits (partant de gauche) de l'Instruction Register? (exemple: 11001001)?
+\mcqlist{L'adresse du registre dans lequel il faudra mettre le résultat,
+L'identificateur de l'opération à exécuter,
+L'adresse du registre dans lequel est contenue la valeur sur laquelle faire l'opération,
+Ils n'ont aucune signification}
+
+\begin{solution}
+Option B.
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Reda}
+Quel est le résultat de la soustraction $11011001_2$ - $00110110_2$ en base 10?
+\begin{solution}
+163
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Quel est le résultat de l'opération suivante : $1011010_2$ - $1000111_2$?
+\mcqlist{$0001111_2$, $0010011_2$, $0100011_2$, $0010101_2$}
+\begin{solution}
+$0010011_2$
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Quel est le résultat en base 10 de l'opération suivante : $47_{10}$ + $DEF_{16}$ ?
+\mcqlist{3614, 3478, 3589, 3651}
+\begin{solution}
+    3614
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Léa}
+Écrivez le complément à 2 de $21_{10}$ sur 8 bits:
+\mcqlist{1110 1011, 1110 1010, 0001 0101, 0001 0100}
+
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Quelle est la représentation du complément à 2 (two complement) de -143 sur 8 bits?
+
+\mcqlist{10010001, 01110001, 01100001, Aucune des réponses n'est correcte}
+
+\begin{solution}
+La valeur la plus négative sur 8 bits en complément à deux est $-2^7=-128$. Aucune des réponses n'est correcte.
+\end{solution}
+\end{Exercice}

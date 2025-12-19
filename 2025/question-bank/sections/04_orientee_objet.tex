@@ -1,0 +1,1038 @@
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Java, quel code définit correctement un getter pour un attribut privé type?
+
+\begin{lstlisting}[style=javastyle]
+// Option A
+public void getType() { return type; }
+
+// Option B
+private String getType() { return this.type; }
+
+// Option C
+public String getType() { return type; }
+
+// Option D
+public static String getType() { return type; }
+\end{lstlisting}
+
+\begin{solution}
+\texttt{public String getType() \{ return type; \}}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Java, quelle est la syntaxe correcte pour indiquer qu’une classe \texttt{VoitureElectrique} hérite de \texttt{Voiture}?
+
+\mcqlist{
+    \texttt{class VoitureElectrique -> Voiture},
+    \texttt{class VoitureElectrique extends Voiture},
+    \texttt{class VoitureElectrique inherits Voiture},
+    \texttt{class VoitureElectrique super Voiture}
+}
+\begin{solution}
+\texttt{class VoitureElectrique extends Voiture}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soit la classe suivante:
+
+\begin{lstlisting}[style=javastyle]
+public class Cat {
+    public String name;
+    private int age;
+    private int mood = 5;
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public int getMood() {
+        return mood;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setMood(int mood){
+        this.mood = mood;
+    }
+
+    public boolean canPlay(Cat otherCat){
+        ???
+    }
+}
+\end{lstlisting}
+
+La méthode \texttt{canPlay} décrit si 2 chats peuvent jouer ensemble. Deux chats ne veulent pas jouer ensemble si le mood de l'un des deux est inférieur (strictement) à 3, dans ce cas la fonction retourne faux, sinon elle retourne vrai.\newline 
+
+Ecrivez le code de la fonction \texttt{canPlay}.
+
+\begin{solution}
+\lstinputlisting[style=javastyle]{code/Q66.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soit les 2 classes suivantes:
+
+\begin{lstlisting}[style=javastyle]
+public class Animal {
+    private String type;
+    protected String name;
+    protected int age;
+    protected int nb_animal = 0;
+
+    public Animal(String type, String name, int age){
+        this.type = type;
+        this.name = name;
+        this.age = age;
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+public class Cat extends Animal {
+    #Ligne 1 à remplacer
+
+    public Cat(String name, int age, String type, int mood) {
+        #Ligne 2
+        #Ligne 3
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public int getMood() {
+        return mood;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setMood(int mood){
+        this.mood = mood;
+    }
+}
+\end{lstlisting}
+
+Compléter le code suivant en ajoutant l'attribut nécessaire à la ligne 1 et compléter le constructeur à la ligne 2 et 3.
+
+\begin{solution}
+Ligne 1: \texttt{private int mood;} \newline 
+Ligne 2: \texttt{super(type,name,age);} \newline 
+Ligne 3: \texttt{this.mood = mood;}
+\end{solution}
+
+
+Soit la suite donnée par $u_0 = 4 \quad \text{et} \quad \forall n > 1,\; u_n = n + u_{n-1}^2$.
+
+\begin{lstlisting}[style=pythonstyle]
+def suite(n):
+  if n== 0:
+    return ???
+  else:
+    return ???
+\end{lstlisting}
+
+Par quoi faut-il remplacer les ??? pour que le code correspond à l'expression donnée plus-haut?
+
+\mcqlist{
+    {4, $n + suite(n+1)$},
+    {0, $n + u(n-1)**2$},
+    {4, $n + suite(n-1)**2$},
+    {0, $n**2 + suite(n+1)$}
+}
+
+\begin{solution}
+4, $n + suite(n-1)**2$
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+
+% Quelle sera la sortie dans la console après l'exécution du programme \texttt{CoffeShop}?
+
+% \begin{lstlisting}[style=javastyle]
+% // Fichier: CoffeeMachine.java
+% public class CoffeeMachine {
+%   public static int coffeesMadeCount = 0;
+%   public CoffeeMachine() {}
+%   public void makeCoffee() {
+%       CoffeeMachine.coffeesMadeCount++;
+%   }
+% }
+% \end{lstlisting}
+
+% \begin{lstlisting}[style=javastyle]
+% // Fichier: CoffeeShop.java
+% public class CoffeeShop {
+%   public static void main(String[] args) {
+%     CoffeeMachine machine1 = new CoffeeMachine();
+%     CoffeeMachine machine2 = new CoffeeMachine();
+%     machine1.makeCoffee();
+%     System.out.println(machine1.coffeesMadeCount);
+%     machine2.makeCoffee();
+%     System.out.println(machine2.coffeesMadeCount);
+%     CoffeeMachine.coffeesMadeCount = 0;
+%     System.out.println(machine1.coffeesMadeCount);
+%     }
+% }
+% \end{lstlisting}
+
+% \mcqlist{
+%      1 \; 1 \; 0,
+%      1 \; 2 \; 0,
+%      1 \; 1 \; 1,
+%      1 \; 2 \; 1
+% }
+
+
+% \begin{solution}
+% 1 \; 2 \; 0
+% \end{solution}
+
+% Comment empêcher le CoffeeShop de réinitialiser l'attribut CoffeesMadeCount, tout en laissant le CoffeeShop consulter la valeur de l'attribut, sélectionnez toutes les modifications nécessaires?
+
+% \mcqlist{
+%     Rendre CoffeesMadeCount privée,
+%     Créer un getter pour CoffeesMadeCount,
+%     Créer un setter pour CoffeesMadeCount,
+%     Supprimer le mot-clé static de CoffeesMadeCount
+% }
+
+% \begin{solution}
+% Rendre CoffeesMadeCount privée et créer un getter pour CoffeesMadeCount.
+% \end{solution}
+
+Parmi les affirmations suivantes, lesquelles sont corrects: 
+
+\mcqlist{
+{En Java, les attributs d'une classe peuvent être initialisés directement lors de leur déclaration, en dehors de tout constructeur.},
+{En Python, des attributs propres à chaque instance peuvent être déclarer en dehors de toute méthode (dans le corps de la classe)},
+{
+    En Python, la référence à l'instance (self) doit être passée explicitement comme premier argument de chaque méthode d'instance, contrairement au mot-clé this en Java qui est implicite.
+},
+{
+    En Python, le constructeur d'une classe est défini par la méthode spéciale \_\_init\_\_, alors qu'en Java, il porte le même nom que la classe.
+}
+}
+
+\begin{solution}
+A, C, et D.
+\end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Qu'affiche le programme suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+class Logger:
+    def __init__(self):
+        self.events = []
+    def log(self, msg):
+        self.events.append(msg)
+    def summary(self):
+        return "-".join(self.events)
+
+class Process(Logger):
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
+    def start(self):
+        self.log("start:" + self.name)
+        self.execute()
+    def execute(self):
+        self.log("exec:" + self.name)
+    def stop(self):
+        self.log("stop:" + self.name)
+
+class TimedProcess(Process):
+    def __init__(self, name, ticks):
+        super().__init__(name)
+        self.ticks = ticks
+    def execute(self):
+        for i in range(self.ticks):
+            self.log(f"tick{i}")
+        super().execute()
+        self.stop()
+
+p = TimedProcess("P1", 2)
+p.start()
+print(p.summary())
+\end{lstlisting}
+
+\mcqlist{
+    start:P1-tick0-tick1-stop:P1,
+    tick0-tick1-start:P1-exec:P1-stop:P1,
+    start:P1-tick0-tick1-exec:P1-stop:P1,
+    Ce programme n'affiche rien.
+}
+\begin{solution}
+start:P1-tick0-tick1-exec:P1-stop:P1
+\end{solution}
+
+Qu'affiche le code suivant?
+
+\begin{lstlisting}[style=javastyle]
+class Enseignant {
+    protected int baseSalary = 3000;
+    public int salaireMensuel() { return baseSalary; }
+}
+
+class Professeur extends Enseignant {
+    private int committees;
+    public Professeur(int committees) { this.committees = committees; }
+    public int salaireMensuel() { return super.salaireMensuel() + committees * 200; }
+}
+
+class Collaborateur extends Enseignant {
+    private int hours, rate;
+    public Collaborateur(int hours, int rate) { this.hours = hours; this.rate = rate; }
+    public int salaireMensuel() { return hours * rate; }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Enseignant e = new Professeur(3);
+        Enseignant f = new Collaborateur(10, 50);
+        System.out.println(e.salaireMensuel() + f.salaireMensuel());
+        e = f;
+        System.out.println(e.salaireMensuel());
+    }
+}
+\end{lstlisting}
+
+\mcqlist{
+    4100 \newline 
+    500,
+    3500 \newline 
+    3000,
+     4100 \newline 
+    3000,
+    3000 \newline 
+    500
+}
+
+\begin{solution}
+4100 \newline 
+500
+\end{solution}
+
+Laquelle des affirmations suivantes est vraie?
+
+\mcqlist{
+    {L’héritage permet à une sous-classe d’accéder directement aux champs private de sa superclasse, ce qui favorise la modularisation.},
+{L’encapsulation vise à cacher la complexité interne d’un objet, permettant de l’utiliser uniquement via les méthodes définies dans sa classe.},
+ {La modularisation consiste à regrouper dans une seule classe toutes les fonctionnalités nécessaires au programme pour éviter la duplication de code.},
+ {Le sous-typage empêche une instance d’une sous-classe d’être utilisée là où un objet de la classe mère est attendu}.
+}
+
+\begin{solution}
+L’encapsulation vise à cacher la complexité interne d’un objet, permettant de l’utiliser uniquement via les méthodes définies dans sa classe.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soit le code ci dessous, par quoi faut-il remplacer les ??? pour que le code fonctionne?
+
+\begin{lstlisting}[style=pythonstyle]
+class Circle:
+    def __init__(self,rayon):
+        self.__rayon = rayon
+
+    def __str__(self):
+        print(f"Ce cercle a un rayon de {self.__rayon}")
+    def get_rayon(self):
+        return self.__rayon
+
+    def __eq__(self, other):
+        if ???:
+            if self.__rayon == self.get_rayon():
+                return True
+            else: 
+                return False
+  else:
+    return False
+\end{lstlisting}
+
+\mcqlist{
+    \texttt{isinstance(other, Circle)},
+    \texttt{isinstance(other,self)},
+    \texttt{other.isCircle()},
+    \texttt{other.equal(Circle)}
+}
+
+\begin{solution}
+\texttt{isinstance(other, Circle)}
+\end{solution}
+
+Qu'affiche le code ci dessous?
+\begin{lstlisting}[style=pythonstyle]
+counter = 0
+class Vehicle:
+    def __init__(self, brand):
+        global counter
+        counter += 1
+        self._id = counter
+        self._brand = brand
+
+    def start(self):
+        print("Starting vehicle-" + str(self._id))
+        self.engine()
+
+    def engine(self):
+        print("- generic engine started")
+
+class Car(Vehicle):
+    def __init__(self, brand, doors):
+        super().__init__(brand)
+        self.doors = doors
+
+    def start(self):
+        print("Starting car-" + str(self._id) +" " + self._brand)
+        super().start()
+
+    def engine(self):
+        print("- car engine with " + str(self.doors) + " doors started")
+
+vehicle = Car("Toyota", 4)
+vehicle.start()
+
+vehicle = Vehicle("Generic")
+vehicle.start()
+\end{lstlisting}
+
+
+\mcqlist{
+{Starting car-1 \newline 
+Starting vehicle-1 \newline 
+- car engine with 4 doors started \newline 
+AttributeError: 'Vehicle' object has no attribute 'engine'},
+{
+ Starting car-1 Toyota \newline 
+Starting vehicle-1 \newline 
+- generic engine started \newline 
+Starting vehicle-2 \newline 
+- generic engine started \newline 
+},
+{
+Starting car-1 Toyota  \newline 
+Starting vehicle-1 \newline 
+- car engine with 4 doors started \newline 
+Starting vehicle-2 \newline 
+- generic engine started
+},
+{
+Starting car-1 \newline 
+- car engine with 4 doors started \newline 
+Starting vehicle-2 \newline 
+- generic engine started
+},
+}
+\begin{solution}
+Option C: \newline 
+
+Starting car-1 Toyota  \newline 
+Starting vehicle-1 \newline 
+- car engine with 4 doors started \newline 
+Starting vehicle-2 \newline 
+- generic engine started
+\end{solution}
+
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Laquelle des phrases suivantes est fausse concernant les attributs?
+
+\mcqlist{
+{Le mot clé static en Java désigne un attribut de classe},
+{\texttt{self.\_\_attribut} désigne un attribut privé en Python},
+{Un getter est nécessaire pour utiliser un attribut privé d'un objet en dehors de la classe où l'attribut est défini},
+{Le mot clé self est nécessaire pour utiliser un attribut d'un objet sur lequel une méthode est appelée en Java}
+}
+
+\begin{solution}
+Option D: Le mot clé self est nécessaire pour utiliser un attribut d'un objet sur lequel une méthode est appelée en Java.
+\end{solution}
+
+Les trois classes java suivantes sont définies:
+
+\begin{lstlisting}[style=javastyle]
+//classe 1
+public class Vehicle {
+    public String name;
+    public int speed;
+    public int nb_wheels;
+    static int nb_vehicles;
+    public Vehicle(String name,int speed,int nb_wheels){
+        this.name=name;
+        this.speed=speed;
+        this.nb_wheels=nb_wheels;
+        nb_vehicles++;
+    }
+}
+
+//classe 2
+public class Car extends Vehicle {
+    public boolean isOpenRoof;
+    public Car(String name, int speed,boolean or){
+        super(name,speed, 4);
+        this.isOpenRoof=or;
+    }
+}
+
+//classe 3
+public class Bike extends Vehicle {
+    public float height;
+    public Bike(String name, int speed,float height){
+        super(name,speed, 2);
+        this.height = height;
+    }
+}
+\end{lstlisting}
+
+Quelle ligne ne provoque aucune erreur?
+\mcqlist{
+  \texttt{Vehicle train = new Vehicle("train", 100, 30.6);},
+  \texttt{Vehicle jeep = new Car("jeep",140,false);},
+  \texttt{Bike kawa = new Bike("kawa", 300,true);},
+  \texttt{Car lambo = new Vehicle("lambo",500,4);}
+}
+
+
+\begin{solution}
+\texttt{Vehicle jeep = new Car("jeep",140,false);}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Parmi les expressions suivantes, lesquelles retournent \texttt{true} lorsque les objets a et b ont les mêmes attributs et sous quelle condition?
+
+\mcqlist{
+  {\texttt{a.equals(b) (sans condition particulière)}},
+  {\texttt{a.equals(b) (si la méthode equals() est redéfinie dans ce but)}},
+  {\texttt{a == b (si a et b sont de type int)}},
+  {\texttt{a == b (si on a assigné la valeur a à b ou l'inverse)}},
+  {\texttt{aucune de ces réponses}}
+}
+
+\begin{solution}
+B, C, D. 
+\end{solution}
+
+Soit la classe suivante en Java.
+
+\begin{lstlisting}[style=javastyle]
+public class Car extends Vehicle {
+    private int  nb_seats;
+    public boolean isOpenRoof;
+    private static float nb_mini;
+    public double height;
+    public Car(String name, int speed, int nb_seats, boolean or, double height){
+        super(name,speed);
+        this.nb_seats = nb_seats;
+        this.isOpenRoof=or;
+        this.height = height;
+        if (nb_seats<5){
+            nb_mini++;
+        }
+    }
+}
+\end{lstlisting}
+Lesquelles des affirmations suivantes sont vraies?
+\mcqlist{
+  {Les attributs name et speed peuvent être définis comme privés ou publics dans la classe mère},
+  {La valeur par défaut de \texttt{or} est false},
+  {Les attributs \texttt{nb\_seats} et \texttt{nb\_mini} sont privés},
+  {Les attributs \texttt{nb\_mini} et \texttt{height} sont de même type},
+  {L'attribut \texttt{nb\_mini} est un attribut de classe},
+  {La classe mère défini exactement deux attributs}
+}
+
+\begin{solution}
+C, E.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+Par quelle valeur faut-il remplacer \texttt{\#LINE REMOVED} afin que le code exécute correctement?
+
+\begin{lstlisting}[style=pythonstyle]
+class Person:
+    def __init__(self, name):
+        #LINE REMOVED
+p = Person("Alice")
+print(p.name)
+\end{lstlisting}
+
+\mcqlist{
+    {\texttt{self.name = name }},
+    {\texttt{name = self.name}},
+    {\texttt{return name}},
+    {\texttt{print(name)}}
+}
+
+\begin{solution}
+Option A.
+\end{solution}
+
+Qu'affiche le programme suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+class Compteur:
+    def __init__(self, valeur):
+        self.valeur = valeur
+
+    def ajouter(self, x):
+        self.valeur += x
+
+class Multiplicateur:
+    def __init__(self, facteur):
+        self.facteur = facteur
+
+    def multiplier(self, x):
+        return x * self.facteur
+
+c = Compteur(5)
+m = Multiplicateur(3)
+
+c.ajouter(2)
+resultat = m.multiplier(c.valeur)
+
+print(resultat)
+\end{lstlisting}
+
+\mcqlist{15, 21, 17, 7}
+\begin{solution}
+21
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+
+
+Soit cet extrait de code qui compile et s'exécute sans erreurs. Lesquelles des affirmations suivantes pourraient décrire avec précision la relation entre Node, File et Folder?
+
+\begin{lstlisting}[style=javastyle]
+// Create instances of File and Folder
+Node node1 = new File("document.txt", 1024);
+Node node2 = new Folder("My Documents");
+
+// Store them in a list of type Node
+List<Node> nodes = new ArrayList<>();
+nodes.add(node1);
+nodes.add(node2);
+
+for (Node node : nodes) {
+    System.out.println("Name: " + node.name); 
+    System.out.println("---");
+}
+
+/*
+Example Output:
+Name: document.txt
+---
+Name: My Documents
+---
+*/
+\end{lstlisting}
+
+\mcqlist{
+ { Node est une interface, et File et Folder sont des classes qui implémentent Node},
+ {Node est une classe abstraite, et File et Folder sont des classes qui étendent Node},
+ {Node est une classe concrète (non abstraite), et File et Folder sont des classes qui étendent Node},
+{
+File est une classe, et Node et Folder sont des classes qui étendent File
+},
+{
+Node, File et Folder sont trois classes qui n'ont aucun lien de parenté (héritage).
+}
+}
+
+\begin{solution}
+B, C. Node ne peut pas être une interface car le code accède à un champ d’instance \texttt{node.name}. 
+En Java, les interfaces ne peuvent contenir que des attributs \texttt{public static final}, et non des champs dépendant des instances.
+\end{solution}
+
+Lesquelles des affirmations suivantes sont correctes:
+
+\mcqlist{
+    Une classe Java peut implémenter plusieurs interfaces.,
+    Une classe Java peut étendre plusieurs classes.,
+     Une classe fille peut accéder aux attributs privés de la classe mère.,
+     Une classe déclarée abstract ne peut pas avoir de constructeur. 
+}
+
+\begin{solution}
+Option A. 
+\end{solution}
+
+Soit \texttt{Animal a = new Chien();} (où \texttt{Chien extends Animal}). Si \texttt{Animal} et \texttt{Chien} ont tous deux une méthode \texttt{manger}, laquelle sera appelée par 
+\texttt{a.manger()}?
+
+\mcqlist{
+Celle de la classe \texttt{Animal},
+ Le code ne compile pas car a est de type \texttt{Chien},
+Le code ne compile pas car a est de type \texttt{Animal},
+Celle de la classe \texttt{Chien}
+}
+
+\begin{solution}
+Option D.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+Soit la spécification de la classe \texttt{HalloweenParty}.
+
+\begin{itemize}
+\item Attributs: \begin{itemize} \item Elle possède un attribut \lstinline[style=javastyle]{private Map<String, String> costumes} qui est un dictionnaire associant comme clé le nom d’un invité à une valeur qui est son costume. \end{itemize}
+\item Constructeur: \begin{itemize} \item \lstinline[style=javastyle]{public HalloweenParty()}  qui permet de créer une nouvelle instance de la classe avec costumes qui sera initialisé à un dictionnaire vide. \end{itemize}
+\item Méthodes: \begin{itemize} \item \lstinline[style=javastyle]{public void addPerson(String name, String costume) }   \newline 
+                                        Si le costume n’est pas déjà pris par un invité, l’association (name → costume) est ajoutée (ou mise à jour si name existe déjà), sinon un message de refus est affiché: "Sorry " + name + ", that costume is already taken, you must choose a different one to be added".
+                                \item \lstinline[style=javastyle]{private boolean isCostumeTaken(String costume)}  \newline 
+                                        Retourne true si costume est une valeur dans le dictionnaire costumes, autrement retourne false.
+                                \item \lstinline[style=javastyle]{public String getCostume(String name)}  \newline 
+                                        Renvoie le costume associé à name dans le dictionnaire costumes. Si aucune association n’existe, une chaîne de caractères vide est retournée 
+\end{itemize}
+\end{itemize}
+
+Laquelle de ces affirmations concernant la classe \texttt{HalloweenParty} est vraie?
+
+\mcqlist{
+    {On peut accéder à l’attribut \texttt{costumes} depuis une instance de la classe \texttt{HalloweenParty}},
+    {La méthode \texttt{getCostume} peut accéder à l’attribut \texttt{costumes}.},
+    {
+        L'appel \texttt{new HalloweenParty(Map.of("John", "Shrek", "Alicia", "Batman"))} ne lèvera pas d’erreurs
+    },
+    {
+        Après avoir instancié \texttt{HalloweenParty}, si on appelle \texttt{getCostume} avec un nom qui n’est pas une clef de \texttt{costumes}, cela lèvera une erreur
+    }
+}
+
+\begin{solution}
+Option B. 
+\end{solution} 
+
+\vspace*{0.5cm}
+
+Laquelle de ces implémentations satisfait la description de la méthode \texttt{addPerson}? \newline \newline 
+
+\begin{lstlisting}[style=javastyle]
+// Option A
+public void addPerson(String name, String costume) {
+    if (!isCostumeTaken(costume)) {
+        costumes.put(name, costume);
+    } else {
+        System.out.println(
+            "Sorry " + name
+            + ", that costume is already taken, you must choose a different one to be added"
+        );
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+// Option B
+public void addPerson(String name, String costume){
+       costumes.put(name, costume);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+// Option C
+public boolean addPerson(String name, String costume){
+   if(isCostumeTaken(costume)){
+         System.out.println("Sorry " + name + ", that costume is already taken, you must choose a different one to be added");
+         return;
+   } else {
+       costumes.put(costume, name);
+       return;
+  }
+}
+\end{lstlisting}
+
+\begin{solution}
+Option A.
+\end{solution}
+
+\vspace*{0.5cm}
+
+Qu’affiche le code suivant? \newline 
+\begin{lstlisting}[style=javastyle]
+public class Main {
+   public static void main(String[] args) {
+       HalloweenParty hp = new HalloweenParty();
+       hp.addPerson("Richard", "Dinosaur");
+       hp.addPerson("Nancy", "Dinosaur");
+       hp.addPerson("Richard", "Pilot");
+       System.out.println("Richard will be dressed as: " + hp.getCostume("Richard"));
+   }
+}
+\end{lstlisting}
+
+\mcqlist{
+    {Cette exécution lèvera une erreur}, 
+    {Sorry Nancy, that costume is already taken, you must choose a different one to be added \newline 
+    Sorry Richard, that costume is already taken, you must choose a different one to be added \newline 
+    Richard will be dressed as: None},
+    {
+        Sorry Nancy, that costume is already taken, you must choose a different one to be added \newline 
+        Richard will be dressed as: Pilot
+    },
+    {
+        Costume already taken, you must choose a different one to be added  \newline 
+        Richard will be dressed as: Dinosaur
+    }
+}
+
+\begin{solution}
+Option C.
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Qu'affiche le code Java suivant?
+
+\begin{lstlisting}[style=javastyle]
+public class Person {
+    private String firstName;
+    private String lastName;
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || this.getClass() != other.getClass()) return false;
+        Person person = (Person) other;
+        return this.firstName.equals(person.firstName)
+            && this.lastName.equals(person.lastName);
+    }
+
+    // Méthode main pour tester l'identité et l'égalité
+    public static void main(String[] args) {
+        Person p1 = new Person("Ted", "Mosby");
+        Person p2 = new Person("Ted", "Mosby");
+
+        System.out.println((p1 == p2));
+        System.out.println(p1.equals(p2));
+    }
+}
+\end{lstlisting}
+
+\mcqlist{
+    true \newline 
+    true,
+    false \newline 
+    true,
+    true \newline 
+    false, 
+    false \newline 
+    false
+}
+
+\begin{solution}
+Option B.
+\end{solution}
+
+Parmi les affirmations suivantes, lesquelles sont correctes? 
+
+\mcqlist{
+    {Une classe abstraite définit un type et fournit une implémentation partielle.},
+    {Une interface Java peut contenir du code exécuté, au même titre qu’une classe concrète.},
+    {En Java, une classe peut hériter de plusieurs classes mais d’une seule interface.},
+    {En Python, les notions de type, classe et interface sont moins strictement différenciées à cause de l’absence de typage statique.}
+}
+\begin{solution}
+Options A, E. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+Soit la classe \texttt{Tournament}
+
+\begin{lstlisting}[style=javastyle]
+abstract public class Tournament {
+   int nbrOfTeams;
+
+   public Tournament(int  nbrOfTeams) {
+       this.nbrOfTeams = nbrOfTeams;
+   }
+
+   public abstract String getTournamentType();
+
+   public String getDescription() {
+       return "This tournament has " + nbrOfTeams + " teams.";
+   }
+}
+\end{lstlisting}
+
+Quel est l’intérêt de rendre une classe abstraite? (Plusieurs réponses possibles). \newline 
+
+\mcqlist{
+{Cela rend son instanciation impossible},
+{Permettre de revenir implémenter la classe plus tard},
+{Assurer que toutes les classes filles auront la même implémentation des méthodes abstraites},
+{Mettre en place une structure commune pour ses classes filles}
+}
+
+\begin{solution}
+A, D. 
+\end{solution}
+
+\vspace*{0.4cm}
+
+Soient les deux classes concrètes qui héritent de \texttt{Tournament}
+
+\begin{lstlisting}[style=javastyle]
+public class BasketBallTournament extends Tournament {
+   public final int quarterDurationMinutes;
+   public BasketBallTournament(int nbrOfTeams, int quarterDurationMinutes) {
+       super(nbrOfTeams);
+       this.quarterDurationMinutes = quarterDurationMinutes;
+   }
+   @Override
+   public String getTournamentType() {
+       return "Basketball tournament. ";
+   }
+
+   @Override
+   public String getDescription() {
+       return super.getDescription() + " Each quarter lasts "  + quarterDurationMinutes + " minutes.";
+   }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+public class TennisTournament extends Tournament{
+   private final boolean isGrandSlam;
+   public TennisTournament(int nbrOfTeams, boolean isGrandSlam) {
+       super(nbrOfTeams);
+       this.isGrandSlam = isGrandSlam;
+   }
+   @Override
+   public String getTournamentType() {
+       return "Tennis tournament. ";
+   }
+   @Override
+   public String getDescription() {
+       String additionalInfo;
+       if (isGrandSlam) {
+           additionalInfo = " This tournament is a Grand Slam.";
+       } else {
+           additionalInfo = " This tournament is not a Grand Slam.";
+       }
+       return super.getDescription() + additionalInfo;
+   }
+}
+\end{lstlisting}
+
+Aurions-nous eu une erreur si on retirait l’implémentation de \texttt{getDescription} dans \texttt{TennisTournament}?
+
+\mcqlist{
+    {Oui, car la classe mère est abstraite, et il faut implémenter chaque méthode},
+    {Non, car nous avons déjà une implémentation dans la classe mère},
+    {Oui, car le type de retour de la fonction est String},
+    {Non, car on peut implémenter une classe comme on le souhaite}
+}
+
+\begin{solution}
+Option B.
+\end{solution}
+
+Aurions-nous eu une erreur si on retirait l’implémentation de \texttt{getTournamentType} dans \texttt{BasketballTournament}?
+
+\mcqlist{
+    {Oui, car la classe mère est abstraite, et il faut implémenter chaque méthode},
+    {Non, car le @Override indique qu’elle peut être retirer},
+    {Oui, car la méthode est abstraite dans la classe mère},
+    {Non, car on peut implémenter une classe comme on le souhaite}
+}
+
+\begin{solution}
+Option C. 
+\end{solution}
+
+
+Qu’affiche le programme suivant? \newline
+
+\begin{lstlisting}[style=javastyle]
+public class Main {
+   public static void main(String[] args) {
+       Tournament tournament1 = new BasketBallTournament( 32, 10);
+       Tournament tournament2 = new TennisTournament( 128, true);
+
+       System.out.println("Tournament 1: " + tournament1.getTournamentType() + tournament1.getDescription());
+       System.out.println("Tournament 2: " + tournament2.getTournamentType() + tournament2.getDescription());
+   }
+}
+\end{lstlisting}
+\mcqlist{
+    {Ce programme va lever une erreur},
+    {Tournament 1: This tournament has 32 teams. \newline 
+    Tournament 2: This tournament has 128 teams. },
+    {Tournament 1: Basketball tournament. This tournament has 32 teams. Each quarter lasts 10 minutes. \newline 
+    Tournament 2: Tennis tournament. This tournament has 128 teams. This tournament is a Grand Slam.},
+    {
+Tournament 1: Basketball tournament. This tournament has 32 teams. \newline 
+Tournament 2: Tennis tournament. This tournament has 128 teams. 
+    }
+}
+
+\begin{solution}
+Option C. 
+\end{solution}
+
+\vspace*{0.3cm}
+
+Comment peut-on accéder à l’attribut \texttt{quarterDurationMinutes} de \texttt{tournament1}?
+
+\mcqlist{
+    {Il faut faire un type casting},
+    {Il n’est pas possible d’accéder à cet attribut},
+    {Il faut implémenter un getter dans la classe \texttt{Tournament}},
+    {Il faut utiliser \texttt{tournament1.quarterDurationMinutes}}
+}
+
+\begin{solution}
+Option A.
+\end{solution}
+
+\end{Exercice}
+

@@ -1,0 +1,1254 @@
+
+\begin{Exercice}[10 minutes]\textbf{Maxim}
+En Java, que signifie le mot-clé final appliqué à une variable?
+\mcqlist{La variable ne peut pas être utilisée dans une boucle,
+La variable est constante et ne peut pas changer de valeur, 
+ La variable est automatiquement initialisée à zéro, 
+ La variable est globale}
+
+ \begin{solution}
+Option B. 
+ \end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Maxim}
+Si on exécute le code suivant:
+
+\begin{lstlisting}[style=pythonstyle]
+x = 7 
+if x % 2 == 0: 
+   print("pair") 
+else: 
+   print("impair") 
+\end{lstlisting}
+Que sera affiché?
+
+\mcqlist{impair, pair, 7, Aucun affichage}
+
+\begin{solution}
+Option A. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Léa}
+Qu'affiche le code suivant écrit en Java?
+
+\begin{lstlisting}[style=javastyle]
+int numero_jour = 5;
+switch (numero_jour) {
+    case 1:                
+        System.out.println("Lundi");
+        break;
+    case 2:
+        System.out.println("Mardi");
+        break;
+    case 3:
+         System.out.println("Mercredi");
+         break;
+     case 4:
+          System.out.println("Jeudi");
+          break;            
+     case 5:                
+          System.out.println("Vendredi");
+     case 6:                
+          System.out.println("Samedi");
+          break;            
+     case 7:                
+          System.out.println("Dimanche");
+          break;            
+     default:                
+           System.out.println("Ce n'est pas un jour valide !");
+\end{lstlisting}
+
+\mcqlist{Vendredi, Vendredi Samedi Dimanche, Ce n'est pas un jour valide, Vendredi Samedi}
+
+\begin{solution}
+Option D. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Léa}
+Qu'affiche le code suivant écrit en Python?
+\begin{lstlisting}[style=pythonstyle]
+a = False
+b = True
+c = False
+
+if (a or b) and (a or not c):
+    print("output 1")
+elif (a or not b) and (a or c):
+    print("output 2")
+if (a or not b) and (a or not c):
+    print("output 3")
+else:
+    print("output 4")
+\end{lstlisting}
+\mcqlist{output 1, output 1 output 4, output 4, output 1 output 3}
+
+\begin{solution}
+Option B. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Aurore}
+Laquelle des affirmations suivantes est correcte concernant l'expression:
+
+\begin{equation*}
+((\neg p \wedge q) \wedge (\neg p \vee \neg q)) \vee ((p \wedge q) \wedge \neg q)
+\end{equation*}
+\mcqlist{Si p est faux et q est vrai\, l'expression est fausse, 
+Si p est vrai et q est faux\, l'expression est fausse,
+Si p est faux et q est faux\, l'expression est vraie,
+Toutes les affirmations sont correctes}
+
+\begin{solution}
+Option B. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Aurore}
+On attribue à une variable \texttt{variable1} la valeur 2. On attribue à une variable \texttt{variable2} la valeur "hello". On essaie ensuite d'attribuer à \texttt{variable2} la valeur de \texttt{variable1} (en écrivant \texttt{variable2} = \texttt{variable1}). Laquelle des affirmations suivantes est correcte?
+
+\mcqlist{
+   {En Java, le code va afficher une erreur, à moins que les variables aient été les deux déclarées de type var},
+   {En Python, le code va afficher une erreur},
+    {En Java, le code va afficher une erreur},
+   {En Python, le code va convertir l'entier deux en la chaîne de caractère "2" pour l'attribuer à variable2}
+}
+
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Qu'affiche le programme Java suivant?
+
+\begin{lstlisting}[style=javastyle]
+public class Test {
+  public static void main(String[] args) {
+    int a = 5;
+    int b = 3;
+    boolean c = (a > b) && (b > 10);
+    System.out.println(c);
+  }
+}
+\end{lstlisting}
+
+\mcqlist{True, False, Le programme provoque une erreur de compilation, c}
+
+\begin{solution}
+Option B. 
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]\textbf{Amina}
+Qu'affiche le programme Java suivant?
+\begin{lstlisting}[style=javastyle]
+public class Test {
+  public static void main(String[] args) {
+    int a = 5;
+    int b = 3;
+    boolean c = (a > b) && ((b < 10) || (a < b)) || (a == b);
+    System.out.println(c);
+  }
+}
+\end{lstlisting}
+\mcqlist{False, Le programme provoque une erreur de compilation, E, True}
+
+\begin{solution}
+Option D. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Sean}
+    Dans la table de vérité suivante, par quelle expression faut-il remplacer \#LINE REMOVED pour obtenir la troisième colonne. 
+    
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & \#LINE REMOVED \\
+            \hline
+            0 & 0 & 1 \\
+            \hline
+            0 & 1 & 1 \\
+            \hline
+            1 & 0 & 1 \\
+            \hline
+            1 & 1 & 0 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \mcqlist{
+    $((\neg p \vee q) \wedge (p \vee \neg q))$,
+    $(\neg ((p \wedge q) \vee (\neg p \wedge \neg q)))$,
+    $((p \vee q) \wedge \neg (p \wedge q))$,
+    $\neg (p \wedge q)$,
+    Aucune des réponses n'est correcte
+    }
+
+\begin{solution}
+Option D.
+\end{solution}
+\end{Exercice}
+    % \item \textbf{B)} Donnez le code Python qui implémente la fonction NAND qui prend deux arguments booléens (A et B) et retourne le résultat de l'opération NAND.
+
+    % \item \textbf{C)} Donnez une expression booléenne de la porte NAND sans utiliser l'opérateur $\text{and}$. 
+\begin{Exercice}[10 minutes]\textbf{Sean}
+ Soit la fonction $f(p,q) = (\neg p) \vee (\neg q)$, par quelle expression faut-il remplacer \#LINE REMOVED dans le code Java suivant pour que la méthode \texttt{computeF(boolean p, boolean q)} soit équivalente à la fonction $f$?
+    \begin{lstlisting}[style=javastyle]
+public static boolean computeF(boolean p, boolean q){
+    return #LINE REMOVED;
+}\end{lstlisting} 
+\mcqlist{p \&\& (q || !q),
+p || !q,
+!(p \&\& q),
+not p or not q,
+Aucune des réponses n'est correcte
+}
+
+\begin{solution}
+Option C.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Sean}
+Quelle expression est équivalente à l'expression $\neg( \neg (A \wedge A) \wedge \neg(B \wedge B))$:
+
+\mcqlist{
+     $A \lor B$, 
+     $A \land B$, 
+     $(\lnot A \lor \lnot B)$, 
+     $\lnot(A \lor B) $, 
+     Aucune des réponses n'est correcte
+}
+
+\begin{solution}
+Option A (loi de Morgan). 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes]\textbf{Maxim}
+En Python, quel opérateur réalise une division entière?
+
+\mcqlist{
+    /,
+    \%,
+    //,
+    div()
+}
+
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Python, quelle exception sera levée pour une division par zéro?
+\mcqlist{
+    ValueError,
+    TypeError,
+    ZeroDivisionError,
+    ArithmeticError
+} 
+\begin{solution}
+Option C. 
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+ Soit le code python suivant qui est dans un fichier nommé \texttt{printElements.py}: 
+\begin{lstlisting}[style=pythonstyle]
+import sys
+
+if __name__ == "__main__":
+   arguments = sys.argv
+   if len(arguments) > 1:
+      for i in range(0, len(arguments) - 1):
+         print(f"Elément {i+2}: {arguments[i+1]}")
+   else:
+      print("Assurez-vous de passer au moins un argument à votre programme") 
+\end{lstlisting}
+
+
+\textbf{Question 37.A} Supposons qu'on ouvre un terminal Windows dans le dossier qui contient ce fichier python, comment pouvons-nous l'exécuter tout en évitant qu'il nous imprime \texttt{Assurez-vous de passer au moins un argument à votre programme}?
+
+\mcqlist{
+    \texttt{python printElements.py one two},
+    \texttt{python},
+    \texttt{python HelloWorld.py},
+    \texttt{python printElements.py}
+}
+
+\begin{solution}
+\texttt{python printElements.py one two}
+\end{solution}
+
+\textbf{Question 37.B} Selon votre réponse à la question précédente, notez le résultat de l'exécution. 
+
+\begin{solution}
+\texttt{Elément 2: one}\\
+\texttt{Elément 3: two}
+\end{solution}
+
+\textbf{Question 37.C} Quelle remarque est correcte par rapport à  la ligne 5: \texttt{if len(arguments) > 1}? 
+\mcqlist{
+    {Il y a une erreur, on devrait plutôt vérifier si la taille de la variable \texttt{arguments} est supérieure strictement à 0.},
+    {Le nom du fichier est techniquement le premier argument, il nous faut donc plus d'un élément pour considérer que nous avons reçu des arguments.},
+    {La variable \texttt{arguments} est une liste de nombres entiers.},
+    {La méthode \texttt{len} est une méthode importée depuis la libraire \texttt{math}.}
+}
+
+\begin{solution}
+Le nom du fichier est techniquement le premier argument, il nous faut donc plus d'un élément pour considérer que nous avons reçu des arguments.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+Soit le code Java suivant:
+\begin{lstlisting}[style=javastyle]
+public class Main {
+    public static void main(String[] args) {
+        String secretMessage = "oatbhinepog";
+        int hint = 3;
+        switch(hint){
+            case 1: System.out.print(secretMessage.charAt(1));
+            case 10: System.out.print(secretMessage.charAt(10));
+            case 6: System.out.print(secretMessage.charAt(6));
+            case 3: System.out.print(secretMessage.charAt(3));
+            case 50: System.out.print(secretMessage.charAt(5));
+            case 60: System.out.print(secretMessage.charAt(6));
+            case 100: System.out.print(secretMessage.charAt(10));
+            default: System.out.print(secretMessage.charAt(0));
+        }
+        System.out.println();
+        System.out.println(secretMessage.substring(1, 5));
+        <type> value = (secretMessage.length() == 6 || secretMessage.length() == 5) && (true || hint == 3);
+        System.out.println(value);
+    }
+}
+\end{lstlisting}
+Qu'est-ce qui sera affiché à la fin du bloc \texttt{switch} avant la ligne 15: \texttt{System.out.println()};
+
+\begin{solution}
+\texttt{bingo}
+\end{solution}
+
+Quelle est la valeur de \texttt{secretMessage.substring(1, 5)}?
+\mcqlist{
+    \texttt{"atbh"},
+    \texttt{"oatb"},
+    \texttt{"oatbh"},
+    \texttt{"oathbhinepog"}
+} 
+\begin{solution}
+\texttt{"atbh"}
+\end{solution}
+
+
+Par quoi faut-il remplacer <type>? Et quelle sera l'exécution à la ligne 17: \texttt{System.out.println(valeur);} 
+\mcqlist{
+    \texttt{boolean, true},
+    \texttt{boolean, false},
+    \texttt{String, (true || hint == 3) \&\& (secretMessage.length() == 6 || secretMessage.length() == 5) },
+    \texttt{String, value}
+}
+
+\begin{solution}
+\texttt{boolean, false}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Parmi les éléments suivants, lesquels ne sont pas contenus dans une stack frame:
+\mcqlist{
+    Une adresse de retour,
+    Les variables,
+    Une valeur de retour,
+    Les fonctions appelées,
+    Tous ces éléments sont contenus dans une stack frame
+}
+
+\begin{solution}
+Les fonctions appelées
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Qu'affiche le code suivant?
+\begin{lstlisting}[style=javastyle]
+public class Main {
+    static void z(int a){
+        System.out.print("z");
+        if (a > 1){
+            y(a);
+        }
+    }
+
+    static void y(int a){
+        System.out.print("y");
+        if (a == 0){
+            System.out.print(0);
+        }
+        else{
+            a = 0;
+            x(a);
+        }
+    }
+
+    static void x(int a){
+        System.out.print("x");
+        if (a == 0) {
+            y(a);
+        }
+        else{
+            z(a);
+        }
+    }
+    public static void main(String[] args) {
+        x(2);
+    }
+}
+\end{lstlisting}
+
+\mcqlist{
+    xz,
+    xzyxy0,
+    xzy0,
+    Une erreur
+}
+\begin{solution}
+xzyxy0
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Qu'affiche le programme suivant supposant que l'utilisateur saisit l'entrée suivante:
+
+Entrez votre username : "Algo1"
+Entrez votre password : "2025-2026"
+
+\begin{lstlisting}[style=pythonstyle]
+user = "Algo"
+password = "2025-2026"
+
+try:
+    user_1 = input("Entrez votre username : ")
+    password_1 = input("Entrez votre mot de passe :")
+
+    if not (user == user_1) :
+        raise NameError
+    else:
+        if (password == password_1) :
+            raise PermissionError
+        else :
+            print("Vous êtes connecté !")
+except NameError as error :
+    print("L'username n'est pas correct")
+except PermissionError as error:
+    print("Le mot de passe ne correspond pas à l'username")
+\end{lstlisting}
+
+\mcqlist{
+ L'username n'est pas correct Le mot de passe ne correspond pas à l'username,
+L'username n'est pas correct, 
+Vous êtes connecté,
+Le mot de passe ne correspond pas à l'username
+}
+\begin{solution}
+L'username n'est pas correct 
+\end{solution}
+
+Maintenant qu'affiche le programme supposant que l'utilisateur saisit l'entrée suivante? \newline 
+
+Entrez votre username : "Algo" \newline 
+Entrez votre password : "2025-2027"
+
+\mcqlist{
+ L'username n'est pas correct Le mot de passe ne correspond pas à l'username,
+L'username n'est pas correct, 
+Vous êtes connecté,
+Le mot de passe ne correspond pas à l'username
+}
+
+\begin{solution}
+Vous êtes connecté
+\end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Qu'affiche le programme suivant?
+
+\begin{lstlisting}[style=javastyle]
+public class Main {
+    public static void main(String[] args) {
+        prix_de_groupe = 40
+        nb_personne = 5
+        prix_par_personne = prix_de_groupe / nb_personne
+        print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}")
+        nb_personne += 1
+        prix_par_personne = prix_de_groupe//nb_personne
+        print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}") 
+    }
+}
+\end{lstlisting}
+\mcqlist{
+    {Le prix est de : 8.0 chf pour un groupe de 5 \newline 
+   Le prix est de : 6 chf pour un groupe de 6},
+   {Le prix est de : 8 chf pour un groupe de 5 \newline 
+   Le prix est de : 6 chf pour un groupe de 6},
+   {Le prix est de : 8 chf pour un groupe de 5 \newline 
+   Le prix est de : 6.66666666667 chf pour un groupe de 6},
+   {
+    Le prix est de : 8.0 chf pour un groupe de 5 \newline 
+   Le prix est de : 6.66666666667 chf pour un groupe de 6
+   }
+}
+
+\begin{solution}
+Le prix est de : 8.0 chf pour un groupe de 5 \newline 
+   Le prix est de : 6 chf pour un groupe de 6
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Soit le programme suivant composé de 4 fonctions additions:
+
+\begin{lstlisting}[style=javastyle]
+public class Question3 {
+    public static void main(String args[]) {
+        System.out.println("Question3");
+    }
+
+    public static ??? addition_1 (int a, int b){
+        return a + b;
+    }
+
+    public static ??? addition_2 (int a, double b){
+        return a + b;
+    }
+
+    public static ??? addition_3(String a, String b){
+        return a + b;
+    }
+
+    public static ??? addition_4 (double a, double b){
+        System.out.println(a + b);
+    }
+}
+\end{lstlisting}
+
+Indiquez pour chaque fonction addition par quel type doit-on remplacer les ??? pour que le programme fonctionne (ex : addition\_5: float).
+
+\begin{solution}
+addition\_1 : int \newline 
+addition\_2 : double \newline 
+addition\_3 : String \newline 
+addition\_4 : void
+\end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Qu'affiche le code suivant (Python)?
+\begin{lstlisting}[style=pythonstyle]
+try:
+   x = int("10")
+   try:
+       y = int("texte")
+   except ValueError:
+       print("Erreur interne détectée")
+   finally:
+       print("Bloc interne terminé")
+except Exception:
+   print("Erreur externe")
+finally:
+    print("Bloc externe terminé")
+\end{lstlisting}
+
+\mcqlist{
+    {Erreur externe \newline 
+    Bloc externe terminé},
+    {
+        Erreur interne détectée \newline 
+        Bloc interne terminé \newline 
+        Bloc externe terminé
+    },{
+        Bloc interne terminé \newline 
+        Erreur externe
+    },{
+        Erreur interne détectée \newline 
+        Erreur externe
+    }
+}
+
+\begin{solution}
+Erreur interne détectée \newline 
+Bloc interne terminé \newline 
+Bloc externe terminé
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Laquelle des affirmations suivantes est \textbf{incorrecte}?
+
+\mcqlist{
+    Une function en Java doit spécifier un type de retour (même void si elle ne retourne rien).,
+    Le mot-clé \texttt{public} est obligatoire devant toute function.,
+    Les parenthèses sont obligatoires même si la function ne prend aucun paramètre.,
+    {En Java, une fonction (méthode) doit toujours être déclarée à l’intérieur d’une classe}.
+}
+
+\begin{solution}
+Le mot-clé \texttt{public} est obligatoire devant toute function.
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Qu'affiche le programme suivant?
+
+\begin{lstlisting}[style=javastyle]
+public class Main {
+    public static void main(String args[]) {
+        int i = 1;
+        while (i % 5 != 0) {
+            System.out.print(i);
+            i++;
+            if (i == 5) {
+                i++;
+            }
+        }
+        System.out.println(i);
+    }
+}
+\end{lstlisting}
+\mcqlist{
+    1 2 3 4 5 6 7 8 9 10,
+    1 2 3 4 6 7 8 9 10,
+    1 2 3 4 5 6 7 8 9,
+    Le programme continue en boucle
+}
+
+\begin{solution}
+ 1 2 3 4 6 7 8 9 10
+\end{solution}
+
+Si maintenant on rajoute une nouvelle partie au programme, le programme est maintenant comme suit: \newline 
+
+\begin{lstlisting}[style=javastyle]
+int i = 1;
+while (i % 5 != 0) {
+    System.out.print(i);
+    i++;
+    if (i == 5) {
+        i ++;
+    }
+}
+System.out.println(i);
+        
+// Nouvelle partie du programme 
+int j = 0;
+while (j % 3 == 0) {
+    System.out.print(j);
+    i++;
+    if (j == 3) {
+        j++;
+    }
+}
+\end{lstlisting}
+
+Qu'affiche ce programme?
+
+\mcqlist{
+    {1 2 3 4 5 6 7 8 9 10 \newline 
+    0 1 2},
+    {
+        1 2 3 4  6 7 8 9 10 \newline 
+   0
+    },{
+        1 2 3 4 5 6 7 8 9 \newline 
+   1 2 3
+    },{
+        Le programme continue en boucle 
+    }
+}
+
+\begin{solution}
+Le programme continue en boucle
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Quel est le résultat de la fonction suivante?
+
+\begin{lstlisting}[style=pythonstyle]
+def mystery_function(a, b):
+    if b == 0:
+        return 1
+    else:
+        return a * mystery_function(a, b - 1)
+\end{lstlisting}
+
+\mcqlist{
+    a*b,
+    a*(b+1),
+    a**b,
+    a**(b-1)
+}
+
+\begin{solution}
+a**b
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Léa}
+Qu'affiche le code Python suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+film = {
+    "titre": "Interstellar",
+    "realisateur": {
+        "prenom": "Christopher",
+        "nom": "Nolan",
+        "date" : 2014
+    },
+"acteurs": [
+    {"prenom": "Matthew", "nom": "McConaughey", "role": "Cooper"},
+    {"prenom": "Anne", "nom": "Hathaway", "role": "Brand"},
+    {"prenom": "Jessica", "nom": "Chastain", "role": "Murph"}
+]
+}
+
+print(film["titre"])
+print(film["realisateur"]["nom"] == "Nolan")
+
+for acteurs in film["acteurs"] :
+    print(acteurs["prenom"],acteurs["nom"])
+\end{lstlisting}
+
+\mcqlist{
+    Interstellar True Matthew McConaughey Anne Hathaway Jessica Chastain,
+    Interstellar True Matthew Cooper Anne Brand Jessica Murph,
+    Inception True Matthew McConaughey Anne Hathaway Jessica Chastain,
+    Interstellar False Cooper Brand Murph
+}
+
+\begin{solution}
+Interstellar True Matthew Cooper Anne Brand Jessica Murph
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Quelle affirmation est vraie à propos du programme Java ci-dessous:
+\begin{lstlisting}[style=javastyle]
+public class SyntaxeError {
+    public static void main(String[] args) {
+      try {
+          int x = 5  // omission volontaire du ;  
+      } catch (Exception e) {
+          System.out.println("Erreur capturée");
+          x = 5;
+      }
+    }
+  }
+\end{lstlisting}
+
+\mcqlist{{L'erreur de syntaxe est capturée par le bloc catch au moment de l'exécution, et le programme affiche "Erreur capturée".},
+{L'erreur de syntaxe ne peut pas être capturée et le programme plante au moment de l'exécution avec une SyntaxError.},
+{Le programme ne compile pas à cause de l'erreur de syntaxe, donc il ne s'exécute jamais.},
+{L'erreur de syntaxe est ignorée car elle est à l'intérieur d'un bloc try-catch et le programme s'exécute mais saute la déclaration de la variable.}
+}
+\begin{solution}
+Le programme ne compile pas à cause de l'erreur de syntaxe, donc il ne s'exécute jamais.
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Soit le code ci-dessous en Python. Par quelle expression faut-il remplacer la ligne \texttt{\#LINE REMOVED} dans la fonction \texttt{compatibilite} pour qu’elle soit équivalente à la fonction \texttt{compatibiliteRapide}?
+\begin{lstlisting}[style=pythonstyle]
+def compatibilite(donneur, receveur):
+  # modèle simplifié par rapport à la réalité !
+  donneur_groupe = donneur[0]
+  donneur_rhesus = donneur[1]
+  receveur_groupe = receveur[0]
+  receveur_rhesus = receveur[1]
+
+  if donneur_rhesus == receveur_rhesus:
+    if donneur_groupe == "O":
+      return True
+    elif receveur_groupe == "AB":
+      return True
+    elif donneur_groupe == receveur_groupe:
+      return True
+  return False 
+
+def compatibiliteRapide(donneur, receveur):
+  #LINE REMOVED
+\end{lstlisting}
+
+\mcqlist{
+    \texttt{return False},
+    \texttt{return donneur[0] == "O" or receveur[0] == "AB" or donneur[0] == receveur[0] and donneur[1] == receveur[1]},
+    \texttt{return (donneur[0] == "O" or receveur[0] == "AB" or donneur[0] == receveur[0]) or (donneur[1] == receveur[1])},
+    \texttt{return (donneur[0] == "O" or receveur[0] == "AB" or donneur[0] == receveur[0]) and (donneur[1] == receveur[1])}
+}
+
+\begin{solution}
+\texttt{return (donneur[0] == "O" or receveur[0] == "AB" or donneur[0] == receveur[0]) and (donneur[1] == receveur[1])}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Soit le code suivant en Python, qu’est-ce qui sera affiché dans la console après son exécution?
+
+\begin{lstlisting}[style=pythonstyle]
+complements = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+dna_strand = "ACTACT"
+complementary_strand = ""
+for base in dna_strand:
+    complementary_strand += complements[base]
+print(complementary_strand)
+\end{lstlisting}
+
+\mcqlist{
+   ACTACT,
+   TGATGA,
+    AGTAGT,
+ KeyError 'ACTACT'
+}
+\begin{solution}
+TGATGA
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Sean}
+Soit le code suivant en Python, qu'est-ce qui sera affiché dans la console après son exécution?
+
+\begin{lstlisting}[style=pythonstyle]
+complements = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+
+def comprev(dna):
+    if len(dna) == 0:
+        return ""
+    return complements[dna[-1]] + comprev(dna[1:])
+
+print(comprev("ACTACT"))
+\end{lstlisting}
+
+\mcqlist{
+    TGATGA,
+    AGTAGT,
+    AAAAAA,
+    RecursionError: maximum recursion depth exceeded
+}
+
+\begin{solution}
+AAAAAA
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+On souhaite écrire un programme qui vérifie si une équipe peut participer à un tournoi de sport selon les critères suivants:
+
+\begin{itemize}
+\item Si l’équipe compte 3 membres, la moyenne d’âge doit être supérieure à 25.
+\item Si l’équipe compte 2 membres, le ou la capitaine doit s’appeler "Alex".
+\item Si l’équipe compte 1 membre, cette personne doit avoir 45 ans.
+\end{itemize}
+
+On dispose des variables suivantes:
+
+\begin{itemize}
+\item \texttt{ages}: une liste d’entiers représentant les âges des membres de l’équipe,
+\item \texttt{captainName}: une chaîne de caractères contenant le nom du ou de la capitaine.
+\end{itemize}
+
+Laquelle des lignes de code Python suivantes traduit correctement ces conditions?
+\begin{itemize}
+  \item \texttt{(len(ages) == 3 and (ages[1] + ages[2] + ages[3])/3 > 25) or (captainName == "Alex" and len(ages) == 2) or (len(ages) == 1 and ages[1] == 45)}
+
+  \item \texttt{(len(ages) == 3 or (ages[0] + ages[1] + ages[2])/3 > 25) and (captainName == "Alex" or len(ages) == 2) and (len(ages) == 1 or ages[0] == 45)}
+
+  \item \texttt{(len(ages) == 3 and (ages[0] + ages[1] + ages[2])/3 > 25) or (captainName == "Alex" and len(ages) == 2) or (len(ages) == 1 and ages[0] == 45)}
+
+  \item \texttt{(len(ages) == 3 \&\& (ages[1] + ages[2] + ages[3])/3 > 25) || (captainName == "Alex" \&\& len(ages) == 2) || (len(ages) == 1 \&\& ages[1] == 45)}
+\end{itemize}
+
+\begin{solution}
+\texttt{(len(ages) == 3 and (ages[0] + ages[1] + ages[2])/3 > 25) or (captainName == "Alex" and len(ages) == 2) or (len(ages) == 1 and ages[0] == 45)}
+\end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+Qu'affiche l'exécution du code suivant?
+\begin{lstlisting}[style=pythonstyle]
+def func1():
+    i = 0
+    value1 = 5
+    value2 = 6
+    def func2(value1, value2):
+        global i
+        i += 1
+        value1 += 1
+        value2 -= 1
+        if i == 0:
+            return value1
+        else:
+            return value2
+    return func2(value1, value2) - func2(value1, value2)
+if __name__ == "__main__":
+    value1 = 3
+    value2 = 4
+    i = -1
+    print(func1())
+    i = 0
+\end{lstlisting}
+
+\mcqlist{
+    5,0,1,Il y aura une erreur
+}
+
+\begin{solution}
+1
+\end{solution}
+
+Supposons que l’on supprime les lignes 3, 16, 17 et 20 du code précédent.
+Quelle sera la conséquence sur l’exécution du programme?
+
+\mcqlist{
+    L’exécution donnera un résultat différent de la question précédente.,
+L’exécution donnera le même résultat que la question précédente.,
+On ne pourra pas exécuter car le code ne compilera pas.,
+Une erreur sera provoquée.,
+}
+
+\begin{solution}
+L’exécution donnera le même résultat que la question précédente.
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Python, qu'affiche le code suivant?
+\begin{lstlisting}[style=pythonstyle]
+mon_tuple = (1,2,3)
+print(4 in mon_tuple)
+\end{lstlisting}
+
+\mcqlist{
+    {(1, 2, 3, 4)}, True, False, {(1, 2, 3)}
+}
+
+\begin{solution}
+False
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[5 minutes]\textbf{Maxim}
+En Java, qu'affiche le programme suivant:
+
+\begin{lstlisting}[style=javastyle]
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        for (int x : numbers) {
+           System.out.println(x);
+           if (x < 3) continue;        
+        }
+    }
+}
+\end{lstlisting}
+ 
+
+\mcqlist{
+    1 2 3 4 5
+,3 4 5
+,1 2
+,Rien
+}
+\begin{solution}
+1 2 3 4 5
+\end{solution}
+
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+
+Quelles affirmations sont correctes concernant les deux programmes suivants:
+
+\begin{lstlisting}[style=javastyle]
+List<String> bonjour = List.of("Hello","Annyeong","Hola","Hallo","Arigato","Ciao","Salaam");
+        
+//Programme 1
+LinkedList<String> bonjour2 = new LinkedList<>(bonjour);
+Iterator<String> iter = bonjour2.iterator();
+while(iter.hasNext()){
+    String ling = iter.next();
+    if(ling.charAt(0)=='H'){
+        iter.remove();
+    }
+}
+for (int i=0;i<bonjour2.size();i++){
+    System.out.println(bonjour2.get(i));
+}
+
+//Programme 2
+LinkedList<String> bonjour3 = new LinkedList<>(bonjour);
+for (int i=0;i<bonjour3.size();i++){
+    if(bonjour.get(i).charAt(0)!='H'){
+        System.out.println(bonjour3.get(i));
+    }
+}
+\end{lstlisting}
+
+
+\mcqlist{
+    Les programmes afficheront la même chose,
+    Le programme 1 provoque une erreur,
+    Le programme 2 provoque une erreur,
+    Le programme 1 modifie la liste \texttt{bonjour2},
+    Le programme 2 modifie la liste \texttt{bonjour3}
+}
+
+\begin{solution}
+Les programmes afficheront la même chose \newline 
+Le programme 1 modifie la liste \texttt{bonjour2}
+
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Aurore}
+Par quoi faut-il remplacer la ligne \texttt{\#LINE REMOVED} pour que le programme suivant :
+\begin{lstlisting}[style=pythonstyle]
+cars = {"nissan":["micra", "aryia"], "citroën":["picasso","cactus","C3"], "opel":["corsa"]}
+for key in cars.keys():
+    #LINE REMOVED
+\end{lstlisting}
+affiche la sortie suivante:
+
+\begin{verbatim}
+nissan : ['micra', 'aryia']
+citroën : ['picasso', 'cactus', 'C3']
+opel : ['corsa']
+\end{verbatim}
+
+\mcqlist{
+    \texttt{print("{} : {}".format(key,cars[key]))},
+    \texttt{print(key)},
+    \texttt{print("{} : {}".format(cars[1],cars.values[key]))},
+    \texttt{print("{} : {}".format("nissan", cars[key]))},
+    \texttt{print(cars)}
+}
+
+\begin{solution}
+\texttt{\texttt{print("{} : {}".format(key,cars[key]))}}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Reda}
+
+\begin{lstlisting}[style=pythonstyle]
+def equivalentes(l1, l2):
+      if #Q2
+         return True
+      if len(l1) != len(l2):
+         return False
+      if l1[0] not in l2:
+         return False
+      l2_copy = l2.copy()
+      l2_copy.remove(l1[0])
+      #Q3
+\end{lstlisting}
+
+Laquelle de ces propositions est fausse concernant le cas de base d’une fonction récursive?
+\mcqlist{
+{Le cas de base résout une partie du problème avant de poursuivre la récursion.},
+{Il représente la résolution du problème dans son cas le plus simple.},
+{Une fois arrivé au cas de base, nous pouvons remonter la pile (stack) d’appels pour obtenir notre réponse finale.},
+Il permet dans certaines situations d’éviter un appel infini à la fonction elle-même.
+}
+
+\begin{solution}
+Le cas de base résout une partie du problème avant de poursuivre la récursion.
+\end{solution}
+
+Par quoi devons-nous remplacer \#Q2 pour bien représenter le cas de base dans notre contexte?
+
+\mcqlist{
+    \texttt{liste1[0] == liste2[0]:},
+    \texttt{len(liste1) == 0 and len(liste2) == 0:},
+    \texttt{liste1 == liste2:},
+    \texttt{len(liste1) == 0 or len(liste2) == 0:}
+}
+\begin{solution}
+    \texttt{len(liste1) == 0 and len(liste2) == 0:}
+\end{solution}
+
+Par quoi devons-nous remplacer \#Q3 pour que notre programme soit correct?
+\mcqlist{
+    \texttt{return equivalentes(liste1, liste2\_copy)},
+    \texttt{return equivalentes(liste1[1:], liste2\_copy)},
+    \texttt{return equivalentes(liste1[1:], liste2)},
+    \texttt{return equivalentes(liste1[:len(l1)], liste2[:len(l2)])}
+}
+\begin{solution}
+    \texttt{return equivalentes(liste1[1:], liste2\_copy)}
+\end{solution}
+
+Imaginons que nous souhaitons vérifier si deux listes de nombres entiers sont équivalentes par itération. Laquelle de ces stratégies ne fonctionnerait pas ?
+(On suppose que les deux listes ont la même taille et que chacune des stratégies peut être correctement implémentée.)
+
+\mcqlist{
+    {Pour chaque élément de liste1, on vérifie si cet élément est contenu dans liste2.},
+    {On crée un dictionnaire qui associe à chaque élément de liste1 son nombre d’apparitions ; pour chaque élément de liste2, on vérifie que c’est une clé du dictionnaire et que la valeur correspond à son nombre d’apparitions dans liste2.},
+    {Pour chaque élément de liste1, on vérifie s’il apparaît le même nombre de fois dans liste1 et liste2.},
+    {On réarrange chaque liste dans l’ordre croissant, puis on compare indice par indice du début à la fin.}
+}
+\begin{solution}
+Pour chaque élément de liste1, on vérifie si cet élément est contenu dans liste2.
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+
+Qu'affiche le code Python suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+for x in numbers:
+    if x < 6:
+        numbers.remove(x)
+print(numbers)
+\end{lstlisting}
+
+\mcqlist{
+    {$[$6, 7, 8$]$},
+    {$[$2, 4, 6, 7, 8$]$},
+    {$[$1, 3, 5, 6, 7, 8$]$},
+    RuntimeError: Concurrent modification error
+}
+
+\begin{solution}
+[2, 4, 6, 7, 8]
+\end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+
+On souhaite supprimer toutes les entrées dont la valeur est inférieure à 0. La variable suivante est donnée :
+
+\begin{lstlisting}[style=javastyle]
+Map<String, Integer> scores = new HashMap<>();
+scores.put("a", 3);
+scores.put("b", -1);
+scores.put("c", 0);
+scores.put("d", -5);
+\end{lstlisting}
+
+Lesquelles de ces versions ne provoque pas d’exception et produit le résultat attendu ?
+
+
+\begin{lstlisting}[style=javastyle]
+// Option A
+for (String key : scores.keySet()) {
+    if (scores.get(key) < 0) {
+        scores.remove(key);
+    }
+}
+System.out.println(scores);
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+// Option B
+for (Map.Entry<String, Integer> e : scores.entrySet()) {
+    if (e.getValue() < 0) {
+        scores.remove(e.getKey());
+    }
+}
+System.out.println(scores);
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+// Option C
+Iterator<Map.Entry<String, Integer>> it = scores.entrySet().iterator();
+while (it.hasNext()) {
+    if (it.next().getValue() < 0) {
+        it.remove();
+    }
+}
+System.out.println(scores);
+\end{lstlisting}
+
+\begin{lstlisting}[style=javastyle]
+// Option D
+Iterator<String> it = scores.keySet().iterator();
+while (it.hasNext()) {
+    String k = it.next();
+    if (scores.get(k) < 0) {
+        scores.remove(k);
+    }
+}
+System.out.println(scores);
+\end{lstlisting}
+
+\begin{solution}
+C, D
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]\textbf{Amina}
+Qu'affiche le code Python suivant?
+
+\begin{lstlisting}[style=pythonstyle]
+def mystery(n, acc=[]):
+    if n == 0:
+        return acc
+    acc.append(n)
+    return mystery(n - 1)
+
+a = mystery(3)
+b = mystery(2)
+print(a, b)
+\end{lstlisting}
+
+\mcqlist{
+{$[$3, 2, 1$]$ $[$2, 1$]$},
+{$[$3, 2, 1$]$ $[$3, 2, 1$]$},
+{$[$3, 2, 1, 2, 1$]$ $[$3, 2, 1, 2, 1$]$},
+Provoque une erreur: \texttt{RecursionError}
+}
+
+\begin{solution}
+Option C.
+\end{solution}
+
+\end{Exercice}
+
