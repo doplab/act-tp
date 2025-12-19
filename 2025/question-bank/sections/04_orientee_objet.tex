@@ -364,13 +364,13 @@ class Circle:
         self.__rayon = rayon
 
     def __str__(self):
-        print(f"Ce cercle a un rayon de {self.__rayon}")
+        return f"Ce cercle a un rayon de {self.__rayon}"
     def get_rayon(self):
         return self.__rayon
 
     def __eq__(self, other):
         if ???:
-            if self.__rayon == self.get_rayon():
+            if self.__rayon == other.get_rayon():
                 return True
             else: 
                 return False
@@ -880,7 +880,7 @@ Parmi les affirmations suivantes, lesquelles sont correctes?
     {En Python, les notions de type, classe et interface sont moins strictement différenciées à cause de l’absence de typage statique.}
 }
 \begin{solution}
-Options A, E. 
+Options A, B, D. 
 \end{solution}
 \end{Exercice}
 
