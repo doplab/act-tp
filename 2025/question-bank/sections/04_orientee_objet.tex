@@ -364,13 +364,13 @@ class Circle:
         self.__rayon = rayon
 
     def __str__(self):
-        print(f"Ce cercle a un rayon de {self.__rayon}")
+        return f"Ce cercle a un rayon de {self.__rayon}"
     def get_rayon(self):
         return self.__rayon
 
     def __eq__(self, other):
         if ???:
-            if self.__rayon == self.get_rayon():
+            if self.__rayon == other.get_rayon():
                 return True
             else: 
                 return False
