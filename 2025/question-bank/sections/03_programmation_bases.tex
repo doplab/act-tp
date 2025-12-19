@@ -44,21 +44,21 @@ switch (numero_jour) {
         System.out.println("Mardi");
         break;
     case 3:
-         System.out.println("Mercredi");
-         break;
-     case 4:
-          System.out.println("Jeudi");
-          break;            
-     case 5:                
-          System.out.println("Vendredi");
-     case 6:                
-          System.out.println("Samedi");
-          break;            
-     case 7:                
-          System.out.println("Dimanche");
-          break;            
-     default:                
-           System.out.println("Ce n'est pas un jour valide !");
+        System.out.println("Mercredi");
+        break;
+    case 4:
+        System.out.println("Jeudi");
+        break;            
+    case 5:                
+        System.out.println("Vendredi");
+    case 6:                
+        System.out.println("Samedi");
+        break;            
+    case 7:                
+        System.out.println("Dimanche");
+        break;            
+    default:                
+        System.out.println("Ce n'est pas un jour valide !");
 \end{lstlisting}
 
 \mcqlist{Vendredi, Vendredi Samedi Dimanche, Ce n'est pas un jour valide, Vendredi Samedi}
@@ -489,18 +489,14 @@ Vous êtes connecté
 \begin{Exercice}[5 minutes]\textbf{Léa}
 Qu'affiche le programme suivant?
 
-\begin{lstlisting}[style=javastyle]
-public class Main {
-    public static void main(String[] args) {
-        prix_de_groupe = 40
-        nb_personne = 5
-        prix_par_personne = prix_de_groupe / nb_personne
-        print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}")
-        nb_personne += 1
-        prix_par_personne = prix_de_groupe//nb_personne
-        print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}") 
-    }
-}
+\begin{lstlisting}[style=pythonstyle]
+prix_de_groupe = 40
+nb_personne = 5
+prix_par_personne = prix_de_groupe / nb_personne
+print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}")
+nb_personne += 1
+prix_par_personne = prix_de_groupe//nb_personne
+print(f"Le prix est de : {prix_par_personne} chf pour un groupe de {nb_personne}") 
 \end{lstlisting}
 \mcqlist{
     {Le prix est de : 8.0 chf pour un groupe de 5 \newline 
@@ -751,7 +747,7 @@ for acteurs in film["acteurs"] :
 }
 
 \begin{solution}
-Interstellar True Matthew Cooper Anne Brand Jessica Murph
+Interstellar True Matthew McConaughey Anne Hathaway Jessica Chastain,
 \end{solution}
 \end{Exercice}
 
