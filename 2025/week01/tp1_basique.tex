@@ -43,10 +43,29 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{conseil}
 
     \begin{solution}
-        Il existe 2 méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2. Ici le nombre 45 sera entièrement développé. \\
+        Il existe 2 méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2. \\
         
-        
-        \textbf{Méthode 1 :} \\
+    \textbf{Méthode 2 pour 10 :}
+        \medskip
+        \begin{tabular}{| C{0.19\textwidth} | C{0.55\textwidth} |} 
+        \hline
+        \textbf{nombre} & \textbf{reste (après division par 2)}\\ [0.5ex]
+        \hline
+        10 &  0 (1er bit de droite à gauche) \\ [0.5ex] 
+        \hline
+        5 & 1 \\ [0.5ex] 
+        \hline
+        2 & 0 \\ [0.5ex] 
+        \hline
+        1 & 1 \\ [0.5ex] 
+        \hline
+        \end{tabular}
+
+    \medskip
+    \end{solution}
+
+    \begin{solution}
+ \textbf{Méthode 1 pour 45:} \\
         
         Cette première méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande puissance de 2 à l'aide de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
         
@@ -64,7 +83,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         
         On obtient donc 101101$_{(2)}$ \\
 	
-	\textbf{Méthode 2 :} \\
+	\textbf{Méthode 2 pour 45:} \\
 	
 	 Prenez votre nombre et divisez le par 2 en colonne. S'il y a un reste, notez le à coté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut.  \vspace*{0.5cm} \\
        	\begin{minipage}{0.45\textwidth}
@@ -153,23 +172,6 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 \vspace*{0.5cm}
 
         Ici, on obtient 101101$_{(2)}$ \\    
-
-    \medskip
-    \textbf{Méthode 2 pour 10 :}
-        \medskip
-        \begin{tabular}{| C{0.19\textwidth} | C{0.55\textwidth} |} 
-        \hline
-        \textbf{nombre} & \textbf{reste (après division par 2)}\\ [0.5ex]
-        \hline
-        10 &  0 (1er bit de droite à gauche) \\ [0.5ex] 
-        \hline
-        5 & 1 \\ [0.5ex] 
-        \hline
-        2 & 0 \\ [0.5ex] 
-        \hline
-        1 & 1 \\ [0.5ex] 
-        \hline
-        \end{tabular}
 
     \medskip
     \end{solution}
