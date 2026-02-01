@@ -158,6 +158,10 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
         \end{itemize}
      \end{conseil}
      \begin{solution}
+        x = 2 est une variable global (en dehors de la méthode), alors que x = 3 est une variable locale. \\
+        La méthode fonction 2 fait appel à la variable global, avec le mot clé global devant.\\
+        Dans le deuxième print il n'y a pas le mot clé global donc la variable locale est utilisée.\\
+        La solution est donc :\\ 
         \lstinline{x=2}\\ 
         \lstinline{x=3}\\
         \lstinline[language={bash}]{None}\\
@@ -221,6 +225,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{conseil}
 
      \begin{solution}
+        float(value2) est valide car on transform un nombre entier en un float. Aucune erreur ne va être lancée donc il n'y a pas de message affiché.\\
+        int(value1) n'est pas valide car on ne pas convertir une chaîne de charactères en un nombre. Une erreur va être lancée et le message suivant va être affiché :\\
         Nous ne pouvons pas convertir une chaîne de caractères en nombre
      \end{solution}
 
