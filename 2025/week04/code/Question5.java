@@ -4,6 +4,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int resultat = multiplicateur(1, 2);
+        int resultat = multiplicateur(2, 3);
+        System.out.println(resultat);
     }
 }

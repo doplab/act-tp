@@ -24,7 +24,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -190,7 +190,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Entiers signés négatifs}\\
-    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 15 du cours. \\
+    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 15 du cours (et non le complément à 1 ou 2). \\
 
     \begin{conseil}
         \begin{itemize}
@@ -709,9 +709,6 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
  \lstinputlisting{code/question14.py}
 \end{solution}
 
-\begin{solution}
- \lstinputlisting{code/question14_2.py}
-\end{solution}
 \end{Exercice}
 
 \section{Type casting}
@@ -805,6 +802,9 @@ Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le
     Utiliser la méthode \texttt{myString.length()} en Java et la fonction \texttt{len} en Python.
 \end{conseil}
 \end{enumerate}
+\begin{solution}
+    Pour la question 1, la ligne est separée à cause du charactère \lstinline{\\n} qui crée un saut de ligne.
+\end{solution}
 \begin{solution}
    \lstinputlisting{code/question16.py}
 \end{solution}
