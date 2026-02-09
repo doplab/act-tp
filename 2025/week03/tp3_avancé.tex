@@ -130,14 +130,14 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \begin{Exercice}[20 minutes] \textbf{Le juste prix }\\
   Dans le programme suivant, nous vous donnons un nombre aléatoire compris entre 0 et 30 dans la variable \textit{number}, écrivez un programme qui demande à l'utilisateur de deviner le nombre tiré au sort. L'utilisateur a 5 chances pour le trouver. S'il se trompe, donnez-lui un indice (le nombre qu'il a écrit est-il plus grand ou plus petit que celui qu'il cherche?). Vous pouvez vous amuser à modifier le nombre de chances ou le nombre de possibilités (par exemple 10 chances pour trouver un nombre entre 0 et 100).   \\
   
-  \lstinputlisting{code/advanced/question2-enonce.py}
+  \lstinputlisting{code/advanced/question2.py}
   
   \begin{solution}
-   \lstinputlisting{code/advanced/question2-1.py}
+   \lstinputlisting{solutions/advanced/question2.py}
    
    Le problème avec cette solution est le suivant : Si le joueur trouve la réponse, le jeu va continuer, une façon plus propre et correcte de coder ce jeu est d'utiliser une boucle (prochain chapitre). \\
    
-   \lstinputlisting{code/advanced/question2-2.py}
+   \lstinputlisting{solutions/advanced/question2_improved.py}
    
   	Ici le code est plus concis et permet de s'arrêter lorsque le joueur aura trouvé la bonne réponse.\\
            
@@ -147,11 +147,11 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \begin{Exercice}[20 minutes] \textbf{Pierre, Feuille, Ciseaux }\\
   Demandez à l'utilisateur d'entrer soit pierre, soit feuille, soit ciseaux. L'ordinateur choisira son coup au hasard (s'il choisi 1 ce sera pierre, si c'est 2 ce sera feuille et si c'est 3 ce sera ciseaux). Les règles sont les règles classiques, une manche gagnante.   \\
   
-  \lstinputlisting{code/advanced/question3-enonce.py}
+  \lstinputlisting{code/advanced/question3.py}
    
     \begin{solution}
     
-    \lstinputlisting{code/advanced/question3.py}
+    \lstinputlisting{solutions/advanced/question3.py}
     
     Vous pouvez également utiliser une boucle pour augmenter le nombre de manches. Cette notion sera présentée dans la suite du cours.\\
            
