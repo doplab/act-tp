@@ -77,7 +77,7 @@ Pour implémenter notre recherche, nous avons besoin d'écrire une fonction perm
 \end{conseil}
 
 \begin{solution}
-   \lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=6]{solutions/k_nearest_neighbor.py}
+   \lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=6]{solutions/K_nearest_neighbor.py}
    Note: Vous pouvez utiliser \lstinline{**0.5} au lieu de la fonction \lstinline{math.sqrt()}.
 \end{solution}
 \end{Exercice}
@@ -99,7 +99,7 @@ Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne d
     Note: Pour que votre programme fonctionne, écrivez votre algorithme du plus proche voisin dans le même programme que celui de la Question 1.
 \end{conseil}
 \begin{solution}
-    \lstinputlisting[language = python, firstline=8, firstnumber=1, lastline=24]{solutions/k_nearest_neighbor.py}
+    \lstinputlisting[language = python, firstline=8, firstnumber=1, lastline=24]{solutions/K_nearest_neighbor.py}
 \end{solution}
 \end{Exercice}
 
@@ -121,7 +121,7 @@ Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le m�
 %     \lstinputlisting[language = python, firstline=1, firstnumber=1, lastline=25]{solutions/Question3.py}
 % \end{solution}
 \begin{solution}
- \lstinputlisting[language = python, firstline=26, firstnumber=26]{solutions/k_nearest_neighbor.py}
+ \lstinputlisting[language = python, firstline=26, firstnumber=26]{solutions/K_nearest_neighbor.py}
 \end{solution}
 \end{Exercice}
 
@@ -455,11 +455,11 @@ Encodez les images ci-dessous dans un Quad-Tree.\\
 \textbf{Image 1} & \textbf{Image 2} \\
 \hline
 \adjustbox{margin=0.3cm}{
-\includegraphics[]{resources/Quad-Tree 1.PNG}
+\includegraphics[]{images/Quad-Tree 1.PNG}
 }
 &
 \adjustbox{margin=0.3cm}{
-\includegraphics[]{resources/Quad-Tree 2.PNG}
+\includegraphics[]{images/Quad-Tree 2.PNG}
 }
 \\
 \hline
@@ -473,17 +473,17 @@ Encodez les images ci-dessous dans un Quad-Tree.\\
 \end{conseil}
 \begin{solution}
 Image 1 :\\
-    \includegraphics[scale=0.65]{solutions/Quad-Tree 1 solution.PNG}\\
+    \includegraphics[scale=0.65]{images/Quad-Tree 1 solution.PNG}\\
     
 Image 2: \\
-    \includegraphics[scale=0.65]{solutions/Quad-Tree 2 solution.PNG}
+    \includegraphics[scale=0.65]{images/Quad-Tree 2 solution.PNG}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes]\textbf{Une mission capitale : Papier \optionnel}\\
 
 Récemment embauché par la CIA, vous êtes à la recherche d'un individu se cachant dans une des villes suivantes : Bleu, Orange, Noir, Gris, Vert et Jaune. Votre mission, si vous l'acceptez, est de créer un Quad-Tree qui vous permettra de géolocaliser le criminel de façon efficace. Vous trouverez ci-dessous une carte de villes. Créez le Quad-Tree et rétablissez la justice.\\
 
-\includegraphics[]{resources/Quad-Tree 3.PNG}
+\includegraphics[]{images/Quad-Tree 3.PNG}
 \begin{conseil}
     Commencez par diviser la carte de la ville de façon adéquate puis construisez le graphe.\\
     
@@ -492,11 +492,11 @@ Récemment embauché par la CIA, vous êtes à la recherche d'un individu se cac
 \begin{solution}
     Voici la division de la carte qui permet de construire le Quad-Tree :\\
     
-    \includegraphics[]{solutions/Quad-Tree 3 solution 1.PNG}\\
+    \includegraphics[]{images/Quad-Tree 3 solution 1.PNG}\\
     
     Le Quad-Tree qui en résulte :\\
     
-    \includegraphics[scale=0.65]{solutions/Quad-Tree 3 solution 2.1.png}\\
+    \includegraphics[scale=0.65]{images/Quad-Tree 3 solution 2.1.png}\\
     
     Note : Un rond blanc correspond à un quadrant vide.
     

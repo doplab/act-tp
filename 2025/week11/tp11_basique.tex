@@ -43,7 +43,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste.\\
     
     \textbf{Python:}
-      \lstinputlisting{resources/recherche_sequentielle.py}
+      \lstinputlisting{code/recherche_sequentielle.py}
 
 
 \begin{conseil}
@@ -78,10 +78,6 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{itemize}
     \end{conseil}
 
-    % \begin{exemple}
-    %     \lstinputlisting[language=python, firstline=17, firstnumber=1, lastline=21]{solutions/recherche_sequentielle_index.py}
-    % \end{exemple}
-
     \begin{solution}
         \textbf{Python:}
         \lstinputlisting{solutions/recherche_sequentielle_index.py}
@@ -98,7 +94,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Au cas où deux éléments se trouveraient à équidistance de \lstinline{e}, renvoyez l'élément le plus petit.\\
     
     \textbf{Python :}
-        \lstinputlisting{resources/plus_proche_sequentielle.py}
+        \lstinputlisting{code/plus_proche_sequentielle.py}
         \begin{conseil}
         Complétez la fonction \texttt{plus\_proche\_sequentielle} puis exécutez le code. \\
 
@@ -116,28 +112,6 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{solution}
         
     \end{Exercice}
-    
-    
-%     \begin{Exercice}[10 minutes] Recherche séquentielle - 3 (Python) \\
-%     Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\
-    
-%     \begin{exemple}
-%         \lstinputlisting[language=python, firstline=8, firstnumber=1, lastline=11]{solutions/question3.py}
-%     \end{exemple}
-  
-% \lstinputlisting{resources/question3.py}
-
-%     \begin{conseil}
-%         Une liste triée permet une recherche plus efficace à l'aide d'un algorithme plus simple.\\
-%         Retournez l'index de la valeur dans la liste. Pensez à utiliser la fonction \lstinline{index()} qui retourne l'index d'un élément au sein d'une liste en Python.\\Exemple et syntaxe: \lstinline{lst.index(i)} va indiqué la position de l'élément \lstinline{i} dans la liste \lstinline{lst}.
-%     \end{conseil}
-
-
-%     \begin{solution}
-%         \textbf{Python :}
-%         \lstinputlisting{solutions/question3.py}
-%     \end{solution}
-% \end{Exercice}
     
     \section{Recherche binaire — Binary search}
     
@@ -158,7 +132,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour effectuer un calcul factoriel.\\\\
     (Rappel : 4! = 4 x 3 x 2 x 1 = 24)\\
     
-    \lstinputlisting{resources/factorial.py}
+    \lstinputlisting{code/factorial.py}
     
     Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. Leur principal inconvénient est le fait qu'elles peuvent provoquer des exécutions infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas permettant d'arrêter la récursivité, celle-ci se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
        
@@ -174,10 +148,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \end{conseil}
     
     \subsubsection*{Question 3.1 - Version récursive}
-    \lstinputlisting{resources/recherche_binaire_recursive.py}
+    \lstinputlisting{code/recherche_binaire_recursive.py}
     
     \subsubsection*{Question 3.2 - Version itérative}
-    \lstinputlisting{resources/recherche_binaire_iterative.py}
+    \lstinputlisting{code/recherche_binaire_iterative.py}
     
     
         \begin{conseil}
@@ -223,7 +197,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.32\textwidth]{img/binary-search-tree.png}
+        \includegraphics[width=0.32\textwidth]{images/binary-search-tree.png}
         \caption{Exemple d'arbre de recherche binaire}
     \end{figure}
     
@@ -298,7 +272,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la valeur du nœud $z$ et tous les nœuds dans le sous-arbre à droite ont une valeur supérieure à la valeur du nœud $z$.
     \end{conseil}
     \begin{solution}
-            \includegraphics[width=1\textwidth]{img/question4.png}
+            \includegraphics[width=1\textwidth]{images/question4.png}
         \begin{itemize}
             \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres de recherche binaire.
             \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres de recherche binaire. 

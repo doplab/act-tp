@@ -43,7 +43,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
     L'objectif de cet exercice est d'écrire un algorithme probabiliste permettant d'approximer le nombre $\pi$. Imaginez un plan sur lequel $0 \leq x \leq 1$ et $0 \leq y \leq 1$. Sur ce dernier, nous allons dessiner un quart de cercle centré en (0,0) et avec un rayon de 1. Par conséquent, un point dans cet espace se trouve à l'intérieur ou sur le cercle si $x^2 + y^2 \leq 1$. Vous trouverez ci-dessous une illustration de la situation :
 
     \begin{center}
-        \includegraphics[]{resources/circle.PNG}
+        \includegraphics[]{images/circle.PNG}
     \end{center}
     
     La première étape de cet exercice consiste à créer une fonction permettant de déterminer si un point est à l'intérieur (zone rouge) ou à l'extérieur du cercle. Puis, générez 10000 points dans cet espace (x et y devraient appartenir à l'intervalle [0,1]). Pour ce faire, vous pouvez utliser la fonction \textit{random.random()} après avoir importé le module \textbf{random}. Vous pouvez obtenir l'approximation de $\pi$ à partir de la formule suivante : $\pi \approx (\frac{\text{Nombre de points dans le quart de cercle}}{\text{Nombre total de points}})\cdot 4$. Votre réponse devrait être assez proche de la vraie valeur de $\pi$.\\
@@ -53,7 +53,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
     \end{conseil}
     
     \begin{solution}
-        \lstinputlisting[language = python]{solutions/pi.py}
+        \lstinputlisting[language = python]{solutions/Pi.py}
     \end{solution}
     
 \end{Exercice}
@@ -81,7 +81,7 @@ Le but de cette séance est de comprendre les algorithmes probabilistes. Ceux-ci
 
     À vos ordis, détectives! \newline 
 
-    \lstinputlisting[language = python]{resources/fingerprinting.py}
+    \lstinputlisting[language = python]{code/fingerprinting.py}
 
 \begin{conseil}
 Le code ci-dessus se trouve sur Moodle, dans le dossier \lstinline{code/fingerprinting.py}.\\
@@ -115,10 +115,10 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     \begin{figure}[h]
         \centering
         \subfigure[Arbre équilibré]{
-        \includegraphics[width=.3\textwidth]{resources/binary_tree.png}
+        \includegraphics[width=.3\textwidth]{images/binary_tree.png}
         }
         \subfigure[Arbre non équilibré]{
-        \includegraphics[width=.3\textwidth]{resources/linked_tree.png}
+        \includegraphics[width=.3\textwidth]{images/linked_tree.png}
         }
         \caption{Exemple d'arbres binaires de recherche}
         \label{fig:architecture}
@@ -128,7 +128,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=.38\textwidth]{resources/heap.png}
+        \includegraphics[width=.38\textwidth]{images/heap.png}
         \caption{Exemple de Max-heap}
         \label{fig:maxheap}
     \end{figure}
@@ -177,7 +177,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
             \item La propriété du heap à satisfaire est que la priorité de la racine soit toujours plus grande que celle de ses nœuds enfants.
             Les méthodes \lstinline{left_rotate} et \lstinline{right_rotate} permettent de réarranger les nœuds de façon à ce que la propriété du heap soit satisfaite. Vous pouvez vous référer à l'illustration ci-dessous pour avoir une idée de comment fonctionnent les rotations.
             \begin{center}
-                \includegraphics[width=\linewidth]{resources/treap_heap_property.png}
+                \includegraphics[width=\linewidth]{images/treap_heap_property.png}
             \end{center}
         
         \end{itemize}
@@ -197,7 +197,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     \lstinline{[(4,94), [(1,66), None, [(2,1), None, None]], [(10,30), [(5,26), None, [(8,20), None, [(9,4), None, None]]], None]]}
 
     \begin{center}
-        \includegraphics[width=\linewidth]{solutions/treap.png}
+        \includegraphics[width=\linewidth]{images/treap.png}
     \end{center}    
     \end{solution}
 \end{Exercice}
