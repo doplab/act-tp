@@ -1,4 +1,4 @@
-public class Question6 {
+public class Question8 {
     public static void main(String[] args) {
         Dog lola = new Dog("Lola",List.of("rollover"),"Bouvier",10);
         Dog tobi = new Dog("Tobi",List.of("rollover","do a barrel"),"Doggo",17);

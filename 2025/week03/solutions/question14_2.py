@@ -1,6 +1,6 @@
 import sys
 
-entry = input()
+entry = input("Entrez le chemin: ")
 match entry:
     case "/var/www/./public/..":
         print("index.html")

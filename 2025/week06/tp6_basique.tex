@@ -56,8 +56,7 @@ Choisissez parmi les éléments suivants :
     \end{conseil}
       Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction qui renvoie \texttt{True} si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
 \begin{equation}
-    f(a) = f(a[1:n-1])\w
-     (a[0] == a[n-1])
+    f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
 \end{equation}
 Ici, $a[1:n-1]$ est la sous chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
 \begin{conseil}
@@ -211,10 +210,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \end{solution}
 \end{Exercice}
 Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant à l'intérieur de votre méthode \lstinline{main} :
-	\lstinputlisting{code/Question6.java}
+	\lstinputlisting{code/Question8.java}
 	
 Vous devriez obtenir ce résultat :
-    \lstinputlisting{text/question6_output.txt}
+    \lstinputlisting{text/question8_output.txt}
 
 
 \newpage
@@ -253,7 +252,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
     \end{itemize}
 \end{Exercice}
 \begin{solution}
-    \lstinputlisting{solutions/question11.py}
+    \lstinputlisting{solutions/question9.py}
 \end{solution}
 
 \newpage
@@ -306,10 +305,10 @@ Voici le squelette du programme à compléter:
 	\lstinputlisting{solutions/Livre.java}
 \end{solution}
 \begin{solution}
-    \lstinputlisting{solutions/Livre_Audio.java}
+    \lstinputlisting{solutions/question10/Livre_Audio.java}
 \end{solution}
 \begin{solution}
-	\lstinputlisting{solutions/Livre_Illustre.java}
+	\lstinputlisting{solutions/question10/Livre_Illustre.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
@@ -327,10 +326,10 @@ Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une m�
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
 \end{conseil}
 \begin{solution}
-	\lstinputlisting{solutions/Livre_Audio2.java}
+	\lstinputlisting{solutions/question11/Livre_Audio.java}
 \end{solution}
 \begin{solution}
-	\lstinputlisting{solutions/Livre_Illustre2.java}
+	\lstinputlisting{solutions/question11/Livre_Illustre.java}
 \end{solution}
 \begin{solution}
 	\lstinputlisting{solutions/Question11.java}
