@@ -177,7 +177,7 @@ public static void algo(int[] L, int[] M) {
         L'algorithme est composé de 2 boucles. La première parcourt une liste \lstinline{L} et multiplie par 2 les éléments de la liste. 
         L'autre parcourt une liste \lstinline{M} et assigne à chaque élément le reste de la division euclidienne de l'élément par 2. 
         Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n + m)$. 
-        Ainsi, l'élément ayant la plus grande complexité sera utilisé pour déterminer la complexité de l'algorithme dans son ensemble.
+        Comme on effectue une boucle et après l'autre les complexités s'additionnent.
         \end{solution}
 \end{Exercice}
 
@@ -258,7 +258,7 @@ public static int algo(int n) {
 
     \begin{solution} 
     L'algorithme est composé de 2 boucles \textbf{imbriquées} suivant une suite définie par $\frac{n(n-1)}{2}$. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
-    Cela veut dire que nous parcourons la liste un maximum de $n \times n$ fois, $n$ étant la taille de la liste. La complexité de l'algorithme est ainsi de $O(n^2)$.
+    Cela veut dire que nous parcourons la liste $\frac{n^{2}}{2}$ $- \frac{n}{2}$, $n$ étant la taille de la liste. Comme vu dans les conseils avant, les constantes et les termes dominés sont ignorés. La complexité de l'algorithme est ainsi de $O(n^2)$.
     \end{solution}
     
 \end{Exercice}

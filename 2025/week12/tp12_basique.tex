@@ -68,7 +68,11 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
     \begin{solution}
     \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/graphRepresentation.py}
+    Pour l'adjacency matrix, les indices sont les suivants A=0, B=1, C=2, D=3, E=4, F=5. L'axe 0 de la matrice (verticale), désigne de quel sommet on part, l'axe 1 de la matrice (horizontale), designe vers quel sommet l'arête va.\\
+    Si on regarde la première ligne de la matrice, \lstinline{[0,1,1,0,0,0]}, cela correspond à tous les arêtes qui partent de A et vont vers d'autres sommets. Ici B et C, car il y a des 1 aux positions 1 et 2.
+    Plus généralement, l'entrée \lstinline{M[i][j]} vaut 1 s'il existe une arête allant du sommet i vers le sommet j, et 0 sinon.\\
     Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé A mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
+
     \end{solution}
 
 \end{Exercice}
@@ -281,6 +285,8 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \end{solution}
 \begin{solution}
         L'algorithme s'arrête car tous les sommets ont été atteints. On voit bien que seules 5 arêtes ont été nécessaires. On remarque que l'ACM n'est pas unique dans ce cas comme on aurait pu choisir l'arête verticale tout à gauche du poids 4 au lieu de l'autre arête du poids 4.
+        Si on a le choix entre plusieures arêtes qui ont le même poids on peut prendre celle qu'on veut. Si l'arête avec le plus petit poids reli un sommet qui est déjà atteint avant alors on ne l'ajoute pas pour ne pas créer de cycle. \\
+        Par exemple après l'étape 4 le plus petit poids (3) serait entre les sommets E et F, mais ils sont déjà reliés avec d'autres arêtes donc on ne prends cette arête.
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[30 minutes] \textbf{Lecture du code — Algorithme de Kruskal\!: Python}\\

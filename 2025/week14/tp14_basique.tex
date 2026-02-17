@@ -198,7 +198,11 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
 
     \begin{center}
         \includegraphics[width=\linewidth]{solutions/treap.png}
-    \end{center}    
+    \end{center}
+    À noter que vous avez obtenu des valeurs différentes donc le treap ne sera pas le même que la correction.
+    Le treap a été construit en insérant d'abord les clés selon la règle d'un arbre binaire de recherche, puis en effectuant des rotations lorsque la priorité d'un nœud violait la propriété du Max-Heap.
+    Les rotations permettent de conserver la propriété BST tout en rétablissant la propriété du heap.
+    L'arbre final respecte donc simultanément les deux propriétés, ce qui garantit une structure presque équilibrée en moyenne    
     \end{solution}
 \end{Exercice}
 
