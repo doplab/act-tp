@@ -48,7 +48,7 @@ Choisissez parmi les éléments suivants :
 \end{Exercice}
 
 \section{Récursion en Java et Python (10 minutes)}
-\begin{Exercice}[10 minutes] \textbf{isPalindrome() — Python et Java}
+\begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome()}
     \begin{conseil}
         En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
         
@@ -73,10 +73,10 @@ et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
 Ecrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
 
 \begin{solution}[Java]
-\lstinputlisting[language=Java]{ressources/Palindrome.java}
+\lstinputlisting[language=Java]{solutions/Palindrome.java}
 \end{solution}
 \begin{solution}[Python]
-    \lstinputlisting[language=Python]{ressources/palindrome.py}
+    \lstinputlisting[language=Python]{solutions/palindrome.py}
 \end{solution}
 
 \end{Exercice}
@@ -122,7 +122,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{conseil}
     
 \begin{solution}
-	\lstinputlisting{solutions/Question1.java}
+	\lstinputlisting{solutions/Dog.java}
 \end{solution}
 \end{Exercice}
 
@@ -133,7 +133,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     Les \lstinline{setters} sont souvent utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
     \begin{conseil}
         Exemple de \lstinline{getters} et de \lstinline{setters}:
-        \lstinputlisting{ressources/Example.java}
+        \lstinputlisting{code/Example.java}
     \end{conseil} 
 
     Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nom_instance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
@@ -210,10 +210,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \end{solution}
 \end{Exercice}
 Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant à l'intérieur de votre méthode \lstinline{main} :
-	\lstinputlisting{ressources/question6_main.java}
+	\lstinputlisting{code/Question8.java}
 	
 Vous devriez obtenir ce résultat :
-    \lstinputlisting{ressources/mainsolution_question6.java}
+    \lstinputlisting{text/question8_output.txt}
 
 
 \newpage
@@ -252,7 +252,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
     \end{itemize}
 \end{Exercice}
 \begin{solution}
-    \lstinputlisting{solutions/question11_solution.py}
+    \lstinputlisting{solutions/question9.py}
 \end{solution}
 
 \newpage
@@ -260,7 +260,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
 \section{Notions d'héritage - Java (30 minutes)}
 
 Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
-Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
+Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio()} et \lstinline{LivreIllustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
 
 \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
 Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
@@ -277,11 +277,11 @@ Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 
 Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
 Créez les classes filles avec les caractéristiques suivantes:\\
-\lstinline{class Livre_Audio extends Livre}
+\lstinline{class LivreAudio extends Livre}
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
 \end{itemize}
-\lstinline{class Livre_Illustre extends Livre}
+\lstinline{class LivreIllustre extends Livre}
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
 \end{itemize}
@@ -289,9 +289,9 @@ Voici le squelette du programme à compléter:
 \begin{lstlisting}
 	class Livre {
 	}
-	class Livre_Audio extends Livre {
+	class LivreAudio extends Livre {
 	}
-	class Livre_Illustre extends Livre {
+	class LivreIllustre extends Livre {
 	}\end{lstlisting}
 \begin{conseil}
     \begin{itemize}
@@ -302,67 +302,43 @@ Voici le squelette du programme à compléter:
     \end{itemize}
 \end{conseil}
 \begin{solution}
-	\lstinputlisting{solutions/heritage-solution-1.java}
+	\lstinputlisting{solutions/Livre.java}
+\end{solution}
+\begin{solution}
+    \lstinputlisting{solutions/question10/LivreAudio.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting{solutions/question10/LivreIllustre.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
-Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{LivreAudio} (et des arguments donnés lors de la création de l'objet).
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
 titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et le narrateur ``William''.\\
 Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
 Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
-Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{Livre_Audio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
-Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
+Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{LivreAudio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
+Faites pareil avec la classe \lstinline{LivreIllustre} et son attribut \lstinline{Illustrateur}
 \begin{conseil}
-\textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{Livre_Audio}.
+\textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{LivreAudio}.
 Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
 \end{conseil}
 \begin{solution}
-	\lstinputlisting{solutions/heritage-solution-2.java}
-	\lstinputlisting{solutions/heritage-solution-3.java}
+	\lstinputlisting{solutions/question11/LivreAudio.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting{solutions/question11/LivreIllustre.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting{solutions/Question11.java}
 \end{solution}
 \end{Exercice}
 \newpage
 Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:
-\lstinputlisting{ressources/heritage-main.java}
+\lstinputlisting{code/Question11.java}
 Vous devriez obtenir:
-\lstinputlisting[language=TeX]{ressources/heritage-main-prompt.txt}
-% \newpage
-
-% \section{Notions d'héritage - Python (15 minutes)}
-% \begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
-
-%     Dans la section~\ref{sec:notions_python}, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
-%     Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
-    
-
-%     % Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
-%     % Ce fichier doit être retiré du dossier Code
-%     % \lstinputlisting{ressources/Point.py} 
-    
-%     Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
-    
-%     \begin{itemize}
-%         \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
-%         \item Recalculez la distance euclidienne et le milieu pour le point 3D.
-%         \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
-%     \end{itemize}
-
-%     Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
-%     \lstinputlisting{ressources/Point3D.py} 
-    
-%     \begin{conseil}
-%         \begin{itemize}
-%             \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
-%             \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
-%             \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
-%         \end{itemize}
-%     \end{conseil}
-%     \begin{solution}
-%     \lstinputlisting{solutions/Point3D.py} 
-%     \end{solution}
-%     \end{Exercice} 
+\lstinputlisting[language=TeX]{text/question11_output.txt}
     
 \end{document}

@@ -74,6 +74,9 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 	\begin{solution}
 		\lstinputlisting{solutions/Vehicle.java} 
 	\end{solution}
+	\begin{solution}
+		\lstinputlisting{solutions/Car.java} 
+	\end{solution}
 \end{Exercice}
 
 \begin{Exercice}[30 minutes]{Surcharge de méthodes, égalité et identité - Java}
@@ -104,7 +107,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifé le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=1965120}{type casting de la semaine 3}).
 	\end{conseil}
 	\item Dans le \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
-	\lstinputlisting{ressources/Question3.java}.
+	\lstinputlisting{code/Question3.java}.
 	\item Pourquoi les lignes 5 et 6 renvoient-elles des résultats différents?	
 \end{itemize}
 
@@ -131,11 +134,11 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	Une classe abstraite est une classe dont l'implémentation n'est pas complète et qui n'est pas instanciable. Elle est déclarée en utilisant le mot-clé \lstinline{abstract}. Elle peut inclure des méthodes abstraites ou non. Bien que ne pouvant être instanciées, les classes abstraites servent de base à des sous-classes qui en sont dérivées.
 	Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe-mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
 	
-	\lstinputlisting{ressources/Question4-6/Animal.java} 
+	\lstinputlisting{code/Animal.java} 
 	
 	\begin{itemize}
 		\item Créez une classe abstraite appelée \lstinline{Item}. Elle doit avoir 4 attributs d'instance et un attribut de classe, qui sont les suivants:
-		\lstinputlisting{ressources/variables_q4.java} 
+		\lstinputlisting{code/variables_q4.java} 
 		\begin{conseil}
 			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
 		\end{conseil}
@@ -168,10 +171,16 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\end{conseil}
 
 	\begin{solution}
-		\lstinputlisting[language=java,lastline=43]{solutions/Figure.java} 
+		\lstinputlisting[language=java]{solutions/Figure.java} 
 	\end{solution}
 	\begin{solution}
-		\lstinputlisting[language=java,firstline=44, firstnumber=44]{solutions/Figure.java} 
+		\lstinputlisting[language=java]{solutions/Carre.java} 
+	\end{solution}
+	\begin{solution}
+		\lstinputlisting[language=java]{solutions/Rectangle.java}
+	\end{solution} 
+	\begin{solution}
+		\lstinputlisting[language=java]{solutions/FigureMain.java} 
 	\end{solution}
 	\end{Exercice}
 	
@@ -179,13 +188,13 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 \begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 4)}\\
 
 En Java, une interface se déclare comme suit:
-\lstinputlisting{ressources/Question4-6/IMakeSound.java} 
+\lstinputlisting{code/IMakeSound.java} 
 
 Pour rappel: dans une interface Java, les variables sont toujours public static final, sauf si un mot-clé explicite (static, private) en indique autrement, et les méthodes sont public abstract par défaut.
 
 Les méthodes déclarées dans une interface doivent être implémentées dans des sous-classes :
 
-\lstinputlisting{ressources/Question4-6/Cat.java} 
+\lstinputlisting{code/Cat.java} 
 \begin{itemize}
 	\item Créez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe} qui ne retourne aucune valeur.
 	\item Créez une interface \lstinline{Drinkable} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
@@ -202,12 +211,19 @@ Certains aliments ne sont pas seulement \lstinline{Edible} (mangeable) mais auss
 4. Créez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, écrivez à la fois un constructeur pour \lstinline{Soup} ainsi que la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).\\
 
 Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food} à l'aide des lignes suivantes pour tester les méthodes \lstinline{eatMe()} et \lstinline{drinkMe()}.
-\lstinputlisting{ressources/fin_interface.java} 
+\lstinputlisting{code/fin_interface.java} 
 
 \begin{solution}
-\lstinputlisting{solutions/Question6/Drinkable.java} 
-\lstinputlisting{solutions/Question6/Edible.java} 
-\lstinputlisting{solutions/Question6/Food.java} 
+\lstinputlisting{solutions/Drinkable.java} 
+\end{solution}
+\begin{solution}
+\lstinputlisting{solutions/Edible.java} 
+\end{solution}
+\begin{solution}
+\lstinputlisting{solutions/Food.java} 
+\end{solution}
+\begin{solution}
+\lstinputlisting{solutions/Soup.java} 
 \end{solution}
 
 \end{Exercice}
