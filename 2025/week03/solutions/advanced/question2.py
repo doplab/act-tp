@@ -1,42 +1,30 @@
-# Programme écrit en Python
 from random import randint
+
 number = randint(0, 30)
-x = int(input("Choisissez un nombre: "))
-if x == number:
- print("Yeeah!")
-elif x < number:
- print("Trop bas!")
-else:
- print("Trop haut!")
 
-x = int(input("Choisissez un nombre: "))
-if x == number:
- print("Yeeah!")
-elif x < number:
- print("Trop bas!")
+# Première chance pour deviner le nombre
+x = int(input("Choississez un nombre: "))
+if x==number:
+    print("Yeah!")
+elif x<number:
+    print("Trop petit!")
 else:
- print("Trop haut!")
+    print("Trop grand!")
 
-x = int(input("Choisissez un nombre: "))
-if x == number:
- print("Yeeah!")
-elif x < number:
- print("Trop bas!")
+# Deuxième chance pour deviner le nombre
+x = int(input("Choississez un nombre: "))
+if x==number:
+    print("Yeah!")
+elif x<number:
+    print("Trop petit!")
 else:
- print("Trop haut!")
+    print("Trop grand!")
 
-x = int(input("Choisissez un nombre: "))
-if x == number:
- print("Yeeah!")
-elif x < number:
- print("Trop bas!")
+# Troisième chance pour deviner le nombre
+x = int(input("Choississez un nombre: "))
+if x==number:
+    print("Yeah!")
+elif x<number:
+    print("Trop petit!")
 else:
- print("Trop haut!")
-
-x = int(input("Choisissez un nombre: "))
-if x == number:
- print("Yeeah!")
-elif x < number:
- print("Trop bas!")
-else:
- print("Trop haut!")
+    print("Trop grand!")

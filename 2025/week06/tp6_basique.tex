@@ -48,7 +48,7 @@ Choisissez parmi les éléments suivants :
 \end{Exercice}
 
 \section{Récursion en Java et Python (10 minutes)}
-\begin{Exercice}[10 minutes] \textbf{isPalindrome() — Python et Java}
+\begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome()}
     \begin{conseil}
         En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
         
@@ -260,7 +260,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
 \section{Notions d'héritage - Java (30 minutes)}
 
 Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
-Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio()} et \lstinline{Livre_Illustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
+Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio()} et \lstinline{LivreIllustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
 
 \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
 Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
@@ -277,11 +277,11 @@ Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 
 Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
 Créez les classes filles avec les caractéristiques suivantes:\\
-\lstinline{class Livre_Audio extends Livre}
+\lstinline{class LivreAudio extends Livre}
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
 \end{itemize}
-\lstinline{class Livre_Illustre extends Livre}
+\lstinline{class LivreIllustre extends Livre}
 \begin{itemize}
 	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
 \end{itemize}
@@ -289,9 +289,9 @@ Voici le squelette du programme à compléter:
 \begin{lstlisting}
 	class Livre {
 	}
-	class Livre_Audio extends Livre {
+	class LivreAudio extends Livre {
 	}
-	class Livre_Illustre extends Livre {
+	class LivreIllustre extends Livre {
 	}\end{lstlisting}
 \begin{conseil}
     \begin{itemize}
@@ -305,31 +305,31 @@ Voici le squelette du programme à compléter:
 	\lstinputlisting{solutions/Livre.java}
 \end{solution}
 \begin{solution}
-    \lstinputlisting{solutions/question10/Livre_Audio.java}
+    \lstinputlisting{solutions/question10/LivreAudio.java}
 \end{solution}
 \begin{solution}
-	\lstinputlisting{solutions/question10/Livre_Illustre.java}
+	\lstinputlisting{solutions/question10/LivreIllustre.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
-Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
+Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{LivreAudio} (et des arguments donnés lors de la création de l'objet).
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
 titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et le narrateur ``William''.\\
 Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
 Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
-Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{Livre_Audio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
-Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
+Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{LivreAudio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
+Faites pareil avec la classe \lstinline{LivreIllustre} et son attribut \lstinline{Illustrateur}
 \begin{conseil}
-\textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{Livre_Audio}.
+\textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{LivreAudio}.
 Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
 L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
 \end{conseil}
 \begin{solution}
-	\lstinputlisting{solutions/question11/Livre_Audio.java}
+	\lstinputlisting{solutions/question11/LivreAudio.java}
 \end{solution}
 \begin{solution}
-	\lstinputlisting{solutions/question11/Livre_Illustre.java}
+	\lstinputlisting{solutions/question11/LivreIllustre.java}
 \end{solution}
 \begin{solution}
 	\lstinputlisting{solutions/Question11.java}

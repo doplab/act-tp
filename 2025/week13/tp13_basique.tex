@@ -110,8 +110,10 @@ Implémentez la recherche du voisin le plus proche. Cette dernière fonctionne d
 Améliorez l'algorithme du voisin le plus proche effectué plus haut afin qu'il puisse retourner des \textit{K}-plus proches voisins.\\
 
 \begin{conseil}
-Appliquez l'algorithme du plus proche voisin \textit{K}-fois. À la fin de chaque itération, retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon, vous trouverez le second voisin le plus proche, le troisième, etc...\\
+Appliquez l'algorithme du plus proche voisin \textit{K}-fois. À la fin de chaque itération, retirez le voisin le plus proche de l'ensemble des points sur lequel l'algorithme s'applique. De cette façon, vous trouverez le second voisin le plus proche, le troisième, et ainsi de suite. \\
+\end{conseil}
 
+\begin{conseil}
 Votre fonction devra retourner une liste sous la forme : $[(point1, distance1),(point2,distance2),...]$. En considérant un input \lstinline{[(2,3),(5,6),(1,4),(2,4),(3,5)]}, un point de départ \lstinline{(4,4)} et un nombre de voisins $K=2$, l'output de votre algorithme devra être : \lstinline{[((3, 5), 1.4142135623730951), ((2, 4), 2.0)]}. Attention au type des variables que vous manipulez. Pour rappel, les tuples sont immuables en Python. Pensez à créer de nouveaux tuples contenant les coordonnées des points et leurs distances.\\
 
 Note : Pour que votre programme fonctionne, écrivez votre algorithme dans le même programme que celui de la Question 1 et la Question 2.
@@ -455,11 +457,11 @@ Encodez les images ci-dessous dans un Quad-Tree.\\
 \textbf{Image 1} & \textbf{Image 2} \\
 \hline
 \adjustbox{margin=0.3cm}{
-\includegraphics[]{images/Quad-Tree 1.PNG}
+\includegraphics[]{img/Quad-Tree 1.PNG}
 }
 &
 \adjustbox{margin=0.3cm}{
-\includegraphics[]{images/Quad-Tree 2.PNG}
+\includegraphics[]{img/Quad-Tree 2.PNG}
 }
 \\
 \hline
@@ -473,17 +475,17 @@ Encodez les images ci-dessous dans un Quad-Tree.\\
 \end{conseil}
 \begin{solution}
 Image 1 :\\
-    \includegraphics[scale=0.65]{images/Quad-Tree 1 solution.PNG}\\
+    \includegraphics[scale=0.65]{img/Quad-Tree 1 solution.PNG}\\
     
 Image 2: \\
-    \includegraphics[scale=0.65]{images/Quad-Tree 2 solution.PNG}
+    \includegraphics[scale=0.65]{img/Quad-Tree 2 solution.PNG}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes]\textbf{Une mission capitale : Papier \optionnel}\\
 
 Récemment embauché par la CIA, vous êtes à la recherche d'un individu se cachant dans une des villes suivantes : Bleu, Orange, Noir, Gris, Vert et Jaune. Votre mission, si vous l'acceptez, est de créer un Quad-Tree qui vous permettra de géolocaliser le criminel de façon efficace. Vous trouverez ci-dessous une carte de villes. Créez le Quad-Tree et rétablissez la justice.\\
 
-\includegraphics[]{images/Quad-Tree 3.PNG}
+\includegraphics[]{img/Quad-Tree 3.PNG}
 \begin{conseil}
     Commencez par diviser la carte de la ville de façon adéquate puis construisez le graphe.\\
     
@@ -492,11 +494,11 @@ Récemment embauché par la CIA, vous êtes à la recherche d'un individu se cac
 \begin{solution}
     Voici la division de la carte qui permet de construire le Quad-Tree :\\
     
-    \includegraphics[]{images/Quad-Tree 3 solution 1.PNG}\\
+    \includegraphics[]{img/Quad-Tree 3 solution 1.PNG}\\
     
     Le Quad-Tree qui en résulte :\\
     
-    \includegraphics[scale=0.65]{images/Quad-Tree 3 solution 2.1.png}\\
+    \includegraphics[scale=0.65]{img/Quad-Tree 3 solution 2.1.png}\\
     
     Note : Un rond blanc correspond à un quadrant vide.
     
