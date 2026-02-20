@@ -25,7 +25,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}.
     
-    \section{Recherche séquentielle (ou recherche linéaire)}
+    \section{Recherche séquentielle}
     \subsection{Définition}
     Une recherche \textbf{séquentielle} (ou \textbf{linéaire}) est une méthode permettant de trouver un élément dans un ensemble de données (liste, tableau ou dictionnaire). Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été parcourue.\\
     
@@ -36,7 +36,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \subsection{Exercices}
     
-    \begin{Exercice}[20 minutes] Recherche séquentielle - 1 (Python)\\
+    \begin{Exercice}[20 minutes] [Python] Recherche séquentielle\\
     
     1. À partir des éléments ci-dessous, écrivez une fonction qui cherche un élément \texttt{e} dans la liste \texttt{L}. \newline 
     
@@ -80,7 +80,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 
     \begin{solution}
         \textbf{Python:}
-        \lstinputlisting{solutions/recherche_sequentielle_index.py}
+        \lstinputlisting[language=python, firstline = 1, firstnumber = 1, lastline = 14]{solutions/recherche_sequentielle_index.py}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language=python, firstline = 17, firstnumber = 15]{solutions/recherche_sequentielle_index.py}
     \end{solution}
     
     \end{Exercice}
@@ -197,7 +200,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.32\textwidth]{images/binary-search-tree.png}
+        \includegraphics[width=0.32\textwidth]{img/binary-search-tree.png}
         \caption{Exemple d'arbre de recherche binaire}
     \end{figure}
     
@@ -272,7 +275,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la valeur du nœud $z$ et tous les nœuds dans le sous-arbre à droite ont une valeur supérieure à la valeur du nœud $z$.
     \end{conseil}
     \begin{solution}
-            \includegraphics[width=1\textwidth]{images/question4.png}
+            \includegraphics[width=1\textwidth]{img/question4.png}
         \begin{itemize}
             \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres de recherche binaire.
             \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres de recherche binaire. 
