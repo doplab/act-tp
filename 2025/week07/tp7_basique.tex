@@ -75,15 +75,6 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
 \end{Exercice}
 
-
-
-%  \begin{solution}
-%         \lstinputlisting[language=java,lastline=50]{solutions/Personnage.java}
-%     \end{solution}
-%     \begin{solution}
-%         \lstinputlisting[language=java,firstline=51, firstnumber=51]{solutions/Personnage.java}
-%     \end{solution}
-
 \begin{solution}
 	\lstinputlisting[language=python,lastline=50]{solutions/surcharge1.py}
 \end{solution}
@@ -95,113 +86,6 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \begin{solution}
 	\lstinputlisting{solutions/surcharge2.py}
 \end{solution}
-
-% \section{Notions d'héritage - Java \optionnel}
-
-
-% Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
-% Nous allons créer une classe \lstinline{Livre} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{Livre_Audio} et \lstinline{Livre_Illustre}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
-
-% \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
-% Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
-% \begin{itemize}
-% 	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
-% 	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
-% 	\item un attribut \lstinline{privé int} nommé \lstinline{annee},
-% 	\item un attribut \lstinline{privé int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
-% 	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus,
-% 	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut \lstinline{note},
-% 	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut \lstinline{note},
-% 	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
-% \end{itemize}
-
-% Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
-
-
-% Créez les classes filles avec les caractéristiques suivantes:\\
-% \lstinline{class Livre_Audio extends Livre}
-% \begin{itemize}
-% 	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
-
-% \end{itemize}
-% \lstinline{class Livre_Illustre extends Livre}
-% \begin{itemize}
-% 	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
-
-% \end{itemize}
-
-% Voici le squelette du programme à compléter:
-
-% \begin{lstlisting}
-% class Livre {
-
-% }
-
-% class Livre_Audio extends Livre {
-
-% }
-
-% class Livre_Illustre extends Livre {
-
-% }\end{lstlisting}
-
-% \begin{conseil}
-% En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-
-% Le mot-clé \lstinline{super} permet à la sous classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fill selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille !
-
-% L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
-
-% Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
-% \end{conseil}
-
-% \begin{solution}
-% 	\lstinputlisting{Solutions/heritage-solution-1.java}
-% \end{solution}
-
-% \end{Exercice}
-
-% \begin{Exercice}[5 minutes] \lstinline{Méthode et héritage} \\
-% Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{Livre_Audio} (et des arguments donnés lors de la création de l'objet).
-
-% % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
-
-% En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
-% titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et le narrateur ``William''.\\
-
-% Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
-
-% Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
-
-% Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{Livre_Audio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
-
-% Faites pareil avec la classe \lstinline{Livre_Illustre} et son attribut \lstinline{Illustrateur}
-
-% \begin{conseil}
-% \textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{Livre_Audio}.
-
-% Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot-clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
-
-
-% L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
-% \end{conseil}
-
-% \begin{solution}
-% 	\lstinputlisting{Solutions/heritage-solution-2.java}
-% 	\lstinputlisting{Solutions/heritage-solution-3.java}
-% \end{solution}
-
-% \end{Exercice}
-
-% \newpage
-% Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:\\
-
-% \lstinputlisting{ressources/livre-main.java}
-
-
-% Vous devriez obtenir :
-
-% \lstinputlisting{ressources/livre-main-prompt.java}
 
 \section{Polymorphisme - Java}
 
@@ -225,7 +109,7 @@ Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}
 \end{conseil}
 
 \begin{solution}
-	\lstinputlisting{Solutions/soigneur.java}
+	\lstinputlisting{solutions/Soigneur.java}
 \end{solution}
 
 \end{Exercice}
@@ -255,7 +139,7 @@ Pour les indications en fonction des différentes conditions, affichez simplemen
 \end{conseil}
 
 \begin{solution}
-	\lstinputlisting{Solutions/resurrection.java}
+	\lstinputlisting{solutions/resurrection.java}
 \end{solution}
 
 \end{Exercice}
@@ -280,7 +164,7 @@ Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'ins
 \end{conseil}
 
 \begin{solution}
-	\lstinputlisting{Solutions/soigneur-attack.java}
+	\lstinputlisting{solutions/soigneur-attack.java}
 \end{solution}
 
 \end{Exercice}
@@ -296,7 +180,7 @@ Pensez à utiliser le \lstinline{constructeur} de votre classe-mère \lstinline{
 \end{conseil}
 
 \begin{solution}
-	\lstinputlisting{Solutions/attaquant.java}
+	\lstinputlisting{solutions/Attaquant.java}
 \end{solution}
 
 \end{Exercice}
@@ -316,17 +200,17 @@ Pour effectuer plusieurs attaques, vous pouvez utiliser une boucle allant de 0 �
 \end{conseil}
 
 \begin{solution}
-	\lstinputlisting{Solutions/attaquant-attack.java}
+	\lstinputlisting{solutions/attaquant-attack.java}
 \end{solution}
 
 \end{Exercice}
 
 Si tout est correct, en utilisant ce \lstinline{main} : \\
 
-\lstinputlisting{ressources/FighterMain.java} 
+\lstinputlisting{code/FighterMain.java} 
 
 Vous devriez obtenir:
-\lstinputlisting{Solutions/fighter-main-solution.txt} 
+\lstinputlisting{text/FighterMain_output.txt} 
 
 
 
@@ -335,11 +219,6 @@ Vous devriez obtenir:
 
     Dans la semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
     Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
-    
-
-    % Voici la classe \lstinline{Point} qui a été légèrement modifiée (Vous trouverez le fichier sur Moodle, dans le dossier~\lstinline{Code}):
-    % Ce fichier doit être retiré du dossier Code
-    % \lstinputlisting{ressources/Point.py} 
     
     Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
     
@@ -350,7 +229,7 @@ Vous devriez obtenir:
     \end{itemize}
 
     Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
-    \lstinputlisting{ressources/Point3D.py} 
+    \lstinputlisting{code/Point3D.py} 
     
     \begin{conseil}
         \begin{itemize}
@@ -360,7 +239,7 @@ Vous devriez obtenir:
         \end{itemize}
     \end{conseil}
     \begin{solution}
-    \lstinputlisting{Solutions/Point3D.py} 
+    \lstinputlisting{solutions/Point3D.py} 
     \end{solution}
     \end{Exercice} 
 \end{document}

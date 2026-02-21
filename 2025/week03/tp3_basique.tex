@@ -24,7 +24,7 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutionfalse
+\ShowSolutiontrue
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
@@ -53,10 +53,10 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{solution}
     
     \textbf{Python:} 
-    \lstinputlisting{./code/question1.py}
+    \lstinputlisting{solutions/question1.py}
     
     \textbf{\\Java:} 
-    \lstinputlisting{./code/Question1.java}  
+    \lstinputlisting{solutions/Question1.java}  
     \end{solution}   
 \end{Exercice}
 
@@ -70,10 +70,10 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \begin{solution}
     
     \textbf{Python:} 
-    \lstinputlisting{./code/question2.py}
+    \lstinputlisting{solutions/question2.py}
     
     \textbf{\\Java:}
-    \lstinputlisting{./code/question2.java}  
+    \lstinputlisting{solutions/Question2.java}  
        
         
     \end{solution}   
@@ -190,7 +190,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Entiers signés négatifs}\\
-    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 15 du cours. \\
+    En utilisant le résultat de la question précédente, convertir sur 8 bits -113$_{(10)}$ en base binaire. Utiliser la représentation \textbf{signée} à la diapositive 15 du cours (et non le complément à 1 ou 2). \\
 
     \begin{conseil}
         \begin{itemize}
@@ -330,7 +330,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 \begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
     
-    Quelles sont les principaux types de variables (donnez en 3), comment les déclareriez-vous en Python et en Java ? \\
+    Quelles sont les principaux types de variables (donnez en trois), comment les déclareriez-vous en Python et en Java ? \\
 
     \begin{conseil}
     
@@ -343,12 +343,12 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 		En Python :    
         
-    	\lstinputlisting{code/question8.py} 
+    	\lstinputlisting{solutions/question8.py} 
     	
     	
     	En Java : 
     	
-    	\lstinputlisting{code/Question8.java} 
+    	\lstinputlisting{solutions/Question8.java} 
     	
     	Il existe d'autres types de variable, comme par exemple les \lstinline{double}.
  
@@ -389,7 +389,7 @@ En Python, le typage est dynamique, il est donc tout à fait possible de changer
     \end{Example}
     \begin{figure}[h]
         \centering
-        \includegraphics[width=1\textwidth]{resources/jre.png}
+        \includegraphics[width=1\textwidth]{img/jre.png}
         \caption{Fenêtre de configuration de l'environnement de développement Java.}
     \end{figure}
     \begin{solution}
@@ -643,7 +643,7 @@ L'étape store s'exécute ou va être exécutée.
    \end{Example}
 
     \begin{solution}
-         \lstinputlisting{code/Question13.java}
+         \lstinputlisting{solutions/Question13.java}
     \end{solution}
     
 \end{Exercice}
@@ -706,11 +706,11 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
 \end{conseil} 
 
 \begin{solution}
- \lstinputlisting{code/question14.py}
+ \lstinputlisting{solutions/question14.py}
 \end{solution}
 
 \begin{solution}
- \lstinputlisting{code/question14_2.py}
+ \lstinputlisting{solutions/question14_2.py}
 \end{solution}
 \end{Exercice}
 
@@ -800,16 +800,19 @@ Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le
     \item Pour obtenir le $i$eme caractère en Python, on écrit \texttt{myString[i]}.
     \end{itemize}
 \end{conseil}
-\item Imprimer la longueur de la chaîne en Python et en Java.
+\item Afficher la longueur de la chaîne de caractères en Python et en Java.
 \begin{conseil}
     Utiliser la méthode \texttt{myString.length()} en Java et la fonction \texttt{len} en Python.
 \end{conseil}
 \end{enumerate}
 \begin{solution}
-   \lstinputlisting{code/question16.py}
+    Pour la question 1, la ligne est separée à cause du charactère \lstinline{\\n} qui crée un saut de ligne.
 \end{solution}
 \begin{solution}
-   \lstinputlisting{code/Question16.java}
+   \lstinputlisting{solutions/question16.py}
+\end{solution}
+\begin{solution}
+   \lstinputlisting{solutions/Question16.java}
 \end{solution}
 \end{Exercice}
 

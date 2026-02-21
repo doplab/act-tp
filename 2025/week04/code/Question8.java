@@ -1,4 +1,4 @@
-public class Main {
+public class Question8 {
     static int a = 0;
     public static void f() {
         a += 2;

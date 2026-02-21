@@ -16,12 +16,3 @@ public class Vehicle {
         System.out.println(myCar.brand + " " + myCar.modelName);
     }
 }
-
-class Car extends Vehicle {
-
-    public String modelName = "Mustang";
-
-    public Car(String brand) {
-        super(brand);
-    }
-}

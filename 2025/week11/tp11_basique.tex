@@ -25,7 +25,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}.
     
-    \section{Recherche séquentielle (ou recherche linéaire)}
+    \section{Recherche séquentielle}
     \subsection{Définition}
     Une recherche \textbf{séquentielle} (ou \textbf{linéaire}) est une méthode permettant de trouver un élément dans un ensemble de données (liste, tableau ou dictionnaire). Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été parcourue.\\
     
@@ -36,14 +36,14 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \subsection{Exercices}
     
-    \begin{Exercice}[20 minutes] Recherche séquentielle - 1 (Python)\\
+    \begin{Exercice}[20 minutes] [Python] Recherche séquentielle\\
     
     1. À partir des éléments ci-dessous, écrivez une fonction qui cherche un élément \texttt{e} dans la liste \texttt{L}. \newline 
     
     La fonction doit retourner l'index de l'élément correspondant de la liste si \texttt{e} est dans la liste et -1 si \texttt{e} n'est pas dans la liste.\\
     
     \textbf{Python:}
-      \lstinputlisting{resources/recherche_sequentielle.py}
+      \lstinputlisting{code/recherche_sequentielle.py}
 
 
 \begin{conseil}
@@ -79,14 +79,14 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{itemize}
     \end{conseil}
 
-    % \begin{exemple}
-    %     \lstinputlisting[language=python, firstline=17, firstnumber=1, lastline=21]{solutions/recherche_sequentielle_index.py}
-    % \end{exemple}
-
     \begin{solution}
         \textbf{Python:}
-        \lstinputlisting{solutions/recherche_sequentielle_index.py}
-        La fonction index lève une exception si l'élément n'est pas présent, d'où l'utilisation de try/except.
+        % \lstinputlisting{solutions/recherche_sequentielle_index.py}
+        \lstinputlisting[language=python, firstline = 1, firstnumber = 1, lastline = 14]{solutions/recherche_sequentielle_index.py}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language=python, firstline = 17, firstnumber = 15]{solutions/recherche_sequentielle_index.py}
+        La fonction \lstinline[language=python]|index| lève une exception si l'élément n'est pas présent, d'où l'utilisation de try/except.
     \end{solution}
     
     \end{Exercice}
@@ -100,7 +100,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Au cas où deux éléments se trouveraient à équidistance de \lstinline{e}, renvoyez l'élément le plus petit.\\
     
     \textbf{Python :}
-        \lstinputlisting{resources/plus_proche_sequentielle.py}
+        \lstinputlisting{code/plus_proche_sequentielle.py}
         \begin{conseil}
         Complétez la fonction \texttt{plus\_proche\_sequentielle} puis exécutez le code. \\
 
@@ -118,28 +118,6 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \end{solution}
         
     \end{Exercice}
-    
-    
-%     \begin{Exercice}[10 minutes] Recherche séquentielle - 3 (Python) \\
-%     Considérez une \textbf{liste d’entiers triés} \lstinline{L} ainsi qu’un entier \lstinline{e}. Écrivez un programme qui retourne l'index de l'élément \lstinline{e} de la liste \lstinline{L} en utilisant une recherche séquentielle. Si \lstinline{e} n’est pas dans \lstinline{L}, retournez -1.\\
-    
-%     \begin{exemple}
-%         \lstinputlisting[language=python, firstline=8, firstnumber=1, lastline=11]{solutions/question3.py}
-%     \end{exemple}
-  
-% \lstinputlisting{resources/question3.py}
-
-%     \begin{conseil}
-%         Une liste triée permet une recherche plus efficace à l'aide d'un algorithme plus simple.\\
-%         Retournez l'index de la valeur dans la liste. Pensez à utiliser la fonction \lstinline{index()} qui retourne l'index d'un élément au sein d'une liste en Python.\\Exemple et syntaxe: \lstinline{lst.index(i)} va indiqué la position de l'élément \lstinline{i} dans la liste \lstinline{lst}.
-%     \end{conseil}
-
-
-%     \begin{solution}
-%         \textbf{Python :}
-%         \lstinputlisting{solutions/question3.py}
-%     \end{solution}
-% \end{Exercice}
     
     \section{Recherche binaire — Binary search}
     
@@ -160,7 +138,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour effectuer un calcul factoriel.\\\\
     (Rappel : 4! = 4 x 3 x 2 x 1 = 24)\\
     
-    \lstinputlisting{resources/factorial.py}
+    \lstinputlisting{code/factorial.py}
     
     Les fonctions récursives sont courantes en informatique car elles permettent aux programmeurs d'écrire des programmes efficaces en utilisant une quantité minimale de code. Leur principal inconvénient est le fait qu'elles peuvent provoquer des exécutions infinies et d'autres résultats inattendus si elles ne sont pas écrites correctement. Si la fonction n'inclut pas les cas permettant d'arrêter la récursivité, celle-ci se répétera à l'infini, provoquant le plantage du programme ou, pire encore, l'arrêt de tout le système informatique.\\
        
@@ -176,10 +154,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \end{conseil}
     
     \subsubsection*{Question 3.1 - Version récursive}
-    \lstinputlisting{resources/recherche_binaire_recursive.py}
+    \lstinputlisting{code/recherche_binaire_recursive.py}
     
     \subsubsection*{Question 3.2 - Version itérative}
-    \lstinputlisting{resources/recherche_binaire_iterative.py}
+    \lstinputlisting{code/recherche_binaire_iterative.py}
     
     
         \begin{conseil}
@@ -338,12 +316,6 @@ def recherche_arbre(node, value):
         \begin{solution}
             \lstinputlisting{solutions/recherche_arbre.py}
         \end{solution}
-
-        \begin{comment}
-            \begin{solution}
-                \lstinputlisting{solutions/arbre_recherche_binaire.py}
-            \end{solution}
-        \end{comment}
     
     \end{Exercice}
     
