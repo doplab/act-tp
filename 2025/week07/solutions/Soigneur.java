@@ -2,7 +2,7 @@ class Soigneur extends Fighter {
 
     private int resurrection;
 
-    public Soigneur(String name, int health, int attack, int defense, int soin) {
+    public Soigneur(String name, int health, int attack, int defense) {
         super(name, health, attack, defense);
         this.resurrection = 1;
     }

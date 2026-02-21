@@ -47,12 +47,12 @@ Le temps indiqué (\faClock) est à titre indicatif.
     
     Quel est la complexité de l'algorithme ci-dessus?
     
-    \begin{conseil}
-    Aidez-vous d'un exemple (\lstinline{fibonacci(3)}, \lstinline{fibonacci(4)},...). \\
-    Pour formaliser la formule de complexité, on peut poser que $T(n)$ énumère le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante. Vous pouvez alors énumérer le nombre d'opérations pour \lstinline{fibonacci(3)}, \lstinline{fibonacci(4)}... et essayer de trouver la complexité en terme de $O()$.
-    \end{conseil}
+    \begin{conseil} 
     
-    \ \\
+    Pour formaliser la formule de complexité, soit $T(n)$ le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante et $n \geq$ 2. Dans cette formule, $T(n-1)$ est le nombre d'opérations de \lstinline{fibonacci(n-1)} et $T(n-2)$ est le nombre d'opérations de \lstinline{fibonacci(n-2)}. À l'aide de cette formule récursive et du fait que $T(0)$ et $T(1)$ valent 1, déduisez les premières valeurs de $T(n)$ et tracez-les.  \newline
+
+
+    \end{conseil}
     
     \begin{enumerate}
         \item $O(n^2)$
@@ -62,7 +62,28 @@ Le temps indiqué (\faClock) est à titre indicatif.
     \end{enumerate}
     
     \begin{solution}
-        La complexité de cet algorithme est $O(2^n)$.
+        La complexité de cet algorithme est $O(2^n)$. \newline 
+        
+        \textbf{Preuve: } $F(n) \ge 2^{n/2}$ pour tout $n \ge 6$.
+        Ceci établit une croissance exponentielle de base $\sqrt{2} \approx 1.414$.
+
+        \textbf{Cas de base :}
+        \begin{itemize}
+            \item $F(6) = 8 \ge 2^3 = 8$ 
+            \item $F(7) = 13 \ge 2^{3.5} \approx 11.3$ 
+        \end{itemize}
+    \end{solution}
+    \begin{solution}
+
+        \textbf{Étape de récurrence :} Supposons que la borne soit vraie pour tout $k \le n$. Alors :
+
+        $$F(n + 1) = F(n) + F(n - 1) \ge 2^{n/2} + 2^{(n-1)/2} = 2^{(n-1)/2}(\sqrt{2} + 1)$$
+
+        Puisque $\sqrt{2} + 1 \approx 2.414 > 2 = (\sqrt{2})^2$, nous avons :
+
+        $$F(n + 1) \ge 2^{(n-1)/2} \cdot (\sqrt{2})^2 = 2^{(n-1)/2} \cdot 2^1 = 2^{(n+1)/2} $$
+
+        Ceci achève la récurrence. 
     \end{solution}
 \end{Exercice}
 
@@ -80,6 +101,7 @@ Avant de faire appel à la fonction de façon récursive, vérifiez que le nombr
 \end{conseil}
 
 \begin{solution}
+    Sans utilisation de la mémoire l'algorithme avait une complexité de $O(2^n)$, maintenant de $O(n)$.
     \lstinputlisting{solutions/advanced/Fibonacci_memo.py} 
 \end{solution}
 
@@ -107,7 +129,11 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
     \begin{solution}
     \textbf{Java:}
-    \lstinputlisting{solutions/advanced/BubbleSort.java} 
+    \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=15]{solutions/advanced/BubbleSort.java} 
+
+    \end{solution}
+    \begin{solution}
+    \lstinputlisting[language=java, firstline=16, firstnumber = 16]{solutions/advanced/BubbleSort.java} 
 
     \end{solution}
 
@@ -129,7 +155,7 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
         \item \textbf{Python :}
             \lstinputlisting{code/advanced/InsertionSort.py} 
         \item \textbf{Java :}
-            \lstinputlisting{code/advanced/InsertionSort.java} 
+            \lstinputlisting[language=java]{code/advanced/InsertionSort.java} 
     \end{itemize}
     
     \begin{conseil}
@@ -145,6 +171,8 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     \begin{solution}
         \textbf{Python :}
             \lstinputlisting{solutions/advanced/InsertionSort.py} 
+    \end{solution}
+    \begin{solution}
         \textbf{Java :}
             \lstinputlisting{solutions/advanced/InsertionSort.java}
     \end{solution}
@@ -184,10 +212,10 @@ Soit la liste \lstinline{l = [1, 2, 4, 3, 1]}, triez les éléments de la liste 
     
      \begin{solution}
         \textbf{Java :}
-        \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=52]{solutions/advanced/MergeSort.java}
+        \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=20]{solutions/advanced/MergeSort.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java, firstline=53, firstnumber = 53]{solutions/advanced/MergeSort.java}
+        \lstinputlisting[language=java, firstline=21, firstnumber = 21]{solutions/advanced/MergeSort.java}
     \end{solution}
     \begin{solution}
         

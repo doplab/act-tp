@@ -134,7 +134,7 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     \end{figure}
 
     
-    Un treap (ou arbretas) est une fusion entre un arbre binaire de recherche et un heap. En construisant un treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
+    Un treap (ou \textit{arbretas}) est une fusion entre un arbre binaire de recherche et un heap (\textit{tas}). En construisant un treap, vous devez vous assurer que les deux conditions ci-dessous soient respectées:
 
     \begin{itemize}
         \item Le nœud de gauche a une valeur plus petite que le nœud parent, tandis que le nœud de droite a toujours une valeur plus grande que le nœud parent. --\textit{propriété d'un arbre binaire de recherche}
@@ -156,15 +156,6 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
     nodes = [(5, $r_0$), (2, $r_1$), (1, $r_2$), (4, $r_3$), (9, $r_4$), (8, $r_5$), (10, $r_6$)]\\}
 
     \end{attention}
-
-    \begin{comment}
-        Un treap est un arbre binaire où chaque sommet $v$ a 2 valeurs, une clé \lstinline{v.key} et une priorité \lstinline{v.priority}. Un treap est une combinaison d'un arbre de recherche binaire et d'un heap.
-        Un heap ou \emph{tas} est un arbre binaire presque complet (tous les niveaux sont remplis sauf, éventuellement, le dernier) dont les éléments sont ordonnés.
-        Ainsi, le treap a la même structure qu'un arbre de recherche binaire dont les nœuds sont
-        insérés par ordre de priorité. \\
-
-        \lstinputlisting[language = python]{resources/treap.py}
-    \end{comment}
 
     Placez de manière itérative les éléments de \lstinline{nodes} dans un treap. Utilisez l'espace ci-dessous pour dessiner le treap qui sera obtenu.
 
@@ -198,7 +189,11 @@ Pour vérifier si un nombre $n$ est premier, il faut  parcourir tous les nombres
 
     \begin{center}
         \includegraphics[width=\linewidth]{img/treap.png}
-    \end{center}    
+    \end{center}
+    À noter que vous avez obtenu des valeurs différentes donc le treap ne sera pas le même que la correction.
+    Le treap a été construit en insérant d'abord les clés selon la règle d'un arbre binaire de recherche, puis en effectuant des rotations lorsque la priorité d'un nœud violait la propriété du Max-Heap.
+    Les rotations permettent de conserver la propriété BST tout en rétablissant la propriété du heap.
+    L'arbre final respecte donc simultanément les deux propriétés d'un max-heap et d'un arbre de recherche binaire.
     \end{solution}
 \end{Exercice}
 

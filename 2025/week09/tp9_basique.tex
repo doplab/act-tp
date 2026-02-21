@@ -117,6 +117,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{.hashcode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashcode())}.
 
 	L'instruction \lstinline{f1.equals(f2)} fait appel à la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons définies dans cette méthode.
+	L'instruction \lstinline{==} compare les références, alors que \lstinline{.equals()} compare les valeurs.
 \end{solution}
 
 
@@ -154,7 +155,11 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\end{conseil}
 \end{itemize}
 		\begin{solution}  
-			\lstinputlisting{solutions/Item.java} 
+			\lstinputlisting{solutions/Item.java}
+			La variable count est un attribut de classe (mot clé static), il est donc partagé part toutes les instances de la classe.
+			Dans le constructeur on voit que count est incrémenté à chaque appel du constructeur. La variable représente donc le nombre d'instance de la classe.
+			Pour l'attribut id on demande à ce qu'il soit incrémenté à chaque instanciation de la classe, ce que fait déjà count, c'est pour ça que \lstinline{this.id = ++count}.
+			Cela garanti d'avoir un id unique pour chaque instance.
 		\end{solution}
 	\end{Exercice}
 	
