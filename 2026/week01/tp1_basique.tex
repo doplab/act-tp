@@ -31,11 +31,11 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \begin{conseil}
         Vous pouvez utiliser la table des puissances de 2 pour vous aider. \\
         
-        \begin{tabular}{| C{0.15\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} | C{0.1\textwidth} |} 
+        \begin{tabular}{| C{0.15\textwidth} | *{8}{C{0.065\textwidth}|}}
             \hline
-            \textbf{puissance} & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
+            \textbf{puissance} & $2^{7}$ & $2^{6}$ & $2^{5}$ & $2^{4}$ & $2^{3}$ & $2^{2}$ & $2^{1}$ & $2^{0}$ \\ [0.5ex] 
             \hline
-            \textbf{valeur} & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
+            \textbf{valeur} & 128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\ [0.5ex] 
             \hline
         \end{tabular} \\
         
@@ -620,7 +620,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{Exercice}[10 minutes] \textbf{Execute}\\
     Quel est résultat de l'opération?
     \begin{conseil}
-        Toutes les informations permettant d'effectuer l'opération se trouvent dans les données de l'\lstinline{Instruction Register}.
+        Toutes les informations permettant d'effectuer l'opération se trouvent dans les données de l'\lstinline{Instruction Register} et la table des registres.
     \end{conseil}
     \begin{solution}
 
@@ -642,7 +642,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
           \end{tabular}
 
     \medskip
-    Les registres ont maintenant les valeurs suivantes : 
+    À la fin de l'étape \textbf{Store} les registres auront les valeurs suivantes : 
     \medskip
     \begin{tabular}{| C{0.13\textwidth} | C{0.13\textwidth} | C{0.13\textwidth}|} 
     \hline
