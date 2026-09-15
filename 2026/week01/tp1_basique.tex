@@ -45,7 +45,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \begin{solution}
     Il existe deux méthodes pour simplifier la conversion d'un nombre de la base 10 à la base 2.  \\
         
-    \textbf{Méthode 2 pour 10 :}
+    \textbf{Méthode 1 pour 10 :}
         \medskip
         \begin{tabular}{| C{0.19\textwidth} | C{0.55\textwidth} |} 
         \hline
@@ -65,7 +65,7 @@ Le but de cette séance est de comprendre le fonctionnement d'un ordinateur. La 
     \end{solution}
 
     \begin{solution}
- \textbf{Méthode 1 pour 45:} \\
+ \textbf{Méthode 2 pour 45:} \\
         
         Cette première méthode consiste à utiliser la table des puissances de 2 qui se trouve ci-dessous, ensuite on regarde la plus grande puissance de 2 à l'aide de cette table qui peut être soustraite à notre nombre. Une fois trouvée, on la soustrait, on ajoute 1 sous la case correspondante et on répète l'opération avec le résultat obtenu. Répétez l'opération jusqu'à obtenir 0.\\
         
@@ -86,7 +86,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
 
     \begin{solution}
 	
-	\textbf{Méthode 2 pour 45:} \\
+	\textbf{Méthode 1 pour 45:} \\
 	
 	 Prenez votre nombre et divisez-le par 2 en colonne. S'il y a un reste, notez-le à côté, sinon notez 0. Répétez l'opération avec le résultat que vous venez d'obtenir, et ce jusqu'à arriver à 0. Pour lire votre nombre en binaire, prenez la suite de 0 et 1 correspondants aux différents restes, mais prenez les de bas en haut.  \vspace*{0.5cm} \\
        	\begin{minipage}{0.45\textwidth}
@@ -179,7 +179,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
     \medskip
     \end{solution}
     \begin{solution}
-    \textbf{Méthode 2 pour 173 :}
+    \textbf{Méthode 1 pour 173 :}
     \medskip
         \begin{tabular}{| C{0.19\textwidth} | C{0.50\textwidth} |} 
         \hline
@@ -227,7 +227,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         N'oubliez pas qu'en hexadécimal (base 16), A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15 ! \\
     \end{conseil}
     \begin{solution}
-        Dans cette solution, la méthode 2 sera utilisée pour 52 en base 3, et la méthode 1  pour 254 en base 16. \\
+        Dans cette solution, la méthode 1 sera utilisée pour 52 en base 3, et la méthode 1  pour 254 en base 16. \\
         
         \textbf{Méthode 2 pour 52 (ici, nous sommes en base 3 donc on divise par 3) :} \\
        	
@@ -248,7 +248,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         Ici, on obtient 1221$_{(3)}$ \\
     \end{solution}
     \begin{solution}
-        \textbf{Méthode 1 pour 254 (ici, nous sommes en base 10)} \\
+        \textbf{Méthode 2 pour 254 (ici, nous sommes en base 10)} \\
         
         Ici, il faut prendre en compte le nombre de fois qu'on peut multiplier le nombre par la valeur de la puissance. Ici on a 256 qui est trop grand, il faut donc partir sur 16. On voit qu'on peut aller jusqu'à 15*16 qui vaut 240. Donc on entre 15 sous la valeur 16 et on soustrait. 254-240 = 14. Il nous reste donc 14*1, on met alors 14 sous la valeur 1. \\
         
@@ -265,7 +265,7 @@ Ici, 45 - 32 = 13, puis 13- 8 = 5, puis 5-4 = 1, puis 1-1 = 0 \\
         On obtient donc 15 14 (qui s'écrit FE$_{(16)}$)\\
 
         \medskip
-        \textbf{Méthode 2 pour 40 (en base 8 donc on divise par 8)}
+        \textbf{Méthode 1 pour 40 (en base 8 donc on divise par 8)}
         \medskip
         \begin{tabular}{| C{0.1\textwidth} | C{0.1\textwidth} |} 
         \hline
@@ -602,9 +602,9 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
         En décomposant l'\lstinline{Instruction Register} (10110110), on obtient les données suivantes:
         \begin{itemize}
             \item \lstinline{10}, correspond à l'opération à effectuer,
-            \item \lstinline{11}, correspond à \textbf{l'adresse} du registre où sera sauvegardé le résultat,
-            \item \lstinline{01}, correspond à \textbf{l'adresse} du premier nombre,
-            \item \lstinline{10}, correspond à \textbf{l'adresse} du deuxième nombre.\\
+            \item \lstinline{11}, correspond à \textbf{l'identifiant} du registre où sera sauvegardé le résultat,
+            \item \lstinline{01}, correspond à \textbf{l'identifiant} du registre qui stocke le premier nombre,
+            \item \lstinline{10}, correspond à \textbf{l'identifiant} du registre qui stocke le deuxième nombre.\\
         \end{itemize}
         
     À partir de ces informations, on peut répondre aux questions posées:
