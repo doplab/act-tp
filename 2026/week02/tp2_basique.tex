@@ -21,48 +21,30 @@
 \titre
 \cours{Logiciels système}
 
-Le but de cette séance est de vous permettre de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et des librairies.
-Cette séance sera composée de deux parties. Une première partie qui sera consacrée à l'installation des outils de travail et une deuxième partie qui contient des questions à choix multiples en lien avec les notions abordées dans le cours.\\
+Le but de cette séance est de vous permettre de comprendre le rôle d'un système d'exploitation, de logiciels système, d'interpréteurs, de compilateurs et de bibliothèques.
+Cette séance sera composée de deux parties: la première est consacrée à l'installation des outils de travail; la seconde contient des questions à choix multiples en lien avec les notions abordées dans le cours.\\
 Le code utilisé dans les questions est également disponible sur Moodle.
-
-\begin{note}{"Nathan"}
-Basique: un exercice essentiel pour maîtriser les notions de cours ou tout simplement facile à faire.
-    q1: basique
-    q2: basique 
-    q3: basique
-    q4: basique
-    q5: basique
-    q6: basique
-    q7: Basique
-    q8: basique
-    q9: avancé
-    q10: avancé
-    q11-14: avancé
-\end{note}
-\begin{note}{Maeva}
-    Il n'y a pas d'exemple pour python dans le cours
-\end{note}
 
 \begin{section}{Installation des outils}
     \begin{comment}
         \textit{(\faClock \enskip 60 minutes)}
     \end{comment}
-    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils sur Windows se trouve \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/8/prerequisite_win.pdf}{à cette adresse Moodle} et sur MacOS \href{https://moodle.unil.ch/pluginfile.php/3532600/mod_resource/content/8/prerequisite_macos.pdf}{à cette adresse Moodle}.
+    Suivre le guide suivant pour installer les outils qui seront utilisés lors des prochaines séances de TP. Le guide d'installation des outils sur Windows se trouve \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/8/prerequisite_win.pdf}{à cette adresse Moodle} et sur macOS \href{https://moodle.unil.ch/pluginfile.php/3532600/mod_resource/content/8/prerequisite_macos.pdf}{à cette adresse Moodle}.
 \end{section}
 
 \begin{section}{Systèmes d'exploitation}
     
 Le système d'exploitation (OS - Operating System) est le logiciel le plus important de l'ordinateur car il est responsable de tous les autres programmes et de leurs priorités d'exécution, il organise aussi les interactions et l'orchestration des différents composants physiques de la machine.
 \\\\
-L'OS contrôle l'accès au matériel physique et gère le(s) processeur(s), la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers dans les disques durs internes ou externes.
+L'OS contrôle l'accès au matériel physique et gère le(s) processeur(s), la mémoire, le stockage, la sécurité et les périphériques externes. Par exemple, l'OS identifie quel utilisateur est connecté (au moment d'entrer le mot de passe à l'allumage), il reconnaît quelles touches du clavier et de la souris sont pressées, il affiche les images à l'écran et il sauvegarde les fichiers sur les disques durs internes ou externes.
 \\\\
-La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, ces différents composants ne peuvent faire qu'une seule chose à la fois (même si ils les font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
+La plupart du temps, de nombreuses applications sont exécutées au même moment sur le même ordinateur. Elles ont besoin d'utiliser les mêmes composants de l'ordinateur (CPU, RAM, Storage). Cependant, supposant qu'il existe un seul coeur dans le CPU, ces différents composants ne peuvent faire qu'une seule chose à la fois (même s'ils la font très rapidement), c'est la raison pour laquelle l'OS orchestre chaque tâche de manière à ce que l'utilisateur ait l'impression que tout se déroule en même temps.
 \\
 
     \begin{Exercice}[2 minutes]  \textbf{QCM}\\
     Lequel de ces logiciels \textbf{n}'est \textbf{pas} un système d'exploitation?
         \begin{enumerate}
-            \item Microsoft Office 2012
+            \item Microsoft Office 
             \item Microsoft Windows 98
             \item Unix BSD
             \item Gentoo
@@ -70,14 +52,14 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
         \end{enumerate}
     \end{Exercice}
     \begin{solution}
-                Microsoft Office 2012 est un ensemble d'applications bureautiques disponible sur les systèmes d'exploitation les plus populaires.
+                Microsoft Office est un ensemble d'applications bureautiques disponible sur les systèmes d'exploitation les plus populaires.
 		Ce n'est donc pas un système d'exploitation, mais un logiciel d'application. 
     \end{solution}
 
     \begin{Exercice}[2 minutes]
         Quel est le rôle du noyau \textit{Kernel} du système d'exploitation? Trouvez la \textbf{mauvaise} réponse.
         \begin{enumerate}
-            \item Servir d'interface de communication entre la partie logicielle et matérielle.
+            \item Servir d'interface de communication entre les parties logicielle et matérielle.
             \item Gérer les ressources physiques de l'ordinateur.
             \item Fournir les mécanismes d'abstraction du matériel.
             \item Interpréter les instructions et les convertir en binaire.
@@ -106,38 +88,12 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 	    En effet, le système d'exploitation a une interaction avec tous les éléments hardware (tous les composants physiques de base d'un ordinateur) et avec tous les périphériques externes de l'ordinateur (tout composant additionnel non essentiel au fonctionnement d'un ordinateur).  \\
     \end{solution}
 
-        % TODO: @nathan - Question pas claire, à refaire.
-
-\begin{comment}
-        \begin{Exercice}[5 minutes]
-        Quel(s) lien(s) fait le système d'exploitation? Plusieurs réponses sont possibles
-        \begin{enumerate}
-            \item \textbf{Entre un casque audio et spotify.}
-            \item \textbf{Entre google Chrome et des téléchargements web}
-            \item Le disque dur et le processeur
-            \item Aucune réponse n'est correcte.
-        \end{enumerate}
-        \begin{solution}
-            Le système d'exploitation sert d'interface entre:
-	    \begin{enumerate}
-	    	\item Software - Software. Exemple: Les téléchargements google chrome et la gestion des fichiers.
-		\item Software - Hardware/Périphériques. Exemple: Musique jouée à partir de spotify sur un casque audio.
-		\item Hardware/Périphériques - Software. Exemple: L'antenne wifi qui permet l'accès à internet notamment avec des navigateurs web.
-	    \end{enumerate}
-	    La 3ème affirmation est fausse car le lien entre le disque dur et le processeur est un lien physique car ce sont tous les deux du hardware.  
-        \end{solution}
-        \begin{conseil}
-            Réfléchir à la nature (hardware ou software) de chaque élément des propositions et ce que cela implique dans la connexion.
-	    Le système d'exploitation contrôle l'accès aux ressources hardware ( composants physique) et sert d'interface avec le software.
-        \end{conseil}
-    \end{Exercice}
-\end{comment}
 
 \begin{Exercice}[2 minutes]
     Lequel de ces systèmes d'exploitation \textbf{ne} permet \textbf{pas} d'exécuter plus d'un programme en même temps?
     \begin{enumerate}
         \item Ubuntu
-        \item MacOS
+        \item macOS
         \item Windows XP
         \item MS-DOS
     \end{enumerate}
@@ -152,38 +108,38 @@ La plupart du temps, de nombreuses applications sont exécutées au même moment
 \end{Exercice}
 
 \begin{Exercice}[3 minutes]
-        Que fait la commande suivante: \textbf{ls} \textit{(Linux/MacOS)} / \textbf{dir} \textit{(Windows)}?
+        Que fait la commande suivante: \textbf{ls} \textit{(Linux/macOS)} / \textbf{dir} \textit{(Windows)}?
         \begin{enumerate}
             \item Affiche sous forme de liste uniquement l'ensemble des fichiers du disque.
             \item Affiche sous forme de liste l'ensemble des processus en cours.
             \item Retourne uniquement les dossiers du répertoire courant.
-            \item Affiche tous les dossiers et fichiers du répertoire courant.
+            \item Affiche les dossiers et fichiers du répertoire courant.
             \item Aucune réponse n'est correcte.
         \end{enumerate}
         \begin{solution}
-            \textbf{ls} \textit{(Linux/MacOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher les références des fichiers et dossiers du répertoire courant.
+            \textbf{ls} \textit{(Linux/macOS)} ou \textbf{dir} \textit{(Windows)} permet d'afficher les références des fichiers et dossiers du répertoire courant.
         \end{solution}
         \begin{conseil}
-            Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant chaque commande sous Linux/MacOS ou écrire \texttt{help} avant chaque commande sous Windows.
+            Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou écrire \texttt{help} avant la commande sous Windows.
         \end{conseil}
     \end{Exercice}
 
     
     
      \begin{Exercice}[2 minutes]\\
-    Parmi les éléments suivants, lequel n'est pas géré par le système de fichiers (\textit{filesystem})?
+    Parmi les tâches suivantes, laquelle ne relève \textbf{pas} du système de fichiers (\textit{filesystem}) ?
         \begin{enumerate}
             \item L'organisation des dossiers.
             \item L'écriture et la lecture du \textbf{contenu} des fichiers sur les disques.
-            \item Les différents chemins d'accès aux différents dossiers et fichiers.
+            \item La gestion des chemins d'accès aux dossiers et aux fichiers.
             \item L'organisation des fichiers.
-            \item Aucune réponse correcte.
+            \item Aucune des réponses précédentes.
         \end{enumerate}
     \end{Exercice}
     
     \begin{solution}
-        L'écriture et la lecture des fichiers sur les disques. \\
-        En effet, cet élément est géré par d'autres parties de l'OS, le filesystem ne gère que l'organisation \textbf{virtuelle} des fichiers et dossiers. L'écriture ou lecture physique est faite par le controlleur du disque et le disque dur. \\ 
+        La bonne réponse est la cinquième : toutes ces tâches relèvent du système de fichiers. \\
+        Le système de fichiers organise les fichiers et les dossiers, gère leurs chemins d'accès et participe à la lecture et à l'écriture de leur contenu en faisant le lien entre les fichiers et les emplacements de leurs données sur le support de stockage. Il s'appuie sur les pilotes et le contrôleur du périphérique de stockage pour effectuer les transferts physiques de données. \\
     \end{solution}
     
 \end{section}
@@ -206,15 +162,15 @@ La façon dont les interprètes et les compilateurs opèrent est différente et 
         \hline
         Code machine généré et optimisé à l'avance & Code machine généré à la volée et optimisé à chaque exécution  \\
         \hline
-        Ex: C, C++, Java, Scala, Rust, etc. & Ex: Bash, Python, Javascript, etc. \\
+        Ex: C, C++, Java, Scala, Rust, etc. & Ex: Bash, Python, JavaScript, etc. \\
         \hline
     \end{tabular}
     \\\\
     \begin{attention}
-    Sur MacOS, pour exécuter du code Python depuis le terminal (shell), on écrit \texttt{python3} alors que sur Windows, on écrit \texttt{python}. Vous pouvez aussi essayer d'écrire les deux et voir laquelle fonctionne. Pour exécuter du code Java, on exécute (dans le terminal) d'abord la compilation en écrivant \texttt{javac Example.java} et ensuite \texttt{java Example [arguments séparés par espaces]}.
+    Sur macOS, pour exécuter du code Python depuis le terminal (shell), on écrit \texttt{python3} alors que sur Windows, on écrit \texttt{python}. Vous pouvez aussi essayer d'écrire les deux et voir quelle commande fonctionne. Pour exécuter du code Java, on exécute (dans le terminal) d'abord la compilation en écrivant \texttt{javac Example.java} et ensuite \texttt{java Example [arguments séparés par espaces]}.
 \end{attention}
     \begin{Exercice}[10 minutes]
-        En utilisant l'invite de commande (Terminal), créer un fichier contenant les instructions suivantes:
+        En utilisant l'invite de commandes (Terminal), créer un fichier contenant les instructions suivantes:
         \begin{lstlisting}
 if __name__ == "__main__":
     print("Hello world")
@@ -227,35 +183,35 @@ if __name__ == "__main__":
     \begin{conseil}
         \begin{itemize}
             \item Assurez-vous d'avoir correctement installé les outils de développement avant d'exécuter le programme.
-            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous MacOS ou Linux. Sous MacOS, nous vous conseillons d'utiliser Nano (installé par défaut)en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer \lstinline{Nano} en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
-Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la command \lstinline{touch hello.py}.
+            \item Utiliser un éditeur de texte présent sur votre ordinateur pour écrire directement votre programme depuis le terminal sous macOS ou Linux. Sous macOS, nous vous conseillons d'utiliser Nano (installé par défaut) en tapant \lstinline{nano hello.py}. Sous Linux (Debian/Ubuntu), vous pouvez installer \lstinline{Nano} en utilisant la commande suivante: \lstinline{sudo apt-get install nano}.
+Alternativement, il est possible de créer un fichier vide directement depuis le terminal au moyen de la commande \lstinline{touch hello.py}.
             \item Sous Windows, vous pouvez utiliser Notepad. 
         \end{itemize}
     \end{conseil}
     \begin{solution}
-        Pour exécuter un programme \lstinline{Python} en ligne de commande, assurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivi du nom de votre programme. 
+        Pour exécuter un programme \lstinline{Python} en ligne de commande, assurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivie du nom de votre programme. 
         Dans le cas de cette question, on fera: \lstinline{python hello.py}.
-        Le programme affichera \lstinline{Hello World}
+        Le programme affichera \lstinline{Hello world}
     \end{solution}
     
     \begin{note}{Maeva}
     Exercice 8 en avancé car pareil que le 9 en java 
 \end{note}
     \begin{Exercice}[10 minutes]
-        En utilisant l'invite de commande (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
+        En utilisant l'invite de commandes (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
 
         \lstinputlisting[language=Python]{code/question8.py}
         
         \begin{conseil}
             \begin{itemize}
                 \item Le code ci-dessus est disponible sur Moodle.
-                \item Le programme affiche la somme de deux nombres passés en paramètres. Pour que le programme fonctionne, assurez-vous de passer des valeurs numériques.
+                \item Le programme affiche la somme de deux nombres passés en paramètres. Pour que le programme fonctionne, assurez-vous de passer exactement deux nombres entiers.
                 \item \lstinline{sys.argv} est une liste contenant les paramètres passés au programme. Le premier paramètre contient le chemin d'accès au fichier exécuté.
             \end{itemize}
         \end{conseil}
 
         \begin{solution}
-            Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
+            Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et de rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
         \end{solution}
 
     \end{Exercice}
@@ -263,16 +219,16 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
     \begin{Exercice}[10 minutes]
         Soit le programme suivant écrit en Java. 
 
-        \lstinputlisting[language=Python]{code/Question9.java}
+        \lstinputlisting[language=Java]{code/Question9.java}
         
-        Exécutez-le en utilisant l'invite de commande (Terminal) en vous assurant d'y ajouter des paramètres.
+        Exécutez-le en utilisant l'invite de commandes (Terminal) en vous assurant d'y ajouter des paramètres.
     
 
         \begin{conseil}
             \begin{itemize}
                 \item Le code ci-dessus est disponible sur Moodle.
-                \item Le programme affiche l'ensemble des paramètres qui lui auront été passé.
-                \item \lstinline{String args[]} est une liste (de chaînes de caractères) contenant les paramètres passés au programme. Pour accéder à un élément de cette liste, vous pouvez faire \lstinline{args[index]} où \lstinline{index} est un entier représentant la position dans la liste \lstinline{args}.
+                \item Le programme affiche l'ensemble des paramètres qui lui auront été passés.
+                \item \lstinline{String args[]} est un tuple (de chaînes de caractères) contenant les paramètres passés au programme. Pour accéder à un élément de cette liste, vous pouvez faire \lstinline{args[index]} où \lstinline{index} est un entier représentant la position, commençant à zéro, dans la liste \lstinline{args}.
                 \item Pour naviguer dans votre système de fichiers, pensez à utiliser les commandes présentées à la diapositive 26 du cours.
             \end{itemize}
         \end{conseil}
@@ -298,59 +254,56 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
 
             \textbf{Erreur fréquente}: En utilisant la commande \lstinline{javac}, vous pouvez obtenir l'erreur suivante:\\
             \textbf{javac is not recognized as an internal or external command, operable program or batch file}\\
-            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système. Pour corriger cela, lisez la dernière section \textbf{Résolution Bug Windows} dans le document disponible à \href{https://moodle.unil.ch/pluginfile.php/3691183/mod_resource/content/8/prerequisite_win.pdf}{cette adresse Moodle}.
+            Cette erreur se produit lorsque le chemin d'accès à java n'est pas défini dans votre système ou lorsque le JDK n'est pas installé. Pour corriger cela, lisez la dernière section \textbf{Résolution Bug Windows} dans le document disponible à \href{https://moodle.unil.ch/mod/resource/view.php?id=2218867}{cette adresse Moodle} (Windows) ou \href{https://moodle.unil.ch/mod/resource/view.php?id=2218868}{cette adresse} (macOS).
 
         \end{solution}
 
     \end{Exercice}
     
 \end{section}
-\begin{section}{Librairies}
-    \textbf{Une librairie} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une librairie seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une librairie écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
+\begin{section}{Bibliothèques}
+    \textbf{Une bibliothèque} est un ensemble de fonctions qui ont pour but d'être utilisées par d'autres programmes, mais une bibliothèque seule ne suffit pas pour faire un programme. Par exemple, que ce soit Google Chrome, Word, ou Instagram, presque tous les programmes ont besoin de manipuler des listes d'objets. Au lieu de réécrire l'ensemble des fonctions qui permettent de créer et de gérer des listes, ces différents programmes utilisent tous une bibliothèque écrite par un tiers qui offre toutes les fonctionnalités attendues d'une liste.
 \\\\
-En Python, de nombreuses fonctions et structures de données sont disponibles dans la librairie standard de Python (\lstinline{list, set, dict, str}, etc.) et de nombreuses autres librairies peuvent être utilisées en utilisant le mot-clé \lstinline{import}. Le but des exercices ci-dessous est de vous apprendre à lire la documentation d'un langage de programmation. Cela vous permettra d'être plus autonome pour la suite du cours.
+En Python, de nombreuses fonctions et structures de données sont disponibles dans la librairie standard de Python (\lstinline{list, set, dict, str}, etc.) et de nombreuses autres bibliothèques peuvent être utilisées en utilisant le mot-clé \lstinline{import}. Le but des exercices ci-dessous est de vous apprendre à lire la documentation d'un langage de programmation. Cela vous permettra d'être plus autonome pour la suite du cours.
 \\\\
-Dans l'exemple suivant, nous importons la librairie \lstinline{math} qui propose de nombreuses fonctions mathématiques et nous essayons la fonction factorielle pour calculer \lstinline{5!}.
+Dans l'exemple suivant, nous importons la bibliothèque \lstinline{math} qui propose de nombreuses fonctions mathématiques et nous essayons la fonction factorielle pour calculer \lstinline{5!}.
 \begin{Example}{\faTerminal Exemple}
     \begin{lstlisting}
 import math
 fact = math.factorial(5)
 print(fact)\end{lstlisting}
 \end{Example}
-\begin{note}{Arnaud}
-    Vraiment utile d'autant approfondir les librairies à ce moment la du cours? J'aurais mis ces exos en avancés.
-    \end{note}
 
 \begin{conseil}
-	La documentation de la librairie \lstinline{math} sous Python est disponible sur ce lien : \url{https://docs.python.org/3/library/math.html} \\
-Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'une librairie, pensez à lire la documentation. Toutes les fonctions disponibles dans la librairie en question y sont présentées.
+	La documentation de la bibliothèque \lstinline{math} sous Python est disponible sur ce lien : \url{https://docs.python.org/3/library/math.html} \\
+Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'une bibliothèque, pensez à lire la documentation. Toutes les fonctions disponibles dans la bibliothèque en question y sont présentées.
 
 \begin{note}{Maeva}
     Exercices avancé jusqu'a la fin
 \end{note}
 \end{conseil} 
 \begin{Exercice}[3 minutes]
-	À quoi sert la fonction \lstinline{gcd(a,b)} de la librairie \lstinline{math} de Python? 
+	À quoi sert la fonction \lstinline{gcd(a,b)} de la bibliothèque \lstinline{math} de Python? 
 \end{Exercice} 
 \begin{solution}
 	Elle sert à calculer le plus grand diviseur commun entre a et b.
 \end{solution} 
 \begin{Exercice}[3 minutes]
-    En Python et en Java, quelles fonctions utiliseriez-vous pour convertir un angle, dont la valeur est en Radians, en Degrés? 
+    En Python et en Java, quelles fonctions utiliseriez-vous pour convertir un angle, dont la valeur est en radians, en degrés? 
 \end{Exercice}
 \begin{conseil}
-    Pensez à lire la documentation des librairies \lstinline{Math} sous Java et Python.
+    Pensez à lire la documentation des bibliothèques \lstinline{Math} sous Java et Python.
 \end{conseil}
 \begin{solution}
     \begin{itemize}
-        \item Il faut utiliser la fonction \lstinline{degrees(x)} en Python après avoir importé la libraire \lstinline{math}.
-        \item En Java, il faut utiliser la fonction \lstinline{toDegrees(x)} de la librairie \lstinline{java.lang.Math}.
+        \item Il faut utiliser la fonction \lstinline{degrees(x)} en Python après avoir importé la bibliothèque \lstinline{math}.
+        \item En Java, il faut utiliser la fonction \lstinline{toDegrees(x)} de la bibliothèque \lstinline{java.lang.Math}.
     \end{itemize}
 
     
 \end{solution} 
 \begin{Exercice}[3 minutes]
-	En Python, à quoi sert la fonction \lstinline{fsum()} et quels sont les paramètres à lui passer ? 
+	En Python, à quoi sert la fonction \lstinline{fsum()} et quels sont les paramètres à lui passer? 
 \end{Exercice}
 \begin{solution}
 	Elle sert à additionner les éléments d'une liste de façon plus précise que \lstinline{sum()} sur des opérations à virgule flottante.
@@ -364,18 +317,18 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
     \end{solution} 
 \end{comment}
 \begin{Exercice}[3 minutes]
-	En Python, est-ce que la librairie \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
+	En Python, est-ce que la bibliothèque \lstinline{math} contient autre chose que des fonctions ? Si oui, quoi ? 
 \end{Exercice} 
 \begin{solution}
 	Oui, elle contient également des constantes, on peut citer \lstinline{pi} par exemple.
 \end{solution} 
 \begin{Exercice}[10 minutes]
-	Cherchez sur le net d'autres librairies disponibles pour Python. Citez-en 3 et ajouter le lien vers leur documentation officielle.
+	Cherchez sur le net d'autres bibliothèques disponibles pour Python. Citez-en trois et ajoutez le lien vers leur documentation officielle.
 \end{Exercice}    
 \begin{solution}
 	On peut citer \lstinline{Numpy}, \lstinline{Scikit}, \lstinline{TensorFlow} qui sont utilisées pour faire du Machine Learning. \\
 	
-	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, \texttt{Pandas} qui permet de faire de l'analyse de données,\lstinline{SQLAlchemy} qui permet de gérer des bases de données. \\
+	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, \texttt{Pandas} qui permet de faire de l'analyse de données, \lstinline{SQLAlchemy} qui permet de gérer des bases de données. \\
 \end{solution} 
 \end{section}
 \end{document}
