@@ -190,13 +190,11 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
     \end{conseil}
     \begin{solution}
         Pour exécuter un programme \lstinline{Python} en ligne de commande, assurez-vous que votre environnement de travail est correctement installé. Puis, entrez la commande \lstinline{python} suivie du nom de votre programme. 
-        Dans le cas de cette question, on fera: \lstinline{python hello.py}.
+        Dans le cas de cette question, on fera: \lstinline{python hello.py} ou, sur macOS, \lstinline{python3 hello.py}.
         Le programme affichera \lstinline{Hello world}
     \end{solution}
     
-    \begin{note}{Maeva}
-    Exercice 8 en avancé car pareil que le 9 en java 
-\end{note}
+
     \begin{Exercice}[10 minutes]
         En utilisant l'invite de commandes (Terminal), exécutez le programme Python suivant en lui passant des paramètres.
 
@@ -211,11 +209,10 @@ Alternativement, il est possible de créer un fichier vide directement depuis le
         \end{conseil}
 
         \begin{solution}
-            Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et de rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
+            Pour rajouter des arguments à un programme depuis la ligne de commande, il suffit d'exécuter le programme en suivant les étapes de la question 7 et de rajouter les paramètres séparés par des espaces. Pour exécuter notre programme en passant des arguments, on fera: \lstinline{python question8.py 4 5}, ou, sur macOS, \lstinline{python3 question8.py 4 5}. Le programme affichera \lstinline{La somme de 4 et 5 est 9}.
         \end{solution}
 
     \end{Exercice}
-\newpage
     \begin{Exercice}[10 minutes]
         Soit le programme suivant écrit en Java. 
 
@@ -328,9 +325,19 @@ Quand vous ne comprenez pas comment fonctionnent certaines fonctions issues d'un
 	Cherchez sur le net d'autres bibliothèques disponibles pour Python. Citez-en trois et ajoutez le lien vers leur documentation officielle.
 \end{Exercice}    
 \begin{solution}
-	On peut citer \lstinline{Numpy}, \lstinline{Scikit}, \lstinline{TensorFlow} qui sont utilisées pour faire du Machine Learning. \\
+	On peut citer \lstinline{Numpy}, \lstinline{Scikit}, \lstinline{PyTorch} qui sont utilisées pour faire du Machine Learning. \\
 	
-	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, \texttt{Pandas} qui permet de faire de l'analyse de données, \lstinline{SQLAlchemy} qui permet de gérer des bases de données. \\
+	On peut aussi citer \lstinline{Matplotlib} qui permet de créer des graphiques, \texttt{Pandas} qui permet de faire de l'analyse de données, \lstinline{SQLAlchemy} qui permet de gérer des bases de données.\newline \\
+    \begin{tabular}{lll}
+        \textbf{Bibliothèque} & \textbf{Utilisation} & \textbf{Lien} \\ \hline
+        NumPy & Calcul scientifique & \url{https://numpy.org/} \\
+        Scikit-learn & Machine Learning & \url{https://scikit-learn.org/} \\
+        PyTorch & Machine Learning & \url{https://pytorch.org/} \\
+        Matplotlib & Création de graphiques & \url{https://matplotlib.org/} \\
+        Pandas & Analyse de données & \url{https://pandas.pydata.org/} \\
+        SQLAlchemy & Gestion de bases de données & \url{https://www.sqlalchemy.org/} \\
+    \end{tabular}
+
 \end{solution} 
 \end{section}
 \end{document}
