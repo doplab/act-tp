@@ -587,7 +587,7 @@ F & F & T & T & T & T & T & T \\
     \begin{enumerate}
         \item Qu'affiche le programme suivant? 
          \lstinputlisting{code/question12.py}
-        \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c|?
+        \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c:|?
     \end{enumerate}
 
     
@@ -613,7 +613,14 @@ options. Cette structure compare la valeur d'une variable ou
 d'une expression à une série de cas (case) prédéfinis. 
 Lorsqu'une correspondance est trouvée, le code associé à ce 
 cas est exécuté, offrant ainsi une alternative plus lisible et 
-organisée qu'une longue chaîne de \texttt{if-elif-else}. \newline 
+organisée qu'une longue chaîne de \texttt{if-elif-else}. \\ 
+
+Il existe toutefois une différence importante entre les deux langages : 
+avec la syntaxe classique de \texttt{switch} en Java utilisant les deux-points, 
+l'exécution peut continuer dans les \texttt{case} suivants tant qu'aucune 
+instruction \texttt{break} n'est rencontrée. Ce comportement est appelé 
+\textit{fall-through}. En Python, \texttt{match} n'a pas ce comportement : 
+seul le premier \texttt{case} correspondant est exécuté.
 
 
 Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document disponible sur Moodle}
