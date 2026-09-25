@@ -1,5 +1,6 @@
 public class Question9 {
     public static void main(String[] args) {
+        // Les programmes ci-dessous doivent être exécutés séparément.
         // Programme 1
         int variable_1 = 0;
         int variable_2 = 3;

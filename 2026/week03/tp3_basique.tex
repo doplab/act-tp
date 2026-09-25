@@ -318,7 +318,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         	\item Signe du nombre : $(-1)^{signe}$ = $(-1)^0$ = 1
         	\item Exposant en base 10 : 10110101$_{(2)}$ = 181$_{(10)}$
         	\item Pour obtenir l'exposant, il faut encore lui appliquer le biais, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
-        	\item Mantisse : 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ $\approx$ 1.254$_{(10)}$
+        	\item 1 + mantisse = 1 + 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ $\approx$ 1.254$_{(10)}$
         	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ $\approx$ 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
         \end{itemize}
     \end{solution}
@@ -360,11 +360,11 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
     
     Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels lèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
     
-    \textbf{Java :}
+    \textbf{Java:}
     
     \lstinputlisting{code/Question9.java} 
     
-    \textbf{Python :}
+    \textbf{Python:}
     
     \lstinputlisting{code/question9.py} 
     
@@ -380,7 +380,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
     \end{conseil}
 
     \begin{Example}{\faTriangleExclamation \quad Erreurs fréquentes}
-        Au cas où vous exécuteriez les programmes 2, 4 et 5 et rencontriez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes ci-dessous:
+        Au cas où vous exécuteriez les programmes Java et rencontriez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes ci-dessous:
         \begin{enumerate}
             \item Mettez à jour votre JDK en téléchargeant la version adéquate via le lien suivant: \url{https://www.oracle.com/java/technologies/downloads/}.
             \item Une fois votre JDK installé, redémarrez IntelliJ
@@ -398,19 +398,19 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
         \textbf{En Java}        
         \begin{itemize}
-        	\item Programme 1 : OK
-        	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est ``déduit'' lors de la compilation du programme.
-        	\item Programme 3 : Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java.
-        	\item Programme 4 : Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est déduit  lors de la compilation du programme.
-        	\item Programme 5 : OK
-        	\item Programme 6 : Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. \\
+        	\item Programme 1: OK
+        	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est déduit lors de la compilation du programme.
+        	\item Programme 3: Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la variable\_2, ce qui est impossible avec un typage statique comme en java.
+        	\item Programme 4: Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est déduit lors de la compilation du programme.
+        	\item Programme 5: OK
+        	\item Programme 6: Ce code ne fonctionnera pas car on essaie de changer le type de la variable\_1, ce qui est impossible avec un typage statique comme en java. \\
         \end{itemize}
         
         \textbf{En Python}
         
         \begin{itemize}
-        	\item Programme 7 : OK
-        	\item Programme 8 : OK
+        	\item Programme 7: OK
+        	\item Programme 8: OK
         \end{itemize}
         
         
@@ -419,17 +419,12 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 
 \section{Opérateurs et conditions Booléennes}
-Le principe d'une valeur booléenne est qu'elle 
-ne puisse contenir que 2 valeurs possibles, soit 
-\lstinline{True}, soit \lstinline{False}. Il est possible 
-de les définir en leur associant une 
-de ces valeurs d'emblée ou de les obtenir 
-en effectuant une opération booléenne comme par exemple une comparaison. 
-Pour ce faire, il faut utiliser des opérateurs booléens. 
-Voici les plus utilisés : $=$ (est égal), $!=$ (n'est pas égal), 
-$<$ (est strictement plus petit), 
-$\leq$ (est plus petit ou égal), $>$ (est strictement plus grand),
- $\geq$ (est plus grand ou égal). Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}. L'utilisation de l'opérateur \lstinline{not} inversera le résultat.\\
+\section{Opérateurs et conditions Booléennes}
+Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True} (\lstinline{true} en Java), soit \lstinline{False} (\lstinline{false} en Java). Il est possible de les définir en leur associant une
+de ces valeurs d'emblée ou de les obtenir en effectuant une opération booléenne comme par exemple une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens.
+Voici les plus utilisés : est égal (\lstinline{==} en Python et en Java), n'est pas égal (\lstinline{!=} en Python et en Java), est strictement plus petit (\lstinline{<} en Python et en Java), est plus petit ou égal (\lstinline{<=} en Python et en Java), est strictement plus grand (\lstinline{>} en Python et en Java), est plus grand ou égal (\lstinline{>=} en Python et en Java).
+Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}.
+L'utilisation de l'opérateur de négation (\lstinline{not} en Python et \lstinline{!} en Java) inversera le résultat.\\
 
 \begin{Exercice}[7 minutes]
 \begin{enumerate}
