@@ -80,6 +80,336 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 
+\section{Typage}
+
+Le but de cette partie des travaux pratiques est de comprendre les notions de typage statique et dynamique, ainsi que leur impact sur l’exécution et la gestion des erreurs. \\
+
+\begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
+    
+    Quelles sont les principaux types de variables (donnez-en trois), comment les déclareriez-vous en Python et en Java ? \\
+
+    \begin{conseil}
+    
+        Se référer aux diapositives du cours ou à la documentation officielle des langages de programmation.
+        
+    \end{conseil}
+    \begin{solution}
+    
+       Les principaux types de variables sont les suivants, avec leur nom en Java indiqué entre parenthèses : \lstinline{int (int)}, \lstinline{float (float)}, \lstinline{str (String)}, \lstinline{bool (boolean)}.\\
+
+		En Python:    
+        
+    	\lstinputlisting{solutions/question8.py} 
+    	
+    	
+    	En Java: 
+    	
+    	\lstinputlisting{solutions/Question8.java} 
+    	
+    	Il existe d'autres types de variable, comme par exemple les \lstinline{double}.
+ 
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes]  \textbf{Typage statique et dynamique}\\
+    
+    Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels lèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
+    
+    \textbf{Java:}
+    
+    \lstinputlisting{code/Question9.java} 
+    
+    \textbf{Python:}
+    
+    \lstinputlisting{code/question9.py} 
+    
+
+    \begin{conseil}
+    
+        En Java, le typage est statique: lorsqu'une variable est déclarée, un type lui est associé. Ce type peut être explicitement indiqué par le programmeur ou, dans certains cas, déduit automatiquement par Java lors de la compilation. \newline
+        
+        Une fois le type de la variable déterminé, il ne peut plus être modifié. La variable ne peut donc recevoir que des valeurs compatibles avec ce type. Si vous tentez de lui attribuer une valeur d'un type incompatible, Java signalera une erreur de compilation. \\
+
+        En Python, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur. \\
+
+    \end{conseil}
+
+    \begin{Example}{\faTriangleExclamation \quad Erreurs fréquentes}
+        Au cas où vous exécuteriez les programmes Java et rencontriez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes ci-dessous:
+        \begin{enumerate}
+            \item Mettez à jour votre JDK en téléchargeant la version adéquate via le lien suivant: \url{https://www.oracle.com/java/technologies/downloads/}.
+            \item Une fois votre JDK installé, redémarrez IntelliJ
+            \item Dans la barre de menus, cliquez sur \textbf{\faEllipsisVertical \ $>$ \ Edit...}.
+            \item Dans la fenêtre qui apparaitra (capture ci-dessous), sélectionnez la version du JRE la plus récente.
+        \end{enumerate}
+        
+    \end{Example}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\textwidth]{img/jre.png}
+        \caption{Fenêtre de configuration de l'environnement de développement Java.}
+    \end{figure}
+    \begin{solution}
+
+        \textbf{En Java}        
+        \begin{itemize}
+        	\item Programme 1: OK
+	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
+	\item Programme 3: Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java.
+	\item Programme 4: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
+        	\item Programme 5: OK
+	\item Programme 6: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en java. \\
+        \end{itemize}
+        
+        \textbf{En Python}
+        
+        \begin{itemize}
+        	\item Programme 7: OK
+        	\item Programme 8: OK
+        \end{itemize}
+        
+        
+    \end{solution}
+\end{Exercice}
+
+
+\section{Opérateurs et conditions booléennes}
+Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True} (\lstinline{true} en Java), soit \lstinline{False} (\lstinline{false} en Java). Il est possible de les définir en leur associant une
+de ces valeurs d'emblée ou de les obtenir en effectuant une opération booléenne comme par exemple une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens.
+Voici les plus utilisés : est égal (\lstinline{==} en Python et en Java), n'est pas égal (\lstinline{!=} en Python et en Java), est strictement plus petit (\lstinline{<} en Python et en Java), est plus petit ou égal (\lstinline{<=} en Python et en Java), est strictement plus grand (\lstinline{>} en Python et en Java), est plus grand ou égal (\lstinline{>=} en Python et en Java).
+Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}.
+L'utilisation de l'opérateur de négation (\lstinline{not} en Python et \lstinline{!} en Java) inversera le résultat.\\
+
+\begin{Exercice}[7 minutes]
+\begin{enumerate}
+    \item 
+ Démontrez l'équivalence suivante:
+\begin{align*}
+   (\neg p \vee q) \wedge (p \vee \neg q) \Leftrightarrow (p \wedge q) \vee (\neg p \wedge \neg q)
+\end{align*}
+\begin{conseil}
+	Utilisez la table des règles présentées à la diapositive 31 du cours pour déduire cette équivalence. 
+\end{conseil}
+\item Re-faire cet exercice en utilisant les tables de vérité.
+\end{enumerate}
+\begin{solution}
+   \begin{align*}
+   & (\neg p \vee q) \wedge (p \vee \neg q) &\Leftrightarrow   \\
+   & ((\neg p \vee q) \wedge p) \vee  ((\neg p \vee q) \wedge \neg q) &\Leftrightarrow  \tag{Distribution} \\
+   & (p\wedge (\neg p \vee q)) \vee  ( \neg q \wedge (\neg p \vee q) ) &\Leftrightarrow  \tag{Commutativity} \\
+   & ((p\wedge \neg p) \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee (\neg q \wedge q) )  &\Leftrightarrow \tag{Distribution} \\ 
+   & (F \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee F)  &\Leftrightarrow \tag{Negation} \\
+   & (p\wedge q) \vee  (\neg q \wedge \neg p)  &\Leftrightarrow \tag{Bound} \\
+      & (p\wedge q) \vee  (\neg p \wedge \neg q )   \tag{Commutativity} \\
+\end{align*}
+    \end{solution}
+    \begin{solution}
+    \begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & Partie gauche & Partie droite \\
+\hline
+T & T & F & F & T & T & T & T \\
+T & F & F & T & F & T & F & F \\
+F & T & T & F & T & F & F & F \\
+F & F & T & T & T & T & T & T \\
+\hline
+\end{tabular}
+\end{center}
+    \end{solution}
+    
+\end{Exercice}
+
+ Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
+
+    
+\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
+
+    \begin{conseil}
+	Utilisez les tables de vérité présentées à la diapositive 30 du cours.
+\end{conseil}
+    
+    \lstinputlisting{code/question11.py}
+
+    \begin{solution}
+        \texttt{True} 
+        
+        \texttt{False} 
+        
+        \texttt{True} 
+        
+        \texttt{True}
+    \end{solution}
+    
+\end{Exercice}
+    
+\begin{Exercice}[5 minutes] 
+    \begin{enumerate}
+        \item Qu'affiche le programme suivant? 
+         \lstinputlisting{code/question12.py}
+        \item Qu'affiche le programme si l'on remplace la ligne 6 par \verb|elif b != c:|?
+    \end{enumerate}
+
+    
+
+    \begin{solution}
+        \begin{enumerate}
+        \item \texttt{output 1}\\
+        \texttt{output 2}\\
+        \texttt{output 3}
+        \item \texttt{output 1}\\
+        \texttt{output 3}
+        \end{enumerate}
+    \end{solution}
+    
+\end{Exercice}
+
+\section{Match (Python) et Switch (Java)}
+L'instruction \href{https://docs.python.org/fr/3.13/tutorial/controlflow.html#tut-match}{match} en Python et
+\href{https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html}{switch} en Java a 
+pour objectif de simplifier la logique conditionnelle 
+en sélectionnant un bloc de code à exécuter parmi plusieurs 
+options. Cette structure compare la valeur d'une variable ou 
+d'une expression à une série de cas (case) prédéfinis. 
+Lorsqu'une correspondance est trouvée, le code associé à ce 
+cas est exécuté, offrant ainsi une alternative plus lisible et 
+organisée qu'une longue chaîne de \texttt{if-elif-else}. \\ 
+
+Il existe toutefois une différence importante entre les deux langages : 
+avec la syntaxe classique de \texttt{switch} en Java utilisant les deux-points, 
+l'exécution peut continuer dans les \texttt{case} suivants tant qu'aucune 
+instruction \texttt{break} n'est rencontrée. Ce comportement est appelé 
+\textit{fall-through}. En Python, \texttt{match} n'a pas ce comportement : 
+seul le premier \texttt{case} correspondant est exécuté.
+
+
+Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document disponible sur Moodle}
+pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
+
+\begin{Exercice}[5 minutes] 
+    Écrire le code Java qui demande à l'utilisateur d'entrer l'étape d'exécution d'une instruction et affiche les étapes qui reste à exécuter (y compris l'étape courante). 
+    Si l'utilisateur entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
+
+    \begin{conseil}
+    Rappelez-vous l'architecture de von Neumann 
+    disponible à la diapositive 
+    17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
+    la saisie texte de l'utilisateur, utilisez \texttt{sc.nextLine()} après avoir écrit \texttt{Scanner sc = new Scanner(System.in)} (n'oubliez pas d'ajouter \texttt{import java.util.Scanner;} tout au début de votre code).
+    \end{conseil}
+
+
+   \begin{Example}{Exemple}
+Si l'utilisateur entre \texttt{execute}, le programme va afficher:
+\begin{lstlisting}[numbers=none, keywordstyle=\color{black}, stringstyle=\color{black}]
+L'étape execute s'exécute ou va être exécutée. 
+L'étape store s'exécute ou va être exécutée.
+\end{lstlisting}
+   \end{Example}
+
+    \begin{solution}
+         \lstinputlisting{solutions/Question13.java}
+    \end{solution}
+    
+\end{Exercice}
+
+\begin{Exercice}[5 minutes]
+
+% Solution 1: Force baseline alignment with \vspace{0pt}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt}
+\begin{tcolorbox}[width=2in,colframe=black, boxrule=1pt, left=0pt, right=0pt, top=0pt, bottom=0pt]
+\begin{tikzpicture}[scale=1.6,
+    every node/.style = {draw=black, thick, anchor=west},
+    selected/.style = {draw=OliveGreen, fill=green!30},
+    file/.style = {draw=blue, fill=cyan!30},
+    optional/.style = {dashed, fill=gray!50},
+    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
+]
+\node [selected] {/var/www/}
+    child { node [selected] {public}
+        child { node [file] {esc.png}}
+        child [missing] {}
+    }
+    child [missing] {}
+    child { node [selected] {src}
+        child { node [file] {Main.class}}
+        child { node [file] {Main.java}}
+    }
+    child [missing] {}
+    child [missing] {}
+    child { node [file] {index.html}};
+\end{tikzpicture}
+\end{tcolorbox}
+\end{minipage}%
+\hspace{-1.5cm}
+\begin{minipage}[t]{0.6\textwidth}
+\vspace{0pt}
+Soit l'arborescence à gauche d'un système de fichiers (filesystem).
+Écrivez un programme Python (utilisant \texttt{match}) qui affiche \textbf{seulement les noms des fichiers} dans un seul dossier spécifié à la ligne de commande. 
+Votre programme doit seulement gérer les arguments suivants: \newline 
+
+\begin{itemize}
+    \item[$\bullet$] \texttt{/var/www/./public/..}
+    \item[$\bullet$] \texttt{/var/www/src/..}
+    \item[$\bullet$] \texttt{/var/www/src/}
+    \item[$\bullet$] \texttt{/var/www/public/} \newline 
+\end{itemize}
+
+Pour les autres cas, il faut afficher \texttt{La saisie n'était pas reconnue}.  
+\end{minipage}
+\begin{conseil}
+Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/pluginfile.php/3532635/mod_resource/content/5/3\%20\%E2\%80\%93\%20Programming\%20Basics.pdf}{la diapositive 39 du cours}. 
+\end{conseil}
+
+
+\textbf{Re-faire} cet exercice en utilisant \texttt{input} pour lire la saisie de l'utilisateur.
+\begin{conseil}
+La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/library/functions.html\#input}{disponible sur ce lien}.
+\end{conseil} 
+
+\begin{solution}
+ \lstinputlisting{solutions/question14.py}
+\end{solution}
+
+\begin{solution}
+ \lstinputlisting{solutions/question14_2.py}
+\end{solution}
+\end{Exercice}
+
+\section{Type casting}
+
+
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+   Qu'affichent les programmes suivants ? \\
+   
+   \textbf{Python:}
+   \lstinputlisting{code/question15.py}
+   
+   \textbf{\\Java:}
+   \lstinputlisting{code/Question15.java}
+    
+   
+    \begin{conseil}
+      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
+        
+    \end{conseil}
+    \begin{solution}
+     
+    \textbf{Python:}\\
+    3\\
+    3.0
+    
+    \textbf{\\Java:}\\
+    3\\
+    3.14 \\
+    \end{solution}   
+\end{Exercice}
+
+
 \section{Représentation de nombres entiers}
 
 \begin{Exercice}[5 minutes] \textbf{Entiers non signés}\\
@@ -322,428 +652,6 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
         	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ $\approx$ 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
         \end{itemize}
     \end{solution}
-\end{Exercice}
-
-\section{Typage}
-
-Le but de cette partie des travaux pratiques est de comprendre les notions de typage statique et dynamique, ainsi que leur impact sur l’exécution et la gestion des erreurs. \\
-
-\begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
-    
-    Quelles sont les principaux types de variables (donnez-en trois), comment les déclareriez-vous en Python et en Java ? \\
-
-    \begin{conseil}
-    
-        Se référer aux diapositives du cours ou à la documentation officielle des langages de programmation.
-        
-    \end{conseil}
-    \begin{solution}
-    
-       Les principaux types de variables sont les suivants, avec leur nom en Java indiqué entre parenthèses : \lstinline{int (int)}, \lstinline{float (float)}, \lstinline{str (String)}, \lstinline{bool (boolean)}.\\
-
-		En Python:    
-        
-    	\lstinputlisting{solutions/question8.py} 
-    	
-    	
-    	En Java: 
-    	
-    	\lstinputlisting{solutions/Question8.java} 
-    	
-    	Il existe d'autres types de variable, comme par exemple les \lstinline{double}.
- 
-    \end{solution}
-\end{Exercice}
-
-
-\begin{Exercice}[10 minutes]  \textbf{Typage statique et dynamique}\\
-    
-    Parmi ces différents programmes, lesquels pourront être exécutés sans problème et lesquels lèveront des erreurs? Dans le cas où ils génèreraient des erreurs, expliquez la raison de ces erreurs.\\
-    
-    \textbf{Java:}
-    
-    \lstinputlisting{code/Question9.java} 
-    
-    \textbf{Python:}
-    
-    \lstinputlisting{code/question9.py} 
-    
-
-    \begin{conseil}
-    
-        En Java, le typage est statique: lorsqu'une variable est déclarée, un type lui est associé. Ce type peut être explicitement indiqué par le programmeur ou, dans certains cas, déduit automatiquement par Java lors de la compilation. \newline
-        
-        Une fois le type de la variable déterminé, il ne peut plus être modifié. La variable ne peut donc recevoir que des valeurs compatibles avec ce type. Si vous tentez de lui attribuer une valeur d'un type incompatible, Java signalera une erreur de compilation. \\
-
-        En Python, le typage est dynamique, il est donc tout à fait possible de changer le type d'une variable sans déclencher d'erreur. \\
-
-    \end{conseil}
-
-    \begin{Example}{\faTriangleExclamation \quad Erreurs fréquentes}
-        Au cas où vous exécuteriez les programmes Java et rencontriez l'erreur suivante: \lstinline{Exception in thread "main" java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 54.0), this version of the Java Runtime only recognizes class file versions up to 52.0}, suivez les étapes ci-dessous:
-        \begin{enumerate}
-            \item Mettez à jour votre JDK en téléchargeant la version adéquate via le lien suivant: \url{https://www.oracle.com/java/technologies/downloads/}.
-            \item Une fois votre JDK installé, redémarrez IntelliJ
-            \item Dans la barre de menus, cliquez sur \textbf{\faEllipsisVertical \ $>$ \ Edit...}.
-            \item Dans la fenêtre qui apparaitra (capture ci-dessous), sélectionnez la version du JRE la plus récente.
-        \end{enumerate}
-        
-    \end{Example}
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=1\textwidth]{img/jre.png}
-        \caption{Fenêtre de configuration de l'environnement de développement Java.}
-    \end{figure}
-    \begin{solution}
-
-        \textbf{En Java}        
-        \begin{itemize}
-        	\item Programme 1: OK
-	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
-	\item Programme 3: Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java.
-	\item Programme 4: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
-        	\item Programme 5: OK
-	\item Programme 6: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en java. \\
-        \end{itemize}
-        
-        \textbf{En Python}
-        
-        \begin{itemize}
-        	\item Programme 7: OK
-        	\item Programme 8: OK
-        \end{itemize}
-        
-        
-    \end{solution}
-\end{Exercice}
-
-
-\section{Opérateurs et conditions booléennes}
-Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True} (\lstinline{true} en Java), soit \lstinline{False} (\lstinline{false} en Java). Il est possible de les définir en leur associant une
-de ces valeurs d'emblée ou de les obtenir en effectuant une opération booléenne comme par exemple une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens.
-Voici les plus utilisés : est égal (\lstinline{==} en Python et en Java), n'est pas égal (\lstinline{!=} en Python et en Java), est strictement plus petit (\lstinline{<} en Python et en Java), est plus petit ou égal (\lstinline{<=} en Python et en Java), est strictement plus grand (\lstinline{>} en Python et en Java), est plus grand ou égal (\lstinline{>=} en Python et en Java).
-Si la condition est satisfaite, on obtiendra \lstinline{True}, si elle ne l'est pas, on obtiendra \lstinline{False}.
-L'utilisation de l'opérateur de négation (\lstinline{not} en Python et \lstinline{!} en Java) inversera le résultat.\\
-
-\begin{Exercice}[7 minutes]
-\begin{enumerate}
-    \item 
- Démontrez l'équivalence suivante:
-\begin{align*}
-   (\neg p \vee q) \wedge (p \vee \neg q) \Leftrightarrow (p \wedge q) \vee (\neg p \wedge \neg q)
-\end{align*}
-\begin{conseil}
-	Utilisez la table des règles présentées à la diapositive 31 du cours pour déduire cette équivalence. 
-\end{conseil}
-\item Re-faire cet exercice en utilisant les tables de vérité.
-\end{enumerate}
-\begin{solution}
-   \begin{align*}
-   & (\neg p \vee q) \wedge (p \vee \neg q) &\Leftrightarrow   \\
-   & ((\neg p \vee q) \wedge p) \vee  ((\neg p \vee q) \wedge \neg q) &\Leftrightarrow  \tag{Distribution} \\
-   & (p\wedge (\neg p \vee q)) \vee  ( \neg q \wedge (\neg p \vee q) ) &\Leftrightarrow  \tag{Commutativity} \\
-   & ((p\wedge \neg p) \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee (\neg q \wedge q) )  &\Leftrightarrow \tag{Distribution} \\ 
-   & (F \vee (p\wedge q)) \vee  ( (\neg q \wedge \neg p) \vee F)  &\Leftrightarrow \tag{Negation} \\
-   & (p\wedge q) \vee  (\neg q \wedge \neg p)  &\Leftrightarrow \tag{Bound} \\
-      & (p\wedge q) \vee  (\neg p \wedge \neg q )   \tag{Commutativity} \\
-\end{align*}
-    \end{solution}
-    \begin{solution}
-    \begin{center}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c||c|c|c|c||c|c||c|}
-\hline
-$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p \vee q$ & $p \vee \neg q$ & Partie gauche & Partie droite \\
-\hline
-T & T & F & F & T & T & T & T \\
-T & F & F & T & F & T & F & F \\
-F & T & T & F & T & F & F & F \\
-F & F & T & T & T & T & T & T \\
-\hline
-\end{tabular}
-\end{center}
-    \end{solution}
-    
-\end{Exercice}
-
-% \begin{Exercice}[2 minutes]
-%     \begin{attention}
-%         Dans l'exercice suivant, vous pouvez supposer toujours que $b>a$ et $d>c$ pour les intervalles $L=[a,b]$ et $S=[c,d]$. 
-%     \end{attention}
-%     \begin{enumerate}
-%         \item  À l'aide de la figure ci-dessous, écrivez la condition booléenne en fonction de $a, b, c, d$ pour que les deux intervalles ne se recouvrent pas. 
-%         \item Re-écrire la négation de cette condition à l'aide de la loi DeMorgan (diapositive 29 du cours). 
-%     \end{enumerate}
-% \begin{center}
-%         \fbox{\begin{minipage}{0.8\textwidth}
-%     \centering
-
-%      \resizebox{\textwidth}{!}{%
-% \begin{tikzpicture}[scale=1.3]
-%            % Cas 1: Interval A is completely to the left of interval B
-%     \draw[thick] (0,2) -- (8,2);
-%     \foreach \x in {0,1,2,3,4,5,6,7,8}
-%         \draw (\x,1.9) -- (\x,2.1);
-    
-%     % Interval A (left)
-%     \draw[very thick, blue] (1,2) -- (2.5,2);
-%     \filldraw[blue] (1,2) circle (2pt);
-%     \filldraw[blue] (2.5,2) circle (2pt);
-    
-%     % Interval B (right)
-%     \draw[very thick, red] (4,2) -- (6,2);
-%     \filldraw[red] (4,2) circle (2pt);
-%     \filldraw[red] (6,2) circle (2pt);
-    
-%     % Labels for Cas 1
-%     \node[blue, below] at (1.75,1.7) {$L = [a, b]$};
-%     \node[red, below] at (5,1.7) {$S = [c, d]$};
-%     \node at (4,2.8) {};
-    
-%     % Cas 2: Interval A is completely to the right of interval B
-%     \draw[thick] (0,0) -- (8,0);
-%     \foreach \x in {0,1,2,3,4,5,6,7,8}
-%         \draw (\x,-0.1) -- (\x,0.1);
-    
-%     % Interval B (left)
-%     \draw[very thick, red] (1,0) -- (3,0);
-%     \filldraw[red] (1,0) circle (2pt);
-%     \filldraw[red] (3,0) circle (2pt);
-    
-%     % Interval A (right)
-%     \draw[very thick, blue] (5,0) -- (6.5,0);
-%     \filldraw[blue] (5,0) circle (2pt);
-%     \filldraw[blue] (6.5,0) circle (2pt);
-    
-%     % Labels for Cas 2
-%     \node[red, below] at (2,-0.3) {$S = [c, d]$};
-%     \node[blue, below] at (5.75,-0.3) {$L = [a, b]$};
-%     % \node at (4,0.8) {\textbf{Cas 2:} $d < a$};
-    
-%     % Gap indicators
-%     \draw[<->, dashed, gray] (2.5,1.5) -- (4,1.5);
-%     \node[gray, above] at (3.25,1.5) {écart $>$ 0};
-    
-%     \draw[<->, dashed, gray] (3,-0.5) -- (5,-0.5);
-%     \node[gray, above] at (4,-0.5) {écart $>$ 0};
-    
-%     % % Title
-%     % \node[font=\large\bfseries] at (4,3.5) {Non-intersecting Intervals};
-
-% \end{tikzpicture}
-%      }
-% \end{minipage}}
-%         \end{center}
-%         \begin{solution}
-%             \begin{enumerate}
-%                 \item $(c > b) \vee (a > d)$
-%                 \item $(c \leq b) \wedge (a \leq d)$
-%             \end{enumerate}
-        
-%         \end{solution}
-% \end{Exercice}
- Dans les exercices suivants, vous devrez anticiper la valeur que la console va vous donner (résultat du print). \\
-
-
-% \begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
-    
-%     \lstinputlisting{updated/Questions/Question10.py}
-
-%     \begin{solution}
-%         \texttt{False} 
-        
-%         \texttt{True} 
-        
-%         \texttt{True} 
-        
-%         \texttt{False} 
-        
-%         \texttt{False}
-%     \end{solution}
-% \end{Exercice}
-    
-\begin{Exercice}[5 minutes] Qu'affiche le programme suivant?
-
-    \begin{conseil}
-	Utilisez les tables de vérité présentées à la diapositive 30 du cours.
-\end{conseil}
-    
-    \lstinputlisting{code/question11.py}
-
-    \begin{solution}
-        \texttt{True} 
-        
-        \texttt{False} 
-        
-        \texttt{True} 
-        
-        \texttt{True}
-    \end{solution}
-    
-\end{Exercice}
-    
-\begin{Exercice}[5 minutes] 
-    \begin{enumerate}
-        \item Qu'affiche le programme suivant? 
-         \lstinputlisting{code/question12.py}
-        \item Qu'affiche le programme si l'on remplace la ligne 6 par \verb|elif b != c:|?
-    \end{enumerate}
-
-    
-
-    \begin{solution}
-        \begin{enumerate}
-        \item \texttt{output 1}\\
-        \texttt{output 2}\\
-        \texttt{output 3}
-        \item \texttt{output 1}\\
-        \texttt{output 3}
-        \end{enumerate}
-    \end{solution}
-    
-\end{Exercice}
-
-\section{Match (Python) et Switch (Java)}
-L'instruction \href{https://docs.python.org/fr/3.13/tutorial/controlflow.html#tut-match}{match} en Python et
-\href{https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html}{switch} en Java a 
-pour objectif de simplifier la logique conditionnelle 
-en sélectionnant un bloc de code à exécuter parmi plusieurs 
-options. Cette structure compare la valeur d'une variable ou 
-d'une expression à une série de cas (case) prédéfinis. 
-Lorsqu'une correspondance est trouvée, le code associé à ce 
-cas est exécuté, offrant ainsi une alternative plus lisible et 
-organisée qu'une longue chaîne de \texttt{if-elif-else}. \\ 
-
-Il existe toutefois une différence importante entre les deux langages : 
-avec la syntaxe classique de \texttt{switch} en Java utilisant les deux-points, 
-l'exécution peut continuer dans les \texttt{case} suivants tant qu'aucune 
-instruction \texttt{break} n'est rencontrée. Ce comportement est appelé 
-\textit{fall-through}. En Python, \texttt{match} n'a pas ce comportement : 
-seul le premier \texttt{case} correspondant est exécuté.
-
-
-Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document disponible sur Moodle}
-pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
-
-\begin{Exercice}[5 minutes] 
-    Écrire le code Java qui demande à l'utilisateur d'entrer l'étape d'exécution d'une instruction et affiche les étapes qui reste à exécuter (y compris l'étape courante). 
-    Si l'utilisateur entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
-
-    \begin{conseil}
-    Rappelez-vous l'architecture de von Neumann 
-    disponible à la diapositive 
-    17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
-    la saisie texte de l'utilisateur, utilisez \texttt{sc.nextLine()} après avoir écrit \texttt{Scanner sc = new Scanner(System.in)} (n'oubliez pas d'ajouter \texttt{import java.util.Scanner;} tout au début de votre code).
-    \end{conseil}
-
-
-   \begin{Example}{Exemple}
-Si l'utilisateur entre \texttt{execute}, le programme va afficher:
-\begin{lstlisting}[numbers=none, keywordstyle=\color{black}, stringstyle=\color{black}]
-L'étape execute s'exécute ou va être exécutée. 
-L'étape store s'exécute ou va être exécutée.
-\end{lstlisting}
-   \end{Example}
-
-    \begin{solution}
-         \lstinputlisting{solutions/Question13.java}
-    \end{solution}
-    
-\end{Exercice}
-
-\begin{Exercice}[5 minutes]
-
-% Solution 1: Force baseline alignment with \vspace{0pt}
-\noindent
-\begin{minipage}[t]{0.5\textwidth}
-\vspace{0pt}
-\begin{tcolorbox}[width=2in,colframe=black, boxrule=1pt, left=0pt, right=0pt, top=0pt, bottom=0pt]
-\begin{tikzpicture}[scale=1.6,
-    every node/.style = {draw=black, thick, anchor=west},
-    selected/.style = {draw=OliveGreen, fill=green!30},
-    file/.style = {draw=blue, fill=cyan!30},
-    optional/.style = {dashed, fill=gray!50},
-    grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and (0.5,-1.4)},
-    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}
-]
-\node [selected] {/var/www/}
-    child { node [selected] {public}
-        child { node [file] {esc.png}}
-        child [missing] {}
-    }
-    child [missing] {}
-    child { node [selected] {src}
-        child { node [file] {Main.class}}
-        child { node [file] {Main.java}}
-    }
-    child [missing] {}
-    child [missing] {}
-    child { node [file] {index.html}};
-\end{tikzpicture}
-\end{tcolorbox}
-\end{minipage}%
-\hspace{-1.5cm}
-\begin{minipage}[t]{0.6\textwidth}
-\vspace{0pt}
-Soit l'arborescence à gauche d'un système de fichiers (filesystem).
-Écrivez un programme Python (utilisant \texttt{match}) qui affiche \textbf{seulement les noms des fichiers} dans un seul dossier spécifié à la ligne de commande. 
-Votre programme doit seulement gérer les arguments suivants: \newline 
-
-\begin{itemize}
-    \item[$\bullet$] \texttt{/var/www/./public/..}
-    \item[$\bullet$] \texttt{/var/www/src/..}
-    \item[$\bullet$] \texttt{/var/www/src/}
-    \item[$\bullet$] \texttt{/var/www/public/} \newline 
-\end{itemize}
-
-Pour les autres cas, il faut afficher \texttt{La saisie n'était pas reconnue}.  
-\end{minipage}
-\begin{conseil}
-Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/pluginfile.php/3532635/mod_resource/content/5/3\%20\%E2\%80\%93\%20Programming\%20Basics.pdf}{la diapositive 39 du cours}. 
-\end{conseil}
-
-
-\textbf{Re-faire} cet exercice en utilisant \texttt{input} pour lire la saisie de l'utilisateur.
-\begin{conseil}
-La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/library/functions.html\#input}{disponible sur ce lien}.
-\end{conseil} 
-
-\begin{solution}
- \lstinputlisting{solutions/question14.py}
-\end{solution}
-
-\begin{solution}
- \lstinputlisting{solutions/question14_2.py}
-\end{solution}
-\end{Exercice}
-
-\section{Type casting}
-
-
-\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
-   Qu'affichent les programmes suivants ? \\
-   
-   \textbf{Python:}
-   \lstinputlisting{code/question15.py}
-   
-   \textbf{\\Java:}
-   \lstinputlisting{code/Question15.java}
-    
-   
-    \begin{conseil}
-      	Attention, ces fonctions ne changent pas le type des variables, elles ne font que les convertir.
-        
-    \end{conseil}
-    \begin{solution}
-     
-    \textbf{Python:}\\
-    3\\
-    3.0
-    
-    \textbf{\\Java:}\\
-    3\\
-    3.14 \\
-    \end{solution}   
 \end{Exercice}
 
 \section{Chaîne de caractères}
