@@ -36,10 +36,10 @@ Le but de cette séance est d'aborder des notions de base en programmation. Au t
     \item Comprendre les différentes représentations de nombres.
 	\item Définir des variables et comprendre les types de variables existants.
 	\item Utiliser des notions d'algèbre booléenne.
-    \item Ecrire des branchements conditionnels.\\
+    \item Écrire des branchements conditionnels.\\
 \end{itemize} 
 
-Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé Intellij. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/mod/resource/view.php?id=2218868}{tutoriel d'installation des outils (MacOS) et prise en main de l'environnement de travail} ou \href{https://moodle.unil.ch/mod/resource/view.php?id=2218867}{tutoriel d'installation des outils (Windows)}.
+Les langages qui seront utilisés pour cette séance sont Java et Python. Assurez-vous d'avoir bien installé IntelliJ. Si vous rencontrez des difficultés, n'hésitez pas à vous référer au guide suivant: \href{https://moodle.unil.ch/mod/resource/view.php?id=2218868}{tutoriel d'installation des outils (macOS) et prise en main de l'environnement de travail} ou \href{https://moodle.unil.ch/mod/resource/view.php?id=2218867}{tutoriel d'installation des outils (Windows)}.
 
 \section{Input / Output}
 
@@ -234,7 +234,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
             \hline
         \end{tabular} \\
         
-        avec cette méthode, -113$_{(10)}$ = 10001110$_{(2)}$ \\
+        Avec cette méthode, -113$_{(10)}$ = 10001110$_{(2)}$ \\
         
         L'intervalle de cette méthode ne change pas par rapport à la précédente. Par contre, l'expression de -0 sera différente.\\
         
@@ -248,7 +248,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Complément à 2}\\
-    Quelle est la représentation du complément à 2 (two complement) de -113$_{(10)}$ sur 8 bits et quelle est l'utilité de cette représentation ? \\
+    Quelle est la représentation du complément à 2 (two's complement) de -113$_{(10)}$ sur 8 bits et quelle est l'utilité de cette représentation ? \\
 
     \begin{conseil}
     
@@ -287,7 +287,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] \textbf{Floating point}\\
+\begin{Exercice}[10 minutes] \textbf{Nombres à virgule flottante (Floating point)}\\
     
     Voici la représentation en binaire d'un nombre à virgule flottante: \\
     
@@ -300,7 +300,7 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 	\end{tabular}
 	\\
     
-    Que vaut cette représentation en base 10 ? Utiliser la représentation des floating points (avec un biais de 127). Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
+    Que vaut cette représentation en base 10 ? Utiliser la représentation des nombres à virgule flottante (avec un biais de 127). Arrondir les résultats intermédiaires et la valeur finale au 3ème chiffre significatif après la virgule. \\
 	
     \begin{conseil}
     
@@ -330,7 +330,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 
 \begin{Exercice}[5 minutes]  \textbf{Les types de variables}\\
     
-    Quelles sont les principaux types de variables (donnez en trois), comment les déclareriez-vous en Python et en Java ? \\
+    Quelles sont les principaux types de variables (donnez-en trois), comment les déclareriez-vous en Python et en Java ? \\
 
     \begin{conseil}
     
@@ -399,9 +399,9 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
         \textbf{En Java}        
         \begin{itemize}
         	\item Programme 1: OK
-	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est déduit lors de la compilation du programme.
-	\item Programme 3: Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en java.
-	\item Programme 4: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en java. Ici le type de la variable est déduit lors de la compilation du programme.
+	\item Programme 2 : Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
+	\item Programme 3: Tout comme le programme précédent, ce code ne fonctionnera pas car on essaye de changer le type de la \texttt{variableTwo}, ce qui est impossible avec un typage statique comme en Java.
+	\item Programme 4: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en Java. Ici le type de la variable est déduit lors de la compilation du programme.
         	\item Programme 5: OK
 	\item Programme 6: Ce code ne fonctionnera pas car on essaie de changer le type de la \texttt{variableOne}, ce qui est impossible avec un typage statique comme en java. \\
         \end{itemize}
@@ -418,8 +418,7 @@ Le but de cette partie des travaux pratiques est de comprendre les notions de ty
 \end{Exercice}
 
 
-\section{Opérateurs et conditions Booléennes}
-\section{Opérateurs et conditions Booléennes}
+\section{Opérateurs et conditions booléennes}
 Le principe d'une valeur booléenne est qu'elle ne puisse contenir que 2 valeurs possibles, soit \lstinline{True} (\lstinline{true} en Java), soit \lstinline{False} (\lstinline{false} en Java). Il est possible de les définir en leur associant une
 de ces valeurs d'emblée ou de les obtenir en effectuant une opération booléenne comme par exemple une comparaison. Pour ce faire, il faut utiliser des opérateurs booléens.
 Voici les plus utilisés : est égal (\lstinline{==} en Python et en Java), n'est pas égal (\lstinline{!=} en Python et en Java), est strictement plus petit (\lstinline{<} en Python et en Java), est plus petit ou égal (\lstinline{<=} en Python et en Java), est strictement plus grand (\lstinline{>} en Python et en Java), est plus grand ou égal (\lstinline{>=} en Python et en Java).
@@ -587,7 +586,7 @@ F & F & T & T & T & T & T & T \\
     \begin{enumerate}
         \item Qu'affiche le programme suivant? 
          \lstinputlisting{code/question12.py}
-        \item Qu'affiche le programme si l'on change la ligne 6 à \verb|elif b != c:|?
+        \item Qu'affiche le programme si l'on remplace la ligne 6 par \verb|elif b != c:|?
     \end{enumerate}
 
     
@@ -631,7 +630,7 @@ pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline
     Si l'utilisateur entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
 
     \begin{conseil}
-    Rappelez-vous de l'architecture de Von Neumann 
+    Rappelez-vous l'architecture de von Neumann 
     disponible à la diapositive 
     17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
     la saisie texte de l'utilisateur, utilisez \texttt{sc.nextLine()} après avoir écrit \texttt{Scanner sc = new Scanner(System.in)} (n'oubliez pas d'ajouter \texttt{import java.util.Scanner;} tout au début de votre code).
@@ -810,7 +809,7 @@ Ici, le caractère \textvisiblespace \ est seulement pour mettre en évidence le
 \end{conseil}
 \end{enumerate}
 \begin{solution}
-    Pour la question 1, la ligne est separée à cause du charactère \lstinline{\\n} qui crée un saut de ligne.
+    Pour la question 1, la chaîne s'affiche sur deux lignes à cause de la séquence d'échappement \lstinline{\\n}, qui insère un retour à la ligne.
 \end{solution}
 \begin{solution}
    \lstinputlisting{solutions/question16.py}
