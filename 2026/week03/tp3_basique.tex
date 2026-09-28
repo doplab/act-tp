@@ -43,8 +43,8 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
 
 \section{Input / Output}
 
-\begin{Exercice}[5 minutes] \textbf{Output (Java ou Python)}\\
-   Créez une variable \textit{nom} de type chaîne de caractères contenant votre nom, et une autre \textit{prenom} (str) contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
+\begin{Exercice}[5 minutes] \textbf{Output (Java et Python)}\\
+   Créez une variable \textit{nom} de type chaîne de caractères contenant votre nom, et une autre \textit{prenom} contenant votre prénom puis affichez : "Bonjour, \textit{prenom nom}". \\
    
     \begin{conseil}
         Utilisez la fonction \lstinline{print()} de Python et \lstinline{System.out.println()} de Java. 
@@ -60,12 +60,13 @@ Les langages qui seront utilisés pour cette séance sont Java et Python. Assure
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Input (Java ou Python)}\\
-   En vous référant à l'exercice précédent (\textbf{Output (Java ou Python)}), demandez à l'utilisateur d'entrer son nom et son prénom au lieu d'initialiser vous-même les variables. En Java, utilisez la classe \lstinline{Scanner} et la méthode \lstinline{nextLine()}, et en Python, utilisez la fonction \lstinline{input()}. \\
+\begin{Exercice}[5 minutes] \textbf{Input (Java et Python)}\\
+   En vous référant à l'exercice précédent (\textbf{Output (Java et Python)}), demandez à l'utilisateur d'entrer son nom et son prénom au lieu d'initialiser vous-même les variables. En Java, utilisez la classe \lstinline{Scanner} et la méthode \lstinline{nextLine()}, et en Python, utilisez la fonction \lstinline{input()}. \\
    
     \begin{conseil}
-       Utilisez la fonction \lstinline{input()} en Python, la classe \lstinline{Scanner()} en Java (n'oubliez pas d'ajouter \lstinline{import java.util.Scanner;}) tout au début de votre code. 
-        
+       En Python, utilisez la fonction \lstinline{input()}, qui prend en paramètre une chaîne de caractères affichée dans la console. \\
+
+        En Java, utilisez la classe \lstinline{Scanner} en lui passant \lstinline{System.in} en paramètre, et n'oubliez pas d'ajouter \lstinline{import java.util.Scanner;} tout au début de votre code.
     \end{conseil}
     \begin{solution}
     
@@ -284,18 +285,17 @@ instruction \texttt{break} n'est rencontrée. Ce comportement est appelé
 \textit{fall-through}. En Python, \texttt{match} n'a pas ce comportement : 
 seul le premier \texttt{case} correspondant est exécuté.
 
-
-Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document disponible sur Moodle}
-pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
+% Consultez \href{https://moodle.unil.ch/pluginfile.php/3705947/mod_resource/content/8/jswitch.pdf}{ce document disponible sur Moodle}
+% pour comprendre le fonctionnement d'un \texttt{switch} en Java.  \newline 
 
 \begin{Exercice}[5 minutes] 
-    Écrire le code Java qui demande à l'utilisateur d'entrer l'étape d'exécution d'une instruction et affiche les étapes qui reste à exécuter (y compris l'étape courante). 
+    Écrire le code Java qui demande à l'utilisateur d'entrer l'étape d'exécution d'une instruction et affiche les étapes qui restent à exécuter (y compris l'étape courante). 
     Si l'utilisateur entre une étape invalide le code affiche \texttt{L'étape n'est pas valide.}
 
     \begin{conseil}
     Rappelez-vous l'architecture de von Neumann 
     disponible à la diapositive 
-    17 du \href{https://moodle.unil.ch/pluginfile.php/3532625/mod_resource/content/12/1\%20\%E2\%80\%93\%20Computer\%20Architecture.pdf}{premier cours}. Pour lire 
+    17 du \href{https://moodle.unil.ch/mod/resource/view.php?id=2218900}{premier cours}. Pour lire 
     la saisie texte de l'utilisateur, utilisez \texttt{sc.nextLine()} après avoir écrit \texttt{Scanner sc = new Scanner(System.in)} (n'oubliez pas d'ajouter \texttt{import java.util.Scanner;} tout au début de votre code).
     \end{conseil}
 
@@ -362,7 +362,7 @@ Votre programme doit seulement gérer les arguments suivants: \newline
 Pour les autres cas, il faut afficher \texttt{La saisie n'était pas reconnue}.  
 \end{minipage}
 \begin{conseil}
-Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/pluginfile.php/3532635/mod_resource/content/5/3\%20\%E2\%80\%93\%20Programming\%20Basics.pdf}{la diapositive 39 du cours}. 
+Pour spécifer un argument à la ligne de commande en Python \href{https://docs.python.org/fr/3.13/library/sys.html\#sys.argv}{consultez cette documentation en ligne}. Pour le \texttt{match} en Python, consultez \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{la diapositive 32 du cours}. 
 \end{conseil}
 
 
@@ -383,7 +383,7 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
 \section{Type casting}
 
 
-\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] \textbf{Conversion des variables (Type casting) (Java et Python)}\\
    Qu'affichent les programmes suivants ? \\
    
    \textbf{Python:}
@@ -540,9 +540,9 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Complément à 1}\\
-    Écrire le complément à 1 de -113$_{(10)}$ sur 8 bits. \\
+    Écrire -113$_{(10)}$ en complément à 1 sur 8 bits. \\
 
-	Quelle est la différence entre cette méthode et la précédente ?
+	Quelle est la différence entre cette méthode et la précédente?
 
     \begin{conseil}
         \begin{itemize}
@@ -578,7 +578,7 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Complément à 2}\\
-    Quelle est la représentation du complément à 2 (two's complement) de -113$_{(10)}$ sur 8 bits et quelle est l'utilité de cette représentation ? \\
+    Écrire -113$_{(10)}$ en complément à 2 sur 8 bits, et expliquer l'utilité de cette représentation. \\
 
     \begin{conseil}
     
@@ -610,7 +610,7 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
     	
     	On obtient donc 10001111$_{(2)}$ \\
     	
-    	Concernant l'intervalle, il est changé, étant donné qu'il n'existe plus qu'une seule représentation possible pour -0$_{(10)}$. \\
+    	L'intervalle change, car en complément à 2, \(+0_{(10)}\) et \(-0_{(10)}\) ne disposent plus de deux représentations distinctes.\\
     	
     	Le nouvel intervalle est donc [-128$_{(10)}$,+127$_{(10)}$]
         
@@ -648,7 +648,7 @@ La documentation de \texttt{input} est \href{https://docs.python.org/fr/3.13/lib
         	\item Signe du nombre : $(-1)^{signe}$ = $(-1)^0$ = 1
         	\item Exposant en base 10 : 10110101$_{(2)}$ = 181$_{(10)}$
         	\item Pour obtenir l'exposant, il faut encore lui appliquer le biais, il faut soustraire 127 à notre résultat. Ici on aura $2^{(181-127)}$ = $2^{54}$
-        	\item 1 + mantisse = 1 + 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ $\approx$ 1.254$_{(10)}$
+        	\item Mantisse = 1 + 01000001000000000000001$_{(2)}$ = 1 + 1*$2^{-2}$ + 1*$2^{-8}$ + 1*$2^{-23}$ $\approx$ 1.254$_{(10)}$
         	\item Valeur = Signe * Mantisse * $2^{exposant-127}$ $\approx$ 1 * 1.254 * $2^{54}$ = 2.259 * $10^{16}$
         \end{itemize}
     \end{solution}
