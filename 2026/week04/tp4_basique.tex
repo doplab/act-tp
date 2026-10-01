@@ -127,7 +127,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
 \end{Exercice} 
   
   \begin{Exercice}[5 minutes] [Java et Python] \textbf{Les Fonctions (Fonctions Aire et Périmètre)}\\
-      Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimetre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire} et \lstinline{perimetre} et affichez le contenu de ces variables.   \\
+      Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimetre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire_resultat} et \lstinline{perimetre_resultat} et affichez le contenu de ces variables.   \\
      
       \begin{conseil}
           \begin{itemize}
@@ -158,8 +158,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
         \end{itemize}
      \end{conseil}
      \begin{solution}
-        x = 2 est une variable global (en dehors de la fonction), alors que x = 3 est une variable locale. \\
-        La fonction imbriquée \lstinline|fonction2| fait appel à la variable global, avec le mot-clé global devant.\\
+        x = 2 est une variable globale (en dehors de la fonction), alors que x = 3 est une variable locale. \\
+        La fonction imbriquée \lstinline|fonction2| fait appel à la variable globale, avec le mot-clé global devant.\\
         Lors du deuxième appel à \texttt{print}, il n'y a pas le mot clé global donc la variable locale est utilisée.\\
         La solution est donc :\\ 
         \lstinline{x=2}\\ 

@@ -8,7 +8,7 @@ def perimetre(rayon):
 
 if __name__ == '__main__':
     rayon = 10
-    aire = aire(rayon)
-    perimetre = perimetre(rayon)
-    print("L'aire d'un cercle de rayon {} est égale à {}".format(rayon, aire))
-    print("Le périmètre d'un cercle de rayon {} est égal à {}".format(rayon, perimetre))
+    aire_resultat = aire(rayon)
+    perimetre_resultat = perimetre(rayon)
+    print(f"L'aire d'un cercle de rayon {rayon} est égale à {aire_resultat}")
+    print(f"Le périmètre d'un cercle de rayon {rayon} est égal à {perimetre_resultat}")
