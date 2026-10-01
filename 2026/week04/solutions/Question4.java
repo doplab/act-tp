@@ -1,9 +1,9 @@
 public class Question4 {
-    static void Ping() {
+    static void ping() {
         System.out.println("pong");
     }
 
     public static void main(String[] args) {
-        Ping();
+        ping();
     }
 }

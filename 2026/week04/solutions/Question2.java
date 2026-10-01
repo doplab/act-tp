@@ -1,12 +1,12 @@
 public class Question2 {
     public static void main(String[] args) {
-        int nb_bonbons = 11;
-        int nb_personnes = 3;
-        int bonbons_personnes = nb_bonbons / nb_personnes;
-        int reste = nb_bonbons % nb_personnes;
-        System.out.println(nb_bonbons);
-        System.out.println(nb_personnes);
-        System.out.println(bonbons_personnes);
+        int nbBonbons = 11;
+        int nbPersonnes = 3;
+        int bonbonsPersonnes = nbBonbons / nbPersonnes;
+        int reste = nbBonbons % nbPersonnes;
+        System.out.println(nbBonbons);
+        System.out.println(nbPersonnes);
+        System.out.println(bonbonsPersonnes);
         System.out.println(reste);
     }
 }
