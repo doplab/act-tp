@@ -1,0 +1,321 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\ShowWarningtrue
+\titre
+\cours{Fonctions, mémoire et exceptions}
+
+Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, vous serez capable de: 
+\begin{itemize}
+    \item définir une fonction et l'utiliser dans un programme,
+    \item utiliser des bibliothèques contenant des fonctions prédéfinies,
+    \item connaître la portée d'une variable,
+    \item gérer des exceptions.
+\end{itemize}
+
+\section{Opérations arithmétiques}
+ \begin{Exercice}[3 minutes] [Java et Python] \textbf{Calculs (multiplication) }\\
+ 
+    Créez deux variables nommées \texttt{facteur1} et \texttt{facteur2} en Java (\texttt{facteur\_1} et \texttt{facteur\_2} en Python), avec pour valeurs respectives 11 et 3. Multipliez la première variable par la deuxième et stockez le résultat dans une nouvelle variable \texttt{produit}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Vous pouvez répéter l'exercice avec l'addition et la soustraction. \\
+    
+     \begin{conseil}
+           L'opérateur de multiplication est le *, celui de l'addition est le + et celui de soustraction est le -.
+         
+     \end{conseil}
+     \begin{solution}
+     
+     \textbf{Python:}
+     \lstinputlisting{solutions/question1.py}
+     
+     \textbf{\\Java:}
+     \lstinputlisting{solutions/Question1.java}
+            
+     \end{solution}   
+ \end{Exercice}
+ 
+ \begin{Exercice}[10 minutes] [Java et Python] \textbf{Calculs (division)}\\
+     Créez deux variables nommées \texttt{nbBonbons} et \texttt{nbPersonnes} en Java (\texttt{nb\_bonbons} et \texttt{nb\_personnes} en Python), avec pour valeurs respectives 11 et 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable nommée \texttt{bonbonsPersonnes} en Java (\texttt{bonbons\_personnes} en Python). Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \texttt{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+     
+      \begin{conseil}
+         \begin{itemize}
+            \item Attention: en Python il existe deux opérateurs de division, / effectue une division classique, tandis que // effectue une division avec arrondi inférieur.
+            \item En Java, lorsque les deux opérandes sont de type int, l'opérateur / effectue une division entière. Si au moins l'un des deux opérandes est de type float ou double, il effectue une division en virgule flottante.
+            \item L'opérateur \% (modulo) permet de calculer le reste d'une division. Par exemple, 10\%2=0.
+         \end{itemize}
+      \end{conseil}
+      \begin{solution}
+      
+      \textbf{Python:}
+      
+      \lstinputlisting{solutions/question2.py}
+      
+      \textbf{\\Java:}
+      \lstinputlisting{solutions/Question2.java}
+             
+      \end{solution}   
+  \end{Exercice}
+  
+ \begin{Exercice}[5 minutes] [Java et Python] \textbf{Calculs (incrémentation / décrémentation)}\\
+    Gardez vos variables de l'exercice précédent, augmentez de 1 la valeur de \lstinline|nbBonbons| en Java (\lstinline|nb_bonbons| en Python) et diminuez de 1 celle de \lstinline|nbPersonnes| en Java (\lstinline|nb_personnes| en Python).  \\
+    
+     \begin{conseil}
+           Vous pouvez utiliser les opérateurs += et -= en Python, et les opérateurs ++ (incrémentation) et $--$ (décrémentation) en Java.
+         
+     \end{conseil}
+     \begin{solution}
+     
+     \textbf{Python:}
+     \lstinputlisting{solutions/question3.py}
+     
+     \textbf{\\Java:}
+     \lstinputlisting{solutions/Question3.java}
+            
+     \end{solution}   
+ \end{Exercice}
+
+\section{Variables et Fonctions}
+\begin{Exercice}[5 minutes] [Java \textbf{et} Python] \textbf{Les fonctions (fonctions basiques)}\\
+    Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche \texttt{pong}. \\
+     
+      \begin{conseil}
+        Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.    
+      \end{conseil}
+      \begin{solution}
+      
+          \textbf{Python}:
+            \lstinputlisting{solutions/question4.py}
+      \end{solution}
+          \begin{solution}
+          \textbf{\\Java}:
+            \lstinputlisting{solutions/Question4.java}
+             
+      \end{solution}   
+  \end{Exercice}
+  
+    \begin{Exercice}[5 minutes] [Java et Python] \textbf{Les Fonctions (Fonction multiplication)}\\
+    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple1} et \textit{multiple2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez-la.   \\
+
+    \begin{conseil}
+        \begin{itemize}
+            \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.
+            \item Pour retourner une valeur au lieu de l'afficher, utilisez le mot-clé \lstinline{return} (pour Python et Java).
+        \end{itemize}        
+    \end{conseil}
+    \begin{solution}
+        \textbf{Python}:
+        \lstinputlisting{solutions/question5.py}
+        
+        \textbf{\\Java}:
+        \lstinputlisting{solutions/Question5.java}
+    \end{solution}   
+\end{Exercice} 
+  
+  \begin{Exercice}[5 minutes] [Java et Python] \textbf{Les Fonctions (Fonctions Aire et Périmètre)}\\
+      Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimetre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire_resultat} et \lstinline{perimetre_resultat} et affichez le contenu de ces variables.   \\
+     
+      \begin{conseil}
+          \begin{itemize}
+              \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.
+              \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot-clé \lstinline{return} (pour Python et Java).
+              \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+          \end{itemize}        
+      \end{conseil}
+      \begin{solution}
+          \textbf{Python}:
+          \lstinputlisting{solutions/question6.py}
+          
+          \textbf{\\Java}:
+          \lstinputlisting{solutions/Question6.java}
+      \end{solution}   
+  \end{Exercice} 
+
+  \begin{Exercice}[5 minutes] [Python] \textbf{Portée des variables} \\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{code/question7.py}
+
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item Le mot-clé \lstinline{global} permet d'accéder aux variables globales (définies à l'extérieur de la fonction).
+            \item Soyez attentif au type des éléments retournés par chacune des fonctions.
+        \end{itemize}
+     \end{conseil}
+     \begin{solution}
+        x = 2 est une variable globale (en dehors de la fonction), alors que x = 3 est une variable locale. \\
+        La fonction imbriquée \lstinline|fonction2| fait appel à la variable globale, avec le mot-clé global devant.\\
+        Lors du deuxième appel à \texttt{print}, il n'y a pas le mot clé global donc la variable locale est utilisée.\\
+        La solution est donc :\\ 
+        \lstinline{x=2}\\ 
+        \lstinline{x=3}\\
+        \lstinline[language={bash}]{None}\\
+    \end{solution}
+ \end{Exercice}
+
+ \begin{Exercice}[10 minutes] [Java] \textbf{Portée des variables} \\
+    Qu'affiche le programme suivant?
+    \lstinputlisting{code/Question8.java}
+    Que se passerait-il si on décommente la ligne 17 (c'est-à-dire si l'on enlève les //)?
+
+    \begin{conseil}
+        Tenir compte de l'endroit où chaque variable est définie ainsi que des opérations réalisées sur chaque variable.
+    \end{conseil}
+
+    \begin{solution}
+        \begin{itemize}
+            \item  
+            \lstinline{a = 2} \\
+            \lstinline{a = 2} \\
+            \lstinline{b = 3} \\ 
+
+            \item On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l'intérieur de la méthode \lstinline{g()} et n'existe donc qu'au sein de celle-ci. La variable \lstinline{b} n'étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l'objet d'un appel en dehors de la méthode \lstinline{g()}.
+        \end{itemize}
+        \end{solution}
+ \end{Exercice}
+
+
+\section{Gestion des exceptions}
+
+\begin{Exercice}[5 minutes] [Python] \textbf{Types d'erreurs} Qu'affiche le programme suivant?\\
+    \lstinputlisting{code/question9.py}  
+     \begin{conseil}
+        Utilisée sur une chaîne de caractères, la fonction \lstinline{len()} renvoie le nombre de caractères de la chaîne. 
+    \end{conseil}
+     \begin{solution}
+        \lstinline{Le résultat de la division est: 2.5}\\
+        \lstinline{On ne peut pas diviser une chaîne de caractères.}
+     \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] [Python] \textbf{Types d'erreurs} Qu'affiche le programme suivant?\\
+    \lstinputlisting{code/question10.py}
+    
+     \begin{conseil}
+         La chaîne de caractères vide est représentée par ``'' 
+    \end{conseil}
+     \begin{solution}
+        Nous ne pouvons pas diviser un nombre par 0.
+     \end{solution}   
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes] [Python] \textbf{Types d'erreurs} Qu'affiche le programme suivant? \\
+    \lstinputlisting{code/question11.py}
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item \lstinline[language=python]|TypeError| survient lorsqu'une opération est effectuée sur des types incompatibles (exemple: \lstinline[language=python]|"abc" + 5|), tandis que \lstinline[language=python]|ValueError| survient lorsque le type est approprié, mais que la valeur est invalide (exemple: \lstinline[language=python]|int("abc")|).
+            \item La fonction \lstinline{float()} permet de convertir une variable en nombre à virgule flottante.
+            \item La fonction \lstinline{int()} permet de convertir une variable en nombre entier.
+        \end{itemize}  
+    \end{conseil}
+
+     \begin{solution}
+        \lstinline[language=python]|float(value2)| est valide car on transforme un nombre entier en un float. Aucune erreur ne va être lancée.\\
+        \lstinline[language=python]|int(value1)| n'est pas valide si \lstinline[language=python]|value1| contient une chaîne qui ne représente pas un entier, comme \lstinline[language=python]|"abc"|. En revanche, une chaîne comme \lstinline[language=python]|"42"| peut être convertie en entier. \\
+        
+        La chaîne \texttt{"Algorithms"} provoque ainsi une erreur avec le message suivant:\\
+        Nous ne pouvons pas convertir une chaîne de caractères en nombre
+     \end{solution}
+
+\end{Exercice}
+ 
+\begin{Exercice}[5 minutes] [Java] \textbf{Gestion d'erreurs} 
+    Le programme suivant est incorrect. Que devez-vous modifier pour qu'il fonctionne correctement?
+    \\
+    \begin{conseil}
+        Référez-vous à la diapositive 31 du cours de cette semaine.           
+     \end{conseil}
+    \lstinputlisting{code/Question12.java}
+     
+     \begin{solution}
+        À l'intérieur de la méthode \lstinline{division}, lorsque \lstinline{b} est égal à 0, le programme lève une exception de type \lstinline{ArithmeticException}. Mais dans la méthode \lstinline{main}, le bloc catch est configuré pour intercepter l'exception \lstinline{IndexOutOfBoundsException}. Pour corriger cette erreur, une des solutions est de remplacer \lstinline{IndexOutOfBoundsException} par \lstinline{ArithmeticException}.
+     \end{solution}   
+ \end{Exercice}
+
+\begin{Exercice}[5 minutes] [Java] \textbf{Gestion d'erreurs} 
+    \begin{enumerate}
+    \item Qu'affiche le programme suivant, en supposant que l'utilisateur saisit les entrées suivantes? \\
+
+    \begin{itemize}
+        \item Entrez le premier entier: 12
+        \item Entrez le deuxième entier: 2
+        \item Entrez l'opération (+, -, *, /): *
+    \end{itemize}
+
+    \begin{conseil}
+            Consultez \href{https://moodle.unil.ch/mod/resource/view.php?id=2218920f}{ce document} sur le \texttt{switch} en Java. Référez-vous à la diapositive 23 du cours. 
+     \end{conseil}
+
+     \item Que devez-vous modifier pour qu'il fonctionne?
+    \end{enumerate}
+    \lstinputlisting{code/Calculator.java}
+    \begin{solution}
+    \texttt{Entrez le premier entier: 12 \\ 
+Entrez le deuxième entier: 2 \\
+Entrez l'opération (+, -, *, /): * \\ 
+24.0\\
+6.0\\
+Exception in thread "main" java.lang.IllegalArgumentException: L'opération n'est pas valide \\
+        at Calculator.main(Calculator.java:28)}
+    \end{solution}
+\begin{solution}
+Il faut simplement ajouter un \texttt{break;} après l'affichage du résultat d'une opération. 
+\end{solution}
+
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes]
+   Qu'affiche le programme suivant, en supposant que l'utilisateur exécute le programme de la manière suivante dans le terminal? \\ \newline 
+   \texttt{python3 question14.py 9} \\ 
+   \begin{conseil}
+   Référez-vous à la diapositive 15 du cours.
+   \end{conseil}
+   \lstinputlisting{code/question14.py}
+   \begin{solution}
+   
+\texttt{Une erreur est survenue \\
+Valeur finale de balance: 20
+    } \\ \\
+    Cette erreur est due à la soustraction d'une chaîne de caractères (\texttt{sys.argv[1]}) d'un nombre, ce qui n'est pas définie. 
+   \end{solution}
+ \end{Exercice}
+
+ \begin{Exercice}[5 minutes]
+Laquelle des affirmations suivantes est \textbf{fausse} concernant la différence entre une Error (erreur) et une Exception (exception) en Java?
+\begin{conseil}
+    Référez-vous à la diapositive 36 du cours.
+\end{conseil}
+\begin{enumerate}[label=(\Alph*)]
+    \item Les erreurs sont généralement causées par l'environnement dans lequel l'application s'exécute, tandis que les exceptions sont généralement causées par l'application elle-même.
+    \item Les erreurs sont non vérifiées (\textit{unchecked}) et n'ont pas besoin d'être déclarées dans la clause \texttt{throws} d'une méthode, tandis que les exceptions peuvent être soit vérifiées (\textit{checked}), soit non vérifiées (\textit{unchecked}).
+    \item Les erreurs devraient généralement être interceptées et gérées par l'application afin d'assurer une récupération fluide, tandis que les exceptions peuvent être récupérables ou non.
+    \item Les erreurs indiquent généralement des problèmes graves qu'une application raisonnable ne devrait pas essayer d'intercepter.
+    \item \texttt{RuntimeException} sont des exceptions non vérifiées (\textit{unchecked}).
+\end{enumerate}
+
+\begin{solution}
+(C) L'affirmation C est fausse car elle inverse l'approche habituelle. 
+Les erreurs (telles que \texttt{OutOfMemoryError}, \texttt{StackOverflowError}) ne doivent généralement pas 
+être détectées et gérées par les applications, car elles indiquent des problèmes graves qui ne peuvent 
+généralement pas être résolus. Les exceptions, en revanche, sont conçues pour être détectées et gérées par l'application lorsque cela est approprié, 
+car elles représentent souvent des conditions récupérables (telles que \texttt{ArithmeticException} ou \texttt{IllegalArgumentException}).
+\end{solution}
+ \end{Exercice}
+
+\end{document}

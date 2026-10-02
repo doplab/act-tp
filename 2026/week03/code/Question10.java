@@ -1,4 +1,4 @@
-public class Question15 {
+public class Question10 {
     public static void main(String[] args) {
         float nombreDecimal = 3.14f;
         int nombreEntier = (int) nombreDecimal;

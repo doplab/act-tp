@@ -1,8 +1,21 @@
+import java.util.Scanner;
+
 public class Question8 {
     public static void main(String[] args) {
-        int i = 0;
-        float f = 3.14f;
-        String s = "Hello World";
-        boolean b = true;
+        Scanner scanner = new Scanner(System.in);
+        String step = scanner.nextLine();
+        switch (step) {
+            case "fetch":
+                System.out.println("L'étape fetch s'exécute ou va être exécutée.");
+            case "decode":
+                System.out.println("L'étape decode s'exécute ou va être exécutée.");
+            case "execute":
+                System.out.println("L'étape execute s'exécute ou va être exécutée.");
+            case "store":
+                System.out.println("L'étape store s'exécute ou va être exécutée.");
+                break;
+            default:
+                System.out.println("L'étape n'est pas valide");
+        }
     }
 }
