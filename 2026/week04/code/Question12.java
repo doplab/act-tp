@@ -1,6 +1,6 @@
 public class Question12 {
 
-    public static void division(int a, int b) throws ArithmeticException {
+    public static void division(int a, int b) {
         if (b == 0) {
             throw new ArithmeticException();
         } else {
