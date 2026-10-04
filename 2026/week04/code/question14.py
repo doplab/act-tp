@@ -11,6 +11,6 @@ if __name__ == '__main__':
                 print('Le solde de votre compte est négatif ou zéro.')
                 raise ValueError('Le compte ne peut pas être débité')
     except Exception as e:
-        print("Une erreur est survenue")
+        print(f"Une erreur est survenue: {e}")
     finally:
         print(f"Valeur finale de balance: {balance}")
