@@ -50,7 +50,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
  \end{Exercice}
  
  \begin{Exercice}[10 minutes] [Java et Python] \textbf{Calculs (division)}\\
-     Créez deux variables nommées \texttt{nbBonbons} et \texttt{nbPersonnes} en Java (\texttt{nb\_bonbons} et \texttt{nb\_personnes} en Python), avec pour valeurs respectives 11 et 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable nommée \texttt{bonbonsPersonnes} en Java (\texttt{bonbons\_personnes} en Python). Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \texttt{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. \\
+     Créez deux variables nommées \texttt{nbBonbons} et \texttt{nbPersonnes} en Java (\texttt{nb\_bonbons} et \texttt{nb\_personnes} en Python), avec pour valeurs respectives 11 et 3. Divisez la première variable par la deuxième et stockez le résultat dans une nouvelle variable nommée \texttt{bonbonsPersonnes} en Java (\texttt{bonbons\_personnes} en Python). Pour finir, calculez le nombre de bonbons restants via l'opérateur \% (modulo) et stockez le résultat dans une nouvelle variable \texttt{reste}. Vous pouvez afficher les différentes variables pour voir leurs valeurs. Chaque personne doit recevoir un nombre entier de bonbons.\\
      
       \begin{conseil}
          \begin{itemize}
@@ -133,7 +133,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
           \begin{itemize}
               \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.
               \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot-clé \lstinline{return} (pour Python et Java).
-              \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$.
+              \item Pour calculer $a^b$ en Python, utilisez \lstinline[language=python]|a**b|, et \lstinline[language=java]|Math.pow(a, b)| en Java.
+              \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$. 
           \end{itemize}        
       \end{conseil}
       \begin{solution}
@@ -155,6 +156,7 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
         \begin{itemize}
             \item Le mot-clé \lstinline{global} permet d'accéder aux variables globales (définies à l'extérieur de la fonction).
             \item Soyez attentif au type des éléments retournés par chacune des fonctions.
+            \item En Python, une fonction qui atteint la fin de son exécution sans rencontrer d'instruction \lstinline[language=python]|return|, ou qui exécute une instruction \lstinline[language=python]|return| sans expression, renvoie implicitement \lstinline[language=python]|None|.
         \end{itemize}
      \end{conseil}
      \begin{solution}
