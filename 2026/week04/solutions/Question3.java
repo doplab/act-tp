@@ -3,8 +3,8 @@ public class Question3 {
 
         int nbBonbons = 11;
         int nbPersonnes = 3;
-        nbBonbons ++;
-        nbPersonnes --;
+        nbBonbons++;
+        nbPersonnes--;
         int bonbonsPersonnes = nbBonbons / nbPersonnes;
         int reste = nbBonbons % nbPersonnes;
         System.out.println(nbBonbons);

@@ -29,6 +29,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \item gérer des exceptions.
 \end{itemize}
 
+\textcolor{red}{\faPenToSquare}\quad Pour les exercices où vous devez déterminer ce qu'affiche un programme, résolvez-les d'abord à la main avant d'utiliser IntelliJ, afin de simuler les conditions d'examen.
+
 \section{Opérations arithmétiques}
  \begin{Exercice}[3 minutes] [Java et Python] \textbf{Calculs (multiplication) }\\
  
@@ -146,33 +148,9 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \end{solution}   
   \end{Exercice} 
 
-  \begin{Exercice}[5 minutes] [Python] \textbf{Portée des variables} \\
-    Qu'affiche le programme suivant? \\
-
-    \lstinputlisting{code/question7.py}
-
-    
-     \begin{conseil}
-        \begin{itemize}
-            \item Le mot-clé \lstinline{global} permet d'accéder aux variables globales (définies à l'extérieur de la fonction).
-            \item Soyez attentif au type des éléments retournés par chacune des fonctions.
-            \item En Python, une fonction qui atteint la fin de son exécution sans rencontrer d'instruction \lstinline[language=python]|return|, ou qui exécute une instruction \lstinline[language=python]|return| sans expression, renvoie implicitement \lstinline[language=python]|None|.
-        \end{itemize}
-     \end{conseil}
-     \begin{solution}
-        x = 2 est une variable globale (en dehors de la fonction), alors que x = 3 est une variable locale. \\
-        La fonction imbriquée \lstinline|fonction2| fait appel à la variable globale, avec le mot-clé global devant.\\
-        Lors du deuxième appel à \texttt{print}, il n'y a pas le mot clé global donc la variable locale est utilisée.\\
-        La solution est donc :\\ 
-        \lstinline{x=2}\\ 
-        \lstinline{x=3}\\
-        \lstinline[language={bash}]{None}\\
-    \end{solution}
- \end{Exercice}
-
  \begin{Exercice}[10 minutes] [Java] \textbf{Portée des variables} \\
     Qu'affiche le programme suivant?
-    \lstinputlisting{code/Question8.java}
+    \lstinputlisting{code/Question7.java}
     Que se passerait-il si on décommente la ligne 17 (c'est-à-dire si l'on enlève les //)?
 
     \begin{conseil}
@@ -189,6 +167,32 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
             \item On obtiendra une erreur de compilation du programme car la variable \lstinline{b} est créée à l'intérieur de la méthode \lstinline{g()} et n'existe donc qu'au sein de celle-ci. La variable \lstinline{b} n'étant pas définie en dehors de la méthode \lstinline{g()}, celle-ci ne peut pas faire l'objet d'un appel en dehors de la méthode \lstinline{g()}.
         \end{itemize}
         \end{solution}
+ \end{Exercice}
+
+  \begin{Exercice}[5 minutes] [Python] \textbf{Portée des variables} \\
+    Qu'affiche le programme suivant? \\
+
+    \lstinputlisting{code/question8.py}
+
+    
+     \begin{conseil}
+        \begin{itemize}
+            \item Le mot-clé \lstinline{global} permet d'accéder aux variables globales (définies à l'extérieur de la fonction).
+            \item Soyez attentif au type des éléments retournés par chacune des fonctions.
+            \item En Python, une fonction qui atteint la fin de son exécution sans rencontrer d'instruction \lstinline[language=python]|return|, ou qui exécute une instruction \lstinline[language=python]|return| sans expression, renvoie implicitement \lstinline[language=python]|None|.
+        \end{itemize}
+     \end{conseil}
+     \begin{solution}
+        L'instruction \texttt{x = 2}, située en dehors des fonctions, définit une variable globale. L'instruction \texttt{x = 3}, dans \texttt{fonction()}, définit une variable locale distincte.
+        Dans \texttt{fonction2()}, la déclaration \texttt{global x} indique que \texttt{x} désigne la variable globale: le premier appel à \texttt{print} affiche donc \texttt{x=2}.
+        Cette déclaration ne s'applique qu'à \texttt{fonction2()}. Dans \texttt{fonction()}, \texttt{x} désigne toujours la variable locale: le deuxième appel à \texttt{print} affiche donc \texttt{x=3}. 
+        Enfin, \texttt{fonction()} ne contient aucune instruction \texttt{return} et renvoie donc implicitement \texttt{None}. L'appel \texttt{print(fonction())} affiche cette valeur après les deux lignes précédentes.\\
+        
+        Le programme affiche:\\
+        \texttt{x=2}\\
+        \texttt{x=3}\\
+        \texttt{None}\\
+    \end{solution}
  \end{Exercice}
 
 
@@ -294,7 +298,7 @@ Il faut simplement ajouter un \texttt{break;} après l'affichage du résultat d'
 \texttt{Une erreur est survenue \\
 Valeur finale de balance: 20
     } \\ \\
-    Cette erreur est due à la soustraction d'une chaîne de caractères (\texttt{sys.argv[1]}) d'un nombre, ce qui n'est pas défini. 
+    Cette erreur est due à la soustraction d'une chaîne de caractères (\texttt{sys.argv[1]}) d'un nombre, ce qui n'est pas défini. Il faut donc utiliser \texttt{int()} pour convertir la chaîne de caractères en entier avant d'effectuer la soustraction.
    \end{solution}
  \end{Exercice}
 
