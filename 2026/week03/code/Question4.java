@@ -1,4 +1,4 @@
-public class Question9 {
+public class Question4 {
     public static void main(String[] args) {
         // Les programmes ci-dessous doivent être exécutés séparément.
         // Programme 1
