@@ -1,0 +1,126 @@
+\input{../../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutionfalse
+\ShowConseilfalse
+\titre
+\cours{Programmation de base - suite}
+
+Le but de cette séance est d'aborder des notions de base en programmation et de consolider les connaissances acquises lors de la séance de TP précédente.
+Au terme de cette séance, l'étudiant sera capable de:
+\begin{itemize}
+    \item manipuler des chaînes de caractères,
+    \item utiliser des branchements conditionnels.
+\end{itemize}
+
+
+\section{Manipulation de chaînes de caractères}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
+   Créez une variable \textit{mon\_mot} de type chaîne de caractères avec pour valeur \textbf{``Hard But Cool !!''}. Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez enfin une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats. Qu'obtenez-vous? \\
+   
+    \begin{conseil}
+      	Pour Python, utilisez \lstinline{[]}, et pour Java, utilisez la fonction \lstinline{substring()} ainsi que la fonction \lstinline{length()} qui permet d'obtenir la taille d'un élément.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}
+    \lstinputlisting{resources/solutions/question9.py}
+    
+    \textbf{\\Java: (à l'intérieur de la méthode main)}
+    \lstinputlisting{resources/solutions/question9.java}
+           
+    \end{solution}   
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
+   Gardez votre variable, \textit{mon\_mot} et créez une variable \textit{lettre\_5} contenant la cinquième lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \textit{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
+   
+    \begin{conseil}
+      	Attention, ici les espaces comptent comme des lettres ! \\
+
+		Pour Python, utilisez \lstinline{[:]}, et pour Java, utilisez la fonction \lstinline{substring()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python:}    
+    \lstinputlisting{resources/solutions/question10.py}
+    
+    \textbf{\\Java: (à l'intérieur de la méthode main)}
+    \lstinputlisting{resources/solutions/question10.java}
+           
+    \end{solution}   
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
+   Il est possible d'obtenir la longueur d'une chaîne de caractères (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractères de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   
+    \begin{conseil}
+      	La fonction présentée dans l'énoncé de la question n'est valable que pour Python. L'équivalent pour Java est la fonction \lstinline{length()}.
+        
+    \end{conseil}
+    \begin{solution}
+    
+    \textbf{Python}:
+    \lstinputlisting{resources/solutions/question11.py}
+    
+    \textbf{\\Java: (à l'intérieur de la méthode main)}
+    \lstinputlisting{resources/solutions/question11.java}
+    \end{solution}   
+\end{Exercice}
+
+\newpage
+
+\section{Conditions}
+% TODO: Exercice à compléter
+
+\begin{Exercice}[5 minutes] \textbf{Conditions (Python)}\\
+    Qu'affiche le programme suivant? \\
+    
+    \lstinputlisting{resources/questions/Question12.py}
+
+     \begin{conseil}
+         En Python, la fonction \lstinline{not} renvoie l'opposé d'une valeur booléenne. Par exemple, \lstinline{not(False)} renverra \lstinline{True}. En Java, on utilise un point d'exclamation avant la valeur.
+     \end{conseil}
+     \begin{solution}
+        Benoît: Professeur du cours d'Algorithmes et Pensée Computationnelle.
+     \end{solution}   
+ \end{Exercice}
+
+ \begin{Exercice}[10 minutes] \textbf{Branchement conditionnel en Java}\\
+   Qu'affiche le programme suivant? 
+   
+   \lstinputlisting{resources/solutions/question12.java}
+    
+     \begin{conseil}
+          \begin{itemize}
+             \item \lstinline{break} indique que l'on sort de l'accolade. Les cas suivants ne seront pas traités.
+             \item L'absence de \lstinline{break} indique que l'on va rentrer dans tous les cas suivants, jusqu'à enfin atteindre un \lstinline{break}.
+             \item Lorsque l'on pose \lstinline{case n} où \lstinline{n} est un nombre cela est équivalent au test \lstinline{n == numero_mois}. Ce test est aussi valable si on cherche à comparer des chaînes de caractères (par exemple si \lstinline{numero_mois = "Juin"}, à ce moment là \lstinline{n} sera aussi une chaîne de caractères).
+          \end{itemize}
+         
+     \end{conseil}
+     \begin{solution}
+     
+     Juillet
+     
+    Aout
+    
+    Décembre \\
+    
+    Explications:
+    \begin{itemize}
+             \item Comme le \lstinline{case 7} ne contient pas de \lstinline{break} et modifie \lstinline{numero_mois}, la lecture du code va continuer.
+             \item On rentre dans le \lstinline{case 9}, qui contient un \lstinline{break}. Le \lstinline{numero_mois} sera aussi modifié mais cela ne sera pas important car on sort de l'accolade et les cas suivants ne seront pas traités.
+       \end{itemize}
+     \end{solution}   
+ \end{Exercice}
+
+\end{document}
