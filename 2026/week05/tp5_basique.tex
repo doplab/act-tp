@@ -121,205 +121,7 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Exercice}
 
 
-	\subsection{Dictionnaires}
-	Les dictionnaires sont des listes associatives, c'est-à-dire des listes qui lient une valeur à une autre. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
-	
-	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé est le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond. Alternativement, nous pouvons retrouver le contenu d'une page d'un livre en utilisant le numéro de celle-ci. Dans ce cas, le numéro est la clé et le texte de la page, la valeur. \\
-	
-	Pour créer un dictionnaire, il suffit de lister les couples \lstinline{clé, valeurs} entre
-    deux accolades : \\
-	
-	 \begin{lstlisting}[language=Python]
-elon_musk = {
-    "prénom": "Elon",
-    "nom": "Musk",
-    "age": 48,
-    "talents": ["programmation", "entrepreneuriat", "aéronautique"]
-}   
-        \end{lstlisting}
-				
-	\begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 1}\\
-       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes :
-       
-    %    \lstinline{"chat": "cat", "chien": "dog", "oiseau": "bird", "poule": "chicken", "papillon": "butterfly", "souris": "mouse", "ours": "bear", "mouton": "sheep", "cochon": "pig"}
-       \begin{lstlisting}[language=Python]
-{
-    "chat": "cat", 
-    "chien": "dog", 
-    "oiseau": "bird", 
-    "poule": "chicken", 
-    "papillon": "butterfly", 
-    "souris": "mouse", 
-    "ours": "bear", 
-    "mouton": "sheep", 
-    "cochon": "pig"
-}
-\end{lstlisting}
-
-       Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
-       
-       Accédez à la traduction du mot ``souris'', et stockez le résultat dans une variable nommée \lstinline{souris_traduite}, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée \lstinline{taille_fr_eng}. Affichez le contenu des deux variables que vous venez de créer.
-    
-        \begin{conseil}
-            Comme pour les listes, vous pouvez accéder aux éléments de dictionnaires en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder. Comme pour les listes, la fonction \lstinline{len()} vous aidera à obtenir le nombre d'éléments dans le dictionnaire.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{solutions/question5.py} 
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 2}\\
-      	Qu'affiche le programme suivant? \\
-       
-      	\lstinputlisting{code/question6.py} 
-      	
-      	Choisissez parmi les possibilités suivantes : \\
-      	
-      	\begin{itemize}
-      	\item[(A)] programmation \\
-      	True
-      	\item[(B)] Musk \\
-      	False
-      	\item[(C)] 48 \\
-      	False
-      	\item[(D)] aéronautique \\
-      	True
-      	\end{itemize}
-    
-        \begin{conseil}
-            L'élément associé à la valeur ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
-        \end{conseil}
-        
-        \begin{solution}
-            aéronautique \\
-            \quad True \\
-            
-            En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entrepreneuriat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
-        \end{solution}
-    \end{Exercice}
-
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 3}\\
-      	
-        1. \ Vous disposez de deux dictionnaires contenant les notes d'étudiants dans différentes matières : notes\_biologie et notes\_chimie. Chaque dictionnaire associe le nom d'un étudiant à sa note dans la matière correspondante. Votre objectif est de créer un nouveau dictionnaire qui regroupe les notes de chaque étudiant sous forme de liste, où chaque liste contient d'abord la note de biologie puis la note de chimie. Complétez le programme suivant: \\
-
-        \begin{conseil}
-            Pour parcourir un dictionnaire en Python: utilisez \texttt{for key in dictionnaire.keys()} ou \texttt{for key in dictionnaire}. Pour parcourir les valeurs utilisez \texttt{for key in dictionnaire.values()}.
-        \end{conseil}
-       
-      	\lstinputlisting{code/question7.py} 
-      	2. \ Affichez le nombre d'étudiants dont la note moyenne est plus grande que 5.
-
-        \begin{solution}
-            \lstinputlisting[language=python, firstline=1, firstnumber = 1, lastline = 8]{solutions/question7.py}
-        \end{solution}
-        \begin{solution}
-            \lstinputlisting[language=python, firstline = 9, firstnumber = 9]{solutions/question7.py}
-        \end{solution}
-    \end{Exercice}
-    
-    \subsection{Structures de données en Java}
-    Dans cette partie, les exercices devront être effectués en Java. \\
-    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\
-    \textbf{Déclaration et affectation d'un tuple (array) en Java de type Object[]:}
-     \begin{lstlisting}[language=Java]
-Object[] monTuple = {1,2,3,4}; \end{lstlisting} 
-\textbf{Déclaration et affectation d'un tuple (array) en Java de type String[]:}
-     \begin{lstlisting}[language=Java]
-String[] monTuple = {"UNIL","ACT"}; \end{lstlisting} 
-
-En général, pour la déclaration, on écrit: \textbf{\lstinline[language=Java]|T[] nomVariable|}, où \texttt{T} est le type d'éléments dans le tuple.
-              
-    \textbf{\\ Déclaration et affectation d'une liste en Java:}
-    
-    \begin{lstlisting}[language=Java]
-List maListe = List.of(1,2,3,4); \end{lstlisting}
-            
-    \textbf{\\ Déclaration et affectation d'un dictionnaire en Java:} 
-    
-    \begin{lstlisting}[language=Java]
-HashMap monDictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
-              
-    
-    \begin{Example}{\faTerminal \quad Informations utiles}
-        \begin{itemize}
-            \item En Java, les listes sont immuables, comme les tuples en Python. Au cas où vous devriez modifier une liste, on vous recommande d'utiliser une liste liée (\lstinline{LinkedList}). Une liste liée se déclare comme suit :
-    
-            \begin{lstlisting}[language=Java]
-List liste = List.of(1,2,3,4);
-LinkedList maListe = new LinkedList(liste); \end{lstlisting}
-            \item En Java, les listes ne peuvent contenir que des éléments de même type.
-        \end{itemize} 
-        
-    \end{Example}
-	     
-	\begin{Exercice}[10 minutes] [Java] \textbf{Manipulation des listes}\\
-      	Créez une liste nommée \lstinline{maListe} contenant les nombres 1, 2, 3, 4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
-      	
-      	Créez une liste \lstinline{maListeM} liée à la liste \lstinline{maListe}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
-      	
-      	Ajoutez ceci au début de votre code:
-      	\begin{lstlisting}[language=Java]
-import java.util.List;
-import java.util.LinkedList; \end{lstlisting}
-	     
-	     Ajoutez ceci à la fin de votre code:
-	     
-	    \begin{lstlisting}[language=Java]
-for(int i=0;i<maListeM.size();i++){
-    System.out.println(maListeM.get(i));
-} \end{lstlisting} 
-    
-        \begin{conseil}
-            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{.get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{.size()}. \\
-            
-            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{.addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{.addLast(value)}. \\
-            
-           	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
-           	
-           	\lstinputlisting{code/Exemple.java}
-		     
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{solutions/Question8.java}
-        \end{solution}
-    \end{Exercice}
-    
-    \begin{Exercice}[15 minutes] [Java] \textbf{Manipulation de dictionnaires}\\
-      	Créez un dictionnaire \lstinline{monDictionnaire} contenant les associations suivantes :
-      	
-      	\texttt{("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0)}\\
-      	
-          Affichez le nombre d'étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable \lstinline{tailleDictionnaire}. Affichez le contenu de \lstinline{tailleDictionnaire}. 
-          Modifiez la valeur de \lstinline{collaborateurs}, remplacez 0 par 950. Rajoutez un nouvel élément \lstinline{pays} dans votre dictionnaire avec pour valeur 86.\\
-      	
-      	Ajoutez ceci au début de votre code :
-       
-      	\begin{lstlisting}[language=Java]
-import java.util.HashMap;
-import java.util.Map; \end{lstlisting}
-	     
-	     Ajoutez ceci à la fin de votre code :
-	     
-	    \begin{lstlisting}[language=Java]
-for (String key : monDictionnaire.keySet()){
-    System.out.println(key + " : "+ monDictionnaire.get(key));
-} \end{lstlisting} 
-    
-        \begin{conseil}
-           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{.get(key)} et à la taille via la fonction \lstinline{.size()}.
-            
-           Pour insérer / corriger un élément, utilisez la fonction \lstinline{.put(key,value)}.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{solutions/Question9.java}
-        \end{solution}
-    \end{Exercice}
-    
- 
-    \section{Itération}
+    \subsection{Itération}
     
     Quelques rappels de concepts théoriques: \\
     
@@ -581,7 +383,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/question15.py}
+            \lstinputlisting{solutions/question10.py}
         \end{solution}
     \end{Exercice}
 
@@ -600,7 +402,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/question16.py}
+            \lstinputlisting{solutions/question11.py}
         \end{solution}
     \end{Exercice}
 
@@ -614,7 +416,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{solutions/question17.py}
+        \lstinputlisting{solutions/question12.py}
     \end{solution}
 \end{Exercice}
 
@@ -629,10 +431,208 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{solutions/Question18.java}
+        \lstinputlisting{solutions/Question13.java}
     \end{solution}
 \end{Exercice}
 
+	\subsection{Dictionnaires}
+	Les dictionnaires sont des listes associatives, c'est-à-dire des listes qui lient une valeur à une autre. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
+	
+	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé est le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond. Alternativement, nous pouvons retrouver le contenu d'une page d'un livre en utilisant le numéro de celle-ci. Dans ce cas, le numéro est la clé et le texte de la page, la valeur. \\
+	
+	Pour créer un dictionnaire, il suffit de lister les couples \lstinline{clé, valeurs} entre
+    deux accolades : \\
+	
+	 \begin{lstlisting}[language=Python]
+elon_musk = {
+    "prénom": "Elon",
+    "nom": "Musk",
+    "age": 48,
+    "talents": ["programmation", "entrepreneuriat", "aéronautique"]
+}   
+        \end{lstlisting}
+				
+	\begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 1}\\
+       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes :
+       
+    %    \lstinline{"chat": "cat", "chien": "dog", "oiseau": "bird", "poule": "chicken", "papillon": "butterfly", "souris": "mouse", "ours": "bear", "mouton": "sheep", "cochon": "pig"}
+       \begin{lstlisting}[language=Python]
+{
+    "chat": "cat", 
+    "chien": "dog", 
+    "oiseau": "bird", 
+    "poule": "chicken", 
+    "papillon": "butterfly", 
+    "souris": "mouse", 
+    "ours": "bear", 
+    "mouton": "sheep", 
+    "cochon": "pig"
+}
+\end{lstlisting}
+
+       Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
+       
+       Accédez à la traduction du mot ``souris'', et stockez le résultat dans une variable nommée \lstinline{souris_traduite}, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée \lstinline{taille_fr_eng}. Affichez le contenu des deux variables que vous venez de créer.
+    
+        \begin{conseil}
+            Comme pour les listes, vous pouvez accéder aux éléments de dictionnaires en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder. Comme pour les listes, la fonction \lstinline{len()} vous aidera à obtenir le nombre d'éléments dans le dictionnaire.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{solutions/question14.py} 
+        \end{solution}
+    \end{Exercice}
+    
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 2}\\
+      	Qu'affiche le programme suivant? \\
+       
+      	\lstinputlisting{code/question15.py} 
+      	
+      	Choisissez parmi les possibilités suivantes : \\
+      	
+      	\begin{itemize}
+      	\item[(A)] programmation \\
+      	True
+      	\item[(B)] Musk \\
+      	False
+      	\item[(C)] 48 \\
+      	False
+      	\item[(D)] aéronautique \\
+      	True
+      	\end{itemize}
+    
+        \begin{conseil}
+            L'élément associé à la valeur ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
+        \end{conseil}
+        
+        \begin{solution}
+            aéronautique \\
+            \quad True \\
+            
+            En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entrepreneuriat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
+        \end{solution}
+    \end{Exercice}
+
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 3}\\
+      	
+        1. \ Vous disposez de deux dictionnaires contenant les notes d'étudiants dans différentes matières : notes\_biologie et notes\_chimie. Chaque dictionnaire associe le nom d'un étudiant à sa note dans la matière correspondante. Votre objectif est de créer un nouveau dictionnaire qui regroupe les notes de chaque étudiant sous forme de liste, où chaque liste contient d'abord la note de biologie puis la note de chimie. Complétez le programme suivant: \\
+
+        \begin{conseil}
+            Pour parcourir un dictionnaire en Python: utilisez \texttt{for key in dictionnaire.keys()} ou \texttt{for key in dictionnaire}. Pour parcourir les valeurs utilisez \texttt{for key in dictionnaire.values()}.
+        \end{conseil}
+       
+      	\lstinputlisting{code/question16.py} 
+      	2. \ Affichez le nombre d'étudiants dont la note moyenne est plus grande que 5.
+
+        \begin{solution}
+            \lstinputlisting[language=python, firstline=1, firstnumber = 1, lastline = 8]{solutions/question16.py}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=python, firstline = 9, firstnumber = 9]{solutions/question16.py}
+        \end{solution}
+    \end{Exercice}
+    
+    \subsection{Structures de données en Java}
+    Dans cette partie, les exercices devront être effectués en Java. \\
+    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\
+    \textbf{Déclaration et affectation d'un tuple (array) en Java de type Object[]:}
+     \begin{lstlisting}[language=Java]
+Object[] monTuple = {1,2,3,4}; \end{lstlisting} 
+\textbf{Déclaration et affectation d'un tuple (array) en Java de type String[]:}
+     \begin{lstlisting}[language=Java]
+String[] monTuple = {"UNIL","ACT"}; \end{lstlisting} 
+
+En général, pour la déclaration, on écrit: \textbf{\lstinline[language=Java]|T[] nomVariable|}, où \texttt{T} est le type d'éléments dans le tuple.
+              
+    \textbf{\\ Déclaration et affectation d'une liste en Java:}
+    
+    \begin{lstlisting}[language=Java]
+List maListe = List.of(1,2,3,4); \end{lstlisting}
+            
+    \textbf{\\ Déclaration et affectation d'un dictionnaire en Java:} 
+    
+    \begin{lstlisting}[language=Java]
+HashMap monDictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
+              
+    
+    \begin{Example}{\faTerminal \quad Informations utiles}
+        \begin{itemize}
+            \item En Java, les listes sont immuables, comme les tuples en Python. Au cas où vous devriez modifier une liste, on vous recommande d'utiliser une liste liée (\lstinline{LinkedList}). Une liste liée se déclare comme suit :
+    
+            \begin{lstlisting}[language=Java]
+List liste = List.of(1,2,3,4);
+LinkedList maListe = new LinkedList(liste); \end{lstlisting}
+            \item En Java, les listes ne peuvent contenir que des éléments de même type.
+        \end{itemize} 
+        
+    \end{Example}
+	     
+	\begin{Exercice}[10 minutes] [Java] \textbf{Manipulation des listes}\\
+      	Créez une liste nommée \lstinline{maListe} contenant les nombres 1, 2, 3, 4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
+      	
+      	Créez une liste \lstinline{maListeM} liée à la liste \lstinline{maListe}. Ajoutez le chiffre 6 à la fin de la liste, et le chiffre 0 au début de cette dernière. \\
+      	
+      	Ajoutez ceci au début de votre code:
+      	\begin{lstlisting}[language=Java]
+import java.util.List;
+import java.util.LinkedList; \end{lstlisting}
+	     
+	     Ajoutez ceci à la fin de votre code:
+	     
+	    \begin{lstlisting}[language=Java]
+for(int i=0;i<maListeM.size();i++){
+    System.out.println(maListeM.get(i));
+} \end{lstlisting} 
+    
+        \begin{conseil}
+            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{.get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{.size()}. \\
+            
+            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{.addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{.addLast(value)}. \\
+            
+           	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
+           	
+           	\lstinputlisting{code/Exemple.java}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{solutions/Question17.java}
+        \end{solution}
+    \end{Exercice}
+    
+    \begin{Exercice}[15 minutes] [Java] \textbf{Manipulation de dictionnaires}\\
+      	Créez un dictionnaire \lstinline{monDictionnaire} contenant les associations suivantes :
+      	
+      	\texttt{("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0)}\\
+      	
+          Affichez le nombre d'étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable \lstinline{tailleDictionnaire}. Affichez le contenu de \lstinline{tailleDictionnaire}. 
+          Modifiez la valeur de \lstinline{collaborateurs}, remplacez 0 par 950. Rajoutez un nouvel élément \lstinline{pays} dans votre dictionnaire avec pour valeur 86.\\
+      	
+      	Ajoutez ceci au début de votre code :
+       
+      	\begin{lstlisting}[language=Java]
+import java.util.HashMap;
+import java.util.Map; \end{lstlisting}
+	     
+	     Ajoutez ceci à la fin de votre code :
+	     
+	    \begin{lstlisting}[language=Java]
+for (String key : monDictionnaire.keySet()){
+    System.out.println(key + " : "+ monDictionnaire.get(key));
+} \end{lstlisting} 
+    
+        \begin{conseil}
+           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{.get(key)} et à la taille via la fonction \lstinline{.size()}.
+            
+           Pour insérer / corriger un élément, utilisez la fonction \lstinline{.put(key,value)}.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{solutions/Question18.java}
+        \end{solution}
+    \end{Exercice}
+    
+ 
      \section{Récursivité}
     
     La récursivité consiste à faire en sorte qu'une fonction s'appelle elle-même, directement ou indirectement. \\\\

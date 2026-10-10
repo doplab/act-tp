@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.LinkedList;
 
-public class Question8 {
+public class Question17 {
 
     public static void main(String[] args) {
         List maListe = List.of(1, 2, 3, 4);

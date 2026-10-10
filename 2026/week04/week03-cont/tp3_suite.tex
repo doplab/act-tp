@@ -7,8 +7,8 @@
 \begin{document}
 
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
-\ShowConseiltrue
+\ShowSolutionfalse
+\ShowConseilfalse
 \titre
 \cours{Programmation de base - suite}
 
@@ -23,7 +23,7 @@ Au terme de cette séance, l'étudiant sera capable de:
 \section{Manipulation de chaînes de caractères}
 
 \begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
-   Créez une variable \textit{mon\_mot} de type chaîne de caractères avec pour valeur \textbf{``Hard But Cool !!''}. Créez ensuite une variable \textit{premiere} contenant la première lettre de \textit{mon\_mot} en utilisant l'indexation. Créez enfin une variable \textit{derniere} contenant la dernière lettre de \textit{mon\_mot} en utilisant l'indexation. Affichez les résultats. Qu'obtenez-vous? \\
+   Créez une variable \texttt{mon\_mot} de type chaîne de caractères et affectez-lui la valeur \textbf{``Hard But Cool !!''}. À l'aide de l'indexation, créez ensuite une variable \texttt{premiere} contenant le premier caractère de \texttt{mon\_mot}, puis une variable \texttt{derniere} contenant son dernier caractère. Affichez les valeurs obtenues pour \texttt{premiere} et \texttt{derniere}. \\
    
     \begin{conseil}
       	Pour Python, utilisez \lstinline{[]}, et pour Java, utilisez la fonction \lstinline{substring()} ainsi que la fonction \lstinline{length()} qui permet d'obtenir la taille d'un élément.
@@ -41,7 +41,7 @@ Au terme de cette séance, l'étudiant sera capable de:
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
-   Gardez votre variable, \textit{mon\_mot} et créez une variable \textit{lettre\_5} contenant la cinquième lettre de \textit{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \textit{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \textit{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
+   Gardez votre variable, \texttt{mon\_mot}, et créez une variable \texttt{lettre\_5} contenant la cinquième lettre de \texttt{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \texttt{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \texttt{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
    
     \begin{conseil}
       	Attention, ici les espaces comptent comme des lettres ! \\
@@ -60,7 +60,7 @@ Au terme de cette séance, l'étudiant sera capable de:
     \end{solution}   
 \end{Exercice}
 \begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
-   Il est possible d'obtenir la longueur d'une chaîne de caractères (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \textit{mon\_mot} et créez une nouvelle variable nommée \textit{ln\_mon\_mot} contenant le nombre de caractères de la variable \textit{mon\_mot}, puis une nouvelle variable \textit{moitie} contenant la première moitié de la variable \textit{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
+   Il est possible d'obtenir la longueur d'une chaîne de caractères (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \texttt{mon\_mot} et créez une nouvelle variable nommée \texttt{ln\_mon\_mot} contenant le nombre de caractères de la variable \texttt{mon\_mot}, puis une nouvelle variable \texttt{moitie} contenant la première moitié de la variable \texttt{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
    
     \begin{conseil}
       	La fonction présentée dans l'énoncé de la question n'est valable que pour Python. L'équivalent pour Java est la fonction \lstinline{length()}.

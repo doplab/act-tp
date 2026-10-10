@@ -1,15 +1,19 @@
-bool_test = True
+if __name__ == '__main__':
+    notes_biologie = {"Charlie": 5, "Alice": 6, "Bob": 5.5}
+    notes_chimie = {"Charlie": 4, "Alice": 5, "Bob": 6}
+    
+    # Votre code ici:
+    notes_combinees = {}
+    for etudiant in notes_biologie:
+        notes_combinees[etudiant] = [notes_biologie[etudiant], notes_chimie[etudiant]]
+    
+    # Résultat:
+    print(notes_combinees)
+    # {"Charlie": [5, 4], "Alice": [6, 5], "Bob": [5.5, 6]}
 
-while bool_test:
-    # Tant que bool_test est True, la boucle continue
-    test_value = int(input("Veuillez entrer un entier : "))
-
-    # On veut sortir de la boucle si test_value est 10
-    # Pour sortir, il faut que bool_test soit False
-    # D'où l'utilisation de not qui transforme True en False et vice versa
-    bool_test = not(test_value == 10)
-
-    if bool_test:
-        print("Ce n'est pas le bon entier.")
-
-print("Bravo !")
+    # Partie 2
+    cnt = 0
+    for val in notes_combinees.values():
+        if (val[0]+val[1])/2.0 > 5:
+            cnt += 1
+    print(cnt) # affiche 2

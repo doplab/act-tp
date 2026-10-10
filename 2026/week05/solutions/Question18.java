@@ -1,21 +1,18 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-class Question18 {
+public class Question18 {
+
     public static void main(String[] args) {
-        List<Integer> nombres = new ArrayList<>();
-        for (int i  =0; i < 11; i++){
-            nombres.add(i);
+        HashMap<String, Integer> monDictionnaire = new HashMap<String, Integer>(
+                Map.of("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
+        System.out.println(monDictionnaire.get("étudiants"));
+        int tailleDictionnaire = monDictionnaire.size();
+        System.out.println(tailleDictionnaire);
+        monDictionnaire.put("collaborateurs", 950);
+        monDictionnaire.put("pays", 86);
+        for (String key : monDictionnaire.keySet()) {
+            System.out.println(key + " : " + monDictionnaire.get(key));
         }
-        Iterator<Integer> iter = nombres.iterator();
-        
-        while(iter.hasNext()){
-            if (iter.next()%2==1){
-                iter.remove();
-            }
-        }
-        System.out.println(nombres);
     }
 }
