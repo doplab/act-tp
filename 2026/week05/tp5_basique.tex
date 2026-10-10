@@ -15,18 +15,15 @@
     \titre
     \cours{Structures de données, Itération et récursivité - Basiques}
 
-    Le but de cette séance est de mettre en pratique les connaissances du cours sur les structures de données (tuples, listes, dictionnaires), l'itération et la récursivité. Au terme de cette séance, l'étudiant saura distinguer structures immuables et non immuables, et écrire des programmes utilisant itération et récursivité. \newline \newline  
+    Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l’itération et la récursivité. À l’issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d’écrire des programmes faisant appel à l’itération et à la récursivité. \newline \newline  
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
 
     \subsection{Tuples}
-    Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
-    L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
-    
-    Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
-    \\
-    En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner des valeurs entre parenthèses et de séparer les valeurs entre elles par des virgules:
+    Pour rappel, les tuples en Python sont des séquences immuables, ce qui signifie qu'une fois créés, leurs éléments ne peuvent être ni ajoutés, ni supprimés, ni remplacés. L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.  \\
+
+    En Python, pour créer un tuple, il suffit de définir une variable et de lui affecter des valeurs séparées par des virgules, généralement placées entre parenthèses:
     \begin{Example}{\faTerminal \quad Exemple}
         \begin{lstlisting}[language=Python]
 mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
@@ -42,36 +39,6 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
         
         \begin{solution}
             \lstinputlisting{code/question1.py} 
-        \end{solution}
-    \end{Exercice}
-
-    
-    
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un tuple}\\
-        
-        Qu'affiche le code suivant ? \\
-        \lstinputlisting{code/question2.py}
-        \begin{conseil}
-        Vous pouvez contrôler si un élément (ou une sous-chaîne de caractères) est contenu dans un tuple, ou une liste, ou un dictionnaire, ou une chaîne de caractères en utilisant l'opérateur \lstinline{in}. Si l'élément est là-dedans, la valeur booléenne \lstinline{True} sera retournée. S'il n'y est pas, la valeur booléenne \lstinline{False} sera retournée. 
-        \end{conseil}
-        
-        
-        % Choisissez parmi les éléments suivants : \\
-        
-        % \begin{itemize}
-        % \item 6 est contenu dans le tuple
-        % \item True
-        % \item 6 n'est pas contenu dans le Tuple
-        % \item False \\
-        % \end{itemize}
-    
-        \begin{conseil}
-            Contrôlez si l'élément est contenu dans le tuple et regardez quelle branche sera prise.
-        \end{conseil}
-        
-        \begin{solution}
-           \faTerminal \texttt{6 est contenu dans le tuple} \\
-           6 est un élément de notre tuple, la condition sera donc remplie.
         \end{solution}
     \end{Exercice}
     
@@ -154,7 +121,8 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
       	\begin{lstlisting}[language=Python]
 ma_liste = [1,2,3,4,5]
 for c in ma_liste :
-    print(c) 
+    if 2*c in ma_liste:
+        print(c) 
              	\end{lstlisting}
              	
         Choisissez parmi les possibilités suivantes: \\ \\
@@ -162,24 +130,27 @@ for c in ma_liste :
 \hline
 (A) & (B) & (C) & (D)  \\
 \hline
-1 & 5 & 3 & 4 \\
-2 & 4 & 2 & 3 \\
-3 & 3 & 1 & 5 \\
-4 & 2 & 5 & 1 \\
-5 & 1 & 4 & 2 \\
+1 & 2 & 1 & 3 \\
+2 & 4 & 2 & 4 \\
+  &   & 3 & 5 \\
+  &   & 4 &   \\
+  &   & 5 &   \\
 \hline
 \end{tabular}
+
+\begin{conseil}
+    L'opérateur \lstinline{in} permet de vérifier si un élément appartient à un tuple ou à une liste, si une sous-chaîne de caractères est présente dans une chaîne de caractères, ou si une clé existe dans un dictionnaire. Il renvoie la valeur booléenne \lstinline{True} si la condition est vérifiée, et \lstinline{False} dans le cas contraire.
+\end{conseil}
     
         \begin{conseil}
 		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
         \end{conseil}
         
         \begin{solution}
-           (A) 1 
-               2 
-               3 
-               4 
-               5
+            La réponse correcte est (A) : \\
+            \texttt{1} \\
+            \texttt{2} \\
+            La condition est vraie pour \texttt{c = 1} et \texttt{c = 2}, car leurs doubles, 2 et 4, appartiennent à \texttt{ma\_liste}. Pour les autres valeurs, les doubles 6, 8 et 10 ne sont pas dans la liste. Le programme affiche \texttt{c}, et non \texttt{2*c}.
         \end{solution}
     \end{Exercice}
     
@@ -502,7 +473,7 @@ elon_musk = {
       	\end{itemize}
     
         \begin{conseil}
-            L'élément associé à la valeur ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
+            L'élément associé à la clé ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
         \end{conseil}
         
         \begin{solution}
@@ -728,33 +699,6 @@ for (String key : monDictionnaire.keySet()){
 	
 		\end{solution} 
 	
-\end{Exercice}
-
-\begin{Exercice}[10 minutes] [Python et Java] \textbf{Fonction factoriel()} 
-	
-        Écrivez la fonction \lstinline{factoriel()} suivant une approche récursive. \\ 
-        
-        Pour rappel, cette fonction prend un entier et retourne le factoriel de ce dernier, définie comme suit: \\
-        
-        factoriel(1) = 1, factoriel(2) = $1*2$ = 2, factoriel(3) = $1*2*3$ = 6, factoriel(4) = $1*2*3*4$ = 24,...
-          
-        
-            \begin{conseil} 
-            On peut écrire cette fonction comme suit : \\
-            
-            $f(n) = n * f(n-1)$ si $n >$ 0 \\
-            
-            $f(n) = 1$ si $n = 0$
-            
-            \end{conseil} 
-        
-            \begin{solution} 
-                \textbf{Python:}
-                \lstinputlisting{solutions/question21.py}
-                \textbf{Java:}
-                \lstinputlisting{solutions/Question21.java}
-            \end{solution} 
-        
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] [Java] \textbf{Méthode getBinaryRepresentation()} 
