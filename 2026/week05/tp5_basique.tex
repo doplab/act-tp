@@ -15,7 +15,7 @@
     \titre
     \cours{Structures de données, Itération et récursivité - Basiques}
 
-    Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l’itération et la récursivité. À l’issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d’écrire des programmes faisant appel à l’itération et à la récursivité. \newline \newline  
+    Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l'itération et la récursivité. À l'issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d'écrire des programmes faisant appel à l'itération et à la récursivité. \newline \newline  
     Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
@@ -43,7 +43,7 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
     \end{Exercice}
     
     \subsection{Listes}
-    La différence entre une liste et un tuple (en Python) est que l'on peut modifier les éléments d'une liste. Par exemple, il est possible de remplacer un élément d'une liste par un autre tandis qu'il est impossible de le faire avec un tuple.
+    Contrairement aux tuples, les listes sont muables: leurs éléments peuvent être ajoutés, supprimés ou remplacés.
     \\ \\
     Pour créer une liste, il suffit de définir une variable avec des valeurs entre crochets :
     \begin{Example}{\faTerminal \quad Exemple}
@@ -51,22 +51,20 @@ mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
 ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Example}
     
-     \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'une liste - 1}\\
-        Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1, 2, 3, 4 et 5. Stockez le deuxième élément de la liste dans une variable nommée \lstinline{element_2}, puis stockez la taille de la liste dans une variable nommée \lstinline{taille_liste}. Affichez ces deux variables.\\
+    Comme pour les tuples, on accède aux éléments d'une liste avec des crochets \lstinline{[]}, en utilisant des indices qui commencent à zéro. La fonction \lstinline{len()} permet également d'obtenir le nombre d'éléments de la liste:
     
-        \begin{conseil}
-            Comme pour les tuples, vous pouvez utiliser \lstinline{[]} pour accéder à un élément, et la fonction \lstinline{len()} pour obtenir le nombre d'éléments contenus dans la liste.
-        \end{conseil}
-        
-        \begin{solution}
-            \lstinputlisting{solutions/question3.py} 
-        \end{solution}
-    \end{Exercice}
+    \begin{Example}{\faTerminal \quad Exemple}
+        \begin{lstlisting}[language=Python]
+ma_liste = [1,2,3,4,5]
+print(ma_liste[1])   # affiche 2 (le deuxième élément)
+print(len(ma_liste)) # affiche 5 (le nombre d'éléments)
+        \end{lstlisting}
+    \end{Example}
     
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'une liste - 2}\\
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'une liste}\\
        Qu'affiche le code suivant ? \\
        
-       \lstinputlisting{code/question4.py} 
+       \lstinputlisting{code/question2.py} 
        
        Choisissez parmi les éléments suivants :
        
@@ -96,16 +94,15 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
     	\item L'itération désigne l'action de répéter un processus (généralement à l'aide d'une boucle) jusqu'à ce qu'une condition particulière soit remplie.
     	\item Il y a deux types de boucles qui sont majoritairement utilisées: \\
     	
-    	\textbf{Boucle for — Python}: Une boucle \lstinline{for} permet d'itérer sur un ensemble. Cet ensemble peut être une liste, un dictionnaire, une collection, une chaîne de caractères, un tuple. La syntaxe d'une boucle en Python est la suivante \lstinline{for nom_de_variable in variable_ensemble} où \texttt{variable\_ensemble} est la variable qui stocke l'ensemble sur lequel vous voulez itérer. La variable \texttt{nom\_de\_variable} prendra la valeur de chaque élément dans l'ensemble, un par un. \\
-    	
+    	\textbf{Boucle \texttt{for} — Python} Une boucle \lstinline{for} parcourt un \emph{itérable} (liste, tuple, chaîne de caractères, dictionnaire, etc.). Syntaxe : \lstinline{for element in iterable:}. À chaque itération, \texttt{element} prend successivement la valeur de chaque élément de \texttt{iterable}. \\
     	
              	
-     	\textbf{Boucle for — Java} La syntaxe en Java est la suivante: \lstinline{for (type nomDeVariable; condition de fin de boucle; incrémentation à chaque itération)} suivie d'une accolade. Il est également possible d'utiliser la syntaxe suivante pour itérer directement sur les éléments d'une liste: \lstinline{for(var nomDeVariable : nomDeLaListeOuTuple)} ou \newline \lstinline{for(var nomDeVariable : nomDuDictionnaire.keySet())} pour un dictionnaire. Cette notation est appelée \texttt{for each}.\\
+     	\textbf{Boucle \texttt{for} — Java} La syntaxe est la suivante: \lstinline{for (type nomDeVariable; condition de fin de boucle; incrémentation à chaque itération)} suivie d'une accolade. Il est également possible d'utiliser la syntaxe suivante pour itérer directement sur les éléments d'une liste: \lstinline{for(var nomDeVariable : nomDeLaListeOuTuple)} ou \lstinline{for(var nomDeVariable : nomDuDictionnaire.keySet())} pour un dictionnaire. Cette notation est appelée \texttt{for each}.\\
      	
         	 
-        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s'exécutent de façon continue jusqu'à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d'abord \lstinline{while}, suivi de la condition à atteindre.\\
-     	
-     	En Java, il n'y a pas de différence majeure à part le fait qu'il faut mettre entre parenthèses la condition et que les deux points sont remplacés par des accolades. \\
+        \textbf{Boucle \texttt{while}} Une boucle \lstinline{while} répète un bloc d'instructions \textit{tant que} sa condition est vraie. \\
+        \textbf{Python}: \lstinline{while condition:}, suivi d'un bloc indenté. \\
+        \textbf{Java}: \lstinline[language=Java]|while (condition) { ... }|, avec la condition entre parenthèses et le bloc délimité par des accolades.
      	
      	
      	\item La fonction \lstinline{range(n)} permet de créer un ensemble de nombres de 0 à la valeur passée en argument moins 1 \texttt{(n-1)}. Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à \texttt{n-1}. \\
@@ -147,9 +144,7 @@ for c in ma_liste :
         \end{conseil}
         
         \begin{solution}
-            La réponse correcte est (A) : \\
-            \texttt{1} \\
-            \texttt{2} \\
+            La réponse correcte est (A).
             La condition est vraie pour \texttt{c = 1} et \texttt{c = 2}, car leurs doubles, 2 et 4, appartiennent à \texttt{ma\_liste}. Pour les autres valeurs, les doubles 6, 8 et 10 ne sont pas dans la liste. Le programme affiche \texttt{c}, et non \texttt{2*c}.
         \end{solution}
     \end{Exercice}
@@ -354,7 +349,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/question10.py}
+            \lstinputlisting{solutions/question8.py}
         \end{solution}
     \end{Exercice}
 
@@ -373,21 +368,21 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/question11.py}
+            \lstinputlisting{solutions/question9.py}
         \end{solution}
     \end{Exercice}
 
 
 \begin{Exercice}[5 minutes] [Python] \textbf{Listes en compréhension}
 
-    Définissez une liste \lstinline{nombres} contenant tous les entiers de 0 à 10 (bornes incluses). Ensuite, utilisez une compréhension de liste pour sélectionner les entiers pairs de \lstinline{nombres} et les stocker dans une nouvelle liste nommée \lstinline{nombres_pairs}. Affichez le contenu de cette dernière.
+    Créez la liste \lstinline{nombres} contenant les entiers de 0 à 10 inclus. Par compréhension de liste, stockez ses entiers pairs dans \lstinline{nombres_pairs}, puis affichez cette liste.
 
     \begin{conseil}
         Pour générer la liste des entiers de 0 à 10 (bornes incluses), utilisez l'instruction suivante: \lstinline[language=python]{nombres = list(range(11))}.
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{solutions/question12.py}
+        \lstinputlisting{solutions/question10.py}
     \end{solution}
 \end{Exercice}
 
@@ -402,7 +397,7 @@ Python & 2 & 1 & Python \\
     \end{conseil}
 
     \begin{solution}
-        \lstinputlisting{solutions/Question13.java}
+        \lstinputlisting{solutions/Question11.java}
     \end{solution}
 \end{Exercice}
 
@@ -450,14 +445,17 @@ elon_musk = {
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/question14.py} 
+            \lstinputlisting[language=Python, firstline=1, lastline=11, firstnumber=1]{solutions/question12.py}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Python, firstline=12, lastline=15, firstnumber=12]{solutions/question12.py}
         \end{solution}
     \end{Exercice}
     
     \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 2}\\
       	Qu'affiche le programme suivant? \\
        
-      	\lstinputlisting{code/question15.py} 
+      	\lstinputlisting{code/question13.py} 
       	
       	Choisissez parmi les possibilités suivantes : \\
       	
@@ -492,14 +490,14 @@ elon_musk = {
             Pour parcourir un dictionnaire en Python: utilisez \texttt{for key in dictionnaire.keys()} ou \texttt{for key in dictionnaire}. Pour parcourir les valeurs utilisez \texttt{for key in dictionnaire.values()}.
         \end{conseil}
        
-      	\lstinputlisting{code/question16.py} 
+      	\lstinputlisting{code/question14.py} 
       	2. \ Affichez le nombre d'étudiants dont la note moyenne est plus grande que 5.
 
         \begin{solution}
-            \lstinputlisting[language=python, firstline=1, firstnumber = 1, lastline = 8]{solutions/question16.py}
+            \lstinputlisting[language=python, firstline=1, firstnumber = 1, lastline = 8]{solutions/question14.py}
         \end{solution}
         \begin{solution}
-            \lstinputlisting[language=python, firstline = 9, firstnumber = 9]{solutions/question16.py}
+            \lstinputlisting[language=python, firstline=10, lastline=19, firstnumber=10]{solutions/question14.py}
         \end{solution}
     \end{Exercice}
     
@@ -567,7 +565,10 @@ for(int i=0;i<maListeM.size();i++){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/Question17.java}
+            \lstinputlisting[language=Java, firstline=1, lastline=2, firstnumber=1]{solutions/Question15.java}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=4, lastline=17, firstnumber=4]{solutions/Question15.java}
         \end{solution}
     \end{Exercice}
     
@@ -599,20 +600,23 @@ for (String key : monDictionnaire.keySet()){
         \end{conseil}
         
         \begin{solution}
-            \lstinputlisting{solutions/Question18.java}
+            \lstinputlisting[language=Java, firstline=1, lastline=8, firstnumber=1]{solutions/Question16.java}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=9, lastline=18, firstnumber=9]{solutions/Question16.java}
         \end{solution}
     \end{Exercice}
     
  
      \section{Récursivité}
     
-    La récursivité consiste à faire en sorte qu'une fonction s'appelle elle-même, directement ou indirectement. \\\\
+    La récursivité consiste à faire en sorte qu'une fonction s'appelle elle-même, directement ou indirectement. \\
     
 \begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code - 1} 
 	
 	Qu'affiche le programme suivant? \\ 
 	
-	\lstinputlisting{code/question19.py} 
+	\lstinputlisting{code/question17.py} 
 	
 	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
 	
@@ -654,7 +658,7 @@ for (String key : monDictionnaire.keySet()){
 \begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code - 2}
     
 	Qu'affiche le programme suivant?
-	\lstinputlisting{code/question20.py}
+	\lstinputlisting{code/question18.py}
 	
 	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
 	
@@ -714,16 +718,19 @@ Le cas de base est le suivant:
 \begin{equation}
 f(0) = \texttt{""} (\text{la chaîne vide})
 \end{equation}
-Dans cette formule, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $\mathbf{a\geq 1}$ et le symbole $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
+Ici, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $\mathbf{a\geq 1}$ et le symbole $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
         Écrivez la méthode \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivant une approche récursive. \\ 
         
             \begin{conseil} 
             La méthode \lstinline[language=Java]|Integer.parseInt(arg)| permet de convertir une chaîne de caractères \texttt{arg} en entier et la méthode \lstinline[language=Java]|String.valueOf(nbr)| permet de convertir \texttt{nbr} en chaîne de caractères.  
             \end{conseil} 
         
-            \begin{solution} 
-                \lstinputlisting[language=Java]{solutions/Question22.java}
-            \end{solution} 
+            \begin{solution}
+                \lstinputlisting[language=Java]{solutions/Question19.java}
+            \end{solution}
+            % \begin{solution}
+            %     \lstinputlisting[language=Java, firstline=12, lastline=16, firstnumber=12]{solutions/Question19.java}
+            % \end{solution} 
 \end{Exercice}
     
         

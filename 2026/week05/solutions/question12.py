@@ -1,3 +1,15 @@
-nombres = list(range(11)) # attention: range ne renvoie pas une liste
-nombres_pair = [x for x in nombres if x%2==0]
-print(nombres_pair)
+fr_eng = {
+    "chat": "cat",
+    "chien": "dog",
+    "oiseau": "bird",
+    "poule": "chicken",
+    "papillon": "butterfly",
+    "souris": "mouse",
+    "ours": "bear",
+    "mouton": "sheep",
+    "cochon": "pig"
+}
+souris_traduite = fr_eng["souris"]
+taille_fr_eng = len(fr_eng)
+print(souris_traduite)
+print(taille_fr_eng)

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Question18 {
+public class Question16 {
 
     public static void main(String[] args) {
         HashMap<String, Integer> monDictionnaire = new HashMap<String, Integer>(

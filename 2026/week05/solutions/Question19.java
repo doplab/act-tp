@@ -1,6 +1,5 @@
-public class Question22 {
+public class Question19 {
     public static void main(String[] args) {
-        // Essayez d'exécuter avec un argument de la ligne de commande
         System.out.println(getBinaryRepresentation(args[0]));
     }
 

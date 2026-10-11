@@ -1,6 +1,5 @@
-mon_tuple = (1,2,3,4,5,6)
-
-if 6 in mon_tuple :
-    print("6 est contenu dans le tuple")
-else :
-    print("6 n'est pas contenu dans le tuple")
+ma_liste = [1,2,2,4,5]
+ma_liste[2] = 3
+ma_liste.append(6)
+ma_liste.insert(0,0)
+print(ma_liste)
