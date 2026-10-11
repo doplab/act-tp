@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{array}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\setlist[itemize]{label=\textbullet}
 
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -16,7 +17,7 @@
     \cours{Structures de données, Itération et récursivité - Basiques}
 
     Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l'itération et la récursivité. À l'issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d'écrire des programmes faisant appel à l'itération et à la récursivité. \newline \newline  
-    Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier ``Exercices $>$ Code''. Le temps mentionné (\faClock) est à titre indicatif.
+    Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
 
@@ -69,18 +70,18 @@ print(len(ma_liste)) # affiche 5 (le nombre d'éléments)
        Choisissez parmi les éléments suivants :
        
        	\begin{itemize}
-    \item \([1, 2, 2, 4, 5, 6]\)
-    \item \([0, 1, 2, 3, 4, 5]\)
-    \item \([0, 1, 2, 3, 4, 5, 6]\)
-    \item \([0, 1, 3, 2, 4, 5, 6]\)
-\end{itemize}
+            \item \texttt{[1, 2, 2, 4, 5, 6]}
+            \item \texttt{[0, 1, 2, 3, 4, 5]}
+            \item \texttt{[0, 1, 2, 3, 4, 5, 6]}
+            \item \texttt{[0, 1, 3, 2, 4, 5, 6]}
+        \end{itemize}
     
         \begin{conseil}
             En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit où vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
         \end{conseil}
         
         \begin{solution}
-            [0, 1, 2, 3, 4, 5, 6] \\
+            \texttt{[0, 1, 2, 3, 4, 5, 6]} \\
             Le programme change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
         \end{solution}
     \end{Exercice}
@@ -100,9 +101,11 @@ print(len(ma_liste)) # affiche 5 (le nombre d'éléments)
      	\textbf{Boucle \texttt{for} — Java} La syntaxe est la suivante: \lstinline{for (type nomDeVariable; condition de fin de boucle; incrémentation à chaque itération)} suivie d'une accolade. Il est également possible d'utiliser la syntaxe suivante pour itérer directement sur les éléments d'une liste: \lstinline{for(var nomDeVariable : nomDeLaListeOuTuple)} ou \lstinline{for(var nomDeVariable : nomDuDictionnaire.keySet())} pour un dictionnaire. Cette notation est appelée \texttt{for each}.\\
      	
         	 
-        \textbf{Boucle \texttt{while}} Une boucle \lstinline{while} répète un bloc d'instructions \textit{tant que} sa condition est vraie. \\
-        \textbf{Python}: \lstinline{while condition:}, suivi d'un bloc indenté. \\
-        \textbf{Java}: \lstinline[language=Java]|while (condition) { ... }|, avec la condition entre parenthèses et le bloc délimité par des accolades.
+        \textbf{Boucle \texttt{while}} Une boucle \lstinline{while} répète un bloc d'instructions \textit{tant que} sa condition est vraie. 
+        \begin{itemize}
+         \item Python: \lstinline{while condition:}, suivi d'un bloc indenté. 
+         \item Java: \lstinline[language=Java]|while (condition) { ... }|, avec la condition entre parenthèses et le bloc délimité par des accolades.
+        \end{itemize}
      	
      	
      	\item La fonction \lstinline{range(n)} permet de créer un ensemble de nombres de 0 à la valeur passée en argument moins 1 \texttt{(n-1)}. Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à \texttt{n-1}. \\
@@ -127,11 +130,11 @@ for c in ma_liste :
 \hline
 (A) & (B) & (C) & (D)  \\
 \hline
-1 & 2 & 1 & 3 \\
-2 & 4 & 2 & 4 \\
-  &   & 3 & 5 \\
-  &   & 4 &   \\
-  &   & 5 &   \\
+\texttt{1} & \texttt{2} & \texttt{1} & \texttt{3} \\
+\texttt{2} & \texttt{4} & \texttt{2} & \texttt{4} \\
+ &  & \texttt{3} & \texttt{5} \\
+ &  & \texttt{4} &  \\
+ &  & \texttt{5} &  \\
 \hline
 \end{tabular}
 
@@ -163,27 +166,10 @@ for(int i=0;i<maListe.size();i++){
         Choisissez parmi les possibilités suivantes :
         
         \begin{itemize}
-        
-        \item[(A)] 5 
-        4 
-        3 
-        2 
-        1 
-        \item[(B)] 1  
-        2 
-        3 
-        4 
-        5 
-        \item[(C)] 4 
-        3 
-        5 
-        1 
-        2 
-        \item[(D)] 2 
-        3 
-        4 
-        5 
-        6
+            \item[(A)] \texttt{5 4 3 2 1}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 5 1 2}
+            \item[(D)] \texttt{2 3 4 5 6}
         \end{itemize}
     
         \begin{conseil}
@@ -191,11 +177,7 @@ for(int i=0;i<maListe.size();i++){
         \end{conseil}
         
         \begin{solution}
-          (D)  2 
-            3 
-            4 
-            5 
-            6
+            (D) \texttt{2 3 4 5 6}
         \end{solution}
     \end{Exercice} 	
     
@@ -215,27 +197,10 @@ print(result)
         Choisissez parmi les possibilités suivantes :
         
         \begin{itemize}
-        
-        \item[(A)] 0 
-        1 
-        2 
-        3 
-        4 
-        \item[(B)] 1  
-        2 
-        3 
-        4 
-        5 
-        \item[(C)] 4 
-        3 
-        2 
-        1 
-        5 
-        \item[(D)] 2 
-        3 
-        4 
-        0 
-        1
+            \item[(A)] \texttt{0 1 2 3 4}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 2 1 5}
+            \item[(D)] \texttt{2 3 4 0 1}
         \end{itemize}
     
         \begin{conseil}
@@ -243,11 +208,7 @@ print(result)
         \end{conseil}
         
         \begin{solution}
-         (A)   0 
-            1 
-            2 
-            3 
-            4
+            (A) \texttt{0 1 2 3 4}
         \end{solution}
     \end{Exercice}
     
@@ -266,27 +227,10 @@ while(i<5){
         Choisissez parmi les possibilités suivantes :
         
         \begin{itemize}
-        
-        \item[(A)] 0 
-        1 
-        2 
-        3 
-        4 
-        \item[(B)] 1  
-        2 
-        3 
-        4 
-        5 
-        \item[(C)] 4 
-        3 
-        2 
-        1 
-        0 
-        \item[(D)] 5 
-        4 
-        3 
-        2 
-        1
+            \item[(A)] \texttt{0 1 2 3 4}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 2 1 0}
+            \item[(D)] \texttt{5 4 3 2 1}
         \end{itemize}
     
         \begin{conseil}
@@ -294,11 +238,7 @@ while(i<5){
         \end{conseil}
         
         \begin{solution}
-          (B)  1 
-            2 
-            3 
-            4 
-            5
+            (B) \texttt{1 2 3 4 5}
         \end{solution}
     \end{Exercice} 
 	
@@ -316,10 +256,10 @@ for x in range(len(ma_liste)):
 \hline
 (A) & (B) & (C) & (D) \\
 \hline
-0 & J'aime & J'aime & 1 \\
-J'aime & 1 & 0 & J'aime \\
-1 & Python & Python & 2 \\
-Python & 2 & 1 & Python \\
+\texttt{0} & \texttt{J'aime} & \texttt{J'aime} & \texttt{1} \\
+\texttt{J'aime} & \texttt{1} & \texttt{0} & \texttt{J'aime} \\
+\texttt{1} & \texttt{Python} & \texttt{Python} & \texttt{2} \\
+\texttt{Python} & \texttt{2} & \texttt{1} & \texttt{Python} \\
 \hline
 \end{tabular}
     
@@ -328,11 +268,7 @@ Python & 2 & 1 & Python \\
         \end{conseil}
         
         \begin{solution}
-            0\\
-            J'aime\\
-            1\\
-            Python
-            
+            \texttt{0} \\ \texttt{J'aime} \\ \texttt{1} \\ \texttt{Python}
         \end{solution}
     \end{Exercice} 		
 	
@@ -452,7 +388,7 @@ elon_musk = {
         \end{solution}
     \end{Exercice}
     
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 2}\\
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire}\\
       	Qu'affiche le programme suivant? \\
        
       	\lstinputlisting{code/question13.py} 
@@ -460,29 +396,25 @@ elon_musk = {
       	Choisissez parmi les possibilités suivantes : \\
       	
       	\begin{itemize}
-      	\item[(A)] programmation \\
-      	True
-      	\item[(B)] Musk \\
-      	False
-      	\item[(C)] 48 \\
-      	False
-      	\item[(D)] aéronautique \\
-      	True
-      	\end{itemize}
+            \item[(A)] \texttt{programmation} \\ \texttt{True}
+            \item[(B)] \texttt{Musk} \\ \texttt{False}
+            \item[(C)] \texttt{48} \\ \texttt{False}
+            \item[(D)] \texttt{aéronautique} \\ \texttt{True}
+        \end{itemize}
     
         \begin{conseil}
             L'élément associé à la clé ``talents'' du dictionnaire \lstinline{elon_musk} est une liste.
         \end{conseil}
         
         \begin{solution}
-            aéronautique \\
-            \quad True \\
+            \texttt{aéronautique} \\
+            \texttt{True} \\
             
             En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entrepreneuriat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
         \end{solution}
     \end{Exercice}
 
-    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire - 3}\\
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire}\\
       	
         1. \ Vous disposez de deux dictionnaires contenant les notes d'étudiants dans différentes matières : notes\_biologie et notes\_chimie. Chaque dictionnaire associe le nom d'un étudiant à sa note dans la matière correspondante. Votre objectif est de créer un nouveau dictionnaire qui regroupe les notes de chaque étudiant sous forme de liste, où chaque liste contient d'abord la note de biologie puis la note de chimie. Complétez le programme suivant: \\
 
@@ -612,7 +544,7 @@ for (String key : monDictionnaire.keySet()){
     
     La récursivité consiste à faire en sorte qu'une fonction s'appelle elle-même, directement ou indirectement. \\
     
-\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code - 1} 
+\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code} 
 	
 	Qu'affiche le programme suivant? \\ 
 	
@@ -621,41 +553,18 @@ for (String key : monDictionnaire.keySet()){
 	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
 	
 	\begin{itemize}
-	\item 4  
-	3 
-	2 
-	1 
-	0 
-	\item 5 
-	4 
-	3 
-	2 
-    1 
-    0
-	\item 0 
-	1 
-	2 
-	3 
-	4 
-	\item 1 
-	2 
-	3 
-	4
-    5
-    0
-    \end{itemize}
-    \begin{solution} 
-			5  
-			4  
-			3  
-			2  
-			1  
-			0  
-		\end{solution} 
+            \item \texttt{4 3 2 1 0}
+            \item \texttt{5 4 3 2 1 0}
+            \item \texttt{0 1 2 3 4}
+            \item \texttt{1 2 3 4 5 0}
+        \end{itemize}
+    \begin{solution}
+            \texttt{5 4 3 2 1 0}
+        \end{solution} 
     
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code - 2}
+\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code}
     
 	Qu'affiche le programme suivant?
 	\lstinputlisting{code/question18.py}
@@ -663,45 +572,24 @@ for (String key : monDictionnaire.keySet()){
 	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
 	
 	\begin{itemize}
-	\item 4  
-	3 
-	2 
-	1 
-	0 
-	\item 5 
-	4 
-	3 
-	2 
-	1 
-	\item 0 
-	1 
-	2 
-	3 
-	4 
-	\item 1 
-	2 
-	3 
-	4 
-	5
-	\end{itemize}
+            \item \texttt{4 3 2 1 0}
+            \item \texttt{5 4 3 2 1}
+            \item \texttt{0 1 2 3 4}
+            \item \texttt{1 2 3 4 5}
+        \end{itemize}
 	
 	 
 	
 		\begin{conseil} 
 		\begin{itemize} 
-			\item La principale différence entre ces 2 programmes est l'endroit où est placé le \lstinline{print()}. 
+			\item La principale différence entre ces deux programmes est l'endroit \lstinline{print()} est placé. 
 			\item Reproduire étape par étape le développement sur un papier pourrait aider. 
 		\end{itemize} 
 		\end{conseil} 
 	
-		\begin{solution}  
-			1  
-			2  
-			3  
-			4  
-			5 
-	
-		\end{solution} 
+		\begin{solution}
+            \texttt{1 2 3 4 5}
+        \end{solution} 
 	
 \end{Exercice}
 
