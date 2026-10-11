@@ -83,8 +83,7 @@ print(len(ma_liste)) # affiche 5 (le nombre d'éléments)
         \end{conseil}
         
         \begin{solution}
-            (C) \texttt{[0, 1, 2, 3, 4, 5, 6]} \\
-            Le programme change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
+            Réponse correcte: (C). Le programme change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
         \end{solution}
     \end{Exercice}
 
@@ -179,7 +178,7 @@ for(int i=0;i<maListe.size();i++){
         \end{conseil}
         
         \begin{solution}
-            (D) \texttt{2 3 4 5 6}
+            (D). La boucle parcourt les indices de 0 à 4 et affiche les éléments de la liste dans leur ordre, sans séparateur.
         \end{solution}
     \end{Exercice} 	
     
@@ -210,7 +209,7 @@ print(result)
         \end{conseil}
         
         \begin{solution}
-            (A) \texttt{0 1 2 3 4}
+            (A). La boucle concatène les chiffres de 0 à 4 dans \texttt{result}, puis affiche \texttt{01234} en une seule fois.
         \end{solution}
     \end{Exercice}
     
@@ -240,7 +239,7 @@ while(i<5){
         \end{conseil}
         
         \begin{solution}
-            (B) \texttt{1 2 3 4 5}
+            (B). Comme \texttt{i} est incrémenté avant l'affichage, les valeurs affichées vont de \texttt{1} à \texttt{5}.
         \end{solution}
     \end{Exercice} 
 	
@@ -270,13 +269,13 @@ for x in range(len(ma_liste)):
         \end{conseil}
         
         \begin{solution}
-            \texttt{0} \\ \texttt{J'aime} \\ \texttt{1} \\ \texttt{Python}
+            (A). \texttt{range(2)} fournit les indices \texttt{0} et \texttt{1}, et chaque itération affiche l'indice puis l'élément correspondant.
         \end{solution}
     \end{Exercice} 		
 	
     \begin{Exercice}[5 minutes] [Python] \textbf{Boucle for et fonction range()}
       	
-      	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat.
+      	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat. Vous devriez obtenir 210. 
     
         \begin{conseil}
            \begin{itemize}
@@ -340,7 +339,7 @@ for x in range(len(ma_liste)):
 \end{Exercice}
 
 	\subsection{Dictionnaires}
-	Les dictionnaires sont des listes associatives, c'est-à-dire des listes qui lient une valeur à une autre. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
+	Les dictionnaires sont des listes associatives, c'est-à-dire des listes qui lient une valeur à une clé. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
 	
 	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé est le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond. Alternativement, nous pouvons retrouver le contenu d'une page d'un livre en utilisant le numéro de celle-ci. Dans ce cas, le numéro est la clé et le texte de la page, la valeur. \\
 	
@@ -561,7 +560,7 @@ for (String key: monDictionnaire.keySet()){
             \item[(D)] \texttt{1 2 3 4 5 0}
         \end{itemize}
     \begin{solution}
-            (B) \texttt{5 4 3 2 1 0}
+            (B). L'affichage précède l'appel récursif, donc chaque appel affiche sa valeur avant de passer à la suivante, de \texttt{5} jusqu'à \texttt{0}.
         \end{solution} 
     
 \end{Exercice}
@@ -590,7 +589,7 @@ for (String key: monDictionnaire.keySet()){
 		\end{conseil} 
 	
 		\begin{solution}
-            (D) \texttt{1 2 3 4 5}
+            (D). L'affichage suit l'appel récursif, donc les valeurs sont affichées au retour des appels, de \texttt{1} à \texttt{5}, tandis que le cas de base \texttt{x = 0} n'affiche rien.
         \end{solution} 
 	
 \end{Exercice}
