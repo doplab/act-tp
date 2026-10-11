@@ -6,7 +6,7 @@ while bool_test:
 
     # On veut sortir de la boucle si test_value est 10
     # Pour sortir, il faut que bool_test soit False
-    # D'où l'utilisation de not qui transforme True en False et vice versa
+    # D'ou l'utilisation de not qui transforme True en False et vice versa
     bool_test = not(test_value == 10)
 
     if bool_test:

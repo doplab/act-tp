@@ -4,7 +4,7 @@ import java.util.LinkedList;
 public class Question15 {
 
     public static void main(String[] args) {
-        List maListe = List.of(1, 2, 3, 4);
+        List maListe = List.of(1, 2, 3, 4, 5);
         System.out.println(maListe.get(1));
         System.out.println(maListe.size());
         LinkedList maListeM = new LinkedList(maListe);

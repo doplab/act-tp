@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{array}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\setlist[itemize]{label=\textbullet}
 
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
@@ -14,39 +15,12 @@
     \titre
     \cours{Structure de données, Itération et récursivité - Avancés}
 
-    Le but de cette séance est de mettre en pratique les connaissances apprises en cours. Elle portera essentiellement sur les structures de données qui seront utilisées lors des prochaines séances de cours/Travaux Pratiques. Les structures de données abordées lors de cette séance sont les tuples, les listes et les dictionnaires. Lors de cette séance, nous aborderons aussi les notions d'itération et de récursivité. 
-
-    Au terme de cette séance, l'étudiant sera capable de distinguer une structure de données immuable et non immuable, écrire un programme de façon simplifiée en utilisant les notions d'itération et de récursivité.
-
+    Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l'itération et la récursivité. À l'issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d'écrire des programmes faisant appel à l'itération et à la récursivité. \newline \newline  
     Le temps mentionné (\faClock) est à titre indicatif.
 
     \section{Structures de données}
 
     Dans la première partie de cette section, les exercices devront être traités en Python. Dans la seconde partie, les exercices seront traités en Java.
-%     \subsection{Tuples}
-%     Pour rappel, les tuples sont des listes d'éléments immuables, ce qui signifie que ces listes ne peuvent pas être modifiées.
-%     L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.
-    
-%     Les tuples sont utiles pour stocker des données que l'on va réutiliser plus tard.
-%     \\
-%     En Python, pour créer un tuple, il suffit de définir une variable et de lui assigner, encadré par des parenthèses, un groupe de valeurs séparées entre elles par des virgules:
-%     \begin{Example}{\faTerminal \quad Exemple}
-%         \begin{lstlisting}[language=Python]
-% mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
-
-%     \end{Example}
-
-%     \begin{Exercice}[5 minutes] \textbf{Manipulation d'un tuple}\\
-%         Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1,2,3,4 et 5. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
-    
-%         \begin{conseil}
-%             Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
-%         \end{conseil}
-        
-%         \begin{solution}
-%             \lstinputlisting{code/advanced/question1.py} 
-%         \end{solution}
-%     \end{Exercice}
     
     \subsection{Listes}
     La différence entre une liste et un tuple est que l'on peut modifier les éléments d'une liste. Par exemple, il est possible de remplacer un élément d'une liste par un autre tandis qu'il est impossible de le faire avec un tuple.
@@ -58,7 +32,7 @@ ma_liste = [1,2,3,4,5]   \end{lstlisting}
     \end{Example}
     
     \begin{Exercice}[5 minutes] \textbf{Manipulation d'une liste}\\
-       Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez ``OK'', s'il n'y est pas, rajoutez le à votre liste. \\
+       Créez une liste nommée \lstinline{ma_liste} contenant les nombres 1,2,3,4 et 5. Vérifiez si le chiffre 6 est dans votre liste. S'il y est, affichez \texttt{OK}, s'il n'y est pas, rajoutez le à votre liste. \\
        
        Utilisez le code ci-dessous pour contrôler que tout a bien été ajouté : \\
        
@@ -147,22 +121,22 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
       	Choisissez parmi les possibilités suivantes :
       	
       	\begin{itemize}
-      	\item 3 \\
-      	2 \\
-      	quatre \\
-      	zero\\
-      	\item 4 \\
-      	6 \\
-      	un \\
-      	trois\\
-      	\item 3 \\
-      	2 \\
-      	un \\
-      	trois\\
-      	\item 4 \\
-      	6 \\
-      	quatre \\
-      	zero \\
+      	\item[(A)] \texttt{3} \\
+      	\texttt{2} \\
+      	\texttt{quatre} \\
+      	\texttt{zero}\\
+      	\item[(B)] \texttt{4} \\
+      	\texttt{6} \\
+      	\texttt{un} \\
+      	\texttt{trois}\\
+      	\item[(C)] \texttt{3} \\
+      	\texttt{2} \\
+      	\texttt{un} \\
+      	\texttt{trois}\\
+      	\item[(D)] \texttt{4} \\
+      	\texttt{6} \\
+      	\texttt{quatre} \\
+      	\texttt{zero} \\
       	\end{itemize}
     
         \begin{conseil}
@@ -172,13 +146,13 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
         \begin{solution}
             On prend l'élément à l'indice 3 de \lstinline{ma_liste} (rappel les indices commencent à 0)\\
             On prend l'élément à l'indice 4 de \lstinline{ma_liste}\\
-            Ensuite on recupère l'élément à l'indice 4 de \lstinline{ma_liste} qui 1, et on l'utilise comme key pour \lstinline{mon_dictionnaire}, 1 est associé à un. \\
+            Ensuite on recupère l'élément à l'indice 4 de \lstinline{ma_liste} qui 1, et on l'utilise comme key pour \lstinline{mon_dictionnaire}, 1 est associé à \texttt{un}. \\
             Pareil pour le print d'après mais avec l'élément à l'indice 0 qui est 3.\\
-            La solution est donc : 
-        4 \\
-      	6 \\
-      	un \\
-      	trois
+            La réponse correcte est (B) : 
+        \texttt{4} \\
+      	\texttt{6} \\
+      	\texttt{un} \\
+      	\texttt{trois}
         \end{solution}
     \end{Exercice}
     
@@ -197,12 +171,12 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
      	La syntaxe en Java est la suivante: \lstinline{for (type nom_de_variable; condition de fin de boucle; incrémentation à chaque itération)} suivi d'une accolade. \\
      	
         	 
-        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s’exécutent de façon continue jusqu’à ce qu’une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d’abord \lstinline{while}, suivi de la condition à atteindre.\\
+        \textbf{Boucle while}: Les boucles \lstinline{while} sont des boucles qui s'exécutent de façon continue jusqu'à ce qu'une condition soit remplie. La syntaxe est la suivante: En Python, on écrit d'abord \lstinline{while}, suivi de la condition à atteindre.\\
      	
      	En Java, il n'y a pas de différence majeure à part le fait qu'il faille mettre entre parenthèses la condition et les deux points sont remplacés par des accolades. \\
      	
      	
-     	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
+     	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu'elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
      	
      	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\\\
      	

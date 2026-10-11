@@ -3,5 +3,5 @@ if __name__ == '__main__':
     notes_chimie = {"Charlie": 4, "Alice": 5, "Bob": 6}
     # Votre code ici:
 
-    # Résultat:
+    # Resultat:
     # {"Charlie": [2, 4], "Alice": [6, 5], "Bob": [5.5, 6]}

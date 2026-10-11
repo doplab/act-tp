@@ -5,8 +5,8 @@ public class Question16 {
 
     public static void main(String[] args) {
         HashMap<String, Integer> monDictionnaire = new HashMap<String, Integer>(
-                Map.of("étudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
-        System.out.println(monDictionnaire.get("étudiants"));
+                Map.of("etudiants", 14000, "enseignants", 2300, "collaborateurs", 0));
+        System.out.println(monDictionnaire.get("etudiants"));
         int tailleDictionnaire = monDictionnaire.size();
         System.out.println(tailleDictionnaire);
         monDictionnaire.put("collaborateurs", 950);

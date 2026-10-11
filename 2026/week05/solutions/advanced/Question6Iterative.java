@@ -4,7 +4,7 @@ public class Question6Iterative {
         if (n == 0 || n == 1) {
             return n;
         } else {
-            int old_fib = 1;
+            int old_fib = 0;
             int new_fib = 1;
             int tmp;
             for (int i = 2; i <= n; i++) {
