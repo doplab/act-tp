@@ -61,7 +61,7 @@ elon_musk = {
     "prénom": "Elon",
     "nom": "Musk",
     "age": 48,
-    "talents": ["programmation", "entreprenariat", "aéronautique"]
+    "talents": ["programmation", "entrepreneuriat", "aéronautique"]
 }   \end{lstlisting}
 		
     \begin{Exercice}[10 minutes] \textbf{Manipulation d'un dictionnaire}\\
@@ -144,15 +144,13 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
         \end{conseil}
         
         \begin{solution}
-            On prend l'élément à l'indice 3 de \lstinline{ma_liste} (rappel les indices commencent à 0)\\
-            On prend l'élément à l'indice 4 de \lstinline{ma_liste}\\
-            Ensuite on recupère l'élément à l'indice 4 de \lstinline{ma_liste} qui 1, et on l'utilise comme key pour \lstinline{mon_dictionnaire}, 1 est associé à \texttt{un}. \\
-            Pareil pour le print d'après mais avec l'élément à l'indice 0 qui est 3.\\
-            La réponse correcte est (B) : 
-        \texttt{4} \\
-      	\texttt{6} \\
-      	\texttt{un} \\
-      	\texttt{trois}
+            La réponse correcte est (B). Les indices commencent à zéro:
+            \begin{itemize}
+                \item \texttt{ma\_liste.get(3)} renvoie \texttt{4}, qui est affiché.
+                \item \texttt{ma\_liste.get(2)} renvoie \texttt{6}, qui est affiché.
+                \item \texttt{ma\_liste.get(4)} renvoie \texttt{1}. Cette clé est associée à \texttt{un} dans \texttt{mon\_dictionnaire}, donc le programme affiche \texttt{un}.
+                \item \texttt{ma\_liste.get(0)} renvoie \texttt{3}. Cette clé est associée à \texttt{trois}, donc le programme affiche \texttt{trois}.
+            \end{itemize}
         \end{solution}
     \end{Exercice}
     
@@ -178,7 +176,7 @@ LinkedList ma_liste = new LinkedList(liste); \end{lstlisting}
      	
      	\item La fonction \lstinline{range(n)} permet de créer une liste de nombres de 0 à la valeur passée en argument moins 1 (n-1). Lorsqu'elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à n-1. \\
      	
-     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y' ait une condition valide dans une boucle \lstinline{while}. \\\\
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire même de votre ordinateur. Il faut toujours s'assurer qu'il y ait une condition valide dans une boucle \lstinline{while}. \\\\
      	
      	\end{itemize}
      	
