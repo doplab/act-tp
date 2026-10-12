@@ -10,12 +10,11 @@
 \titre
 \cours{Programmation orientée objet - Exercices basiques}
 
-Le but de cette séance est de se familiariser avec un paradigme de programmation couramment utilisé: la Programmation Orientée Objet (POO). Ce paradigme consiste en la définition et en l'interaction avec des briques logicielles appelées \lstinline{Objets}. Dans les exercices suivants, nous manipulerons des objets, aborderons les notions de classe, méthodes, attributs et encapsulation. Au terme de cette séance, vous serez en mesure d'écrire des programmes mieux structurés.
-% Afin d'atteindre ces objectifs, nous utiliserons principalement le langage \lstinline{Java} qui offre une panoplie d'outils pour mieux comprendre ce paradigme de programmation.
+Le but de cette séance est de découvrir et de mettre en pratique un paradigme de programmation largement utilisé : la programmation orientée objet (POO). Ce paradigme repose sur la création d'objets qui regroupent des données et des comportements, et qui peuvent interagir entre eux. Au fil des exercices, vous apprendrez à manipuler des objets et à maîtriser les notions fondamentales de classe, d'attribut, de méthode et d'encapsulation. À l'issue de cette séance, vous serez capables de concevoir des programmes mieux structurés et plus faciles à maintenir. \\
 
-Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+Les exercices de cette séance seront réalisés en Java et en Python. \\
 
-Le temps indiqué (\faClock) est à titre strictement indicatif.
+Les durées indiquées (\faClock) sont données à titre indicatif.
 \section{Itération en Java}
 \begin{Exercice}[5 minutes]
 
@@ -23,7 +22,7 @@ Le temps indiqué (\faClock) est à titre strictement indicatif.
 La méthode \texttt{String.valueOf} permet de convertir un nombre en chaîne de caractères.
     \end{conseil}
 
-Qu'affiche le programme Java suivant (on n'écrit pas la classe ou la méthode \texttt{main} par souci de concision):
+Qu'affiche le programme Java suivant (par souci de concision, nous omettons la déclaration de la classe et de la méthode \texttt{main}):
 \begin{lstlisting}[language=Java]
 String result = "";
 String x = "5";
@@ -36,18 +35,18 @@ System.out.println(result + j);
 Choisissez parmi les éléments suivants :
        
     \begin{itemize}
-    \item \(5210\)
-    \item \(1110\)
-    \item \(1010\)
-    \item \(1011\)
+    \item \texttt{5210}
+    \item \texttt{1110}
+    \item \texttt{1010}
+    \item \texttt{1011}
     \item \(\texttt{java: bad operand types for binary operator '+'..}\)
 \end{itemize}
 \begin{solution}
-    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation de la variable \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
+    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation des variables \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
 \end{solution}
 \end{Exercice}
 
-\section{Récursion en Java et Python (10 minutes)}
+\section{Récursion en Java et Python}
 \begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome()}
     \begin{conseil}
         En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
@@ -58,11 +57,11 @@ Choisissez parmi les éléments suivants :
 \begin{equation}
     f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
 \end{equation}
-Ici, $a[1:n-1]$ est la sous chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
+Ici, $a[1:n-1]$ est la sous-chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
 \begin{conseil}
-    Revoir la \href{https://moodle.unil.ch/mod/folder/view.php?id=1965123}{question 16 du TP3} pour voir les règles concernant la notation des bornes d'une sous chaîne de caractères. 
+    Revoir la \href{https://moodle.unil.ch/mod/folder/view.php?id=1965123}{question 16 du TP3} pour voir les règles concernant la notation des bornes d'une sous-chaîne de caractères. 
 \end{conseil}
-On dit donc que $a$ est un palindrome si le premier caractère et le dernier caractère sont égaux \textbf{et} la sous chaîne entre les deux est un palindrome. \\  \\
+On dit donc que $a$ est un palindrome si le premier caractère et le dernier caractère sont égaux \textbf{et} la sous-chaîne entre les deux est un palindrome. \\  \\
 
 Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \begin{align*}
@@ -70,7 +69,7 @@ Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \end{align*}
 et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
 
-Ecrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
+Écrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{solutions/Palindrome.java}
@@ -105,7 +104,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un entier \lstinline{age}.
    	\end{enumerate}
    	
-   	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances crées.
+   	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances créées.
    	
 \begin{conseil}
     %Modifier le conseil
@@ -185,10 +184,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{getOldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus agé sous le format suivant : ``\lstinline{nomChien} est le chien le plus agé avec \lstinline{ageChien} ans''. \\
+    Créez une méthode nommée \lstinline{getOldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant : ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. \\
    	
 \begin{conseil}
-   L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créé tout à l'heure.
+   L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créées tout à l'heure.
    Faites attention à la façon d'accéder aux différents attributs de votre deuxième chien (pour rappel, les attributs privés ne sont accessibles qu'à travers des \lstinline{getters} que vous aurez préalablement définis).
 \end{conseil}
     
@@ -198,7 +197,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
-    Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte sous le format suivant: 
+    Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte au format suivant: 
     ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
 
     \begin{conseil}
@@ -219,7 +218,7 @@ Vous devriez obtenir ce résultat :
 \newpage
 \section{Notions de POO en Python (15 minutes)}
 \label{sec:notions_python}
-Dans cette section, nous créerons pas-à-pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
+Dans cette section, nous créerons pas à pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question7.py}.\\
 \begin{Exercice}[15 minutes] Classe \lstinline{Point}
     \begin{itemize}
@@ -227,19 +226,19 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
         \begin{conseil}
             Pour rappel, un constructeur est une fonction \lstinline{__init()__} que vous redéfinirez dans votre classe.
         \end{conseil}
-        \item Définissez deux attributs privés pour votre classe \lstinline{Point}. Ces attributs seront les coordonnées x et y de vos points. Par défaut, assignez leur les valeurs données dans le constructeur.
+        \item Définissez deux attributs privés pour votre classe \lstinline{Point}. Ces attributs seront les coordonnées x et y de vos points. Par défaut, assignez-leur les valeurs données dans le constructeur.
         \begin{conseil}
             À l'intérieur d'une classe, utilisez le mot-clé \lstinline{self} pour accéder aux méthodes et attributs de l'instance que vous manipulez.
-            En Python, pour spécifier qu'un attribut est privé, rajouter un double underscore au nom de l'attribut (Exemple: \lstinline{__score=0})
+            En Python, pour spécifier qu'un attribut est privé, ajoutez deux traits de soulignement au nom de l'attribut (exemple: \lstinline{__score=0}).
         \end{conseil}
-        \item Définir des getters et setters.
+        \item Définissez des getters et des setters.
         \begin{conseil}
             En Python, le mot-clé \lstinline{self} est l'équivalent de \lstinline{this} utilisé en Java.
         \end{conseil}
         \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du \lstinline{Point} (\lstinline{self}) et un autre \lstinline{Point} \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
         \begin{conseil}
             Pour rappel, la distance euclidienne entre deux points est définie par la formule $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$.
-            Utilisez la fonction \lstinline{sqrt()} de la librairie \lstinline{math} pour calculer la racine carrée. Pensez à importer la libraire \lstinline{math}.
+            Utilisez la fonction \lstinline{sqrt()} de la bibliothèque \lstinline{math} pour calculer la racine carrée. Pensez à importer la bibliothèque \lstinline{math}.
         \end{conseil}
         \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p2} et qui retournera un objet \lstinline{Point} situé entre \lstinline{self} et \lstinline{p2}.
         \begin{conseil}
@@ -272,7 +271,7 @@ Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus,
 	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut \lstinline{note},
 	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut \lstinline{note},
-	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage \lstinline{note} (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
+	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
 \end{itemize}
 
 Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
@@ -295,8 +294,8 @@ Voici le squelette du programme à compléter:
 	}\end{lstlisting}
 \begin{conseil}
     \begin{itemize}
-        \item En Java, lors de la déclaration d'une classe, le mot clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-        Le mot clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'example suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
+        \item En Java, lors de la déclaration d'une classe, le mot-clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
+        Le mot-clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'exemple suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
         \item L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
         \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
     \end{itemize}
@@ -315,15 +314,15 @@ Voici le squelette du programme à compléter:
 Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{LivreAudio} (et des arguments donnés lors de la création de l'objet).
 % TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
 En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
-titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et le narrateur ``William''.\\
+titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et narrateur: ``William''.\\
 Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
 Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
-Redéfinir la méthode \lstinline{toString()} de la classe \lstinline{LivreAudio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
-Faites pareil avec la classe \lstinline{LivreIllustre} et son attribut \lstinline{Illustrateur}
+Redéfinissez la méthode \lstinline{toString()} de la classe \lstinline{LivreAudio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
+Faites pareil avec la classe \lstinline{LivreIllustre} et son attribut \lstinline{Illustrateur}.
 \begin{conseil}
 \textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{LivreAudio}.
-Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot clé \lstinline{super} représente la classe parent, tout comme le mot clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
-L'instruction \lstinline{super} doit toujours être la première instruction dans le redéfinition d'une méthode dans une classe fille. 
+Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot-clé \lstinline{super} représente la classe parente, tout comme le mot-clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
+L'instruction \lstinline{super} doit toujours être la première instruction dans la redéfinition d'une méthode dans une classe fille. 
 \end{conseil}
 \begin{solution}
 	\lstinputlisting{solutions/question11/LivreAudio.java}
