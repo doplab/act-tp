@@ -1,0 +1,627 @@
+\input{../header.tex}
+
+\usepackage{listings}
+\usepackage{array}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\setlist[itemize]{label=\textbullet}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+    % Change the following values to true to show the solutions or/and the hints
+    \ShowSolutiontrue
+    \ShowConseiltrue
+    \ShowWarningtrue
+    \titre
+    \cours{Structures de données, Itération et récursivité - Basiques}
+
+    Le but de cette séance est de mettre en pratique les connaissances acquises en cours sur les structures de données (tuples, listes et dictionnaires), l'itération et la récursivité. À l'issue de cette séance, vous serez capables de distinguer les structures de données muables et immuables, ainsi que d'écrire des programmes faisant appel à l'itération et à la récursivité. \newline \newline  
+    Le temps mentionné (\faClock) est à titre indicatif. \\
+
+    \textcolor{red}{\faPenToSquare}\quad Pour les exercices où vous devez déterminer ce qu'affiche un programme, résolvez-les d'abord à la main avant d'utiliser IntelliJ, afin de simuler les conditions d'examen.
+
+    \section{Structures de données}
+
+    \subsection{Tuples}
+    Pour rappel, les tuples en Python sont des séquences immuables, ce qui signifie qu'une fois créés, leurs éléments ne peuvent être ni ajoutés, ni supprimés, ni remplacés. L'une des particularités des tuples est la possibilité d'y inclure des données de types différents.  \\
+
+    En Python, pour créer un tuple, il suffit de définir une variable et de lui affecter des valeurs séparées par des virgules, généralement placées entre parenthèses:
+    \begin{Example}{\faTerminal \quad Exemple}
+        \begin{lstlisting}[language=Python]
+mon_tuple = (1,"une chaîne de caractères",3,4)   \end{lstlisting}
+
+    \end{Example}
+
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un tuple}\\
+        Créez un tuple nommé \lstinline{mon_tuple} contenant les chiffres 1, 2, 3, 4 et 5. Affichez le quatrième élément de ce tuple. Obtenez le nombre d'éléments contenus dans votre tuple et stockez le résultat dans une nouvelle variable nommée \lstinline{taille_tuple}. Pour finir, affichez le contenu de \lstinline{taille_tuple}.
+    
+        \begin{conseil}
+            Pour accéder à un élément d'un tuple, ou d'une liste, vous pouvez utiliser l'indexation. Comme pour accéder aux caractères des chaînes de caractères, utilisez \lstinline{[]}. Les indices commencent à zéro. Pour calculer la taille d'un tuple, ou d'une liste, vous pouvez utiliser la fonction \lstinline{len()}.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{code/question1.py} 
+        \end{solution}
+    \end{Exercice}
+    
+    \subsection{Listes}
+    Contrairement aux tuples, les listes sont muables: leurs éléments peuvent être ajoutés, supprimés ou remplacés.
+    \\ \\
+    Pour créer une liste, il suffit de définir une variable avec des valeurs entre crochets:
+    \begin{Example}{\faTerminal \quad Exemple}
+        \begin{lstlisting}[language=Python]
+ma_liste = [1,2,3,4,5]   \end{lstlisting}
+    \end{Example}
+    
+    Comme pour les tuples, on accède aux éléments d'une liste avec des crochets \lstinline{[]}, en utilisant des indices qui commencent à zéro. La fonction \lstinline{len()} permet également d'obtenir le nombre d'éléments de la liste:
+    
+    \begin{Example}{\faTerminal \quad Exemple}
+        \begin{lstlisting}[language=Python]
+ma_liste = [1,2,3,4,5]
+print(ma_liste[1])   # affiche 2 (le deuxième élément)
+print(len(ma_liste)) # affiche 5 (le nombre d'éléments)
+        \end{lstlisting}
+    \end{Example}
+    
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'une liste}\\
+       Qu'affiche le code suivant ? \\
+       
+       \lstinputlisting{code/question2.py} 
+       
+       Choisissez parmi les éléments suivants:
+       
+       	\begin{itemize}
+            \item[(A)] \texttt{[1, 2, 2, 4, 5, 6]}
+            \item[(B)] \texttt{[0, 1, 2, 3, 4, 5]}
+            \item[(C)] \texttt{[0, 1, 2, 3, 4, 5, 6]}
+            \item[(D)] \texttt{[0, 1, 3, 2, 4, 5, 6]}
+        \end{itemize}
+    
+        \begin{conseil}
+            En Python, vous pouvez accéder à chaque élément d'une liste en utilisant \lstinline{[]} et modifier sa valeur. Pour ajouter un élément à la fin de la liste, utilisez la fonction \lstinline{append()} et pour choisir l'endroit où vous désirez insérer votre nouvel élément, utilisez la fonction \lstinline{insert()}.
+        \end{conseil}
+        
+        \begin{solution}
+            Réponse correcte: (C). Le programme change le deuxième 2 pour un 3, ajoute un 6 à la fin de la liste, et un 0 au début de cette dernière.
+        \end{solution}
+    \end{Exercice}
+
+
+    \subsection{Itération}
+    
+    Quelques rappels de concepts théoriques: \\
+    
+    \begin{itemize}
+    	\item L'itération désigne l'action de répéter un processus (généralement à l'aide d'une boucle) jusqu'à ce qu'une condition particulière soit remplie.
+    	\item Il y a deux types de boucles qui sont majoritairement utilisées: \\
+    	
+    	\textbf{Boucle \texttt{for} — Python} Une boucle \lstinline{for} parcourt un \emph{itérable} (liste, tuple, chaîne de caractères, dictionnaire, etc.). Syntaxe: \lstinline{for element in iterable:}. À chaque itération, \texttt{element} prend successivement la valeur de chaque élément de \texttt{iterable}. \\
+    	
+             	
+     	\textbf{Boucle \texttt{for} — Java} La syntaxe est la suivante: \lstinline{for (type nomDeVariable; condition de fin de boucle; incrémentation à chaque itération)} suivie d'une accolade. Il est également possible d'utiliser la syntaxe suivante pour itérer directement sur les éléments d'une liste: \lstinline{for(var nomDeVariable: nomDeLaListeOuTuple)} ou \lstinline{for(var nomDeVariable: nomDuDictionnaire.keySet())} pour un dictionnaire. Cette notation est appelée \texttt{for each}.\\
+     	
+        	 
+        \textbf{Boucle \texttt{while}} Une boucle \lstinline{while} répète un bloc d'instructions \textit{tant que} sa condition est vraie. 
+        \begin{itemize}
+         \item Python: \lstinline{while condition:}, suivi d'un bloc indenté. 
+         \item Java: \lstinline[language=Java]|while (condition) { ... }|, avec la condition entre parenthèses et le bloc délimité par des accolades.
+        \end{itemize}
+     	
+     	
+     	\item La fonction \lstinline{range(n)} permet de créer un ensemble de nombres de 0 à la valeur passée en argument moins 1 \texttt{(n-1)}. Lorsqu’elle est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à \texttt{n-1}. \\
+     	
+     	\item Si vous avez fait une erreur dans votre code, il se peut que la boucle \lstinline{while} ne remplisse jamais la condition lui permettant de sortir. On parle dans ce cas d'une \lstinline{boucle infinie}. Ceci peut entraîner un crash de votre programme, voire de votre ordinateur. Il faut toujours s'assurer qu'il y ait une condition valide dans une boucle \lstinline{while}. \\
+     	
+     	\end{itemize}
+     	
+     	
+    \begin{Exercice}[5 minutes] [Python] \textbf{Boucle for}\\
+      	Qu'affiche le code suivant?
+      	
+      	\begin{lstlisting}[language=Python]
+ma_liste = [1,2,3,4,5]
+for c in ma_liste:
+    if 2*c in ma_liste:
+        print(c) 
+             	\end{lstlisting}
+             	
+        Choisissez parmi les possibilités suivantes: \\ \\
+        \begin{tabular}{|c|c|c|c|}
+\hline
+(A) & (B) & (C) & (D)  \\
+\hline
+\texttt{1} & \texttt{2} & \texttt{1} & \texttt{3} \\
+\texttt{2} & \texttt{4} & \texttt{2} & \texttt{4} \\
+ &  & \texttt{3} & \texttt{5} \\
+ &  & \texttt{4} &  \\
+ &  & \texttt{5} &  \\
+\hline
+\end{tabular}
+
+\begin{conseil}
+    L'opérateur \lstinline{in} permet de vérifier si un élément appartient à un tuple ou à une liste, si une sous-chaîne de caractères est présente dans une chaîne de caractères, ou si une clé existe dans un dictionnaire. Il renvoie la valeur booléenne \lstinline{True} si la condition est vérifiée, et \lstinline{False} dans le cas contraire.
+\end{conseil}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            La réponse correcte est (A).
+            La condition est vraie pour \texttt{c = 1} et \texttt{c = 2}, car leurs doubles, 2 et 4, appartiennent à \texttt{ma\_liste}. Pour les autres valeurs, les doubles 6, 8 et 10 ne sont pas dans la liste. Le programme affiche \texttt{c}, et non \texttt{2*c}.
+        \end{solution}
+    \end{Exercice}
+    
+    
+    \begin{Exercice}[5 minutes] [Java] \textbf{Boucle for}\\
+      	Qu'affiche le code suivant?
+      	
+      	\begin{lstlisting}[language=Java]
+List maListe = List.of(2,3,4,5,6);
+for(int i=0;i<maListe.size();i++){
+    System.out.print(maListe.get(i));
+}
+        	 \end{lstlisting}
+             	
+        Choisissez parmi les possibilités suivantes:
+        
+        \begin{itemize}
+            \item[(A)] \texttt{5 4 3 2 1}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 5 1 2}
+            \item[(D)] \texttt{2 3 4 5 6}
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            (D). La boucle parcourt les indices de 0 à 4 et affiche les éléments de la liste dans leur ordre, sans séparateur.
+        \end{solution}
+    \end{Exercice} 	
+    
+    
+    \begin{Exercice}[5 minutes] [Python] \textbf{Boucle while}\\
+      	Qu'affiche le code suivant?
+      	
+      	\begin{lstlisting}[language=Python]
+i = 0
+result = ""
+while i<5:
+    result = result + str(i)
+    i += 1
+print(result)
+        		 \end{lstlisting}
+             	
+        Choisissez parmi les possibilités suivantes:
+        
+        \begin{itemize}
+            \item[(A)] \texttt{0 1 2 3 4}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 2 1 5}
+            \item[(D)] \texttt{2 3 4 0 1}
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  Pour rappel: la fonction \texttt{str} en Python convertit un nombre en chaîne de caractères.
+        \end{conseil}
+        
+        \begin{solution}
+            (A). La boucle concatène les chiffres de 0 à 4 dans \texttt{result}, puis affiche \texttt{01234} en une seule fois.
+        \end{solution}
+    \end{Exercice}
+    
+    
+    \begin{Exercice}[5 minutes] [Java] \textbf{Boucle while}\\
+      	Qu'affiche le code suivant?
+      	
+      	\begin{lstlisting}[language=Java]
+int i = 0;
+while(i<5){
+    i++;
+    System.out.print(i + " ");
+}
+     	\end{lstlisting}
+             	
+        Choisissez parmi les possibilités suivantes:
+        
+        \begin{itemize}
+            \item[(A)] \texttt{0 1 2 3 4}
+            \item[(B)] \texttt{1 2 3 4 5}
+            \item[(C)] \texttt{4 3 2 1 0}
+            \item[(D)] \texttt{5 4 3 2 1}
+        \end{itemize}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            (B). Comme \texttt{i} est incrémenté avant l'affichage, les valeurs affichées vont de \texttt{1} à \texttt{5}.
+        \end{solution}
+    \end{Exercice} 
+	
+	\begin{Exercice}[5 minutes] [Python] \textbf{Boucle for et fonction range()}\\
+      	Qu'affiche le code suivant?
+      	
+      	\begin{lstlisting}[language=Python]
+ma_liste = ["J'aime","Python"]
+for x in range(len(ma_liste)):
+    print(x)
+    print(ma_liste[x]) \end{lstlisting}
+             	
+        Choisissez parmi les possibilités suivantes: \\
+        \begin{tabular}{|c|c|c|c|}
+\hline
+(A) & (B) & (C) & (D) \\
+\hline
+\texttt{0} & \texttt{J'aime} & \texttt{J'aime} & \texttt{1} \\
+\texttt{J'aime} & \texttt{1} & \texttt{0} & \texttt{J'aime} \\
+\texttt{1} & \texttt{Python} & \texttt{Python} & \texttt{2} \\
+\texttt{Python} & \texttt{2} & \texttt{1} & \texttt{Python} \\
+\hline
+\end{tabular}
+    
+        \begin{conseil}
+		   Faites les étapes de la boucle une après l'autre et voyez ce que vous obtenez (avec chaque valeur).  
+        \end{conseil}
+        
+        \begin{solution}
+            (A). \texttt{range(2)} fournit les indices \texttt{0} et \texttt{1}, et chaque itération affiche l'indice puis l'élément correspondant.
+        \end{solution}
+    \end{Exercice} 		
+	
+    \begin{Exercice}[5 minutes] [Python] \textbf{Boucle for et fonction range()}
+      	
+      	En utilisant la fonction \lstinline{range()} et une boucle \lstinline{for}, calculez la somme des entiers de 0 à 20 et affichez le résultat. Vous devriez obtenir 210. 
+    
+        \begin{conseil}
+           \begin{itemize}
+           	\item Lorsque \lstinline{range(n)} est combinée à une boucle \lstinline{for}, on peut itérer sur une liste de nombres de 0 à \texttt{n-1}. Attention: \lstinline{range(n)} n'est toutefois pas une liste.
+           	\item Déclarer une variable en dehors de la boucle. Au terme de l'itération, cette variable contiendra la somme des entiers de 0 à 20.
+           \end{itemize}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{solutions/question8.py}
+        \end{solution}
+    \end{Exercice}
+
+    
+ \begin{Exercice}[10 minutes] [Python] \textbf{Boucle while et input()}
+      	
+      	À l'aide d'une boucle \lstinline{while}, demandez à l'utilisateur de saisir un entier. Tant que cet entier est différent de 10, demandez-lui un nouvel entier.
+    
+        \begin{conseil}
+           \begin{itemize}
+           	\item Définir à l'extérieur de la boucle une variable de type booléen utilisée pour le test dans \lstinline{while}.
+           	\item Utilisez la fonction \lstinline{input()} pour récupérer la saisie de l'utilisateur.
+           	\item La fonction \lstinline{input()} retourne un \lstinline{str} (chaîne de caractères). Pensez à changer son type.
+           \end{itemize}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting{solutions/question9.py}
+        \end{solution}
+    \end{Exercice}
+
+
+\begin{Exercice}[5 minutes] [Python] \textbf{Listes en compréhension}
+
+    Créez la liste \lstinline{nombres} contenant les entiers de 0 à 10 inclus. Par compréhension de liste, stockez ses entiers pairs dans \lstinline{nombres_pairs}, puis affichez cette liste.
+
+    \begin{conseil}
+        Pour générer la liste des entiers de 0 à 10 (bornes incluses), utilisez l'instruction suivante: \lstinline[language=python]{nombres = list(range(11))}.
+    \end{conseil}
+
+    \begin{solution}
+        \lstinputlisting{solutions/question10.py}
+    \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] [Java] \textbf{Itérateurs}
+
+    En Java, définissez une liste \lstinline{nombres} contenant l'ensemble des nombres compris entre 0 et 10. 
+    En utilisant un \lstinline{Iterator}, supprimez tous les nombres impairs présents dans \lstinline{nombres}.
+    Affichez le contenu de \lstinline{nombres}.
+
+    \begin{conseil}
+        La diapositive 25 du cours montre comment supprimer un élément d'une liste en utilisant un \lstinline{iterator}.
+    \end{conseil}
+
+    \begin{solution}
+        \lstinputlisting{solutions/Question11.java}
+    \end{solution}
+\end{Exercice}
+
+	\subsection{Dictionnaires}
+	Les dictionnaires sont des listes associatives, c'est-à-dire des listes qui lient une valeur à une clé. Dans un dictionnaire en papier, les mots sont liés à leur définition. \\
+	
+	Dans un dictionnaire Python, les éléments sont liés par une relation dite \lstinline{clé, valeur}. La clé est le moyen de “retrouver” notre valeur dans notre dictionnaire. Par exemple, dans un dictionnaire en papier, nous pouvons retrouver une définition en cherchant le mot qui lui correspond. Alternativement, nous pouvons retrouver le contenu d'une page d'un livre en utilisant le numéro de celle-ci. Dans ce cas, le numéro est la clé et le texte de la page, la valeur. \\
+	
+	Pour créer un dictionnaire, il suffit de lister les couples \lstinline{clé, valeurs} entre
+    deux accolades: \\
+	
+	 \begin{lstlisting}[language=Python]
+elon_musk = {
+    "prénom": "Elon",
+    "nom": "Musk",
+    "age": 48,
+    "talents": ["programmation", "entrepreneuriat", "aéronautique"]
+}   
+        \end{lstlisting}
+				
+	\begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire}\\
+       Créez un dictionnaire nommé \lstinline{fr_eng} contenant les associations suivantes:
+       
+    %    \lstinline{"chat": "cat", "chien": "dog", "oiseau": "bird", "poule": "chicken", "papillon": "butterfly", "souris": "mouse", "ours": "bear", "mouton": "sheep", "cochon": "pig"}
+       \begin{lstlisting}[language=Python]
+{
+    "chat": "cat", 
+    "chien": "dog", 
+    "oiseau": "bird", 
+    "poule": "chicken", 
+    "papillon": "butterfly", 
+    "souris": "mouse", 
+    "ours": "bear", 
+    "mouton": "sheep", 
+    "cochon": "pig"
+}
+\end{lstlisting}
+
+       Ce dictionnaire contient des mots en français (\lstinline{clés}) associés à leur traduction en anglais (\lstinline{valeurs}). \\
+       
+       Accédez à la traduction du mot ``souris'', et stockez le résultat dans une variable nommée \lstinline{souris_traduite}, puis calculez le nombre d'éléments contenus dans le dictionnaire et stockez le résultat dans une variable nommée \lstinline{taille_fr_eng}. Affichez le contenu des deux variables que vous venez de créer.
+    
+        \begin{conseil}
+            Comme pour les listes, vous pouvez accéder aux éléments de dictionnaires en utilisant des crochets \lstinline{[]}. Seulement cette fois-ci, au lieu d'y mettre l'index, mettez-y la clé associée à l'élément auquel vous voulez accéder. Comme pour les listes, la fonction \lstinline{len()} vous aidera à obtenir le nombre d'éléments dans le dictionnaire.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting[language=Python, firstline=1, lastline=11, firstnumber=1]{solutions/question12.py}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Python, firstline=12, lastline=15, firstnumber=12]{solutions/question12.py}
+        \end{solution}
+    \end{Exercice}
+    
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire}\\
+      	Qu'affiche le programme suivant? \\
+       
+      	\lstinputlisting{code/question13.py} 
+      	
+      	Choisissez parmi les possibilités suivantes: \\
+      	
+      	\begin{itemize}
+            \item[(A)] \texttt{programmation} \\ \texttt{True}
+            \item[(B)] \texttt{Musk} \\ \texttt{False}
+            \item[(C)] \texttt{48} \\ \texttt{False}
+            \item[(D)] \texttt{aéronautique} \\ \texttt{True}
+        \end{itemize}
+    
+        \begin{conseil}
+            L'élément associé à la clé \lstinline{talents} du dictionnaire \lstinline{elon_musk} est une liste.
+        \end{conseil}
+        
+        \begin{solution}
+            \texttt{aéronautique} \\
+            \texttt{True} \\
+            
+            En effet, via \lstinline{elon\_musk["talents"]}, on accède à la liste [``programmation'', ``entrepreneuriat'', "aéronautique"]. Il est donc possible de manipuler cette liste comme une liste classique !
+        \end{solution}
+    \end{Exercice}
+
+    \begin{Exercice}[5 minutes] [Python] \textbf{Manipulation d'un dictionnaire}\\
+      	
+        1. \ Vous disposez de deux dictionnaires contenant les notes d'étudiants dans différentes matières: notes\_biologie et notes\_chimie. Chaque dictionnaire associe le nom d'un étudiant à sa note dans la matière correspondante. Votre objectif est de créer un nouveau dictionnaire qui regroupe les notes de chaque étudiant sous forme de liste, où chaque liste contient d'abord la note de biologie puis la note de chimie. Complétez le programme suivant: \\
+
+        \begin{conseil}
+            Pour parcourir un dictionnaire en Python: utilisez \texttt{for key in dictionnaire.keys()} ou \texttt{for key in dictionnaire}. Pour parcourir les valeurs utilisez \texttt{for key in dictionnaire.values()}.
+        \end{conseil}
+       
+      	\lstinputlisting{code/question14.py} 
+      	2. \ Affichez le nombre d'étudiants dont la note moyenne est plus grande que 5.
+
+        \begin{solution}
+            \lstinputlisting[language=python]{solutions/question14.py}
+        \end{solution}
+        % \begin{solution}
+        %     \lstinputlisting[language=python, firstline=10, lastline=19, firstnumber=10]{solutions/question14.py}
+        % \end{solution}
+    \end{Exercice}
+    
+    \subsection{Structures de données en Java}
+    Dans cette partie, les exercices devront être effectués en Java. \\
+    Les syntaxes des principales structures de données abordées dans cette partie sont les suivantes: \\
+    \textbf{Déclaration et affectation d'un tuple (array) en Java de type Object[]:}
+     \begin{lstlisting}[language=Java]
+Object[] monTuple = {1,2,3,4}; \end{lstlisting} 
+\textbf{Déclaration et affectation d'un tuple (array) en Java de type String[]:}
+     \begin{lstlisting}[language=Java]
+String[] monTuple = {"UNIL","ACT"}; \end{lstlisting} 
+
+En général, pour la déclaration, on écrit: \textbf{\lstinline[language=Java]|T[] nomVariable|}, où \texttt{T} est le type d'éléments dans le tuple.
+              
+    \textbf{\\ Déclaration et affectation d'une liste en Java:}
+    
+    \begin{lstlisting}[language=Java]
+List maListe = List.of(1,2,3,4); \end{lstlisting}
+            
+    \textbf{\\ Déclaration et affectation d'un dictionnaire en Java:} 
+    
+    \begin{lstlisting}[language=Java]
+HashMap monDictionnaire = new HashMap(Map.of("un", 1, "deux", 2)); \end{lstlisting}
+              
+    
+    \begin{Example}{\faTerminal \quad Informations utiles}
+        \begin{itemize}
+            \item En Java, les listes définies avec \lstinline[language=Java]|List.of(...)| sont immuables, comme les tuples en Python. Au cas où vous devriez modifier une liste, on vous recommande d'utiliser une liste liée (\lstinline{LinkedList}). Une liste liée se déclare comme suit:
+    
+            \begin{lstlisting}[language=Java]
+List liste = List.of(1,2,3,4);
+LinkedList maListe = new LinkedList(liste); \end{lstlisting}
+            \item En Java, les listes ne peuvent contenir que des éléments de même type.
+        \end{itemize} 
+        
+    \end{Example}
+	     
+	\begin{Exercice}[10 minutes] [Java] \textbf{Manipulation des listes}\\
+      	Créez une liste nommée \lstinline{maListe} contenant les nombres 1, 2, 3, 4 et 5. Affichez le deuxième élément de la liste ainsi que la taille de la liste. \\
+      	
+      	Créez une copie modifiable de \lstinline{maListe}, de type \lstinline{LinkedList}, nommée \lstinline{maListeM}. Ajoutez 6 à la fin de \lstinline{maListeM} et 0 au début. \\
+      	
+      	Ajoutez ceci au début de votre code:
+      	\begin{lstlisting}[language=Java]
+import java.util.List;
+import java.util.LinkedList; \end{lstlisting}
+	     
+	     Ajoutez ceci à la fin de votre code:
+	     
+	    \begin{lstlisting}[language=Java]
+for(int i=0;i<maListeM.size();i++){
+    System.out.println(maListeM.get(i));
+} \end{lstlisting} 
+    
+        \begin{conseil}
+            Pour obtenir un élément d'une liste, il faut utiliser la fonction \lstinline{.get(index)}. Pour obtenir la taille de la liste, utilisez la fonction \lstinline{.size()}. \\
+            
+            Pour ajouter un élément au début d'une \lstinline{LinkedList}, vous devez utiliser \lstinline{.addFirst(value)} et pour l'ajouter à la fin, vous devez utiliser \lstinline{.addLast(value)}. \\
+            
+           	N'oubliez pas d'écrire votre programme à l'intérieur d'une fonction principale \lstinline{main}. \\
+           	
+           	\lstinputlisting{code/Exemple.java}
+		     
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=1, lastline=2, firstnumber=1]{solutions/Question15.java}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=4, lastline=17, firstnumber=4]{solutions/Question15.java}
+        \end{solution}
+    \end{Exercice}
+    
+    \begin{Exercice}[15 minutes] [Java] \textbf{Manipulation de dictionnaires}\\
+      	Créez un dictionnaire \lstinline{monDictionnaire} contenant les associations suivantes:
+      	
+      	\texttt{("etudiants", 14000, "enseignants", 2300, "collaborateurs", 0)}\\
+      	
+          Affichez le nombre d'étudiants. Obtenez la taille du dictionnaire et stockez le résultat dans une variable \lstinline{tailleDictionnaire}. Affichez le contenu de \lstinline{tailleDictionnaire}. 
+          Modifiez la valeur de \lstinline{collaborateurs}, remplacez 0 par 950. Rajoutez un nouvel élément \lstinline{pays} dans votre dictionnaire avec pour valeur 86.\\
+      	
+      	Ajoutez ceci au début de votre code:
+       
+      	\begin{lstlisting}[language=Java]
+import java.util.HashMap;
+import java.util.Map; \end{lstlisting}
+	     
+	     Ajoutez ceci à la fin de votre code:
+	     
+	    \begin{lstlisting}[language=Java]
+for (String key: monDictionnaire.keySet()){
+    System.out.println(key + " : "+ monDictionnaire.get(key));
+} \end{lstlisting} 
+    
+        \begin{conseil}
+           Comme pour les listes, accédez aux valeurs via la fonction \lstinline{.get(key)} et à la taille via la fonction \lstinline{.size()}.
+            
+           Pour insérer / corriger un élément, utilisez la fonction \lstinline{.put(key,value)}.
+        \end{conseil}
+        
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=1, lastline=8, firstnumber=1]{solutions/Question16.java}
+        \end{solution}
+        \begin{solution}
+            \lstinputlisting[language=Java, firstline=9, lastline=18, firstnumber=9]{solutions/Question16.java}
+        \end{solution}
+    \end{Exercice}
+    
+ 
+     \section{Récursivité}
+    
+    La récursivité consiste à faire en sorte qu'une fonction s'appelle elle-même, directement ou indirectement. \\
+    
+\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code} 
+	
+	Qu'affiche le programme suivant? \\ 
+	
+	\lstinputlisting{code/question17.py} 
+	
+	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
+	
+	\begin{itemize}
+            \item[(A)] \texttt{4 3 2 1 0}
+            \item[(B)] \texttt{5 4 3 2 1 0}
+            \item[(C)] \texttt{0 1 2 3 4}
+            \item[(D)] \texttt{1 2 3 4 5 0}
+        \end{itemize}
+    \begin{solution}
+            (B). L'affichage précède l'appel récursif, donc chaque appel affiche sa valeur avant de passer à la suivante, de \texttt{5} jusqu'à \texttt{0}.
+        \end{solution} 
+    
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] [Python] \textbf{Lecture de code}
+    
+	Qu'affiche le programme suivant?
+	\lstinputlisting{code/question18.py}
+	
+	Choisissez parmi les possibilités suivantes (on écrit tout sur la même ligne par souci de concision): \\
+	
+	\begin{itemize}
+            \item[(A)] \texttt{4 3 2 1 0}
+            \item[(B)] \texttt{5 4 3 2 1}
+            \item[(C)] \texttt{0 1 2 3 4}
+            \item[(D)] \texttt{1 2 3 4 5}
+        \end{itemize}
+	
+	 
+	
+		\begin{conseil} 
+		\begin{itemize} 
+			\item La principale différence entre ces deux programmes est l'endroit \lstinline{print()} est placé. 
+			\item Reproduire étape par étape le développement sur un papier pourrait aider. 
+		\end{itemize} 
+		\end{conseil} 
+	
+		\begin{solution}
+            (D). L'affichage suit l'appel récursif, donc les valeurs sont affichées au retour des appels, de \texttt{1} à \texttt{5}, tandis que le cas de base \texttt{x = 0} n'affiche rien.
+        \end{solution} 
+	
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] [Java] \textbf{Méthode getBinaryRepresentation()} 
+	
+ Le calcul de la représentation binaire d'un entier plus grand que 0 peut être résolu de manière récursive: 
+ \begin{equation}
+    f(a) = \begin{cases}
+        f\left(\left\lfloor\frac{a}{2}\right\rfloor\right) + \texttt{"0"} & \text{si } a \bmod 2 = 0 \\
+        f\left(\left\lfloor\frac{a}{2}\right\rfloor\right) + \texttt{"1"} & \text{si } a \bmod 2 = 1
+    \end{cases}
+\end{equation}
+La notation $\left\lfloor\frac{a}{2}\right\rfloor$ désigne une division avec arrondi inférieur.
+Le cas de base est le suivant:
+\begin{equation}
+f(0) = \texttt{""} (\text{la chaîne vide})
+\end{equation}
+Ici, $f(a)$ renvoie la représentation binaire sous forme d'une chaîne de caractères du nombre entier $\mathbf{a\geq 1}$ et le symbole $+$ fait une concaténation de chaînes de caractères.\newline  \newline 
+        Écrivez la méthode \lstinline{getBinaryRepresentation(String a)} équivalente à $f$ (à part le fait que l'entrée soit une chaîne de caractères) suivant une approche récursive. \\ 
+        
+            \begin{conseil} 
+            La méthode \lstinline[language=Java]|Integer.parseInt(arg)| permet de convertir une chaîne de caractères \texttt{arg} en entier et la méthode \lstinline[language=Java]|String.valueOf(nbr)| permet de convertir \texttt{nbr} en chaîne de caractères.  
+            \end{conseil} 
+        
+            \begin{solution}
+                \lstinputlisting[language=Java]{solutions/Question19.java}
+            \end{solution}
+            % \begin{solution}
+            %     \lstinputlisting[language=Java, firstline=12, lastline=16, firstnumber=12]{solutions/Question19.java}
+            % \end{solution} 
+\end{Exercice}
+    
+        
+\end{document}

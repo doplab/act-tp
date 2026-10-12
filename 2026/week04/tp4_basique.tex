@@ -19,12 +19,12 @@
 \ShowConseiltrue
 \ShowWarningtrue
 \titre
-\cours{Fonctions, mémoire et exceptions}
+\cours{Fonctions, méthodes, mémoire et exceptions}
 
 Le but de cette séance est d'approfondir vos connaissances en programmation. Au terme de cette séance, vous serez capable de: 
 \begin{itemize}
-    \item définir une fonction et l'utiliser dans un programme,
-    \item utiliser des bibliothèques contenant des fonctions prédéfinies,
+    \item définir une fonction en Python ou une méthode en Java et l'utiliser dans un programme,
+    \item utiliser des bibliothèques contenant des fonctions prédéfinies en Python ou des méthodes prédéfinies en Java,
     \item connaître la portée d'une variable,
     \item gérer des exceptions.
 \end{itemize}
@@ -91,12 +91,12 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
      \end{solution}   
  \end{Exercice}
 
-\section{Variables et Fonctions}
-\begin{Exercice}[5 minutes] [Java \textbf{et} Python] \textbf{Les fonctions (fonctions basiques)}\\
-    Définissez une fonction nommée \lstinline{ping()} qui, lorsqu'elle est appelée, affiche \texttt{pong}. \\
+\section{Variables, fonctions et méthodes}
+\begin{Exercice}[5 minutes] [Java \textbf{et} Python] \textbf{Fonctions et méthodes basiques}\\
+    Définissez une fonction en Python et une méthode en Java nommées \lstinline{ping()} qui, lorsqu'elles sont appelées, affichent \texttt{pong}. \\
      
       \begin{conseil}
-        Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.    
+        Référez-vous aux diapositives dans \href{https://moodle.unil.ch/mod/folder/view.php?id=2218936}{ce dossier Moodle} pour la création des fonctions en Python et des méthodes en Java.
       \end{conseil}
       \begin{solution}
       
@@ -110,12 +110,12 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \end{solution}   
   \end{Exercice}
   
-    \begin{Exercice}[5 minutes] [Java et Python] \textbf{Les Fonctions (Fonction multiplication)}\\
-    Définissez une fonction nommée \lstinline{multiplicateur()} qui prend deux arguments \textit{multiple1} et \textit{multiple2}, les multiplie et retourne le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez-la.   \\
+    \begin{Exercice}[5 minutes] [Java et Python] \textbf{Fonction et méthode de multiplication}\\
+    Définissez une fonction en Python et une méthode en Java nommées \lstinline{multiplicateur()} qui prennent deux arguments \textit{multiple1} et \textit{multiple2}, les multiplient et retournent le résultat. Stockez le résultat de \lstinline{multiplicateur(2,3)} dans une variable \textit{resultat} et affichez-la.   \\
 
     \begin{conseil}
         \begin{itemize}
-            \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.
+            \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions en Python et des méthodes en Java.
             \item Pour retourner une valeur au lieu de l'afficher, utilisez le mot-clé \lstinline{return} (pour Python et Java).
         \end{itemize}        
     \end{conseil}
@@ -128,12 +128,12 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
     \end{solution}   
 \end{Exercice} 
   
-  \begin{Exercice}[5 minutes] [Java et Python] \textbf{Les Fonctions (Fonctions Aire et Périmètre)}\\
-      Définissez deux fonctions nommées \lstinline{aire()} et \lstinline{perimetre()} qui prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire_resultat} et \lstinline{perimetre_resultat} et affichez le contenu de ces variables.   \\
+  \begin{Exercice}[5 minutes] [Java et Python] \textbf{Fonctions et méthodes pour l'aire et le périmètre}\\
+      Définissez deux fonctions en Python et deux méthodes en Java nommées \lstinline{aire()} et \lstinline{perimetre()}. Elles prennent un argument (\lstinline{rayon}) et renvoient respectivement l'aire et le périmètre d'un cercle. Stockez les résultats dans des variables \lstinline{aire_resultat} et \lstinline{perimetre_resultat} et affichez le contenu de ces variables.   \\
      
       \begin{conseil}
           \begin{itemize}
-              \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions.
+              \item Référez-vous aux diapositives du cours pour la création et l'appel des fonctions en Python et des méthodes en Java.
               \item Pour retourner une valeur au lieu de l'imprimer, utilisez le mot-clé \lstinline{return} (pour Python et Java).
               \item Pour calculer $a^b$ en Python, utilisez \lstinline[language=python]|a**b|, et \lstinline[language=java]|Math.pow(a, b)| en Java.
               \item Pour rappel, le périmètre d'un cercle s'obtient en utilisant la formule $P = 2*\pi*r$ et l'aire s'obtient en utilisant la formule $A = r^2*\pi$. 
@@ -142,7 +142,8 @@ Le but de cette séance est d'approfondir vos connaissances en programmation. Au
       \begin{solution}
           \textbf{Python}:
           \lstinputlisting{solutions/question6.py}
-          
+      \end{solution}
+      \begin{solution}
           \textbf{\\Java}:
           \lstinputlisting{solutions/Question6.java}
       \end{solution}   
