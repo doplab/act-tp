@@ -72,8 +72,8 @@ L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette l
 \begin{Exercice}[10 minutes] attack(String type Fighter other)\\
     Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
-    Commencez par contrôler si \lstinline{other} est encore en vie. Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{other_name} est déjà mort". \\
-     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attack_modifier(type)} * \lstinline{attack_instance} - \lstinline{defense_other}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
+    Commencez par contrôler si \lstinline{other} est encore en vie. Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{otherName} est déjà mort". \\
+     Si \lstinline{other} est encore en vie, retirez des points de vie à \lstinline{other}. Le nombre de points de vie devant être retiré se calcule en utilisant la formule suivante : \lstinline{attackModifier.get(type)} * \lstinline{attackInstance} - \lstinline{defenseOther}. Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé.
     
 \begin{solution}
 	\lstinputlisting{solutions/advanced/attack.java}

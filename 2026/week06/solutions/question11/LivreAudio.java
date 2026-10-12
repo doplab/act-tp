@@ -8,7 +8,7 @@ class LivreAudio extends Livre {
         this.narrateur = narrateur;
     }
 
-    // redéfinition de la fonction toString dans la classe fille Livre_Audio
+    // redéfinition de la fonction toString dans la classe fille LivreAudio
     public String toString() {
         return super.toString() + "\nNarrateur: " + narrateur + "\n"; // Ajoute narrateur à la chaine de caractère crée
                                                                       // par la classe mère (super)

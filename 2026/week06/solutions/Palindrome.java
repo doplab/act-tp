@@ -2,10 +2,10 @@ public class Palindrome {
     public static void main(String[] args) {
         String pal1 = "abba";
         String pal2 = "ata";
-        String nonpal1 = "abca";
+        String nonPal1 = "abca";
         System.out.println(isPalindrome(pal1));
         System.out.println(isPalindrome(pal2));
-        System.out.println(isPalindrome(nonpal1));
+        System.out.println(isPalindrome(nonPal1));
     }
 
     public static boolean isPalindrome(String palindrome) {

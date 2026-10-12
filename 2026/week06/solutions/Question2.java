@@ -14,8 +14,8 @@
         return race;
     }
 
-    public static int getNb_chiens() {
-        return nb_chiens;
+    public static int getNbChiens() {
+        return nbChiens;
     }
 
     public void setTricks(List tricks){

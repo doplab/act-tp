@@ -94,7 +94,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un attribut \lstinline{private} String nommé \lstinline{race}
     \item Un attribut \lstinline{private} int nommé \lstinline{age}
     \item Un attribut \lstinline{private} int nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien)
-    \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nb_chiens}
+    \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nbChiens}
    	\end{enumerate}
    	
    	Créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur}, elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et le \lstinline{constructeur} en \lstinline{Python} sera défini par la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants qui seront utilisés pour initialiser les attributs de notre instance :
@@ -105,7 +105,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un entier \lstinline{age}.
    	\end{enumerate}
    	
-   	Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nb_chiens} qui va garder en mémoire le nombre d'instances créées.
+    Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nbChiens} qui va garder en mémoire le nombre d'instances créées.
    	
 \begin{conseil}
     %Modifier le conseil
@@ -118,7 +118,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
    
    Pour attribuer des valeurs à vos attributs d'instance, utilisez le mot-clé \lstinline{this.attribut}.
    
-   Pour accéder aux attributs de classe, utilisez \lstinline{nom_classe.nom_attribut}.
+   Pour accéder aux attributs de classe, utilisez \lstinline{nomClasse.nomAttribut}.
 \end{conseil}
     
 \begin{solution}
@@ -136,7 +136,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
         \lstinputlisting{code/Example.java}
     \end{conseil} 
 
-    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nom_instance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
+    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nomInstance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
     
     Créez les méthodes suivantes :
     \begin{itemize}
@@ -217,7 +217,7 @@ Vous devriez obtenir ce résultat :
 
 
 \newpage
-\section{Notions de POO en Python (15 minutes)}
+\section{Notions de POO en Python}
 \label{sec:notions_python}
 Dans cette section, nous créerons pas à pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question7.py}.\\
@@ -296,7 +296,7 @@ Voici le squelette du programme à compléter:
 \begin{conseil}
     \begin{itemize}
         \item En Java, lors de la déclaration d'une classe, le mot-clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-        Le mot-clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'exemple suivant: \lstinline{super(attribut_mère_1, attribut_mère_2, attribut_mère_3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
+        Le mot-clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'exemple suivant: \lstinline{super(attributMere1, attributMere2, attributMere3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
         \item L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
         \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
     \end{itemize}
