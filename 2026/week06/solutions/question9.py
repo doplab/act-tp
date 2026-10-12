@@ -27,7 +27,7 @@ class Point:
         return M
 
     def __str__(self):
-        return "Les coordonnées du point sont: x="+str(self.get_x())+", y="+str(self.get_y())
+        return "Les coordonnées du Point sont: x = " + str(self.get_x()) + " et y = " + str(self.get_y())
 
 if __name__ == '__main__':
     p = Point(3, 2)

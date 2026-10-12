@@ -43,7 +43,7 @@ Choisissez parmi les éléments suivants :
     \item[(E)] \(\texttt{java: bad operand types for binary operator '+'..}\)
 \end{itemize}
 \begin{solution}
-    (C). La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation des variables \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
+    (C). La boucle for calcule la représentation binaire de l'entier 5 stocké dans la chaîne \texttt{x}; cette représentation est \texttt{101}. L'affichage concatène ensuite la variable \texttt{result} et la valeur finale de \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro. Le programme affiche donc \texttt{1010}.
 \end{solution}
 \end{Exercice}
 
@@ -54,7 +54,7 @@ Choisissez parmi les éléments suivants :
         
         Une sous-chaîne est obtenue en Java avec \texttt{myString.substring(i, j)} où $i$ est l'indice du premier caractère et $j-1$ est l'indice du dernier caractère. En Python, utilisez \texttt{myString[i:j]}.
     \end{conseil}
-      Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction qui renvoie \texttt{True} si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
+      Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction à valeurs booléennes qui renvoie vrai si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
 \begin{equation}
     f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
 \end{equation}
@@ -66,11 +66,11 @@ On dit donc que $a$ est un palindrome si le premier caractère et le dernier car
 
 Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \begin{align*}
-    f(a) &= \texttt{True} \text{ si } n=1 
+    f(a) &= \text{vrai} \text{ si } n=1
 \end{align*}
-et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
+et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
 
-Écrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}}  et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient \texttt{True} si \texttt{arg} est un palindrome.
+Écrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}} et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient la valeur booléenne vraie si \texttt{arg} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{solutions/Palindrome.java}
@@ -83,7 +83,7 @@ et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
 
 \section{Création de votre première classe en Java}
 
-Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée \lstinline{Dog()} représentant un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
+Le but de cette première partie est de créer votre propre classe en Java. Cette classe, nommée \lstinline{Dog}, représentera un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
 \\
 
 \begin{Exercice}[10 minutes] Création de classe et encapsulation\\
@@ -97,7 +97,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nbChiens}
    	\end{enumerate}
    	
-   	Créez une méthode publique du même nom que la classe (\lstinline{Dog}). Cette méthode est appelée le \lstinline{constructeur}, elle va servir à initialiser les différentes instances de notre classe. Un \lstinline{constructeur} en \lstinline{Java} aura le même nom que la classe, et le \lstinline{constructeur} en \lstinline{Python} sera défini par la méthode \lstinline{__init__}. Cette méthode prendra en argument les éléments suivants qui seront utilisés pour initialiser les attributs de notre instance :
+    Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances. Le constructeur prendra les paramètres suivants:
    	\begin{enumerate}
     \item Une chaîne de caractères \lstinline{name},
     \item Une liste \lstinline{tricks},
@@ -105,7 +105,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un entier \lstinline{age}.
    	\end{enumerate}
    	
-    Pour finir, cette méthode doit incrémenter l'attribut de classe \lstinline{nbChiens} qui va garder en mémoire le nombre d'instances créées.
+    Pour finir, le constructeur doit incrémenter l'attribut de classe \lstinline{nbChiens}, qui garde en mémoire le nombre d'instances créées.
    	
 \begin{conseil}
     %Modifier le conseil
@@ -140,17 +140,17 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     
     Créez les méthodes suivantes :
     \begin{itemize}
-    \item \lstinline{getTricks()}
-    \item \lstinline{getRace()}
-    \item \lstinline{getAge()}
-    \item \lstinline{getMood()}
-    \item \lstinline{setTricks()}
-    \item \lstinline{setRace()}
-    \item \lstinline{setAge()}
-    \item \lstinline{setMood()}
+    \item \lstinline{public List getTricks()}
+    \item \lstinline{public String getRace()}
+    \item \lstinline{public int getAge()}
+    \item \lstinline{public int getMood()}
+    \item \lstinline{public void setTricks(List tricks)}
+    \item \lstinline{public void setRace(String race)}
+    \item \lstinline{public void setAge(int age)}
+    \item \lstinline{public void setMood(int mood)}
     \end{itemize}
     
-    Créez également une méthode de classe permettant de retourner le nombre de \lstinline{Dog} instanciés (un \lstinline{getter}).
+    Créez également la méthode de classe \lstinline{public static int getNbChiens()}, qui retourne le nombre de \lstinline{Dog} instanciés.
    	
 \begin{conseil}
     Intellij vous permet de générer automatiquement certaines méthodes telles que les getters et setters. Vous pouvez consulter le lien suivant pour plus d'informations: \url{https://www.jetbrains.com/help/idea/generating-code.html\#generate-delegation-methods}.
@@ -185,11 +185,10 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{getOldest (Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant : ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. \\
+    Créez une méthode nommée \lstinline{getOldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant : ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. Vous pouvez supposer que les deux chiens ont des âges différents. \\
    	
 \begin{conseil}
-   L'élément \lstinline{Dog} que vous passez en argument est un objet de type \lstinline{Dog}, vous pouvez donc lui appliquer les méthodes que vous avez créées tout à l'heure.
-   Faites attention à la façon d'accéder aux différents attributs de votre deuxième chien (pour rappel, les attributs privés ne sont accessibles qu'à travers des \lstinline{getters} que vous aurez préalablement définis).
+   L'élément \lstinline{other} est un objet de type \lstinline{Dog}: vous pouvez donc appeler les méthodes définies précédemment pour consulter ses attributs.
 \end{conseil}
     
 \begin{solution}
@@ -198,7 +197,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Redéfinition de méthodes\\
-    Créez une méthode \lstinline{toString()} de type \lstinline{public} qui retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en faisant \lstinline{System.out.println(...)} sur une instance de \lstinline{Dog}, vous obtiendrez un texte au format suivant: 
+    Redéfinissez la méthode \lstinline{public String toString()} afin qu'elle retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en affichant sur la console une instance de \lstinline{Dog}, vous obtiendrez un texte au format suivant:
     ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
 
     \begin{conseil}
@@ -209,7 +208,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
         \lstinputlisting{solutions/Question6.java}
     \end{solution}
 \end{Exercice}
-Pour contrôler que vos méthodes et attributs ont été implémentés correctement, vous pouvez essayer le code suivant à l'intérieur de votre méthode \lstinline{main} :
+Pour contrôler que vos méthodes et attributs ont été implémentés correctement, exécutez le programme suivant:
 	\lstinputlisting{code/Question8.java}
 	
 Vous devriez obtenir ce résultat :
@@ -220,10 +219,10 @@ Vous devriez obtenir ce résultat :
 \section{Notions de POO en Python}
 \label{sec:notions_python}
 Dans cette section, nous créerons pas à pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
-Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question7.py}.\\
+Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question9.py}.\\
 \begin{Exercice}[15 minutes] Classe \lstinline{Point}
     \begin{itemize}
-        \item Créez une classe \lstinline{Point} et un constructeur par défaut contenant deux paramètres (\lstinline{x} et \lstinline{y}).
+        \item Créez une classe \lstinline{Point} et définissez un constructeur prenant deux paramètres, \lstinline{x} et \lstinline{y}.
         \begin{conseil}
             Pour rappel, un constructeur est une fonction \lstinline{__init()__} que vous redéfinirez dans votre classe.
         \end{conseil}
@@ -232,7 +231,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
             À l'intérieur d'une classe, utilisez le mot-clé \lstinline{self} pour accéder aux méthodes et attributs de l'instance que vous manipulez.
             En Python, pour spécifier qu'un attribut est privé, ajoutez deux traits de soulignement au nom de l'attribut (exemple: \lstinline{__score=0}).
         \end{conseil}
-        \item Définissez des getters et des setters.
+        \item Définissez les getters et les setters.
         \begin{conseil}
             En Python, le mot-clé \lstinline{self} est l'équivalent de \lstinline{this} utilisé en Java.
         \end{conseil}
@@ -247,8 +246,8 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
             utilisez les formules suivantes:
             $x_M = \frac{x_1 + x_2}{2}$ et $y_M = \frac{y_1 + y_2}{2}$
         \end{conseil}
-        \item Redéfinissez une méthode \lstinline{__str__()} dans la classe \lstinline{Point} qui retournera une chaîne de caractères contenant les coordonnées $(x,y)$ d'un point. Ainsi, lorsqu'on fera un \lstinline{print} d'une instance de la classe \lstinline{Point}, le message qui s'affichera sera le suivant:
-        \textit{Les coordonnées du Point sont: x = "remplacez par la valeur de x" et y = "remplacez par la valeur de y"}
+        \item Redéfinissez la méthode \lstinline{__str__()} dans la classe \lstinline{Point} afin qu'elle retourne ses coordonnées. Par exemple, pour un point de coordonnées $(3,2)$, la chaîne retournée sera:
+        \textit{Les coordonnées du Point sont: x = 3 et y = 2}
     \end{itemize}
 \end{Exercice}
 \begin{solution}
@@ -257,47 +256,52 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
 
 \newpage
 
-\section{Notions d'héritage - Java (30 minutes)}
+\section{Notions d'héritage - Java}
 
 Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
-Nous allons créer une classe \lstinline{Livre()} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio()} et \lstinline{LivreIllustre()}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
+Nous allons créer une classe \lstinline{Livre} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio} et \lstinline{LivreIllustre}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
 
 \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
 Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 \begin{itemize}
-	\item un attribut \lstinline{privé String} nommé \lstinline{titre},
-	\item un attribut \lstinline{privé String} nommé \lstinline{auteur},
-	\item un attribut \lstinline{privé int} nommé \lstinline{annee},
-	\item un attribut \lstinline{privé int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
-	\item le \lstinline{constructeur} de la classe qui prendra les trois premiers arguments cités ci-dessus,
-	\item une méthode \lstinline{setNote()} qui permet de définir l'attribut \lstinline{note},
-	\item une méthode \lstinline{getNote()} qui permet de retourner l'attribut \lstinline{note},
-	\item une méthode \lstinline{toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage (réécrire cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
+	\item un attribut \lstinline{private String} nommé \lstinline{titre},
+	\item un attribut \lstinline{private String} nommé \lstinline{auteur},
+	\item un attribut \lstinline{private int} nommé \lstinline{annee},
+	\item un attribut \lstinline{private int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
+	\item le constructeur \lstinline{public Livre(String titre, String auteur, int annee)},
+	\item une méthode \lstinline{public void setNote(int note)} qui permet de définir l'attribut \lstinline{note},
+	\item une méthode \lstinline{public int getNote()} qui permet de retourner l'attribut \lstinline{note},
+	\item une méthode \lstinline{public String toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage (redéfinir cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
 \end{itemize}
 
 Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
 Créez les classes filles avec les caractéristiques suivantes:\\
 \lstinline{class LivreAudio extends Livre}
 \begin{itemize}
-	\item un attribut \lstinline{privé String} nommé \lstinline{narrateur}
+	\item un attribut \lstinline{private String} nommé \lstinline{narrateur},
+	\item le constructeur \lstinline{public LivreAudio(String titre, String auteur, int annee, String narrateur)}, qui initialise les attributs hérités et l'attribut \lstinline{narrateur}.
 \end{itemize}
 \lstinline{class LivreIllustre extends Livre}
 \begin{itemize}
-	\item un attribut \lstinline{privé String} nommé \lstinline{illustrateur}
+	\item un attribut \lstinline{private String} nommé \lstinline{illustrateur},
+	\item le constructeur \lstinline{public LivreIllustre(String titre, String auteur, int annee, String illustrateur)}, qui initialise les attributs hérités et l'attribut \lstinline{illustrateur}.
 \end{itemize}
 Voici le squelette du programme à compléter:
 \begin{lstlisting}
-	class Livre {
-	}
-	class LivreAudio extends Livre {
-	}
-	class LivreIllustre extends Livre {
-	}\end{lstlisting}
+class Livre {
+	
+}
+class LivreAudio extends Livre {
+	
+}
+class LivreIllustre extends Livre {
+	
+}\end{lstlisting}
 \begin{conseil}
     \begin{itemize}
         \item En Java, lors de la déclaration d'une classe, le mot-clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
-        Le mot-clé \lstinline{super} permet à la sous-classe d'hériter d'éléments de la classe-mère. \lstinline{super} peut être utilisé dans le constructeur de la classe-fille selon l'exemple suivant: \lstinline{super(attributMere1, attributMere2, attributMere3, etc.);}. Ainsi, il n'est pas nécessaire de redéfinir tous les attributs d'une classe fille!
-        \item L'instruction \lstinline{super} doit toujours être la première instruction dans le constructeur d'une classe-fille.
+        Pour initialiser la partie héritée d'un objet, appelez le constructeur de la classe-mère avec \lstinline{super(attributMere1, attributMere2, attributMere3, etc.);}.
+        \item L'appel au constructeur \lstinline{super(...)} doit toujours être la première instruction du constructeur d'une classe fille.
         \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
     \end{itemize}
 \end{conseil}
@@ -317,8 +321,9 @@ Maintenant que vous avez créé la classe-mère et ses classes filles, procédez
     \item Dans la classe \lstinline{LivreAudio}, redéfinissez la méthode \lstinline{toString()} afin qu'elle retourne les informations définies dans la classe \lstinline{Livre}, suivies de la valeur de l'attribut \lstinline{narrateur}.
     \item Faites de même dans la classe \lstinline{LivreIllustre} afin d'ajouter la valeur de l'attribut \lstinline{illustrateur}.
     \item Dans la méthode \lstinline{main}, déclarez une variable de type \lstinline{Livre} et initialisez-la avec une instance de \lstinline{LivreAudio}. Utilisez les valeurs suivantes: titre \texttt{Hamlet}, auteur \texttt{Shakespeare}, année \lstinline{1609} et narrateur \texttt{William}.
-    \item Attribuez une note à ce livre à l'aide de la méthode \lstinline{setNote()} définie précédemment.
-    \item Affichez les informations du livre.
+    \item Attribuez la note \lstinline{5} à ce livre à l'aide de la méthode setter définie précédemment.
+    \item Déclarez une deuxième variable de type \lstinline{Livre} et initialisez-la avec une instance de \lstinline{LivreIllustre}. Utilisez les valeurs suivantes: titre \texttt{Les Misérables}, auteur \texttt{Victor Hugo}, année \lstinline{1862} et illustrateur \texttt{Gustave Brion}. Ne lui attribuez aucune note afin de vérifier le comportement prévu pour la valeur \lstinline{-1}.
+    \item Affichez les informations des deux livres.
 \end{enumerate}
 \begin{conseil}
 Réfléchissez à la différence entre le type d'une variable et le type de l'objet qu'elle référence. Pour réutiliser le comportement de la classe parente dans une méthode redéfinie, pensez au mot-clé \lstinline{super}.
@@ -334,7 +339,7 @@ Réfléchissez à la différence entre le type d'une variable et le type de l'ob
 \end{solution}
 \end{Exercice}
 \newpage
-Lorsque toutes les étapes auront été effectuées, placez le code suivant dans votre \lstinline{main} et exécutez votre programme:
+Lorsque toutes les étapes auront été effectuées, exécutez le programme suivant:
 \lstinputlisting{code/Question11.java}
 Vous devriez obtenir:
 \lstinputlisting[language=TeX]{text/question11_output.txt}

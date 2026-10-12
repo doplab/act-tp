@@ -1,6 +1,3 @@
-Création d'un livre
-Création d'un livre audio
-Création d'un livre
 A propos du livre
 ------------------
 Titre : Hamlet
@@ -11,7 +8,7 @@ Narrateur: William
 A propos du livre
 ------------------
 Titre : Les Misérables
-Auteur : Hugo
+Auteur : Victor Hugo
 Année : 1862
-Note : non attribuée
-Process finished with exit code 0
+Note : pas encore attribuée
+Illustrateur: Gustave Brion

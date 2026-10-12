@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Question8 {
     public static void main(String[] args) {
         Dog lola = new Dog("Lola",List.of("rollover"),"Bouvier",10);

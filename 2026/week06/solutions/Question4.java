@@ -1,7 +1,7 @@
-    public void eat() {
-        this.mood = mood + 3;
-    }
+public void eat() {
+    this.mood = mood + 3;
+}
 
-    public void leash() {
-        this.mood --;
-    }
+public void leash() {
+    this.mood--;
+}
