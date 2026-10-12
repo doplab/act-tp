@@ -1,6 +1,7 @@
 \input{../header.tex}
 \usepackage{amsmath}
 \lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\setlist[itemize]{label=\textbullet}
 
 \begin{document}
 
@@ -35,19 +36,19 @@ System.out.println(result + j);
 Choisissez parmi les éléments suivants :
        
     \begin{itemize}
-    \item \texttt{5210}
-    \item \texttt{1110}
-    \item \texttt{1010}
-    \item \texttt{1011}
-    \item \(\texttt{java: bad operand types for binary operator '+'..}\)
+    \item[(A)] \texttt{5210}
+    \item[(B)] \texttt{1110}
+    \item[(C)] \texttt{1010}
+    \item[(D)] \texttt{1011}
+    \item[(E)] \(\texttt{java: bad operand types for binary operator '+'..}\)
 \end{itemize}
 \begin{solution}
-    La réponse correcte est 1010. La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation des variables \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
+    (C). La boucle for calcule la représentation binaire de l'entier stocké dans la chaîne \texttt{x} (qui est 101) et l'affichage montre la concaténation des variables \texttt{result} et \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro.
 \end{solution}
 \end{Exercice}
 
 \section{Récursion en Java et Python}
-\begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome()}
+\begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome}
     \begin{conseil}
         En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
         
@@ -80,7 +81,7 @@ et le cas de base d'une chaîne vide: $f(\texttt{""}) =$ \texttt{True}.\\
 
 \end{Exercice}
 
-\section{Création de votre première classe en Java (40 minutes)}
+\section{Création de votre première classe en Java}
 
 Le but de cette première partie est de créer votre propre classe en Java. Cette classe sera une classe nommée \lstinline{Dog()} représentant un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
 \\
@@ -310,19 +311,17 @@ Voici le squelette du programme à compléter:
 	\lstinputlisting{solutions/question10/LivreIllustre.java}
 \end{solution}
 \end{Exercice}
-\begin{Exercice}[10 minutes] \lstinline{Méthode et héritage} \\
-Maintenant que vous avez créé la classe-mère et les classes filles correspondantes, vous pouvez créer un objet \lstinline{Livre} à l'aide du constructeur de la classe \lstinline{LivreAudio} (et des arguments donnés lors de la création de l'objet).
-% TODO: Phrase à reformuler. S'agit-il de valeurs par défaut du constructeur ou des valeurs de l'instance?
-En instanciant l'objet, vous pourriez utiliser les valeurs suivantes :\\
-titre: ``Hamlet'', auteur: ``Shakespeare'', année: ``1609'' et narrateur: ``William''.\\
-Une fois l'objet créé, attribuez-lui une note à l'aide de la méthode \lstinline{setNote()} définie précédemment.\\ 
-Finalement, utilisez la méthode \lstinline{System.out.println()} pour afficher les informations du livre.\\
-Redéfinissez la méthode \lstinline{toString()} de la classe \lstinline{LivreAudio} afin que la valeur de l'attribut \lstinline{narrateur} soit affichée.
-Faites pareil avec la classe \lstinline{LivreIllustre} et son attribut \lstinline{Illustrateur}.
+\begin{Exercice}[10 minutes] \textbf{Méthode et héritage} \\
+Maintenant que vous avez créé la classe-mère et ses classes filles, procédez comme suit:
+\begin{enumerate}
+    \item Dans la classe \lstinline{LivreAudio}, redéfinissez la méthode \lstinline{toString()} afin qu'elle retourne les informations définies dans la classe \lstinline{Livre}, suivies de la valeur de l'attribut \lstinline{narrateur}.
+    \item Faites de même dans la classe \lstinline{LivreIllustre} afin d'ajouter la valeur de l'attribut \lstinline{illustrateur}.
+    \item Dans la méthode \lstinline{main}, déclarez une variable de type \lstinline{Livre} et initialisez-la avec une instance de \lstinline{LivreAudio}. Utilisez les valeurs suivantes: titre \texttt{Hamlet}, auteur \texttt{Shakespeare}, année \lstinline{1609} et narrateur \texttt{William}.
+    \item Attribuez une note à ce livre à l'aide de la méthode \lstinline{setNote()} définie précédemment.
+    \item Affichez les informations du livre.
+\end{enumerate}
 \begin{conseil}
-\textbf{Attention}, vous devez créer un objet \lstinline{Livre} et non \lstinline{LivreAudio}.
-Le mot-clé \lstinline{super} peut être utilisé dans la redéfinition d'une méthode selon l'exemple suivant: \lstinline{super.nom_de_la_methode();}. Le mot-clé \lstinline{super} représente la classe parente, tout comme le mot-clé \lstinline{this} fait référence à l'instance avec laquelle la méthode est appelée. 
-L'instruction \lstinline{super} doit toujours être la première instruction dans la redéfinition d'une méthode dans une classe fille. 
+Réfléchissez à la différence entre le type d'une variable et le type de l'objet qu'elle référence. Pour réutiliser le comportement de la classe parente dans une méthode redéfinie, pensez au mot-clé \lstinline{super}.
 \end{conseil}
 \begin{solution}
 	\lstinputlisting{solutions/question11/LivreAudio.java}
