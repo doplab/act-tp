@@ -136,7 +136,8 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
         \lstinputlisting{code/Example.java}
     \end{conseil} 
 
-    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nomInstance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
+    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nomInstance.attribut} à l'intérieur ou à l'extérieur de la classe. 
+    Cependant, comme la plupart des attributs de \lstinline{Dog} sont privés, utilisez les getters et les setters pour les consulter et les modifier depuis une autre classe. \\
     
     Créez les méthodes avec les en-têtes suivantes:
     \begin{itemize}
@@ -224,7 +225,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
     \begin{itemize}
         \item Créez une classe \lstinline{Point} et définissez un constructeur prenant deux paramètres, \lstinline{x} et \lstinline{y}.
         \begin{conseil}
-            Pour rappel, un constructeur est une fonction \lstinline{__init()__} que vous redéfinirez dans votre classe.
+            Pour rappel, un constructeur est une fonction \lstinline{__init__(self, ...)} que vous redéfinirez dans votre classe.
         \end{conseil}
         \item Définissez deux attributs privés pour votre classe \lstinline{Point}. Ces attributs seront les coordonnées x et y de vos points. Par défaut, assignez-leur les valeurs données dans le constructeur.
         \begin{conseil}

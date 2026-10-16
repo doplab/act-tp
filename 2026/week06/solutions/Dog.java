@@ -2,7 +2,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Dog {
-    public String name;
+    public String name; // Il est préférable de déclarer les attributs comme privés, mais celui-ci est
+                        // public pour les besoins de l'exercice.
     private List<String> tricks;
     private String race;
     private int age;

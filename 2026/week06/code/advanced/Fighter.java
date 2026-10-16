@@ -14,7 +14,7 @@ public class Fighter {
 
     public Fighter(String name, int health, int attack, int defense) {
         this.name = name;
-        this.health = health;
+        this.setHealth(health);
         this.attack = attack;
         this.defense = defense;
         instances.add(this);
@@ -45,7 +45,13 @@ public class Fighter {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health < 0) {
+            this.health = 0;
+        } else if (health > 10) {
+            this.health = 10;
+        } else {
+            this.health = health;
+        }
     }
 
     public void setName(String name) {
