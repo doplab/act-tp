@@ -1,5 +1,5 @@
 public void addTrick(String trick) {
-        LinkedList temp = new LinkedList(this.tricks);
-        temp.add(trick);
-        this.tricks = temp;
-    }
+    LinkedList<String> temp = new LinkedList<String>(this.tricks);
+    temp.add(trick);
+    this.tricks = temp;
+}

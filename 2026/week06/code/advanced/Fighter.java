@@ -9,7 +9,8 @@ public class Fighter {
     private int attack;
     private int defense;
     private static List<Fighter> instances = new ArrayList<Fighter>();
-    private static HashMap<String, Integer> attackModifier = new HashMap(Map.of("poing",1,"pied",2,"tete",3));
+    private static HashMap<String, Integer> attackModifier = new HashMap<String, Integer>(
+            Map.of("poing", 1, "pied", 2, "tete", 3));
 
     public Fighter(String name, int health, int attack, int defense) {
         this.name = name;
@@ -63,8 +64,7 @@ public class Fighter {
         // à compléter
     }
 
-    public void attack (String type, Fighter other){
+    public void attack(String type, Fighter other) {
         // à compléter
     }
 }
-

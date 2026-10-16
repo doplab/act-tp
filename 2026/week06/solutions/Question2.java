@@ -1,5 +1,5 @@
-    public List getTricks() {
-	return tricks;
+    public List<String> getTricks() {
+        return tricks;
     }
 
     public int getAge() {
@@ -18,8 +18,8 @@
         return nbChiens;
     }
 
-    public void setTricks(List tricks){
-        this.tricks=tricks;
+    public void setTricks(List<String> tricks) {
+        this.tricks = tricks;
     }
 
     public void setAge(int age) {

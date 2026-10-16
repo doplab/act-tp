@@ -89,12 +89,12 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \begin{Exercice}[10 minutes] Création de classe et encapsulation\\
     Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants :
     \begin{enumerate}
-    \item Un attribut \lstinline{public} String nommé \lstinline{name}
-    \item Un attribut \lstinline{private} List nommé \lstinline{tricks}
-    \item Un attribut \lstinline{private} String nommé \lstinline{race}
-    \item Un attribut \lstinline{private} int nommé \lstinline{age}
-    \item Un attribut \lstinline{private} int nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien)
-    \item Un attribut de classe (\lstinline{static}) \lstinline{private} int nommé \lstinline{nbChiens}
+    \item Un attribut \lstinline{public} nommé \lstinline{name} de type chaîne de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{tricks} de type liste des chaînes de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{race} de type chaîne de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{age} de type entier
+    \item Un attribut \lstinline{private} nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien) de type entier
+    \item Un attribut de classe (\lstinline{static}) \lstinline{private} nommé \lstinline{nbChiens} de type entier
    	\end{enumerate}
    	
     Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances. Le constructeur prendra les paramètres suivants:
@@ -138,13 +138,13 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 
     Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nomInstance.attribut} à l'intérieur ou à l'extérieur de la classe. \\
     
-    Créez les méthodes suivantes :
+    Créez les méthodes avec les en-têtes suivantes:
     \begin{itemize}
-    \item \lstinline{public List getTricks()}
+    \item \lstinline{public List<String> getTricks()}
     \item \lstinline{public String getRace()}
     \item \lstinline{public int getAge()}
     \item \lstinline{public int getMood()}
-    \item \lstinline{public void setTricks(List tricks)}
+    \item \lstinline{public void setTricks(List<String> tricks)}
     \item \lstinline{public void setRace(String race)}
     \item \lstinline{public void setAge(int age)}
     \item \lstinline{public void setMood(int mood)}
@@ -168,7 +168,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
-   La liste \lstinline{tricks} est une liste comme les autres. Si vous voulez la modifier, vous aurez besoin de passer par une \lstinline{LinkedList} temporaire.
+  Les listes créées avec \lstinline[language=Java]{List.of(...)} ne sont pas modifiables. Pour ajouter un \lstinline{trick}, créez une copie modifiable de \lstinline{tricks}, par exemple une \lstinline[language=Java]{LinkedList<String>}, ajoutez-y le nouveau \texttt{trick}, puis affectez cette copie à \lstinline[language=Java]{this.tricks}.
 \end{conseil}
     
 \begin{solution}
