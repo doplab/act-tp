@@ -56,8 +56,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
     Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nomInstance} est mort'' sera affiché.
     
 \begin{conseil}
-Prenez le problème dans l'autre sens, créez une liste temporaire. Si l'instance est vivante, ajoutez la à cette nouvelle liste. Pour finir, mettez à jour votre liste d'instances à l'aide de votre liste temporaire.\\
-L'attribut \lstinline{instances} étant une liste, vous pouvez parcourir cette liste d'instances en utilisant une boucle \lstinline{for}. 
+Évitez de supprimer des éléments de instances pendant que vous la parcourez avec une boucle for each, car cela peut provoquer une \lstinline{ConcurrentModificationException}. Utilisez une deuxième liste pour ne conserver que les combattants encore en vie.
 \end{conseil}
 \begin{solution}
 	\lstinputlisting{solutions/advanced/checkDead.java}
