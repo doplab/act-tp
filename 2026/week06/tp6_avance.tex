@@ -23,10 +23,10 @@ Dans cette section, nous allons simuler un jeu de combat entre deux protagoniste
 Chaque \lstinline{Fighter} aura des attributs qui le définissent. Ces attributs sont:
 
 \begin{itemize}
-    \item \lstinline{nom:}\textit{(String)} chaque combattant sera identifié par un nom unique.
+    \item \lstinline{name:}\textit{(String)} chaque combattant sera identifié par un nom unique.
     \item \lstinline{health:}\textit{(int)} représentant le nombre de points de vie d'un combattant. Il contient des valeurs comprises entre 0 et 10. À l'instanciation de l'objet, le combattant a 10 points de vie par défaut.
-    \item \lstinline{attaque:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts infligés à l'adversaire.
-    \item \lstinline{défense:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts reçus.\\
+    \item \lstinline{attack:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts infligés à l'adversaire.
+    \item \lstinline{defense:}\textit{(int)} représentant une valeur qui sera utilisée pour calculer le nombre de points de dégâts reçus.\\
 \end{itemize}
 
 Deux attributs de classe seront également utilisés :
@@ -53,7 +53,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] checkDead()\\
-    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nomInstance} est mort'' sera affiché.
+    Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nameInstance} est mort'' sera affiché.
     
 \begin{conseil}
 Évitez de supprimer des éléments de instances pendant que vous la parcourez avec une boucle for each, car cela peut provoquer une \lstinline{ConcurrentModificationException}. Utilisez une deuxième liste pour ne conserver que les combattants encore en vie.
@@ -63,7 +63,7 @@ Voici le squelette du code (à télécharger sur Moodle) :
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[5 minutes] checkHealth()\\
-    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nomInstance} a encore \lstinline{healthInstance} points de vie". 
+    Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nameInstance} a encore \lstinline{healthInstance} points de vie".
 \begin{solution}
 	\lstinputlisting{solutions/advanced/checkHealth.java}
 \end{solution}
@@ -87,17 +87,19 @@ Vous devriez obtenir ce résultat :
 \lstinputlisting[language=TeX]{text/question4_advanced_output.txt}
 
 
-\section{Notions d'héritage - Python (30 minutes)}
+\section{Notions d'héritage - Python}
 
 \begin{Exercice}[30 minutes]\textbf{Un exemple appliqué}
     
-    Dans les établissements universitaires, on rencontre souvent des problèmes lors du calcul de salaires du personnel. Sans penser aux recherches effectuées par certains professeurs, on va essayer de calculer les salaires de ceux qui sont reconnus comme `Professeur' (ordinaire, titulaire, associé ou assistant) à l'université et ceux qui y donnent des cours à temps partiel (on va les considérer comme `Collaborateurs' dans cet exercice).
-    
-    La classe mère dans ce cas est nommée \lstinline{Enseignant}, qui possède une propriété - le salaire annuel moyen. On voudrait que la méthode qui calcule cette quantité renvoie 60 000 (dollars américains) si l'enseignant a moins de 10 ans d'expérience, et 100 000 sinon. Si l'enseignant travaille à temps partiel, la méthode devrait renvoyer une chaîne de caractères qui dit `Le salaire annuel ne s'applique pas aux collaborateurs'.
-    
-    Ensuite, on veut calculer la paye mensuelle pour chaque type d'employé. Pour les \lstinline{Professeurs}, la paye devrait être calculée sur la base de deux sources de revenu: un salaire mensuel et une commission pour chaque comité où ils participent. 
-    
-    D'autre part, pour les \lstinline{Collaborateurs}, la paye est calculée sur une base horaire i.e \textit{taux horaire $\times$ nombres d'heures de travail (par mois)}.
+    Dans cet exercice, nous allons modéliser le calcul de la rémunération de deux catégories d'enseignants universitaires: les professeurs à temps plein, représentés par la classe \lstinline{Professeur}, et les intervenants à temps partiel, représentés par la classe \lstinline{Collaborateur}. Les deux classes héritent de la classe mère \lstinline{Enseignant}. \\
+
+    La classe \lstinline{Enseignant} définit une méthode qui renvoie un salaire annuel moyen de 60\,000 dollars américains pour un enseignant ayant moins de 10 ans d'expérience, et de 100\,000 dollars à partir de 10 ans d'expérience. Pour un enseignant à temps partiel, cette méthode renvoie plutôt la chaîne de caractères \texttt{Le salaire annuel ne s'applique pas aux collaborateurs}. \\
+
+    Chaque classe fille définit également une méthode de calcul de la rémunération mensuelle :
+    \begin{itemize}
+        \item Pour un \lstinline{Professeur}, elle correspond au salaire mensuel de base, auquel s'ajoute une commission pour chaque comité auquel il participe.
+        \item Pour un \lstinline{Collaborateur}, elle correspond au taux horaire multiplié par le nombre d'heures travaillées dans le mois.
+    \end{itemize}
     
     
     Complétez le code ci-dessous:

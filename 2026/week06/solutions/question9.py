@@ -32,6 +32,7 @@ class Point:
 if __name__ == '__main__':
     p = Point(3, 2)
     p2 = Point(5,4)
+    print(p2)
     print(str(p.distance(p2)))
     print(str(p.milieu(p2)))
 

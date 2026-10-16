@@ -8,12 +8,12 @@ public class Palindrome {
         System.out.println(isPalindrome(nonPal1));
     }
 
-    public static boolean isPalindrome(String palindrome) {
-        int length = palindrome.length();
+    public static boolean isPalindrome(String text) {
+        int length = text.length();
         if (length == 1 || length == 0) {
             return true;
         }
-        return palindrome.charAt(0) == palindrome.charAt(length - 1)
-                && isPalindrome(palindrome.substring(1, length - 1));
+        return text.charAt(0) == text.charAt(length - 1)
+                && isPalindrome(text.substring(1, length - 1));
     }
 }

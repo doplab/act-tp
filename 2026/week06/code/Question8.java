@@ -2,8 +2,8 @@ import java.util.List;
 
 public class Question8 {
     public static void main(String[] args) {
-        Dog lola = new Dog("Lola",List.of("rollover"),"Bouvier",10);
-        Dog tobi = new Dog("Tobi",List.of("rollover","do a barrel"),"Doggo",17);
+        Dog lola = new Dog("Lola", List.of("rollover"), "Bouvier", 10);
+        Dog tobi = new Dog("Tobi", List.of("rollover", "do a barrel"), "Doggo", 17);
         System.out.println(lola.getAge());
         System.out.println(lola.getMood());
         System.out.println(lola.getRace());
@@ -13,7 +13,7 @@ public class Question8 {
         lola.setMood(8);
         lola.setRace("Bouvier");
         lola.name = "lola";
-        lola.setTricks(List.of("rollover","do a barrel"));
+        lola.setTricks(List.of("rollover", "do a barrel"));
         lola.eat();
         lola.leash();
         lola.addTrick("sit");

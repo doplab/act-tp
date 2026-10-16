@@ -20,8 +20,7 @@ Les durées indiquées (\faClock) sont données à titre indicatif.
 \begin{Exercice}[5 minutes]
 
     \begin{conseil}
-La méthode \texttt{String.valueOf} permet de convertir un nombre en chaîne de caractères.
-    \end{conseil}
+La méthode \lstinline{String.valueOf} permet de convertir un nombre en chaîne de caractères. À l'inverse, la méthode \lstinline{Integer.parseInt} permet de convertir une chaîne de caractères représentant un entier en une valeur de type \texttt{int}.    \end{conseil}
 
 Qu'affiche le programme Java suivant (par souci de concision, nous omettons la déclaration de la classe et de la méthode \texttt{main}):
 \begin{lstlisting}[language=Java]
@@ -70,7 +69,7 @@ Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \end{align*}
 et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
 
-Écrivez la méthode Java \textbf{\texttt{isPalindrome(String arg)}} et la fonction Python \textbf{\texttt{isPalindrome(arg)}} qui renvoient la valeur booléenne vraie si \texttt{arg} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
+Écrivez la méthode Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{solutions/Palindrome.java}
@@ -94,7 +93,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     \item Un attribut \lstinline{private} nommé \lstinline{race} de type chaîne de caractères
     \item Un attribut \lstinline{private} nommé \lstinline{age} de type entier
     \item Un attribut \lstinline{private} nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien) de type entier
-    \item Un attribut de classe (\lstinline{static}) \lstinline{private} nommé \lstinline{nbChiens} de type entier
+    \item Un attribut de classe (\lstinline{static}) \lstinline{private} nommé \lstinline{nbChiens} de type entier qui stocke le nombre d'objets \lstinline{Dog} créés
    	\end{enumerate}
    	
     Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances. Le constructeur prendra les paramètres suivants:
@@ -169,7 +168,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
-  Les listes créées avec \lstinline[language=Java]{List.of(...)} ne sont pas modifiables. Pour ajouter un \lstinline{trick}, créez une copie modifiable de \lstinline{tricks}, par exemple une \lstinline[language=Java]{LinkedList<String>}, ajoutez-y le nouveau \texttt{trick}, puis affectez cette copie à \lstinline[language=Java]{this.tricks}.
+  Les listes créées avec \lstinline[language=Java]{List.of(...)} ne sont pas modifiables. Pour ajouter un \lstinline{trick}, créez une copie modifiable de \lstinline{tricks}, par exemple une \lstinline[language=Java]{LinkedList<String>} (ou une \lstinline[language=Java]{ArrayList<String>}), ajoutez-y le nouveau \texttt{trick}, puis affectez cette copie à \lstinline[language=Java]{this.tricks}.
 \end{conseil}
     
 \begin{solution}
@@ -186,7 +185,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
-    Créez une méthode nommée \lstinline{getOldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant : ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. Vous pouvez supposer que les deux chiens ont des âges différents. \\
+    Créez une méthode nommée \lstinline{getOldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant: ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. Vous pouvez supposer que les deux chiens ont des âges différents. \\
    	
 \begin{conseil}
    L'élément \lstinline{other} est un objet de type \lstinline{Dog}: vous pouvez donc appeler les méthodes définies précédemment pour consulter ses attributs.
@@ -241,7 +240,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
             Pour rappel, la distance euclidienne entre deux points est définie par la formule $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$.
             Utilisez la fonction \lstinline{sqrt()} de la bibliothèque \lstinline{math} pour calculer la racine carrée. Pensez à importer la bibliothèque \lstinline{math}.
         \end{conseil}
-        \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p2} et qui retournera un objet \lstinline{Point} situé entre \lstinline{self} et \lstinline{p2}.
+        \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p2} et qui retournera un objet \lstinline{Point} situé exactement à mi-chemin entre ces deux points.
         \begin{conseil}
             Pour trouver les coordonnées d'un point M($x_M$, $y_M$) situé au milieu du segment défini par des points A($x_A$, $y_A$) et B($x_B, y_B$),
             utilisez les formules suivantes:
