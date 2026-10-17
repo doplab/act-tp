@@ -45,11 +45,11 @@ Vous devrez compléter les 4 méthodes suivantes :
 \end{enumerate}
 
 Voici le squelette du code (à télécharger sur Moodle) :
-\lstinputlisting{code/advanced/Fighter.java}
+\lstinputlisting[language=Java]{code/advanced/Fighter.java}
 \begin{Exercice}[5 minutes] isAlive()\\
     Définir une méthode \lstinline{isAlive()} de type \lstinline{boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 \begin{solution}
-	\lstinputlisting{solutions/advanced/isAlive.java}
+	\lstinputlisting[language=Java]{solutions/advanced/isAlive.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] checkDead()\\
@@ -59,13 +59,13 @@ Voici le squelette du code (à télécharger sur Moodle) :
 Évitez de supprimer des éléments de instances pendant que vous la parcourez avec une boucle for each, car cela peut provoquer une \lstinline{ConcurrentModificationException}. Utilisez une deuxième liste pour ne conserver que les combattants encore en vie.
 \end{conseil}
 \begin{solution}
-	\lstinputlisting{solutions/advanced/checkDead.java}
+	\lstinputlisting[language=Java]{solutions/advanced/checkDead.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[5 minutes] checkHealth()\\
     Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nameInstance} a encore \lstinline{healthInstance} points de vie".
 \begin{solution}
-	\lstinputlisting{solutions/advanced/checkHealth.java}
+	\lstinputlisting[language=Java]{solutions/advanced/checkHealth.java}
 \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] attack(String type Fighter other)\\
@@ -78,11 +78,11 @@ Voici le squelette du code (à télécharger sur Moodle) :
     Appelez ensuite les fonctions \lstinline{checkDead()} et \lstinline{checkHealth()} afin d'avoir un aperçu des combattants restants et de leur santé. 
      
 \begin{solution}
-	\lstinputlisting{solutions/advanced/attack.java}
+	\lstinputlisting[language=Java]{solutions/advanced/attack.java}
 \end{solution}
 \end{Exercice}
 Pour terminer, vous pouvez exécuter le code ci-dessous (disponible dans le dossier Code sur Moodle) pour vérifier que votre programme fonctionne correctement : \\
-\lstinputlisting{code/advanced/Question4.java}
+\lstinputlisting[language=Java]{code/advanced/Question4.java}
 Vous devriez obtenir ce résultat : 
 \lstinputlisting[language=TeX]{text/question4_advanced_output.txt}
 
@@ -104,14 +104,14 @@ Vous devriez obtenir ce résultat :
     
     Complétez le code ci-dessous:
     
-    \lstinputlisting{code/advanced/Enseignant.py} 
+    \lstinputlisting[language=Python]{code/advanced/Enseignant.py}
     
     \begin{conseil}
     Pensez à redéfinir les attributs de la classe mère en utilisant \lstinline{super().__init__()}.
     \end{conseil}
     
     \begin{solution}
-    \lstinputlisting{solutions/advanced/Enseignant.py} 
+    \lstinputlisting[language=Python]{solutions/advanced/Enseignant.py}
     \end{solution}
     \end{Exercice}
 \end{document}
