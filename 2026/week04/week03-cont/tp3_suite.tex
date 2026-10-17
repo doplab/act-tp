@@ -8,7 +8,7 @@
 
 % Change the following values to true to show the solutions or/and the hints
 \ShowSolutionfalse
-\ShowConseilfalse
+\ShowConseiltrue
 \titre
 \cours{Programmation de base - suite}
 
@@ -22,7 +22,7 @@ Au terme de cette séance, l'étudiant sera capable de:
 
 \section{Manipulation de chaînes de caractères}
 
-\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation) (Java ou Python)}\\
+\begin{Exercice}[5 minutes] [Java et Python] \textbf{Manipulation des chaînes de caractères (indexation)}\\
    Créez une variable \texttt{mon\_mot} de type chaîne de caractères et affectez-lui la valeur \textbf{``Hard But Cool !!''}. À l'aide de l'indexation, créez ensuite une variable \texttt{premiere} contenant le premier caractère de \texttt{mon\_mot}, puis une variable \texttt{derniere} contenant son dernier caractère. Affichez les valeurs obtenues pour \texttt{premiere} et \texttt{derniere}. \\
    
     \begin{conseil}
@@ -32,16 +32,16 @@ Au terme de cette séance, l'étudiant sera capable de:
     \begin{solution}
     
     \textbf{Python:}
-    \lstinputlisting{resources/solutions/question9.py}
+    \lstinputlisting[language=Python]{resources/solutions/question9.py}
     
     \textbf{\\Java: (à l'intérieur de la méthode main)}
-    \lstinputlisting{resources/solutions/question9.java}
+    \lstinputlisting[language=Java]{resources/solutions/question9.java}
            
     \end{solution}   
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] \textbf{Manipulation des chaînes de caractères (indexation 2) (Java ou Python)}\\
-   Gardez votre variable, \texttt{mon\_mot}, et créez une variable \texttt{lettre\_5} contenant la cinquième lettre de \texttt{mon\_mot} en utilisant l'indexation. Créez ensuite une variable \texttt{lettre\_9\_13} contenant les lettres 9, 10, 11, 12, 13 de \texttt{mon\_mot}. Afficher les résultats et voyez ce que vous obtenez.  \\
+\begin{Exercice}[5 minutes] [Java et Python] \textbf{Manipulation des chaînes de caractères (indexation 2)}\\
+   Reprenez la variable \texttt{mon\_mot} de l'exercice précédent, contenant la chaîne de caractères \textbf{``Hard But Cool !!''}. En utilisant l'indexation, créez une variable \texttt{lettre\_5} contenant le 5e caractère de \texttt{mon\_mot}, puis une variable \texttt{lettres\_9\_12} contenant les caractères situés entre les positions 8 et 12 (bornes incluses). Affichez le contenu des deux variables. \\
    
     \begin{conseil}
       	Attention, ici les espaces comptent comme des lettres ! \\
@@ -52,14 +52,14 @@ Au terme de cette séance, l'étudiant sera capable de:
     \begin{solution}
     
     \textbf{Python:}    
-    \lstinputlisting{resources/solutions/question10.py}
+    \lstinputlisting[language=Python]{resources/solutions/question10.py}
     
     \textbf{\\Java: (à l'intérieur de la méthode main)}
-    \lstinputlisting{resources/solutions/question10.java}
+    \lstinputlisting[language=Java]{resources/solutions/question10.java}
            
     \end{solution}   
 \end{Exercice}
-\begin{Exercice}[10 minutes] \textbf{Manipulation des chaînes de caractères (Java ou Python) \optionnel}\\
+\begin{Exercice}[10 minutes] [Java et Python] \textbf{Manipulation des chaînes de caractères \optionnel}\\
    Il est possible d'obtenir la longueur d'une chaîne de caractères (ou d'une liste ou d'un dictionnaire) en utilisant la fonction \lstinline{len()}. Gardez votre variable \texttt{mon\_mot} et créez une nouvelle variable nommée \texttt{ln\_mon\_mot} contenant le nombre de caractères de la variable \texttt{mon\_mot}, puis une nouvelle variable \texttt{moitie} contenant la première moitié de la variable \texttt{mon\_mot} (utilisez la variable que vous venez de créer). Affichez le résultat.   \\
    
     \begin{conseil}
@@ -69,10 +69,10 @@ Au terme de cette séance, l'étudiant sera capable de:
     \begin{solution}
     
     \textbf{Python}:
-    \lstinputlisting{resources/solutions/question11.py}
+    \lstinputlisting[language=Python]{resources/solutions/question11.py}
     
     \textbf{\\Java: (à l'intérieur de la méthode main)}
-    \lstinputlisting{resources/solutions/question11.java}
+    \lstinputlisting[language=Java]{resources/solutions/question11.java}
     \end{solution}   
 \end{Exercice}
 
@@ -84,7 +84,7 @@ Au terme de cette séance, l'étudiant sera capable de:
 \begin{Exercice}[5 minutes] \textbf{Conditions (Python)}\\
     Qu'affiche le programme suivant? \\
     
-    \lstinputlisting{resources/questions/Question12.py}
+    \lstinputlisting[language=Python]{resources/questions/Question12.py}
 
      \begin{conseil}
          En Python, la fonction \lstinline{not} renvoie l'opposé d'une valeur booléenne. Par exemple, \lstinline{not(False)} renverra \lstinline{True}. En Java, on utilise un point d'exclamation avant la valeur.
@@ -97,7 +97,7 @@ Au terme de cette séance, l'étudiant sera capable de:
  \begin{Exercice}[10 minutes] \textbf{Branchement conditionnel en Java}\\
    Qu'affiche le programme suivant? 
    
-   \lstinputlisting{resources/solutions/question12.java}
+   \lstinputlisting[language=Java]{resources/solutions/question12.java}
     
      \begin{conseil}
           \begin{itemize}
