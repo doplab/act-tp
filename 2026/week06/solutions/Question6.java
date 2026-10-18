@@ -1,5 +1,5 @@
 public void eat() {
-    this.mood = mood + 3;
+    this.mood = this.mood + 3;
 }
 
 public void leash() {
