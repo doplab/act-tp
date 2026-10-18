@@ -59,7 +59,7 @@ Choisissez parmi les éléments suivants :
 \end{equation}
 Ici, $a[1:n-1]$ est la sous-chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
 \begin{conseil}
-    Revoir la \href{https://moodle.unil.ch/mod/folder/view.php?id=1965123}{question 16 du TP3} pour voir les règles concernant la notation des bornes d'une sous-chaîne de caractères. 
+    Revoir la question 16 du TP3 pour voir les règles concernant la notation des bornes d'une sous-chaîne de caractères. 
 \end{conseil}
 On dit donc que $a$ est un palindrome si le premier caractère et le dernier caractère sont égaux \textbf{et} la sous-chaîne entre les deux est un palindrome. \\  \\
 
@@ -69,7 +69,7 @@ Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \end{align*}
 et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
 
-Écrivez la méthode statique Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
+Écrivez la méthode statique Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \newline \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{solutions/Palindrome.java}
@@ -85,7 +85,7 @@ et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
 Le but de cette première partie est de créer votre propre classe en Java. Cette classe, nommée \lstinline{Dog}, représentera un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
 \\
 
-\begin{Exercice}[10 minutes] Création de classe et encapsulation\\
+\begin{Exercice}[10 minutes] \textbf{Création de classe et encapsulation}\\
     Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants:
     \begin{enumerate}
     \item Un attribut \lstinline{public} nommé \lstinline{name} de type chaîne de caractères
@@ -126,7 +126,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] Getters et setters\\
+\begin{Exercice}[10 minutes] \textbf{Getters et setters}\\
     Il faut maintenant créer des méthodes de type getter et setter afin d'interagir avec les attributs \lstinline{private} des instances de la classe. 
     Les \lstinline{getters} renverront les attributs souhaités tandis que les setters les modifieront.
     Les setters sont utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
@@ -164,7 +164,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs — Listes\\
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs — Listes}\\
     Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
@@ -176,7 +176,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs\\
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs}\\
     Créez deux méthodes publiques permettant de modifier l'attribut \lstinline{mood} d'un objet \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
 
 \begin{solution}
@@ -184,7 +184,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs d'une autre instance\\
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs d'une autre instance}\\
     Créez une méthode nommée \lstinline{getOldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant: ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. Vous pouvez supposer que les deux chiens ont des âges différents. \\
    	
 \begin{conseil}
@@ -196,7 +196,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Redéfinition de méthodes\\
+\begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes}\\
     Redéfinissez la méthode \lstinline{public String toString()} afin qu'elle retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en affichant sur la console une instance de \lstinline{Dog}, vous obtiendrez un texte au format suivant:
     ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
 
@@ -219,7 +219,7 @@ Vous devriez obtenir ce résultat :
 \label{sec:notions_python}
 Dans cette section, nous créerons pas à pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
 Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question9.py}.\\
-\begin{Exercice}[15 minutes] Classe \lstinline{Point}
+\begin{Exercice}[15 minutes] \textbf{Classe \texttt{Point}}
     \begin{itemize}
         \item Créez une classe \lstinline{Point} et définissez un constructeur prenant deux paramètres, \lstinline{x} et \lstinline{y}.
         \begin{conseil}
@@ -258,7 +258,7 @@ Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet)
 Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
 Nous allons créer une classe \lstinline{Livre} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio} et \lstinline{LivreIllustre}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
 
-\begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
+\begin{Exercice}[20 minutes] \textbf{Création des différentes classes}\\
 Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 \begin{itemize}
 	\item un attribut \lstinline{private} nommé \lstinline{titre} de type chaîne de caractères,

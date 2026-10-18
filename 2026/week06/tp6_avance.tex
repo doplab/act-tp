@@ -46,13 +46,13 @@ Vous devrez compléter les 4 méthodes suivantes :
 
 Voici le squelette du code (à télécharger sur Moodle) :
 \lstinputlisting[language=Java]{code/advanced/Fighter.java}
-\begin{Exercice}[5 minutes] isAlive()\\
+\begin{Exercice}[5 minutes] \textbf{isAlive()}\\
     Définir une méthode \lstinline{isAlive()} de type \lstinline{boolean} qui retournera \lstinline{true} si l'instance a plus que 0 points de vie et \lstinline{false} si l'instance en a moins.
 \begin{solution}
 	\lstinputlisting[language=Java]{solutions/advanced/isAlive.java}
 \end{solution}
 \end{Exercice}
-\begin{Exercice}[10 minutes] checkDead()\\
+\begin{Exercice}[10 minutes] \textbf{checkDead()}\\
     Définir une méthode \lstinline{checkDead()} qui parcourt la liste des instances, et contrôle que chacune d'entre elle est encore en vie. Si ce n'est pas le cas, l'instance en question est supprimée de la liste des instances et le message ``\lstinline{nameInstance} est mort'' sera affiché.
     
 \begin{conseil}
@@ -62,13 +62,13 @@ Voici le squelette du code (à télécharger sur Moodle) :
 	\lstinputlisting[language=Java]{solutions/advanced/checkDead.java}
 \end{solution}
 \end{Exercice}
-\begin{Exercice}[5 minutes] checkHealth()\\
+\begin{Exercice}[5 minutes] \textbf{checkHealth()}\\
     Définir une méthode \lstinline{checkHealth()} qui parcourt la liste des instances et affiche le nombre de points de vie qui reste au combattant sous le format ``\lstinline{nameInstance} a encore \lstinline{healthInstance} points de vie".
 \begin{solution}
 	\lstinputlisting[language=Java]{solutions/advanced/checkHealth.java}
 \end{solution}
 \end{Exercice}
-\begin{Exercice}[10 minutes] attack(String type Fighter other)\\
+\begin{Exercice}[10 minutes] \textbf{attack(String type Fighter other)}\\
     Définir une méthode \lstinline{attack(String type, Fighter other)} qui permettra de retirer des points de vie au combattant \lstinline{other} en fonction de l'attaque de l'instance appelée, du type d'attaque sélectionné et de la défense de \lstinline{other}. \\
     
     Commencez par contrôler si \lstinline{other} est encore en vie. Si tel n'est pas le cas, indiquez qu'il est déjà mort : ``\lstinline{otherName} est déjà mort". \\

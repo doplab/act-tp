@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Dog {
     public String name; // Il est préférable de déclarer les attributs comme privés, mais celui-ci est
-                        // public pour les besoins de l'exercice.
+                        // public pour les buts de l'exercice.
     private List<String> tricks;
     private String race;
     private int age;
