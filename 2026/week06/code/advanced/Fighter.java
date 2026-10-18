@@ -58,7 +58,7 @@ public class Fighter {
         this.name = name;
     }
 
-    public Boolean isAlive() {
+    public boolean isAlive() {
         // à compléter
     }
 
