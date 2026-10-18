@@ -86,7 +86,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \\
 
 \begin{Exercice}[10 minutes] Création de classe et encapsulation\\
-    Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants :
+    Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants:
     \begin{enumerate}
     \item Un attribut \lstinline{public} nommé \lstinline{name} de type chaîne de caractères
     \item Un attribut \lstinline{private} nommé \lstinline{tricks} de type liste de chaînes de caractères
@@ -127,10 +127,9 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 \begin{Exercice}[10 minutes] Getters et setters\\
-    Il faut maintenant créer des méthodes de type \lstinline{getter} et \lstinline{setter} afin d'interagir avec les attributs \lstinline{private} des instances de la classe. 
-    Les \lstinline{getters} renverront les attributs souhaités tandis que les \lstinline{setters} les modifieront.
-
-    Les \lstinline{setters} sont souvent utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
+    Il faut maintenant créer des méthodes de type getter et setter afin d'interagir avec les attributs \lstinline{private} des instances de la classe. 
+    Les \lstinline{getters} renverront les attributs souhaités tandis que les setters les modifieront.
+    Les setters sont utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
     \begin{conseil}
         Exemple de \lstinline{getters} et de \lstinline{setters}:
         \lstinputlisting[language=Java]{code/Example.java}
@@ -262,17 +261,18 @@ Nous allons créer une classe \lstinline{Livre} qui représentera notre classe-m
 \begin{Exercice}[20 minutes] \lstinline{Création des différentes classes}\\
 Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
 \begin{itemize}
-	\item un attribut \lstinline{private String} nommé \lstinline{titre},
-	\item un attribut \lstinline{private String} nommé \lstinline{auteur},
-	\item un attribut \lstinline{private int} nommé \lstinline{annee},
-	\item un attribut \lstinline{private int} nommé \lstinline{note} (initialisé à \lstinline{-1}),
+	\item un attribut \lstinline{private} nommé \lstinline{titre} de type chaîne de caractères,
+	\item un attribut \lstinline{private} nommé \lstinline{auteur} de type chaîne de caractères,
+	\item un attribut \lstinline{private} nommé \lstinline{annee} de type entier,
+	\item un attribut \lstinline{private} nommé \lstinline{note} initialisé à \lstinline{-1},
 	\item le constructeur \lstinline{public Livre(String titre, String auteur, int annee)},
 	\item une méthode \lstinline{public void setNote(int note)} qui permet de définir l'attribut \lstinline{note},
 	\item une méthode \lstinline{public int getNote()} qui permet de retourner l'attribut \lstinline{note},
 	\item une méthode \lstinline{public String toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage (redéfinir cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
 \end{itemize}
 
-Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez ``Note : pas encore attribuée'' au lieu de ``Note : \lstinline{note}'' via la méthode \lstinline{toString()}. \\
+Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez \texttt{Note: pas encore attribuée} au lieu de \texttt{Note: \{note\}} via la méthode \lstinline{toString()}. \\
+
 Créez les classes filles avec les caractéristiques suivantes:\\
 \lstinline{class LivreAudio extends Livre}
 \begin{itemize}
