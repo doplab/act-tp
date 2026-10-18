@@ -1,0 +1,345 @@
+\input{../header.tex}
+\usepackage{amsmath}
+\lstset{upquote=true,basicstyle=\fontencoding{T1}\selectfont\ttfamily}
+\setlist[itemize]{label=\textbullet}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation orientée objet - Exercices basiques}
+
+Le but de cette séance est de découvrir et de mettre en pratique un paradigme de programmation largement utilisé : la programmation orientée objet (POO). Ce paradigme repose sur la création d'objets qui regroupent des données et des comportements, et qui peuvent interagir entre eux. Au fil des exercices, vous apprendrez à manipuler des objets et à maîtriser les notions fondamentales de classe, d'attribut, de méthode et d'encapsulation. À l'issue de cette séance, vous serez capables de concevoir des programmes mieux structurés et plus faciles à maintenir. \\
+
+Les exercices de cette séance seront réalisés en Java et en Python. \\
+
+Les durées indiquées (\faClock) sont données à titre indicatif.
+\section{Itération en Java}
+\begin{Exercice}[5 minutes]
+
+    \begin{conseil}
+La méthode \lstinline{String.valueOf} permet de convertir un nombre en chaîne de caractères. À l'inverse, la méthode \lstinline{Integer.parseInt} permet de convertir une chaîne de caractères représentant un entier en une valeur de type \texttt{int}.    \end{conseil}
+
+Qu'affiche le programme Java suivant (par souci de concision, nous omettons la déclaration de la classe et de la méthode \texttt{main}):
+\begin{lstlisting}[language=Java]
+String result = "";
+String x = "5";
+int j = 0; 
+for (j=Integer.parseInt(x); j !=0; j = j/2){
+    result = String.valueOf(j%2) + result;
+}
+System.out.println(result + j);
+\end{lstlisting}
+Choisissez parmi les éléments suivants :
+       
+    \begin{itemize}
+    \item[(A)] \texttt{5210}
+    \item[(B)] \texttt{1110}
+    \item[(C)] \texttt{1010}
+    \item[(D)] \texttt{1011}
+    \item[(E)] \(\texttt{java: bad operand types for binary operator '+'..}\)
+\end{itemize}
+\begin{solution}
+    (C). La boucle for calcule la représentation binaire de l'entier 5 stocké dans la chaîne \texttt{x}; cette représentation est \texttt{101}. L'affichage concatène ensuite la variable \texttt{result} et la valeur finale de \texttt{j}. Ici, \texttt{j} est définie hors de la portée de la boucle for, et cela est la raison pour laquelle on peut y accéder après la boucle for. À la sortie de la boucle for, la valeur de \texttt{j} est zéro. Le programme affiche donc \texttt{1010}.
+\end{solution}
+\end{Exercice}
+
+\section{Récursion en Java et Python}
+\begin{Exercice}[10 minutes] [Java et Python] \textbf{isPalindrome}
+    \begin{conseil}
+        En Java, pour obtenir le caractère à l'indice $i$ d'une chaîne de caractères, \texttt{myString}, utilisez \texttt{myString.charAt(i)}. En Python, utilisez \texttt{myString[i]}. \\
+        
+        Une sous-chaîne est obtenue en Java avec \texttt{myString.substring(i, j)} où $i$ est l'indice du premier caractère et $j-1$ est l'indice du dernier caractère. En Python, utilisez \texttt{myString[i:j]}.
+    \end{conseil}
+      Un palindrome est une chaîne de caractères qui se lit de la même manière à l'envers. Plus précisément, soit $f$ une fonction à valeurs booléennes qui renvoie vrai si \texttt{a} (de longueur $n$ caractères) est un palindrome: \\
+\begin{equation}
+    f(a) = f(a[1:n-1])\wedge (a[0] == a[n-1])
+\end{equation}
+Ici, $a[1:n-1]$ est la sous-chaîne de $a$ qui comprend tous les caractères à l'exception du premier caractère (le premier caractère étant à l'indice 0) et du dernier caractère (le dernier caractère étant à l'indice $n-1$). 
+\begin{conseil}
+    Revoir la question 16 du TP3 pour voir les règles concernant la notation des bornes d'une sous-chaîne de caractères. 
+\end{conseil}
+On dit donc que $a$ est un palindrome si le premier caractère et le dernier caractère sont égaux \textbf{et} la sous-chaîne entre les deux est un palindrome. \\  \\
+
+Le cas de base (une chaîne $a$ d'un seul caractère) est:
+\begin{align*}
+    f(a) &= \text{vrai} \text{ si } n=1
+\end{align*}
+et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
+
+Écrivez la méthode statique Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \newline \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome.
+
+\begin{solution}[Java]
+\lstinputlisting[language=Java]{solutions/Palindrome.java}
+\end{solution}
+\begin{solution}[Python]
+    \lstinputlisting[language=Python]{solutions/palindrome.py}
+\end{solution}
+
+\end{Exercice}
+
+\section{Création de votre première classe en Java}
+
+Le but de cette première partie est de créer votre propre classe en Java. Cette classe, nommée \lstinline{Dog}, représentera un chien. Elle aura plusieurs attributs et méthodes que vous implémenterez au fur et à mesure.
+\\
+
+\begin{Exercice}[10 minutes] \textbf{Création de classe et encapsulation}\\
+    Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants:
+    \begin{enumerate}
+    \item Un attribut \lstinline{public} nommé \lstinline{name} de type chaîne de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{tricks} de type liste de chaînes de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{race} de type chaîne de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{age} de type entier
+    \item Un attribut \lstinline{private} nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien) de type entier
+    \item Un attribut de classe (\lstinline{static}) \lstinline{private} nommé \lstinline{nbChiens} de type entier qui stocke le nombre d'objets \lstinline{Dog} créés
+   	\end{enumerate}
+   	
+    Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances en affectant aux attributs les valeurs des paramètres suivants:
+
+   	\begin{enumerate}
+    \item Une chaîne de caractères \lstinline{name},
+    \item Une liste \lstinline{tricks},
+    \item Une chaîne de caractères \lstinline{race},
+    \item Un entier \lstinline{age}.
+   	\end{enumerate}
+   	
+    Pour finir, le constructeur doit incrémenter l'attribut de classe \lstinline{nbChiens}, qui garde en mémoire le nombre d'instances créées.
+   	
+\begin{conseil}
+    %Modifier le conseil
+    % Pour revoir les notions de base du langage Java, n'hésitez pas à consulter le guide de démarrage en Java sur Moodle:
+	% \url{https://moodle.unil.ch/mod/folder/view.php?id=1761756}.
+
+   Pour cet exercice, n'oubliez pas de préciser si vos attributs sont \lstinline{public} ou \lstinline{private}.
+   
+   Le mot \lstinline{static} correspond à un élément de classe (attribut ou méthode), cet élément pourra ensuite être appelé via la classe directement.
+   
+   Pour attribuer des valeurs à vos attributs d'instance, utilisez le mot-clé \lstinline{this.attribut}.
+   
+   Pour accéder aux attributs de classe, utilisez \lstinline{nomClasse.nomAttribut}.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Dog.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Getters et setters}\\
+    Il faut maintenant créer des méthodes de type getter et setter afin d'interagir avec les attributs \lstinline{private} des instances de la classe. 
+    Les \lstinline{getters} renverront les attributs souhaités tandis que les setters les modifieront.
+    Les setters sont utilisés pour modifier la valeur d'attributs privés et ne renvoient rien.
+    \begin{conseil}
+        Exemple de \lstinline{getters} et de \lstinline{setters}:
+        \lstinputlisting[language=Java]{code/Example.java}
+    \end{conseil} 
+
+    Vous pouvez directement accéder à des attributs publics en utilisant \lstinline{nomInstance.attribut} à l'intérieur ou à l'extérieur de la classe. 
+    Cependant, comme la plupart des attributs de \lstinline{Dog} sont privés, utilisez les getters et les setters pour les consulter et les modifier depuis une autre classe. \\
+    
+    Créez les méthodes avec les en-têtes suivantes:
+    \begin{itemize}
+    \item \lstinline{public List<String> getTricks()}
+    \item \lstinline{public String getRace()}
+    \item \lstinline{public int getAge()}
+    \item \lstinline{public int getMood()}
+    \item \lstinline{public void setTricks(List<String> tricks)}
+    \item \lstinline{public void setRace(String race)}
+    \item \lstinline{public void setAge(int age)}
+    \item \lstinline{public void setMood(int mood)}
+    \end{itemize}
+    
+    Créez également la méthode de classe \lstinline{public static int getNbChiens()}, qui retourne le nombre de \lstinline{Dog} instanciés.
+   	
+\begin{conseil}
+    Intellij vous permet de générer automatiquement certaines méthodes telles que les getters et setters. Vous pouvez consulter le lien suivant pour plus d'informations: \url{https://www.jetbrains.com/help/idea/generating-code.html\#generate-delegation-methods}.
+    \\
+    Toutefois, pour cet exercice, nous vous encourageons à le faire manuellement.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Question4.java}
+\end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs — Listes}\\
+    Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
+   	
+\begin{conseil}
+  Les listes créées avec \lstinline[language=Java]{List.of(...)} ne sont pas modifiables. Pour ajouter un \lstinline{trick}, créez une copie modifiable de \lstinline{tricks}, par exemple une \lstinline[language=Java]{LinkedList<String>} (ou une \lstinline[language=Java]{ArrayList<String>}), ajoutez-y le nouveau \texttt{trick}, puis affectez cette copie à \lstinline[language=Java]{this.tricks}.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Question5.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs}\\
+    Créez deux méthodes publiques permettant de modifier l'attribut \lstinline{mood} d'un objet \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Question6.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Manipulation d'attributs d'une autre instance}\\
+    Créez une méthode nommée \lstinline{getOldest(Dog other)} qui prend comme argument un élément de type \lstinline{Dog}, puis retourne le nom et l'âge du chien le plus âgé au format suivant: ``\lstinline{nomChien} est le chien le plus âgé : il a \lstinline{ageChien} ans''. Vous pouvez supposer que les deux chiens ont des âges différents. \\
+   	
+\begin{conseil}
+   L'élément \lstinline{other} est un objet de type \lstinline{Dog}: vous pouvez donc appeler les méthodes définies précédemment pour consulter ses attributs.
+\end{conseil}
+    
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Question7.java}
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes}\\
+    Redéfinissez la méthode \lstinline{public String toString()} afin qu'elle retourne une chaîne de caractères contenant toutes les informations d'une instance de \lstinline{Dog}. Ainsi, dans votre \lstinline{main}, en affichant sur la console une instance de \lstinline{Dog}, vous obtiendrez un texte au format suivant:
+    ``\lstinline{nomChien} a \lstinline{ageChien} ans, est un \lstinline{raceChien} et a une humeur de \lstinline{moodChien}. Il sait faire les tours suivants : \lstinline{tricksChien}''.
+
+    \begin{conseil}
+        La méthode \lstinline{toString()} permet d'obtenir une représentation textuelle d'un objet. Elle est définie par défaut pour tout objet. Pour la redéfinir, on utilise le mot-clé \lstinline{@Override} avant la méthode.
+    \end{conseil}
+
+    \begin{solution}
+        \lstinputlisting[language=Java]{solutions/Question8.java}
+    \end{solution}
+\end{Exercice}
+Pour contrôler que vos méthodes et attributs ont été implémentés correctement, exécutez le programme suivant:
+	\lstinputlisting[language=Java]{code/Question8.java}
+	
+Vous devriez obtenir ce résultat :
+    \lstinputlisting{text/question8_output.txt}
+
+
+\section{Notions de Programmation Orientée Objet en Python}
+\label{sec:notions_python}
+Dans cette section, nous créerons pas à pas une classe \lstinline{Point} contenant des attributs et des méthodes utiles.
+Dans votre IDE, créez un nouveau projet Python (Fichier $>$ Nouveau $>$ Projet). Dans un dossier de votre choix, créez un fichier \lstinline{question9.py}.\\
+\begin{Exercice}[15 minutes] \textbf{Classe \texttt{Point}}
+    \begin{itemize}
+        \item Créez une classe \lstinline{Point} et définissez un constructeur prenant deux paramètres, \lstinline{x} et \lstinline{y}.
+        \begin{conseil}
+            Pour rappel, un constructeur est une fonction \lstinline{__init__(self, ...)} que vous redéfinirez dans votre classe.
+        \end{conseil}
+        \item Définissez deux attributs privés pour votre classe \lstinline{Point}. Ces attributs seront les coordonnées x et y de vos points. Par défaut, assignez-leur les valeurs données dans le constructeur.
+        \begin{conseil}
+            À l'intérieur d'une classe, utilisez le mot-clé \lstinline{self} pour accéder aux méthodes et attributs de l'instance que vous manipulez.
+            En Python, pour spécifier qu'un attribut est privé, ajoutez deux traits de soulignement au nom de l'attribut (exemple: \lstinline{__score=0}).
+        \end{conseil}
+        \item Définissez les getters et les setters.
+        \begin{conseil}
+            En Python, le mot-clé \lstinline{self} est l'équivalent de \lstinline{this} utilisé en Java.
+        \end{conseil}
+        \item Définissez une méthode \lstinline{distance} qui prend en entrée l'instance du \lstinline{Point} (\lstinline{self}) et un autre \lstinline{Point} \lstinline{p2}. Cette méthode \lstinline{distance} retournera la distance euclidienne entre le point \lstinline{self} et \lstinline{p2}. 
+        \begin{conseil}
+            Pour rappel, la distance euclidienne entre deux points est définie par la formule $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$.
+            Utilisez la fonction \lstinline{sqrt()} de la bibliothèque \lstinline{math} pour calculer la racine carrée. Pensez à importer la bibliothèque \lstinline{math}.
+        \end{conseil}
+        \item Définissez une méthode \lstinline{milieu} qui prendra en entrée \lstinline{self} et \lstinline{p2} et qui retournera un objet \lstinline{Point} situé exactement à mi-chemin entre ces deux points.
+        \begin{conseil}
+            Pour trouver les coordonnées d'un point M($x_M$, $y_M$) situé au milieu du segment défini par des points A($x_A$, $y_A$) et B($x_B, y_B$),
+            utilisez les formules suivantes:
+            $x_M = \frac{x_A + x_B}{2}$ et $y_M = \frac{y_A + y_B}{2}$
+        \end{conseil}
+        \item Redéfinissez la méthode \lstinline{__str__()} dans la classe \lstinline{Point} afin qu'elle retourne ses coordonnées. Par exemple, pour un point de coordonnées $(3,2)$, la chaîne retournée sera:
+        \textit{Les coordonnées du Point sont: x = 3 et y = 2}
+    \end{itemize}
+\end{Exercice}
+\begin{solution}
+    \lstinputlisting[language=Python]{solutions/question9.py}
+\end{solution}
+
+\section{Notions d'héritage en Java}
+
+Le but de cette partie est de mettre en pratique les notions liées à l'héritage. 
+Nous allons créer une classe \lstinline{Livre} qui représentera notre classe-mère. Nous allons également créer deux classes filles, \lstinline{LivreAudio} et \lstinline{LivreIllustre}. Les classes filles hériteront des attributs et méthodes de la classe-mère. \\
+
+\begin{Exercice}[20 minutes] \textbf{Création des différentes classes}\\
+Créez la classe-mère \lstinline{Livre} avec les caractéristiques suivantes:
+\begin{itemize}
+	\item un attribut \lstinline{private} nommé \lstinline{titre} de type chaîne de caractères,
+	\item un attribut \lstinline{private} nommé \lstinline{auteur} de type chaîne de caractères,
+	\item un attribut \lstinline{private} nommé \lstinline{annee} de type entier,
+	\item un attribut \lstinline{private} nommé \lstinline{note} initialisé à \lstinline{-1},
+	\item le constructeur \lstinline{public Livre(String titre, String auteur, int annee)},
+	\item une méthode \lstinline{public void setNote(int note)} qui permet de définir l'attribut \lstinline{note},
+	\item une méthode \lstinline{public int getNote()} qui permet de retourner l'attribut \lstinline{note},
+	\item une méthode \lstinline{public String toString()} qui retournera le titre, l'auteur, l'année et la note d'un ouvrage (redéfinir cette méthode permettra d'afficher un objet \lstinline{Livre} en utilisant \lstinline{System.out.println()}). \\
+\end{itemize}
+
+Attention, si la \lstinline{note} n'a pas été modifiée et qu'elle vaut toujours \lstinline{-1}, affichez \texttt{Note: pas encore attribuée} au lieu de \texttt{Note: \{note\}} via la méthode \lstinline{toString()}. \\
+
+Créez les classes filles avec les caractéristiques suivantes:\\
+\lstinline{class LivreAudio extends Livre}
+\begin{itemize}
+	\item un attribut \lstinline{private String} nommé \lstinline{narrateur},
+	\item le constructeur \lstinline{public LivreAudio(String titre, String auteur, int annee, String narrateur)}, qui initialise les attributs hérités et l'attribut \lstinline{narrateur}.
+\end{itemize}
+\lstinline{class LivreIllustre extends Livre}
+\begin{itemize}
+	\item un attribut \lstinline{private String} nommé \lstinline{illustrateur},
+	\item le constructeur \lstinline{public LivreIllustre(String titre, String auteur, int annee, String illustrateur)}, qui initialise les attributs hérités et l'attribut \lstinline{illustrateur}.
+\end{itemize}
+Voici le squelette du programme à compléter:
+\begin{lstlisting}
+class Livre {
+	
+}
+class LivreAudio extends Livre {
+	
+}
+class LivreIllustre extends Livre {
+	
+}\end{lstlisting}
+\begin{conseil}
+    \begin{itemize}
+        \item En Java, lors de la déclaration d'une classe, le mot-clé \lstinline{extends} permet d'indiquer qu'il s'agit d'une classe fille de la classe indiquée. 
+        Pour initialiser la partie héritée d'un objet, appelez le constructeur de la classe-mère avec \lstinline{super(attributMere1, attributMere2, attributMere3, etc.);}.
+        \item Dans ces exercices, placez l'appel au constructeur de la classe mère \lstinline{super(...)} au début du constructeur de la classe fille. Depuis Java 25, certaines instructions, comme la validation des paramètres, peuvent toutefois précéder cet appel.
+        \item Vous pouvez vous servir de \lstinline{'\\n'} dans une chaîne de caractères pour effectuer un retour à la ligne lors de l'affichage d'une chaîne de caractères.
+    \end{itemize}
+\end{conseil}
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Livre.java}
+\end{solution}
+\begin{solution}
+    \lstinputlisting[language=Java]{solutions/question10/LivreAudio.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/question10/LivreIllustre.java}
+\end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Méthode et héritage} \\
+Maintenant que vous avez créé la classe-mère et ses classes filles, procédez comme suit:
+\begin{enumerate}
+    \item Dans la classe \lstinline{LivreAudio}, redéfinissez la méthode \lstinline{toString()} afin qu'elle retourne les informations définies dans la classe \lstinline{Livre}, suivies de la valeur de l'attribut \lstinline{narrateur}.
+    \item Faites de même dans la classe \lstinline{LivreIllustre} afin d'ajouter la valeur de l'attribut \lstinline{illustrateur}.
+    \item Dans la méthode \lstinline{main}, déclarez une variable de type \lstinline{Livre} et initialisez-la avec une instance de \lstinline{LivreAudio}. Utilisez les valeurs suivantes: titre \texttt{Hamlet}, auteur \texttt{Shakespeare}, année \lstinline{1609} et narrateur \texttt{William}.
+    \item Attribuez la note \lstinline{5} à ce livre à l'aide de la méthode setter définie précédemment.
+    \item Déclarez une deuxième variable de type \lstinline{Livre} et initialisez-la avec une instance de \lstinline{LivreIllustre}. Utilisez les valeurs suivantes: titre \texttt{Les Misérables}, auteur \texttt{Victor Hugo}, année \lstinline{1862} et illustrateur \texttt{Gustave Brion}. Ne lui attribuez aucune note afin de vérifier le comportement prévu pour la valeur \lstinline{-1}.
+    \item Affichez les informations des deux livres.
+\end{enumerate}
+\begin{conseil}
+Réfléchissez à la différence entre le type d'une variable et le type de l'objet qu'elle référence. Pour réutiliser le comportement de la classe parente dans une méthode redéfinie, pensez au mot-clé \lstinline{super}.
+\end{conseil}
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/question11/LivreAudio.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/question11/LivreIllustre.java}
+\end{solution}
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Question11.java}
+\end{solution}
+\end{Exercice}
+
+Lorsque toutes les étapes auront été effectuées, exécutez le programme suivant:
+\lstinputlisting[language=Java]{code/Question11.java}
+Vous devriez obtenir:
+\lstinputlisting[language=TeX]{text/question11_output.txt}
+    
+\end{document}

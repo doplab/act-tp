@@ -1,0 +1,8 @@
+10
+5
+Bouvier
+Lola
+[rollover]
+2
+Tobi est le chien le plus âgé : il a 17 ans
+lola a 13 ans, est un Bouvier et a une humeur de 10. Il sait faire les tours suivants : [rollover, do a barrel, sit]
