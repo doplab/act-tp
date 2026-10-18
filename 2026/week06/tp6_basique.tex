@@ -69,7 +69,7 @@ Le cas de base (une chaîne $a$ d'un seul caractère) est:
 \end{align*}
 et le cas de base d'une chaîne vide: $f(\texttt{""}) = \text{vrai}$.\\
 
-Écrivez la méthode Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
+Écrivez la méthode statique Java \textbf{\texttt{isPalindrome(String text)}} et la fonction Python \textbf{\texttt{isPalindrome(text)}} qui renvoient la valeur booléenne vraie si \texttt{text} est un palindrome: \texttt{true} en Java et \texttt{True} en Python.
 
 \begin{solution}[Java]
 \lstinputlisting[language=Java]{solutions/Palindrome.java}
@@ -89,14 +89,15 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
     Commencez par créer une nouvelle classe \lstinline{Dog} dans votre projet. Ensuite, créez les attributs suivants :
     \begin{enumerate}
     \item Un attribut \lstinline{public} nommé \lstinline{name} de type chaîne de caractères
-    \item Un attribut \lstinline{private} nommé \lstinline{tricks} de type liste des chaînes de caractères
+    \item Un attribut \lstinline{private} nommé \lstinline{tricks} de type liste de chaînes de caractères
     \item Un attribut \lstinline{private} nommé \lstinline{race} de type chaîne de caractères
     \item Un attribut \lstinline{private} nommé \lstinline{age} de type entier
     \item Un attribut \lstinline{private} nommé \lstinline{mood} initialisé à 5 (correspondant à l'humeur du chien) de type entier
     \item Un attribut de classe (\lstinline{static}) \lstinline{private} nommé \lstinline{nbChiens} de type entier qui stocke le nombre d'objets \lstinline{Dog} créés
    	\end{enumerate}
    	
-    Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances. Le constructeur prendra les paramètres suivants:
+    Déclarez le constructeur public de la classe \lstinline{Dog}. En Java, un constructeur porte le même nom que la classe et ne possède aucun type de retour. Il sert à initialiser les nouvelles instances en affectant aux attributs les valeurs des paramètres suivants:
+
    	\begin{enumerate}
     \item Une chaîne de caractères \lstinline{name},
     \item Une liste \lstinline{tricks},
@@ -164,7 +165,7 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{Exercice}
 
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs - Listes\\
+\begin{Exercice}[5 minutes] Manipulation d'attributs — Listes\\
     Créez une méthode publique nommée \lstinline{addTrick(String trick)} qui prend en entrée une chaîne de caractères et l'ajoute à la liste \lstinline{tricks}. \\
    	
 \begin{conseil}
@@ -176,8 +177,8 @@ Le but de cette première partie est de créer votre propre classe en Java. Cett
 \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[5 minutes] Manipulation d'attributs - \lstinline{setter}\\
-    Créez deux méthodes permettant de modifier l'attribut \lstinline{mood} de l'objet \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
+\begin{Exercice}[5 minutes] Manipulation d'attributs\\
+    Créez deux méthodes publiques permettant de modifier l'attribut \lstinline{mood} d'un objet \lstinline{Dog}. La méthode \lstinline{leash()} décrémentera \lstinline{mood} de 1 et \lstinline{eat()} l'incrémentera de 3. \\
 
 \begin{solution}
 	\lstinputlisting[language=Java]{solutions/Question6.java}
