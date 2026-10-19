@@ -61,7 +61,7 @@ Levez une exception si le dénominateur est 0.
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes}\\
-		Redéfinissez la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
+		Redéfinissez la méthode \lstinline[language=Python]|__eq__(self, other)| pour comparer deux fractions. La méthode doit renvoyer \lstinline|True| si elles représentent le même nombre et \lstinline|False| sinon.
 	\begin{conseil}
 			Pour vérifier l'égalité entre $a/b$ et $c/d$, testez que $a*d$ est égal à $b*c$. \\
 		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
@@ -226,7 +226,7 @@ Vous devriez obtenir:
     Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la troisième dimension comme attribut, effectuez les opérations ci-dessous:
     
     \begin{itemize}
-        \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
+        \item Définissez une méthode qui renvoie les trois coordonnées du point dans une liste.
         \item Recalculez la distance euclidienne et le milieu pour le point 3D.
         \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calcul de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
     \end{itemize}
