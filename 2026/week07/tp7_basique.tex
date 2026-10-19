@@ -187,7 +187,7 @@ Pensez à utiliser le \lstinline{constructeur} de votre classe-mère \lstinline{
 
 \end{Exercice}
 
-\begin{Exercice}[10 minutes] Méthode \lstinline{attack} de la classe-fille \lstinline{Attaquant} \\
+\begin{Exercice}[10 minutes] \textbf{Méthode \lstinline{attack}} \\
 
 Réécrivez la méthode \lstinline{attack} de la classe-fille \lstinline{Attaquant} afin d'effectuer plusieurs attaques sur \lstinline{other} en fonction de l'attribut \lstinline{multiplicateur}. \\
 
@@ -219,8 +219,9 @@ Vous devriez obtenir:
 \section{Notions d'héritage en Python}
 \begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
 
-    La semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
-    Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez-les par des attributs protégés.
+    La semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point en deux dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment. \\
+    
+	Avant de commencer, rendez les attributs de la classe \lstinline{Point} protégés plutôt que privés afin qu'ils soient accessibles sans getters ou setters. \\
     
     Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la troisième dimension comme attribut, effectuez les opérations ci-dessous:
     
