@@ -10,9 +10,11 @@
 \titre
 \cours{Programmation orientée objet: Héritage et Polymorphisme}
 
-Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Nous commencerons par un rappel des notions de surcharge d'opérateurs avant d'introduire des exercices sur l'héritage et le polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. Le langage utilisé est indiqué pour chaque exercice.
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Nous commencerons par un rappel des notions de surcharge d'opérateurs avant d'introduire des exercices sur l'héritage et le polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. Le langage utilisé est indiqué pour chaque exercice. \\
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. \\
+
+Les durées indiquées (\faClock) sont données à titre indicatif.
 
 \section{Rappel: Surcharge des opérateurs en Python}
 Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
@@ -63,9 +65,8 @@ Levez une exception si le dénominateur est 0.
 \begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes}\\
 		Redéfinissez la méthode \lstinline[language=Python]|__eq__(self, other)| pour comparer deux fractions. La méthode doit renvoyer \lstinline|True| si elles représentent le même nombre et \lstinline|False| sinon.
 	\begin{conseil}
-			Pour vérifier l'égalité entre $a/b$ et $c/d$, testez que $a*d$ est égal à $b*c$. \\
-		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
-		\\La fonction \lstinline{isinstance} prend en entrée une valeur et un type. Elle vérifie que cette valeur est du type défini. Par exemple: \lstinline{isinstance(nombre, int)} renverra \lstinline{True} si la variable \lstinline{nombre} est de type \lstinline{int} et \lstinline{False} dans le cas contraire.
+		Deux fractions \(a/b\) et \(c/d\) sont égales lorsque \(a\times d=b\times c\). Utilisez isinstance(other, Fraction) pour vérifier le type de other.
+		Utilisez la fonction \lstinline{isinstance(other, type)} afin de vérifier que \lstinline{other} est de type \lstinline{Fraction}, et affichez un message d'erreur dans le cas contraire.
 	\end{conseil}
 \end{Exercice}
 
