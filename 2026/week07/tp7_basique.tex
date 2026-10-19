@@ -24,37 +24,37 @@ Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous fer
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Constructeur par défaut} \\
-Définir un constructeur à votre classe. Assignez des valeurs par défaut à vos attributs. \\
+Définissez un constructeur pour votre classe. Assignez des valeurs par défaut à vos attributs. \\
 Si un seul argument est passé à votre constructeur, la fraction devra être égale à l'entier correspondant.\\
 Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 
     \begin{conseil}
-		Les valeurs par défaut seront assignées à votre objet au cas où il est instancié sans valeurs. Ainsi en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant pour valeurs un numérateur à 0 et un dénominateur à 1 soit $\frac{0}{1}$.\\
+			Les valeurs par défaut seront assignées à votre objet s'il est instancié sans arguments. Ainsi, en faisant \lstinline{f = Fraction()}, on obtiendra un objet \lstinline{Fraction} ayant un numérateur égal à 0 et un dénominateur égal à 1, soit $\frac{0}{1}$.\\
 		En Python, vous pouvez donner des valeurs par défaut aux arguments de vos méthodes lors de leur définition. Par exemple, vous pouvez faire: 
 			\lstinline{def add(self, x=10, y=5):...}
     \end{conseil}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Type casting}\\
-	Convertir les attributs en entier.
+		Convertissez les valeurs des attributs en entiers.
 	\begin{conseil}
 		Pensez à utiliser la fonction \lstinline{int}.
 	\end{conseil}
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes} \\
-	Redéfinir la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
+		Redéfinissez la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
 	\begin{conseil}
-		Une fois la méthode \lstinline{__str__()} redéfinie, lorsqu'on fera un \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, il affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. \lstinline{Numérateur} et \lstinline{dénominateur} étant les valeurs que vous passerez à votre objet \lstinline{Fraction}.
+			Une fois la méthode \lstinline{__str__()} redéfinie, lorsqu'on appellera \lstinline{print()} sur une instance de votre classe \lstinline{Fraction}, cet appel affichera le message suivant: \textit{Votre fraction a pour valeur \lstinline{numérateur/dénominateur}}. Le numérateur et le dénominateur correspondent aux valeurs des attributs de votre objet \lstinline{Fraction}.
 	\end{conseil}
 \end{Exercice}
 
 \begin{Exercice} [5 minutes] \textbf{Accesseurs et mutateurs} \\
-	Créer des \lstinline{getters} et \lstinline{setters} pour chacun des attributs de votre classe \lstinline{Fraction}.
+		Créez des \lstinline{getters} et \lstinline{setters} pour chacun des attributs de votre classe \lstinline{Fraction}.
 \end{Exercice}
 
 \begin{Exercice} [10 minutes] \textbf{Simplification de fractions}\\
-	Définir une méthode \lstinline{simplification} qui réduit la \lstinline{Fraction}. Cette méthode ne renverra rien, elle modifiera simplement l'instance. Pour la suite des exercices, assurez-vous de toujours manipuler des fractions simplifiées. Pour ce faire, vous pouvez faire appel à votre méthode \lstinline{simplification} après chaque opération sur un objet de type \lstinline{Fraction}.
+		Définissez une méthode \lstinline{simplification} qui réduit la \lstinline{Fraction}. Cette méthode ne renverra rien, elle modifiera simplement l'instance. Pour la suite des exercices, assurez-vous de toujours manipuler des fractions simplifiées. Pour ce faire, vous pouvez faire appel à votre méthode \lstinline{simplification} après chaque opération sur un objet de type \lstinline{Fraction}.
 
 	\begin{conseil}
 		Afin de simplifier une fraction, vous devez diviser le numérateur et le dénominateur par leur plus grand diviseur commun. Pensez à utiliser la méthode \lstinline{math.gcd} pour trouver le plus grand diviseur commun entre deux nombres. Si le dénominateur d’une fraction est négatif, on peut changer le signe du numérateur et du dénominateur pour rendre le dénominateur positif.
@@ -62,17 +62,17 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes - \_\_eq\_\_}\\
-	Redéfinir la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
+		Redéfinissez la méthode d'instance \lstinline{__eq__} qui prend en entrée un objet \lstinline{Fraction} que vous nommerez \textit{other} (en plus de \lstinline{self}) et qui renvoie \lstinline{True} si \lstinline{self} et l'objet passé en argument ont la même valeur.
 	\begin{conseil}
-		Pour vérifier l'égalité entre $a/b$ et $c/d$, tester que $a*d$ est égal à $b*c$. \\
+			Pour vérifier l'égalité entre $a/b$ et $c/d$, testez que $a*d$ est égal à $b*c$. \\
 		Utilisez la méthode \lstinline{isinstance()} afin de vérifier que \textit{other} est bien de type \lstinline{Fraction}. Dans le cas contraire, affichez un message d'erreur.
 		\\La fonction \lstinline{isinstance} prend en entrée une valeur et un type. Elle vérifie que cette valeur est du type défini. Par exemple: \lstinline{isinstance(nombre, int)} renverra \lstinline{True} si la variable \lstinline{nombre} est de type \lstinline{int} et \lstinline{False} dans le cas contraire.
 	\end{conseil}
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
-	Redéfinir les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
-	Gérer le cas où l'élément passé en argument n'est ni une \lstinline{Fraction}, ni un \lstinline{int}.
+		Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
+		Gérez le cas où l'élément passé en argument n'est ni une \lstinline{Fraction} ni un \lstinline{int}.
 \end{Exercice}
 
 \begin{solution}
@@ -92,7 +92,7 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 Les exercices de cette section s'inspirent des exercices de la section 1 des exercices avancés de la semaine 6.
 N'hésitez pas à réutiliser les solutions disponibles sur Moodle.
 
-Dans cette partie, vous devez créer 2 nouvelles classe-filles de la classe-mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe représentera un Fighter spécialisé dans l'attaque \lstinline{Attaquant}, qui aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
+Dans cette partie, vous devez créer deux nouvelles classes filles de la classe-mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe, nommée \lstinline{Attaquant}, représentera un \lstinline{Fighter} spécialisé dans l'attaque et aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
 
 % Voici le squelette du code que vous trouverez également dans le dossier code sur Moodle : \\
 Avant d'effectuer la série de questions suivantes, téléchargez le fichier \lstinline{Fighter.java} disponible sur Moodle.\\
@@ -102,10 +102,10 @@ Avant d'effectuer la série de questions suivantes, téléchargez le fichier \ls
 \begin{Exercice}[5 minutes] classe-fille \lstinline{Soigneur} \\
 Créez une nouvelle classe-fille \lstinline{Soigneur} qui hérite de la classe \lstinline{Fighter}. Cette classe-fille aura un nouvel attribut privé nommé \lstinline{resurrection} qui vaudra 1 lors de l'instanciation de la classe. \\
 
-Créez le constructeur de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec le nouvel attribut (\lstinline{resurrection}). \\
+Créez le constructeur de cette classe ainsi que le \lstinline{getter} et le \lstinline{setter} permettant d'interagir avec le nouvel attribut (\lstinline{resurrection}). \\
 
 \begin{conseil}
-Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}
+Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}.
 \end{conseil}
 
 \begin{solution}
@@ -117,23 +117,23 @@ Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}
 \begin{Exercice}[15 minutes] Méthode \lstinline{resurrection(Fighter other)} de la classe-fille \lstinline{Soigneur} \\
 Créez une méthode \lstinline{resurrection(Fighter other)} qui permettra de faire revenir un \lstinline{Fighter} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
 
-Commencez par contrôler que l'instance depuis laquelle la méthode est appelée soit toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\ 
+Commencez par contrôler que l'instance depuis laquelle la méthode est appelée est toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\
 
-Contrôlez ensuite que l'instance \lstinline{other} soit vraiment morte. Si ce n'est pas le cas, indiquez le en affichant le texte suivant : ``\lstinline{nom_other} est toujours en vie.'' \\
+Contrôlez ensuite que l'instance \lstinline{other} est vraiment morte. Si ce n'est pas le cas, indiquez-le en affichant le texte suivant : ``\lstinline{nom_other} est toujours en vie.'' \\
 
-Pour finir, contrôlez que l'attribut \lstinline{resurrection} de l'instance depuis laquelle la méthode est appelée est égale à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
+Pour finir, contrôlez que l'attribut \lstinline{resurrection} de l'instance depuis laquelle la méthode est appelée est égal à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
 
 Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez aussi à:
 
 \begin{itemize}
-	\item Mettre l'attribut \lstinline{resurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
-	\item appeler la méthode \lstinline{checkHealth()}, et à indiquer : ``\lstinline{nom_other} est revenu à la vie !''
+	\item mettre l'attribut \lstinline{resurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
+	\item appeler la méthode \lstinline{checkHealth()} et indiquer : ``\lstinline{nom_other} est revenu à la vie !''
 \end{itemize}
 
 \begin{conseil}
 Utilisez un branchement conditionnel pour les contrôles. \\
 
-Une nouvelle méthode nommée \lstinline{addInstances(Fighter other)} a été créée dans la classe \lstinline{Fighter}. Regardez à quoi elle sert et utilisez la. \\
+Une nouvelle méthode nommée \lstinline{addInstances(Fighter other)} a été créée dans la classe \lstinline{Fighter}. Regardez à quoi elle sert et utilisez-la. \\
 
 Pour les indications en fonction des différentes conditions, affichez simplement la phrase en question. \\
 \end{conseil}
@@ -152,7 +152,7 @@ Le seul argument nécessaire pour cette méthode sera une autre instance de \lst
 
 Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, affichez : ``\lstinline{nom_instance} est mort et ne peut plus rien faire.''
 
-Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas indiquez-le : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il ait moins de 10 points de vie. Si ce n'est pas le cas, indiquez le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
+Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas, indiquez-le : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il a moins de 10 points de vie. Si ce n'est pas le cas, indiquez-le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
 
 Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de \lstinline{other}, puis appelez la méthode de classe \lstinline{checkHealth()}.
 
@@ -173,7 +173,7 @@ Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'ins
 
 Commencez par déclarer une nouvelle classe-fille \lstinline{Attaquant} héritant de la classe \lstinline{Fighter}. Cette classe-fille prendra un nouvel attribut privé nommé \lstinline{multiplicateur} de type \lstinline{int}, qui sera passé comme argument du \lstinline{constructeur} de la classe-fille. \\
 
-Déclarez le \lstinline{constructeur} de cette classe ainsi que les \lstinline{getter} et \lstinline{setter} permettant d'interagir avec ce nouvel attribut \lstinline{multiplicateur}. \\
+Déclarez le \lstinline{constructeur} de cette classe ainsi que le \lstinline{getter} et le \lstinline{setter} permettant d'interagir avec ce nouvel attribut \lstinline{multiplicateur}. \\
 
 \begin{conseil}
 Pensez à utiliser le \lstinline{constructeur} de votre classe-mère \lstinline{Fighter}.
@@ -205,7 +205,7 @@ Pour effectuer plusieurs attaques, vous pouvez utiliser une boucle allant de 0 �
 
 \end{Exercice}
 
-Si tout est correct, en utilisant ce \lstinline{main} : \\
+Pour vérifier votre programme, exécutez la méthode \lstinline{main} suivante : \\
 
 \lstinputlisting{code/FighterMain.java} 
 
@@ -214,18 +214,18 @@ Vous devriez obtenir:
 
 
 
-\section{Notions d'héritage - Python (15 minutes)}
+\section{Notions d'héritage en Python}
 \begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
 
-    Dans la semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
-    Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez les par des attributs protégés.
+    La semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point de 2~dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à 3 dimensions qui héritera de la classe \lstinline{Point} créée précédemment.
+    Avant de commencer, modifiez les attributs privés de la classe \lstinline{Point}. Remplacez-les par des attributs protégés.
     
-    Écrivez une classe qui hérite de \lstinline{Point}. Nommez la \lstinline{Point3D}. Après avoir rajouté la 3ème dimension comme attribut, effectuez les opérations ci-dessous:
+    Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la troisième dimension comme attribut, effectuez les opérations ci-dessous:
     
     \begin{itemize}
         \item Rajoutez une méthode qui renvoie une représentation vectorielle du point. Vous pouvez utiliser une liste.
         \item Recalculez la distance euclidienne et le milieu pour le point 3D.
-        \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calculs de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+        \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calcul de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
     \end{itemize}
 
     Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
@@ -235,7 +235,7 @@ Vous devriez obtenir:
         \begin{itemize}
             \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
             \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
-            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre un $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
+            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre les points $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
         \end{itemize}
     \end{conseil}
     \begin{solution}
