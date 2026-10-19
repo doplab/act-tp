@@ -14,7 +14,7 @@ Le but de cette séance est d'approfondir les notions de programmation orientée
 
 Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
 
-\section{Rappel: Surcharge des opérateurs - Python}
+\section{Rappel: Surcharge des opérateurs en Python}
 Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
 
 
@@ -71,20 +71,23 @@ Empêchez l'utilisateur d'assigner la valeur \lstinline{zéro} au dénominateur.
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
-		Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner.\\
-		Gérez le cas où l'élément passé en argument n'est ni une \lstinline{Fraction} ni un \lstinline{int}.
+		Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner. Gérez le cas où l'élément passé en argument n'est ni une \lstinline{Fraction} ni un \lstinline{int}.
 \end{Exercice}
 
 \begin{solution}
-	\lstinputlisting[language=python,lastline=50]{solutions/surcharge1.py}
+	\lstinputlisting[language=Python,lastline=20]{solutions/surcharge1.py}
 \end{solution}
 
 \begin{solution}
-	\lstinputlisting[language=python,firstline=51, firstnumber=51]{solutions/surcharge1.py}
+	\lstinputlisting[language=Python,firstline=21, firstnumber=21]{solutions/surcharge1.py}
 \end{solution}
 
 \begin{solution}
-	\lstinputlisting{solutions/surcharge2.py}
+	\lstinputlisting[language=Python,lastline=10]{solutions/surcharge2.py}
+\end{solution}
+
+\begin{solution}
+	\lstinputlisting[language=Python,firstline=11, firstnumber=11]{solutions/surcharge2.py}
 \end{solution}
 
 \section{Polymorphisme - Java}
@@ -239,7 +242,10 @@ Vous devriez obtenir:
         \end{itemize}
     \end{conseil}
     \begin{solution}
-    \lstinputlisting{solutions/Point3D.py} 
+    \lstinputlisting[language=Python, lastline = 22]{solutions/Point3D.py} 
+    \end{solution}
+	\begin{solution}
+    \lstinputlisting[language=Python, firstline = 23, firstnumber = 23]{solutions/Point3D.py} 
     \end{solution}
     \end{Exercice} 
 \end{document}
