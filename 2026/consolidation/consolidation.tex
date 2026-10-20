@@ -42,7 +42,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{enumerate}
     
         \begin{conseil}
-            N'oubliez pas qu'en Hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15.
+            Rappelez-vous qu'en hexadécimal, A vaut 10, B vaut 11, C vaut 12, D vaut 13, E vaut 14 et F vaut 15.
     \end{conseil}
 
     \begin{solution}
@@ -77,7 +77,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Von Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
 \textbf{État d'origine:}\\
-A l'origine, notre \lstinline{Process Counter (PC)} vaut \lstinline{00100001}.\\
+À l'origine, notre \lstinline{Process Counter (PC)} vaut \lstinline{00100001}.\\
 
 Dans la mémoire, les instructions sont les suivantes:
 
@@ -213,8 +213,8 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \begin{enumerate}
         \item Convertir 52$_{(10)}$ en base 2 sur 8 bits.
         \item Convertir 100$_{(10)}$ en base 2 sur 8 bits.
-        \item Calculer en base 2 la soustraction de 01100100$_{(2)}$ par 00110100$_{(2)}$.
-        \item Déterminer au complément à deux l'opposé (l'inverse additif) de 0110000$_{(2)}$.
+        \item Calculer en base 2 la soustraction: 01100100$_{(2)}$ - 00110100$_{(2)}$.
+        \item Déterminer, en complément à deux, l'opposé (l'inverse additif) de 0110000$_{(2)}$.
     \end{enumerate}
 \begin{conseil}
    % Un conseil
@@ -277,7 +277,7 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
     
  \end{Exercice}
 
- \begin{Exercice}[10 minutes]\textbf{Fonctions et Exceptions} (Python)\\
+ \begin{Exercice}[10 minutes]\textbf{Fonctions et exceptions} (Python)\\
     Écrivez une fonction \lstinline{check_name(name)} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
     Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
 
@@ -340,15 +340,15 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
     \end{solution}
 \end{Exercice}
 
-\begin{Exercice}[15 minutes]\textbf{Itération et Récursivité} \\
+\begin{Exercice}[15 minutes]\textbf{Itération et récursivité} \\
 Créez une fonction itérative, puis une fonction récursive qui calculent le nombre de voyelles présentes dans un texte donné. \\
 
 \begin{conseil}
     \begin{itemize}
         \item Pour la version itérative, parcourez toute la chaîne de caractères et incrémentez un compteur lorsque vous avez une voyelle.
         \item Pour la version récursive, diminuez systématiquement la taille de votre chaîne de caractères. Si l'élément actuel est une voyelle, ajoutez 1, sinon, ajoutez 0.
-        \item Aidez vous d'une liste contenant toutes les voyelles et de l'instruction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
-        \item En \lstinline{Python}, pour accéder à un caractère dans une chaîne de caractères, vous pouvez utiliser l'indexation (ex: \lstinline{chaine[0]} pour accéder au premier caractère de la chaîne de caractères \lstinline{chaine}). En \lstinline{Java}, vous pouvez utiliser la méthode \lstinline{charAt()} de la classe \lstinline{String} (ex: \lstinline{chaine.charAt(0)} pour accéder au premier caractère de la chaîne de caractères \lstinline{chaine}).
+        \item Aidez-vous d'une liste contenant toutes les voyelles et de l'instruction \lstinline{in} en \lstinline{Python} (\lstinline{List.contains()} en \lstinline{Java}).
+        \item En \lstinline{Python}, pour accéder à un caractère dans une chaîne de caractères, vous pouvez utiliser l'indexation (par exemple: \lstinline{chaine[0]} pour accéder au premier caractère de la chaîne de caractères \lstinline{chaine}). En \lstinline{Java}, vous pouvez utiliser la méthode \lstinline{charAt()} de la classe \lstinline{String} (par exemple: \lstinline{chaine.charAt(0)} pour accéder au premier caractère de la chaîne de caractères \lstinline{chaine}).
     \end{itemize}
 \end{conseil}
 
@@ -590,7 +590,7 @@ Qu'affichent les programmes suivants ? \\
 
 \end{Exercice}
 
-\begin{Exercice}[15 minutes] \textbf{Itération et Récursivité}:\\
+\begin{Exercice}[15 minutes] \textbf{Itération et récursivité}:\\
     Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de lignes et de colonnes. 
     Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant une condition. 
     \begin{conseil}
@@ -637,8 +637,8 @@ Qu'affichent les programmes suivants ? \\
         
         \lstinputlisting[language=java]{code/RolePlayMere.java}
     
-        \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (ex : l’attaque du guerrier dépendra de sa force, l’attaque du chasseur de son endurance etc..), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les points de vie (\lstinline{pv}) de l’autre personnage.
+        \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (par exemple: l'attaque du guerrier dépendra de sa force, l'attaque du chasseur de son endurance et ainsi de suite), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
+        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les points de vie (\lstinline{pv}) de l'autre personnage.
         
         \lstinputlisting[language=java]{code/RolePlayFilles.java}
     \end{itemize}
