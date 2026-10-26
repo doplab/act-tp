@@ -23,7 +23,7 @@
 
 Les exercices de cette série sont une compilation d'exercices semblables à ceux vus lors des semaines précédentes. Le but de cette séance est de consolider les connaissances acquises lors des travaux pratiques des semaines 1 à 6.\\
 
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. Les durées indiquées (\faClock) sont données à titre strictement indicatif.
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}. Les durées indiquées (\faClock) sont données à titre strictement indicatif.
 \\
 \begin{attention}
     Il n'est pas nécessaire de faire tous les exercices pendant la séance de TP. Privilégiez les exercices qui vous paraissent difficiles et posez des questions aux assistants.
@@ -124,7 +124,8 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \hline
     11 & SUB\\ [0.5ex]
     \hline
-\end{tabular}
+\end{tabular} \\ \\
+
 
 \begin{Exercice}[5 minutes]\textbf{Fetch}\\
     À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Program Counter} et de l'\lstinline{Instruction Register}?
@@ -194,7 +195,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
         \item \lstinline{more nano.txt}
         \item \lstinline{cd ..}
         \item \lstinline{pwd}
-        \item Aucune réponse n'est correcte.
+        \item Aucune de ces réponses n'est correcte.
     \end{enumerate}
     \begin{solution}
         La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
@@ -272,20 +273,18 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     \lstinputlisting{code/portee_variables.py}
 
     \begin{solution}
-            x=2 \\
-            x=3 \\
-            None
+        \lstinputlisting[language=texte,numbers=none]{solutions/portee_variables_output.txt}
     \end{solution}
 
     
  \end{Exercice}
 
  \begin{Exercice}[10 minutes] [Python] \textbf{Fonctions et exceptions}\\
-    Écrivez une fonction \lstinline{check_name(name)} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
-    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
+    Écrivez une fonction \lstinline{check_name(name)} qui prend comme paramètre \lstinline{name} et qui affiche \texttt{Bonjour \{name\}}.
+    Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou s'il s'agit d'une chaîne de caractères vide.
 
     \begin{conseil}
-        En Python, pour trouver le type d'une variable, on utilise la méthode \lstinline{type(variable)}.
+        En Python, \lstinline{type(variable)} permet de déterminer le type d'une variable.
     \end{conseil}
     
     \begin{solution}   
@@ -593,11 +592,19 @@ Qu'affichent les programmes suivants ? \\
 
 \end{Exercice}
 
-\begin{Exercice}[15 minutes] \textbf{Itération et récursivité}:\\
-    Créez un tableau en deux dimensions en utilisant les propriétés des boucles. Ce tableau doit être généré par l’utilisateur qui rentrera un nombre de lignes et de colonnes. 
-    Ensuite, faites en sorte de pouvoir sélectionner une case du tableau avec ses coordonnées en utilisant une condition. 
+\begin{Exercice}[15 minutes] \textbf{Itération et récursivité}\\
+    Demandez à l'utilisateur le nombre de lignes et de colonnes d'une grille, puis la ligne et la colonne d'une case à sélectionner (numérotées à partir de 1).
+    Avec des boucles imbriquées, affichez la grille bordée comme ci-dessous : chaque case contient \lstinline{-}, sauf la case sélectionnée qui contient \lstinline{X}.
+
+    Exemple pour 2 lignes, 3 colonnes et la case de ligne 1, colonne 2:
+    \begin{lstlisting}[language=texte,numbers=none]
+--------
+|- X - |
+|- - - |
+--------
+    \end{lstlisting}
     \begin{conseil}
-        Utilisez l'argument \lstinline{end} de la fonction \lstinline{print} de Python pour ne pas faire de passage à la ligne pour chaque caractère et utilisez les caractères “-” et “$|$” pour générer les lignes et les colonnes, respectivement.
+        Parcourez les lignes avec une boucle et les colonnes avec une autre. Une condition repère la case sélectionnée. Utilisez \lstinline[language=Python]|print(..., end="")| pour rester sur la même ligne et \lstinline[language=Python]|print()| pour passer à la suivante.
     \end{conseil}
 
     \begin{solution}
@@ -641,23 +648,26 @@ Qu'affichent les programmes suivants ? \\
         \lstinputlisting[language=java]{code/RolePlayMere.java}
     
         \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (par exemple: l'attaque du guerrier dépendra de sa force, l'attaque du chasseur de son endurance et ainsi de suite), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item \textbf{Attention :} Utiliser un ``setter'' pour réduire les points de vie (\lstinline{pv}) de l'autre personnage.
+        \item \textbf{Attention:} Utilisez un setter pour réduire les points de vie (\lstinline{pv}) de l'autre personnage.
         
         \lstinputlisting[language=java]{code/RolePlayFilles.java}
     \end{itemize}
     
     \begin{solution}
-        \lstinputlisting[language=java,lastline=50]{solutions/Personnage.java}
+        \lstinputlisting[language=java,lastline=55]{solutions/Personnage.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=51, firstnumber=51]{solutions/Personnage.java}
+        \lstinputlisting[language=java,firstline=56, firstnumber=56]{solutions/Personnage.java}
     \end{solution}
     
     \begin{solution}
-        \lstinputlisting[language=java,lastline=54]{solutions/Guerrier.java}
+        \lstinputlisting[language=java,lastline=19]{solutions/Guerrier.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=55, firstnumber=55]{solutions/Guerrier.java}
+        \lstinputlisting[language=java,firstline=20, firstnumber=20, lastline= 68]{solutions/Guerrier.java}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language=java,firstline=69, firstnumber=69]{solutions/Guerrier.java}
     \end{solution}
     \end{Exercice}
     
@@ -689,9 +699,10 @@ Dans une fonction, nous pouvons utiliser les instructions \lstinline{print()} ou
 \begin{solution}
     \textbf{Faux}\\
     \lstinline{print()} permet uniquement d'afficher un message dans la console. Autrement dit, \lstinline{print()} sert à communiquer un message à l'utilisateur final du programme, celui-ci n'ayant pas accès au code.\\\\
-    \lstinline{return} est une instruction qu'on utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L. Il est important de noter que dans une fonction, toutes les instructions définies après un \lstinline{return} ne seront pas exécutées.\\
-
+    \lstinline{return} est une instruction qu'on utilise à l'intérieur d'une fonction pour renvoyer le résultat de la fonction lorsqu'elle a été appelée. Exemple: la fonction \lstinline{len(L)} renvoie la longueur de la liste~L. Il est important de noter que dans une fonction, toutes les instructions définies après un \lstinline{return} ne seront pas exécutées. \\\\
     Admettons que nous ayons une fonction qui renvoie le double d'un nombre. Dans notre programme, nous souhaitons ajouter le résultat de cette fonction à un nombre quelconque.
+\end{solution}
+\begin{solution}
     En Python, notre programme ressemblera à ça:
     \lstinputlisting{code/double_nombre.py}
 
@@ -771,9 +782,10 @@ Les trois fonctions suivantes renvoient-elles systématiquement des résultats i
 \begin{minipage}{0.9\linewidth}
 \begin{lstlisting}[
     frame=single,
+    frameround=tttt,
     framesep=8pt,
     rulecolor=\color{black},
-    backgroundcolor=\color{gray!10},
+    backgroundcolor=\color{white},
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
@@ -800,9 +812,10 @@ print(nombre_decimal_pi(20))
 \begin{minipage}{1\linewidth}
 \begin{lstlisting}[
     frame=single,
+    frameround=tttt,
     framesep=8pt,
     rulecolor=\color{black},
-    backgroundcolor=\color{gray!10},
+    backgroundcolor=\color{white},
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
@@ -828,9 +841,10 @@ print(nombre_decimal_pi(20))
 
 \begin{lstlisting}[
     frame=single,
+    frameround=tttt,
     framesep=8pt,
     rulecolor=\color{black},
-    backgroundcolor=\color{gray!10},
+    backgroundcolor=\color{white},
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
@@ -925,9 +939,10 @@ Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure
 
 \begin{lstlisting}[
     frame=single,
+    frameround=tttt,
     framesep=8pt,
     rulecolor=\color{black},
-    backgroundcolor=\color{gray!10},
+    backgroundcolor=\color{white},
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
@@ -952,9 +967,10 @@ public class Main {
 
 \begin{lstlisting}[
     frame=single,
+    frameround=tttt,
     framesep=8pt,
     rulecolor=\color{black},
-    backgroundcolor=\color{gray!10},
+    backgroundcolor=\color{white},
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
