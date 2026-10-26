@@ -1,22 +1,20 @@
 # Question 8
-    def add(self, f):
-        self.__num = self.__num * f.__den + f.__num * self.__den
-        self.__den = self.__den * f.__den
-        self.simplification()
-
-    def plus(self, f):
-        q = Fraction(self.__num, self.__den)
-        q.add(f)
-        return q
-
     def __add__(self, other):
-        if isinstance(other, Fraction):
-            return self.plus(other)
-        elif isinstance(other, int):
-            self.add__ = self.__add__(Fraction(other))
-            return self.add__
-        else:
-            print("Unsupported operand types for +: '" + self.__class__.__name__ + "' and '" + other.__class__.__name__ + "'")
+    if isinstance(other, int):
+        other = Fraction(other)
+
+    if isinstance(other, Fraction):
+        result = Fraction(
+            self.__num * other.__den + other.__num * self.__den,
+            self.__den * other.__den
+        )
+        result.simplification()
+        return result
+
+    print(
+        f"Unsupported operand types for +: "
+        f"'{self.__class__.__name__}' and '{other.__class__.__name__}'"
+    )
 
     def __mul__(self, other):
         if isinstance(other, Fraction):
@@ -32,8 +30,6 @@ if __name__ == '__main__':
     print(f1)
     f1 = Fraction(4)
     print(f1)
-    f1=Fraction(numerateur=5, denominateur=0)
-    print(f1)
     f1 = Fraction(denominateur=5)
     print(f1)
     f1 = Fraction(4, -6)
@@ -43,3 +39,5 @@ if __name__ == '__main__':
     print(f1+f2)
     print(f1 == Fraction(22, -24))
     print(f1 == Fraction(1, 2))
+    f1=Fraction(numerateur=5, denominateur=0)
+    print(f1)

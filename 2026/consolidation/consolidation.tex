@@ -1,4 +1,5 @@
 \input{../header.tex}
+\setlist[itemize]{label=\textbullet}
 \usepackage{array}
 \usepackage{blindtext}
 \usepackage{multicol}
@@ -74,10 +75,10 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 
 \subsection{Modèle de Von Neumann}
-Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Von Neumann}, il va vous être demandé à chaque étape (FDES) de donner la valeur des registres.\\
+Dans cette section, nous allons simuler une opération d'addition dans le \textbf{modèle de Von Neumann}, il sera demandé à chaque étape (FDES) de donner la valeur des registres.\\
 
 \textbf{État d'origine:}\\
-À l'origine, notre \lstinline{Process Counter (PC)} vaut \lstinline{00100001}.\\
+À l'origine, notre \lstinline{Program Counter (PC)} vaut \lstinline{00100001}.\\
 
 Dans la mémoire, les instructions sont les suivantes:
 
@@ -124,14 +125,12 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     11 & SUB\\ [0.5ex]
     \hline
 \end{tabular}
-\\\\
-
 
 \begin{Exercice}[5 minutes]\textbf{Fetch}\\
-    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Process Counter} et de l'\lstinline{Instruction Register}?
+    À la fin de l'opération \lstinline{FETCH}, quelles sont les valeurs du \lstinline{Program Counter} et de l'\lstinline{Instruction Register}?
 \end{Exercice}
    \begin{conseil}
-    Pour rappel, l’unité de contrôle (Control Unit) commande et contrôle le fonctionnement du système. Elle est chargée du séquençage des opérations. Après chaque opération FETCH, la valeur du Program Counter est incrémentée (valeur initiale + 1).
+    Pour rappel, l'unité de contrôle (Control Unit) commande et contrôle le fonctionnement du système. Elle est chargée du séquençage des opérations. Après chaque opération FETCH, la valeur du Program Counter est incrémentée (valeur initiale + 1).
     \end{conseil}
 \begin{solution}
     PC = 00100001$_{(2)}$ + 1 = 00100010$_{(2)}$\\
@@ -141,7 +140,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{Exercice}[5 minutes] \textbf{Decode}
     \begin{enumerate}
         \item Quelle est la valeur de l'opération à exécuter?
-        \item Quelle est l'adresse du registre dans lequel le résultat doit être enregistré?
+        \item Quelle est le numéro du registre dans lequel le résultat doit être enregistré?
         \item Quelle est la valeur du premier nombre de l'opération?
         \item Quelle est la valeur du deuxième nombre de l'opération?
     \end{enumerate}
@@ -178,7 +177,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \section{Logiciels système}
 
 \begin{Exercice}[10 minutes]
-    En utilisant l’invite de commandes (Terminal), créer un programme Python demandant à l’utilisateur d’entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s’afficher : \textit{``Bonjour, je m’appelle *prénom nom*''}.
+    En utilisant l'invite de commandes (Terminal), créer un programme Python demandant à l'utilisateur d'entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s'afficher : \textit{``Bonjour, je m'appelle *prénom nom*''}.
 \end{Exercice}
 
 \begin{solution}
@@ -219,20 +218,23 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \begin{conseil}
    % Un conseil
    \begin{itemize}
-        \item Se référer aux techniques apprises pendant les semaines 1 et 3.
+        \item Se référer aux techniques des semaines 1 et 3.
        \item Faire un tableau des puissances de 2 sur 8 bits.
    \end{itemize}
 \end{conseil}
     
 \begin{solution}
-\begin{itemize}
+\begin{enumerate}
     \item 52$_{(10)}$ = 32$_{(10)}$ + 16$_{(10)}$ + 4$_{(10)}$ = 00110100$_{(2)}$
     \item 100$_{(10)}$ = 64$_{(10)}$ + 32$_{(10)}$ + 4$_{(10)}$ = 01100100$_{(2)}$
     \item 01100100$_{(2)}$ - 00110100$_{(2)}$ = 00110000$_{(2)}$
-    \item \textbf{Complément à 1:} not(0110000$_{(2)}$) = 1001111$_{(2)}$ 
-    \item \textbf{Complément à 2:} Complément à 1 + 1 = 1001111$_{(2)}$ + 1$_{(2)}$ = 1010000$_{(2)}$
+    \item 
+        \begin{enumerate} 
+            \item \textbf{Complément à 1:} not(0110000$_{(2)}$) = 1001111$_{(2)}$ 
+            \item \textbf{Complément à 2:} Complément à 1 + 1 = 1001111$_{(2)}$ + 1$_{(2)}$ = 1010000$_{(2)}$
+        \end{enumerate}
     %\lstinputlisting{solutions/fichier.java}
-\end{itemize}   
+\end{enumerate}   
 \end{solution}
 
 \end{Exercice}
@@ -248,12 +250,13 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \end{Exercice}
 
 \begin{Exercice}[5 minutes]
-    À partir du dictionnaire suivant :
+    À partir du dictionnaire suivant:
     \begin{lstlisting}
-jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi"} \end{lstlisting}
+    jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"samedi"} 
+    \end{lstlisting}
 
-    Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez le couple clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
-    À l'aide d'une écriture en compréhension, créez une liste contenant les valeurs associées aux clés qui sont des nombres pairs.
+    Remplacez la valeur associée au nombre 5 par ``vendredi''. Ajoutez la paire clé-valeur \lstinline{7 : "dimanche"}. Affichez la valeur associée à la clé 3.
+    Créez une liste, en compréhension, contenant les valeurs associées aux clés qui sont des nombres pairs.
 
     \begin{solution}
         \lstinputlisting{solutions/dictionary.py}
@@ -263,7 +266,7 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
 
 % Week 4
 \section{Fonctions, mémoire et exceptions}
-\begin{Exercice}[5 minutes] \textbf{Portée des variables} (Python)\\
+\begin{Exercice}[5 minutes] [Python] \textbf{Portée des variables}\\
     Qu'affiche le programme suivant? \\
 
     \lstinputlisting{code/portee_variables.py}
@@ -277,7 +280,7 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
     
  \end{Exercice}
 
- \begin{Exercice}[10 minutes]\textbf{Fonctions et exceptions} (Python)\\
+ \begin{Exercice}[10 minutes] [Python] \textbf{Fonctions et exceptions}\\
     Écrivez une fonction \lstinline{check_name(name)} qui prend en argument le paramètre \lstinline{name} et qui affiche dans la console ``\textit{Bonjour suivi du nom passé en paramètre}''.
     Levez une exception de type \lstinline{ValueError} si le paramètre n'est pas de type \lstinline{str} ou si c'est une chaîne de caractères vide.
 
@@ -292,7 +295,7 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
     
     \end{Exercice}
 
-\begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions} (Java)\\
+\begin{Exercice}[5 minutes] [Java] \textbf{Gestion d'exceptions}\\
 
     En Java, quel mot-clé est utilisé pour lever une exception?
 
@@ -310,7 +313,7 @@ jours_semaine = {1:"lundi", 2:"mardi", 3:"mercredi", 4:"jeudi", 5:"jeudi", 6:"sa
         
  \end{Exercice}
 
- \begin{Exercice}[5 minutes]\textbf{Gestion d'exceptions} (Java)\\
+ \begin{Exercice}[5 minutes] [Java] \textbf{Gestion d'exceptions}\\
     Qu'affiche le programme suivant ?
     \lstinputlisting{code/Question14.java}
         

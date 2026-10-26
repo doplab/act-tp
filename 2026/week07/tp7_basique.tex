@@ -1,4 +1,5 @@
 \input{../header.tex}
+\setlist[itemize]{label=\textbullet}
 \usepackage{array}
 \usepackage[T1]{fontenc}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -28,7 +29,7 @@ Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous fer
 \begin{Exercice}[5 minutes] \textbf{Constructeur et valeurs par défaut} \\
 Définissez un constructeur acceptant un numérateur et un dénominateur, dont les valeurs par défaut sont respectivement 0 et 1. 
 Avec un seul argument, \lstinline{Fraction(n)} doit représenter la fraction $\frac{n}{1}$.
-Levez une exception si le dénominateur est 0.
+Levez une exception \lstinline|ZeroDivisionError| si le dénominateur est 0.
 
     \begin{conseil}
 			Un paramètre peut recevoir une valeur par défaut dans la définition d'une méthode, par exemple \lstinline[language=Python]|def add(self, x=10, y=5): ...| Ainsi, \lstinline[language=Python]|Fraction()| doit représenter $\frac{0}{1}$.
@@ -64,14 +65,14 @@ Levez une exception si le dénominateur est 0.
 
 \begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes}\\
 		Redéfinissez la méthode \lstinline[language=Python]|__eq__(self, other)| pour comparer deux fractions. La méthode doit renvoyer \lstinline|True| si elles représentent le même nombre et \lstinline|False| sinon.
+		Vérifiez le type de \lstinline{other} avec \lstinline[language=Python]|isinstance(other, Fraction)| et affichez un message d'erreur sinon.
 	\begin{conseil}
-		Deux fractions \(a/b\) et \(c/d\) sont égales lorsque \(a\times d=b\times c\). Utilisez isinstance(other, Fraction) pour vérifier le type de other.
-		Utilisez la fonction \lstinline{isinstance(other, type)} afin de vérifier que \lstinline{other} est de type \lstinline{Fraction}, et affichez un message d'erreur dans le cas contraire.
+		Deux fractions \(a/b\) et \(c/d\) sont égales lorsque \(a\times d=b\times c\). 
 	\end{conseil}
 \end{Exercice}
 
 \begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
-		Redéfinissez les méthodes \lstinline{__add__} et \lstinline{__mul__} afin d'effectuer des opérations d'addition et de multiplication sur vos objets de type \lstinline{Fraction}. Attention, ces méthodes devront renvoyer des objets de type \lstinline{Fraction}. Dans vos méthodes \lstinline{__add__} et \lstinline{__mul__}, n'oubliez pas de simplifier ces fractions avant de les retourner. Gérez le cas où l'élément passé en argument n'est ni une \lstinline{Fraction} ni un \lstinline{int}.
+		Redéfinissez \lstinline{__add__} et \lstinline{__mul__} pour additionner et multiplier les objets \lstinline{Fraction}, en renvoyant une \lstinline{Fraction} \textit{simplifiée}. Gérez les arguments qui ne sont ni des \lstinline{Fraction} ni des \lstinline{int}.
 \end{Exercice}
 
 \begin{solution}
