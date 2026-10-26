@@ -79,7 +79,7 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 	\end{solution}
 \end{Exercice}
 
-\begin{Exercice}[30 minutes]{Surcharge de méthodes, égalité et identité - Java}
+\begin{Exercice}[30 minutes]{[Java] Redéfintion des méthodes d'égalité et d'identité}
 
 En Java, créez une classe \lstinline{Fraction} ayant pour attributs privés un numérateur et un dénominateur. 
 \begin{conseil}
@@ -114,7 +114,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 \begin{solution}
 	\lstinputlisting{solutions/Fraction.java}
 
-	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{.hashcode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashcode())}.
+	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{hashCode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashcode())}.
 
 	L'instruction \lstinline{f1.equals(f2)} fait appel à la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons définies dans cette méthode.
 	L'instruction \lstinline{==} compare les références, alors que \lstinline{.equals()} compare les valeurs.
@@ -138,7 +138,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\lstinputlisting{code/Animal.java} 
 	
 	\begin{itemize}
-		\item Créez une classe abstraite appelée \lstinline{Item}. Elle doit avoir 4 attributs d'instance et un attribut de classe, qui sont les suivants:
+		\item Créez une classe abstraite appelée \lstinline{Item}. Elle doit avoir quatre attributs d'instance et un attribut de classe, qui sont les suivants:
 		\lstinputlisting{code/variables_q4.java} 
 		\begin{conseil}
 			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
@@ -195,7 +195,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 En Java, une interface se déclare comme suit:
 \lstinputlisting{code/IMakeSound.java} 
 
-Pour rappel: dans une interface Java, les variables sont toujours public static final, sauf si un mot-clé explicite (static, private) en indique autrement, et les méthodes sont public abstract par défaut.
+Pour rappel: dans une interface Java, les variables sont toujours \lstinline{public static final}, et les méthodes sont public et abstract par défaut.
 
 Les méthodes déclarées dans une interface doivent être implémentées dans des sous-classes :
 

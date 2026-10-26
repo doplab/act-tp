@@ -6,9 +6,9 @@ public abstract class Item {
     private static int count = 0;
     private String name;
     private double price;
-    private ArrayList<String> ingredients;
+    private List<String> ingredients;
 
-    public Item(String name, double price, ArrayList<String> ingredients) {
+    public Item(String name, double price, List<String> ingredients) {
         this.id = ++count;
         this.name = name;
         this.price = price;

@@ -1,5 +1,7 @@
+import java.util.*;
+
 class Soup extends Food implements Drinkable {
-    public Soup(String name, double price, ArrayList<String> ingredients) {
+    public Soup(String name, double price, List<String> ingredients) {
         super(name, price, ingredients);
     }
 
