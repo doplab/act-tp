@@ -1,0 +1,253 @@
+\input{../header.tex}
+\setlist[itemize]{label=\textbullet}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Programmation orientée objet: Héritage et Polymorphisme}
+
+Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. Nous commencerons par un rappel des notions de surcharge d'opérateurs avant d'introduire des exercices sur l'héritage et le polymorphisme. Au terme de cette séance, vous devez être en mesure de factoriser votre code afin de le rendre mieux structuré et plus lisible. Le langage utilisé est indiqué pour chaque exercice. \\
+
+Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}. \\
+
+Les durées indiquées (\faClock) sont données à titre indicatif.
+
+\section{Rappel: Surcharge des opérateurs en Python}
+Dans cette section, vous manipulerez des fractions sous forme d'objets. Vous ferez des opérations de base sur ce nouveau type d'objets.\\
+
+
+\begin{Exercice}[5 minutes] \textbf{Création de classe} \\
+    Dans un projet que vous aurez au préalable préparé, créez un fichier  \lstinline{surcharge.py}.
+    Définissez-y une classe \lstinline{Fraction} possédant deux attributs privés : le numérateur et le dénominateur. 
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Constructeur et valeurs par défaut} \\
+Définissez un constructeur acceptant un numérateur et un dénominateur, dont les valeurs par défaut sont respectivement 0 et 1. 
+Avec un seul argument, \lstinline{Fraction(n)} doit représenter la fraction $\frac{n}{1}$.
+Levez une exception \lstinline|ZeroDivisionError| si le dénominateur est 0.
+
+    \begin{conseil}
+			Un paramètre peut recevoir une valeur par défaut dans la définition d'une méthode, par exemple \lstinline[language=Python]|def add(self, x=10, y=5): ...| Ainsi, \lstinline[language=Python]|Fraction()| doit représenter $\frac{0}{1}$.
+   
+		\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Conversion en entiers}\\
+		Convertissez les valeurs des attributs en entiers.
+	\begin{conseil}
+		Dans le constructeur, convertissez le numérateur et le dénominateur en entiers à l'aide de la fonction \lstinline{int()}.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Redéfinition de méthodes} \\
+		Redéfinissez la méthode \lstinline{__str__()} pour produire une représentation textuelle de vos objets \lstinline{Fraction}.
+	\begin{conseil}
+			Redéfinissez la méthode \lstinline[language=Python]|__str__()| pour qu'elle renvoie une chaîne au format \texttt{Votre fraction a pour valeur numérateur/dénominateur}. Cette chaîne sera affichée lors d'un appel à \lstinline[language=Python]|print(fraction)|.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice} [5 minutes] \textbf{Accesseurs et mutateurs} \\
+		Créez des \lstinline{getters} et des \lstinline{setters} pour les attributs de votre classe \lstinline{Fraction}.
+\end{Exercice}
+
+\begin{Exercice} [10 minutes] \textbf{Simplification de fractions}\\
+		Définissez une méthode \lstinline[language=Python]{simplification()} qui rend la fraction irréductible en modifiant ses attributs. Cette méthode ne renvoie aucune valeur. Appelez-la après chaque opération afin de conserver des fractions simplifiées.
+
+	\begin{conseil}
+		Calculez le plus grand commun diviseur (PGCD) du numérateur et du dénominateur avec la fonction \lstinline[language=Python]|math.gcd|, puis divisez-les par ce PGCD. Si le dénominateur est négatif, changez les deux signes pour le rendre positif.
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Redéfinition de méthodes}\\
+		Redéfinissez la méthode \lstinline[language=Python]|__eq__(self, other)| pour comparer deux fractions. La méthode doit renvoyer \lstinline|True| si elles représentent le même nombre et \lstinline|False| sinon.
+		Vérifiez le type de \lstinline{other} avec \lstinline[language=Python]|isinstance(other, Fraction)| et affichez un message d'erreur sinon.
+	\begin{conseil}
+		Deux fractions \(a/b\) et \(c/d\) sont égales lorsque \(a\times d=b\times c\). 
+	\end{conseil}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Addition et multiplication}\\
+		Redéfinissez \lstinline{__add__} et \lstinline{__mul__} pour additionner et multiplier les objets \lstinline{Fraction}, en renvoyant une \lstinline{Fraction} \textit{simplifiée}. Gérez les arguments qui ne sont ni des \lstinline{Fraction} ni des \lstinline{int}.
+\end{Exercice}
+
+\begin{solution}
+	\lstinputlisting[language=Python,lastline=20]{solutions/surcharge1.py}
+\end{solution}
+
+\begin{solution}
+	\lstinputlisting[language=Python,firstline=21, firstnumber=21]{solutions/surcharge1.py}
+\end{solution}
+
+\begin{solution}
+	\lstinputlisting[language=Python,lastline=10]{solutions/surcharge2.py}
+\end{solution}
+
+\begin{solution}
+	\lstinputlisting[language=Python,firstline=11, firstnumber=11]{solutions/surcharge2.py}
+\end{solution}
+
+\section{Polymorphisme en Java}
+
+Les exercices de cette section s'inspirent des exercices de la section 1 des exercices avancés de la semaine 6.
+N'hésitez pas à réutiliser les solutions disponibles sur Moodle.
+
+Dans cette partie, vous devez créer deux nouvelles classes filles de la classe-mère \lstinline{Fighter}. La première classe représentera un \lstinline{Soigneur}, qui, lorsqu'il ``attaquera'' un \lstinline{Fighter}, le soignera au lieu de le blesser. La deuxième classe, nommée \lstinline{Attaquant}, représentera un \lstinline{Fighter} spécialisé dans l'attaque et aura la capacité d'attaquer un certain nombre de fois (ce nombre sera défini lors de l'instanciation).\\
+
+% Voici le squelette du code que vous trouverez également dans le dossier code sur Moodle : \\
+Avant d'effectuer la série de questions suivantes, téléchargez le fichier \lstinline{Fighter.java} disponible sur Moodle.\\
+
+% \lstinputlisting{ressources/fighter-squelette.java}
+
+\begin{Exercice}[5 minutes] \textbf{Classe-fille \lstinline{Soigneur}} \\
+Créez une nouvelle classe-fille \lstinline{Soigneur} qui hérite de la classe \lstinline{Fighter}. Cette classe-fille aura un nouvel attribut privé nommé \lstinline{resurrection} qui vaudra 1 lors de l'instanciation de la classe. \\
+
+Créez le constructeur de cette classe ainsi que le \lstinline{getter} et le \lstinline{setter} permettant d'interagir avec le nouvel attribut (\lstinline{resurrection}). \\
+
+\begin{conseil}
+Pensez à utiliser le constructeur de votre classe-mère \lstinline{Fighter}.
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Soigneur.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] \textbf{Méthode \lstinline{resurrection(Fighter other)}} \\
+Créez une méthode \lstinline{resurrection(Fighter other)} qui permettra de faire revenir un \lstinline{Fighter} à la vie, mais le \lstinline{Soigneur} ne pourra le faire qu'une seule fois. \\
+
+Commencez par contrôler que l'instance depuis laquelle la méthode est appelée est toujours en vie. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} est mort et ne peut plus rien faire.  \\
+
+Contrôlez ensuite que l'instance \lstinline{other} est vraiment morte. Si ce n'est pas le cas, indiquez-le en affichant le texte suivant : ``\lstinline{nom_other} est toujours en vie.'' \\
+
+Pour finir, contrôlez que l'attribut \lstinline{resurrection} de l'instance depuis laquelle la méthode est appelée est égal à 1. Si ce n'est pas le cas, indiquez : \lstinline{nom_instance} ne peut plus ressusciter personne.\\
+
+Si tous ces éléments sont réunis, faites revenir le \lstinline{Fighter} \lstinline{other} à la vie en lui remettant 10 points de vie et en l'ajoutant à la liste \lstinline{instances} de la classe \lstinline{Fighter}. Pensez aussi à:
+
+\begin{itemize}
+	\item mettre l'attribut \lstinline{resurrection} de l'instance appelée à 0 afin de l'empêcher de réutiliser ce pouvoir,
+	\item appeler la méthode \lstinline{checkHealth()} et indiquer : ``\lstinline{nom_other} est revenu à la vie !''
+\end{itemize}
+
+\begin{conseil}
+Utilisez un branchement conditionnel pour les contrôles. \\
+
+Une nouvelle méthode nommée \lstinline{addInstances(Fighter other)} a été créée dans la classe \lstinline{Fighter}. Regardez à quoi elle sert et utilisez-la. \\
+
+Pour les indications en fonction des différentes conditions, affichez simplement la phrase en question. \\
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/resurrection.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Méthode \lstinline{attack}} \\
+
+Réécrivez la méthode \lstinline{attack} de la classe-fille \lstinline{Soigneur} afin d'ajouter des points de vie à \lstinline{other} au lieu de lui en retirer. \\
+
+Le seul argument nécessaire pour cette méthode sera une autre instance de \lstinline{Fighter} qu'on pourrait nommer \lstinline{other}. \\
+
+Commencez par contrôler que le \lstinline{Soigneur} depuis lequel la méthode est appelée est encore en vie. Si ce n'est pas le cas, affichez : ``\lstinline{nom_instance} est mort et ne peut plus rien faire.''
+
+Contrôlez ensuite que le \lstinline{Fighter} \lstinline{other} est toujours en vie. Si ce n'est pas le cas, indiquez-le : ``\lstinline{nom_other} est déjà mort, ressuscitez-le afin de pouvoir le soigner.'' Contrôlez également qu'il a moins de 10 points de vie. Si ce n'est pas le cas, indiquez-le via le texte suivant: ``\lstinline{nom_other} a déjà le maximum de points de vie.'' \\
+
+Si toutes ces conditions sont réunies, ajoutez la valeur de l'attaque de l'instance qui appelle la méthode aux points de vie de \lstinline{other}, puis appelez la méthode de classe \lstinline{checkHealth()}.
+
+\begin{conseil}
+Pensez à utiliser un branchement conditionnel pour les contrôles. \\
+
+Le nombre de points de vie à ajouter est simplement égal à l'attaque de l'instance depuis laquelle la méthode est appelée. Ajoutez la valeur de cet attribut \lstinline{attack} au \lstinline{Fighter} \lstinline{other}.
+
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/soigneur-attack.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[5 minutes] \textbf{Classe-fille \lstinline{Attaquant}} \\
+
+Commencez par déclarer une nouvelle classe-fille \lstinline{Attaquant} héritant de la classe \lstinline{Fighter}. Cette classe-fille prendra un nouvel attribut privé nommé \lstinline{multiplicateur} de type \lstinline{int}, qui sera passé comme argument du \lstinline{constructeur} de la classe-fille. \\
+
+Déclarez le \lstinline{constructeur} de cette classe ainsi que le \lstinline{getter} et le \lstinline{setter} permettant d'interagir avec ce nouvel attribut \lstinline{multiplicateur}. \\
+
+\begin{conseil}
+Pensez à utiliser le \lstinline{constructeur} de votre classe-mère \lstinline{Fighter}.
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/Attaquant.java}
+\end{solution}
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Méthode \lstinline{attack}} \\
+
+Redéfinissez la méthode \lstinline{attack} de la classe-fille \lstinline{Attaquant} afin d'effectuer plusieurs attaques sur \lstinline{other} en fonction de l'attribut \lstinline{multiplicateur}. \\
+
+Assurez-vous de toujours indiquer le type de l'attaque lorsque vous faites appel à la méthode \lstinline{attack()}.
+
+\begin{conseil}
+Pensez à contrôler que l'instance depuis laquelle la méthode est appelée est encore en vie.
+Aidez-vous de la méthode \lstinline{attack} de la classe-mère \lstinline{Fighter}.\\
+
+Pour effectuer plusieurs attaques, vous pouvez utiliser une boucle allant de 0 à \lstinline{multiplicateur}.
+
+\end{conseil}
+
+\begin{solution}
+	\lstinputlisting[language=Java]{solutions/attaquant-attack.java}
+\end{solution}
+
+\end{Exercice}
+
+Pour vérifier votre programme, exécutez la méthode \lstinline{main} suivante : \\
+
+\lstinputlisting[language=Java]{code/FighterMain.java} 
+
+Vous devriez obtenir:
+\lstinputlisting{text/FighterMain_output.txt} 
+
+
+
+\section{Notions d'héritage en Python}
+\begin{Exercice}[15 minutes]\textbf{Classe Point (Suite)}
+
+    La semaine précédente, vous avez défini une classe \lstinline{Point} représentant un point en deux dimensions, avec des coordonnées \lstinline{x} et \lstinline{y}, ainsi que des opérations basiques sur des points 2D. Pour cet exercice, vous allez implémenter une classe de points à trois dimensions qui héritera de la classe \lstinline{Point} créée précédemment. \\
+    
+	Avant de commencer, rendez les attributs de la classe \lstinline{Point} protégés plutôt que privés afin qu'ils soient accessibles sans getters ou setters. \\
+    
+    Écrivez une classe qui hérite de \lstinline{Point}. Nommez-la \lstinline{Point3D}. Après avoir rajouté la troisième dimension comme attribut, effectuez les opérations ci-dessous:
+    
+    \begin{itemize}
+        \item Définissez une méthode qui renvoie les trois coordonnées du point dans une liste.
+        \item Recalculez la distance euclidienne et le milieu pour le point 3D.
+        \item \advanced Si vous voulez vous familiariser encore plus avec les méthodes de classe en Python, implémentez deux autres algorithmes de calcul de distance: les distances de \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\textcolor{cyan}{Manhattan}} et \href{https://en.wikipedia.org/wiki/Minkowski_distance}{\textcolor{cyan}{Minkowski}}.
+    \end{itemize}
+
+    Vous pouvez compléter le code suivant (qui se trouve sur Moodle, dans le dossier \lstinline{Code}).
+    \lstinputlisting[language=Python]{code/Point3D.py} 
+    
+    \begin{conseil}
+        \begin{itemize}
+            \item En Python, pour définir un attribut protégé, on le précède d'un seul underscore (par exemple \lstinline{_x = 45} est un attribut protégé).
+            \item L'instruction \lstinline{super().__init__(x, y)} permet de faire appel au constructeur de la classe-mère.
+            \item Dans un espace à 3 dimensions, la formule pour calculer la distance entre les points $p_1 = (x_1, y_1, z_1)$ et $p_2 = (x_2, y_2, z_2)$ est $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$.
+        \end{itemize}
+    \end{conseil}
+    \begin{solution}
+    \lstinputlisting[language=Python, lastline = 22]{solutions/Point3D.py} 
+    \end{solution}
+	\begin{solution}
+    \lstinputlisting[language=Python, firstline = 23, firstnumber = 23]{solutions/Point3D.py} 
+    \end{solution}
+    \end{Exercice} 
+\end{document}

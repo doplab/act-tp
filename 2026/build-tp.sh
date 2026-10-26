@@ -119,7 +119,7 @@ echo
 
 # Find all .tex files that start with tp[single digit] in the specified week directory
 tex_files_found=0
-for tex_file in "$WEEK_PATH"/tp[0-9]*.tex; do
+for tex_file in "$WEEK_PATH"/*.tex; do
     if [ -f "$tex_file" ]; then
         tex_files_found=1
         process_latex_file "$tex_file" "$WEEK_PATH"
