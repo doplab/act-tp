@@ -1,4 +1,5 @@
 import math
+import Point 
 
 class Point3D(Point):
     def __init__(self, x, y):
@@ -12,7 +13,7 @@ class Point3D(Point):
     def vector_representation(self): # représentée sous forme de liste
         ...
         
-    def distance_euclidean(self, p2): # i.e norme
+    def distance(self, p2): # i.e norme euclidéene
         ...
     
     def distance_manhattan(self, p2):

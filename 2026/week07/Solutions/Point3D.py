@@ -15,7 +15,7 @@ class Point3D(Point):
     def vector_representation(self): # représentée sous forme de liste
         return [self._x, self._y, self._z]
         
-    def distance_euclidean(self, p2): # i.e norme
+    def distance(self, p2): # i.e norme
         other_x = p2.get_x()
         other_y = p2.get_y()
         other_z = p2.get_z()

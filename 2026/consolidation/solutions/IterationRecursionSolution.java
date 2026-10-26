@@ -2,7 +2,7 @@ import java.util.List;
 
 public class IterationRecursionSolution {
 
-    public static int nb_voyelles_iterative(String S, List L){
+    public static int nb_voyelles_iterative(String S, List<Character> L){
         int c = 0;
         for(int i = 0; i<S.length(); i++){
             if(L.contains(S.charAt(i))){
@@ -12,8 +12,11 @@ public class IterationRecursionSolution {
         return c;
     }
 
-    public static int nb_voyelles_recursive(String S, List L){
-        if (S.length() == 1){
+    public static int nb_voyelles_recursive(String S, List<Character> L){
+        if (S.isEmpty()){
+            return 0;
+        }
+        else if (S.length() == 1){
             if (L.contains(S.charAt(0))) {
                 return 1;
             }
@@ -31,7 +34,7 @@ public class IterationRecursionSolution {
         }
     }
     public static void main(String[] args) {
-        List voyelles = List.of('a','e','i','o','u','y');
+        List<Character> voyelles = List.of('a','e','i','o','u','y');
         String texte = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet" +
                 " eget. Praesent et quam vitae justo hendrerit tristique. Ut malesuada ligula in mi ultricies tempor. Fusce blandit" +
                 " turpis sapien, in gravida orci aliquet et. Morbi in metus efficitur, volutpat purus sit amet, scelerisque massa." +

@@ -8,7 +8,9 @@ def nb_voyelles_iterative(T,S) :
     return c
 
 def nb_voyelles_recursive(T,S) :
-    if len(T) == 1 :
+    if len(T) == 0 :
+        return 0
+    elif len(T) == 1 :
         if T[0] in S :
             return 1
         else :

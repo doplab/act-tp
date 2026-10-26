@@ -1,3 +1,4 @@
+import math
 # Question 1: Création de la classe Fraction
 class Fraction:
     # Question 2: Déclaration du constructeur et initialisation des valeurs
