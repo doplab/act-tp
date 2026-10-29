@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public abstract class Personnage {
 
     private ...
@@ -11,9 +9,11 @@ public abstract class Personnage {
 
     }
 
-    public void getInfo() {
+    @Override
+    public String toString() {
         ...
     }
+    public abstract void attaqueBasique(Personnage autre);
     ...
     ...
 }
