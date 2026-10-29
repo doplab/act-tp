@@ -189,17 +189,17 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
     \begin{enumerate}
         \item \lstinline{ls -la}
-        \item \lstinline{sudo rm -rf ~/nano}
+        \item \lstinline{mkdir homework}
         \item \lstinline{more nano.txt}
         \item \lstinline{cd ..}
         \item \lstinline{pwd}
         \item Aucune de ces réponses n'est correcte.
     \end{enumerate}
     \begin{solution}
-        La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
+        La commande \lstinline{mkdir homework} permet de créer un répertoire appelé \lstinline{homework} situé dans le dossier courant (current working directory).
+        Si la commande était \lstinline{mkdir /homework}, le dossier aurait été crée dans le dossier racine (root directory) / .
     \end{solution}
     \begin{attention}
-        Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
         Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
     \end{attention}
 \end{Exercice}
