@@ -2,11 +2,11 @@ import java.util.List;
 
 public class Question16 {
 
-    public static int nb_voyelles_iterative(String S, List L) {
+    public static int nbVoyellesIterative(String texte, List voyelles) {
         // TODO
     }
 
-    public static int nb_voyelles_recursive(String S, List L) {
+    public static int nbVoyellesRecursive(String texte, List voyelles) {
         // TODO
     }
 
@@ -14,7 +14,7 @@ public class Question16 {
         List voyelles = List.of('a', 'e', 'i', 'o', 'u', 'y');
         String texte = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie elit ipsum, a tincidunt urna aliquet";
 
-        System.out.println(nb_voyelles_iterative(texte, voyelles));
-        System.out.println(nb_voyelles_recursive(texte, voyelles));
+        System.out.println(nbVoyellesIterative(texte, voyelles));
+        System.out.println(nbVoyellesRecursive(texte, voyelles));
     }
 }
