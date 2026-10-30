@@ -42,11 +42,9 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return "*-*-*-*-*-*" +
-                "\nID: " + this.getId() +
-                "\nName: " + this.getName() +
-                "\nPrice: " + this.getPrice() + " CHF" +
-                "\nList of ingredients: " + this.getIngredients().toString() +
-                "\n*-*-*-*-*-*";
+        return "ID: " + this.id +
+                "\nName: " + this.name +
+                "\nPrice: " + this.price + " CHF" +
+                "\nList of ingredients: " + this.ingredients;
     }
 }

@@ -142,7 +142,15 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 			Pensez à utiliser \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
 		\end{conseil}
 		\item Implémentez les \lstinline{getters} des attributs \lstinline{id, name, price et ingredients}.
-		\item Implémentez les méthodes \lstinline{equals(Object o)} et \lstinline{toString()}.
+		\item Implémentez la méthode \lstinline{equals(Object o)}.
+		\item Redéfinissez \lstinline{toString()} pour renvoyer une chaîne de quatre lignes au format suivant, en remplaçant les valeurs entre accolades par celles de l'objet:
+		\begin{lstlisting}[language=texte,numbers=none]
+ID: {id}
+Name: {name}
+Price: {price} CHF
+List of ingredients: {ingredients}
+\end{lstlisting}
+		La liste des ingrédients est entourée de crochets et ses éléments sont séparés par une virgule suivie d'une espace, par exemple \lstinline{[rice, tomato, onion]}.
 	
 	\begin{conseil}
 	La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en paramètre un objet de type \lstinline{Object} et renvoie \lstinline{true} si l'objet actuel est égal à l'objet passé en paramètre.
