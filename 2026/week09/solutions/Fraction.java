@@ -35,6 +35,7 @@ public class Fraction {
             return true;
         if (other == null || this.getClass() != other.getClass())
             return false;
-        return this.numerateur * ((Fraction) other).denominateur == ((Fraction) other).numerateur * this.denominateur;
+        Fraction f = (Fraction) other;
+        return this.numerateur * f.denominateur == f.numerateur * this.denominateur;
     }
 }

@@ -15,7 +15,7 @@ public abstract class Item {
         this.ingredients = ingredients;
     }
 
-    public int getID() {
+    public int getId() {
         return this.id;
     }
 
@@ -27,7 +27,7 @@ public abstract class Item {
         return this.price;
     }
 
-    public ArrayList<String> getIngredients() {
+    public List<String> getIngredients() {
         return this.ingredients;
     }
 
@@ -35,7 +35,7 @@ public abstract class Item {
     public boolean equals(Object o) {
         if (o instanceof Item) {
             Item i = (Item) o;
-            return i.getID() == this.getID();
+            return i.getId() == this.getId();
         }
         return false;
     }
@@ -43,7 +43,7 @@ public abstract class Item {
     @Override
     public String toString() {
         return "*-*-*-*-*-*" +
-                "\nID: " + this.getID() +
+                "\nID: " + this.getId() +
                 "\nName: " + this.getName() +
                 "\nPrice: " + this.getPrice() + " CHF" +
                 "\nList of ingredients: " + this.getIngredients().toString() +

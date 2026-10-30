@@ -21,13 +21,11 @@
 
 % Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. 
 
-Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous devez être en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, factoriser votre code afin de le rendre mieux structuré et plus lisible.
+Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous serez en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, factoriser votre code afin de le rendre mieux structuré et plus lisible.\\
 
-Cette feuille d'exercices est divisée en 3 sections. La première portant sur des notions de bases en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces. 
+Cette feuille d'exercices est divisée en trois sections. La première portant sur des notions de bases en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces.  \\
 
-Les exercices de cette feuille d'exercices doivent être faits uniquement en \lstinline{Java}.
-
-Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{Code}.
+Les exercices de cette séance seront réalisés en Java.  Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}.
 
 \section{Consolidation - Programmation Orientée Objet}
 
@@ -100,11 +98,11 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\item Redéfinir la méthode \lstinline{toString} pour produire une représentation textuelle des instances de \lstinline{Fraction}.
 	\item Redéfinir la méthode \lstinline{equals} pour tester l'égalité entre deux fractions. Cette méthode prendra comme argument un objet \lstinline{other} de type \lstinline{Object}.
 	\begin{conseil}
-		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}
+		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}. Vous puvez utiliser le même test d'égalité que vous avez fait pour les exercises de la semaine 7.
 	\end{conseil}
 	\item Dans la méthode \lstinline{equals}, vérifier que l'instance \lstinline{Fraction} (\lstinline{this}) n'est pas \textbf{identique} à l'objet \lstinline{other}. Si les deux objets sont identiques, renvoyer \lstinline{true}. Vérifier également que les deux objets sont de même type. Dans le cas contraire, renvoyer \lstinline{false}. Si les deux objets ont le même type, vérifier qu'ils ont les mêmes attributs. 
 	\begin{conseil}
-		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifé le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=1965120}{type casting de la semaine 3}).
+		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifé le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
 	\end{conseil}
 	\item Dans le \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
 	\lstinputlisting{code/Question3.java}.
@@ -114,15 +112,11 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 \begin{solution}
 	\lstinputlisting{solutions/Fraction.java}
 
-	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{hashCode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashcode())}.
+	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{hashCode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashCode())}.
 
 	L'instruction \lstinline{f1.equals(f2)} fait appel à la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons définies dans cette méthode.
 	L'instruction \lstinline{==} compare les références, alors que \lstinline{.equals()} compare les valeurs.
 \end{solution}
-
-
-
-
 
 \end{Exercice}
 	
@@ -151,7 +145,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		\item Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
 	
 	\begin{conseil}
-	La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en entrée un objet de type \lstinline{Object} et doit retourner \lstinline{True} si l'objet instancié est égal à l'objet passé en paramètre.
+	La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en paramètre un objet de type \lstinline{Object} et renvoie \lstinline{true} si l'objet courant est égal à l'objet passé en paramètre.
 	\end{conseil}
 \end{itemize}
 		\begin{solution}  
@@ -166,8 +160,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	
 	\begin{Exercice}[15 minutes]{Classe abstraite et types d'attributs}
 	\begin{itemize}
-		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés : \lstinline{largeur} et \lstinline{longueur} et deux méthodes abstraites : \lstinline{getAire}() et \lstinline{getPerimetre}().
-		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{float} : \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites : \lstinline{getAire}() et \lstinline{getPerimetre}() qui retournent un \lstinline{float}.
+		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+		\item Dans le \lstinline{main} d'une classe \lstinline{FigureMain}, créez un carré et un rectangle et affichez le périmètre du carré et l'aire du rectangle.
 	\end{itemize}
 	
 	\begin{conseil}
@@ -213,9 +208,11 @@ Dans la méthode \lstinline{eatMe()}, vous pouvez simplement afficher un message
 
 Certains aliments ne sont pas seulement \lstinline{Edible} (mangeable) mais aussi \lstinline{Drinkable} (buvable) comme les soupes par exemple.\\
 
-4. Créez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, écrivez à la fois un constructeur pour \lstinline{Soup} ainsi que la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).\\
+\begin{itemize}
+	\item Créez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, écrivez à la fois un constructeur pour \lstinline{Soup} ainsi que la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).
+\end{itemize}
 
-Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food} à l'aide des lignes suivantes pour tester les méthodes \lstinline{eatMe()} et \lstinline{drinkMe()}.
+Vous pouvez ensuite tester les méthodes \lstinline{eatMe()} et \lstinline{drinkMe()} à l'aide des lignes suivantes, qui créent des instances de \lstinline{Soup} et \lstinline{Food}.
 \lstinputlisting{code/fin_interface.java} 
 
 \begin{solution}
@@ -232,30 +229,5 @@ Vous pouvez ensuite créer des instances de \lstinline{Soup} et \lstinline{Food}
 \end{solution}
 
 \end{Exercice}
-
-\begin{comment}
-\section{Exercices complémentaires}
-
-\begin{Exercice}[10 minutes] \textbf{Programmation de base}\\
-	Ecrivez un programme Python qui affiche tous les nombres impairs à partir de 1 jusqu’à un nombre \lstinline{n} défini par l’utilisateur. Ce nombre \lstinline{n} doit être supérieur à 1.
-	Exemple : si n = 6, résultat attendu : 1, 3, 5
-% Solutions nombres impaire - Maeva
-	\begin{solution}
-   		 \lstinputlisting{solutions/exercise3.py}
-	\end{solution}
-\end{Exercice}
-
-% Ajouter des questions sur la récursivité
-
-% Question sur la manipulation avancée de listes et dictionnaires
-
-
-
-% Ajouter des questions sur la récursivité
-
-% Question sur la manipulation avancée de listes et dictionnaires
-
-\end{comment}
-
 
 \end{document}

@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Food extends Item implements Edible {
-    public Food(String name, double price, ArrayList<String> ingredients) {
+    public Food(String name, double price, List<String> ingredients) {
         super(name, price, ingredients);
     }
 
@@ -9,4 +9,3 @@ public class Food extends Item implements Edible {
         System.out.println("Eat me!" + toString());
     }
 }
-

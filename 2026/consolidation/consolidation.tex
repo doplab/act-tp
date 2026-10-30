@@ -634,17 +634,17 @@ Qu'affichent les programmes suivants ? \\
     Afin de compléter le programme.
     
     \begin{itemize}
-        \item Définissez le constructeur de Personnage, qui prend en paramètre les valeurs de tous les attributs ci-dessus, ainsi que les getters.
+        \item Définissez le constructeur de \lstinline{Personnage}, qui prend en paramètre les valeurs de tous les attributs ci-dessus, ainsi que les getters.
         
        \item  Redéfinissez \lstinline{toString()} pour renvoyer tous les attributs sur une seule ligne, sous la forme \lstinline{nom de l'attribut: valeur}, séparés par des virgules.
 
-        \item Chaque personnage de ce jeu a un compteur (points) de vies stocké dans l'attribut \lstinline{pv}. Celui-ci va être modifié par un \lstinline{setter}. Définissez son \lstinline{setter}.
+        \item Chaque personnage de ce jeu a un compteur (points) de vies stocké dans l'attribut \lstinline{pv}. Celui-ci va être modifié par un \lstinline{setter}. Définissez son setter.
         
-        \item Créer les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} et définissez leurs constructeurs. 
+        \item Créez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} et définissez leurs constructeurs. 
         
         \lstinputlisting[language=java]{code/RolePlayMere.java}
     
-        \item Dans chacune de ces classes, implémentez la méthode \lstinline{attaqueBasique(Personnage cible)}, qui ne renvoie aucune valeur. Les dégâts dépendent des attributs de l'attaquant :
+        \item Dans chacune de ces classes, implémentez la méthode \lstinline{attaqueBasique(Personnage cible)}, qui ne renvoie aucune valeur. Les dégâts dépendent des attributs de l'attaquant:
         \begin{itemize}
             \item \lstinline{Guerrier}: inflige des dégâts égaux à 50\,\% de sa \lstinline{force}.
             \item \lstinline{Paladin}: inflige des dégâts égaux à 70\,\% de son \lstinline{endurance}.
