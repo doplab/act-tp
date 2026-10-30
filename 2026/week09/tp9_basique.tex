@@ -62,7 +62,7 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 		\item Créez une classe-mère \lstinline{Vehicle} ayant un attribut protégé (\lstinline{protected}) de type chaîne de caractères appelé \lstinline{brand}.
 		\item Créez un constructeur pour la classe \lstinline{Vehicle} et assignez la valeur passée comme argument à l'attribut \lstinline{brand}.
 		\item Définissez une méthode \lstinline{honk} qui affiche \lstinline{"Tuut, tuut!"}
-		\item Créez une classe-fille \lstinline{Car} qui hérite de \lstinline{Vehicle} et ayant pour attribut \lstinline{modelName} avec pour valeur par défaut \lstinline{"Mustang"}.
+		\item Créez une classe-fille \lstinline{Car} qui hérite de \lstinline{Vehicle} et ayant pour attribut \lstinline{modelName} avec valeur par défaut \lstinline{"Mustang"}.
 	\end{enumerate}
 
 	\begin{conseil}
@@ -89,9 +89,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\begin{conseil}
 		L'algorithme d'Euclide fonctionne comme suit:
 		\begin{itemize}
-			\item Si A = 0 alors gcd(A, B) = B.
-			\item Si B = 0 alors gcd(A, B) = A.
-			\item Si aucune des conditions ci-dessus n'est remplie, faire appel à \lstinline{gcd} de façon récursive avec pour premier argument \lstinline{B} et pour deuxième \lstinline{A\%B}.
+			\item Si a = 0 alors gcd(a, b) = b.
+			\item Si b = 0 alors gcd(a, b) = a.
+			\item Si aucune des conditions ci-dessus n'est remplie, faire appel à \lstinline{gcd} de façon récursive avec pour premier argument \lstinline{b} et pour deuxième \lstinline{a\%b}.
 		\end{itemize}
 	\end{conseil}
 	\item Définir une méthode \lstinline{simplify} qui sera appelée dans le constructeur après l'initialisation des attributs. 
@@ -132,36 +132,35 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\lstinputlisting{code/Animal.java} 
 	
 	\begin{itemize}
-		\item Créez une classe abstraite appelée \lstinline{Item}. Elle doit avoir quatre attributs d'instance et un attribut de classe, qui sont les suivants:
+		\item Créez une classe abstraite appelée \lstinline{Item} avec quatre attributs d'instance et un attribut de classe, qui sont les suivants:
 		\lstinputlisting{code/variables_q4.java} 
 		\begin{conseil}
-			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
+			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.attributeName}.
 		\end{conseil}
 		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} incrémentera à chaque instanciation de la classe.
 		\begin{conseil}
 			Pensez à utiliser \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
 		\end{conseil}
 		\item Implémentez les \lstinline{getters} des attributs \lstinline{id, name, price et ingredients}.
-		\item Implémentez les méthodes \lstinline{equals}(Object o) et \lstinline{toString}().
+		\item Implémentez les méthodes \lstinline{equals(Object o)} et \lstinline{toString()}.
 	
 	\begin{conseil}
-	La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en paramètre un objet de type \lstinline{Object} et renvoie \lstinline{true} si l'objet courant est égal à l'objet passé en paramètre.
+	La méthode \lstinline{equals} permet de comparer deux objets. Elle prend en paramètre un objet de type \lstinline{Object} et renvoie \lstinline{true} si l'objet actuel est égal à l'objet passé en paramètre.
 	\end{conseil}
 \end{itemize}
 		\begin{solution}  
 			\lstinputlisting{solutions/Item.java}
-			La variable count est un attribut de classe (mot clé static), il est donc partagé part toutes les instances de la classe.
-			Dans le constructeur on voit que count est incrémenté à chaque appel du constructeur. La variable représente donc le nombre d'instance de la classe.
-			Pour l'attribut id on demande à ce qu'il soit incrémenté à chaque instanciation de la classe, ce que fait déjà count, c'est pour ça que \lstinline{this.id = ++count}.
-			Cela garanti d'avoir un id unique pour chaque instance.
+			La variable \lstinline{count} est un attribut de classe (indiqué par \lstinline{static}), partagé par toutes les instances de la classe. Comme le constructeur l'incrémente à chaque appel, il compte le nombre d'instances créées. En écrivant \lstinline{this.id = ++count;}, chaque instance reçoit donc un \lstinline{id} unique.
 		\end{solution}
 	\end{Exercice}
 	
 	
 	\begin{Exercice}[15 minutes]{Classe abstraite et types d'attributs}
 	\begin{itemize}
-		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{float} : \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites : \lstinline{getAire}() et \lstinline{getPerimetre}() qui retournent un \lstinline{float}.
+		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{float}: \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites: \lstinline{getAire}() et \lstinline{getPerimetre}() qui renvoient un \lstinline{float}.
+		
 		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+		
 		\item Dans le \lstinline{main} d'une classe \lstinline{FigureMain}, créez un carré et un rectangle et affichez le périmètre du carré et l'aire du rectangle.
 	\end{itemize}
 	
