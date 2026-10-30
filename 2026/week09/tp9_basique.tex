@@ -21,7 +21,7 @@
 
 % Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. 
 
-Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous serez en mesure de différencier une classe abstraite d'une interface, savoir à quel moment utiliser l'un ou l'autre, factoriser votre code afin de le rendre mieux structuré et plus lisible.\\
+Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous serez en mesure de différencier une classe abstraite d'une interface, de savoir à quel moment utiliser l'un ou l'autre et de factoriser votre code afin de le rendre mieux structuré et plus lisible.\\
 
 Cette feuille d'exercices est divisée en trois sections. La première portant sur des notions de bases en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces.  \\
 
@@ -35,7 +35,7 @@ L'encapsulation sert à cacher les détails d'implémentation. Elle sert uniquem
 
 En Java, il est recommandé de déclarer les attributs comme étant \lstinline{private} et de mettre à disposition des utilisateurs des méthodes publiques d'accès afin qu'ils puissent accéder ou modifier la valeur des attributs privés.\\
 
-Les méthodes publiques d'accès comme \lstinline{getName} et \lstinline{setName} doivent être nommées avec soit \lstinline{get} soit \lstinline{set} suivi du nom de l'attribut avec la 1ère lettre en majuscule \href{https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html}{(Java Naming convention)}. \newline 
+Le nom des méthodes d'accès commence par \lstinline{get} ou \lstinline{set}, suivi du nom de l'attribut dont la première lettre est mise en majuscule \href{https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html}{(Java Naming convention)}. \newline 
 
 Le mot-clé \lstinline{this} en Java est une variable de référence qui fait référence à l'objet actuel. Il est utilisé dans une méthode d'instance ou un constructeur pour accéder aux membres de l'objet actuel, tels que les variables d'instance, les méthodes et les constructeurs. \\
 
@@ -100,7 +100,12 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\begin{conseil}
 		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}. Vous puvez utiliser le même test d'égalité que vous avez fait pour les exercises de la semaine 7.
 	\end{conseil}
-	\item Dans la méthode \lstinline{equals}, vérifier que l'instance \lstinline{Fraction} (\lstinline{this}) n'est pas \textbf{identique} à l'objet \lstinline{other}. Si les deux objets sont identiques, renvoyer \lstinline{true}. Vérifier également que les deux objets sont de même type. Dans le cas contraire, renvoyer \lstinline{false}. Si les deux objets ont le même type, vérifier qu'ils ont les mêmes attributs. 
+	\item  Pour tester l'égalité dans la méthode \lstinline{equals}:
+	\begin{itemize}
+    \item Vérifier si \lstinline{this} et \lstinline{other} sont le même objet. Si oui, renvoyer \lstinline{true}.
+    \item Vérifier si \lstinline{other} est \lstinline{null} ou si \lstinline{this} et \lstinline{other} sont de types différents. Si oui, renvoyer \lstinline{false}.
+    \item Sinon, vérifier si les deux fractions sont numériquement égales (même si leurs numérateurs et dénominateurs sont différents) et renvoyer le résultat de cette comparaison.
+\end{itemize}
 	\begin{conseil}
 		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifé le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
 	\end{conseil}
