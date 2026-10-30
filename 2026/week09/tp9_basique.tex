@@ -1,4 +1,5 @@
 \input{../header.tex}
+\setlist[itemize]{label=\textbullet}
 \usepackage{array}
 \usepackage{blindtext}
 \usepackage{multicol}
@@ -21,9 +22,9 @@
 
 % Le but de cette séance est d'approfondir les notions de programmation orientée objet vues précédemment. 
 
-Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous serez en mesure de différencier une classe abstraite d'une interface, de savoir à quel moment utiliser l'un ou l'autre et de factoriser votre code afin de le rendre mieux structuré et plus lisible.\\
+Les exercices sont construits autour des concepts d'héritage, de classes abstraites et d'interfaces. Au terme de cette séance, vous serez en mesure de différencier une classe abstraite d'une interface, de savoir à quel moment utiliser l'une ou l'autre et de factoriser votre code afin de le rendre mieux structuré et plus lisible.\\
 
-Cette feuille d'exercices est divisée en trois sections. La première portant sur des notions de bases en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces.  \\
+Cette feuille d'exercices est divisée en trois sections. La première porte sur des notions de base en POO, la deuxième sur les classes abstraites et la dernière sur les interfaces.  \\
 
 Les exercices de cette séance seront réalisés en Java.  Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lstinline{code}.
 
@@ -31,9 +32,9 @@ Les exercices de cette séance seront réalisés en Java.  Le code présenté da
 
 \begin{Exercice}[10 minutes]{Encapsulation - Java}
 
-L'encapsulation sert à cacher les détails d'implémentation. Elle sert uniquement à montrer que les informations essentielles aux utilisateurs.\\
+L'encapsulation sert à cacher les détails d'implémentation. Elle permet de ne montrer aux utilisateurs que les informations essentielles. \\
 
-En Java, il est recommandé de déclarer les attributs comme étant \lstinline{private} et de mettre à disposition des utilisateurs des méthodes publiques d'accès afin qu'ils puissent accéder ou modifier la valeur des attributs privés.\\
+En Java, il est recommandé de déclarer les attributs comme étant \lstinline{private} et de mettre à disposition des utilisateurs des méthodes publiques d'accès afin qu'ils puissent accéder à la valeur des attributs privés ou la modifier.\\
 
 Le nom des méthodes d'accès commence par \lstinline{get} ou \lstinline{set}, suivi du nom de l'attribut dont la première lettre est mise en majuscule \href{https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html}{(Java Naming convention)}. \newline 
 
@@ -62,7 +63,7 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 		\item Créez une classe-mère \lstinline{Vehicle} ayant un attribut protégé (\lstinline{protected}) de type chaîne de caractères appelé \lstinline{brand}.
 		\item Créez un constructeur pour la classe \lstinline{Vehicle} et assignez la valeur passée comme argument à l'attribut \lstinline{brand}.
 		\item Définissez une méthode \lstinline{honk} qui affiche \lstinline{"Tuut, tuut!"}
-		\item Créez une classe-fille \lstinline{Car} qui hérite de \lstinline{Vehicle} et ayant pour attribut \lstinline{modelName} avec valeur par défaut \lstinline{"Mustang"}.
+		\item Créez une classe-fille \lstinline{Car} qui hérite de \lstinline{Vehicle} et possède un attribut \lstinline{modelName} avec valeur par défaut \lstinline{"Mustang"}.
 	\end{enumerate}
 
 	\begin{conseil}
@@ -77,7 +78,7 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 	\end{solution}
 \end{Exercice}
 
-\begin{Exercice}[30 minutes]{[Java] Redéfintion des méthodes d'égalité et d'identité}
+\begin{Exercice}[30 minutes]{[Java] Redéfinition des méthodes d'égalité et d'identité}
 
 En Java, créez une classe \lstinline{Fraction} ayant pour attributs privés un numérateur et un dénominateur. 
 \begin{conseil}
@@ -98,7 +99,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\item Redéfinir la méthode \lstinline{toString} pour produire une représentation textuelle des instances de \lstinline{Fraction}.
 	\item Redéfinir la méthode \lstinline{equals} pour tester l'égalité entre deux fractions. Cette méthode prendra comme argument un objet \lstinline{other} de type \lstinline{Object}.
 	\begin{conseil}
-		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}. Vous puvez utiliser le même test d'égalité que vous avez fait pour les exercises de la semaine 7.
+		En Java, par défaut toutes les classes héritent d'une classe-mère nommée \lstinline{Object}. Vous pouvez utiliser le même test d'égalité que vous avez fait pour les exercices de la semaine 7.
 	\end{conseil}
 	\item  Pour tester l'égalité dans la méthode \lstinline{equals}:
 	\begin{itemize}
@@ -107,7 +108,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
     \item Sinon, vérifier si les deux fractions sont numériquement égales (même si leurs numérateurs et dénominateurs sont différents) et renvoyer le résultat de cette comparaison.
 \end{itemize}
 	\begin{conseil}
-		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifé le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
+		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifié le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
 	\end{conseil}
 	\item Dans le \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
 	\lstinputlisting{code/Question3.java}.
@@ -140,9 +141,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		\item Créez une classe abstraite appelée \lstinline{Item} avec quatre attributs d'instance et un attribut de classe, qui sont les suivants:
 		\lstinputlisting{code/variables_q4.java} 
 		\begin{conseil}
-			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classes sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.attributeName}.
+			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classe sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
 		\end{conseil}
-		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} incrémentera à chaque instanciation de la classe.
+		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} sera incrémenté à chaque instanciation de la classe.
 		\begin{conseil}
 			Pensez à utiliser \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
 		\end{conseil}
@@ -202,7 +203,7 @@ List of ingredients: {ingredients}
 En Java, une interface se déclare comme suit:
 \lstinputlisting{code/IMakeSound.java} 
 
-Pour rappel: dans une interface Java, les variables sont toujours \lstinline{public static final}, et les méthodes sont public et abstract par défaut.
+Pour rappel: dans une interface Java, les variables sont toujours \lstinline{public static final}, et les méthodes sont publiques et abstraites par défaut.
 
 Les méthodes déclarées dans une interface doivent être implémentées dans des sous-classes :
 
@@ -210,7 +211,7 @@ Les méthodes déclarées dans une interface doivent être implémentées dans d
 \begin{itemize}
 	\item Créez une interface \lstinline{Edible} contenant une méthode \lstinline{eatMe} qui ne retourne aucune valeur.
 	\item Créez une interface \lstinline{Drinkable} contenant une méthode \lstinline{drinkMe} qui ne retourne aucune valeur.
-	\item Créez une classe \lstinline{Food} qui hérite la classe \lstinline{Item} (définie à la question 4) et qui implémente l'interface \lstinline{Edible}. Ecrire le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe} (dans la classe \lstinline{Food}).
+	\item Créez une classe \lstinline{Food} qui hérite de la classe \lstinline{Item} (définie à la question 4) et qui implémente l'interface \lstinline{Edible}. Écrivez le constructeur de \lstinline{Food} et la méthode \lstinline{eatMe} (dans la classe \lstinline{Food}).
 \end{itemize}
 
 \begin{conseil}
@@ -218,10 +219,10 @@ Vous pouvez reprendre la classe \lstinline{Item} de la question 4.\\
 Dans la méthode \lstinline{eatMe()}, vous pouvez simplement afficher un message en utilisant un \lstinline{println}.
 \end{conseil}
 
-Certains aliments ne sont pas seulement \lstinline{Edible} (mangeable) mais aussi \lstinline{Drinkable} (buvable) comme les soupes par exemple.\\
+Certains aliments ne sont pas seulement \lstinline{Edible} (mangeables) mais aussi \lstinline{Drinkable} (buvables) comme les soupes par exemple.\\
 
 \begin{itemize}
-	\item Créez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, écrivez à la fois un constructeur pour \lstinline{Soup} ainsi que la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).
+	\item Créez une classe \lstinline{Soup} qui hérite de \lstinline{Food} et implémente l'interface \lstinline{Drinkable}. Ensuite, écrivez le constructeur de la classe \lstinline{Soup} et la méthode \lstinline{drinkMe} (dans la classe \lstinline{Soup}).
 \end{itemize}
 
 Vous pouvez ensuite tester les méthodes \lstinline{eatMe()} et \lstinline{drinkMe()} à l'aide des lignes suivantes, qui créent des instances de \lstinline{Soup} et \lstinline{Food}.
