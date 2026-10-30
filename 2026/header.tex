@@ -6,6 +6,7 @@
 \usepackage{upquote}
 \usepackage[margin=2cm, rmargin=4cm, tmargin=3cm]{geometry}
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 \usepackage{xspace}
 \usepackage{amsmath}
 \usepackage{float}
@@ -26,7 +27,7 @@
 
 
 \newtcolorbox{Example}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
-\newtcolorbox{Solutions}[1]{colback=white,left=20pt,colframe=green,fonttitle=\bfseries,title=#1}
+\newtcolorbox{Solutions}[1]{breakable,colback=white,left=20pt,colframe=green,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Conseils}[1]{colback=white,left=20pt,colframe=slideblue,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Warning}[1]{colback=white,left=20pt,colframe=warning,fonttitle=\bfseries,title=#1}
 \newtcolorbox{Note}[1]{colback=white,left=20pt,colframe=grey,fonttitle=\bfseries,title=#1}
