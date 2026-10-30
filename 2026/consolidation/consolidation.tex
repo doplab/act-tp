@@ -594,11 +594,14 @@ Qu'affichent les programmes suivants ? \\
     Demandez à l'utilisateur le nombre de lignes et de colonnes d'une grille, puis la ligne et la colonne d'une case à sélectionner (numérotées à partir de 1).
     Avec des boucles imbriquées, affichez la grille bordée comme ci-dessous : chaque case contient \lstinline{-}, sauf la case sélectionnée qui contient \lstinline{X}.
 
-    Exemple pour 2 lignes, 3 colonnes et la case de ligne 1, colonne 2:
-    \begin{lstlisting}[language=texte,numbers=none]
+    \begin{Example}{\faTerminal \quad Exemple}
+        Pour deux lignes, trois colonnes et la case de ligne 1, colonne 2 :
+        \begin{lstlisting}[language=texte,numbers=none,belowskip=0pt]
 |- X - |
 |- - - |
-    \end{lstlisting}
+\end{lstlisting}
+    \end{Example}
+
     \begin{conseil}
         Parcourez les lignes avec une boucle et les colonnes avec une autre. Une condition repère la case sélectionnée. Utilisez \lstinline[language=Python]|print(..., end="")| pour rester sur la même ligne et \lstinline[language=Python]|print()| pour passer à la suivante.
     \end{conseil}
@@ -938,8 +941,9 @@ print(nombre_decimal_pi(20))
 
 \begin{Exercice}[3 minutes] \\
 Lequel de ces deux programmes en Java suit une structure correcte et peut être compilé sans erreur?
-\newpage
 
+% Chaque minipage garde le listing sur une seule page.
+\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}[
     frame=single,
     frameround=tttt,
@@ -949,7 +953,7 @@ Lequel de ces deux programmes en Java suit une structure correcte et peut être 
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
-    breaklines=true
+    breaklines=false
 ]
 //Programme A
 public class Main {
@@ -967,7 +971,9 @@ public class Main {
     }
 }
 \end{lstlisting}
+\end{minipage}\par
 
+\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}[
     frame=single,
     frameround=tttt,
@@ -977,7 +983,7 @@ public class Main {
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
-    breaklines=true
+    breaklines=false
 ]
 //Programme B
 public class Main {
@@ -996,6 +1002,7 @@ public class Main {
     }
 }
 \end{lstlisting}
+\end{minipage}\par
 
 \begin{enumerate}
     \item Programme A
