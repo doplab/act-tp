@@ -132,8 +132,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 
 \begin{Exercice}[15 minutes]{Création d'une classe abstraite}
 
-	Une classe abstraite est une classe dont l'implémentation n'est pas complète et qui n'est pas instanciable. Elle est déclarée en utilisant le mot-clé \lstinline{abstract}. Elle peut inclure des méthodes abstraites ou non. Bien que ne pouvant être instanciées, les classes abstraites servent de base à des sous-classes qui en sont dérivées.
-	Lorsqu'une sous-classe est dérivée d'une classe abstraite, elle complète généralement l'implémentation de toutes les méthodes abstraites de la classe-mère. Si ce n'est pas le cas, la sous-classe doit également être déclarée comme abstraite.
+	Une classe abstraite sert de base à des sous-classes et ne peut pas être instanciée directement. Elle se déclare avec le mot-clé \lstinline{abstract} et peut contenir des méthodes concrètes (avec une implémentation) ainsi que des méthodes abstraites (sans implémentation).
+
+	Une sous-classe qui n'implémente pas toutes les méthodes abstraites dont elle hérite doit être déclarée abstraite.
 	
 	\lstinputlisting{code/Animal.java} 
 	
@@ -173,7 +174,7 @@ List of ingredients: {ingredients}
 	\begin{itemize}
 		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{float}: \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites: \lstinline{getAire}() et \lstinline{getPerimetre}() qui renvoient un \lstinline{float}.
 		
-		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend en paramètre une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
 		
 		\item Dans le \lstinline{main} d'une classe \lstinline{FigureMain}, créez un carré et un rectangle et affichez le périmètre du carré et l'aire du rectangle.
 	\end{itemize}
