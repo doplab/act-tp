@@ -4,11 +4,16 @@ public class Fraction {
 
     public Fraction(int numerateur, int denominateur) {
         this.numerateur = numerateur;
+        if (denominateur == 0) {
+            throw new ArithmeticException();
+        }
+        // alternative (aux lignes 7 à 9)
+        // var tmp = numerateur / denominateur;
         this.denominateur = denominateur;
         simplify();
     }
 
-    public int gcd(int a, int b) {
+    public static int gcd(int a, int b) {
         if (a == 0) {
             return b;
         } else if (b == 0) {
@@ -19,7 +24,7 @@ public class Fraction {
     }
 
     private void simplify() {
-        int pgcd = gcd(this.numerateur, this.denominateur);
+        int pgcd = Fraction.gcd(this.numerateur, this.denominateur);
         this.numerateur = this.numerateur / pgcd;
         this.denominateur = this.denominateur / pgcd;
     }

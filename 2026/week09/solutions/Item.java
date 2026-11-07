@@ -35,7 +35,7 @@ public abstract class Item {
     public boolean equals(Object o) {
         if (o instanceof Item) {
             Item i = (Item) o;
-            return i.getId() == this.getId();
+            return i.id == this.id;
         }
         return false;
     }
