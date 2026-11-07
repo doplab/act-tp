@@ -119,11 +119,11 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\lstinputlisting{solutions/Fraction.java}
 \end{solution}
 \begin{solution}
-	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. On peut le vérifier en comparant leur représentation numérique. Cela peut être fait en utilisant la méthode \lstinline{hashCode()}. Vous pouvez essayer en exécutant la ligne suivante dans le~\lstinline{main}: \lstinline{System.out.println(f1.hashCode())}. \\
+	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. \\
 
 	L'instruction \lstinline{f1.equals(f2)} appelle la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons définies dans cette méthode.
 	L'opérateur \lstinline{==} compare les références; \lstinline{equals} fait de même par défaut, mais peut être redéfinie pour comparer les valeurs.
-	Par contre, en Python, l'opérateur \lstinline|==| fait appel à la méthode \lstinline|__eq__|. 
+	\textbf{Par contre, en Python, l'opérateur \lstinline|==| fait appel à la méthode \lstinline|__eq__|. }
 \end{solution}
 
 \end{Exercice}
@@ -146,7 +146,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		\begin{conseil}
 			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classe sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
 		\end{conseil}
-		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} sera incrémenté à chaque instanciation de la classe.
+		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} sera incrémenté à chaque appel au constructeur de cette classe abstraite dans une classe fille.
 		\begin{conseil}
 			Pensez à utiliser \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
 		\end{conseil}
