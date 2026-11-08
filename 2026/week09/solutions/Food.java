@@ -5,6 +5,7 @@ public class Food extends Item implements Edible {
         super(name, price, ingredients);
     }
 
+    @Override
     public void eatMe() {
         System.out.println("Eat me!" + toString());
     }

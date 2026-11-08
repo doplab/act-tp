@@ -1,14 +1,14 @@
 public abstract class Figure {
 
-    protected float largeur;
-    protected float longueur;
+    protected double largeur;
+    protected double longueur;
 
-    public Figure(float largeur, float longueur) {
+    public Figure(double largeur, double longueur) {
         this.largeur = largeur;
         this.longueur = longueur;
     }
 
-    public abstract float getPerimetre();
+    public abstract double getPerimetre();
 
-    public abstract float getAire();
+    public abstract double getAire();
 }

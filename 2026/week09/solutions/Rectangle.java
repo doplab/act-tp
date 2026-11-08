@@ -1,17 +1,17 @@
 class Rectangle extends Figure {
 
-    public Rectangle(float largeur, float longueur) {
+    public Rectangle(double largeur, double longueur) {
         super(largeur, longueur);
     }
 
     @Override
-    public float getPerimetre() {
+    public double getPerimetre() {
         return (this.largeur + this.longueur) * 2;
 
     }
 
     @Override
-    public float getAire() {
+    public double getAire() {
         return this.largeur * this.longueur;
     }
 }

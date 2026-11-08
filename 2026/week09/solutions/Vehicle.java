@@ -13,6 +13,6 @@ public class Vehicle {
     public static void main(String[] args) {
         Car myCar = new Car("Ford");
         myCar.honk();
-        System.out.println(myCar.brand + " " + myCar.modelName);
+        System.out.println(myCar.brand + " " + myCar.getModelName());
     }
 }

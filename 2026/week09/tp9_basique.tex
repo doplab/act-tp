@@ -63,7 +63,7 @@ Le mot-clé \lstinline{this} en Java est une variable de référence qui fait r�
 		\item Créez une classe-mère \lstinline{Vehicle} ayant un attribut protégé (\lstinline{protected}) de type chaîne de caractères appelé \lstinline{brand}.
 		\item Créez un constructeur pour la classe \lstinline{Vehicle} et assignez la valeur passée comme argument à l'attribut \lstinline{brand}.
 		\item Définissez une méthode \lstinline{honk} qui affiche \lstinline{"Tuut, tuut!"}
-		\item Créez une classe-fille \lstinline{Car} qui hérite de \lstinline{Vehicle} et possède un attribut \lstinline{modelName} avec valeur par défaut \lstinline{"Mustang"}.
+		\item Créez une classe \lstinline{Car} qui hérite de \lstinline{Vehicle}, avec un attribut privé \lstinline{modelName} de type chaîne de caractères, avec valeur par défaut \lstinline{"Mustang"}, et un getter public. Définissez deux constructeurs: un constructeur qui prend en paramètre la marque (\lstinline|brand|), et un autre constructeur qui prend en paramètre la marque et le modèle (\lstinline|modelName|). Dans les deux constructeurs, initialisez \lstinline|brand| via le constructeur de la classe-mère.
 	\end{enumerate}
 
 	\begin{conseil}
@@ -119,7 +119,8 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 	\lstinputlisting{solutions/Fraction.java}
 \end{solution}
 \begin{solution}
-	L'instruction \lstinline{f1 == f2} vérifie que les deux objets sont identiques. Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. \\
+	L'expression \lstinline{f1 == f2} teste si les deux variables référencent le même objet en mémoire, c'est-à-dire si \lstinline{f1} et \lstinline{f2} sont identiques.
+	Dans notre cas, \lstinline{f1} et \lstinline{f2} sont deux objets différents. \\
 
 	L'instruction \lstinline{f1.equals(f2)} appelle la méthode \lstinline{equals()} de notre classe \lstinline{Fraction} et exécute les instructions que nous avons définies dans cette méthode.
 	L'opérateur \lstinline{==} compare les références; \lstinline{equals} fait de même par défaut, mais peut être redéfinie pour comparer les valeurs.
@@ -146,10 +147,9 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
 		\begin{conseil}
 			Les attributs d'instance sont créés lors de l'instanciation d'un objet (à l'aide du mot-clé \lstinline{new}) et détruits lors de la destruction de l'objet. Les attributs de classes (attributs statiques), quant à eux, sont créés lors de l'exécution du programme et détruits lors de l'arrêt du programme. En Java, les attributs de classe sont accessibles en utilisant le nom de la classe soit: \lstinline{ClassName.AttributeName}.
 		\end{conseil}
-		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} sera incrémenté à chaque appel au constructeur de cette classe abstraite dans une classe fille.
-		\begin{conseil}
-			Pensez à utiliser \lstinline{count} pour initialiser la valeur d'\lstinline{id}. Ainsi, dans le constructeur, \lstinline{id} sera égal à \lstinline{++count}.
-		\end{conseil}
+		\item Créez un constructeur pour initialiser les attributs \lstinline{name, price, ingredients et id}. L'attribut \lstinline{id} stocke le nombre d'objets créés avant la création de l'objet actuel. 
+		Ce nombre n'étant propre à aucun objet en particulier, stockez-le dans un attribut de classe (\lstinline|static|), incrémenté à chaque appel du constructeur de la classe \lstinline|Item|.
+
 		\item Implémentez les \lstinline{getters} des attributs \lstinline{id, name, price et ingredients}.
 		\item Implémentez la méthode \lstinline{equals(Object other)} qui renvoie \lstinline|true| si \lstinline|other| est de type \lstinline|Item| (utiliser \lstinline|other instanceof Item|) et possède la même valeur pour l'attribut \lstinline{id} que celui de l'objet actuel.
 		\item Redéfinissez \lstinline{toString()} pour renvoyer une chaîne de quatre lignes au format suivant, en remplaçant les valeurs entre accolades par celles de l'objet:
@@ -173,7 +173,7 @@ List of ingredients: {ingredients}
 	
 	\begin{Exercice}[15 minutes]{Classe abstraite et types d'attributs}
 	\begin{itemize}
-		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{float}: \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites: \lstinline{getAire}() et \lstinline{getPerimetre}() qui renvoient un \lstinline{float}.
+		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{double}: \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites: \lstinline{getAire}() et \lstinline{getPerimetre}() dont le type de retour est \lstinline{double}.
 		
 		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend en paramètre une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
 		

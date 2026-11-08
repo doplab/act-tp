@@ -1,16 +1,16 @@
 class Carre extends Figure {
 
-    public Carre(float largeur) {
+    public Carre(double largeur) {
         super(largeur, largeur);
     }
 
     @Override
-    public float getPerimetre() {
+    public double getPerimetre() {
         return this.largeur * 4;
     }
 
     @Override
-    public float getAire() {
+    public double getAire() {
         return this.largeur * this.largeur;
     }
 
