@@ -108,7 +108,7 @@ Assignez des valeurs à vos attributs dans le constructeur que vous définirez. 
     \item Sinon, vérifier si les deux fractions sont numériquement égales (même si leurs numérateurs et dénominateurs sont différents) et renvoyer le résultat de cette comparaison.
 \end{itemize}
 	\begin{conseil}
-		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{.getClass()} et les comparer. Une fois que vous avez vérifié le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
+		En Java, pour vérifier que deux objets sont de même type, vous pouvez accéder à la classe de chacun des éléments en utilisant la méthode \lstinline{getClass()} et les comparer. Une fois que vous avez vérifié le type de l'objet \lstinline{other} passé comme argument, le convertir en \lstinline{Fraction} (utiliser \href{https://moodle.unil.ch/mod/resource/view.php?id=2218919}{type casting de la semaine 3}).
 	\end{conseil}
 	\item Dans le \lstinline{main}, exécuter le code suivant (disponible sur Moodle): 
 	\lstinputlisting{code/Question3.java}.
@@ -175,30 +175,46 @@ List of ingredients: {ingredients}
 	\begin{itemize}
 		\item Implémentez une classe abstraite \lstinline{Figure} contenant deux attributs protégés de type \lstinline{double}: \lstinline{largeur} et \lstinline{longueur}, un constructeur qui initialise ces deux attributs, et deux méthodes abstraites: \lstinline{getAire}() et \lstinline{getPerimetre}() dont le type de retour est \lstinline{double}.
 		
-		\item Créez deux classes \lstinline{Carre} et \lstinline{Rectangle} qui héritent de la classe \lstinline{Figure}. Le constructeur de \lstinline{Rectangle} prend en paramètre une largeur et une longueur, celui de \lstinline{Carre} ne prend que la longueur du côté. À l'intérieur de ces classes, implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+		\item Créez une classe \lstinline{Rectangle} qui hérite de \lstinline{Figure}. Son constructeur prend en paramètre une largeur et une longueur. Implémentez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()}.
+
+		\item Créez une classe \lstinline{Carre} qui hérite de \lstinline{Rectangle}. Son constructeur prend en paramètre la longueur du côté et la transmet au constructeur de \lstinline{Rectangle} comme largeur et longueur. Réutilisez les méthodes \lstinline{getAire()} et \lstinline{getPerimetre()} héritées de \lstinline{Rectangle}.
 		
 		\item Dans le \lstinline{main} d'une classe \lstinline{FigureMain}, créez un carré et un rectangle et affichez le périmètre du carré et l'aire du rectangle.
 	\end{itemize}
 	
 	\begin{conseil}
 		Un attribut protégé est accessible aussi bien dans la classe-mère que dans la classe-fille. On utilise le mot-clé \lstinline{protected} pour rendre des attributs protégés. \\
-		Pour rappel, pour créer une classe fille, on utilise le mot-clé \lstinline{extends}. Par exemple: \lstinline{public class Carre extends Figure}.
+		Pour rappel, pour créer une classe fille, on utilise le mot-clé \lstinline{extends}. Par exemple: \lstinline{class Carre extends Rectangle}.
 	\end{conseil}
 
 	\begin{solution}
 		\lstinputlisting[language=java]{solutions/Figure.java} 
 	\end{solution}
 	\begin{solution}
-		\lstinputlisting[language=java]{solutions/Carre.java} 
+		\lstinputlisting[language=java]{solutions/Rectangle.java}
 	\end{solution}
 	\begin{solution}
-		\lstinputlisting[language=java]{solutions/Rectangle.java}
+		\lstinputlisting[language=java]{solutions/Carre.java}
 	\end{solution} 
 	\begin{solution}
 		\lstinputlisting[language=java]{solutions/FigureMain.java} 
 	\end{solution}
 	\end{Exercice}
+
+\begin{Exercice}[5 minutes]{Comparaison de types}
 	
+Reprenez les classes des figures de l'exercice précédent. Qu'affiche le code suivant:
+\lstinputlisting[language=java]{code/ComparaisonTypes.java}
+
+\begin{solution}
+Les résultats sont, dans l'ordre: \lstinline{false}, \lstinline{true}, \lstinline{true}, \lstinline{false}, \lstinline{true}.
+
+L'opérateur \lstinline{instanceof} tient compte de l'héritage: un \lstinline{Carre} est aussi un \lstinline{Rectangle} et une \lstinline{Figure}, mais un \lstinline{Rectangle} n'est pas nécessairement un \lstinline{Carre}. L'objet référencé par \lstinline{rectangle} est ici un \lstinline{Rectangle}, donc le premier test renvoie \lstinline{false}.
+
+La méthode \lstinline{getClass()} renvoie la classe exacte de l'objet à l'exécution. L'objet référencé par \lstinline{carre} est de classe \lstinline{Carre}, même si la variable est déclarée de type \lstinline{Figure}. Parmi les deux comparaisons avec \lstinline{getClass()}, seule celle avec \lstinline{Carre.class} renvoie donc \lstinline{true}.
+\end{solution}
+\end{Exercice}
+
 \section{Interfaces}
 \begin{Exercice}[15 minutes]{Interface et héritage (\faLink~~Liée à la question 4)}\\
 

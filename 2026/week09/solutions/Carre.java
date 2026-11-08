@@ -1,17 +1,6 @@
-class Carre extends Figure {
+class Carre extends Rectangle {
 
-    public Carre(double largeur) {
-        super(largeur, largeur);
+    public Carre(double cote) {
+        super(cote, cote);
     }
-
-    @Override
-    public double getPerimetre() {
-        return this.largeur * 4;
-    }
-
-    @Override
-    public double getAire() {
-        return this.largeur * this.largeur;
-    }
-
 }
