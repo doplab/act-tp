@@ -261,4 +261,26 @@ Vous pouvez ensuite tester les méthodes \lstinline{eatMe()} et \lstinline{drink
 
 \end{Exercice}
 
+\begin{Exercice}[5 minutes]{Classes abstraites et interfaces}
+Lesquelles des affirmations suivantes sont \textbf{correctes}?
+
+\begin{enumerate}
+    \item Une classe peut hériter directement de plusieurs classes, à condition qu'elles soient toutes abstraites.
+    \item Une classe peut implémenter plusieurs interfaces.
+    \item Dans l'en-tête suivante: \lstinline|Circle extends Figure implements Drawable|, si \lstinline{Drawable} était une classe abstraite, \lstinline{Circle} pourrait hériter directement à la fois de \lstinline{Figure} et de \lstinline{Drawable}.
+    \item Deux classes doivent avoir une classe-mère commune autre que \lstinline{Object} pour pouvoir implémenter la même interface.
+    \item Une interface peut décrire une capacité commune à des classes appartenant à des hiérarchies différentes, comme la capacité à voler.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Faux.} Une classe ne peut étendre qu'une seule classe, qu'elle soit abstraite ou concrète.
+    \item \textbf{Vrai.} Une classe peut étendre une classe et implémenter plusieurs interfaces. 
+    \item \textbf{Faux.} \lstinline{Circle} ne pourrait pas étendre directement les deux classes. Utiliser une interface pour \lstinline{Drawable} permet de représenter cette capacité sans remplacer sa classe-mère \lstinline{Figure}.
+    \item \textbf{Faux.} Des classes sans classe-mère commune autre que \lstinline{Object} peuvent implémenter la même interface.
+    \item \textbf{Vrai.} Par exemple, un livre audio et une chanson peuvent implémenter une interface \lstinline{Playable} tout en appartenant à des hiérarchies de classes différentes.
+\end{enumerate}
+\end{solution}
+\end{Exercice}
+
 \end{document}
