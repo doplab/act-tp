@@ -1,4 +1,5 @@
 
+// Placez chaque classe dans un fichier portant son nom.
 public class Guerrier extends Personnage {
 
 }

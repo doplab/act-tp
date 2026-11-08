@@ -1,6 +1,4 @@
-import java.util.Random;
-
-public class Personnage {
+public abstract class Personnage {
 
     private String nom;
     private int niveau;
@@ -13,7 +11,8 @@ public class Personnage {
     private int intelligence;
 
 
-    public Personnage(String nom, int niveau, int pv, int vitalite, int force, int dexterite, int endurance, int intelligence){
+    public Personnage(String nom, int niveau, int pv, int vitalite,
+                      int force, int dexterite, int endurance, int intelligence) {
         this.nom = nom;
         this.niveau = niveau;
         this.pv = pv;
@@ -26,20 +25,17 @@ public class Personnage {
 
     }
 
-    public void getInfo() {
-        System.out.println("Nom" + getNom());
-        System.out.println("Niveau" + getNiveau());
-        System.out.println("Vitalité" + getVitalite());
-        System.out.println("Force" + getForce());
-        System.out.println("Dexterité" + getDexterite());
-        System.out.println("Endurance" + getEndurance());
-        System.out.println("Intelligence" + getIntelligence());
+    @Override
+    public String toString() {
+        return "Nom : " + nom + ", niveau : " + niveau
+            + ", PV : " + pv + ", vitalite : " + vitalite
+            + ", force : " + force + ", dexterite : " + dexterite
+            + ", endurance : " + endurance
+            + ", intelligence : " + intelligence;
     }
 
 
-    public void attaqueBasique(Personnage other){
-        System.out.println(this.getNom() + " attaque " + other.getNom());
-    }
+    public abstract void attaqueBasique(Personnage autre);
 
     public String getNom() {
         return nom;
@@ -74,10 +70,10 @@ public class Personnage {
     }
 
     public void setPv(int pv) {
-        if (pv > 0){
+        if (pv > 0) {
             this.pv = pv;
         }
-        else{
+        else {
             this.pv = 0;
         }
     }

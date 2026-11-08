@@ -48,7 +48,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
     \begin{solution}
         \begin{enumerate}
-            \item FFFFFF$_{(16)}$ = 16777215$_{(10)}$
             \item 4321$_{(5)}$ = 586$_{(10)}$
             \item ABC$_{(16)}$ = 101010111100$_{(2)}$
             \item 11101$_{(2)}$ = 29$_{(10)}$
@@ -178,7 +177,7 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
 \section{Logiciels système}
 
 \begin{Exercice}[10 minutes]
-    En utilisant l'invite de commandes (Terminal), créer un programme Python demandant à l'utilisateur d'entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s'afficher : \textit{``Bonjour, je m'appelle *prénom nom*''}.
+    En utilisant l'invite de commandes (Terminal), créer un programme Python demandant à l'utilisateur d'entrer son nom et son prénom. Lorsque le programme est exécuté, la phrase suivante doit s'afficher: \texttt{Bonjour, je m'appelle \{prénom\} \{nom\}}.
 \end{Exercice}
 
 \begin{solution}
@@ -190,18 +189,17 @@ Les opérations disponibles pour l'unité de contrôle sont les suivantes:
     Sous Linux et MacOS, laquelle de ces commandes modifie le \lstinline{filesystem}?
     \begin{enumerate}
         \item \lstinline{ls -la}
-        \item \lstinline{sudo rm -rf ~/nano}
-        \item \lstinline{sudo kill -9 3531}
+        \item \lstinline{mkdir homework}
         \item \lstinline{more nano.txt}
         \item \lstinline{cd ..}
         \item \lstinline{pwd}
         \item Aucune de ces réponses n'est correcte.
     \end{enumerate}
     \begin{solution}
-        La commande \lstinline{sudo rm -rf ~/nano} permet de supprimer le répertoire \lstinline{nano} situé dans le dossier \lstinline{/Users/<Utilisateur\_courant>} en mode super-utilisateur (utilisateur ayant des droits étendus sur le système).
+        La commande \lstinline{mkdir homework} permet de créer un répertoire appelé \lstinline{homework} situé dans le dossier courant (current working directory).
+        Si la commande était \lstinline{mkdir /homework}, le dossier aurait été crée dans le dossier racine (root directory) / .
     \end{solution}
     \begin{attention}
-        Certaines commandes listées ci-dessus peuvent avoir des conséquences irréversibles.\\
         Pour avoir une description détaillée d'une commande, vous pouvez ajouter \lstinline{man} devant la commande sous Linux/MacOS ou ajouter \lstinline{-h, --help} ou \lstinline{/?} après la commande sous Windows.
     \end{attention}
 \end{Exercice}
@@ -596,13 +594,14 @@ Qu'affichent les programmes suivants ? \\
     Demandez à l'utilisateur le nombre de lignes et de colonnes d'une grille, puis la ligne et la colonne d'une case à sélectionner (numérotées à partir de 1).
     Avec des boucles imbriquées, affichez la grille bordée comme ci-dessous : chaque case contient \lstinline{-}, sauf la case sélectionnée qui contient \lstinline{X}.
 
-    Exemple pour 2 lignes, 3 colonnes et la case de ligne 1, colonne 2:
-    \begin{lstlisting}[language=texte,numbers=none]
---------
+    \begin{Example}{\faTerminal \quad Exemple}
+        Pour deux lignes, trois colonnes et la case de ligne 1, colonne 2 :
+        \begin{lstlisting}[language=texte,numbers=none,belowskip=0pt]
 |- X - |
 |- - - |
---------
-    \end{lstlisting}
+\end{lstlisting}
+    \end{Example}
+
     \begin{conseil}
         Parcourez les lignes avec une boucle et les colonnes avec une autre. Une condition repère la case sélectionnée. Utilisez \lstinline[language=Python]|print(..., end="")| pour rester sur la même ligne et \lstinline[language=Python]|print()| pour passer à la suivante.
     \end{conseil}
@@ -620,54 +619,61 @@ Qu'affichent les programmes suivants ? \\
     
     Dans cet exercice, vous allez mettre en place un simple jeu de rôle. Le concept d’héritage sera très utile dans ce jeu de rôle étant donné que les différentes classes de personnages possèdent certains attributs ou actions similaires. Les personnages de notre jeu sont le Guerrier, le Paladin, le Magicien et le Chasseur. 
     
-    Ainsi, il serait judicieux de créer une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs arguments :
+    Ainsi, il serait judicieux de créer une première classe \lstinline{Personnage}. Un personnage est un objet qui possède plusieurs attributs:
     \begin{itemize}
-        \item \lstinline{nom (String)} : le nom du personnage
-        \item \lstinline{niveau (int)} : le niveau du personnage
-        \item \lstinline{pv (int)} : les points de vie du personnage
-        \item \lstinline{vitalite (int)} : la vitalité (ou santé) du personnage
-        \item \lstinline{force (int)} : la force du personnage
-        \item \lstinline{dexterite (int)} : la dextérité du personnage
-        \item \lstinline{endurance (int)} : l’endurance du personnage
-        \item \lstinline{intelligence (int)} : l’intelligence du personnage\\
+        \item \lstinline{nom}: le nom du personnage de type chaîne de caractères
+        \item \lstinline{niveau}: le niveau du personnage de type entier
+        \item \lstinline{pv}: les points de vie du personnage de type entier
+        \item \lstinline{vitalite}: la vitalité (ou santé) du personnage de type entier
+        \item \lstinline{force}: la force du personnage de type entier
+        \item \lstinline{dexterite}: la dextérité du personnage de type entier
+        \item \lstinline{endurance}: l'endurance du personnage de type entier
+        \item \lstinline{intelligence}: l'intelligence du personnage de type entier\\
     \end{itemize}
     
-    Suivez les instructions ci-dessous pour compléter le programme.
+    Afin de compléter le programme.
     
     \begin{itemize}
-        \item Définir le constructeur de la classe \lstinline{Personnage} qui prend tous les attributs cités ci-dessus en argument. 
+        \item Définissez le constructeur de \lstinline{Personnage}, qui prend en paramètre les valeurs de tous les attributs ci-dessus, ainsi que les getters.
         
-        % Remplacer la méthode getInfo par toString(). On pourrait demander à l'étudiant de redéfinir la méthode toString() de telle sorte qu'on puisse avoir des infos lorsqu'on fait un print sur une instance de Personnage.
-       % \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, implémentez une méthode \lstinline{getInfo()} dans la classe \lstinline{Personnage} qui affiche des informations du personnage dans la console.
-       \item Il peut être intéressant d’afficher les caractéristiques de votre personnage. Après avoir implémenté les getters utiles, redéfinissez la méthode \lstinline{toString()} dans la classe \lstinline{Personnage} qui retourne une chaîne de caractères avec toutes les informations du 
-       personnage. Cette méthode nous permettra d'afficher dans la console les informations du personnage lorsqu'on affiche dans la console une instance de \lstinline{Personnage}.
+       \item  Redéfinissez \lstinline{toString()} pour renvoyer tous les attributs sur une seule ligne, sous la forme \lstinline{nom de l'attribut: valeur}, séparés par des virgules.
 
-        \item Chaque personnage de ce jeu a un compteur de vies. Celui-ci va être modifié par un \lstinline{setter}. Définissez le \lstinline{setter} dans la classe \lstinline{Personnage}.
-        \item Créer les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} en écrivant tout d'abord leurs constructeurs respectifs. 
+        \item Chaque personnage de ce jeu a un compteur (points) de vies stocké dans l'attribut \lstinline{pv}. Celui-ci va être modifié par un \lstinline{setter}. Définissez son setter.
+        
+        \item Créez les classes \lstinline{Guerrier, Paladin, Magicien et Chasseur} qui héritent de \lstinline{Personnage} et définissez leurs constructeurs. 
         
         \lstinputlisting[language=java]{code/RolePlayMere.java}
     
-        \item Pour chacun des personnages, implémentez une méthode \lstinline{attaqueBasique()} qui prend un autre personnage en argument et ne retourne rien. Celle-ci crée une attaque de votre choix en fonction des caractéristiques des personnages (par exemple: l'attaque du guerrier dépendra de sa force, l'attaque du chasseur de son endurance et ainsi de suite), et détermine les points de vie restants en soustrayant la gravité de l'attaque à la vitalité du personnage. Affichez le nom de celui que vous avez attaqué et ses points de vie restants.
-        \item \textbf{Attention:} Utilisez un setter pour réduire les points de vie (\lstinline{pv}) de l'autre personnage.
+        \item Dans chacune de ces classes, implémentez la méthode \lstinline{attaqueBasique(Personnage cible)}, qui ne renvoie aucune valeur. Les dégâts dépendent des attributs de l'attaquant:
+        \begin{itemize}
+            \item \lstinline{Guerrier}: inflige des dégâts égaux à 50\,\% de sa \lstinline{force}.
+            \item \lstinline{Paladin}: inflige des dégâts égaux à 70\,\% de son \lstinline{endurance}.
+            \item \lstinline{Magicien}: inflige des dégâts égaux à 50\,\% de son \lstinline{intelligence}.
+            \item \lstinline{Chasseur}: inflige des dégâts égaux à 50\,\% de son \lstinline{endurance}.
+        \end{itemize}
+        Convertissez les dégâts en entier avec \lstinline{(int)} (la partie décimale est supprimée). Soustrayez-les aux \lstinline{pv} actuels de la cible via \lstinline{setPv()}, sans descendre sous zéro. Affichez ensuite une ligne indiquant qui attaque qui, puis une ligne donnant le nom de la cible et ses \lstinline{pv} restants.
         
         \lstinputlisting[language=java]{code/RolePlayFilles.java}
     \end{itemize}
     
     \begin{solution}
-        \lstinputlisting[language=java,lastline=55]{solutions/Personnage.java}
+        \lstinputlisting[language=java,lastline=59]{solutions/Personnage.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=56, firstnumber=56]{solutions/Personnage.java}
+        \lstinputlisting[language=java,firstline=60,firstnumber=60]{solutions/Personnage.java}
     \end{solution}
     
     \begin{solution}
-        \lstinputlisting[language=java,lastline=19]{solutions/Guerrier.java}
+        \lstinputlisting[language=java]{solutions/Guerrier.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=20, firstnumber=20, lastline= 68]{solutions/Guerrier.java}
+        \lstinputlisting[language=java]{solutions/Magicien.java}
     \end{solution}
     \begin{solution}
-        \lstinputlisting[language=java,firstline=69, firstnumber=69]{solutions/Guerrier.java}
+        \lstinputlisting[language=java]{solutions/Paladin.java}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language=java]{solutions/Chasseur.java}
     \end{solution}
     \end{Exercice}
     
@@ -769,8 +775,7 @@ def nombre_decimal_pi(int):
     \item - Faux
 \end{enumerate}
 \begin{solution}
-    \textbf{Faux}: À l'exception des fonctions intégrées (il s'agit des fonctions déjà intégrées au langage Python telles que \lstinline{print(), len(), abs(), etc}...). Dans les langages suivant une~logique de~programmation~impérative (c'est le cas de Java et Python), une fonction doit nécessairement être définie \textbf{avant} d'être appelée.
-    \url{https://fr.wikipedia.org/wiki/Programmation\_imp\%C3\%A9rative}
+    \textbf{Faux}: À l'exception des fonctions intégrées (il s'agit des fonctions déjà intégrées au langage Python telles que \lstinline{print(), len(), abs()}). Dans les langages impératifs (comme Java et Python), une fonction doit être définie au moment d'exécution.
 \end{solution}
 \end{Exercice}
 
@@ -935,8 +940,10 @@ print(nombre_decimal_pi(20))
 
 
 \begin{Exercice}[3 minutes] \\
-Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure et peut être compilé sans erreur?
+Lequel de ces deux programmes en Java suit une structure correcte et peut être compilé sans erreur?
 
+% Chaque minipage garde le listing sur une seule page.
+\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}[
     frame=single,
     frameround=tttt,
@@ -946,25 +953,27 @@ Observez les deux programmes suivants en Java. Lequel a-t-il une bonne structure
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
-    breaklines=true
+    breaklines=false
 ]
 //Programme A
 public class Main {
     public static void main(String[] args) {
-        ma_function();
-        autre_fonction();
+        maFunction();
+        autreFonction();
 
-        static void ma_function(){
+        static void maFunction(){
             System.out.println("Voici ma fonction!");
         }
     
-        static void autre_fonction(){
+        static void autreFonction(){
             System.out.println("Une autre fonction!");
         }
     }
 }
 \end{lstlisting}
+\end{minipage}\par
 
+\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}[
     frame=single,
     frameround=tttt,
@@ -974,25 +983,26 @@ public class Main {
     basicstyle=\ttfamily\small,
     numbers=left,
     numberstyle=\small\color{gray},
-    breaklines=true
+    breaklines=false
 ]
 //Programme B
 public class Main {
 
     public static void main(String[] args) {
-    ma_function();
-    autre_fonction();
+    maFunction();
+    autreFonction();
     }
 
-    static void ma_function(){
+    static void maFunction(){
         System.out.println("Voici ma fonction!");
     }
 
-    static void autre_fonction(){
+    static void autreFonction(){
         System.out.println("Une autre fonction!");
     }
 }
 \end{lstlisting}
+\end{minipage}\par
 
 \begin{enumerate}
     \item Programme A
