@@ -9,7 +9,7 @@ public void resurrection(Fighter other) {
                 System.out.println(this.getName() + " ne peut plus ressusciter personne");
             } else {
                 other.setHealth(10);
-                Fighter.addInstances(other);
+                Fighter.addInstance(other);
                 this.setResurrection(0);
                 System.out.println(other.getName() + " vient de revenir à la vie");
                 Fighter.checkHealth();
