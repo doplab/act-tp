@@ -8,15 +8,15 @@ public class MergeSort {
         int n2 = r - m;
 
         /* Créer des listes temporaires */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        int leftArray[] = new int[n1];
+        int rightArray[] = new int[n2];
 
         /* Copier les données dans les sous-listes temporaires */
         for (int i = 0; i < n1; ++i) {
-            L[i] = arr[l + i];
+            leftArray[i] = arr[l + i];
         }
         for (int j = 0; j < n2; ++j) {
-            R[j] = arr[m + 1 + j];
+            rightArray[j] = arr[m + 1 + j];
         }
 
         /* Fusionner les sous-listes temporaires */
@@ -26,26 +26,26 @@ public class MergeSort {
         // Index initial de la sous-liste fusionnée
         int k = l;
         while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
                 i++;
             } else {
-                arr[k] = R[j];
+                arr[k] = rightArray[j];
                 j++;
             }
             k++;
         }
 
-        /* Copier les élements restants de L[] */
+        /* Copier les élements restants de leftArray[] */
         while (i < n1) {
-            arr[k] = L[i];
+            arr[k] = leftArray[i];
             i++;
             k++;
         }
 
-        /* Copier les élements restants de R[] */
+        /* Copier les élements restants de rightArray[] */
         while (j < n2) {
-            arr[k] = R[j];
+            arr[k] = rightArray[j];
             j++;
             k++;
         }
@@ -53,21 +53,21 @@ public class MergeSort {
 
     // Fonction principale qui trie arr[l..r] en utilisant
     // merge()
-    public static void tri_fusion(int arr[], int l, int r) {
+    public static void triFusion(int arr[], int l, int r) {
         if (l < r) {
             // Trouver le milieu de la liste
             int m = (l + r) / 2;
 
             // Trier les première et la deuxième parties de la liste
-            tri_fusion(arr, l, m);
-            tri_fusion(arr, m + 1, r);
+            triFusion(arr, l, m);
+            triFusion(arr, m + 1, r);
 
             // Fusionner les deux parties
             merge(arr, l, m, r);
         }
     }
 
-    public static void affiche_liste(int l[]) {
+    public static void afficheListe(int l[]) {
         int n = l.length;
         for (int i = 0; i < n; ++i) {
             System.out.println(l[i] + " ");
@@ -76,7 +76,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] l = { 38, 27, 43, 3, 9, 82, 10 };
-        tri_fusion(l, 0, l.length - 1);
-        affiche_liste(l);
+        triFusion(l, 0, l.length - 1);
+        afficheListe(l);
     }
 }

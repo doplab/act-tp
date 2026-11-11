@@ -1,5 +1,5 @@
 public class BubbleSort {
-    public static void tri_bulle(int[] l) {
+    public static void triBulle(int[] l) {
         for (int i = 0; i < l.length - 1; i++) {
             // TODO: Code à compléter
         }
@@ -15,7 +15,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] l = { 1, 2, 4, 3, 1 };
-        Question3.tri_bulle(l);
+        BubbleSort.triBulle(l);
         printArray(l);
     }
 }

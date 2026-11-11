@@ -8,7 +8,7 @@ public class MergeSort {
 
     // Fonction principale qui trie arr[l..r] en utilisant
     // merge()
-    public static void tri_fusion(int arr[], int l, int r) {
+    public static void triFusion(int arr[], int l, int r) {
         // TODO: Code à compléter
     }
 
@@ -22,7 +22,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] l = { 38, 27, 43, 3, 9, 82, 10 };
-        Question5.tri_fusion(l, 0, l.length - 1);
+        MergeSort.triFusion(l, 0, l.length - 1);
         printArray(l);
     }
 }

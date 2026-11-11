@@ -86,27 +86,27 @@ public static int algo(int n) {
     \end{enumerate}
     
     \begin{conseil}
-    Rappelez-vous que la notation $O()$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
+    Rappelez-vous que la notation $O$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
     \begin{enumerate}
-        \item Les constantes sont ignorées : $O(2n) = 2*O(n) = O(n)$ 
+        \item Les constantes sont ignorées : $O(2n) = 2 \cdot O(n) = O(n)$
         \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
     \end{enumerate}
     \end{conseil}
 
     \begin{solution}
-        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue l'opération d'addition $10*n$ fois et par conséquent a une complexité de $O(n)$.
+        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue l'opération d'addition $10 \cdot n$ fois et par conséquent a une complexité de $O(n)$.
     \end{solution}
 \end{Exercice}
 
 
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
-    Quelle est la complexité des programmes ci-dessous ($n$ étant la longueur de la liste \texttt{L})?\\
+    Soit \lstinline|values| une liste de longueur $n$. Quelle est la complexité des programmes ci-dessous?\\
     \textbf{Python :}
     \begin{lstlisting}[language=Python]
-# Entrée: L est une liste de nombres entiers et M un nombre entier
-def algo(L, M):
+# Entrée: values est une liste de nombres entiers et threshold un nombre entier
+def algo(values, threshold):
     i = 0
-    while i < len(L) and L[i] <= M:
+    while i < len(values) and values[i] <= threshold:
         i += 1
     s = i - 1
     return s
@@ -114,9 +114,9 @@ def algo(L, M):
     
     \textbf{Java :}
     \begin{lstlisting}[language=Java]
-public static int algo(int[] L, int M) {
+public static int algo(int[] values, int threshold) {
     int i = 0;
-    while (i < L.length && L[i] <= M){
+    while (i < values.length && values[i] <= threshold){
         i += 1;
     }
     int s = i - 1;
@@ -132,33 +132,33 @@ public static int algo(int[] L, int M) {
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme est composé d'une boucle \lstinline{while} qui va parcourir une liste \lstinline{L} jusqu'à trouver une valeur dans la liste qui est supérieure à \lstinline{M}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, $n$ étant la taille de la liste.
+    L'algorithme est composé d'une boucle \lstinline{while} qui parcourt la liste \texttt{values} jusqu'à trouver une valeur supérieure à \texttt{threshold}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, où $n$ est la taille de la liste.
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
     Quelle est la complexité des programmes ci-dessous?\\
         \textbf{Python :}
         \begin{lstlisting}[language=Python]
-#Entrée: L et M sont 2 listes de nombres entiers
-def algo(L, M):
-    n = len(L)
-    m = len(M)
+# Entrée: first_values et second_values sont deux listes de nombres entiers
+def algo(first_values, second_values):
+    n = len(first_values)
+    m = len(second_values)
     for i in range(n):
-        L[i] = L[i]*2
+        first_values[i] = first_values[i]*2
     for j in range(m):
-        M[j] = M[j]%2
+        second_values[j] = second_values[j]%2
         \end{lstlisting}
         
         \textbf{Java :}
         \begin{lstlisting}[language=Java]
-public static void algo(int[] L, int[] M) {
-    int n = L.length;
-    int m = M.length;
+public static void algo(int[] firstValues, int[] secondValues) {
+    int n = firstValues.length;
+    int m = secondValues.length;
     for (int i=0; i < n; i++){
-        L[i] = L[i]*2;
+        firstValues[i] = firstValues[i]*2;
     }
     for (int j=0; j < m; j++){
-        M[j] = M[j]%2;
+        secondValues[j] = secondValues[j]%2;
     }
 }
         \end{lstlisting}
@@ -171,9 +171,9 @@ public static void algo(int[] L, int[] M) {
         \end{enumerate}
 
         \begin{solution}
-        L'algorithme est composé de 2 boucles. La première parcourt une liste \lstinline{L} et multiplie par 2 les éléments de la liste. 
-        L'autre parcourt une liste \lstinline{M} et assigne à chaque élément le reste de la division euclidienne de l'élément par 2. 
-        Soient $n$ et $m$ les tailles respectives de \lstinline{L} et de \lstinline{M}, on obtient une complexité de $O(n + m)$. 
+        L'algorithme est composé de 2 boucles. La première parcourt la liste \texttt{first\_values} en Python (\texttt{firstValues} en Java) et multiplie par 2 ses éléments.
+        L'autre parcourt la liste \texttt{second\_values} en Python (\texttt{secondValues} en Java) et affecte à chaque élément le reste de la division euclidienne de l'élément par 2.
+        Soient $n$ et $m$ les tailles respectives de ces deux listes, on obtient une complexité de $O(n + m)$.
         Comme on effectue une boucle et après l'autre les complexités s'additionnent.
         \end{solution}
 \end{Exercice}
@@ -182,13 +182,13 @@ public static void algo(int[] L, int[] M) {
     Quelle est la complexité des programmes ci-dessous?\\
     \textbf{Python :}
     \begin{lstlisting}[language=Python]
-#Entrée: L est une liste de nombre entiers
-def algo(L):
-    n = len(L)
+# Entrée: values est une liste de nombres entiers
+def algo(values):
+    n = len(values)
     i = 0
     s = 0
     while i < math.log(n):
-        s += L[i]
+        s += values[i]
         i += 1
     return s
     \end{lstlisting}
@@ -197,11 +197,11 @@ def algo(L):
     \begin{lstlisting}[language=Java]
 import java.lang.Math; 
 
-public static void algo(int[] L) {
-    int n = L.length;
+public static void algo(int[] values) {
+    int n = values.length;
     int s = 0;
     for (int i=0; i < Math.log(n); i++){
-        s += L[i];
+        s += values[i];
     }
 } \end{lstlisting}
 
@@ -366,9 +366,5 @@ T(n) &\in O(n^{\log_{b}{a}}) \quad \text{si } a > b^{k}
     \end{solution}
     
     \end{Exercice}
-
-
-
-
 
 \end{document}

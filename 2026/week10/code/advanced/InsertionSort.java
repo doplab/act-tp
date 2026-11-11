@@ -1,5 +1,5 @@
 public class InsertionSort {
-    public static void tri_insertion(int[] l) {
+    public static void triInsertion(int[] l) {
         for (int i = 1; i < l.length; i++) {
             // TODO: Code à compléter
         }
@@ -14,7 +14,7 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         int[] l = { 2, 43, 1, 3, 43 };
-        Question4.tri_insertion(l);
+        InsertionSort.triInsertion(l);
         printArray(l);
     }
 }
