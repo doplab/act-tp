@@ -183,6 +183,7 @@ public static void algo(int[] firstValues, int[] secondValues) {
     \textbf{Python :}
     \begin{lstlisting}[language=Python]
 # Entrée: values est une liste de nombres entiers
+import math
 def algo(values):
     n = len(values)
     i = 0
@@ -193,16 +194,17 @@ def algo(values):
     return s
     \end{lstlisting}
     
-    \textbf{Java :}
+    \textbf{Java:}
     \begin{lstlisting}[language=Java]
 import java.lang.Math; 
 
-public static void algo(int[] values) {
+public static int algo(int[] values) {
     int n = values.length;
     int s = 0;
     for (int i=0; i < Math.log(n); i++){
         s += values[i];
     }
+    return s;
 } \end{lstlisting}
 
     \begin{enumerate}[label=(\Alph*)]
