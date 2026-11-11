@@ -1,6 +1,7 @@
 \input{../header.tex}
 \usepackage[T1]{fontenc}
 \usepackage{float}
+\setlist[itemize]{label=\textbullet}
 
 
 \begin{document}
@@ -18,24 +19,20 @@ Le but de cette série d'exercices est d'aborder les notions présentées durant
     \item Les algorithmes de tri
 \end{enumerate}
 
-Les langages de programmation qui seront utilisés pour cette série d'exercices sont Java et Python.
+Les exercices de cette séance seront réalisés en Java et Python. \\
 
 Le temps indiqué (\faClock) est à titre indicatif.
 
-\section{Récursivité (10 minutes)}
+\section{Récursivité}
 
 Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre. \\
 
 \begin{Exercice}[10 minutes] \textbf{Somme des chiffres} \\
-    Écrivez un algorithme récursif en Python ou en Java qui prend un nombre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est: 1+2+6 = 9.
+    Écrivez une fonction récursive en Python et en Java qui prend un entier en paramètre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est: 1+2+6 = 9.
     
     \begin{conseil}
-    \begin{itemize}
-        \item Pour obtenir les chiffres qui composent un nombre, utilisez l'opérateur \lstinline{\%} (modulo - \url{https://fr.wikipedia.org/wiki/Modulo\_(op\%C3\%A9ration)}).
-        \item Pour obtenir le nombre 12 à partir du nombre 126, il vous suffit de faire la division entière par 10. En Python, on utilise l'opérateur \lstinline{\/\/}. Exemple : 126 \lstinline{\/\/} 10 = 12.
-        \item En Java, la division entre deux variables de type \lstinline{int} est entière, et vous n'aurez ainsi qu'à utiliser l'opérateur de division normal \lstinline{\/}. Exemple: 126 \lstinline{\/} 10 = 12.
-    \end{itemize}
-    
+    Pour obtenir le chiffre des unités d'un nombre, utilisez l'opérateur modulo \texttt{\%}. Par exemple: $42 \bmod 10 = 2$, car le reste de la division entière de 42 par 10 est 2.
+    Ensuite, pour obtenir le chiffre 4, effectuez une division entière par 10 : en Python, \texttt{42 // 10} vaut 4, en Java, \texttt{42 / 10} vaut 4, car les deux opérandes sont des entiers.
     \end{conseil}
     
     \begin{solution}
@@ -48,11 +45,11 @@ Le but principal de la récursivité est de résoudre un gros problème en le di
     \end{solution}
 \end{Exercice}
 
-\section{Complexité (40 minutes)}
+\section{Complexité}
 
  \begin{figure}[H]
         \centering
-        \includegraphics[width=9cm]{images/complexity.png}
+        \includegraphics[width=9cm]{images/complexity.pdf}
         \caption{Représentation de complexités temporelles}
         \label{bigO}
 \end{figure}
@@ -81,7 +78,7 @@ public static int algo(int n) {
     return s;
 }  \end{lstlisting}
 
-    \begin{enumerate}
+    \begin{enumerate}[label=(\Alph*)]
         \item $O(n)$
         \item $O(n^3)$
         \item $O(\log(n))$
@@ -127,7 +124,7 @@ public static int algo(int[] L, int M) {
 }
     \end{lstlisting}
 
-    \begin{enumerate}
+    \begin{enumerate}[label=(\Alph*)]
         \item $O(n^3)$
         \item $O(\log(n))$
         \item $O(n)$
@@ -166,7 +163,7 @@ public static void algo(int[] L, int[] M) {
 }
         \end{lstlisting}
 
-        \begin{enumerate}
+        \begin{enumerate}[label=(\Alph*)]
             \item $O(n^2)$
             \item $O(n + m)$
             \item $O(n)$
@@ -208,7 +205,7 @@ public static void algo(int[] L) {
     }
 } \end{lstlisting}
 
-    \begin{enumerate}
+    \begin{enumerate}[label=(\Alph*)]
         \item $O(n^2)$
         \item $O(n)$
         \item $O(\log(n))$
@@ -249,7 +246,7 @@ public static int algo(int n) {
 }
         \end{lstlisting}
     
-        \begin{enumerate}
+        \begin{enumerate}[label=(\Alph*)]
             \item $O(n^2)$
             \item $O(n)$
             \item $O(\log(n))$
@@ -263,7 +260,7 @@ public static int algo(int n) {
     
 \end{Exercice}
 
-\section{Algorithmes de Tri (45 minutes)}
+\section{Algorithmes de Tri}
 
 \begin{Exercice}[15 minutes] \textbf{Insertion dans une liste triée - Python}\\
     Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme Python qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
