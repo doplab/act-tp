@@ -276,7 +276,7 @@ public static int algo(int n) {
 
 \section{Algorithmes de Tri}
 
-\begin{Exercice}[15 minutes] \textbf{Insertion dans une liste triée - Python}\\
+\begin{Exercice}[15 minutes] [Python] \textbf{Insertion dans une liste triée}\\
     Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Ecrivez un programme Python qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
 
     \lstinputlisting{code/IntInsertion.py}
@@ -292,8 +292,8 @@ public static int algo(int n) {
 
 \end{Exercice}
 
-\begin{Exercice} [30 minutes] \textbf{Tri fusion (Merge Sort) - Python} \\
-    À partir de deux listes triées, on peut facilement construire une liste triée comportant les éléments issus de ces deux listes (leur \textit{fusion}). Le principe de l'algorithme de tri fusion repose sur cette observation : le plus petit élément de la liste à construire est soit le plus petit élément de la première liste, soit le plus petit élément de la deuxième liste. Ainsi, on peut construire la liste élément par élément en retirant tantôt le premier élément de la première liste, tantôt le premier élément de la deuxième liste (en fait, le plus petit des deux, à supposer qu'aucune des deux listes ne soit vide, sinon la réponse est immédiate). 
+\begin{Exercice} [30 minutes] [Python] \textbf{Tri fusion (Merge Sort)} \\
+    Étant donné deux listes triées, on peut construire une liste triée contenant tous leurs éléments (leur \textit{fusion}). Elle repose sur l'observation que si les deux listes sont triées, le plus petit élément de la liste fusionnée est soit le premier élément de la première liste, soit le premier élément de la seconde. On construit donc la liste finale élément par élément: à chaque étape, on compare les premiers éléments des deux listes, on retire le plus petit et on l'ajoute à la fin de liste finale. Dès que l'une des deux listes est vide, il suffit d'ajouter à la suite les éléments restants de l'autre. \\
     
     Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
     \begin{enumerate}
@@ -320,7 +320,6 @@ public static int algo(int n) {
 
     \begin{conseil}
 \textbf{Théorème 1} \quad La récurrence
-
 \begin{align*}
 T(n) &= a\,T(n/b) + c n^{k} \\
 T(1) &= c
