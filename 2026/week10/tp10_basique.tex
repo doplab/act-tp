@@ -50,7 +50,7 @@ Le but principal de la récursivité est de résoudre un gros problème en le di
  \begin{figure}[H]
         \centering
         \includegraphics[width=9cm]{images/complexity.pdf}
-        \caption{Représentation de complexités temporelles}
+        \caption{Représentation de complexités temporelles. La complexité décrit la façon dont le temps d'exécution \textbf{croît asymptotiquement} lorsque la taille des données augmente, et non sa valeur exacte.}
         \label{bigO}
 \end{figure}
 
@@ -59,7 +59,7 @@ Indiquez en une phrase, ce que font ces algorithmes ci-dessous et calculez leur 
 \begin{Exercice}[10 minutes] \textbf{Complexité} \\
 
     Quelle est la complexité des programmes ci-dessous?\\
-    \textbf{Python :}
+    \textbf{Python:}
     \begin{lstlisting}{language=Python}
 # Entrée: n un nombre entier
 def algo(n):
@@ -68,7 +68,7 @@ def algo(n):
         s += i
     return s \end{lstlisting}
     
-    \textbf{Java :}
+    \textbf{Java:}
     \begin{lstlisting}{language=Java}
 public static int algo(int n) {
     int s = 0;
@@ -86,7 +86,7 @@ public static int algo(int n) {
     \end{enumerate}
     
     \begin{conseil}
-    Rappelez-vous que la notation $O$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Pour $n$ étant la taille de vos données, on a que :
+    Rappelez-vous que la notation $O$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Soit $n$ la taille de vos données. On a alors:
     \begin{enumerate}
         \item Les constantes sont ignorées : $O(2n) = 2 \cdot O(n) = O(n)$
         \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
@@ -94,7 +94,7 @@ public static int algo(int n) {
     \end{conseil}
 
     \begin{solution}
-        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue l'opération d'addition $10 \cdot n$ fois et par conséquent a une complexité de $O(n)$.
+        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue l'opération d'addition $10 \cdot n$ fois et par conséquent a une complexité de $O(n)$ comme les facteurs constants sont ignorés.
     \end{solution}
 \end{Exercice}
 
@@ -171,10 +171,10 @@ public static void algo(int[] firstValues, int[] secondValues) {
         \end{enumerate}
 
         \begin{solution}
-        L'algorithme est composé de 2 boucles. La première parcourt la liste \texttt{first\_values} en Python (\texttt{firstValues} en Java) et multiplie par 2 ses éléments.
+        L'algorithme est composé de deux boucles. La première parcourt la liste \texttt{first\_values} en Python (\texttt{firstValues} en Java) et multiplie par 2 ses éléments.
         L'autre parcourt la liste \texttt{second\_values} en Python (\texttt{secondValues} en Java) et affecte à chaque élément le reste de la division euclidienne de l'élément par 2.
         Soient $n$ et $m$ les tailles respectives de ces deux listes, on obtient une complexité de $O(n + m)$.
-        Comme on effectue une boucle et après l'autre les complexités s'additionnent.
+        Comme les boucles sont exécutées l'une après l'autre, leurs complexités s'additionnent.
         \end{solution}
 \end{Exercice}
 
@@ -186,11 +186,11 @@ public static void algo(int[] firstValues, int[] secondValues) {
 import math
 def algo(values):
     n = len(values)
-    i = 0
+    i = 1
     s = 0
-    while i < math.log(n):
+    while i < n:
         s += values[i]
-        i += 1
+        i = 2*i
     return s
     \end{lstlisting}
     
@@ -200,9 +200,11 @@ import java.lang.Math;
 
 public static int algo(int[] values) {
     int n = values.length;
+    int i = 1;
     int s = 0;
-    for (int i=0; i < Math.log(n); i++){
+    while (i < n){
         s += values[i];
+        i = 2*i;
     }
     return s;
 } \end{lstlisting}
@@ -215,9 +217,11 @@ public static int algo(int[] values) {
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme est composé d'une boucle qui va itérer sur $\log(n)$ éléments et 
-    va calculer la somme de ces éléments. Ainsi, l'algorithme a une complexité de $O(\log n)$.
-    Le temps d'exécution de ce programme peut être visualisé sur la courbe jaune du graphe ci-dessous (\ref{bigO}).
+    L'algorithme consiste en une boucle qui ajoute à la variable $s$ les valeurs de la liste \texttt{values}, à condition que les indices de ces valeurs soient des puissances de 2 inférieures à $n$. La variable \texttt{i} prend successivement les valeurs $1, 2, 4, \ldots, 2^{\lfloor \log_2(n) \rfloor}$. \\ 
+
+    Pour montrer que $2^{\lfloor \log_2(n) \rfloor}$ est la plus grande puissance de 2 inférieure ou égale à $n$, remarquons que $n = 2^{\log_2(n)}$ et que $2^{\lfloor \log_2(n) \rfloor} \leq n < 2^{\lfloor \log_2(n) \rfloor + 1}$. Ainsi, $n$ est encadré par deux puissances de 2 consécutives. \\
+    
+    En réécrivant la suite des valeurs de \texttt{i} sous la forme $2^0, 2^1, \ldots, 2^{\lfloor \log_2(n) \rfloor}$, on constate que la boucle effectue $\lfloor \log_2(n) \rfloor$ itérations, d'où une complexité en $O(\lfloor \log_2(n) \rfloor) = O(\log(n))$, puisque la notation $O$ décrit une croissance asymptotique et non des valeurs exactes.
     \end{solution}    
 
 \end{Exercice}
@@ -301,7 +305,7 @@ public static int algo(int n) {
     \begin{conseil}
     \begin{itemize}
         \item L'algorithme est récursif. 
-        \item Revenez à la visualisation de l'algorithme dans les diapositives 81 à 109 pour comprendre comment marche concrètement le tri fusion. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives 81 à 109 pour comprendre comment fonctionne concrètement le tri fusion. 
     \end{itemize}
     
     \end{conseil}
