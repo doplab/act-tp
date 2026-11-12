@@ -32,7 +32,7 @@ def tri_fusion(l):
     # compléter la fonction
     longueur = len(l)  # calculer la longueur de la liste
     # s'il n'y a pas plus d'un élément, retourner la liste
-    if longueur == 1 or longueur == 0:
+    if longueur <= 1:
         return l
     # sinon, diviser la liste en deux
     elif longueur > 1:
