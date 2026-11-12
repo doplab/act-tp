@@ -260,8 +260,16 @@ public static int algo(int n) {
         \end{enumerate}
 
     \begin{solution} 
-    L'algorithme est composé de 2 boucles \textbf{imbriquées} suivant une suite définie par $\frac{n(n-1)}{2}$. L'algorithme va additionner les index $i$ et $j$ à chaque itération et les rajouter à $m$.
-    Cela veut dire que nous parcourons la liste $\frac{n^{2}}{2}$ $- \frac{n}{2}$, $n$ étant la taille de la liste. Comme vu dans les conseils avant, les constantes et les termes dominés sont ignorés. La complexité de l'algorithme est ainsi de $O(n^2)$.
+    L'algorithme est composé de deux boucles imbriquées.
+    La boucle extérieure est exécutée $n$ fois.
+    Le nombre d'itérations de la boucle intérieure dépend de l'itération courante de la boucle extérieure : pour une valeur donnée de \texttt{i}, la boucle intérieure est exécutée \texttt{i} fois. Comme \texttt{i} prend successivement les valeurs $0, 1, \ldots, n-1$, le nombre total d'exécutions de l'instruction \lstinline{m += i+j} est:
+    \[
+        0 + 1 + 2 + \cdots + (n-1)
+        = \sum_{i=0}^{n-1} i
+        = \frac{n(n-1)}{2}
+        = \frac{n^2}{2} - \frac{n}{2}.
+    \]
+    Chaque exécution de cette instruction prend un temps constant. On ne conserve que le terme quadratique, car il définit le comportement asymptotique de la fonction: les termes dominés et les facteurs constants sont ignorés. La complexité temporelle est donc $O(n^2)$.
     \end{solution}
     
 \end{Exercice}
