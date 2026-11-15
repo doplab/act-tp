@@ -191,7 +191,7 @@ def algo(values):
     i = 1
     s = 0
     while i <= n:
-        s += values[i]
+        s += values[i-1]
         i = 2*i
     return s
     \end{lstlisting}
@@ -205,7 +205,7 @@ public static int algo(int[] values) {
     int i = 1;
     int s = 0;
     while (i <= n){
-        s += values[i];
+        s += values[i-1];
         i = 2*i;
     }
     return s;
