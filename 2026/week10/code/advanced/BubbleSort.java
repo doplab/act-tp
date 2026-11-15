@@ -5,7 +5,7 @@ public class BubbleSort {
         }
     }
 
-    public static void printArray(int l[]) {
+    public static void printArray(int[] l) {
         int n = l.length;
         for (int i = 0; i < n; ++i) {
             System.out.print(l[i] + " ");

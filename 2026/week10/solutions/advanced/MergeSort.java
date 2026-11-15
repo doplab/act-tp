@@ -2,14 +2,14 @@ public class MergeSort {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]
     // Deuxième sous-liste est arr[m+1..r]
-    public static void merge(int arr[], int l, int m, int r) {
+    public static void merge(int[] arr, int l, int m, int r) {
         // Trouver la taille des deux sous-listes à fusionner
         int n1 = m - l + 1;
         int n2 = r - m;
 
         /* Créer des listes temporaires */
-        int leftArray[] = new int[n1];
-        int rightArray[] = new int[n2];
+        int[] leftArray = new int[n1];
+        int[] rightArray = new int[n2];
 
         /* Copier les données dans les sous-listes temporaires */
         for (int i = 0; i < n1; ++i) {
@@ -53,7 +53,7 @@ public class MergeSort {
 
     // Fonction principale qui trie arr[l..r] en utilisant
     // merge()
-    public static void triFusion(int arr[], int l, int r) {
+    public static void triFusion(int[] arr, int l, int r) {
         if (l < r) {
             // Trouver le milieu de la liste
             int m = (l + r) / 2;
@@ -67,7 +67,7 @@ public class MergeSort {
         }
     }
 
-    public static void afficheListe(int l[]) {
+    public static void afficheListe(int[] l) {
         int n = l.length;
         for (int i = 0; i < n; ++i) {
             System.out.println(l[i] + " ");

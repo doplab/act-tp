@@ -12,7 +12,7 @@
 \ShowSolutiontrue
 \ShowConseiltrue
 \titre
-\cours{Algorithmes de tri et Complexité - exercices avancés}
+\cours{Algorithmes de tri et complexité - exercices avancés}
 
 Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
 
@@ -24,7 +24,7 @@ Le but de cette série d'exercices est d'aborder les notions présentées durant
 
 Les exercices de cette séance seront réalisés en Java et Python. \\
 
-Le temps indiqué (\faClock) est à titre indicatif.
+Les durées indiquées (\faClock) sont à titre indicatif.
 
 \section{Récursivité}
 \begin{Exercice} [5 minutes] \textbf{Fibonacci}\\
@@ -83,7 +83,7 @@ public static int fibonacci(int n) {
     \]
     La complexité est donc bien exponentielle, ce qui élimine les réponses $O(n^2)$, $O(n)$ et $O(\log n)$. \\
 
-    \emph{Remarque}: il existe une manière moins rigoreuse à résoudre cette question. Remarquons que l'expression pour la complexité: $T(n) = T(n-1) + T(n-2) + c$ est similaire mais plus grand que la suite de fibonacci $f(n) = f(n-1) + f(n-2)$ comme $c>0$ et comme les cas de bases de la complexité sont des constantes $\geq 1$. Donc, en traçant les premières valeurs de la suite fibonacci sur un repère cartésien, on constate que la suite croît exponentiellement, d'où la borne inférieure de la croissance de la complexité. 
+    \emph{Remarque}: il existe une manière moins rigoureuse de résoudre cette question. Remarquons que la récurrence de \(T(n)\) est similaire à celle de la suite de Fibonacci, avec un terme constant supplémentaire $c>0$ et que les cas de base de la complexité sont des constantes $\geq 1$. Donc, en traçant les premières valeurs de la suite de Fibonacci sur un repère cartésien, on constate que la suite croît exponentiellement, d'où la borne inférieure de la croissance de la complexité. 
 
 \end{solution}
 \end{Exercice}
@@ -109,7 +109,7 @@ Avant chaque appel récursif, vérifiez si la valeur recherchée se trouve déj�
 \end{conseil}
 
 \begin{solution}
-    Sans utilisation de la mémoire l'algorithme avait une complexité de $O(2^n)$, maintenant de $O(n)$.
+    Sans mémoïsation, la complexité était de \(O(2^n)\) au lieu de \(O(n)\).
     \lstinputlisting{solutions/advanced/Fibonacci_memo.py} 
 \end{solution}
 
@@ -128,7 +128,7 @@ Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni d
     \end{itemize}
     
     \begin{conseil}
-    En Java, utilisez une variable temporaire que vous nommerez \lstinline{temp} afin de faire l'échange de valeur entre deux éléments de la liste.
+    En Java, utilisez une variable temporaire que vous nommerez \lstinline{temp} afin de faire l'échange de valeurs entre deux éléments du tableau.
     \end{conseil}
     
     \ \\
@@ -144,7 +144,7 @@ Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni d
     \end{solution}
 
     \begin{solution}
-    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles imbriquées qui parcourent la liste.
+    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles imbriquées qui parcourent le tableau.
     \end{solution}
             
 
@@ -155,7 +155,7 @@ Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni d
     
     Chaque étape consiste à insérer le $i$-ème élément à sa place parmi ceux qui le précèdent: on cherche sa position par comparaisons, puis on décale les éléments plus grands pour lui faire de la place. En pratique, ces deux opérations se font en une seule passe, en faisant ``remonter'' l'élément jusqu'à rencontrer un élément plus petit. \\ 
     
-    Compléter le code suivant pour trier la liste \lstinline{l} ci-dessous par insertion.
+    Complétez le code suivant pour trier la liste \lstinline{l} ci-dessous par insertion.
     \begin{itemize}
         \item \textbf{Python:}
             \lstinputlisting[language=Python]{code/advanced/InsertionSort.py} 

@@ -2,17 +2,17 @@ public class MergeSort {
     // Fusionne 2 sous-listes de arr[].
     // Première sous-liste est arr[l..m]
     // Deuxième sous-liste est arr[m+1..r]
-    public static void merge(int arr[], int l, int m, int r) {
+    public static void merge(int[] arr, int l, int m, int r) {
         // TODO: Code à compléter
     }
 
     // Fonction principale qui trie arr[l..r] en utilisant
     // merge()
-    public static void triFusion(int arr[], int l, int r) {
+    public static void triFusion(int[] arr, int l, int r) {
         // TODO: Code à compléter
     }
 
-    public static void printArray(int l[]) {
+    public static void printArray(int[] l) {
         int n = l.length;
         for (int i = 0; i < n; ++i) {
             System.out.print(l[i] + " ");

@@ -1,19 +1,19 @@
 public class BubbleSort {
     public static void triBulle(int[] l) {
         int n = l.length;
-        for (int i = 0; i < n - 1; i++){
-            for (int j = 0; j < n-i-1; j++) {
-                if (l[j] > l[j+1]) { 
-                    // échange l[j+1] et l[i] 
-                    int temp = l[j]; 
-                    l[j] = l[j+1]; 
-                    l[j+1] = temp; 
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (l[j] > l[j + 1]) {
+                    // échange l[j] et l[j+1]
+                    int temp = l[j];
+                    l[j] = l[j + 1];
+                    l[j + 1] = temp;
                 }
-            } 
+            }
         }
     }
 
-    public static void printArray(int l[]) {
+    public static void printArray(int[] l) {
         int n = l.length;
         for (int i = 0; i < n; ++i)
             System.out.print(l[i] + " ");
