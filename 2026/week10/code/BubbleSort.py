@@ -1,5 +1,5 @@
 def tri_bulle(l):
-    for i in range(len(l)):
+    for i in range(len(l) - 1):
         #TODO: Code à compléter
 
 if __name__ == "__main__":
