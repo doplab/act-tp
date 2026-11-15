@@ -1,0 +1,487 @@
+\input{../header.tex}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, babel}
+\setlist[itemize]{label=\textbullet}
+
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Algorithmes de tri et complexité - exercices basiques}
+
+Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
+\begin{enumerate}
+    \item La récursivité
+    \item La complexité des algorithmes
+    \item Les algorithmes de tri
+\end{enumerate}
+
+Les exercices de cette séance seront réalisés en Java et Python. \\
+
+Le temps indiqué (\faClock) est à titre indicatif.
+
+\section{Récursivité}
+
+Le but principal de la récursivité est de résoudre un gros problème en le divisant en plusieurs petites parties à résoudre. \\
+
+\begin{Exercice}[10 minutes] \textbf{Somme des chiffres} \\
+    Écrivez une fonction récursive en Python et en Java qui prend un entier en paramètre et retourne la somme des chiffres dont il est composé. Par exemple, la somme des chiffres de 126 est: 1+2+6 = 9.
+    
+    \begin{conseil}
+    Pour obtenir le chiffre des unités d'un nombre, utilisez l'opérateur modulo \texttt{\%}. Par exemple: $42 \bmod 10 = 2$, car le reste de la division entière de 42 par 10 est 2.
+    Ensuite, pour obtenir le chiffre 4, effectuez une division entière par 10 : en Python, \texttt{42 // 10} vaut 4, en Java, \texttt{42 / 10} vaut 4, car les deux opérandes sont des entiers.
+    \end{conseil}
+    
+    \begin{solution}
+    \textbf{Python :}
+        \lstinputlisting{solutions/SumDigits.py}
+                
+    \textbf{Java :}
+       \lstinputlisting{solutions/SumDigits.java}
+    
+    \end{solution}
+\end{Exercice}
+
+\section{Complexité}
+
+ \begin{figure}[H]
+        \centering
+        \includegraphics[width=9cm]{images/complexity.pdf}
+        \caption{Représentation de complexités temporelles. La complexité décrit la façon dont le temps d'exécution \textbf{croît asymptotiquement} lorsque la taille des données augmente, et non sa valeur exacte.}
+        \label{bigO}
+\end{figure}
+
+Indiquez en une phrase ce que font les algorithmes ci-dessous et calculez leur complexité temporelle avec la notation $O$. Le code est écrit en Python et en Java. Donnez la borne en $O$ la plus fine (serrée) possible. \\
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+
+    Quelle est la complexité des programmes ci-dessous?\\
+    \textbf{Python:}
+    \begin{lstlisting}[language=Python]
+# Entrée: n un nombre entier
+def algo(n):
+    s = 0
+    for i in range(10*n):
+        s += i
+    return s \end{lstlisting}
+    
+    \textbf{Java:}
+    \begin{lstlisting}[language=Java]
+public static int algo(int n) {
+    int s = 0;
+    for (int i=0; i < 10*n; i++){
+        s += i;
+    }
+    return s;
+}  \end{lstlisting}
+
+    \begin{enumerate}[label=(\Alph*)]
+        \item $O(n)$
+        \item $O(n^3)$
+        \item $O(\log(n))$
+        \item $O(n^n)$
+    \end{enumerate}
+    
+    \begin{conseil}
+    Rappelez-vous que la notation $O$ sert à exprimer la complexité d'algorithmes dans le \textbf{pire des cas}. Les règles suivantes vous seront utiles. Soit $n$ la taille de vos données. On a alors:
+    \begin{enumerate}
+        \item Les constantes sont ignorées : $O(2n) = 2 \cdot O(n) = O(n)$
+        \item Les termes dominés sont ignorés : $O(2n^2+5n+50)$ = $O(n^2)$
+    \end{enumerate}
+    \end{conseil}
+
+    \begin{solution}
+        L'algorithme est composé d'une boucle qui incrémente une variable \lstinline{s}. Il effectue l'opération d'addition $10 \cdot n$ fois et par conséquent a une complexité de $O(n)$ comme les facteurs constants sont ignorés.
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    Soit \lstinline|values| une liste de longueur $n$. Quelle est la complexité des programmes ci-dessous?\\
+    \textbf{Python :}
+    \begin{lstlisting}[language=Python]
+# Entrée: values est une liste de nombres entiers et threshold un nombre entier
+def algo(values, threshold):
+    i = 0
+    while i < len(values) and values[i] <= threshold:
+        i += 1
+    s = i - 1
+    return s
+    \end{lstlisting}
+    
+    \textbf{Java :}
+    \begin{lstlisting}[language=Java]
+public static int algo(int[] values, int threshold) {
+    int i = 0;
+    while (i < values.length && values[i] <= threshold){
+        i += 1;
+    }
+    int s = i - 1;
+    return s;
+}
+    \end{lstlisting}
+
+    \begin{enumerate}[label=(\Alph*)]
+        \item $O(n^3)$
+        \item $O(\log(n))$
+        \item $O(n)$
+        \item $O(n^n)$
+    \end{enumerate}
+
+    \begin{solution}
+    L'algorithme est composé d'une boucle \lstinline{while} qui parcourt la liste \texttt{values} jusqu'à trouver une valeur supérieure à \texttt{threshold}. Ainsi, dans le pire des cas, l'algorithme parcourt toute la liste, et a donc une complexité de $O(n)$, où $n$ est la taille de la liste.
+    \end{solution}
+\end{Exercice}
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    Quelle est la complexité des programmes ci-dessous?\\
+        \textbf{Python :}
+        \begin{lstlisting}[language=Python]
+# Entrée: first_values et second_values sont deux listes de nombres entiers
+def algo(first_values, second_values):
+    n = len(first_values)
+    m = len(second_values)
+    for i in range(n):
+        first_values[i] = first_values[i]*2
+    for j in range(m):
+        second_values[j] = second_values[j]%2
+        \end{lstlisting}
+        
+        \textbf{Java :}
+        \begin{lstlisting}[language=Java]
+public static void algo(int[] firstValues, int[] secondValues) {
+    int n = firstValues.length;
+    int m = secondValues.length;
+    for (int i=0; i < n; i++){
+        firstValues[i] = firstValues[i]*2;
+    }
+    for (int j=0; j < m; j++){
+        secondValues[j] = secondValues[j]%2;
+    }
+}
+        \end{lstlisting}
+
+        \begin{enumerate}[label=(\Alph*)]
+            \item $O(n^2)$
+            \item $O(n + m)$
+            \item $O(n)$
+            \item $O(2^n)$
+        \end{enumerate}
+
+        \begin{solution}
+        L'algorithme est composé de deux boucles. La première parcourt la liste \texttt{first\_values} en Python (\texttt{firstValues} en Java) et multiplie par 2 ses éléments.
+        L'autre parcourt la liste \texttt{second\_values} en Python (\texttt{secondValues} en Java) et affecte à chaque élément le reste de la division euclidienne de l'élément par 2.
+        Soient $n$ et $m$ les tailles respectives de ces deux listes, on obtient une complexité de $O(n + m)$.
+        Comme les boucles sont exécutées l'une après l'autre, leurs complexités s'additionnent.
+        \end{solution}
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Complexité} \\
+    Quelle est la complexité des programmes ci-dessous?\\
+    \textbf{Python :}
+    \begin{lstlisting}[language=Python]
+# Entrée: values est une liste de nombres entiers
+import math
+def algo(values):
+    n = len(values)
+    i = 1
+    s = 0
+    while i <= n:
+        s += values[i-1]
+        i = 2*i
+    return s
+    \end{lstlisting}
+    
+    \textbf{Java:}
+    \begin{lstlisting}[language=Java]
+import java.lang.Math; 
+
+public static int algo(int[] values) {
+    int n = values.length;
+    int i = 1;
+    int s = 0;
+    while (i <= n){
+        s += values[i-1];
+        i = 2*i;
+    }
+    return s;
+} \end{lstlisting}
+
+    \begin{enumerate}[label=(\Alph*)]
+        \item $O(n^2)$
+        \item $O(n)$
+        \item $O(\log(n))$
+        \item $O(n^n)$
+    \end{enumerate}
+
+    \begin{solution}
+    L'algorithme consiste en une boucle qui ajoute à la variable $s$ les valeurs de la liste \texttt{values}, à condition que les indices de ces valeurs soient des puissances de 2 inférieures à $n$. La variable \texttt{i} prend successivement les valeurs $1, 2, 4, \ldots, 2^{\lfloor \log_2(n) \rfloor}$. \\ 
+
+    Pour montrer que $2^{\lfloor \log_2(n) \rfloor}$ est la plus grande puissance de 2 inférieure ou égale à $n$, remarquons que $n = 2^{\log_2(n)}$ et que $2^{\lfloor \log_2(n) \rfloor} \leq n < 2^{\lfloor \log_2(n) \rfloor + 1}$. Ainsi, $n$ est encadré par deux puissances de 2 consécutives. \\
+    
+    En réécrivant la suite des valeurs de \texttt{i} sous la forme $2^0, 2^1, \ldots, 2^{\lfloor \log_2(n) \rfloor}$, on constate que la boucle effectue $\lfloor \log_2(n) \rfloor$ itérations, d'où une complexité en $O(\lfloor \log_2(n) \rfloor) = O(\log(n))$, puisque la notation $O$ décrit une croissance asymptotique et non des valeurs exactes.
+    \end{solution}    
+
+\end{Exercice}
+
+\begin{Exercice}[10 minutes] \textbf{Complexité \optionnel} \\
+    Quelle est la complexité du programme ci-dessous?\\
+        \textbf{Python :}
+        \begin{lstlisting}[language=Python]
+# Entrée: n un nombre entier
+def algo(n):
+    m = 0
+    for i in range(n):
+        for j in range(i):
+            m += i+j
+    return m
+        \end{lstlisting}
+        
+        \textbf{Java :}
+        \begin{lstlisting}[language=Java]
+public static int algo(int n) {
+    int m = 0;
+    for (int i=0; i < n; i++){
+        for (int j=0; j < i; j++){
+            m += i+j;
+        }
+    }
+    return m;
+}
+        \end{lstlisting}
+    
+        \begin{enumerate}[label=(\Alph*)]
+            \item $O(n^2)$
+            \item $O(n)$
+            \item $O(\log(n))$
+            \item $O(2^n)$
+        \end{enumerate}
+
+    \begin{solution} 
+    L'algorithme est composé de deux boucles imbriquées.
+    La boucle extérieure est exécutée $n$ fois.
+    Le nombre d'itérations de la boucle intérieure dépend de l'itération courante de la boucle extérieure : pour une valeur donnée de \texttt{i}, la boucle intérieure est exécutée \texttt{i} fois. Comme \texttt{i} prend successivement les valeurs $0, 1, \ldots, n-1$, le nombre total d'exécutions de l'instruction \lstinline{m += i+j} est:
+    \[
+        0 + 1 + 2 + \cdots + (n-1)
+        = \sum_{i=0}^{n-1} i
+        = \frac{n(n-1)}{2}
+        = \frac{n^2}{2} - \frac{n}{2}.
+    \]
+    Chaque exécution de cette instruction prend un temps constant. On ne conserve que le terme quadratique, car il définit le comportement asymptotique de la fonction: les termes dominés et les facteurs constants sont ignorés. La complexité temporelle est donc $O(n^2)$.
+    \end{solution}
+    
+\end{Exercice}
+
+\section{Algorithmes de tri}
+
+\begin{Exercice}[15 minutes] [Python] \textbf{Insertion dans une liste triée}\\
+    Soit un nombre entier \lstinline{n}, et une liste triée \lstinline{l}. Écrivez un programme Python qui insère la valeur \lstinline{n} dans la liste \lstinline{l} tout en s'assurant que la liste \lstinline{l} reste triée.
+
+    \lstinputlisting{code/IntInsertion.py}
+
+    \begin{Example}{\faTerminal \quad Exemple}
+        Avec les arguments \texttt{n=5} et \texttt{l=[2,4,6]}, votre programme devra renvoyer \lstinline{l =[2,4,5,6]}.
+    \end{Example}
+
+    \begin{solution}
+        \lstinputlisting{solutions/IntInsertion.py}
+    \end{solution}
+
+
+\end{Exercice}
+
+\begin{Exercice} [30 minutes] [Python] \textbf{Tri fusion (Merge Sort)} \\
+    Étant donné deux listes triées, on peut construire une liste triée contenant tous leurs éléments (leur \textit{fusion}). Elle repose sur l'observation que si les deux listes sont triées, le plus petit élément de la liste fusionnée est soit le premier élément de la première liste, soit le premier élément de la seconde. On construit donc la liste finale élément par élément: à chaque étape, on compare les premiers éléments des deux listes, on retire le plus petit et on l'ajoute à la fin de la liste finale. Dès que l'une des deux listes est vide, il suffit d'ajouter à la suite les éléments restants de l'autre. \\
+    
+    Les étapes à suivre pour implémenter l'algorithme sont les suivantes:
+    \begin{enumerate}
+        \item Si la liste n'a qu'un seul élément, elle est déjà triée.
+        \item Sinon, séparer la liste en deux parties plus ou moins égales.
+        \item Trier récursivement les deux parties avec l'algorithme de tri fusion.
+        \item Fusionner les deux listes triées dans une seule liste triée.
+    \end{enumerate}
+    
+    Soit la liste [38, 27, 43, 3, 9, 82, 10], triez les éléments de la liste en utilisant un tri fusion. Combien d'appels à la fonction \texttt{merge} sont effectués?
+    
+    \begin{itemize}
+        \item \textbf{Python :}
+            \lstinputlisting{code/MergeSort.py}
+    \end{itemize}
+    
+    \begin{conseil}
+    \begin{itemize}
+        \item L'algorithme est récursif. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives 81 à 109 pour comprendre comment fonctionne concrètement le tri fusion. 
+    \end{itemize}
+    
+    \end{conseil}
+
+    \begin{conseil}
+\textbf{Théorème 1} \quad La récurrence
+\begin{align*}
+T(n) &= a\,T(n/b) + c n^{k} \\
+T(1) &= c
+\end{align*}
+
+où $a$, $b$, $c$ et $k$ sont des constantes, se résout comme suit :
+
+\begin{align*}
+T(n) &\in O(n^{k}) \quad \text{si } a < b^{k} \\
+T(n) &\in O(n^{k} \log n) \quad \text{si } a = b^{k} \\
+T(n) &\in O(n^{\log_{b}{a}}) \quad \text{si } a > b^{k}
+\end{align*}
+
+    \end{conseil}
+    
+    \begin{solution}
+        \textbf{Python :}
+        \lstinputlisting[language=python, lastline=30]{solutions/MergeSort.py}
+    \end{solution}
+
+    \begin{solution}
+\lstinputlisting[language=python, firstline=31, firstnumber=31]{solutions/MergeSort.py}
+    \end{solution}
+
+    \begin{solution}
+        \begin{minipage}{\linewidth}
+        Les numéros indiquent l'ordre des appels : la partie gauche est triée
+        avant la partie droite, puis \texttt{merge} fusionne leurs résultats.
+        Les flèches pleines représentent les appels récursifs ; les flèches
+        en pointillés transmettent les listes triées aux appels de \texttt{merge}.
+
+        \begin{center}
+        \resizebox{\linewidth}{!}{%
+        \begin{tikzpicture}[
+            every node/.style={align=center, font=\footnotesize},
+            call/.style={draw, fill=blue!10, rounded corners,
+                         minimum width=2.5cm, minimum height=0.6cm},
+            mergecall/.style={draw, fill=orange!20, rounded corners,
+                              minimum width=2.5cm, minimum height=0.8cm},
+            basecase/.style={draw, fill=green!20, rounded corners,
+                             minimum width=1.6cm, minimum height=0.6cm,
+                             font=\scriptsize},
+            edge/.style={draw, -Stealth, thick, blue!70},
+            result/.style={edge, dashed},
+            order/.style={circle, draw=blue!70, fill=white, inner sep=1.5pt,
+                          font=\scriptsize\bfseries}
+        ]
+        % Appels de tri_fusion : division de la liste.
+        \node[call] (root) at (0, 0)
+            {\texttt{tri\_fusion}\\\texttt{([38,27,43,3,9,82,10])}};
+        \node[above=0.6cm of root, font=\large\bfseries]
+            {Diagramme des appels : tri fusion};
+        \node[call] (left) at (-3.7, -1.6)
+            {\texttt{tri\_fusion}\\\texttt{([38,27,43])}};
+        \node[call] (right) at (2.9, -1.6)
+            {\texttt{tri\_fusion}\\\texttt{([3,9,82,10])}};
+        \node[call] (pair2743) at (-2.8, -3.2)
+            {\texttt{tri\_fusion}\\\texttt{([27,43])}};
+        \node[call] (pair39) at (1, -3.2)
+            {\texttt{tri\_fusion}\\\texttt{([3,9])}};
+        \node[call] (pair8210) at (4.8, -3.2)
+            {\texttt{tri\_fusion}\\\texttt{([82,10])}};
+
+        % Cas de base : chaque liste contient un seul élément.
+        \node[basecase] (b38) at (-5.5, -4.8) {\texttt{tri\_fusion}\\\texttt{([38])}};
+        \node[basecase] (b27) at (-3.7, -4.8) {\texttt{tri\_fusion}\\\texttt{([27])}};
+        \node[basecase] (b43) at (-1.9, -4.8) {\texttt{tri\_fusion}\\\texttt{([43])}};
+        \node[basecase] (b3) at (0.1, -4.8) {\texttt{tri\_fusion}\\\texttt{([3])}};
+        \node[basecase] (b9) at (1.9, -4.8) {\texttt{tri\_fusion}\\\texttt{([9])}};
+        \node[basecase] (b82) at (3.9, -4.8) {\texttt{tri\_fusion}\\\texttt{([82])}};
+        \node[basecase] (b10) at (5.7, -4.8) {\texttt{tri\_fusion}\\\texttt{([10])}};
+
+        % Appels de merge : arguments triés et valeur retournée.
+        \node[mergecall] (m2743) at (-2.8, -6.6)
+            {\texttt{merge([27],[43])}\\$\longrightarrow [27,43]$};
+        \node[mergecall] (m39) at (1, -6.6)
+            {\texttt{merge([3],[9])}\\$\longrightarrow [3,9]$};
+        \node[mergecall] (m8210) at (4.8, -6.6)
+            {\texttt{merge([82],[10])}\\$\longrightarrow [10,82]$};
+        \node[mergecall] (mleft) at (-3.7, -8.4)
+            {\texttt{merge([38],[27,43])}\\$\longrightarrow [27,38,43]$};
+        \node[mergecall] (mright) at (2.9, -8.4)
+            {\texttt{merge([3,9],[10,82])}\\$\longrightarrow [3,9,10,82]$};
+        \node[mergecall] (mroot) at (0, -10.2)
+            {\texttt{merge([27,38,43],[3,9,10,82])}\\
+             $\longrightarrow [3,9,10,27,38,43,82]$};
+
+        \foreach \fromnode/\tonode in {
+            root/left, root/right, left/b38, left/pair2743,
+            pair2743/b27, pair2743/b43, right/pair39, right/pair8210,
+            pair39/b3, pair39/b9, pair8210/b82, pair8210/b10}{
+            \draw[edge] (\fromnode) -- (\tonode);
+        }
+        \foreach \fromnode/\tonode in {
+            b27/m2743, b43/m2743, b3/m39, b9/m39,
+            b82/m8210, b10/m8210, m2743/mleft,
+            m39/mright, m8210/mright, mleft/mroot, mright/mroot}{
+            \draw[result] (\fromnode) -- (\tonode);
+        }
+        \draw[result] (b38.south) -- (-5.5, -7.5) -- (mleft.north west);
+
+        % Ordre chronologique d'entrée dans les fonctions (parcours en profondeur).
+        \foreach \callnode/\callorder in {
+            root/1, left/2, b38/3, pair2743/4, b27/5, b43/6,
+            m2743/7, mleft/8, right/9, pair39/10, b3/11, b9/12,
+            m39/13, pair8210/14, b82/15, b10/16, m8210/17,
+            mright/18, mroot/19}{
+            \node[order, anchor=south east] at (\callnode.north west) {\callorder};
+        }
+
+        \node[below=0.6cm of mroot, draw, fill=yellow!10, rounded corners,
+              minimum width=9cm, align=left, font=\small] {
+            \textbf{Résultat :} \texttt{[3, 9, 10, 27, 38, 43, 82]}\\
+            \textbf{Bilan :} 13 appels à \texttt{tri\_fusion} (dont 7 cas de base)\\
+            et \textbf{6 appels à \texttt{merge}}.
+        };
+        \end{tikzpicture}%
+        }
+        \end{center}
+        \end{minipage}
+    \end{solution}
+   
+    \begin{solution}
+        Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte trois étapes:
+        \begin{enumerate}
+            \item \textbf{Divide Step}: divise les listes en deux sous-listes, et cela prend un temps constant asymptotiquement.
+            \item \textbf{Conquer Step}: trie récursivement les sous-listes de taille $n/2$ chacune, et cette étape est représentée par le terme $2T(n/2)$ dans l'équation.
+            \item La dernière étape consiste à fusionner les deux listes, sa complexité est de $O(n)$.
+        \end{enumerate}
+        La solution à cette équation est $O(n \log n)$.
+    \end{solution}
+\end{Exercice}
+
+
+\begin{Exercice} [20 minutes] [Python] \textbf{Tri à bulles (Bubble Sort)} \\
+    Le tri à bulles consiste à parcourir plusieurs fois une liste en comparant les éléments deux à deux, côte à côte. Pour trier la liste par ordre croissant, on échange les deux éléments si celui de gauche est plus grand que celui de droite. Sinon, on les laisse à leur place.\\
+
+    Après chaque comparaison, on avance d'une position dans la liste. À la fin du premier passage, le plus grand élément se trouve donc à la fin de la liste, à sa position définitive. On recommence sur la partie de la liste qui n'est pas encore triée. Pour une liste de $n \geq 1$ éléments, on effectue ainsi $n-1$ passages au total, même si la liste est déjà triée. \\
+
+    Complétez la fonction \texttt{tri\_bulle} ci-dessous pour trier la liste sur place, c'est-à-dire en modifiant directement la liste reçue en paramètre. Déterminez le nombre total de comparaisons entre éléments en fonction de la taille $n$ de la liste, puis donnez la complexité temporelle avec la notation $O$.
+    
+    \begin{itemize}
+            \item \textbf{Python:}
+                \lstinputlisting{code/BubbleSort.py} 
+        \end{itemize}
+       
+        \ \\
+        
+        \begin{solution}
+        \textbf{Python :}
+        \lstinputlisting{solutions/BubbleSort.py}
+    \end{solution}
+    \begin{solution}
+        À chaque passage de la boucle extérieure, le plus grand élément de la partie encore non triée est placé à sa position définitive. La boucle intérieure effectue donc une comparaison de moins au passage suivant : le nombre total de comparaisons est
+        \[
+            \sum_{i=0}^{n-2} (n-i-1) = (n-1) + (n-2) + \cdots + 1 = \frac{n(n-1)}{2}.
+        \]
+        Chaque comparaison et chaque échange prennent un temps constant. Le terme dominant étant quadratique, la complexité temporelle est $O(n^2)$. Dans cette implémentation, tous les passages sont effectués même si la liste est déjà triée, car aucun arrêt anticipé n'est prévu.
+    \end{solution}
+    
+    \end{Exercice}
+
+\end{document}

@@ -1,0 +1,230 @@
+\input{../header.tex}
+\usepackage[T1]{fontenc}
+\setlist[itemize]{label=\textbullet}
+
+\usepackage{listings}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Change the following values to true to show the solutions or/and the hints
+\ShowSolutiontrue
+\ShowConseiltrue
+\titre
+\cours{Algorithmes de tri et complexité - exercices avancés}
+
+Le but de cette série d'exercices est d'aborder les notions présentées durant la séance de cours. Cette série d'exercices sera orientée autour des points suivants:
+
+\begin{enumerate}
+    \item La récursivité 
+    \item La complexité des algorithmes
+    \item Les algorithmes de tri
+\end{enumerate}
+
+Les exercices de cette séance seront réalisés en Java et Python. \\
+
+Les durées indiquées (\faClock) sont à titre indicatif.
+
+\section{Récursivité}
+\begin{Exercice} [5 minutes] \textbf{Fibonacci}\\
+\label{exercice:1}
+    Pour tout entier $n \geq 0$, la suite de Fibonacci est définie par :
+    \[
+        \operatorname{fibonacci}(n) =
+        \begin{cases}
+            0, & \text{si } n = 0, \\[4pt]
+            1, & \text{si } n = 1, \\[4pt]
+            \operatorname{fibonacci}(n-1) + \operatorname{fibonacci}(n-2),
+                & \text{si } n \geq 2.
+        \end{cases}
+    \]
+
+    Voici son implémentation en Java:
+
+    \begin{lstlisting}[language=Java]
+public static int fibonacci(int n) {
+    if(n == 0 || n == 1){
+        return n;
+    } else{
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+} \end{lstlisting}
+    
+    Quelle est la complexité de l'algorithme ci-dessus?
+    
+    \begin{conseil} 
+    
+    Pour formaliser la formule de complexité, soit $T(n)$ le nombre d'opérations requises pour calculer \lstinline{fibonacci(n)}. Ainsi, $T(n) = T(n-1) + T(n-2) + c$, $c$ étant une constante et $n \geq$ 2. Dans cette formule, $T(n-1)$ est le nombre d'opérations de \lstinline{fibonacci(n-1)} et $T(n-2)$ est le nombre d'opérations de \lstinline{fibonacci(n-2)}. À l'aide de cette formule récursive et du fait que $T(0)$ et $T(1)$ valent 1, déduisez les premières valeurs de $T(n)$ et tracez-les.  \newline
+
+
+    \end{conseil}
+    
+    \begin{enumerate}
+        \item $O(n^2)$
+        \item $O(n)$
+        \item $O(\log(n))$
+        \item $O(2^n)$
+    \end{enumerate}
+    
+    \begin{solution}
+    La bonne réponse est $O(2^n)$.
+
+    On remarque d'abord que $T$ est croissante : par récurrence immédiate, $T(n) = T(n-1) + T(n-2) + c \ge T(n-1)$.\\
+
+    \textbf{Borne supérieure.} Comme $T(n-2) \le T(n-1)$, on a $T(n) - T(n-1) - c \le T(n-1)$ donc  $T(n) \le 2T(n-1) + c$. En posant $U(n) = T(n) + c$, on obtient $U(n) \le 2U(n-1)$, donc $U(n) \le 2^{n-1}U(1)$, d'où
+    \[
+        T(n) \le 2^{n-1}U(1) - c = O(2^n).
+    \]
+
+    \textbf{Borne inférieure.} Comme $T(n-1) \ge T(n-2)$, on a $T(n) \ge 2T(n-2)$, donc
+    \[
+        T(n) \ge 2^{\lfloor n/2 \rfloor} \ge \frac{(\sqrt{2})^n}{\sqrt{2}}.
+    \]
+    La complexité est donc bien exponentielle, ce qui élimine les réponses $O(n^2)$, $O(n)$ et $O(\log n)$. \\
+
+    \emph{Remarque}: il existe une manière moins rigoureuse de résoudre cette question. Remarquons que la récurrence de \(T(n)\) est similaire à celle de la suite de Fibonacci, avec un terme constant supplémentaire $c>0$ et que les cas de base de la complexité sont des constantes $\geq 1$. Donc, en traçant les premières valeurs de la suite de Fibonacci sur un repère cartésien, on constate que la suite croît exponentiellement, d'où la borne inférieure de la croissance de la complexité. 
+
+\end{solution}
+\end{Exercice}
+
+\begin{Exercice}[15 minutes] - \textbf{Fibonacci et utilisation de la mémoire}\\
+
+L'algorithme de la question~\ref{exercice:1} est très lent, car il recalcule plusieurs fois les mêmes valeurs. Par exemple, pour obtenir \lstinline{fibonacci(5)}, il calcule \lstinline{fibonacci(3)} deux fois et \lstinline{fibonacci(2)} trois fois. Plus \lstinline{n} est grand, plus ces répétitions s'accumulent: vous pouvez le constater en appelant \lstinline{fibonacci(50)}, qui peut mettre plusieurs heures à renvoyer un résultat~! \\
+
+Pour éviter ces calculs inutiles, on peut garder en mémoire les résultats déjà obtenus. Cette technique s'appelle la \emph{mémoïsation}. \\ 
+
+Écrivez en Python une nouvelle fonction \lstinline{fibonacci} qui prend deux paramètres :
+\begin{itemize}
+  \item un entier \lstinline{n} ;
+  \item un dictionnaire \lstinline{previous_fibonacci}, dont les clés sont des entiers \lstinline{k} et les valeurs sont les résultats de \lstinline{fibonacci(k)} déjà calculés.
+\end{itemize}
+
+Avant chaque appel récursif, vérifiez si la valeur recherchée se trouve déjà dans \lstinline{previous_fibonacci}. Si c'est le cas, utilisez-la directement ; sinon, calculez-la, puis ajoutez-la au dictionnaire.
+
+\begin{conseil}
+    Au lancement du programme, \lstinline{previous_fibonacci} aura pour valeur \texttt{\{0: 0, 1: 1\}}, ce qui correspond aux conditions de sortie des appels récursifs.\\
+
+    La fonction \lstinline{fibonacci} renvoie la valeur associée à la clé \lstinline{n} dans le dictionnaire~\lstinline{previous_fibonacci}.
+\end{conseil}
+
+\begin{solution}
+    Sans mémoïsation, la complexité était de \(O(2^n)\) au lieu de \(O(n)\).
+    \lstinputlisting{solutions/advanced/Fibonacci_memo.py} 
+\end{solution}
+
+\end{Exercice}
+
+\section{Algorithmes de tri}
+
+\begin{Exercice} [20 minutes] [Java] \textbf{Tri à bulles (Bubble Sort)} \optionnel \\
+Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implémentez-le en Java. Complétez la méthode \texttt{triBulle} ci-dessous pour trier le tableau d'entiers sur place, par ordre croissant. \\
+
+Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni dans la méthode \texttt{main}, puis déterminez sa complexité temporelle avec la notation $O$.
+
+\begin{itemize}
+        \item \textbf{Java :}
+            \lstinputlisting{code/advanced/BubbleSort.java} 
+    \end{itemize}
+    
+    \begin{conseil}
+    En Java, utilisez une variable temporaire que vous nommerez \lstinline{temp} afin de faire l'échange de valeurs entre deux éléments du tableau.
+    \end{conseil}
+    
+    \ \\
+    
+    \begin{solution}
+    \textbf{Java:}
+    \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=15]{solutions/advanced/BubbleSort.java} 
+
+    \end{solution}
+    \begin{solution}
+    \lstinputlisting[language=java, firstline=16, firstnumber = 16]{solutions/advanced/BubbleSort.java} 
+
+    \end{solution}
+
+    \begin{solution}
+    L'algorithme a une complexité de $O(n^2)$ car il contient deux boucles imbriquées qui parcourent le tableau.
+    \end{solution}
+            
+
+\end{Exercice}
+
+\begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
+    Le tri par insertion parcourt le tableau du début à la fin. Lorsqu'on considère le $i$-ème élément, ceux qui le précèdent sont déjà triés. Pour reprendre l'analogie du jeu de cartes, le $i$-ème élément est la carte qu'on vient de saisir, les éléments précédents forment la main triée et les suivants sont les cartes encore en désordre sur la table. \\
+    
+    Chaque étape consiste à insérer le $i$-ème élément à sa place parmi ceux qui le précèdent: on cherche sa position par comparaisons, puis on décale les éléments plus grands pour lui faire de la place. En pratique, ces deux opérations se font en une seule passe, en faisant ``remonter'' l'élément jusqu'à rencontrer un élément plus petit. \\ 
+    
+    Complétez le code suivant pour trier la liste \lstinline{l} ci-dessous par insertion.
+    \begin{itemize}
+        \item \textbf{Python:}
+            \lstinputlisting[language=Python]{code/advanced/InsertionSort.py} 
+        \item \textbf{Java:}
+            \lstinputlisting[language=Java]{code/advanced/InsertionSort.java} 
+    \end{itemize}
+    
+    \begin{conseil}
+        La figure ci-dessous illustre un exemple de tri par insertion. \\
+        Référez-vous aussi aux diapositives 18 à 70 du cours.
+    \end{conseil}
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=10cm]{images/advanced/InsertionSort.pdf}
+    \end{figure}
+
+    \begin{solution}
+        \textbf{Python :}
+            \lstinputlisting{solutions/advanced/InsertionSort.py} 
+    \end{solution}
+    \begin{solution}
+        \textbf{Java :}
+            \lstinputlisting{solutions/advanced/InsertionSort.java}
+    \end{solution}
+
+    \begin{solution}
+        La complexité de l'algorithme est de $O(n^2)$. La boucle extérieure s'exécute $n-1$ fois (pour $i = 1, \dots, n-1$). À chaque tour, la boucle intérieure décale vers la droite les éléments déjà triés plus grands que \lstinline{key}, soit au plus $i$ éléments. Le pire cas se produit lorsque la liste est triée dans l'ordre décroissant: chaque nouvel élément doit alors remonter jusqu'au début de la liste. Le nombre total de décalages est donc
+        \[ 1 + 2 + \dots + (n-1) = \frac{n(n-1)}{2}, \]
+        ce qui donne une complexité de $O(n^2)$. \\
+
+        À l'inverse, si la liste est déjà triée, la boucle intérieure s'arrête immédiatement à chaque tour et l'algorithme ne fait qu'un seul parcours: sa complexité est alors de $O(n)$ dans le meilleur cas.
+    \end{solution}
+    
+\end{Exercice}
+
+
+\begin{Exercice} [20 minutes] [Java] \textbf{Tri fusion (Merge Sort)} \\
+    Reprenez l'exercice de tri fusion de la série d'exercices basiques et implémentez-le en Java. Complétez les méthodes \texttt{merge} et \texttt{triFusion} ci-dessous pour trier le tableau d'entiers par ordre croissant. \\
+    
+    Testez votre implémentation avec le tableau \texttt{\{38, 27, 43, 3, 9, 82, 10\}} fourni dans la méthode \texttt{main}. Combien d'appels à la méthode \texttt{merge} sont effectués ? Déterminez également la complexité temporelle avec la notation $O$.
+    
+    \begin{itemize}
+        \item \textbf{Java :}
+            \lstinputlisting{code/advanced/MergeSort.java}
+    \end{itemize}
+    
+    \begin{conseil}
+    \begin{itemize}
+        \item L'algorithme est récursif. 
+        \item Revenez à la visualisation de l'algorithme dans les diapositives du cours pour comprendre comment marche concrètement le tri fusion. 
+    \end{itemize}
+    
+    \end{conseil}
+    
+     \begin{solution}
+        \textbf{Java :}
+        \lstinputlisting[language=java, firstline=1, firstnumber = 1, lastline=20]{solutions/advanced/MergeSort.java}
+    \end{solution}
+    \begin{solution}
+        \lstinputlisting[language=java, firstline=21, firstnumber = 21]{solutions/advanced/MergeSort.java}
+    \end{solution}
+    \begin{solution}
+        
+        La complexité d'un algorithme dépend de celle des opérations exécutées dans le code. Les opérations utilisées ici ayant la même complexité en Java qu'en Python, la complexité reste inchangée : $O(n \log n)$. Pour la complexité en Python, référez-vous à la question 8 de la série basique. 
+    \end{solution}
+\end{Exercice}
+
+\end{document}
+
+
+
