@@ -150,16 +150,16 @@ Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implé
 
 \begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
 
-    Dans l'algorithme de tri par insertion, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés. Pour faire l'analogie avec l'exemple du jeu de cartes, lorsqu'on est à la i-ème étape du parcours, le i-ème élément est la carte saisie, les éléments précédents sont la main triée et les éléments suivants correspondent aux cartes encore en désordre sur la table. 
+    Le tri par insertion parcourt le tableau du début à la fin. Lorsqu'on considère le $i$-ème élément, ceux qui le précèdent sont déjà triés. Pour reprendre l'analogie du jeu de cartes, le $i$-ème élément est la carte qu'on vient de saisir, les éléments précédents forment la main triée et les suivants sont les cartes encore en désordre sur la table. \\
     
-    L'objectif d'une étape est d'insérer le i-ème élément à sa place parmi ceux qui le précède. Il faut pour cela trouver où l'élément doit être inséré en le comparant aux autres, puis décaler les éléments afin de pouvoir effectuer l'insertion. En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire ``remonter'' l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
+    Chaque étape consiste à insérer le $i$-ème élément à sa place parmi ceux qui le précèdent: on cherche sa position par comparaisons, puis on décale les éléments plus grands pour lui faire de la place. En pratique, ces deux opérations se font en une seule passe, en faisant ``remonter'' l'élément jusqu'à rencontrer un élément plus petit. \\ 
     
-    Compléter le code suivant pour trier la liste \lstinline{l} définie ci-dessous en utilisant un tri par insertion. Combien d'itérations effectuez-vous?
+    Compléter le code suivant pour trier la liste \lstinline{l} ci-dessous par insertion.
     \begin{itemize}
-        \item \textbf{Python :}
-            \lstinputlisting{code/advanced/InsertionSort.py} 
-        \item \textbf{Java :}
-            \lstinputlisting[language=java]{code/advanced/InsertionSort.java} 
+        \item \textbf{Python:}
+            \lstinputlisting[language=Python]{code/advanced/InsertionSort.py} 
+        \item \textbf{Java:}
+            \lstinputlisting[language=Java]{code/advanced/InsertionSort.java} 
     \end{itemize}
     
     \begin{conseil}
@@ -213,13 +213,7 @@ Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implé
     \end{solution}
     \begin{solution}
         
-        Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte 3 étapes :
-        \begin{enumerate}
-            \item ``Divide Step'', qui divise les listes en deux sous-listes, et cela prend un temps constant
-            \item ``Conquer Step'', qui trie récursivement les sous-listes de taille $n/2$ chacune, et cette étape est représentée par le terme $2T(n/2)$ dans l'équation.
-            \item La dernière étape consiste à fusionner les listes, sa complexité est de $O(n)$.
-        \end{enumerate}
-        La solution à cette équation est $O(n \log n)$.
+        La complexité d'un algorithme dépend de celle des opérations exécutées dans le code. Les opérations utilisées ici ayant la même complexité en Java qu'en Python, la complexité reste inchangée : $O(n \log n)$. Pour la complexité en Python, référez-vous à la question 8 de la série basique. 
     \end{solution}
 \end{Exercice}
 
