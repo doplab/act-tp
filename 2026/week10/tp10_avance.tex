@@ -83,7 +83,7 @@ public static int fibonacci(int n) {
     \]
     La complexité est donc bien exponentielle, ce qui élimine les réponses $O(n^2)$, $O(n)$ et $O(\log n)$. \\
 
-    \emph{Remarque}: il existe une manière moins rigoreuse de résoudre cette question. Remarquons que l'expression pour la complexité: $T(n) = T(n-1) + T(n-2) + c$ est similaire mais plus grand que la suite de fibonacci $f(n) = f(n-1) + f(n-2)$ comme $c>0$ et que les cas de bases de la complexité sont des constantes $\geq 1$. Donc, en traçant les premières valeurs de la suite fibonacci sur un repère cartésien, on constate que la suite croît exponentiellement, d'où la borne inférieure de la croissance de la complexité. 
+    \emph{Remarque}: il existe une manière moins rigoreuse à résoudre cette question. Remarquons que l'expression pour la complexité: $T(n) = T(n-1) + T(n-2) + c$ est similaire mais plus grand que la suite de fibonacci $f(n) = f(n-1) + f(n-2)$ comme $c>0$ et comme les cas de bases de la complexité sont des constantes $\geq 1$. Donc, en traçant les premières valeurs de la suite fibonacci sur un repère cartésien, on constate que la suite croît exponentiellement, d'où la borne inférieure de la croissance de la complexité. 
 
 \end{solution}
 \end{Exercice}
@@ -118,7 +118,9 @@ Avant chaque appel récursif, vérifiez si la valeur recherchée se trouve déj�
 \section{Algorithmes de tri}
 
 \begin{Exercice} [20 minutes] [Java] \textbf{Tri à bulles (Bubble Sort)} \optionnel \\
-Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implémentez-le en Java. Complétez la méthode \texttt{triBulle} ci-dessous pour trier le tableau d'entiers sur place, par ordre croissant. Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni dans la méthode \texttt{main}, puis déterminez sa complexité temporelle avec la notation $O$.
+Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implémentez-le en Java. Complétez la méthode \texttt{triBulle} ci-dessous pour trier le tableau d'entiers sur place, par ordre croissant. \\
+
+Testez votre implémentation avec le tableau \texttt{\{1, 2, 4, 3, 1\}} fourni dans la méthode \texttt{main}, puis déterminez sa complexité temporelle avec la notation $O$.
 
 \begin{itemize}
         \item \textbf{Java :}
@@ -149,7 +151,6 @@ Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implé
 \end{Exercice}
 
 \begin{Exercice} [20 minutes] \textbf{Tri par insertion (Insertion Sort)} \\
-
     Le tri par insertion parcourt le tableau du début à la fin. Lorsqu'on considère le $i$-ème élément, ceux qui le précèdent sont déjà triés. Pour reprendre l'analogie du jeu de cartes, le $i$-ème élément est la carte qu'on vient de saisir, les éléments précédents forment la main triée et les suivants sont les cartes encore en désordre sur la table. \\
     
     Chaque étape consiste à insérer le $i$-ème élément à sa place parmi ceux qui le précèdent: on cherche sa position par comparaisons, puis on décale les éléments plus grands pour lui faire de la place. En pratique, ces deux opérations se font en une seule passe, en faisant ``remonter'' l'élément jusqu'à rencontrer un élément plus petit. \\ 
@@ -169,7 +170,7 @@ Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implé
     
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=10cm]{images/advanced/InsertionSort.png}
+        \includegraphics[width=10cm]{images/advanced/InsertionSort.pdf}
     \end{figure}
 
     \begin{solution}
@@ -182,14 +183,20 @@ Reprenez l'exercice de tri à bulles de la série d'exercices basiques et implé
     \end{solution}
 
     \begin{solution}
-         La complexité de l'algorithme est de $O(n^2)$ car nous utilisons 2 boucles imbriquées. Dans le pire des cas, la boucle intérieure parcourt la liste une fois pour chaque tour de la boucle extérieure.
+        La complexité de l'algorithme est de $O(n^2)$. La boucle extérieure s'exécute $n-1$ fois (pour $i = 1, \dots, n-1$). À chaque tour, la boucle intérieure décale vers la droite les éléments déjà triés plus grands que \lstinline{key}, soit au plus $i$ éléments. Le pire cas se produit lorsque la liste est triée dans l'ordre décroissant: chaque nouvel élément doit alors remonter jusqu'au début de la liste. Le nombre total de décalages est donc
+        \[ 1 + 2 + \dots + (n-1) = \frac{n(n-1)}{2}, \]
+        ce qui donne une complexité de $O(n^2)$. \\
+
+        À l'inverse, si la liste est déjà triée, la boucle intérieure s'arrête immédiatement à chaque tour et l'algorithme ne fait qu'un seul parcours: sa complexité est alors de $O(n)$ dans le meilleur cas.
     \end{solution}
     
 \end{Exercice}
 
 
 \begin{Exercice} [20 minutes] \textbf{Tri fusion (Merge Sort) - Java} \\
-    Reprenez l'exercice de tri fusion de la série d'exercices basiques et implémentez-le en Java. Complétez les méthodes \texttt{merge} et \texttt{triFusion} ci-dessous pour trier le tableau d'entiers par ordre croissant. Testez votre implémentation avec le tableau \texttt{\{38, 27, 43, 3, 9, 82, 10\}} fourni dans la méthode \texttt{main}. Combien d'appels à la méthode \texttt{merge} sont effectués ? Déterminez également la complexité temporelle avec la notation $O$.
+    Reprenez l'exercice de tri fusion de la série d'exercices basiques et implémentez-le en Java. Complétez les méthodes \texttt{merge} et \texttt{triFusion} ci-dessous pour trier le tableau d'entiers par ordre croissant. \\
+    
+    Testez votre implémentation avec le tableau \texttt{\{38, 27, 43, 3, 9, 82, 10\}} fourni dans la méthode \texttt{main}. Combien d'appels à la méthode \texttt{merge} sont effectués ? Déterminez également la complexité temporelle avec la notation $O$.
     
     \begin{itemize}
         \item \textbf{Java :}
