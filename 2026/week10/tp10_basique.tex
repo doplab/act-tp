@@ -219,7 +219,7 @@ public static int algo(int[] values) {
     \end{enumerate}
 
     \begin{solution}
-    L'algorithme consiste en une boucle qui ajoute à la variable $s$ les valeurs de la liste \texttt{values}, à condition que les indices de ces valeurs soient des puissances de 2 inférieures à $n$. La variable \texttt{i} prend successivement les valeurs $1, 2, 4, \ldots, 2^{\lfloor \log_2(n) \rfloor}$. \\ 
+    L'algorithme consiste en une boucle qui ajoute à la variable $s$ les valeurs de la liste \texttt{values}, à condition que les indices de ces valeurs soient des puissances de 2 moins 1, et inférieures à $n$. La variable \texttt{i} prend successivement les valeurs $1, 2, 4, \ldots, 2^{\lfloor \log_2(n) \rfloor}$. \\ 
 
     Pour montrer que $2^{\lfloor \log_2(n) \rfloor}$ est la plus grande puissance de 2 inférieure ou égale à $n$, remarquons que $n = 2^{\log_2(n)}$ et que $2^{\lfloor \log_2(n) \rfloor} \leq n < 2^{\lfloor \log_2(n) \rfloor + 1}$. Ainsi, $n$ est encadré par deux puissances de 2 consécutives. \\
     
