@@ -447,7 +447,7 @@ T(n) &\in O(n^{\log_{b}{a}}) \quad \text{si } a > b^{k}
     \begin{solution}
         Le tri fusion est un algorithme récursif. Ainsi, nous pouvons exprimer sa complexité temporelle via une relation de récurrence : $T(n) = 2T(n/2) + O(n)$. En effet, l'algorithme comporte trois étapes:
         \begin{enumerate}
-            \item \textbf{Divide Step}: divise les listes en deux sous-listes, et cela prend un temps constant asymptotiquement.
+            \item \textbf{Divide Step}: divise les listes en deux sous-listes, et cela prend un temps $O(n)$.
             \item \textbf{Conquer Step}: trie récursivement les sous-listes de taille $n/2$ chacune, et cette étape est représentée par le terme $2T(n/2)$ dans l'équation.
             \item La dernière étape consiste à fusionner les deux listes, sa complexité est de $O(n)$.
         \end{enumerate}
