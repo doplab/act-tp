@@ -1,14 +1,14 @@
 import sys
 import traceback
 
-def recherche_arbre(node, value):
+def recherche_arbre(node, e):
     #Solution
     if node == None:
         return False
 
-    if node.value == value:
+    if node.value == e:
         return True
-    if node.value > value:
-        return recherche_arbre(node.left,value)
+    if node.value > e:
+        return recherche_arbre(node.left, e)
     else:
-        return recherche_arbre(node.right,value) 
+        return recherche_arbre(node.right, e)

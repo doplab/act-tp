@@ -2,7 +2,7 @@
 \usepackage{array}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usetikzlibrary{calc, backgrounds}
+\usetikzlibrary{calc, backgrounds, arrows.meta, positioning}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \setlist[itemize]{label=\textbullet}
 
@@ -144,11 +144,9 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{Exercice}[20 minutes] [Python] Algorithme de recherche binaire — Binary search\\
     
-    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{key} dans la liste. La fonction doit retourner \textbf{l'index} de l'élément correspondant de la liste si \texttt{key} est dans la liste et \lstinline{-1} dans le cas contraire.\\
-    
-    \begin{conseil}
-        Testez votre implémentation avec la liste \texttt{liste=[1,3,4,5,7,8,9,15]} dans laquelle vous cherchez \texttt{key=5}.
-    \end{conseil}
+    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{key} dans la liste. La fonction renvoie \textbf{l'index} de l'élément correspondant de la liste si \texttt{key} est dans la liste et \lstinline{-1} dans le cas contraire.\\
+
+    Testez votre implémentation avec la liste \texttt{liste=[1,3,4,5,7,8,9,15]} dans laquelle vous cherchez \texttt{key=7}. Combien d’appels à la fonction de recherche binaire récursive sont effectués?
     
     \subsubsection*{Question 3.1 - Version récursive}
     \lstinputlisting{code/recherche_binaire_recursive.py}
@@ -161,10 +159,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
             Complétez la fonction récursive \lstinline{recherche_binaire_recursive} et la fonction itérative \lstinline{recherche_binaire}.\\\\
             Détails sur les arguments de la fonction \lstinline{recherche_binaire_recursive}:
             \begin{itemize}
-            \item \lstinline{liste} : La liste dans laquelle nous effectuons la recherche.
-            \item \lstinline{low} : L'indice de départ de la partie de la liste à fouiller (0 au départ).
-            \item \lstinline{high} : Le dernier indice de la partie de la liste à fouiller (\lstinline{len(liste) - 1} au départ).
-            \item \lstinline{key} : La valeur recherchée.
+            \item \lstinline{key}: La valeur recherchée.
+            \item \lstinline{array}: La liste dans laquelle nous effectuons la recherche.
+            \item \lstinline{low}: L'indice de départ de la partie de la liste à fouiller (0 au départ).
+            \item \lstinline{high}: Le dernier indice de la partie de la liste à fouiller (\lstinline{len(array) - 1} au départ).
             \end{itemize}
             Ainsi, à chaque itération, vos fonctions vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
             
@@ -183,6 +181,92 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \begin{solution}
             \subsubsection*{3.2 - Version itérative}
             \lstinputlisting{solutions/recherche_binaire_iterative.py}
+        \end{solution}
+        \begin{solution}
+        \begin{minipage}{\linewidth}
+        \textbf{Appels de la recherche binaire récursive}
+
+        \begin{center}
+        \begin{tikzpicture}[
+            font=\footnotesize,
+            cell/.style={draw, minimum width=0.75cm, minimum height=0.6cm,
+                         inner sep=0pt, font=\small},
+            idx/.style={font=\scriptsize, text=gray, inner sep=1pt},
+            marker/.style={font=\scriptsize\ttfamily, text=slideblue!80!black,
+                           inner sep=1pt},
+            callnum/.style={circle, fill=slideblue, text=white, inner sep=1.5pt,
+                         font=\scriptsize\bfseries},
+            callarrow/.style={-Stealth, thick, slideblue},
+            retarrow/.style={-Stealth, thick, dashed, green!50!black},
+            cmp/.style={anchor=west, align=left, text width=3cm}
+        ]
+        % Une ligne par appel : numéro / low / high / mid / ordonnée
+        \foreach \r/\lo/\hi/\mi/\y in {1/0/7/3/0, 2/4/7/5/-2.4, 3/4/4/4/-4.8}{
+            \foreach \v [count=\i from 0] in {1,3,4,5,7,8,9,15}{
+                % Hors de [low, high] : grisé ; dans l'intervalle : bleu
+                \def\fillc{slideblue!8}\def\drawc{slideblue!70}\def\textc{black}
+                \def\lw{0.4pt}
+                \ifnum\i<\lo \def\fillc{gray!8}\def\drawc{gray!40}\def\textc{gray!60}\fi
+                \ifnum\i>\hi \def\fillc{gray!8}\def\drawc{gray!40}\def\textc{gray!60}\fi
+                % Élément du milieu : orange (vert s'il est trouvé)
+                \ifnum\i=\mi
+                    \def\fillc{orange!30}\def\drawc{orange!80!black}\def\lw{1.2pt}
+                    \ifnum\r=3 \def\fillc{green!30}\def\drawc{green!50!black}\fi
+                \fi
+                \node[cell, fill=\fillc, draw=\drawc, text=\textc,
+                      line width=\lw] (r\r-\i) at (\i*0.75, \y) {\v};
+                \node[idx, above=0pt of r\r-\i] {\i};
+            }
+            \node[callnum] (s\r) at (-0.9, \y) {\r};
+        }
+
+        % Appels effectués
+        \node[anchor=south west] at ($(r1-0.north west)+(0,0.3)$)
+            {\texttt{recherche\_binaire\_recursive(7, liste, 0, 7)}};
+        \node[anchor=south west] at ($(r2-0.north west)+(0,0.3)$)
+            {\texttt{recherche\_binaire\_recursive(7, array, 4, 7)}};
+        \node[anchor=south west] at ($(r3-0.north west)+(0,0.3)$)
+            {\texttt{recherche\_binaire\_recursive(7, array, 4, 4)}};
+
+        % Positions de low, mid et high
+        \node[marker, below=1pt of r1-0] {low};
+        \node[marker, below=1pt of r1-3] {mid};
+        \node[marker, below=1pt of r1-7] {high};
+        \node[marker, below=1pt of r2-4] {low};
+        \node[marker, below=1pt of r2-5] {mid};
+        \node[marker, below=1pt of r2-7] {high};
+        \node[marker, below=1pt of r3-4] {low = mid = high};
+
+        % Comparaisons
+        \node[cmp] (c1) at ($(r1-7.east)+(0.4,0)$)
+            {$\texttt{array[3]} = 5 < 7$\\ $\Rightarrow$ moitié droite};
+        \node[cmp] (c2) at ($(r2-7.east)+(0.4,0)$)
+            {$\texttt{array[5]} = 8 > 7$\\ $\Rightarrow$ moitié gauche};
+        \node[cmp] (c3) at ($(r3-7.east)+(0.4,0)$)
+            {$\texttt{array[4]} = 7 = \texttt{key}$\\ $\Rightarrow$ \texttt{return 4}};
+
+        % Appels récursifs (descente) et valeurs de retour (remontée)
+        \draw[callarrow] (s1) -- (s2);
+        \draw[callarrow] (s2) -- (s3);
+        \draw[retarrow] ([yshift=-2pt]c3.east) to[bend right=50]
+            node[right] {\texttt{4}} ([yshift=-2pt]c2.east);
+        \draw[retarrow] ([yshift=2pt]c2.east) to[bend right=50]
+            node[right] {\texttt{4}} ([yshift=2pt]c1.east);
+        \end{tikzpicture}
+        \end{center}
+
+        Chaque ligne correspond à un appel : les cases bleues forment
+        l'intervalle \texttt{[low, high]} encore à fouiller, la case orange
+        est l'élément du milieu comparé à \texttt{key} et la case verte est
+        l'élément trouvé. Les flèches bleues indiquent les appels récursifs
+        et les flèches vertes en pointillés le retour de l'indice \texttt{4}.
+
+        \medskip
+
+        La fonction est appelée \textbf{trois fois au total}, soit l'appel
+        initial et \textbf{deux appels récursifs}. Chaque appel renvoie
+        l'indice \texttt{4} à son appelant.
+        \end{minipage}
         \end{solution}
     
     \end{Exercice}
@@ -289,13 +373,13 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
         
         Dans l'exercice suivant, nous vous donnons un arbre de recherche binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
-        Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{value} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Vous pouvez utiliser la variable \lstinline{value} pour accéder à la valeur d'un nœud (\lstinline{node}) et les variables \lstinline{left} et \lstinline{right} sur les \lstinline{nodes} pour accéder aux branches (sous-arbres) enfants, utilisez \lstinline{node.value}, \lstinline{node.left} et \lstinline{node.right}.\\\\
+        Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{e} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Pour un nœud \lstinline{node}, utilisez l'attribut \lstinline{node.value} pour accéder à sa valeur et les attributs \lstinline{node.left} et \lstinline{node.right} pour accéder à ses sous-arbres gauche et droit.\\\\
         Complétez la fonction \lstinline{recherche_arbre}.\\
         \begin{lstlisting}[language=Python]
 import sys
 import traceback
 
-def recherche_arbre(node, value):
+def recherche_arbre(node, e):
     # Complétez ici
     
     
