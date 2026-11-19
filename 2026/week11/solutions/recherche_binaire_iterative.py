@@ -15,7 +15,7 @@ def recherche_binaire_iterative(key, array):
     return -1
 
 if __name__ == '__main__':
-    L = [1,3,4,5,7,8,9,15]
+    liste = [1,3,4,5,7,8,9,15]
     x = 5
-    idx = recherche_binaire_iterative(x, L)
+    idx = recherche_binaire_iterative(x, liste)
     print(idx)

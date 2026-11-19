@@ -16,8 +16,8 @@ def recherche_binaire_recursive(key, array, low=0, high=None):
         return mid
 
 if __name__ == '__main__':
-    L = [1,3,4,5,7,8,9,15]
+    liste = [1,3,4,5,7,8,9,15]
     x = 5
-    idx = recherche_binaire_recursive(x, L)
+    idx = recherche_binaire_recursive(x, liste)
     print(idx)
 
