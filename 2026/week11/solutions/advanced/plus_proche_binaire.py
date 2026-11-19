@@ -25,7 +25,7 @@ def plus_proche_binaire(liste, e):
 
 
 if __name__ == '__main__':
-    L = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]
+    liste = [1, 2, 5, 8, 12, 16, 24, 56, 58, 63]
     e = 61
-    print(plus_proche_binaire(L, e))
+    print(plus_proche_binaire(liste, e))
 

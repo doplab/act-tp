@@ -8,7 +8,7 @@
 
 \begin{document}
 % Change the following values to true to show the solutions or/and the hints
-\ShowSolutiontrue
+\ShowSolutionfalse
 \ShowConseiltrue
 \ShowExampletrue
 \titre
@@ -30,11 +30,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \section{Recherche séquentielle}
     \subsection{Définition}
-    Une recherche \textbf{séquentielle} (ou \textbf{linéaire}) est une méthode permettant de trouver un élément dans un ensemble de données (liste, tableau ou dictionnaire). Elle vérifie un à un chaque élément de gauche à droite jusqu'à ce qu'une correspondance soit trouvée ou que toute la liste ait été parcourue.\\
+    Une recherche \textbf{séquentielle} (ou \textbf{linéaire}) est une méthode permettant de trouver un élément dans un ensemble de données (liste, tableau, chaîne de caractères ou dictionnaire). Elle consiste à examiner les éléments un à un jusqu'à ce qu'une correspondance soit trouvée ou que tous les éléments aient été examinés. Dans un dictionnaire, ce parcours peut porter sur les clés, les valeurs ou les paires clé-valeur.\\
     
     Si l'élément recherché est trouvé, l'algorithme \textbf{renvoie l'index}, c'est-à-dire la position, de l'élément dans l'ensemble de données. \\
     
-    Sa complexité dans le pire des cas est de \textbf{O(n)} correspondant à la longueur de l'ensemble de données, et dans le meilleur des cas de \textbf{O(1)}, lorsque l'élément se trouve en première position. Dans la pratique, l'algorithme de recherche séquentielle n'est pas couramment utilisé eu égard à sa complexité élevée et à l'existence d'alternatives de recherche plus efficaces comme la recherche binaire.\\
+    Sa complexité est de $O(n)$, où $n$ est la longueur de la liste, car il faut parcourir toute la liste dans le pire des cas. \\
     
     
     \subsection{Exercices}

@@ -19,9 +19,9 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \section{Recherche binaire}
 
 % ADVANCED
-\begin{Exercice}[15 minutes] Recherche binaire - plus proche élément (Python)\\
+\begin{Exercice}[15 minutes] [Python] Recherche binaire - plus proche élément\\
 
-Soit une liste d'entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{L} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search).\\
+Soit une liste d'entiers \textbf{triés} \lstinline{liste} et un entier \lstinline{e}. Écrivez un programme retournant la valeur dans \lstinline{liste} la plus proche de \lstinline{e} en utilisant une recherche binaire (binary search). On suppose que la liste n'est pas vide. \\
 
 \lstinputlisting{code/advanced/plus_proche_binaire.py}
 
@@ -42,18 +42,16 @@ Soit une liste d'entiers \textbf{triés} \lstinline{L} et un entier \lstinline{e
 
 
 % ADVANCED
-\begin{Exercice}[20 minutes] Recherche dans une matrice (Python) %\optionnel\\
+\begin{Exercice}[20 minutes] [Python] Recherche dans une matrice %\optionnel\\
     
-    %\textbf{Matrice en Python}
-
-    Considérez une matrice ordonnée \lstinline{m} et un élément \lstinline{l}.\\
+    Considérez une matrice ordonnée \lstinline{m} et un élément \lstinline{e}.\\
     
     Pour rappel, une matrice ordonnée répond aux critères suivants :\\
      \lstinline{m[i][j]<=m[i+1][j]} (une ligne va du plus petit au plus grand)\\
      \lstinline{m[i][j]<=m[i][j+1]} (une colonne va du plus petit au plus grand)\\
  
     
-    Écrivez un algorithme qui retourne la position de l'élément \lstinline{l} dans \lstinline{m}. Si \lstinline{l} n'est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
+    Écrivez un algorithme qui retourne la position de l'élément \lstinline{e} dans \lstinline{m}. Si \lstinline{e} n'est pas présent dans \lstinline{m} alors, votre programme retournera \lstinline{(-1, -1)}.\\
     
     \begin{Example}{\faTerminal \quad Exemples}
         \textbf{Exemple 1}: si \lstinline{m=[[1,2,3,4],[4,5,7,8],[5,6,8,10],[6,7,9,11]]} et que \lstinline{l=7}. Nous souhaitons avoir la réponse \lstinline{(1,2)} OU \lstinline{(3,1)} (l'une des deux, pas besoin de retourner les deux résultats).\\
