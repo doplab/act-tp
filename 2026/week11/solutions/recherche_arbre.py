@@ -1,6 +1,3 @@
-import sys
-import traceback
-
 def recherche_arbre(node, e):
     #Solution
     if node == None:
