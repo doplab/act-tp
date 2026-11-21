@@ -102,7 +102,6 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
         \begin{solution}
         \textbf{Python :}
             \lstinputlisting{solutions/plus_proche_sequentielle.py}
-            
         \end{solution}
         
     \end{Exercice}
@@ -262,10 +261,10 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \end{Exercice}
     
-    \section{Arbre de recherche binaire — Binary search tree}   
+    \section{Arbre binaire de recherche — Binary search tree}
     \subsection{Définition}
     
-    Un arbre de recherche binaire est une structure de données au même titre que les listes, tuples, dictionnaires, etc. La particularité de ces arbres est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres de recherche binaire enregistrent les valeurs de manière relationnelle.\\
+    Un arbre binaire de recherche est une structure de données au même titre que les listes, tuples, dictionnaires, etc. La particularité de ces arbres est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres binaires de recherche enregistrent les valeurs de manière relationnelle.\\
     
     En effet, l'arbre est divisé en branches qui peuvent elles-mêmes contenir deux branches (enfants) et ainsi de suite. Lorsqu'une branche n'a pas de branches subséquentes (enfants), on parle de feuille.\\
     
@@ -276,14 +275,14 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.32\textwidth]{img/binary-search-tree.pdf}
-        \caption{Exemple d'arbre de recherche binaire}
+        \caption{Exemple d'arbre binaire de recherche}
     \end{figure}
     
     \subsection{Exercices}
 
-    \begin{Exercice}[10 minutes] Propriété des arbres de recherche binaire\\
+    \begin{Exercice}[10 minutes] Propriété des arbres binaires de recherche\\
 
-    Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre de recherche binaire, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
+    Supposons que nous ayons des nombres entre 1 et 1000 dans un arbre binaire de recherche, et que nous voulions rechercher le nombre 363. Lesquelles des séquences suivantes ne pourraient pas être une séquence des nœuds examinés avant de trouver 363 ?
 
     \begin{enumerate}
         \item 2, 252, 401, 398, 330, 344, 397, 363.
@@ -294,7 +293,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \end{enumerate}
 
     \begin{conseil}
-        Rappelez-vous la propriété suivante des arbres de recherche binaire:
+        Rappelez-vous la propriété suivante des arbres binaires de recherche:
         \begin{center}
    \begin{tikzpicture}[
     node distance=1.5cm,
@@ -352,8 +351,8 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
     \begin{solution}
             \includegraphics[width=1\textwidth]{img/question4.png}
         \begin{itemize}
-            \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres de recherche binaire.
-            \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres de recherche binaire. 
+            \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres binaires de recherche.
+            \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres binaires de recherche.
         \end{itemize}  
     \end{solution}
 
@@ -362,14 +361,11 @@ Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la va
     
     \begin{Exercice}[20 minutes] [Python] Recherche dans un arbre\\
         
-        Dans l'exercice suivant, nous vous donnons un arbre de recherche binaire avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
+        Dans l'exercice suivant, nous vous donnons un arbre binaire de recherche avec les mêmes valeurs que le schéma précédent et dont la racine est la variable \lstinline{root}.\\
     
         Écrivez une fonction qui retourne \lstinline{True} si la valeur \lstinline{e} se trouve dans l'arbre et \lstinline{False} dans le cas contraire. Pour un nœud \lstinline{node}, utilisez l'attribut \lstinline{node.value} pour accéder à sa valeur et les attributs \lstinline{node.left} et \lstinline{node.right} pour accéder à ses sous-arbres gauche et droit.\\\\
         Complétez la fonction \lstinline{recherche_arbre}.\\
         \begin{lstlisting}[language=Python]
-import sys
-import traceback
-
 def recherche_arbre(node, e):
     # Complétez ici
     
