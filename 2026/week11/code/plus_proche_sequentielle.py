@@ -9,3 +9,4 @@ def plus_proche_sequentielle(liste, nb):
 
 if __name__ == '__main__':
     # Testez votre code ici
+    pass

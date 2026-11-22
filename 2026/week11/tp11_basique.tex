@@ -70,10 +70,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \begin{solution}
         \textbf{Python:}
         % \lstinputlisting{solutions/recherche_sequentielle_index.py}
-        \lstinputlisting[language=python, firstline = 1, firstnumber = 1, lastline = 14]{solutions/recherche_sequentielle_index.py}
-    \end{solution}
-    \begin{solution}
-        \lstinputlisting[language=python, firstline = 17, firstnumber = 15]{solutions/recherche_sequentielle_index.py}
+        \lstinputlisting[language=Python]{solutions/recherche_sequentielle_index.py}
         La fonction \lstinline[language=python]|index| lève une exception si l'élément n'est pas présent, d'où l'utilisation de try/except.
     \end{solution}
     
@@ -123,7 +120,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     \subsection{La récursivité}
     
     Une fonction récursive est une fonction qui s'appelle elle-même pendant son exécution. Vous trouverez ci-dessous un exemple de fonction récursive utilisée pour effectuer un calcul factoriel.\\\\
-    (Rappel : 4! = 4 x 3 x 2 x 1 = 24)\\
+    (Rappel : 4! = $4 \times 3 \times 2 \times 1 = 24$)\\
     
     \lstinputlisting{code/factorial.py}
     
@@ -134,7 +131,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     \begin{Exercice}[20 minutes] [Python] Algorithme de recherche binaire — Binary search\\
     
-    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{key} dans la liste. La fonction renvoie \textbf{l'index} de l'élément correspondant de la liste si \texttt{key} est dans la liste et \lstinline{-1} dans le cas contraire.\\
+    À partir de la liste d'éléments \textbf{triés} ci-dessous, écrivez premièrement \textbf{une fonction récursive} puis \textbf{une fonction itérative} qui cherche \texttt{key} dans la liste. La fonction renvoie \textbf{l'index} de l'élément correspondant de la liste si \texttt{key} est dans la liste et $-1$ dans le cas contraire.\\
 
     Testez votre implémentation avec la liste \texttt{liste=[1,3,4,5,7,8,9,15]} dans laquelle vous cherchez \texttt{key=7}. Combien d'appels à la fonction de recherche binaire récursive sont effectués?
     
