@@ -146,7 +146,7 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     
         \begin{conseil}
-            Complétez la fonction récursive \lstinline{recherche_binaire_recursive} et la fonction itérative \lstinline{recherche_binaire}.\\\\
+            Complétez la fonction récursive \lstinline{recherche_binaire_recursive} et la fonction itérative \lstinline{recherche_binaire_iterative}.\\\\
             Détails sur les arguments de la fonction \lstinline{recherche_binaire_recursive}:
             \begin{itemize}
             \item \lstinline{key}: La valeur recherchée.
@@ -156,11 +156,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
             \end{itemize}
             Ainsi, à chaque itération, vos fonctions vont modifier les valeurs de base données en argument pour resserrer l'intervalle jusqu'à trouver la valeur recherchée.\\        
             
-            Pour la version itérative, il est conseillé d'utiliser une boucle \lstinline{while}. Pour la fonction \lstinline{recherche_binaire}, les seuls arguments sont la liste \texttt{array} et l'élément à chercher \lstinline{key}. 
+            Pour la version itérative, il est conseillé d'utiliser une boucle \lstinline{while}. Pour la fonction \lstinline{recherche_binaire_iterative}, les seuls arguments sont la liste \texttt{array} et l'élément à chercher \lstinline{key}. 
         \end{conseil}
 
         \begin{conseil}
-            Pour définir le milieu d'une liste qui contient un nombre pair ou impair d'éléments, divisez l'ensemble en 2 et utilisez la fonction \lstinline{int()} pour convertir le résultat en entier. 
+            Pour définir le milieu d'une liste qui contient un nombre pair ou impair d'éléments, divisez l'intervalle en deux et utilisez la fonction \lstinline{int()} pour convertir le résultat en entier. 
             \lstinputlisting{solutions/midpoint.py}
         \end{conseil}
     

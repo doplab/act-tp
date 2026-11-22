@@ -1,4 +1,3 @@
-
 def plus_proche_binaire(liste, e):
     low = 0
     high = len(liste) - 1
