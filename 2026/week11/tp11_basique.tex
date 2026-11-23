@@ -263,11 +263,11 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
     
     Un arbre binaire de recherche est une structure de données au même titre que les listes, tuples, dictionnaires, etc. La particularité de ces arbres est qu'au lieu d'ordonner les éléments les uns à la suite des autres, les arbres binaires de recherche enregistrent les valeurs de manière relationnelle.\\
     
-    En effet, l'arbre est divisé en branches qui peuvent elles-mêmes contenir deux branches (enfants) et ainsi de suite. Lorsqu'une branche n'a pas de branches subséquentes (enfants), on parle de feuille.\\
+    Chaque nœud contient une valeur et peut avoir jusqu'à deux enfants : un à gauche et un à droite. Un nœud sans enfant est une feuille.\\
     
-    Les branches peuvent donc contenir de 0 à 2 autres branches. On parle alors de branche de gauche et de celle de droite. La branche de gauche est forcément plus petite que la branche parente et celle de droite est forcément plus grande.\\
+    Chaque enfant forme, avec ses descendants, le sous-arbre gauche ou droit. Les valeurs du sous-arbre gauche sont strictement inférieures à celle du nœud, et celles du sous-arbre droit sont strictement supérieures.\\
     
-    De cette façon, on garantit que l'arbre est toujours ordonné même en rajoutant ou en retirant des éléments\\
+    Cette propriété doit être préservée lors de l'ajout ou de la suppression d'un nœud.\\
     
     \begin{figure}[H]
         \centering
@@ -343,13 +343,13 @@ Le but de cette séance est de se familiariser avec les algorithmes de recherche
 
 \end{tikzpicture}
 \end{center}
-Tous les nœuds dans le sous-arbre à gauche ont une valeur inférieure à la valeur du nœud $z$ et tous les nœuds dans le sous-arbre à droite ont une valeur supérieure à la valeur du nœud $z$.
+Tous les nœuds du sous-arbre gauche de $z$ ont une valeur inférieure à celle de $z$, et tous les nœuds de son sous-arbre droit ont une valeur supérieure.
     \end{conseil}
     \begin{solution}
             \includegraphics[width=1\textwidth]{img/question4.png}
         \begin{itemize}
-            \item Le troisième choix est faux car 912 se trouve dans le sous-arbre à gauche de 911 ce qui contredit la propriété des arbres binaires de recherche.
-            \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre à droite de 347 ce qui contredit la propriété des arbres binaires de recherche.
+            \item Le troisième choix est faux car 912 se trouve dans le sous-arbre gauche de 911, ce qui contredit la propriété des arbres binaires de recherche.
+            \item Le cinquième choix est faux car 299 se trouve dans le sous-arbre droit de 347, ce qui contredit la propriété des arbres binaires de recherche.
         \end{itemize}  
     \end{solution}
 
