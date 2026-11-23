@@ -68,10 +68,13 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
     \begin{solution}
     \lstinputlisting[language=python, firstline=12, firstnumber=12]{solutions/graphRepresentation.py}
-    Pour l'adjacency matrix, les indices sont les suivants A=0, B=1, C=2, D=3, E=4, F=5. L'axe 0 de la matrice (verticale), désigne de quel sommet on part, l'axe 1 de la matrice (horizontale), designe vers quel sommet l'arête va.\\
-    Si on regarde la première ligne de la matrice, \lstinline{[0,1,1,0,0,0]}, cela correspond à tous les arêtes qui partent de A et vont vers d'autres sommets. Ici B et C, car il y a des 1 aux positions 1 et 2.
-    Plus généralement, l'entrée \lstinline{M[i][j]} vaut 1 s'il existe une arête allant du sommet i vers le sommet j, et 0 sinon.\\
-    Le fait que le graphe soit dirigé joue un rôle important pour la construction de ces représentations. Par exemple, pour l'adjacency list, B apparaît dans la liste correspondant à la clé A mais l'inverse n'est pas vrai. Cela signifie que l'on peut aller du sommet A au sommet B mais pas du sommet B au sommet A.\\
+    Dans la matrice d'adjacence (adjacency matrix), les sommets $A, B, C, D, E, F$ portent les indices $0, 1, 2, 3, 4, 5$, dans cet ordre. Dans \lstinline{M[i][j]}, la ligne $i$ indique le sommet de départ et la colonne $j$ le sommet d'arrivée. \\
+
+    Pour un graphe non pondéré, \lstinline{M[i][j]} vaut $1$ s'il existe une arête du sommet $i$ vers le sommet $j$, et $0$ sinon. Par exemple, la première ligne, \lstinline{[0,1,1,0,0,0]}, correspond au sommet $A$. Les $1$ aux indices $1$ et $2$ indiquent que $A$ a une arête vers $B$ et une autre vers $C$. \\
+
+    Pour un graphe pondéré (weighted graph), \lstinline{M[i][j]} peut contenir le poids de l'arête de $i$ vers $j$. On peut utiliser une valeur spéciale comme \lstinline{None} pour signaler l'absence d'arête, ce qui permet aussi de représenter une arête de poids $0$. \\
+
+    Dans un graphe dirigé (directed graph), chaque sens est représenté séparément. Dans la liste d'adjacence, $B$ figure parmi les voisins de $A$, ce qui indique une arête de $A$ vers $B$. L'absence de $A$ dans la liste des voisins de $B$ indique qu'il n'y a pas d'arête directe dans l'autre sens.
 
     \end{solution}
 
