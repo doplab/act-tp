@@ -36,6 +36,10 @@ Soit une liste d'entiers triée \lstinline{liste} et un entier \lstinline{e}. É
     \end{solution}
     \begin{solution}
         \lstinputlisting[firstline=21, firstnumber=21]{solutions/advanced/plus_proche_binaire.py}
+
+        \textbf{Remarque :} on peut aussi écrire le corps de \lstinline{plus_proche_binaire} ainsi :\\
+        \lstinline[language=Python]{return min([(abs(x - e), x) for x in liste])[1]}\\
+        La compréhension de liste et l'appel à \lstinline{min} parcourent chacun les $n$ éléments. Le temps d'exécution est donc de $O(n)$, contre $O(\log n)$ pour la recherche binaire ci-dessus.
     \end{solution}
 
 \end{Exercice}
@@ -65,12 +69,26 @@ Soit une liste d'entiers triée \lstinline{liste} et un entier \lstinline{e}. É
     Commencez par une solution simple : deux boucles \lstinline{for} imbriquées (une boucle \lstinline{for} dans une autre) permettent de parcourir toutes les cases d'une matrice. Demandez-vous ensuite comment tirer parti du fait que chaque ligne est triée pour éviter de tout parcourir.
     \end{conseil}
 
-    \begin{solution}
+    % Use the solution box directly so lstlisting can read the code verbatim.
+    \ifShowSolution
+    \begin{Solutions}{\faTerminal \enskip Solution}
         \textbf{Version 1: parcours de toutes les cases}
         \lstinputlisting[firstline=1, firstnumber=1, lastline=8]{solutions/advanced/recherche_matricielle.py}
 
         \textbf{Complexité : $O(n \cdot m)$.} On examine les cases une par une. Dans le pire des cas (\lstinline{e} absent de la matrice ou situé dans la dernière case), on examine les $n \cdot m$ cases. Cette version n'utilise pas du tout le fait que la matrice est ordonnée : elle fonctionnerait aussi sur une matrice quelconque.
-    \end{solution}
+
+        \textbf{Remarque :} on peut aussi écrire le corps de \lstinline{recherche_matricielle} ainsi :
+        \begin{lstlisting}[language=Python]
+def recherche_matricielle(matrice, e):
+    positions = [(ligne, colonne)
+                 for ligne, rangee in enumerate(matrice)
+                 for colonne, valeur in enumerate(rangee)
+                 if valeur == e]
+    return positions[0] if positions else (-1, -1)
+\end{lstlisting}
+        La compréhension de liste parcourt les $n \cdot m$ cases pour recueillir toutes les positions de \lstinline{e}. Le temps d'exécution est donc de $O(n \cdot m)$.
+    \end{Solutions}
+    \fi
     \begin{solution}
         \textbf{Version 2: recherche binaire dans chaque ligne}
         \lstinputlisting[firstline=9, firstnumber=9]{solutions/advanced/recherche_matricielle.py}
