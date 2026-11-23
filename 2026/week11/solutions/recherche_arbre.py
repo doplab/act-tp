@@ -1,6 +1,6 @@
 def recherche_arbre(node, e):
     #Solution
-    if node == None:
+    if node is None:
         return False
 
     if node.value == e:
