@@ -10,7 +10,7 @@ adjacency_list_graph = {
 }
 
 def bfs(graph, start):
-    visited = list(start) # liste des sommets visités
+    visited = [start] # liste des sommets visités
     queue = [start] # liste des sommets *dont les voisins* sont à visiter
     order = [] # pour stocker l'ordre de sommets (sommets proches d'abord puis les sommets qui sont plus loin)
     while len(queue) > 0: # tant que la queue n'est pas vide
