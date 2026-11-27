@@ -95,23 +95,23 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 
 \item Initialisez\!:
 \begin{itemize}
-    \item une \texttt{file} (queue FIFO — de type liste) qui contient initialement le sommet de départ.
+    \item une \texttt{file} , appelée \texttt{queue} (de type liste), qui contient initialement le sommet de départ.
     \item une liste, appelée \texttt{visited}, de sommets visités qui contient initialement le sommet de départ.
-    \item une liste, appelée \texttt{order}, qui stocke l'ordre d'enlèvement de la \texttt{file} — sommets proches au sommet de départ au début de la liste.
+    \item une liste, appelée \texttt{order}, qui stocke l'ordre d'enlèvement de la \texttt{queue} — sommets proches au sommet de départ au début de la liste.
 \end{itemize}
 
-\item Tant que la \texttt{file} n'est pas vide, répétez les specifications suivantes\!:
+\item Tant que la \texttt{queue} n'est pas vide, répétez les instructions suivantes\!:
 \begin{enumerate}
-    \item Retirez le premier sommet de la file (utilisez \texttt{pop}) et appelez-le $u$. 
+    \item Retirez le premier sommet de la file (utilisez \texttt{pop(0)}) et appelez-le $u$. 
     \item Ajoutez $u$ à \texttt{order}
     \item Pour chaque sommet adjacent $v$ de $u$\!: si $v$ n'est pas dans \texttt{visited}, alors :
         \begin{itemize}
-            \item Insérez $v$ à la fin de la \texttt{file}.
+            \item Insérez $v$ à la fin de la \texttt{queue}.
             \item Insérez $v$ à la fin de \texttt{visited}.
         \end{itemize}
 \end{enumerate}
 
-\item Quand la \texttt{file} devient vide, tous les sommets atteignables depuis le sommet de départ ont été visités en largeur.
+\item Quand la \texttt{queue} devient vide, tous les sommets atteignables depuis le sommet de départ ont été visités en largeur.
 \item Retournez \texttt{order}.
 \end{enumerate}
 
@@ -122,21 +122,21 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
             \item Pour le point (2), utilisez une boucle \lstinline{while} avec la condition appropriée.
             \item Pour parcourir les sommets adjacents, utilisez une boucle \lstinline{for}.
             \item L'algorithme devrait retourner une liste contenant l'ensemble des sommets atteignables.
-            \item Vous pouvez utiliser l'image du graphe pour déterminer si l'output de votre l'algorithme est correct.
+            \item Vous pouvez utiliser l'image du graphe pour déterminer si l'output de votre algorithme est correct.
             % \item Pensez à utiliser deux listes qui contiendront la liste des sommets à visiter et ceux qui restent à visiter.
-            \item Vous pouvez utiliser la méthode \lstinline{pop()} pour supprimer un élément d'une liste et retourner l'élément supprimé. Cet élément peut être stocké dans une variable.
+            \item Vous pouvez utiliser la méthode \lstinline{pop(0)} pour supprimer un élément d'une liste et retourner l'élément supprimé. Cet élément peut être stocké dans une variable.
         \end{enumerate}
         Référez-vous au pseudo-code présenté en cours.
     \end{conseil}
     \begin{solution}
         \lstinputlisting[language=python]{solutions/BFS.py}
-        Si vous avez correctement écrit votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet B devrait être \lstinline|[ 'B', 'D', 'E', 'F']| et \lstinline|['A', 'B', 'C', 'D', 'E', 'F']| pour B.
+        Si vous avez correctement écrit votre algorithme, l'output de celui-ci avec comme input notre graphe et le sommet B devrait être \lstinline|[ 'B', 'D', 'E', 'F']| et \lstinline|['A', 'B', 'C', 'D', 'E', 'F']| pour A.
     \end{solution}
 \end{Exercice}
 
 
 \section{Arbre couvrant minimum (ACM) — Minimum Spanning tree (MST)}
-    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés). Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{arbre couvrant minimum} (ACM). Un graphe connexe est un graphe dans lequel il existe au moins un chemin entre n'importe quelle paire de sommets. Un arbre couvrant minimum S de G est un sous-graphe connexe de G tel que\!:
+    Nous allons maintenant nous intéresser à \textbf{l'algorithme de Kruskal}. Ce dernier s'applique uniquement aux \textbf{weighted graphs}~(ou graphes pondérés) et non orientés. Ces derniers sont des graphes où les arêtes ont des poids, représentant par exemple une distance. L'algorithme de Kruskal a pour but de trouver un \textbf{arbre couvrant minimum} (ACM). Un graphe connexe est un graphe dans lequel il existe au moins un chemin entre n'importe quelle paire de sommets. Un arbre couvrant minimum S=(V',E') de G=(V,E) est un sous-graphe connexe de G tel que\!:
     \begin{enumerate}
         \item V' = V, c'est-à-dire que tous les sommets de G sont aussi dans S
         \item (V',E') ne contient pas de cycle (pas de cycle dans S)
@@ -176,8 +176,8 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         \begin{enumerate}
             \item Classer les arêtes par ordre croissant de poids.
             \item Prendre l'arête avec le poids le plus faible et l'ajouter à l'arbre (si 2 arêtes ont le même poids, choisir arbitrairement une des 2).
-            \item Vérifiez que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez-la.
-            \item Répétez les étapes (2) et (3) jusqu'à ce que tous les sommets aient été atteints.
+            \item Vérifier que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez-la.
+            \item Répéter les étapes (2) et (3) jusqu'à ce que tous les sommets aient été atteints.
         \end{enumerate}
         Un arbre couvrant minimum (minimum spanning tree), s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 6 sommets. L'algorithme devrait donc s'arrêter lorsque 5 arêtes ont été choisies.
     \end{conseil}
@@ -293,22 +293,22 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
     \end{solution}
 \end{Exercice}
 \begin{Exercice}[30 minutes] \textbf{Lecture du code — Algorithme de Kruskal\!: Python}\\
-    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurez que vous ayez bien compris le fonctionnement\!:\\
+    Vous trouverez ci-dessous l'algorithme de Kruskal implémenté en Python (disponible sur Moodle). Lisez le code afin de vous assurer que vous ayez bien compris le fonctionnement\!:\\
     \lstinputlisting[language=python]{solutions/kruskal.py}
     \begin{conseil}
         La sortie de l'algorithme est\!: \\
-        0 - 1: 4 \\ 
-        0 - 2: 4 \\
+        1 - 2: 2 \\ 
+        2 - 5: 2 \\
         3 - 4: 3 \\
-        5 - 2: 2 \\ 
-        5 - 4: 3 \\
+        4 - 5: 3 \\ 
+        0 - 1: 4 \\
         Il se lit comme une liste d'arêtes et de poids de l'arête correspondante.
     \end{conseil}
 \end{Exercice}
 
 
 \begin{Exercice}[10 minutes] \textbf{Social Network Analysis : Papier}\\
-    Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut-être représentée sous forme de graphe. Dans ce graphe\!:
+    Les graphes peuvent être utilisés pour représenter une multitude de choses.  L'une d'entre elles est la représentation de votre réseau d'amis. Imaginez que vous possédiez une liste de vos amis ainsi que des amis de vos amis (qui ne sont pas nécessairement vos amis). Cette liste peut être représentée sous forme de graphe. Dans ce graphe\!:
     \begin{enumerate}
         \item  À quoi correspondent les arêtes et les sommets? 
         \item Faut-il utiliser un graphe dirigé?
@@ -363,7 +363,7 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \end{Exercice}
 
 \begin{Exercice}[5 minutes] \textbf{Reconnaître des réseaux semblables}\\
-    Supposons maintenant que vous travaillez chez Meta, qui a racheté Whatsapp, et que vous disposiez des deux graphes représentant respectivement Facebook et Whatsapp. Pouvez-vous déterminer visuellement à qui correspondent les individus de Facebook sur Whatsapp?\\
+    Supposons maintenant que vous travaillez chez Meta, qui a racheté WhatsApp, et que vous disposiez des deux graphes représentant respectivement Facebook et WhatsApp. Pouvez-vous déterminer visuellement à qui correspondent les individus de Facebook sur WhatsApp?\\
     
 
 \begin{table}[h!]
@@ -453,7 +453,7 @@ Un graphe complet est un graphe dans lequel tous les sommets sont adjacents (rel
 \item L'algorithme du parcours en largeur (breadth-first search) ne se termine pas s'il existe un cycle dans le graphe.
 \item Pour |G| >> ||G|| (nombre de sommets beaucoup plus grand que nombre d'arêtes), la matrice de contiguïté (adjacency matrix) occupe moins d'espace que la liste de contiguïté (adjacency list).
 \item Dans un graphe complet, le nombre d'arêtes est $\frac{n(n-1)}{2}$ et le degré moyen d'un sommet est $n$ où $n=|G|$.
-\item Dans l'algorithme de Kruskal, l'instruction \textsc{UNION} est utilisée afin de déterminer si deux sommets sont déjà liés dans l'arbre couvrant minimal et de les relier si ce n'est pas le cas. 
+\item Dans l'algorithme de Kruskal, on compare les représentants renvoyés par \textsc{Find-Set} pour les deux extrémités de l'arête examinée. S'ils sont différents, on ajoute l'arête et on fusionne les deux ensembles avec \textsc{Union}. 
 \end{enumerate}
 \begin{solution}
     \begin{enumerate}
