@@ -175,9 +175,15 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         L'algorithme de Kruskal fonctionne de la façon suivante\!:
         \begin{enumerate}
             \item Classer les arêtes par ordre croissant de poids.
-            \item Prendre l'arête avec le poids le plus faible et l'ajouter à l'arbre (si 2 arêtes ont le même poids, choisir arbitrairement une des 2).
-            \item Vérifier que l'arête ajoutée ne crée pas de cycle, si c'est le cas, supprimez-la.
-            \item Répéter les étapes (2) et (3) jusqu'à ce que tous les sommets aient été atteints.
+            \item Prendre l'arête de poids le plus faible parmi les
+            arêtes qui n'ont pas encore été examinées (si plusieurs
+            arêtes ont le même poids, en choisir arbitrairement une).
+            \item Ajouter cette arête uniquement si son ajout ne crée
+            pas de cycle.
+            \item Répéter les étapes (2) et (3) jusqu'à ce que
+            $n-1$ arêtes aient été ajoutées, où $n$ est le nombre
+            de sommets, ou jusqu'à ce que toutes les arêtes aient
+            été examinées.
         \end{enumerate}
         Un arbre couvrant minimum (minimum spanning tree), s'il existe, a toujours un nombre d'arêtes égal au nombre de sommets moins un. Par exemple, ici notre graphe a 6 sommets. L'algorithme devrait donc s'arrêter lorsque 5 arêtes ont été choisies.
     \end{conseil}
