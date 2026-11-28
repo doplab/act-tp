@@ -34,7 +34,9 @@ class Graph:
         return True  # x et y n'appartiennent pas au même ensemble, on peut fusionner leurs ensembles
             
 def kruskal(g : Graph):
-        result = [] 
+        g.parent = list(range(g.V))  # réinitialise les ensembles : chaque sommet seul
+        g.rank = [0] * g.V
+        result = []
         edges = sorted(g.edges, key=lambda item: item[2]) # trie les arêtes par poids croissant
         i = 0 # l'étape de l'itération
         e = 0 # nombre d'arêtes pendant la construction de l'ACM
@@ -44,8 +46,7 @@ def kruskal(g : Graph):
             u, v, w = edges[i] # edges contient les arêtes par ordre croissant de poids, on commence avec i = 0
             i = i + 1 # à l'itération suivante on voudra avoir la 2ème arête la plus légère, donc on incrémente
                 
-            if g.union(u, v): # Si u et v font déjà parti du Minimum Spanning Tree, i.e. u et v appartiennent au même ensemble
-                       # Alors on ne veut pas ajouter cette arête au minimum spanning-tree
+            if g.union(u, v): # u et v dans des ensembles différents : pas de cycle, on garde l'arête 
                 e = e + 1 # Si u et v sont d'ensemble différent, on a atteint un sommet de plus donc on incrémente
                 result.append([u, v, w]) # On ajoute la nouvelle arête au résultat
         
