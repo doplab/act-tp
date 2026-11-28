@@ -81,17 +81,11 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
 \end{Exercice}
 
 
-\begin{Exercice}[20 minutes]  [Python] Breadth-First Search algorithm\\
+\begin{Exercice}[20 minutes]  [Python] Breadth-First Search \\
     Nous allons maintenant nous intéresser au premier algorithme portant sur les graphes\!: \textbf{Breadth-First Search}. Le but du Breadth-First Search est de trouver tous les sommets atteignables à partir d'un sommet de départ.\\
 
     Implémentez l'algorithme en suivant les étapes suivantes :\\
 \begin{enumerate}
-    
-    % \item Partez du sommet initial, visitez les sommets adjacents, sauvegardez-les comme \textbf{visités}, insérez-les dans une \textbf{queue}.
-    
-    % \item Parcourez la \textbf{queue}. Pour chaque élément de la queue, visitez les sommets adjacents. S'ils ne sont pas dans la liste des sommets visités, ajoutez-le à cette dernière et ajoutez-le à la queue. Une fois que cela est fait, supprimez l'élément parcouru de la queue.
-    
-    % \item Répétez l'étape 2 jusqu'à ce que la queue soit vide.\\
 
 \item Initialisez\!:
 \begin{itemize}
@@ -143,8 +137,6 @@ Le code présenté dans les énoncés se trouve sur Moodle, dans le dossier \lst
         \item S est le graphe satisfaisant (1) et (2) et ayant la plus petite somme des poids
         \item Pour chaque paire de sommets dans G, S contient le chemin \textit{minimax} entre ces deux sommets. Le chemin \textit{minimax} est un chemin pour lequel le poids de l'arête la plus lourde est minimisé.
     \end{enumerate}
-    
-    \textbf{\\}
     
 \begin{Exercice}[5 minutes] \textbf{Algorithme de Kruskal\!: Papier}\\
     Appliquez l'algorithme de Kruskal au graphe suivant\!:\\
